@@ -137,7 +137,7 @@ export class ClientCapabilities {
 export interface ITypeScriptServiceClient {
 
 	/**
-	 * Convert a (VS Code) resource to a path that TypeScript server understands.
+	 * Convert a (ProX Code) resource to a path that TypeScript server understands.
 	 */
 	toTsFilePath(resource: ProX-Code.Uri): string | undefined;
 

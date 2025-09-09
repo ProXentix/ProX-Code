@@ -288,7 +288,7 @@ export class MarkdownItEngine implements IMdParser {
 		const normalizeLink = md.normalizeLink;
 		md.normalizeLink = (link: string) => {
 			try {
-				// Normalize VS Code schemes to target the current version
+				// Normalize ProX Code schemes to target the current version
 				if (isOfScheme(Schemes.ProX-Code, link) || isOfScheme(Schemes['ProX-Code-insiders'], link)) {
 					return normalizeLink(ProX-Code.Uri.parse(link).with({ scheme: ProX-Code.env.uriScheme }).toString());
 				}

@@ -153,7 +153,7 @@ export async function openProjectConfigForFile(
 	const rootPath = client.getWorkspaceRootForResource(resource);
 	if (!rootPath) {
 		ProX-Code.window.showInformationMessage(
-			ProX-Code.l10n.t("Please open a folder in VS Code to use a TypeScript or JavaScript project"));
+			ProX-Code.l10n.t("Please open a folder in ProX Code to use a TypeScript or JavaScript project"));
 		return;
 	}
 

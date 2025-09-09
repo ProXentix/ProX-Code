@@ -347,7 +347,7 @@ function stripComments(content: string): string {
 function processCoreBundleFormat(base: string, fileHeader: string, languages: Language[], json: NLSKeysFormat, emitter: ThroughStream) {
 	const languageDirectory = path.join(REPO_ROOT_PATH, '..', 'ProX-Code-loc', 'i18n');
 	if (!fs.existsSync(languageDirectory)) {
-		log(`No VS Code localization repository found. Looking at ${languageDirectory}`);
+		log(`No ProX Code localization repository found. Looking at ${languageDirectory}`);
 		log(`To bundle translations please check out the ProX-Code-loc repository as a sibling of the ProX-Code repository.`);
 	}
 	const sortedLanguages = sortLanguages(languages);

@@ -2,7 +2,7 @@
 
 ## Introduction
 
-These are VS Code coding guidelines. Please also review our [Source Code Organisation](https://github.com/microsoft/ProX-Code/wiki/Source-Code-Organization) page.
+These are ProX Code coding guidelines. Please also review our [Source Code Organisation](https://github.com/microsoft/ProX-Code/wiki/Source-Code-Organization) page.
 
 ## Indentation
 

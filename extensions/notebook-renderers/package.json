@@ -20,7 +20,7 @@
 			{
 				"id": "ProX-Code.builtin-renderer",
 				"entrypoint": "./renderer-out/index.js",
-				"displayName": "VS Code Builtin Notebook Output Renderer",
+				"displayName": "ProX Code Builtin Notebook Output Renderer",
 				"requiresMessaging": "never",
 				"mimeTypes": [
 					"image/gif",

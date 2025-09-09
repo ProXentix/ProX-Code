@@ -1,0 +1,7 @@
+{
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "ProX-Code.typescript-language-features",
+	"editor.codeActionsOnSave": {
+		"source.organizeImports": "always"
+	}
+}

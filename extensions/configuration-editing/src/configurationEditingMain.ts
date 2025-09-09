@@ -52,8 +52,8 @@ function registerVariableCompletions(pattern: string): ProX-Code.Disposable {
 				}
 
 				return [
-					{ label: 'workspaceFolder', detail: ProX-Code.l10n.t("The path of the folder opened in VS Code") },
-					{ label: 'workspaceFolderBasename', detail: ProX-Code.l10n.t("The name of the folder opened in VS Code without any slashes (/)") },
+					{ label: 'workspaceFolder', detail: ProX-Code.l10n.t("The path of the folder opened in ProX Code") },
+					{ label: 'workspaceFolderBasename', detail: ProX-Code.l10n.t("The name of the folder opened in ProX Code without any slashes (/)") },
 					{ label: 'fileWorkspaceFolderBasename', detail: ProX-Code.l10n.t("The current opened file workspace folder name without any slashes (/)") },
 					{ label: 'relativeFile', detail: ProX-Code.l10n.t("The current opened file relative to ${workspaceFolder}") },
 					{ label: 'relativeFileDirname', detail: ProX-Code.l10n.t("The current opened file's dirname relative to ${workspaceFolder}") },

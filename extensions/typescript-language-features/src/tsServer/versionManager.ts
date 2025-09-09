@@ -98,7 +98,7 @@ export class TypeScriptVersionManager extends Disposable {
 		return {
 			label: (!this.useWorkspaceTsdkSetting || !ProX-Code.workspace.isTrusted
 				? '• '
-				: '') + ProX-Code.l10n.t("Use VS Code's Version"),
+				: '') + ProX-Code.l10n.t("Use ProX Code's Version"),
 			description: bundledVersion.displayName,
 			detail: bundledVersion.pathLabel,
 			run: async () => {

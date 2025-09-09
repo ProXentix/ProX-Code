@@ -146,6 +146,6 @@ steps:
       targetPath: $(Pipeline.Workspace)/unsigned_ProX-Code_client_darwin_$(VSCODE_ARCH)_archive/VSCode-darwin-universal.zip
       artifactName: ProX-Code_client_darwin_$(VSCODE_ARCH)_archive
       sbomBuildDropPath: $(Build.ArtifactStagingDirectory)/VSCode-darwin-$(VSCODE_ARCH)
-      sbomPackageName: "VS Code macOS $(VSCODE_ARCH)"
+      sbomPackageName: "ProX Code macOS $(VSCODE_ARCH)"
       sbomPackageVersion: $(Build.SourceVersion)
     displayName: Publish client archive

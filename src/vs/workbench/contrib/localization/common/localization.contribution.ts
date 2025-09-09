@@ -56,7 +56,7 @@ export class BaseLocalizationWorkbenchContribution extends Disposable implements
 								properties: {
 									id: {
 										type: 'string',
-										description: localize('ProX-Code.extension.contributes.localizations.translations.id', "Id of VS Code or Extension for which this translation is contributed to. Id of VS Code is always `ProX-Code` and of extension should be in format `publisherId.extensionName`."),
+										description: localize('ProX-Code.extension.contributes.localizations.translations.id', "Id of ProX Code or Extension for which this translation is contributed to. Id of ProX Code is always `ProX-Code` and of extension should be in format `publisherId.extensionName`."),
 										pattern: '^((ProX-Code)|([a-z0-9A-Z][a-z0-9A-Z-]*)\\.([a-z0-9A-Z][a-z0-9A-Z-]*))$',
 										patternErrorMessage: localize('ProX-Code.extension.contributes.localizations.translations.id.pattern', "Id should be `ProX-Code` or in format `publisherId.extensionName` for translating VS code or an extension respectively.")
 									},

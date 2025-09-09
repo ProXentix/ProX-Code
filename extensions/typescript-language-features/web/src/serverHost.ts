@@ -346,7 +346,7 @@ function createServerHost(
 
 		const isNm = looksLikeNodeModules(path)
 			&& !path.startsWith('/ProX-Code-global-typings/')
-			// Handle the case where a local folder has been opened in VS Code
+			// Handle the case where a local folder has been opened in ProX Code
 			// In these cases we do not want to use the mapped node_module
 			&& !path.startsWith('/file/');
 

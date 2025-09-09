@@ -113,7 +113,7 @@ class MarkdownPreview extends Disposable implements WebviewResourceProvider {
 		const watcher = this._register(ProX-Code.workspace.createFileSystemWatcher(new ProX-Code.RelativePattern(resource, '*')));
 		this._register(watcher.onDidChange(uri => {
 			if (this.isPreviewOf(uri)) {
-				// Only use the file system event when VS Code does not already know about the file
+				// Only use the file system event when ProX Code does not already know about the file
 				if (!ProX-Code.workspace.textDocuments.some(doc => doc.uri.toString() === uri.toString())) {
 					this.refresh();
 				}

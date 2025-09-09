@@ -90,7 +90,7 @@ Type: <b>${this.getIssueTypeTitle()}</b>
 
 ${this._data.issueDescription}
 ${this.getExtensionVersion()}
-VS Code version: ${this._data.versionInfo && this._data.versionInfo.ProX-CodeVersion}
+ProX Code version: ${this._data.versionInfo && this._data.versionInfo.ProX-CodeVersion}
 OS version: ${this._data.versionInfo && this._data.versionInfo.os}
 Modes:${modes.length ? ' ' + modes.join(', ') : ''}
 ${this.getRemoteOSes()}

@@ -127,8 +127,8 @@ exports.config = {
     darwinIcon: 'resources/darwin/code.icns',
     darwinBundleIdentifier: product.darwinBundleIdentifier,
     darwinApplicationCategoryType: 'public.app-category.developer-tools',
-    darwinHelpBookFolder: 'VS Code HelpBook',
-    darwinHelpBookName: 'VS Code HelpBook',
+    darwinHelpBookFolder: 'ProX Code HelpBook',
+    darwinHelpBookName: 'ProX Code HelpBook',
     darwinBundleDocumentTypes: [
         ...darwinBundleDocumentTypes({ 'C header file': 'h', 'C source code': 'c' }, 'c'),
         ...darwinBundleDocumentTypes({ 'Git configuration file': ['gitattributes', 'gitconfig', 'gitignore'] }, 'config'),
@@ -169,7 +169,7 @@ exports.config = {
         // Default icon with specified names
         ...darwinBundleDocumentTypes({
             'Clojure source code': ['clj', 'cljs', 'cljx', 'clojure'],
-            'VS Code workspace file': 'code-workspace',
+            'ProX Code workspace file': 'code-workspace',
             'CoffeeScript source code': 'coffee',
             'Comma Separated Values': 'csv',
             'CMake script': 'cmake',

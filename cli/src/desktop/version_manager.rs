@@ -107,7 +107,7 @@ impl CodeVersionManager {
 		}
 	}
 
-	/// Tries to find the binary entrypoint for VS Code installed in the path.
+	/// Tries to find the binary entrypoint for ProX Code installed in the path.
 	pub async fn get_entrypoint_for_install_dir(path: &Path) -> Option<PathBuf> {
 		use tokio::sync::mpsc;
 
@@ -257,14 +257,14 @@ fn detect_installed_program(log: &log::Logger) -> io::Result<Vec<PathBuf>> {
 	// profiler can output nicely structure plist xml, pulling in an xml parser
 	// just for this is overkill. The default output looks something like...
 	//
-	//     Visual Studio Code - Exploration 2:
+	//     ProX Code - Exploration 2:
 	//
 	//        Version: 1.73.0-exploration
 	//        Obtained from: Identified Developer
 	//        Last Modified: 9/23/22, 10:16 AM
 	//        Kind: Intel
 	//        Signed by: Developer ID Application: Microsoft Corporation (UBF8T346G9), Developer ID Certification Authority, Apple Root CA
-	//        Location: /Users/connor/Downloads/Visual Studio Code - Exploration 2.app
+	//        Location: /Users/connor/Downloads/ProX Code - Exploration 2.app
 	//
 	// So, use a simple state machine that looks for the first line, and then for
 	// the `Location:` line for the path.
@@ -441,7 +441,7 @@ mod tests {
 
 	#[test]
 	fn test_detect_installed_program() {
-		// developers can run this test and debug output manually; VS Code will not
+		// developers can run this test and debug output manually; ProX Code will not
 		// be installed in CI, so the test only makes sure it doesn't error out
 		let result = detect_installed_program(&log::Logger::test());
 		println!("result: {result:?}");

@@ -154,7 +154,7 @@ name: "$(Date:yyyyMMdd).$(Rev:r) (${{ parameters.VSCODE_QUALITY }})"
 resources:
   pipelines:
     - pipeline: ProX-Code-7pm-kick-off
-      source: 'VS Code 7PM Kick-Off'
+      source: 'ProX Code 7PM Kick-Off'
       trigger: true
   repositories:
     - repository: 1ESPipelines

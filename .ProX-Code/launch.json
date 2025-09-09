@@ -78,7 +78,7 @@
 		{
 			"type": "extensionHost",
 			"request": "launch",
-			"name": "VS Code Emmet Tests",
+			"name": "ProX Code Emmet Tests",
 			"runtimeExecutable": "${execPath}",
 			"args": [
 				"${workspaceFolder}/extensions/emmet/test-workspace",
@@ -96,7 +96,7 @@
 		{
 			"type": "extensionHost",
 			"request": "launch",
-			"name": "VS Code Configuration Editing Tests",
+			"name": "ProX Code Configuration Editing Tests",
 			"runtimeExecutable": "${execPath}",
 			"args": [
 				"--extensionDevelopmentPath=${workspaceFolder}/extensions/configuration-editing",
@@ -113,7 +113,7 @@
 		{
 			"type": "extensionHost",
 			"request": "launch",
-			"name": "VS Code Git Tests",
+			"name": "ProX Code Git Tests",
 			"runtimeExecutable": "${execPath}",
 			"args": [
 				"/tmp/my4g9l",
@@ -131,7 +131,7 @@
 		{
 			"type": "extensionHost",
 			"request": "launch",
-			"name": "VS Code Github Tests",
+			"name": "ProX Code Github Tests",
 			"runtimeExecutable": "${execPath}",
 			"args": [
 				"${workspaceFolder}/extensions/github/testWorkspace",
@@ -149,7 +149,7 @@
 		{
 			"type": "extensionHost",
 			"request": "launch",
-			"name": "VS Code API Tests (single folder)",
+			"name": "ProX Code API Tests (single folder)",
 			"runtimeExecutable": "${execPath}",
 			"args": [
 				// "${workspaceFolder}", // Uncomment for running out of sources.
@@ -169,7 +169,7 @@
 		{
 			"type": "extensionHost",
 			"request": "launch",
-			"name": "VS Code API Tests (workspace)",
+			"name": "ProX Code API Tests (workspace)",
 			"runtimeExecutable": "${execPath}",
 			"args": [
 				"${workspaceFolder}/extensions/ProX-Code-api-tests/testworkspace.code-workspace",
@@ -187,7 +187,7 @@
 		{
 			"type": "extensionHost",
 			"request": "launch",
-			"name": "VS Code Tokenizer Tests",
+			"name": "ProX Code Tokenizer Tests",
 			"runtimeExecutable": "${execPath}",
 			"args": [
 				"${workspaceFolder}/extensions/ProX-Code-colorize-tests/test",
@@ -205,7 +205,7 @@
 		{
 			"type": "extensionHost",
 			"request": "launch",
-			"name": "VS Code Tokenizer Performance Tests",
+			"name": "ProX Code Tokenizer Performance Tests",
 			"runtimeExecutable": "${execPath}",
 			"args": [
 				"${workspaceFolder}/extensions/ProX-Code-colorize-perf-tests/test",
@@ -223,7 +223,7 @@
 		{
 			"type": "chrome",
 			"request": "attach",
-			"name": "Attach to VS Code",
+			"name": "Attach to ProX Code",
 			"browserAttachLocation": "workspace",
 			"port": 9222,
 			"outFiles": [
@@ -237,7 +237,7 @@
 		{
 			"type": "chrome",
 			"request": "launch",
-			"name": "Launch VS Code Internal",
+			"name": "Launch ProX Code Internal",
 			"windows": {
 				"runtimeExecutable": "${workspaceFolder}/scripts/code.bat"
 			},
@@ -280,7 +280,7 @@
 			// To debug observables you also need the extension "ms-ProX-Code.debug-value-editor"
 			"type": "chrome",
 			"request": "launch",
-			"name": "Launch VS Code Internal (Dev Debug)",
+			"name": "Launch ProX Code Internal (Dev Debug)",
 			"windows": {
 				"runtimeExecutable": "${workspaceFolder}/scripts/code.bat"
 			},
@@ -323,7 +323,7 @@
 		{
 			"type": "node",
 			"request": "launch",
-			"name": "VS Code Server (Web)",
+			"name": "ProX Code Server (Web)",
 			"runtimeExecutable": "${workspaceFolder}/scripts/code-server.sh",
 			"windows": {
 				"runtimeExecutable": "${workspaceFolder}/scripts/code-server.bat",
@@ -363,7 +363,7 @@
 			"request": "launch",
 			"outFiles": [],
 			"perScriptSourcemaps": "yes",
-			"name": "VS Code Server (Web, Chrome)",
+			"name": "ProX Code Server (Web, Chrome)",
 			"url": "http://localhost:8080?tkn=dev-token",
 			"preLaunchTask": "Run code server",
 			"presentation": {
@@ -376,7 +376,7 @@
 			"request": "launch",
 			"outFiles": [],
 			"perScriptSourcemaps": "yes",
-			"name": "VS Code Server (Web, Edge)",
+			"name": "ProX Code Server (Web, Edge)",
 			"url": "http://localhost:8080?tkn=dev-token",
 			"pauseForSourceMap": false,
 			"preLaunchTask": "Run code server",
@@ -390,7 +390,7 @@
 			"request": "launch",
 			"outFiles": [],
 			"perScriptSourcemaps": "yes",
-			"name": "VS Code Web (Chrome)",
+			"name": "ProX Code Web (Chrome)",
 			"url": "http://localhost:8080",
 			"preLaunchTask": "Run code web",
 			"presentation": {
@@ -403,7 +403,7 @@
 			"request": "launch",
 			"outFiles": [],
 			"perScriptSourcemaps": "yes",
-			"name": "VS Code Web (Edge)",
+			"name": "ProX Code Web (Edge)",
 			"url": "http://localhost:8080",
 			"pauseForSourceMap": false,
 			"preLaunchTask": "Run code web",
@@ -498,9 +498,9 @@
 			"request": "launch",
 			"name": "Run Unit Tests",
 			"program": "${workspaceFolder}/test/unit/electron/index.js",
-			"runtimeExecutable": "${workspaceFolder}/.build/electron/Code - OSS.app/Contents/MacOS/Electron",
+			"runtimeExecutable": "${workspaceFolder}/.build/electron/ProX Code.app/Contents/MacOS/Electron",
 			"windows": {
-				"runtimeExecutable": "${workspaceFolder}/.build/electron/Code - OSS.exe"
+				"runtimeExecutable": "${workspaceFolder}/.build/electron/ProX Code.exe"
 			},
 			"linux": {
 				"runtimeExecutable": "${workspaceFolder}/.build/electron/ProX-Code"
@@ -514,7 +514,7 @@
 				"${workspaceFolder}/out/**/*.js"
 			],
 			"cascadeTerminateToConfigurations": [
-				"Attach to VS Code"
+				"Attach to ProX Code"
 			],
 			"env": {
 				"MOCHA_COLORS": "true"
@@ -528,15 +528,15 @@
 			"request": "launch",
 			"name": "Run Unit Tests For Current File",
 			"program": "${workspaceFolder}/test/unit/electron/index.js",
-			"runtimeExecutable": "${workspaceFolder}/.build/electron/Code - OSS.app/Contents/MacOS/Electron",
+			"runtimeExecutable": "${workspaceFolder}/.build/electron/ProX Code.app/Contents/MacOS/Electron",
 			"windows": {
-				"runtimeExecutable": "${workspaceFolder}/.build/electron/Code - OSS.exe"
+				"runtimeExecutable": "${workspaceFolder}/.build/electron/ProX Code.exe"
 			},
 			"linux": {
 				"runtimeExecutable": "${workspaceFolder}/.build/electron/ProX-Code"
 			},
 			"cascadeTerminateToConfigurations": [
-				"Attach to VS Code"
+				"Attach to ProX Code"
 			],
 			"outputCapture": "std",
 			"args": [
@@ -564,7 +564,7 @@
 			"timeout": 240000,
 			"args": [
 				"-l",
-				"${workspaceFolder}/.build/electron/Code - OSS.app/Contents/MacOS/Electron"
+				"${workspaceFolder}/.build/electron/ProX Code.app/Contents/MacOS/Electron"
 			],
 			"outFiles": [
 				"${cwd}/out/**/*.js"
@@ -598,10 +598,10 @@
 	],
 	"compounds": [
 		{
-			"name": "VS Code",
+			"name": "ProX Code",
 			"stopAll": true,
 			"configurations": [
-				"Launch VS Code Internal",
+				"Launch ProX Code Internal",
 				"Attach to Main Process",
 				"Attach to Extension Host",
 				"Attach to Shared Process",
@@ -613,10 +613,10 @@
 			}
 		},
 		{
-			"name": "VS Code (Debug Observables)",
+			"name": "ProX Code (Debug Observables)",
 			"stopAll": true,
 			"configurations": [
-				"Launch VS Code Internal (Dev Debug)",
+				"Launch ProX Code Internal (Dev Debug)",
 				"Attach to Main Process",
 				"Attach to Extension Host",
 				"Attach to Shared Process",
@@ -630,7 +630,7 @@
 		{
 			"name": "Search, Renderer, and Main processes",
 			"configurations": [
-				"Launch VS Code Internal",
+				"Launch ProX Code Internal",
 				"Attach to Main Process",
 				"Attach to Search Process"
 			],
@@ -642,7 +642,7 @@
 		{
 			"name": "Renderer, Extension Host, and Main processes",
 			"configurations": [
-				"Launch VS Code Internal",
+				"Launch ProX Code Internal",
 				"Attach to Main Process",
 				"Attach to Extension Host"
 			],
@@ -654,7 +654,7 @@
 		{
 			"name": "Debug Unit Tests",
 			"configurations": [
-				"Attach to VS Code",
+				"Attach to ProX Code",
 				"Run Unit Tests"
 			],
 			"presentation": {
@@ -665,7 +665,7 @@
 		{
 			"name": "Debug Unit Tests (Current File)",
 			"configurations": [
-				"Attach to VS Code",
+				"Attach to ProX Code",
 				"Run Unit Tests For Current File"
 			],
 			"presentation": {
@@ -677,7 +677,7 @@
 			"name": "Renderer and Main processes",
 			"stopAll": true,
 			"configurations": [
-				"Launch VS Code Internal",
+				"Launch ProX Code Internal",
 				"Attach to Main Process"
 			],
 			"preLaunchTask": "Ensure Prelaunch Dependencies"

@@ -93,7 +93,7 @@ steps:
           targetPath: $(Build.ArtifactStagingDirectory)/ProX-Code_cli_alpine_arm64_cli.tar.gz
           artifactName: ProX-Code_cli_alpine_arm64_cli
           sbomBuildDropPath: $(Build.ArtifactStagingDirectory)/cli
-          sbomPackageName: "VS Code Alpine arm64 CLI"
+          sbomPackageName: "ProX Code Alpine arm64 CLI"
           sbomPackageVersion: $(Build.SourceVersion)
         displayName: Publish ProX-Code_cli_alpine_arm64_cli artifact
 
@@ -103,6 +103,6 @@ steps:
           targetPath: $(Build.ArtifactStagingDirectory)/ProX-Code_cli_alpine_x64_cli.tar.gz
           artifactName: ProX-Code_cli_alpine_x64_cli
           sbomBuildDropPath: $(Build.ArtifactStagingDirectory)/cli
-          sbomPackageName: "VS Code Alpine x64 CLI"
+          sbomPackageName: "ProX Code Alpine x64 CLI"
           sbomPackageVersion: $(Build.SourceVersion)
         displayName: Publish ProX-Code_cli_alpine_x64_cli artifact

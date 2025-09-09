@@ -773,7 +773,7 @@ export const codeTunnelSubcommands = [
 	},
 	{
 		name: 'serve-web',
-		description: 'Runs a local web version of Code - OSS',
+		description: 'Runs a local web version of ProX Code',
 		options: [
 			{
 				name: '--host',
@@ -938,7 +938,7 @@ export const codeTunnelSubcommands = [
 			},
 			{
 				name: 'serve-web',
-				description: 'Runs a local web version of Code - OSS',
+				description: 'Runs a local web version of ProX Code',
 			},
 			{
 				name: 'command-shell',
@@ -959,7 +959,7 @@ export const codeTunnelSubcommands = [
 
 const codeCompletionSpec: Fig.Spec = {
 	name: 'code',
-	description: 'Visual Studio Code',
+	description: 'ProX Code',
 	args: {
 		template: ['filepaths', 'folders'],
 		isVariadic: true,

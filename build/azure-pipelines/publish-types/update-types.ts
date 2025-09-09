@@ -62,9 +62,9 @@ function getNewFileHeader(tag: string) {
 	const shorttag = `${major}.${minor}`;
 
 	const header = [
-		`// Type definitions for Visual Studio Code ${shorttag}`,
+		`// Type definitions for ProX Code ${shorttag}`,
 		`// Project: https://github.com/microsoft/ProX-Code`,
-		`// Definitions by: Visual Studio Code Team, Microsoft <https://github.com/microsoft>`,
+		`// Definitions by: ProX Code Team, Microsoft <https://github.com/microsoft>`,
 		`// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped`,
 		``,
 		`/*---------------------------------------------------------------------------------------------`,
@@ -74,7 +74,7 @@ function getNewFileHeader(tag: string) {
 		` *--------------------------------------------------------------------------------------------*/`,
 		``,
 		`/**`,
-		` * Type Definition for Visual Studio Code ${shorttag} Extension API`,
+		` * Type Definition for ProX Code ${shorttag} Extension API`,
 		` * See https://code.visualstudio.com/api for more information`,
 		` */`
 	].join('\n');

@@ -68,7 +68,7 @@ export class DiskTypeScriptVersionProvider implements ITypeScriptVersionProvider
 			return version;
 		}
 
-		ProX-Code.window.showErrorMessage(ProX-Code.l10n.t("VS Code\'s tsserver was deleted by another application such as a misbehaving virus detection tool. Please reinstall VS Code."));
+		ProX-Code.window.showErrorMessage(ProX-Code.l10n.t("ProX Code\'s tsserver was deleted by another application such as a misbehaving virus detection tool. Please reinstall ProX Code."));
 		throw new Error('Could not find bundled tsserver.js');
 	}
 

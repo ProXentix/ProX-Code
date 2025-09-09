@@ -179,21 +179,21 @@ export const schema: IJSONSchema = {
 			properties: {
 				'ProX-Code': {
 					type: 'string',
-					description: nls.localize('ProX-Code.extension.engines.ProX-Code', 'For VS Code extensions, specifies the VS Code version that the extension is compatible with. Cannot be *. For example: ^0.10.5 indicates compatibility with a minimum VS Code version of 0.10.5.'),
+					description: nls.localize('ProX-Code.extension.engines.ProX-Code', 'For ProX Code extensions, specifies the ProX Code version that the extension is compatible with. Cannot be *. For example: ^0.10.5 indicates compatibility with a minimum ProX Code version of 0.10.5.'),
 					default: '^1.22.0',
 				}
 			}
 		},
 		publisher: {
-			description: nls.localize('ProX-Code.extension.publisher', 'The publisher of the VS Code extension.'),
+			description: nls.localize('ProX-Code.extension.publisher', 'The publisher of the ProX Code extension.'),
 			type: 'string'
 		},
 		displayName: {
-			description: nls.localize('ProX-Code.extension.displayName', 'The display name for the extension used in the VS Code gallery.'),
+			description: nls.localize('ProX-Code.extension.displayName', 'The display name for the extension used in the ProX Code gallery.'),
 			type: 'string'
 		},
 		categories: {
-			description: nls.localize('ProX-Code.extension.categories', 'The categories used by the VS Code gallery to categorize the extension.'),
+			description: nls.localize('ProX-Code.extension.categories', 'The categories used by the ProX Code gallery to categorize the extension.'),
 			type: 'array',
 			uniqueItems: true,
 			items: {
@@ -210,10 +210,10 @@ export const schema: IJSONSchema = {
 		},
 		galleryBanner: {
 			type: 'object',
-			description: nls.localize('ProX-Code.extension.galleryBanner', 'Banner used in the VS Code marketplace.'),
+			description: nls.localize('ProX-Code.extension.galleryBanner', 'Banner used in the ProX Code marketplace.'),
 			properties: {
 				color: {
-					description: nls.localize('ProX-Code.extension.galleryBanner.color', 'The banner color on the VS Code marketplace page header.'),
+					description: nls.localize('ProX-Code.extension.galleryBanner.color', 'The banner color on the ProX Code marketplace page header.'),
 					type: 'string'
 				},
 				theme: {
@@ -224,7 +224,7 @@ export const schema: IJSONSchema = {
 			}
 		},
 		contributes: {
-			description: nls.localize('ProX-Code.extension.contributes', 'All contributions of the VS Code extension represented by this package.'),
+			description: nls.localize('ProX-Code.extension.contributes', 'All contributions of the ProX Code extension represented by this package.'),
 			type: 'object',
 			properties: {
 				// extensions will fill in
@@ -258,7 +258,7 @@ export const schema: IJSONSchema = {
 			]
 		},
 		activationEvents: {
-			description: nls.localize('ProX-Code.extension.activationEvents', 'Activation events for the VS Code extension.'),
+			description: nls.localize('ProX-Code.extension.activationEvents', 'Activation events for the ProX Code extension.'),
 			type: 'array',
 			items: {
 				type: 'string',
@@ -410,7 +410,7 @@ export const schema: IJSONSchema = {
 					},
 					{
 						label: '*',
-						description: nls.localize('ProX-Code.extension.activationEvents.star', 'An activation event emitted on VS Code startup. To ensure a great end user experience, please use this activation event in your extension only when no other activation events combination works in your use-case.'),
+						description: nls.localize('ProX-Code.extension.activationEvents.star', 'An activation event emitted on ProX Code startup. To ensure a great end user experience, please use this activation event in your extension only when no other activation events combination works in your use-case.'),
 						body: '*'
 					}
 				],
@@ -582,11 +582,11 @@ export const schema: IJSONSchema = {
 			type: 'object',
 			properties: {
 				'ProX-Code:prepublish': {
-					description: nls.localize('ProX-Code.extension.scripts.prepublish', 'Script executed before the package is published as a VS Code extension.'),
+					description: nls.localize('ProX-Code.extension.scripts.prepublish', 'Script executed before the package is published as a ProX Code extension.'),
 					type: 'string'
 				},
 				'ProX-Code:uninstall': {
-					description: nls.localize('ProX-Code.extension.scripts.uninstall', 'Uninstall hook for VS Code extension. Script that gets executed when the extension is completely uninstalled from VS Code which is when VS Code is restarted (shutdown and start) after the extension is uninstalled. Only Node scripts are supported.'),
+					description: nls.localize('ProX-Code.extension.scripts.uninstall', 'Uninstall hook for ProX Code extension. Script that gets executed when the extension is completely uninstalled from ProX Code which is when ProX Code is restarted (shutdown and start) after the extension is uninstalled. Only Node scripts are supported.'),
 					type: 'string'
 				}
 			}

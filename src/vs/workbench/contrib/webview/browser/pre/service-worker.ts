@@ -157,7 +157,7 @@ sw.addEventListener('fetch', (event: FetchEvent) => {
 	}
 
 	// If we're making a request against the remote authority, we want to go
-	// through VS Code itself so that we are authenticated properly.  If the
+	// through ProX Code itself so that we are authenticated properly.  If the
 	// service worker is hosted on the same origin we will have cookies and
 	// authentication will not be an issue.
 	if (requestUrl.origin !== sw.origin && requestUrl.host === remoteAuthority) {

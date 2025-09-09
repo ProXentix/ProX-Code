@@ -1,0 +1,47 @@
+[
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$milestone=milestone:\"August 2024\""
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code.dev repo"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-dev $milestone is:open"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-dev milestone:\"Backlog\" is:open"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX Code repo"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code label:ProX-Code.dev is:open"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# GitHub Repositories repos"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-remote-repositories-github $milestone is:open"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-remotehub $milestone is:open"
+  }
+]

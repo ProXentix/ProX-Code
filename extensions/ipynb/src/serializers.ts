@@ -257,7 +257,7 @@ function translateCellDisplayOutput(output: NotebookCellOutput): JupyterOutput {
 function translateCellErrorOutput(output: NotebookCellOutput): nbformat.IError {
 	// it should have at least one output item
 	const firstItem = output.items[0];
-	// Bug in VS Code.
+	// Bug in ProX Code.
 	if (!firstItem.data) {
 		return {
 			output_type: 'error',
@@ -272,7 +272,7 @@ function translateCellErrorOutput(output: NotebookCellOutput): nbformat.IError {
 		output_type: 'error',
 		ename: value.name,
 		evalue: value.message,
-		// VS Code needs an `Error` object which requires a `stack` property as a string.
+		// ProX Code needs an `Error` object which requires a `stack` property as a string.
 		// Its possible the format could change when converting from `traceback` to `string` and back again to `string`
 		// When .NET stores errors in output (with their .NET kernel),
 		// stack is empty, hence store the message instead of stack (so that somethign gets displayed in ipynb).
@@ -345,7 +345,7 @@ function convertOutputMimeToJupyterOutput(mime: string, value: Uint8Array) {
 			return splitMultilineString(stringValue);
 		} else if (mime.startsWith('image/') && mime !== 'image/svg+xml') {
 			// Images in Jupyter are stored in base64 encoded format.
-			// VS Code expects bytes when rendering images.
+			// ProX Code expects bytes when rendering images.
 			if (typeof Buffer !== 'undefined' && typeof Buffer.from === 'function') {
 				return Buffer.from(value).toString('base64');
 			} else {

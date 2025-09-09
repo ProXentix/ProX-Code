@@ -1,8 +1,8 @@
 {
   "name": "grunt",
   "publisher": "ProX-Code",
-  "description": "Extension to add Grunt capabilities to VS Code.",
-  "displayName": "Grunt support for VS Code",
+  "description": "Extension to add Grunt capabilities to ProX Code.",
+  "displayName": "Grunt support for ProX Code",
   "version": "1.0.0",
   "private": true,
   "icon": "images/grunt.png",

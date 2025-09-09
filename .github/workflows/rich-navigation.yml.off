@@ -15,7 +15,7 @@ jobs:
 
       - uses: actions/cache@v3
         id: caching-stage
-        name: Cache VS Code dependencies
+        name: Cache ProX Code dependencies
         with:
           path: node_modules
           key: ${{ runner.os }}-dependencies-${{ hashfiles('package-lock.json') }}

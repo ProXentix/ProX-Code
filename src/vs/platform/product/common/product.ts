@@ -61,8 +61,8 @@ else {
 	if (Object.keys(product).length === 0) {
 		Object.assign(product, {
 			version: '1.95.0-dev',
-			nameShort: 'Code - OSS Dev',
-			nameLong: 'Code - OSS Dev',
+			nameShort: 'ProX Code Dev',
+			nameLong: 'ProX Code Dev',
 			applicationName: 'ProX-Code',
 			dataFolderName: '.ProX-Code-oss',
 			urlProtocol: 'ProX-Code',

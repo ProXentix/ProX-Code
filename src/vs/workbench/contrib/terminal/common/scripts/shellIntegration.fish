@@ -3,7 +3,7 @@
 #   Licensed under the MIT License. See License.txt in the project root for license information.
 # ---------------------------------------------------------------------------------------------
 #
-# Visual Studio Code terminal integration for fish
+# ProX Code terminal integration for fish
 #
 # Manual installation:
 #
@@ -82,7 +82,7 @@ if set -q VSCODE_NONCE
 end
 
 # Helper function
-function __vsc_esc -d "Emit escape sequences for VS Code shell integration"
+function __vsc_esc -d "Emit escape sequences for ProX Code shell integration"
 	builtin printf "\e]633;%s\a" (string join ";" -- $argv)
 end
 

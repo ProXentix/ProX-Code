@@ -778,7 +778,7 @@ async function queryVersions(serviceUrl, languageId) {
         headers: {
             'Accept': 'application/json;api-version=3.0-preview.1',
             'Content-Type': 'application/json',
-            'User-Agent': 'VS Code Build',
+            'User-Agent': 'ProX Code Build',
         },
         body: JSON.stringify({
             filters: [{ criteria: [{ filterType: 7, value: `ms-ceintl.ProX-Code-language-pack-${languageId}` }] }],

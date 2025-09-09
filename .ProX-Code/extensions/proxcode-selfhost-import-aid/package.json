@@ -1,0 +1,29 @@
+{
+  "name": "ProX-Code-selfhost-import-aid",
+  "displayName": "ProX Code Selfhost Import Aid",
+  "description": "Util to improve dealing with imports",
+  "engines": {
+    "ProX-Code": "^1.88.0"
+  },
+  "version": "0.0.1",
+  "publisher": "ms-ProX-Code",
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onLanguage:typescript"
+  ],
+  "main": "./out/extension.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microsoft/ProX-Code.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "compile": "gulp compile-extension:ProX-Code-selfhost-import-aid",
+    "watch": "gulp watch-extension:ProX-Code-selfhost-import-aid"
+  },
+  "dependencies": {
+    "typescript": "5.5.4"
+  }
+}

@@ -423,16 +423,16 @@ class ESRPReleaseService {
 			owners: [{ owner: { userPrincipalName: 'jomo@microsoft.com' } }],
 			approvers: [{ approver: { userPrincipalName: 'jomo@microsoft.com' }, isAutoApproved: true, isMandatory: false }],
 			releaseInfo: {
-				title: 'VS Code',
+				title: 'ProX Code',
 				properties: {
 					'ReleaseContentType': 'InstallPackage'
 				},
 				minimumNumberOfApprovers: 1
 			},
 			productInfo: {
-				name: 'VS Code',
+				name: 'ProX Code',
 				version,
-				description: 'VS Code'
+				description: 'ProX Code'
 			},
 			accessPermissionsInfo: {
 				mainPublisher: 'VSCode',

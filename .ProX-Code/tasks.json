@@ -58,7 +58,7 @@
 			}
 		},
 		{
-			"label": "VS Code - Build",
+			"label": "ProX Code - Build",
 			"dependsOn": [
 				"Core - Build",
 				"Ext - Build"
@@ -94,7 +94,7 @@
 			"problemMatcher": "$tsc"
 		},
 		{
-			"label": "Kill VS Code - Build",
+			"label": "Kill ProX Code - Build",
 			"dependsOn": [
 				"Kill Core - Build",
 				"Kill Ext - Build"
@@ -103,21 +103,21 @@
 			"problemMatcher": []
 		},
 		{
-			"label": "Restart VS Code - Build",
+			"label": "Restart ProX Code - Build",
 			"dependsOn": [
-				"Kill VS Code - Build",
-				"VS Code - Build"
+				"Kill ProX Code - Build",
+				"ProX Code - Build"
 			],
 			"group": "build",
 			"dependsOrder": "sequence",
 			"problemMatcher": []
 		},
 		{
-			"label": "Kill VS Code - Build, Npm, VS Code - Build",
+			"label": "Kill ProX Code - Build, Npm, ProX Code - Build",
 			"dependsOn": [
-				"Kill VS Code - Build",
+				"Kill ProX Code - Build",
 				"npm: install",
-				"VS Code - Build"
+				"ProX Code - Build"
 			],
 			"group": "build",
 			"dependsOrder": "sequence",
