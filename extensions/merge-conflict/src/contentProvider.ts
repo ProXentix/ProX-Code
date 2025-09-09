@@ -1,0 +1,54 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+import * as ProX-Code from 'ProX-Code';
+
+export default class MergeConflictContentProvider implements ProX-Code.TextDocumentContentProvider, ProX-Code.Disposable {
+
+	static scheme = 'merge-conflict.conflict-diff';
+
+	constructor(private context: ProX-Code.ExtensionContext) {
+	}
+
+	begin() {
+		this.context.subscriptions.push(
+			ProX-Code.workspace.registerTextDocumentContentProvider(MergeConflictContentProvider.scheme, this)
+		);
+	}
+
+	dispose() {
+	}
+
+	async provideTextDocumentContent(uri: ProX-Code.Uri): Promise<string | null> {
+		try {
+			const { scheme, ranges } = JSON.parse(uri.query) as { scheme: string; ranges: [{ line: number; character: number }[], { line: number; character: number }[]][] };
+
+			// complete diff
+			const document = await ProX-Code.workspace.openTextDocument(uri.with({ scheme, query: '' }));
+
+			let text = '';
+			let lastPosition = new ProX-Code.Position(0, 0);
+
+			ranges.forEach(rangeObj => {
+				const [conflictRange, fullRange] = rangeObj;
+				const [start, end] = conflictRange;
+				const [fullStart, fullEnd] = fullRange;
+
+				text += document.getText(new ProX-Code.Range(lastPosition.line, lastPosition.character, fullStart.line, fullStart.character));
+				text += document.getText(new ProX-Code.Range(start.line, start.character, end.line, end.character));
+				lastPosition = new ProX-Code.Position(fullEnd.line, fullEnd.character);
+			});
+
+			const documentEnd = document.lineAt(document.lineCount - 1).range.end;
+			text += document.getText(new ProX-Code.Range(lastPosition.line, lastPosition.character, documentEnd.line, documentEnd.character));
+
+			return text;
+		}
+		catch (ex) {
+			await ProX-Code.window.showErrorMessage('Unable to show comparison');
+			return null;
+		}
+	}
+}

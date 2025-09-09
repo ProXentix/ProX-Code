@@ -1,0 +1,20 @@
+{
+	"extends": "../tsconfig.base.json",
+	"compilerOptions": {
+		"outDir": "./out",
+		"esModuleInterop": true,
+		"experimentalDecorators": true,
+		"types": [
+			"node"
+		]
+	},
+	"include": [
+		"src/**/*",
+		"../../src/ProX-Code-dts/ProX-Code.d.ts",
+		"../../src/ProX-Code-dts/ProX-Code.proposed.codeActionAI.d.ts",
+		"../../src/ProX-Code-dts/ProX-Code.proposed.codeActionRanges.d.ts",
+		"../../src/ProX-Code-dts/ProX-Code.proposed.multiDocumentHighlightProvider.d.ts",
+		"../../src/ProX-Code-dts/ProX-Code.proposed.workspaceTrust.d.ts",
+		"../../src/ProX-Code-dts/ProX-Code.proposed.editorHoverVerbosityLevel.d.ts",
+	]
+}

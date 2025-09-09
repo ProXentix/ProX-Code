@@ -1,0 +1,53 @@
+{
+	"name": "Code - OSS",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/desktop-lite:1": {},
+		"ghcr.io/devcontainers/features/rust:1": {}
+	},
+	"containerEnv": {
+		"DISPLAY": "" // Allow the Dev Containers extension to set DISPLAY, post-create.sh will add it back in ~/.bashrc and ~/.zshrc if not set.
+	},
+	"overrideCommand": false,
+	"privileged": true,
+	"mounts": [
+		{
+			"source": "ProX-Code-dev",
+			"target": "/ProX-Code-dev",
+			"type": "volume"
+		}
+	],
+	"postCreateCommand": "./.devcontainer/post-create.sh",
+	"customizations": {
+		"ProX-Code": {
+			"settings": {
+				"resmon.show.battery": false,
+				"resmon.show.cpufreq": false
+			},
+			"extensions": [
+				"dbaeumer.ProX-Code-eslint",
+				"EditorConfig.EditorConfig",
+				"GitHub.ProX-Code-pull-request-github",
+				"ms-ProX-Code.ProX-Code-github-issue-notebooks",
+				"ms-ProX-Code.ProX-Code-selfhost-test-provider",
+				"mutantdino.resourcemonitor"
+			]
+		}
+	},
+	"forwardPorts": [6080, 5901],
+	"portsAttributes": {
+		"6080": {
+			"label": "VNC web client (noVNC)",
+			"onAutoForward": "silent"
+		},
+		"5901": {
+			"label": "VNC TCP port",
+			"onAutoForward": "silent"
+		}
+	},
+	"hostRequirements": {
+		"memory": "9gb"
+	}
+}

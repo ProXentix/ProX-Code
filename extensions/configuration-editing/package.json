@@ -1,0 +1,178 @@
+{
+  "name": "configuration-editing",
+  "displayName": "%displayName%",
+  "description": "%description%",
+  "version": "1.0.0",
+  "publisher": "ProX-Code",
+  "license": "MIT",
+  "engines": {
+    "ProX-Code": "^1.0.0"
+  },
+  "icon": "images/icon.png",
+  "activationEvents": [
+    "onProfile",
+    "onProfile:github",
+    "onLanguage:json",
+    "onLanguage:jsonc"
+  ],
+  "enabledApiProposals": [
+    "profileContentHandlers"
+  ],
+  "main": "./out/configurationEditingMain",
+  "browser": "./dist/browser/configurationEditingMain",
+  "scripts": {
+    "compile": "gulp compile-extension:configuration-editing",
+    "watch": "gulp watch-extension:configuration-editing"
+  },
+  "dependencies": {
+    "@octokit/rest": "^21.1.1",
+    "jsonc-parser": "^3.2.0",
+    "tunnel": "^0.0.6"
+  },
+  "capabilities": {
+    "virtualWorkspaces": true,
+    "untrustedWorkspaces": {
+      "supported": true
+    }
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "jsonc",
+        "extensions": [
+          ".code-workspace",
+          "language-configuration.json",
+          "icon-theme.json",
+          "color-theme.json"
+        ],
+        "filenames": [
+          "settings.json",
+          "launch.json",
+          "tasks.json",
+          "mcp.json",
+          "keybindings.json",
+          "extensions.json",
+          "argv.json",
+          "profiles.json",
+          "devcontainer.json",
+          ".devcontainer.json"
+        ]
+      },
+      {
+        "id": "json",
+        "extensions": [
+          ".code-profile"
+        ]
+      }
+    ],
+    "jsonValidation": [
+      {
+        "fileMatch": "ProX-Code://defaultsettings/keybindings.json",
+        "url": "ProX-Code://schemas/keybindings"
+      },
+      {
+        "fileMatch": "%APP_SETTINGS_HOME%/keybindings.json",
+        "url": "ProX-Code://schemas/keybindings"
+      },
+      {
+        "fileMatch": "%APP_SETTINGS_HOME%/profiles/*/keybindings.json",
+        "url": "ProX-Code://schemas/keybindings"
+      },
+      {
+        "fileMatch": "ProX-Code://defaultsettings/*.json",
+        "url": "ProX-Code://schemas/settings/default"
+      },
+      {
+        "fileMatch": "%APP_SETTINGS_HOME%/settings.json",
+        "url": "ProX-Code://schemas/settings/user"
+      },
+      {
+        "fileMatch": "%APP_SETTINGS_HOME%/profiles/*/settings.json",
+        "url": "ProX-Code://schemas/settings/profile"
+      },
+      {
+        "fileMatch": "%MACHINE_SETTINGS_HOME%/settings.json",
+        "url": "ProX-Code://schemas/settings/machine"
+      },
+      {
+        "fileMatch": "%APP_WORKSPACES_HOME%/*/workspace.json",
+        "url": "ProX-Code://schemas/workspaceConfig"
+      },
+      {
+        "fileMatch": "**/*.code-workspace",
+        "url": "ProX-Code://schemas/workspaceConfig"
+      },
+      {
+        "fileMatch": "**/argv.json",
+        "url": "ProX-Code://schemas/argv"
+      },
+      {
+        "fileMatch": "/.ProX-Code/settings.json",
+        "url": "ProX-Code://schemas/settings/folder"
+      },
+      {
+        "fileMatch": "/.ProX-Code/launch.json",
+        "url": "ProX-Code://schemas/launch"
+      },
+      {
+        "fileMatch": "/.ProX-Code/tasks.json",
+        "url": "ProX-Code://schemas/tasks"
+      },
+      {
+        "fileMatch": "/.ProX-Code/mcp.json",
+        "url": "ProX-Code://schemas/mcp"
+      },
+      {
+        "fileMatch": "%APP_SETTINGS_HOME%/tasks.json",
+        "url": "ProX-Code://schemas/tasks"
+      },
+      {
+        "fileMatch": "%APP_SETTINGS_HOME%/snippets/*.json",
+        "url": "ProX-Code://schemas/snippets"
+      },
+      {
+        "fileMatch": "%APP_SETTINGS_HOME%/profiles/*/snippets/.json",
+        "url": "ProX-Code://schemas/snippets"
+      },
+      {
+        "fileMatch": "%APP_SETTINGS_HOME%/sync/snippets/preview/*.json",
+        "url": "ProX-Code://schemas/snippets"
+      },
+      {
+        "fileMatch": "**/*.code-snippets",
+        "url": "ProX-Code://schemas/global-snippets"
+      },
+      {
+        "fileMatch": "/.ProX-Code/extensions.json",
+        "url": "ProX-Code://schemas/extensions"
+      },
+      {
+        "fileMatch": "devcontainer.json",
+        "url": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json"
+      },
+      {
+        "fileMatch": ".devcontainer.json",
+        "url": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json"
+      },
+      {
+        "fileMatch": "%APP_SETTINGS_HOME%/globalStorage/ms-ProX-Code-remote.remote-containers/nameConfigs/*.json",
+        "url": "./schemas/attachContainer.schema.json"
+      },
+      {
+        "fileMatch": "%APP_SETTINGS_HOME%/globalStorage/ms-ProX-Code-remote.remote-containers/imageConfigs/*.json",
+        "url": "./schemas/attachContainer.schema.json"
+      },
+      {
+        "fileMatch": "**/quality/*/product.json",
+        "url": "ProX-Code://schemas/ProX-Code-product"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "22.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microsoft/ProX-Code.git"
+  }
+}

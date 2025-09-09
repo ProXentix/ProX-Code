@@ -1,0 +1,15 @@
+{
+	"extends": "../tsconfig.base.json",
+	"compilerOptions": {
+		"outDir": "./out",
+		"downlevelIteration": true,
+		"types": [
+			"node"
+		]
+	},
+	"include": [
+		"src/**/*",
+		"../../src/ProX-Code-dts/ProX-Code.d.ts",
+		"../../src/ProX-Code-dts/ProX-Code.proposed.terminalDataWriteEvent.d.ts",
+	]
+}

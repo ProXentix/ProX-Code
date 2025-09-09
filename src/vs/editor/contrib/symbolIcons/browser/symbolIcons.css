@@ -1,0 +1,73 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.monaco-editor .codicon.codicon-symbol-array,
+.monaco-workbench .codicon.codicon-symbol-array { color: var(--ProX-Code-symbolIcon-arrayForeground); }
+.monaco-editor .codicon.codicon-symbol-boolean,
+.monaco-workbench .codicon.codicon-symbol-boolean { color: var(--ProX-Code-symbolIcon-booleanForeground); }
+.monaco-editor .codicon.codicon-symbol-class,
+.monaco-workbench .codicon.codicon-symbol-class { color: var(--ProX-Code-symbolIcon-classForeground); }
+.monaco-editor .codicon.codicon-symbol-method,
+.monaco-workbench .codicon.codicon-symbol-method { color: var(--ProX-Code-symbolIcon-methodForeground); }
+.monaco-editor .codicon.codicon-symbol-color,
+.monaco-workbench .codicon.codicon-symbol-color { color: var(--ProX-Code-symbolIcon-colorForeground); }
+.monaco-editor .codicon.codicon-symbol-constant,
+.monaco-workbench .codicon.codicon-symbol-constant { color: var(--ProX-Code-symbolIcon-constantForeground); }
+.monaco-editor .codicon.codicon-symbol-constructor,
+.monaco-workbench .codicon.codicon-symbol-constructor { color: var(--ProX-Code-symbolIcon-constructorForeground); }
+.monaco-editor .codicon.codicon-symbol-value,
+.monaco-workbench .codicon.codicon-symbol-value,
+.monaco-editor .codicon.codicon-symbol-enum,
+.monaco-workbench .codicon.codicon-symbol-enum { color: var(--ProX-Code-symbolIcon-enumeratorForeground); }
+.monaco-editor .codicon.codicon-symbol-enum-member,
+.monaco-workbench .codicon.codicon-symbol-enum-member { color: var(--ProX-Code-symbolIcon-enumeratorMemberForeground); }
+.monaco-editor .codicon.codicon-symbol-event,
+.monaco-workbench .codicon.codicon-symbol-event { color: var(--ProX-Code-symbolIcon-eventForeground); }
+.monaco-editor .codicon.codicon-symbol-field,
+.monaco-workbench .codicon.codicon-symbol-field { color: var(--ProX-Code-symbolIcon-fieldForeground); }
+.monaco-editor .codicon.codicon-symbol-file,
+.monaco-workbench .codicon.codicon-symbol-file { color: var(--ProX-Code-symbolIcon-fileForeground); }
+.monaco-editor .codicon.codicon-symbol-folder,
+.monaco-workbench .codicon.codicon-symbol-folder { color: var(--ProX-Code-symbolIcon-folderForeground); }
+.monaco-editor .codicon.codicon-symbol-function,
+.monaco-workbench .codicon.codicon-symbol-function { color: var(--ProX-Code-symbolIcon-functionForeground); }
+.monaco-editor .codicon.codicon-symbol-interface,
+.monaco-workbench .codicon.codicon-symbol-interface { color: var(--ProX-Code-symbolIcon-interfaceForeground); }
+.monaco-editor .codicon.codicon-symbol-key,
+.monaco-workbench .codicon.codicon-symbol-key { color: var(--ProX-Code-symbolIcon-keyForeground); }
+.monaco-editor .codicon.codicon-symbol-keyword,
+.monaco-workbench .codicon.codicon-symbol-keyword { color: var(--ProX-Code-symbolIcon-keywordForeground); }
+.monaco-editor .codicon.codicon-symbol-module,
+.monaco-workbench .codicon.codicon-symbol-module { color: var(--ProX-Code-symbolIcon-moduleForeground); }
+.monaco-editor .codicon.codicon-symbol-namespace,
+.monaco-workbench .codicon.codicon-symbol-namespace { color: var(--ProX-Code-symbolIcon-namespaceForeground); }
+.monaco-editor .codicon.codicon-symbol-null,
+.monaco-workbench .codicon.codicon-symbol-null { color: var(--ProX-Code-symbolIcon-nullForeground); }
+.monaco-editor .codicon.codicon-symbol-number,
+.monaco-workbench .codicon.codicon-symbol-number { color: var(--ProX-Code-symbolIcon-numberForeground); }
+.monaco-editor .codicon.codicon-symbol-object,
+.monaco-workbench .codicon.codicon-symbol-object { color: var(--ProX-Code-symbolIcon-objectForeground); }
+.monaco-editor .codicon.codicon-symbol-operator,
+.monaco-workbench .codicon.codicon-symbol-operator { color: var(--ProX-Code-symbolIcon-operatorForeground); }
+.monaco-editor .codicon.codicon-symbol-package,
+.monaco-workbench .codicon.codicon-symbol-package { color: var(--ProX-Code-symbolIcon-packageForeground); }
+.monaco-editor .codicon.codicon-symbol-property,
+.monaco-workbench .codicon.codicon-symbol-property { color: var(--ProX-Code-symbolIcon-propertyForeground); }
+.monaco-editor .codicon.codicon-symbol-reference,
+.monaco-workbench .codicon.codicon-symbol-reference { color: var(--ProX-Code-symbolIcon-referenceForeground); }
+.monaco-editor .codicon.codicon-symbol-snippet,
+.monaco-workbench .codicon.codicon-symbol-snippet { color: var(--ProX-Code-symbolIcon-snippetForeground); }
+.monaco-editor .codicon.codicon-symbol-string,
+.monaco-workbench .codicon.codicon-symbol-string { color: var(--ProX-Code-symbolIcon-stringForeground); }
+.monaco-editor .codicon.codicon-symbol-struct,
+.monaco-workbench .codicon.codicon-symbol-struct { color: var(--ProX-Code-symbolIcon-structForeground); }
+.monaco-editor .codicon.codicon-symbol-text,
+.monaco-workbench .codicon.codicon-symbol-text { color: var(--ProX-Code-symbolIcon-textForeground); }
+.monaco-editor .codicon.codicon-symbol-type-parameter,
+.monaco-workbench .codicon.codicon-symbol-type-parameter { color: var(--ProX-Code-symbolIcon-typeParameterForeground); }
+.monaco-editor .codicon.codicon-symbol-unit,
+.monaco-workbench .codicon.codicon-symbol-unit { color: var(--ProX-Code-symbolIcon-unitForeground); }
+.monaco-editor .codicon.codicon-symbol-variable,
+.monaco-workbench .codicon.codicon-symbol-variable { color: var(--ProX-Code-symbolIcon-variableForeground); }

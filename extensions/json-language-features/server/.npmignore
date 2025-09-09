@@ -1,0 +1,10 @@
+.ProX-Code/
+out/test/
+out/**/*.js.map
+src/
+test/
+tsconfig.json
+.gitignore
+package-lock.json
+extension.webpack.config.js
+ProX-Code-json-languageserver-*.tgz

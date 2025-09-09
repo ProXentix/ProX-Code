@@ -1,0 +1,31 @@
+{
+  "name": "ProX-Code-colorize-perf-tests",
+  "description": "Colorize performance tests for VS Code",
+  "version": "0.0.1",
+  "publisher": "ProX-Code",
+  "license": "MIT",
+  "private": true,
+  "activationEvents": [
+    "onLanguage:json"
+  ],
+  "main": "./out/colorizerTestMain",
+  "engines": {
+    "ProX-Code": "*"
+  },
+  "icon": "media/icon.png",
+  "scripts": {
+    "ProX-Code:prepublish": "node ../../node_modules/gulp/bin/gulp.js --gulpfile ../../build/gulpfile.extensions.js compile-extension:ProX-Code-colorize-perf-tests ./tsconfig.json",
+    "watch": "gulp watch-extension:ProX-Code-colorize-perf-tests",
+    "compile": "gulp compile-extension:ProX-Code-colorize-perf-tests"
+  },
+  "dependencies": {
+    "jsonc-parser": "^3.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microsoft/ProX-Code.git"
+  }
+}

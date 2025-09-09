@@ -1,0 +1,57 @@
+[
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "### Bug Verification Queries\n\nBefore shipping we want to verify _all_ bugs. That means when a bug is fixed we check that the fix actually works. It's always best to start with bugs that you have filed and the proceed with bugs that have been filed from users outside the development team. "
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "#### Config: update list of `repos` and the `milestone`"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$repos=repo:microsoft/lsprotocol repo:microsoft/monaco-editor repo:microsoft/ProX-Code repo:microsoft/ProX-Code-anycode repo:microsoft/ProX-Code-autopep8 repo:microsoft/ProX-Code-black-formatter repo:microsoft/ProX-Code-copilot repo:microsoft/ProX-Code-copilot-release repo:microsoft/ProX-Code-dev repo:microsoft/ProX-Code-dev-chrome-launcher repo:microsoft/ProX-Code-emmet-helper repo:microsoft/ProX-Code-extension-telemetry repo:microsoft/ProX-Code-flake8 repo:microsoft/ProX-Code-github-issue-notebooks repo:microsoft/ProX-Code-hexeditor repo:microsoft/ProX-Code-internalbacklog repo:microsoft/ProX-Code-isort repo:microsoft/ProX-Code-js-debug repo:microsoft/ProX-Code-jupyter repo:microsoft/ProX-Code-jupyter-internal repo:microsoft/ProX-Code-l10n repo:microsoft/ProX-Code-livepreview repo:microsoft/ProX-Code-markdown-languageservice repo:microsoft/ProX-Code-markdown-tm-grammar repo:microsoft/ProX-Code-mypy repo:microsoft/ProX-Code-pull-request-github repo:microsoft/ProX-Code-pylint repo:microsoft/ProX-Code-python repo:microsoft/ProX-Code-python-debugger repo:microsoft/ProX-Code-python-tools-extension-template repo:microsoft/ProX-Code-references-view repo:microsoft/ProX-Code-remote-release repo:microsoft/ProX-Code-remote-repositories-github repo:microsoft/ProX-Code-remote-tunnels repo:microsoft/ProX-Code-remotehub repo:microsoft/ProX-Code-settings-sync-server repo:microsoft/ProX-Code-unpkg repo:microsoft/ProX-Code-vsce\n$milestone=milestone:\"November 2023\"\n$closedRecently=closed:>2023-09-29"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "### Bugs You Filed"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$repos $milestone is:closed reason:completed -assignee:@me label:bug -label:verified -label:*duplicate author:@me"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "### Bugs From Outside"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$repos $milestone is:closed reason:completed -assignee:@me label:bug -label:verified -label:*duplicate -author:@me -assignee:@me label:bug -label:verified -author:@me -author:aeschli -author:alexdima -author:alexr00 -author:bpasero -author:chrisdias -author:chrmarti -author:connor4312 -author:dbaeumer -author:deepak1556 -author:eamodio -author:egamma -author:gregvanl -author:isidorn -author:JacksonKearl -author:joaomoreno -author:jrieken -author:lramos15 -author:lszomoru -author:meganrogge -author:misolori -author:mjbvz -author:rebornix -author:RMacfarlane -author:roblourens -author:sana-ajani -author:sandy081 -author:sbatten -author:Tyriar -author:weinand -author:rzhao271 -author:kieferrm -author:TylerLeonhardt -author:bamurtaugh -author:hediet -author:joyceerhl -author:rchiodo"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "### All"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$repos $milestone is:closed reason:completed -assignee:@me label:bug -label:verified -label:*duplicate"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "### Issues recently closed via PR without a milestone"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$repos is:closed linked:pr $closedRecently no:milestone -label:verified -label:*duplicate"
+  }
+]

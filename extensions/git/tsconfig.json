@@ -1,0 +1,31 @@
+{
+	"extends": "../tsconfig.base.json",
+	"compilerOptions": {
+		"outDir": "./out",
+		"experimentalDecorators": true,
+		"typeRoots": [
+			"./node_modules/@types"
+		]
+	},
+	"include": [
+		"src/**/*",
+		"../../src/ProX-Code-dts/ProX-Code.d.ts",
+		"../../src/ProX-Code-dts/ProX-Code.proposed.canonicalUriProvider.d.ts",
+		"../../src/ProX-Code-dts/ProX-Code.proposed.editSessionIdentityProvider.d.ts",
+		"../../src/ProX-Code-dts/ProX-Code.proposed.quickDiffProvider.d.ts",
+		"../../src/ProX-Code-dts/ProX-Code.proposed.quickInputButtonLocation.d.ts",
+		"../../src/ProX-Code-dts/ProX-Code.proposed.quickPickSortByLabel.d.ts",
+		"../../src/ProX-Code-dts/ProX-Code.proposed.scmActionButton.d.ts",
+		"../../src/ProX-Code-dts/ProX-Code.proposed.scmHistoryProvider.d.ts",
+		"../../src/ProX-Code-dts/ProX-Code.proposed.scmSelectedProvider.d.ts",
+		"../../src/ProX-Code-dts/ProX-Code.proposed.scmValidation.d.ts",
+		"../../src/ProX-Code-dts/ProX-Code.proposed.scmMultiDiffEditor.d.ts",
+		"../../src/ProX-Code-dts/ProX-Code.proposed.scmTextDocument.d.ts",
+		"../../src/ProX-Code-dts/ProX-Code.proposed.statusBarItemTooltip.d.ts",
+		"../../src/ProX-Code-dts/ProX-Code.proposed.tabInputMultiDiff.d.ts",
+		"../../src/ProX-Code-dts/ProX-Code.proposed.tabInputTextMerge.d.ts",
+		"../../src/ProX-Code-dts/ProX-Code.proposed.textEditorDiffInformation.d.ts",
+		"../../src/ProX-Code-dts/ProX-Code.proposed.timeline.d.ts",
+		"../types/lib.textEncoder.d.ts"
+	]
+}

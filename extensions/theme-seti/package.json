@@ -1,0 +1,30 @@
+{
+  "name": "ProX-Code-theme-seti",
+  "private": true,
+  "version": "1.0.0",
+  "displayName": "%displayName%",
+  "description": "%description%",
+  "publisher": "ProX-Code",
+  "license": "MIT",
+  "icon": "icons/seti-circular-128x128.png",
+  "scripts": {
+    "update": "node ./build/update-icon-theme.js"
+  },
+  "engines": {
+    "ProX-Code": "*"
+  },
+  "categories": ["Themes"],
+  "contributes": {
+    "iconThemes": [
+      {
+        "id": "vs-seti",
+        "label": "%themeLabel%",
+        "path": "./icons/vs-seti-icon-theme.json"
+      }
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microsoft/ProX-Code.git"
+  }
+}

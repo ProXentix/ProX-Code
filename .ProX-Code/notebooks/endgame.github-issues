@@ -1,0 +1,157 @@
+[
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "#### Macros"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$REPOS=repo:microsoft/lsprotocol repo:microsoft/monaco-editor repo:microsoft/ProX-Code repo:microsoft/ProX-Code-anycode repo:microsoft/ProX-Code-autopep8 repo:microsoft/ProX-Code-black-formatter repo:microsoft/ProX-Code-copilot repo:microsoft/ProX-Code-copilot-release repo:microsoft/ProX-Code-dev repo:microsoft/ProX-Code-dev-chrome-launcher repo:microsoft/ProX-Code-emmet-helper repo:microsoft/ProX-Code-extension-telemetry repo:microsoft/ProX-Code-flake8 repo:microsoft/ProX-Code-github-issue-notebooks repo:microsoft/ProX-Code-hexeditor repo:microsoft/ProX-Code-internalbacklog repo:microsoft/ProX-Code-isort repo:microsoft/ProX-Code-js-debug repo:microsoft/ProX-Code-jupyter repo:microsoft/ProX-Code-jupyter-internal repo:microsoft/ProX-Code-l10n repo:microsoft/ProX-Code-livepreview repo:microsoft/ProX-Code-markdown-languageservice repo:microsoft/ProX-Code-markdown-tm-grammar repo:microsoft/ProX-Code-mypy repo:microsoft/ProX-Code-pull-request-github repo:microsoft/ProX-Code-pylint repo:microsoft/ProX-Code-python repo:microsoft/ProX-Code-python-debugger repo:microsoft/ProX-Code-python-tools-extension-template repo:microsoft/ProX-Code-references-view repo:microsoft/ProX-Code-remote-release repo:microsoft/ProX-Code-remote-repositories-github repo:microsoft/ProX-Code-remote-tunnels repo:microsoft/ProX-Code-remotehub repo:microsoft/ProX-Code-settings-sync-server repo:microsoft/ProX-Code-unpkg repo:microsoft/ProX-Code-vsce\n\n$MILESTONE=milestone:\"April 2025\""
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# Preparation"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "## Open Pull Requests on the Milestone"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$REPOS $MILESTONE is:pr is:open"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "## Unverified Older Insiders-Released Issues"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$REPOS -$MILESTONE is:issue is:closed reason:completed label:bug label:insiders-released -label:verified -label:*duplicate -label:*as-designed -label:z-author-verified -label:on-testplan -label:error-telemetry"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "## Unverified Older Insiders-Released Feature Requests"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$REPOS -$MILESTONE is:issue is:closed reason:completed label:feature-request label:insiders-released -label:on-testplan -label:verified -label:*duplicate -label:error-telemetry"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "## Open Issues on the Milestone"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$REPOS $MILESTONE is:issue is:open -label:iteration-plan -label:endgame-plan -label:testplan-item"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "## Feature Requests Missing Labels"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$REPOS $MILESTONE is:issue is:closed reason:completed label:feature-request -label:verification-needed -label:on-testplan -label:verified -label:*duplicate"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "## Open Test Plan Items without milestone"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$REPOS $MILESTONE is:issue is:open label:testplan-item no:milestone"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# Testing"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "## Test Plan Items"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$REPOS is:issue is:open label:testplan-item"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "## Verification Needed"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$REPOS $MILESTONE is:issue is:closed reason:completed label:verification-needed -label:verified -label:on-testplan"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# Verification"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "## Verifiable Fixes"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$REPOS $MILESTONE is:issue is:closed reason:completed sort:updated-asc label:bug -label:verified -label:on-testplan -label:*duplicate -label:duplicate -label:invalid -label:*as-designed -label:error-telemetry -label:verification-steps-needed -label:z-author-verified -label:unreleased -label:*not-reproducible -label:*out-of-scope"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "## Verifiable Fixes Missing Steps"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$REPOS $MILESTONE is:issue is:closed reason:completed sort:updated-asc label:bug label:verification-steps-needed -label:verified -label:on-testplan -label:*duplicate -label:duplicate -label:invalid -label:*as-designed -label:error-telemetry -label:z-author-verified -label:unreleased -label:*not-reproducible"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "## Unreleased Fixes"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$REPOS $MILESTONE is:issue is:closed reason:completed sort:updated-asc label:bug -label:verified -label:on-testplan -label:*duplicate -label:duplicate -label:invalid -label:*as-designed -label:error-telemetry -label:verification-steps-needed -label:z-author-verified label:unreleased -label:*not-reproducible"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "## All Unverified Fixes"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$REPOS $MILESTONE is:issue is:closed reason:completed sort:updated-asc label:bug -label:verified -label:on-testplan -label:*duplicate -label:duplicate -label:invalid -label:*as-designed -label:error-telemetry -label:z-author-verified -label:*not-reproducible"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# Candidates"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$REPOS $MILESTONE is:issue is:open label:candidate"
+  }
+]

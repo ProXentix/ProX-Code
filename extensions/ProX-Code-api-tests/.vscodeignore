@@ -1,0 +1,6 @@
+.ProX-Code/**
+typings/**
+**/*.ts
+**/*.map
+.gitignore
+tsconfig.json

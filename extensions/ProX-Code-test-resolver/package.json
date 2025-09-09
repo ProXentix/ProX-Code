@@ -1,0 +1,177 @@
+{
+  "name": "ProX-Code-test-resolver",
+  "description": "Test resolver for VS Code",
+  "version": "0.0.1",
+  "publisher": "ProX-Code",
+  "license": "MIT",
+  "enabledApiProposals": [
+    "resolvers",
+    "tunnels"
+  ],
+  "private": true,
+  "engines": {
+    "ProX-Code": "^1.25.0"
+  },
+  "icon": "media/icon.png",
+  "extensionKind": [
+    "ui"
+  ],
+  "scripts": {
+    "compile": "node ./node_modules/ProX-Code/bin/compile -watch -p ./",
+    "ProX-Code:prepublish": "node ../../node_modules/gulp/bin/gulp.js --gulpfile ../../build/gulpfile.extensions.js compile-extension:ProX-Code-test-resolver"
+  },
+  "activationEvents": [
+    "onResolveRemoteAuthority:test",
+    "onCommand:ProX-Code-testresolver.newWindow",
+    "onCommand:ProX-Code-testresolver.currentWindow",
+    "onCommand:ProX-Code-testresolver.newWindowWithError",
+    "onCommand:ProX-Code-testresolver.showLog",
+    "onCommand:ProX-Code-testresolver.openTunnel",
+    "onCommand:ProX-Code-testresolver.startRemoteServer",
+    "onCommand:ProX-Code-testresolver.toggleConnectionPause"
+  ],
+  "main": "./out/extension",
+  "browser": "./dist/browser/testResolverMain",
+  "devDependencies": {
+    "@types/node": "22.x"
+  },
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": true
+  },
+  "contributes": {
+    "resourceLabelFormatters": [
+      {
+        "scheme": "ProX-Code-remote",
+        "authority": "test+*",
+        "formatting": {
+          "label": "${path}",
+          "separator": "/",
+          "tildify": true,
+          "workspaceSuffix": "TestResolver",
+          "workspaceTooltip": "Remote running on the same machine"
+        }
+      }
+    ],
+    "commands": [
+      {
+        "title": "New TestResolver Window",
+        "category": "Remote-TestResolver",
+        "command": "ProX-Code-testresolver.newWindow"
+      },
+      {
+        "title": "Connect to TestResolver in Current Window",
+        "category": "Remote-TestResolver",
+        "command": "ProX-Code-testresolver.currentWindow"
+      },
+      {
+        "title": "Connect to TestResolver in Current Window with Managed Connection",
+        "category": "Remote-TestResolver",
+        "command": "ProX-Code-testresolver.currentWindowManaged"
+      },
+      {
+        "title": "Show TestResolver Log",
+        "category": "Remote-TestResolver",
+        "command": "ProX-Code-testresolver.showLog"
+      },
+      {
+        "title": "Kill Remote Server and Trigger Handled Error",
+        "category": "Remote-TestResolver",
+        "command": "ProX-Code-testresolver.killServerAndTriggerHandledError"
+      },
+      {
+        "title": "Open Tunnel...",
+        "category": "Remote-TestResolver",
+        "command": "ProX-Code-testresolver.openTunnel"
+      },
+      {
+        "title": "Open a Remote Port...",
+        "category": "Remote-TestResolver",
+        "command": "ProX-Code-testresolver.startRemoteServer"
+      },
+      {
+        "title": "Pause Connection (Test Reconnect)",
+        "category": "Remote-TestResolver",
+        "command": "ProX-Code-testresolver.toggleConnectionPause"
+      },
+      {
+        "title": "Slowdown Connection (Test Slow Down Indicator)",
+        "category": "Remote-TestResolver",
+        "command": "ProX-Code-testresolver.toggleConnectionSlowdown"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "ProX-Code-testresolver.openTunnel",
+          "when": "remoteName == test"
+        },
+        {
+          "command": "ProX-Code-testresolver.startRemoteServer",
+          "when": "remoteName == test"
+        },
+        {
+          "command": "ProX-Code-testresolver.toggleConnectionPause",
+          "when": "remoteName == test"
+        }
+      ],
+      "statusBar/remoteIndicator": [
+        {
+          "command": "ProX-Code-testresolver.newWindow",
+          "when": "!remoteName && !virtualWorkspace",
+          "group": "remote_90_test_1_local@2"
+        },
+        {
+          "command": "ProX-Code-testresolver.showLog",
+          "when": "remoteName == test",
+          "group": "remote_90_test_1_open@3"
+        },
+        {
+          "command": "ProX-Code-testresolver.newWindow",
+          "when": "remoteName == test",
+          "group": "remote_90_test_1_open@1"
+        },
+        {
+          "command": "ProX-Code-testresolver.openTunnel",
+          "when": "remoteName == test",
+          "group": "remote_90_test_2_more@4"
+        },
+        {
+          "command": "ProX-Code-testresolver.startRemoteServer",
+          "when": "remoteName == test",
+          "group": "remote_90_test_2_more@5"
+        },
+        {
+          "command": "ProX-Code-testresolver.toggleConnectionPause",
+          "when": "remoteName == test",
+          "group": "remote_90_test_2_more@6"
+        }
+      ]
+    },
+    "configuration": {
+      "properties": {
+        "testresolver.startupDelay": {
+          "description": "If set, the resolver will delay for the given amount of seconds. Use ths setting for testing a slow resolver",
+          "type": "number",
+          "default": 0
+        },
+        "testresolver.startupError": {
+          "description": "If set, the resolver will fail. Use ths setting for testing the failure of a resolver.",
+          "type": "boolean",
+          "default": false
+        },
+        "testresolver.supportPublicPorts": {
+          "description": "If set, the test resolver tunnel factory will support mock public ports. Forwarded ports will not actually be public. Requires reload.",
+          "type": "boolean",
+          "default": false
+        }
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/microsoft/ProX-Code.git"
+  }
+}

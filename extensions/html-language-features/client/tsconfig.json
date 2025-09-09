@@ -1,0 +1,15 @@
+{
+	"extends": "../../tsconfig.base.json",
+	"compilerOptions": {
+		"outDir": "./out",
+		"lib": [
+			"webworker"
+		],
+		"module": "Node16",
+	},
+	"include": [
+		"src/**/*",
+		"../../../src/ProX-Code-dts/ProX-Code.d.ts",
+		"../../../src/ProX-Code-dts/ProX-Code.proposed.extensionsAny.d.ts"
+	]
+}

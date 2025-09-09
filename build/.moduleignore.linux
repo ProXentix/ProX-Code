@@ -1,0 +1,17 @@
+@ProX-Code/windows-mutex/index.js
+@ProX-Code/windows-mutex/**/*.node
+@ProX-Code/windows-mutex/*.md
+@ProX-Code/windows-mutex/package.json
+
+@ProX-Code/windows-process-tree/lib/**
+@ProX-Code/windows-process-tree/**/*.node
+@ProX-Code/windows-process-tree/LICENSE
+@ProX-Code/windows-process-tree/package.json
+@ProX-Code/windows-process-tree/*.md
+
+@ProX-Code/windows-registry/dist/**
+@ProX-Code/windows-registry/**/*.node
+@ProX-Code/windows-registry/*.md
+@ProX-Code/windows-registry/*.txt
+@ProX-Code/windows-registry/package.json
+!@ProX-Code/windows-registry/dist/index.d.ts

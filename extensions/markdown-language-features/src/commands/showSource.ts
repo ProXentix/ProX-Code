@@ -1,0 +1,26 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+import * as ProX-Code from 'ProX-Code';
+import { Command } from '../commandManager';
+import { MarkdownPreviewManager } from '../preview/previewManager';
+
+export class ShowSourceCommand implements Command {
+	public readonly id = 'markdown.showSource';
+
+	public constructor(
+		private readonly _previewManager: MarkdownPreviewManager
+	) { }
+
+	public execute() {
+		const { activePreviewResource, activePreviewResourceColumn } = this._previewManager;
+		if (activePreviewResource && activePreviewResourceColumn) {
+			return ProX-Code.workspace.openTextDocument(activePreviewResource).then(document => {
+				return ProX-Code.window.showTextDocument(document, activePreviewResourceColumn);
+			});
+		}
+		return undefined;
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"extends": "../tsconfig.base.json",
+	"compilerOptions": {
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
+		"outDir": "./out",
+		"skipLibCheck": true,
+		"experimentalDecorators": true,
+		"allowSyntheticDefaultImports": false,
+		"typeRoots": [
+			"./node_modules/@types"
+		]
+	},
+	"include": [
+		"src/**/*",
+		"../../src/ProX-Code-dts/ProX-Code.d.ts",
+		"../../src/ProX-Code-dts/ProX-Code.proposed.canonicalUriProvider.d.ts",
+		"../../src/ProX-Code-dts/ProX-Code.proposed.scmHistoryProvider.d.ts",
+		"../../src/ProX-Code-dts/ProX-Code.proposed.shareProvider.d.ts",
+		"../../src/ProX-Code-dts/ProX-Code.proposed.timeline.d.ts"
+	]
+}

@@ -1,0 +1,478 @@
+{
+	"editor": [
+		{
+			"name": "vs/platform",
+			"project": "ProX-Code-editor"
+		},
+		{
+			"name": "vs/editor/contrib",
+			"project": "ProX-Code-editor"
+		},
+		{
+			"name": "vs/editor",
+			"project": "ProX-Code-editor"
+		},
+		{
+			"name": "vs/base",
+			"project": "ProX-Code-editor"
+		}
+	],
+	"workbench": [
+		{
+			"name": "vs/code",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/api/common",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/bulkEdit",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/cli",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/codeEditor",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/callHierarchy",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/typeHierarchy",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/codeActions",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/comments",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/debug",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/dialogs",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/emmet",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/experiments",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/extensions",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/externalTerminal",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/feedback",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/files",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/html",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/issue",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/inlayHints",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/interactive",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/languageStatus",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/keybindings",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/markers",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/mergeEditor",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/localization",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/logs",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/output",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/performance",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/preferences",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/notebook",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/quickaccess",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/userData",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/remote",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/relauncher",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/sash",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/scm",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/search",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/searchEditor",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/snippets",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/format",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/tags",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/surveys",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/tasks",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/testing",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/terminal",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/themes",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/trust",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/update",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/url",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/watermark",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/webview",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/webviewPanel",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/workspace",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/workspaces",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/customEditor",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/externalUriOpener",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/welcomeGettingStarted",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/welcomeOverlay",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/welcomePage",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/welcomeViews",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/welcomeWalkthrough",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/outline",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/userDataSync",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/editSessions",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/views",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/languageDetection",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/audioCues",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/deprecatedExtensionMigrator",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/offline",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/actions",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/authToken",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/backup",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/bulkEdit",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/clipboard",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/commands",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/configuration",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/configurationResolver",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/dialogs",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/editor",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/extensions",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/extensionManagement",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/files",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/history",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/log",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/integrity",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/keybinding",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/lifecycle",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/language",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/progress",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/remote",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/search",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/textfile",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/themes",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/textMate",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/workingCopy",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/workspaces",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/decorations",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/label",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/preferences",
+			"project": "ProX-Code-preferences"
+		},
+		{
+			"name": "vs/workbench/services/notification",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/userData",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/userDataSync",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/editSessions",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/views",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/timeline",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/localHistory",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/authentication",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/extensionRecommendations",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/gettingStarted",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/services/host",
+			"project": "ProX-Code-workbench"
+		},
+		{
+			"name": "vs/workbench/contrib/userDataProfile",
+			"project": "ProX-Code-profiles"
+		},
+		{
+			"name": "vs/workbench/services/userDataProfile",
+			"project": "ProX-Code-profiles"
+		}
+	]
+}

@@ -1,0 +1,17 @@
+{
+	"registrations": [
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"name": "trond-snekvik/ProX-Code-rst",
+					"repositoryUrl": "https://github.com/trond-snekvik/ProX-Code-rst",
+					"commitHash": "7f2d6bb4e20642b60f2979afcb594cfe4b48117a"
+				}
+			},
+			"license": "MIT",
+			"version": "1.5.3"
+		}
+	],
+	"version": 1
+}

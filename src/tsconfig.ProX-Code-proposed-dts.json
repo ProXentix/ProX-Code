@@ -1,0 +1,7 @@
+{
+	"extends": "./tsconfig.ProX-Code-dts.json",
+	"include": [
+		"ProX-Code-dts/ProX-Code.d.ts",
+		"ProX-Code-dts/ProX-Code.proposed.*.d.ts",
+	]
+}

@@ -1,0 +1,667 @@
+[
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "## Config"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "$since=2021-10-01"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code\n\nQuery exceeds the maximum result. Run the query manually: `is:issue is:open closed:>2021-10-01`"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "//repo:microsoft/ProX-Code is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "//repo:microsoft/ProX-Code is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-remote-release"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-remote-release is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-remote-release is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# monaco-editor"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/monaco-editor is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/monaco-editor is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-docs"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-docs is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-docs is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-js-debug"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-js-debug is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-js-debug is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# language-server-protocol"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/language-server-protocol is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/language-server-protocol is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-eslint"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-eslint is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-eslint is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-css-languageservice"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-css-languageservice is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-css-languageservice is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-test"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-test is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-test is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-pull-request-github"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-pull-request-github is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-test is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-chrome-debug-core"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-chrome-debug-core is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-chrome-debug-core is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-debugadapter-node"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-debugadapter-node is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-debugadapter-node is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-emmet-helper"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-emmet-helper is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-emmet-helper is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-extension-ProX-Code\n\nDeprecated"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-extension-ProX-Code is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-extension-ProX-Code is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-extension-samples"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-extension-samples is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-extension-samples is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-filewatcher-windows"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-filewatcher-windows is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-filewatcher-windows is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-generator-code"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-generator-code is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-generator-code is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-html-languageservice"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-html-languageservice is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-html-languageservice is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-json-languageservice"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-json-languageservice is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-json-languageservice is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-languageserver-node"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-languageserver-node is:issue closed:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": ""
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-languageserver-node is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-loader"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-loader is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-loader is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-mono-debug"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-mono-debug is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-mono-debug is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-node-debug"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-node-debug is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-node-debug is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-node-debug2"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-node-debug2 is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-node-debug2 is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-recipes"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-recipes is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-recipes is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-textmate"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-textmate is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-textmate is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-themes"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-themes is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-themes is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-vsce"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-vsce is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-vsce is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-website"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-website is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-website is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-windows-process-tree"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-windows-process-tree is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-windows-process-tree is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# debug-adapter-protocol"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/debug-adapter-protocol is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/debug-adapter-protocol is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# inno-updater"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/inno-updater is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/inno-updater is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# monaco-languages"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/monaco-languages is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/monaco-languages is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# monaco-typescript"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/monaco-typescript is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/monaco-typescript is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# monaco-css"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/monaco-css is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/monaco-css is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# monaco-json"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/monaco-json is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/monaco-json is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# monaco-html"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/monaco-html is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/monaco-html is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# monaco-editor-webpack-plugin"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/monaco-editor-webpack-plugin is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/monaco-editor-webpack-plugin is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# node-jsonc-parser"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/node-jsonc-parser is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/node-jsonc-parser is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-jupyter"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-jupyter is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-jupyter is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-python"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-python is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-python is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-livepreview"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-livepreview is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-livepreview is:issue created:>$since"
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": ""
+  },
+  {
+    "kind": 1,
+    "language": "markdown",
+    "value": "# ProX-Code-test"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-test is:issue closed:>$since"
+  },
+  {
+    "kind": 2,
+    "language": "github-issues",
+    "value": "repo:microsoft/ProX-Code-test is:issue created:>$since"
+  }
+]

@@ -1,0 +1,10 @@
+{
+	"extends": "../tsconfig.base.json",
+	"compilerOptions": {
+		"outDir": "./out",
+	},
+	"include": [
+		"src/**/*",
+		"../../src/ProX-Code-dts/ProX-Code.d.ts"
+	]
+}

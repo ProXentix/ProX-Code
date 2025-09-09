@@ -1,0 +1,18 @@
+{
+	"extends": "../tsconfig.base.json",
+	"compilerOptions": {
+		"outDir": "./out",
+		"types": [
+			"node"
+		],
+		"lib": [
+			"WebWorker"
+		]
+	},
+	"include": [
+		"src/**/*",
+		"../../src/ProX-Code-dts/ProX-Code.d.ts",
+		"../../src/ProX-Code-dts/ProX-Code.proposed.tunnels.d.ts",
+		"../../src/ProX-Code-dts/ProX-Code.proposed.resolvers.d.ts"
+	]
+}
