@@ -1,12 +1,19 @@
 # ProX Code - Open Source ("ProX Code")
 
-[![Feature Requests](https://img.shields.io/github/issues/microsoft/ProX-Code/feature-request.svg)](https://github.com/microsoft/ProX-Code/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request+sort%3Areactions-%2B1-desc)
-[![Bugs](https://img.shields.io/github/issues/microsoft/ProX-Code/bug.svg)](https://github.com/microsoft/ProX-Code/issues?utf8=✓&q=is%3Aissue+is%3Aopen+label%3Abug)
-[![Gitter](https://img.shields.io/badge/chat-on%20gitter-yellow.svg)](https://gitter.im/Microsoft/ProX-Code)
+[![Feature Requests](https://img.shields.io/github/issues/ProXentix/ProX-Code/feature-request.svg)](https://github.com/ProXentix/ProX-Code/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request+sort%3Areactions-%2B1-desc)  
+[![Bugs](https://img.shields.io/github/issues/ProXentix/ProX-Code/bug.svg)](https://github.com/ProXentix/ProX-Code/issues?q=is%3Aissue+is%3Aopen+label%3Abug)  
+[![Community](https://img.shields.io/badge/chat-on%20discord-blue.svg)](https://discord.gg/)
+
+---
 
 ## The Repository
 
-This repository ("`ProX Code`") is where we (Microsoft) develop the [ProX Code](https://code.visualstudio.com) product together with the community. Not only do we work on code and issues here, we also publish our [roadmap](https://github.com/microsoft/ProX-Code/wiki/Roadmap), [monthly iteration plans](https://github.com/microsoft/ProX-Code/wiki/Iteration-Plans), and our [endgame plans](https://github.com/microsoft/ProX-Code/wiki/Running-the-Endgame). This source code is available to everyone under the standard [MIT license](https://github.com/microsoft/ProX-Code/blob/main/LICENSE.txt).
+This repository ("`ProX Code`") is where we (ProXentix) develop the [ProX Code](https://proxcode.dev) product together with the community.  
+Here you can explore the source code, report issues, propose features, and track our roadmap.
+
+The source code is available under the standard [MIT license](https://github.com/ProXentix/ProX-Code/blob/main/LICENSE.txt).
+
+---
 
 ## ProX Code
 
@@ -14,66 +21,92 @@ This repository ("`ProX Code`") is where we (Microsoft) develop the [ProX Code](
   <img alt="ProX Code in action" src="https://user-images.githubusercontent.com/35271042/118224532-3842c400-b438-11eb-923d-a5f66fa6785a.png">
 </p>
 
-[ProX Code](https://code.visualstudio.com) is a distribution of the `ProX Code` repository with Microsoft-specific customizations released under a traditional [Microsoft product license](https://code.visualstudio.com/License/).
+[ProX Code](https://proxcode.dev) combines the simplicity of a lightweight editor with everything developers need for their **edit → build → debug** workflow.  
 
-[ProX Code](https://code.visualstudio.com) combines the simplicity of a code editor with what developers need for their core edit-build-debug cycle. It provides comprehensive code editing, navigation, and understanding support along with lightweight debugging, a rich extensibility model, and lightweight integration with existing tools.
+✨ Key Features:
+- Comprehensive code editing, navigation, and refactoring  
+- Built-in debugging  
+- Rich extensibility model  
+- Seamless integration with existing tools  
 
-ProX Code is updated monthly with new features and bug fixes. You can download it for Windows, macOS, and Linux on [ProX Code's website](https://code.visualstudio.com/Download). To get the latest releases every day, install the [Insiders build](https://code.visualstudio.com/insiders).
+ProX Code is updated monthly with new features and bug fixes.  
+👉 Download it for **Windows, macOS, and Linux** from [ProX Code’s website](https://proxcode.dev/download).  
+👉 For daily updates, try the [Insiders build](https://proxcode.dev/insiders).
+
+---
 
 ## Contributing
 
-There are many ways in which you can participate in this project, for example:
+There are many ways to participate in this project:
 
-* [Submit bugs and feature requests](https://github.com/microsoft/ProX-Code/issues), and help us verify as they are checked in
-* Review [source code changes](https://github.com/microsoft/ProX-Code/pulls)
-* Review the [documentation](https://github.com/microsoft/ProX-Code-docs) and make pull requests for anything from typos to additional and new content
+- [Submit bugs and feature requests](https://github.com/ProXentix/ProX-Code/issues)  
+- Review [source code changes](https://github.com/ProXentix/ProX-Code/pulls)  
+- Contribute to [documentation](https://github.com/ProXentix/ProX-Code-docs)  
 
-If you are interested in fixing issues and contributing directly to the code base,
-please see the document [How to Contribute](https://github.com/microsoft/ProX-Code/wiki/How-to-Contribute), which covers the following:
+For details, see our [How to Contribute](https://github.com/ProXentix/ProX-Code/wiki/How-to-Contribute) guide, which covers:
 
-* [How to build and run from source](https://github.com/microsoft/ProX-Code/wiki/How-to-Contribute)
-* [The development workflow, including debugging and running tests](https://github.com/microsoft/ProX-Code/wiki/How-to-Contribute#debugging)
-* [Coding guidelines](https://github.com/microsoft/ProX-Code/wiki/Coding-Guidelines)
-* [Submitting pull requests](https://github.com/microsoft/ProX-Code/wiki/How-to-Contribute#pull-requests)
-* [Finding an issue to work on](https://github.com/microsoft/ProX-Code/wiki/How-to-Contribute#where-to-contribute)
-* [Contributing to translations](https://aka.ms/ProX-Codeloc)
+- Building and running from source  
+- Development workflow, debugging, and running tests  
+- Coding guidelines  
+- Submitting pull requests  
+- Contributing to translations  
+
+---
 
 ## Feedback
 
-* Ask a question on [Stack Overflow](https://stackoverflow.com/questions/tagged/ProX-Code)
-* [Request a new feature](CONTRIBUTING.md)
-* Upvote [popular feature requests](https://github.com/microsoft/ProX-Code/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request+sort%3Areactions-%2B1-desc)
-* [File an issue](https://github.com/microsoft/ProX-Code/issues)
-* Connect with the extension author community on [GitHub Discussions](https://github.com/microsoft/ProX-Code-discussions/discussions) or [Slack](https://aka.ms/ProX-Code-dev-community)
-* Follow [@code](https://twitter.com/code) and let us know what you think!
+- Ask questions on [Stack Overflow](https://stackoverflow.com/questions/tagged/prox-code)  
+- [Request new features](CONTRIBUTING.md)  
+- Upvote [popular feature requests](https://github.com/ProXentix/ProX-Code/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request+sort%3Areactions-%2B1-desc)  
+- [File an issue](https://github.com/ProXentix/ProX-Code/issues)  
+- Join discussions on [GitHub Discussions](https://github.com/ProXentix/ProX-Code/discussions) or our [Discord community](https://discord.gg/)  
+- Follow us on Twitter [@proxcode](https://twitter.com/proxcode)  
 
-See our [wiki](https://github.com/microsoft/ProX-Code/wiki/Feedback-Channels) for a description of each of these channels and information on some other available community-driven channels.
+More details in our [Feedback Wiki](https://github.com/ProXentix/ProX-Code/wiki/Feedback-Channels).
+
+---
 
 ## Related Projects
 
-Many of the core components and extensions to ProX Code live in their own repositories on GitHub. For example, the [node debug adapter](https://github.com/microsoft/ProX-Code-node-debug) and the [mono debug adapter](https://github.com/microsoft/ProX-Code-mono-debug) repositories are separate from each other. For a complete list, please visit the [Related Projects](https://github.com/microsoft/ProX-Code/wiki/Related-Projects) page on our [wiki](https://github.com/microsoft/ProX-Code/wiki).
+Many of the core components and extensions of ProX Code live in their own repositories on GitHub.  
+For example, the [Node.js debug adapter](https://github.com/ProXentix/ProX-Code-node-debug) and the [Mono debug adapter](https://github.com/ProXentix/ProX-Code-mono-debug).  
+For a complete list, visit our [Related Projects Wiki](https://github.com/ProXentix/ProX-Code/wiki/Related-Projects).
+
+---
 
 ## Bundled Extensions
 
-ProX Code includes a set of built-in extensions located in the [extensions](extensions) folder, including grammars and snippets for many languages. Extensions that provide rich language support (code completion, Go to Definition) for a language have the suffix `language-features`. For example, the `json` extension provides coloring for `JSON` and the `json-language-features` extension provides rich language support for `JSON`.
+ProX Code ships with a set of built-in extensions in the [extensions](extensions) folder.  
+For example:  
+- `json` → provides JSON syntax highlighting  
+- `json-language-features` → provides JSON IntelliSense, Go to Definition, etc.  
+
+---
 
 ## Development Container
 
-This repository includes a ProX Code Dev Containers / GitHub Codespaces development container.
+This repository includes a ProX Code Dev Containers / GitHub Codespaces configuration.
 
-* For [Dev Containers](https://aka.ms/ProX-Code-remote/download/containers), use the **Dev Containers: Clone Repository in Container Volume...** command which creates a Docker volume for better disk I/O on macOS and Windows.
-  * If you already have ProX Code and Docker installed, you can also click [here](https://ProX-Code.dev/redirect?url=ProX-Code://ms-ProX-Code-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/ProX-Code) to get started. This will cause ProX Code to automatically install the Dev Containers extension if needed, clone the source code into a container volume, and spin up a dev container for use.
+- **Dev Containers:** Use the command  
+  `Dev Containers: Clone Repository in Container Volume...`  
+  (better disk I/O on macOS & Windows).  
+  Or click [here](https://prox-code.dev/redirect?url=prox-code://remote/cloneInVolume?url=https://github.com/ProXentix/ProX-Code).  
 
-* For Codespaces, install the [GitHub Codespaces](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) extension in ProX Code, and use the **Codespaces: Create New Codespace** command.
+- **GitHub Codespaces:** Install the [Codespaces extension](https://marketplace.visualstudio.com/items?itemName=GitHub.codespaces) and run  
+  `Codespaces: Create New Codespace`.  
 
-Docker / the Codespace should have at least **4 Cores and 6 GB of RAM (8 GB recommended)** to run full build. See the [development container README](.devcontainer/README.md) for more information.
+📌 Recommended system: **4+ Cores, 6 GB RAM (8 GB recommended)**.  
+
+---
 
 ## Code of Conduct
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+This project follows the [ProXentix Open Source Code of Conduct](https://opensource.guide/code-of-conduct/).  
+For queries, contact [support@proxentix.com](mailto:support@proxentix.com).
+
+---
 
 ## License
 
-Copyright (c) Microsoft Corporation. All rights reserved.
-
+Copyright (c) ProXentix.  
 Licensed under the [MIT](LICENSE.txt) license.
