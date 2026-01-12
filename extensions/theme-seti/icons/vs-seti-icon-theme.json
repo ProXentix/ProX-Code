@@ -366,6 +366,9 @@
 			"fontCharacter": "\\E025",
 			"fontColor": "#f55385"
 		},
+		"_proxpl": {
+			"iconPath": "./proxpl.svg"
+		},
 		"_ejs_light": {
 			"fontCharacter": "\\E027",
 			"fontColor": "#b7b73b"
@@ -2147,6 +2150,8 @@
 			"wat": "_wat_light",
 			"pro": "_prolog_light",
 			"zig": "_zig_light",
+			"prox": "_proxpl",
+			"px": "_proxpl",
 			"jar": "_zip_light",
 			"zip": "_zip_1_light",
 			"wgt": "_wgt_light",
@@ -2296,6 +2301,7 @@
 			"terraform": "_terraform_light",
 			"vala": "_vala_light",
 			"vue": "_vue_light",
+			"proxpl": "_proxpl",
 			"jsonl": "_json_light",
 			"postcss": "_css_light",
 			"django-html": "_html_3_light",
@@ -2399,6 +2405,7 @@
 			"omakefile": "_makefile_2_light",
 			"cmakelists.txt": "_makefile_3_light",
 			"procfile": "_heroku_light",
+			"prox.toml": "_proxpl",
 			"npm-debug.log": "_npm_ignored_light"
 		}
 	},
