@@ -1,11 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
-  <defs>
-    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#FF3366"/>
-      <stop offset="100%" style="stop-color:#9D00FF"/>
-    </linearGradient>
-  </defs>
-  <rect width="128" height="128" rx="24" fill="#0a0e17"/>
-  <path d="M25.6,64 Q25.6,25.6 64,64 Q102.4,102.4 102.4,64 Q102.4,25.6 64,64 Q25.6,102.4 25.6,64" fill="none" stroke="url(#grad1)" stroke-width="8" stroke-linecap="round"/>
-  <text x="115" y="115" font-family="Segoe UI, Arial" font-size="14" fill="white" font-weight="bold" text-anchor="end">PL</text>
+<svg width="128" height="128" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100" height="100" rx="20" fill="#0a0e17"/>
+  <text x="20" y="70" font-family="monospace" font-weight="bold" font-size="60" fill="#FF3366">></text>
+  <rect x="60" y="60" width="20" height="10" fill="#9D00FF">
+    <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite" />
+  </rect>
+  <text x="90" y="90" font-family="Segoe UI, Arial" font-size="12" fill="white" font-weight="bold" text-anchor="end">PL</text>
 </svg>
