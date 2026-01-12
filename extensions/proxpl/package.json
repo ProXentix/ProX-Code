@@ -1,0 +1,62 @@
+{
+    "name": "proxpl",
+    "displayName": "ProXPL",
+    "description": "Language support for ProX Programming Language (ProXPL)",
+    "version": "0.0.1",
+    "publisher": "ProXentix",
+    "engines": {
+        "vscode": "^1.90.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "proxpl",
+                "aliases": [
+                    "ProXPL",
+                    "proxpl"
+                ],
+                "extensions": [
+                    ".prox",
+                    ".px"
+                ],
+                "configuration": "./language-configuration.json",
+                "icon": {
+                    "light": "./icons/proxpl-light.svg",
+                    "dark": "./icons/proxpl-dark.svg"
+                }
+            },
+            {
+                "id": "prox-toml",
+                "aliases": [
+                    "ProX Config",
+                    "prox.toml"
+                ],
+                "filenames": [
+                    "prox.toml"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "proxpl",
+                "scopeName": "source.prox",
+                "path": "./syntaxes/proxpl.tmLanguage.json"
+            },
+            {
+                "language": "prox-toml",
+                "scopeName": "source.toml",
+                "path": "./syntaxes/toml.tmLanguage.json"
+            }
+        ],
+        "snippets": [
+            {
+                "language": "proxpl",
+                "path": "./snippets/proxpl.code-snippets"
+            }
+        ]
+    }
+}

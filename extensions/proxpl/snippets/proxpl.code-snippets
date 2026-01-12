@@ -1,0 +1,37 @@
+{
+    "Main Function": {
+        "prefix": "main",
+        "body": [
+            "func main() {",
+            "    ${0:// code here}",
+            "}",
+            "main();"
+        ],
+        "description": "Boilerplate for a main function entry point"
+    },
+    "Print Statement": {
+        "prefix": "print",
+        "body": [
+            "print(\"${1:message}\");"
+        ],
+        "description": "Standard print statement"
+    },
+    "Async Function": {
+        "prefix": "asyncfunc",
+        "body": [
+            "async func ${1:name}(${2:params}) {",
+            "    ${0:return await ...;}",
+            "}"
+        ],
+        "description": "Declaration of an asynchronous function"
+    },
+    "For Loop": {
+        "prefix": "for",
+        "body": [
+            "for (let i = 0; i < ${1:10}; i = i + 1) {",
+            "    ${0}",
+            "}"
+        ],
+        "description": "Template for a standard for loop"
+    }
+}
