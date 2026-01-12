@@ -1,7 +1,7 @@
 @echo off
 setlocal
 
-title VSCode Dev
+title ProX-Code Dev
 
 pushd %~dp0\..
 
