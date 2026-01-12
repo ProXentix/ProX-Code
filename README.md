@@ -1,7 +1,6 @@
 # ProX-Code - Open Source ("ProX-Code")
 [![Feature Requests](https://img.shields.io/github/issues/ProXentix/ProX-Code/feature-request.svg)](https://github.com/ProXentix/ProX-Code/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request+sort%3Areactions-%2B1-desc)
 [![Bugs](https://img.shields.io/github/issues/ProXentix/ProX-Code/bug.svg)](https://github.com/ProXentix/ProX-Code/issues?utf8=✓&q=is%3Aissue+is%3Aopen+label%3Abug)
-[![Gitter](https://img.shields.io/badge/chat-on%20gitter-yellow.svg)](https://gitter.im/ProXentix/vscode)
 
 ## The Repository
 

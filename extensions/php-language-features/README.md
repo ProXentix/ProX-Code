@@ -1,7 +1,0 @@
-# Language Features for PHP files
-
-**Notice:** This extension is bundled with ProX-Code. It can be disabled but not uninstalled.
-
-## Features
-
-See [PHP in ProX-Code](https://proxentix.in/proxpl/docs/languages/php) to learn about the features of this extension.

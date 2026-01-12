@@ -1,6 +1,0 @@
-.prox-code/**
-typings/**
-**/*.ts
-**/*.map
-.gitignore
-tsconfig.json

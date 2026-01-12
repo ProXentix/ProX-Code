@@ -1,9 +1,0 @@
-# Language Features for HTML
-
-**Notice:** This extension is bundled with ProX-Code. It can be disabled but not uninstalled.
-
-## Features
-
-See [HTML in ProX-Code](https://proxentix.in/proxpl/docs/languages/html) to learn about the features of this extension.
-
-Please read the [CONTRIBUTING.md](https://github.com/ProXentix/ProX-Code/blob/master/extensions/html-language-features/CONTRIBUTING.md) file to learn how to contribute to this extension.

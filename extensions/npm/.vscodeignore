@@ -1,7 +1,0 @@
-src/**
-out/**
-tsconfig.json
-.prox-code/**
-extension.webpack.config.js
-extension-browser.webpack.config.js
-package-lock.json
