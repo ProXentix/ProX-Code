@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -393,7 +393,7 @@ suite('Fuzzy Scorer', () => {
 
 	test('scoreItem - match if using slash or backslash (local, remote resource)', function () {
 		const localResource = URI.file('abcde/super/duper');
-		const remoteResource = URI.from({ scheme: Schemas.vscodeRemote, path: 'abcde/super/duper' });
+		const remoteResource = URI.from({ scheme: Schemas.prox-codeRemote, path: 'abcde/super/duper' });
 
 		for (const resource of [localResource, remoteResource]) {
 			let res = scoreItem(resource, 'abcde\\super\\duper', true, ResourceAccessor);

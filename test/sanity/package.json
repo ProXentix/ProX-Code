@@ -1,5 +1,5 @@
 {
-  "name": "code-oss-dev-sanity-test",
+  "name": "prox-code-dev-sanity-test",
   "version": "0.1.0",
   "license": "MIT",
   "main": "./out/index.js",

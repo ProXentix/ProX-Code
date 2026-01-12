@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -825,7 +825,7 @@ class ExtHostSourceControl implements vscode.SourceControl {
 		this.#proxy = proxy;
 
 		const inputBoxDocumentUri = URI.from({
-			scheme: Schemas.vscodeSourceControl,
+			scheme: Schemas.prox-codeSourceControl,
 			path: `${_id}/scm${this.handle}/input`,
 			query: _rootUri ? `rootUri=${encodeURIComponent(_rootUri.toString())}` : undefined
 		});

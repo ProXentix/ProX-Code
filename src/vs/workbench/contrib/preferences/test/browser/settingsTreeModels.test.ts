@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -243,10 +243,10 @@ suite('SettingsTree', () => {
 			});
 
 		testParseQuery(
-			'@ext:github.vscode-pull-request-github',
+			'@ext:github.prox-code-pull-request-github',
 			<IParsedQuery>{
 				tags: [],
-				extensionFilters: ['github.vscode-pull-request-github'],
+				extensionFilters: ['github.prox-code-pull-request-github'],
 				query: '',
 				featureFilters: [],
 				idFilters: [],
@@ -254,10 +254,10 @@ suite('SettingsTree', () => {
 			});
 
 		testParseQuery(
-			'@ext:github.vscode-pull-request-github,vscode.git',
+			'@ext:github.prox-code-pull-request-github,vscode.git',
 			<IParsedQuery>{
 				tags: [],
-				extensionFilters: ['github.vscode-pull-request-github', 'vscode.git'],
+				extensionFilters: ['github.prox-code-pull-request-github', 'vscode.git'],
 				query: '',
 				featureFilters: [],
 				idFilters: [],

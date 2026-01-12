@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -1816,7 +1816,7 @@ export class ChatModel extends Disposable implements IChatModel {
 
 				if (
 					request === this._requests.at(-1) &&
-					request.session.sessionResource.scheme !== Schemas.vscodeLocalChatSession &&
+					request.session.sessionResource.scheme !== Schemas.prox-codeLocalChatSession &&
 					this.configurationService.getValue<boolean>('chat.checkpoints.showFileChanges') === true &&
 					this._editingSession.hasEditsInRequest(request.id)
 				) {

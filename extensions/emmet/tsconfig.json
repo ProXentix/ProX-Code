@@ -9,7 +9,7 @@
 	},
 	"exclude": [
 		"node_modules",
-		".vscode-test"
+		".prox-code-test"
 	],
 	"include": [
 		"src/**/*",

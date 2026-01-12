@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -42,7 +42,7 @@ import { ChatContextKeys } from '../../common/actions/chatContextKeys.js';
 const toolEnumValues: string[] = [];
 const toolEnumDescriptions: string[] = [];
 
-const toolSetSchemaId = 'vscode://schemas/toolsets';
+const toolSetSchemaId = 'prox-code://schemas/toolsets';
 const toolSetsSchema: IJSONSchema = {
 	id: toolSetSchemaId,
 	allowComments: true,

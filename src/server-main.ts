@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -20,7 +20,7 @@ import { INLSConfiguration } from './vs/nls.js';
 import { IServerAPI } from './vs/server/node/remoteExtensionHostAgentServer.js';
 
 perf.mark('code/server/start');
-(globalThis as { vscodeServerStartTime?: number }).vscodeServerStartTime = performance.now();
+(globalThis as { vscodeServerStartTime?: number }).prox-codeServerStartTime = performance.now();
 
 // Do a quick parse to determine if a server or the cli needs to be started
 const parsedArgs = minimist(process.argv.slice(2), {
@@ -138,7 +138,7 @@ if (shouldSpawnCli) {
 		console.log(output);
 
 		perf.mark('code/server/started');
-		(globalThis as { vscodeServerListenTime?: number }).vscodeServerListenTime = performance.now();
+		(globalThis as { vscodeServerListenTime?: number }).prox-codeServerListenTime = performance.now();
 
 		await getRemoteExtensionHostAgentServer();
 	});

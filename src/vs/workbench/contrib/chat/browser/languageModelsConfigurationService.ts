@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -272,7 +272,7 @@ export function parseLanguageModelsProviderGroups(model: ITextModel): LanguageMo
 	return configuration;
 }
 
-const languageModelsSchemaId = 'vscode://schemas/language-models';
+const languageModelsSchemaId = 'prox-code://schemas/language-models';
 
 export class ChatLanguageModelsDataContribution extends Disposable implements IWorkbenchContribution {
 

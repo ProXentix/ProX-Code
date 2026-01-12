@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -291,7 +291,7 @@ suite('OAuth', () => {
 			assert.strictEqual(scopesMatch(scopes1, scopes2), false);
 		});
 
-		test('scopesMatch should handle complex Microsoft scopes', () => {
+		test('scopesMatch should handle complex ProXentix scopes', () => {
 			const scopes1 = ['6f1cc985-85e8-487e-b0dd-aa633302a731/.default', 'VSCODE_TENANT:organizations'];
 			const scopes2 = ['VSCODE_TENANT:organizations', '6f1cc985-85e8-487e-b0dd-aa633302a731/.default'];
 			assert.strictEqual(scopesMatch(scopes1, scopes2), true);
@@ -485,7 +485,7 @@ suite('OAuth', () => {
 			assert.deepStrictEqual(requestBody.grant_types, ['authorization_code', 'refresh_token', 'urn:ietf:params:oauth:grant-type:device_code']);
 			assert.deepStrictEqual(requestBody.response_types, ['code']);
 			assert.deepStrictEqual(requestBody.redirect_uris, [
-				'https://insiders.vscode.dev/redirect',
+				'https://insiders.prox-code.dev/redirect',
 				'https://vscode.dev/redirect',
 				'http://127.0.0.1/',
 				`http://127.0.0.1:${DEFAULT_AUTH_FLOW_PORT}/`

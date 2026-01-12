@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -257,14 +257,14 @@ fn detect_installed_program(log: &log::Logger) -> io::Result<Vec<PathBuf>> {
 	// profiler can output nicely structure plist xml, pulling in an xml parser
 	// just for this is overkill. The default output looks something like...
 	//
-	//     Visual Studio Code - Exploration 2:
+	//     ProX-Code - Exploration 2:
 	//
 	//        Version: 1.73.0-exploration
 	//        Obtained from: Identified Developer
 	//        Last Modified: 9/23/22, 10:16 AM
 	//        Kind: Intel
-	//        Signed by: Developer ID Application: Microsoft Corporation (UBF8T346G9), Developer ID Certification Authority, Apple Root CA
-	//        Location: /Users/connor/Downloads/Visual Studio Code - Exploration 2.app
+	//        Signed by: Developer ID Application: ProXentix (UBF8T346G9), Developer ID Certification Authority, Apple Root CA
+	//        Location: /Users/connor/Downloads/ProX-Code - Exploration 2.app
 	//
 	// So, use a simple state machine that looks for the first line, and then for
 	// the `Location:` line for the path.
@@ -326,15 +326,15 @@ fn detect_installed_program(_log: &log::Logger) -> io::Result<Vec<PathBuf>> {
 	let scopes = [
 		(
 			HKEY_LOCAL_MACHINE,
-			"SOFTWARE\\Wow6432Node\\Microsoft\\Windows\\CurrentVersion\\Uninstall",
+			"SOFTWARE\\Wow6432Node\\ProXentix\\Windows\\CurrentVersion\\Uninstall",
 		),
 		(
 			HKEY_LOCAL_MACHINE,
-			"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall",
+			"SOFTWARE\\ProXentix\\Windows\\CurrentVersion\\Uninstall",
 		),
 		(
 			HKEY_CURRENT_USER,
-			"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall",
+			"SOFTWARE\\ProXentix\\Windows\\CurrentVersion\\Uninstall",
 		),
 	];
 

@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -120,11 +120,11 @@ export class MarkdownDiffBlockPart extends Disposable {
 
 		// Create in-memory models for the diff
 		const originalUri = URI.from({
-			scheme: Schemas.vscodeChatCodeBlock,
+			scheme: Schemas.prox-codeChatCodeBlock,
 			path: `/chat-diff-original-${data.codeBlockIndex}-${generateUuid()}`,
 		});
 		const modifiedUri = URI.from({
-			scheme: Schemas.vscodeChatCodeBlock,
+			scheme: Schemas.prox-codeChatCodeBlock,
 			path: `/chat-diff-modified-${data.codeBlockIndex}-${generateUuid()}`,
 		});
 

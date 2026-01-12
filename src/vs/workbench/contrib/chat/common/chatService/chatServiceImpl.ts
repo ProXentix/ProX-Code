@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -542,7 +542,7 @@ export class ChatService extends Disposable implements IChatService {
 	async loadSessionForResource(chatSessionResource: URI, location: ChatAgentLocation, token: CancellationToken): Promise<IChatModelReference | undefined> {
 		// TODO: Move this into a new ChatModelService
 
-		if (chatSessionResource.scheme === Schemas.vscodeLocalChatSession) {
+		if (chatSessionResource.scheme === Schemas.prox-codeLocalChatSession) {
 			return this.getOrRestoreSession(chatSessionResource);
 		}
 

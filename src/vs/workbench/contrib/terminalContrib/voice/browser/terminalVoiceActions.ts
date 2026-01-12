@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -44,7 +44,7 @@ export function registerTerminalVoiceActions() {
 				return;
 			}
 			const extensions = await extensionManagementService.getInstalled();
-			const extension = extensions.find(extension => extension.identifier.id === 'ms-vscode.vscode-speech');
+			const extension = extensions.find(extension => extension.identifier.id === 'ms-vscode.prox-code-speech');
 			const extensionIsDisabled = extension && !workbenchExtensionEnablementService.isEnabled(extension);
 			let run: () => Promise<unknown>;
 			let message: string;
@@ -54,8 +54,8 @@ export function registerTerminalVoiceActions() {
 				primaryButton = localize('enableExtension', "Enable Extension");
 				run = () => workbenchExtensionEnablementService.setEnablement([extension], EnablementState.EnabledWorkspace);
 			} else {
-				message = localize('terminal.voice.installSpeechExtension', "Would you like to install 'VS Code Speech' extension from 'Microsoft'?");
-				run = () => commandService.executeCommand('workbench.extensions.installExtension', 'ms-vscode.vscode-speech');
+				message = localize('terminal.voice.installSpeechExtension', "Would you like to install 'VS Code Speech' extension from 'ProXentix'?");
+				run = () => commandService.executeCommand('workbench.extensions.installExtension', 'ms-vscode.prox-code-speech');
 				primaryButton = localize('installExtension', "Install Extension");
 			}
 			const detail = localize('terminal.voice.detail', "Microphone support requires this extension.");

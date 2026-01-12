@@ -1438,7 +1438,7 @@
               {
                 "type": "string",
                 "const": "vscode",
-                "description": "%configuration.tsserver.watchOptions.vscode%"
+                "description": "%configuration.tsserver.watchOptions.prox-code%"
               },
               {
                 "type": "object",

@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -66,7 +66,7 @@ class SCMInputBoxContentProvider extends Disposable implements ITextModelContent
 		private readonly languageService: ILanguageService,
 	) {
 		super();
-		this._register(textModelService.registerTextModelContentProvider(Schemas.vscodeSourceControl, this));
+		this._register(textModelService.registerTextModelContentProvider(Schemas.prox-codeSourceControl, this));
 	}
 
 	async provideTextContent(resource: URI): Promise<ITextModel | null> {

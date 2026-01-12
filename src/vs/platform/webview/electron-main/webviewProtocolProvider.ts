@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -23,11 +23,11 @@ export class WebviewProtocolProvider implements IDisposable {
 	) {
 		// Register the protocol for loading webview html
 		const webviewHandler = this.handleWebviewRequest.bind(this);
-		protocol.handle(Schemas.vscodeWebview, webviewHandler);
+		protocol.handle(Schemas.prox-codeWebview, webviewHandler);
 	}
 
 	dispose(): void {
-		protocol.unhandle(Schemas.vscodeWebview);
+		protocol.unhandle(Schemas.prox-codeWebview);
 	}
 
 	private async handleWebviewRequest(request: GlobalRequest): Promise<GlobalResponse> {

@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -94,13 +94,13 @@ export class ExtHostTelemetry extends Disposable implements ExtHostTelemetryShap
 		// Or will first party extensions just mix this in
 		commonProperties['common.extname'] = `${extension.publisher}.${extension.name}`;
 		commonProperties['common.extversion'] = extension.version;
-		commonProperties['common.vscodemachineid'] = this.initData.telemetryInfo.machineId;
-		commonProperties['common.vscodesessionid'] = this.initData.telemetryInfo.sessionId;
-		commonProperties['common.vscodecommithash'] = this.initData.commit;
+		commonProperties['common.prox-codemachineid'] = this.initData.telemetryInfo.machineId;
+		commonProperties['common.prox-codesessionid'] = this.initData.telemetryInfo.sessionId;
+		commonProperties['common.prox-codecommithash'] = this.initData.commit;
 		commonProperties['common.sqmid'] = this.initData.telemetryInfo.sqmId;
 		commonProperties['common.devDeviceId'] = this.initData.telemetryInfo.devDeviceId ?? this.initData.telemetryInfo.machineId;
-		commonProperties['common.vscodeversion'] = this.initData.version;
-		commonProperties['common.vscodereleasedate'] = this.initData.date;
+		commonProperties['common.prox-codeversion'] = this.initData.version;
+		commonProperties['common.prox-codereleasedate'] = this.initData.date;
 		commonProperties['common.isnewappinstall'] = isNewAppInstall(this.initData.telemetryInfo.firstSessionDate);
 		commonProperties['common.product'] = this.initData.environment.appHost;
 

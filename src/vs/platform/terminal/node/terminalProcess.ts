@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -581,7 +581,7 @@ export class TerminalProcess extends Disposable implements ITerminalChildProcess
 		if (isMacintosh) {
 			// From Big Sur (darwin v20) there is a spawn blocking thread issue on Electron,
 			// this is fixed in VS Code's internal Electron.
-			// https://github.com/Microsoft/vscode/issues/105446
+			// https://github.com/ProXentix/vscode/issues/105446
 			return new Promise<string>(resolve => {
 				if (!this._ptyProcess) {
 					resolve(this._initialCwd);

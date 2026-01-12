@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -100,7 +100,7 @@ export class WindowTitle extends Disposable {
 	) {
 		super();
 
-		this.windowId = targetWindow.vscodeWindowId;
+		this.windowId = targetWindow.prox-codeWindowId;
 
 		this.checkTitleVariables();
 
@@ -335,7 +335,7 @@ export class WindowTitle extends Disposable {
 		// otherwise figure out if we have a virtual folder opened
 		let remoteName: string | undefined = undefined;
 		if (this.environmentService.remoteAuthority && !isWeb) {
-			remoteName = this.labelService.getHostLabel(Schemas.vscodeRemote, this.environmentService.remoteAuthority);
+			remoteName = this.labelService.getHostLabel(Schemas.prox-codeRemote, this.environmentService.remoteAuthority);
 		} else {
 			const virtualWorkspaceLocation = getVirtualWorkspaceLocation(workspace);
 			if (virtualWorkspaceLocation) {

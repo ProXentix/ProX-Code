@@ -1,4 +1,4 @@
-.vscode/
+.prox-code/
 out/test/
 out/**/*.js.map
 src/

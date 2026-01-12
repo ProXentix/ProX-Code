@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -514,8 +514,8 @@ interface IElectronWebUtils {
  * in a safe way without crashing the application when running in the web.
  */
 export function getPathForFile(file: File): string | undefined {
-	if (isNative && typeof (globalThis as IElectronWebUtils).vscode?.webUtils?.getPathForFile === 'function') {
-		return (globalThis as IElectronWebUtils).vscode?.webUtils?.getPathForFile(file);
+	if (isNative && typeof (globalThis as IElectronWebUtils).prox-code?.webUtils?.getPathForFile === 'function') {
+		return (globalThis as IElectronWebUtils).prox-code?.webUtils?.getPathForFile(file);
 	}
 
 	return undefined;

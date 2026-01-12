@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -107,7 +107,7 @@ if (crashReporterDirectory) {
 	app.setPath('crashDumps', crashReporterDirectory);
 
 	crashReporter.start({
-		companyName: 'Microsoft',
+		companyName: 'ProXentix',
 		productName: process.env['VSCODE_DEV'] ? `${product.nameShort} Dev` : product.nameShort,
 		uploadToServer: false,
 		compress: true
@@ -240,11 +240,11 @@ app.on('ready', () => {
 		return {
 			product: {
 				version: '1.x.y',
-				nameShort: 'Code - OSS Dev',
-				nameLong: 'Code - OSS Dev',
-				applicationName: 'code-oss',
-				dataFolderName: '.vscode-oss',
-				urlProtocol: 'code-oss',
+				nameShort: 'ProX-Code Dev',
+				nameLong: 'ProX-Code Dev',
+				applicationName: 'prox-code',
+				dataFolderName: '.vsprox-code',
+				urlProtocol: 'prox-code',
 			}
 		};
 	});

@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -30,7 +30,7 @@ export interface IURLCallbackProvider {
 	 *
 	 * For example: if a Uri is to be created with `scheme:"vscode"`,
 	 * `authority:"foo"` and `path:"bar"` the `onCallback` should fire
-	 * with a Uri `vscode://foo/bar`.
+	 * with a Uri `prox-code://foo/bar`.
 	 *
 	 * If there are additional `query` values in the Uri, they should
 	 * be added to the list of provided `query` arguments from the

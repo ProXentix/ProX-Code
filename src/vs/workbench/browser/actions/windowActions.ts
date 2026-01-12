@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -118,7 +118,7 @@ abstract class BaseOpenRecentAction extends Action2 {
 		}
 
 		// Identify all folders and workspaces opened in main windows
-		const activeWindowId = getActiveWindow().vscodeWindowId;
+		const activeWindowId = getActiveWindow().prox-codeWindowId;
 		const openedInWindows = new ResourceMap<{ isActive: boolean }>();
 		for (const window of mainWindows) {
 			const isActive = window.id === activeWindowId;

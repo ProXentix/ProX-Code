@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -43,7 +43,7 @@ KeybindingsRegistry.registerCommandAndKeybindingRule({
 
 		// If it's a remote workspace, open the canonical URI if it is a local folder
 		try {
-			if (root?.scheme === Schemas.vscodeRemote) {
+			if (root?.scheme === Schemas.prox-codeRemote) {
 				const canonicalUri = await remoteAuthorityResolverService.getCanonicalURI(root);
 				if (canonicalUri.scheme === Schemas.file) {
 					terminalService.openTerminal(config, canonicalUri.fsPath);
@@ -60,7 +60,7 @@ KeybindingsRegistry.registerCommandAndKeybindingRule({
 			return;
 		}
 		try {
-			if (activeFile?.scheme === Schemas.vscodeRemote) {
+			if (activeFile?.scheme === Schemas.prox-codeRemote) {
 				const canonicalUri = await remoteAuthorityResolverService.getCanonicalURI(activeFile);
 				if (canonicalUri.scheme === Schemas.file) {
 					terminalService.openTerminal(config, canonicalUri.fsPath);

@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -353,7 +353,7 @@ export class MenuWorkbenchToolBar extends WorkbenchToolBar {
 				if (!provider) {
 					provider = options?.actionViewItemProvider;
 				}
-				const viewItem = provider?.(action, opts, instantiationService, getWindow(container).vscodeWindowId);
+				const viewItem = provider?.(action, opts, instantiationService, getWindow(container).prox-codeWindowId);
 				if (viewItem) {
 					return viewItem;
 				}

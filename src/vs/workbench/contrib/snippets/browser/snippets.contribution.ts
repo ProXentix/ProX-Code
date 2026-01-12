@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -54,7 +54,7 @@ Registry
 
 
 // schema
-const languageScopeSchemaId = 'vscode://schemas/snippets';
+const languageScopeSchemaId = 'prox-code://schemas/snippets';
 
 const snippetSchemaProperties: IJSONSchemaMap = {
 	prefix: {
@@ -111,7 +111,7 @@ const languageScopeSchema: IJSONSchema = {
 };
 
 
-const globalSchemaId = 'vscode://schemas/global-snippets';
+const globalSchemaId = 'prox-code://schemas/global-snippets';
 const globalSchema: IJSONSchema = {
 	id: globalSchemaId,
 	allowComments: true,

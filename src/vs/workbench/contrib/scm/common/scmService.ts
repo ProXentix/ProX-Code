@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -429,7 +429,7 @@ export class SCMService implements ISCMService {
 		}
 
 		if (idOrResource.scheme !== Schemas.file &&
-			idOrResource.scheme !== Schemas.vscodeRemote) {
+			idOrResource.scheme !== Schemas.prox-codeRemote) {
 			return undefined;
 		}
 

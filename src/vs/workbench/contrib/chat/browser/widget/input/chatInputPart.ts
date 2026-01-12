@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -387,7 +387,7 @@ export class ChatInputPart extends Disposable implements IHistoryNavigationWidge
 	private cachedExecuteToolbarWidth: number | undefined;
 	private cachedInputToolbarWidth: number | undefined;
 
-	readonly inputUri: URI = URI.parse(`${Schemas.vscodeChatInput}:input-${ChatInputPart._counter++}`);
+	readonly inputUri: URI = URI.parse(`${Schemas.prox-codeChatInput}:input-${ChatInputPart._counter++}`);
 
 	private _workingSetLinesAddedSpan = new Lazy(() => dom.$('.working-set-lines-added'));
 	private _workingSetLinesRemovedSpan = new Lazy(() => dom.$('.working-set-lines-removed'));

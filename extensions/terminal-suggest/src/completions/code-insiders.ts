@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 import code, { commonOptions, extensionManagementOptions, troubleshootingOptions } from './code';
@@ -7,7 +7,7 @@ import code, { commonOptions, extensionManagementOptions, troubleshootingOptions
 const codeInsidersCompletionSpec: Fig.Spec = {
 	...code,
 	name: 'code-insiders',
-	description: 'Visual Studio Code Insiders',
+	description: 'ProX-Code Insiders',
 	options: [
 		...commonOptions,
 		...extensionManagementOptions('code-insiders'),

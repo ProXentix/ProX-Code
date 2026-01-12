@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -65,7 +65,7 @@ export class ShowPreviousInlineSuggestionAction extends EditorAction {
 	}
 }
 
-export const providerIdSchemaUri = 'vscode://schemas/inlineCompletionProviderIdArgs';
+export const providerIdSchemaUri = 'prox-code://schemas/inlineCompletionProviderIdArgs';
 
 export function inlineCompletionProviderGetMatcher(provider: InlineCompletionsProvider): string[] {
 	const result: string[] = [];

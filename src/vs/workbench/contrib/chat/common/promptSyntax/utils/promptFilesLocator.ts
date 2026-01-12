@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -212,7 +212,7 @@ export class PromptFilesLocator {
 					if (remoteAuthority) {
 						// if the location is absolute and we are in a remote environment,
 						// we need to convert it to a file URI with the remote authority
-						uri = uri.with({ scheme: Schemas.vscodeRemote, authority: remoteAuthority });
+						uri = uri.with({ scheme: Schemas.prox-codeRemote, authority: remoteAuthority });
 					}
 					result.add(uri);
 				} else {

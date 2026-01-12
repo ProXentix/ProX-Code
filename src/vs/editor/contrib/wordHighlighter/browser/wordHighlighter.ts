@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -335,7 +335,7 @@ class WordHighlighter {
 			const activeEditor = this.codeEditorService.getFocusedCodeEditor();
 			if (!activeEditor) { // clicked into nb cell list, outline, terminal, etc
 				this._stopAll();
-			} else if (activeEditor.getModel()?.uri.scheme === Schemas.vscodeNotebookCell && this.editor.getModel()?.uri.scheme !== Schemas.vscodeNotebookCell) { // switched tabs from non-nb to nb
+			} else if (activeEditor.getModel()?.uri.scheme === Schemas.prox-codeNotebookCell && this.editor.getModel()?.uri.scheme !== Schemas.prox-codeNotebookCell) { // switched tabs from non-nb to nb
 				this._stopAll();
 			}
 		}));
@@ -484,7 +484,7 @@ class WordHighlighter {
 		this._removeSingleDecorations();
 
 		if (this.editor.hasTextFocus()) {
-			if (this.editor.getModel()?.uri.scheme !== Schemas.vscodeNotebookCell && WordHighlighter.query?.modelInfo?.modelURI.scheme !== Schemas.vscodeNotebookCell) { // clear query if focused non-nb editor
+			if (this.editor.getModel()?.uri.scheme !== Schemas.prox-codeNotebookCell && WordHighlighter.query?.modelInfo?.modelURI.scheme !== Schemas.prox-codeNotebookCell) { // clear query if focused non-nb editor
 				WordHighlighter.query = null;
 				this._run(); // TODO: @Yoyokrazy -- investigate why we need a full rerun here. likely addressed a case/patch in the first iteration of this feature
 			} else { // remove modelInfo to account for nb cell being disposed
@@ -577,13 +577,13 @@ class WordHighlighter {
 		}
 
 		// notebook case
-		const isNotebookEditor = model.uri.scheme === Schemas.vscodeNotebookCell;
+		const isNotebookEditor = model.uri.scheme === Schemas.prox-codeNotebookCell;
 		if (isNotebookEditor) {
 			const currentModels: ITextModel[] = [];
 			const currentEditors = this.codeEditorService.listCodeEditors();
 			for (const editor of currentEditors) {
 				const tempModel = editor.getModel();
-				if (tempModel && tempModel !== model && tempModel.uri.scheme === Schemas.vscodeNotebookCell) {
+				if (tempModel && tempModel !== model && tempModel.uri.scheme === Schemas.prox-codeNotebookCell) {
 					currentModels.push(tempModel);
 				}
 			}
@@ -719,7 +719,7 @@ class WordHighlighter {
 				queryModelRef.dispose();
 			}
 
-		} else if (this.model.uri.scheme === Schemas.vscodeNotebookCell) {
+		} else if (this.model.uri.scheme === Schemas.prox-codeNotebookCell) {
 			// new wordHighlighter coming from a different model, NOT the query model, need to create a textModel ref
 
 			const myRequestId = ++this.workerRequestTokenId;
@@ -851,7 +851,7 @@ export class WordHighlighterContribution extends Disposable implements IEditorCo
 		};
 		this._register(editor.onDidChangeModel((e) => {
 			if (this._wordHighlighter) {
-				if (!e.newModelUrl && e.oldModelUrl?.scheme !== Schemas.vscodeNotebookCell) { // happens when switching tabs to a notebook that has focus in the cell list, no new model URI (this also doesn't make it to the wordHighlighter, bc no editor.hasModel)
+				if (!e.newModelUrl && e.oldModelUrl?.scheme !== Schemas.prox-codeNotebookCell) { // happens when switching tabs to a notebook that has focus in the cell list, no new model URI (this also doesn't make it to the wordHighlighter, bc no editor.hasModel)
 					this.wordHighlighter?.stop();
 				}
 

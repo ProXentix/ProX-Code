@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -203,7 +203,7 @@ class RemoteAuthoritiesImpl {
 	}
 
 	private get _remoteResourcesPath(): string {
-		return paths.posix.join(this._serverRootPath, Schemas.vscodeRemoteResource);
+		return paths.posix.join(this._serverRootPath, Schemas.prox-codeRemoteResource);
 	}
 
 	set(authority: string, host: string, port: number): void {
@@ -240,7 +240,7 @@ class RemoteAuthoritiesImpl {
 			query += `&${connectionTokenQueryName}=${encodeURIComponent(connectionToken)}`;
 		}
 		return URI.from({
-			scheme: platform.isWeb ? this._preferredWebSchema : Schemas.vscodeRemoteResource,
+			scheme: platform.isWeb ? this._preferredWebSchema : Schemas.prox-codeRemoteResource,
 			authority: `${host}:${port}`,
 			path: this._remoteResourcesPath,
 			query
@@ -295,7 +295,7 @@ class FileAccessImpl {
 	 */
 	uriToBrowserUri(uri: URI): URI {
 		// Handle remote URIs via `RemoteAuthorities`
-		if (uri.scheme === Schemas.vscodeRemote) {
+		if (uri.scheme === Schemas.prox-codeRemote) {
 			return RemoteAuthorities.rewrite(uri);
 		}
 
@@ -307,11 +307,11 @@ class FileAccessImpl {
 				// ...and we run in native environments
 				platform.isNative ||
 				// ...or web worker extensions on desktop
-				(platform.webWorkerOrigin === `${Schemas.vscodeFileResource}://${FileAccessImpl.FALLBACK_AUTHORITY}`)
+				(platform.webWorkerOrigin === `${Schemas.prox-codeFileResource}://${FileAccessImpl.FALLBACK_AUTHORITY}`)
 			)
 		) {
 			return uri.with({
-				scheme: Schemas.vscodeFileResource,
+				scheme: Schemas.prox-codeFileResource,
 				// We need to provide an authority here so that it can serve
 				// as origin for network and loading matters in chromium.
 				// If the URI is not coming with an authority already, we
@@ -340,7 +340,7 @@ class FileAccessImpl {
 	 */
 	uriToFileUri(uri: URI): URI {
 		// Only convert the URI if it is `vscode-file:` scheme
-		if (uri.scheme === Schemas.vscodeFileResource) {
+		if (uri.scheme === Schemas.prox-codeFileResource) {
 			return uri.with({
 				scheme: Schemas.file,
 				// Only preserve the `authority` if it is different from

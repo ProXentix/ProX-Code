@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -270,7 +270,7 @@ export class DesktopMain extends Disposable {
 
 		// Use FileUserDataProvider for user data to
 		// enable atomic read / write operations.
-		fileService.registerProvider(Schemas.vscodeUserData, this._register(new FileUserDataProvider(Schemas.file, diskFileSystemProvider, Schemas.vscodeUserData, userDataProfilesService, uriIdentityService, logService)));
+		fileService.registerProvider(Schemas.prox-codeUserData, this._register(new FileUserDataProvider(Schemas.file, diskFileSystemProvider, Schemas.prox-codeUserData, userDataProfilesService, uriIdentityService, logService)));
 
 		// Remote Agent
 		const remoteSocketFactoryService = new RemoteSocketFactoryService();
@@ -369,7 +369,7 @@ export class DesktopMain extends Disposable {
 		logService: ILogService,
 		policyService: IPolicyService
 	): Promise<WorkspaceService> {
-		const configurationCache = new ConfigurationCache([Schemas.file, Schemas.vscodeUserData] /* Cache all non native resources */, environmentService, fileService);
+		const configurationCache = new ConfigurationCache([Schemas.file, Schemas.prox-codeUserData] /* Cache all non native resources */, environmentService, fileService);
 		const workspaceService = new WorkspaceService({ remoteAuthority: environmentService.remoteAuthority, configurationCache }, environmentService, userDataProfileService, userDataProfilesService, fileService, remoteAgentService, uriIdentityService, logService, policyService);
 
 		try {

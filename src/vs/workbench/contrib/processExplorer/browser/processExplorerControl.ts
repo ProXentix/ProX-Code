@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -585,7 +585,7 @@ export class BrowserProcessExplorerControl extends ProcessExplorerControl {
 
 		const processes: { name: string; rootProcess: ProcessItem | IRemoteDiagnosticError }[] = [];
 
-		const hostName = this.labelService.getHostLabel(Schemas.vscodeRemote, connection.remoteAuthority);
+		const hostName = this.labelService.getHostLabel(Schemas.prox-codeRemote, connection.remoteAuthority);
 		const result = await this.remoteAgentService.getDiagnosticInfo({ includeProcesses: true });
 		if (result) {
 			if (isRemoteDiagnosticError(result)) {

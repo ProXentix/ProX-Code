@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -17,7 +17,7 @@ async function createInteractiveWindow(kernel: Kernel) {
 		// Keep focus on the owning file if there is one
 		{ viewColumn: vscode.ViewColumn.Beside, preserveFocus: false },
 		undefined,
-		`vscode.vscode-api-tests/${kernel.controller.id}`,
+		`vscode.prox-code-api-tests/${kernel.controller.id}`,
 		undefined
 	)) as unknown as INativeInteractiveWindow;
 	assert.ok(notebookEditor, 'Interactive Window was not created successfully');

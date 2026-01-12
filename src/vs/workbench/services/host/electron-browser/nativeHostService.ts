@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -88,7 +88,7 @@ class WorkbenchHostService extends Disposable implements IHostService {
 			disposables.add(disposableWindowInterval(window, () => {
 				const hasFocus = window.document.hasFocus();
 				if (hasFocus) {
-					emitter.fire(window.vscodeWindowId);
+					emitter.fire(window.prox-codeWindowId);
 				}
 
 				return hasFocus;
@@ -147,7 +147,7 @@ class WorkbenchHostService extends Disposable implements IHostService {
 	}
 
 	toggleFullScreen(targetWindow: Window): Promise<void> {
-		return this.nativeHostService.toggleFullScreen({ targetWindowId: isAuxiliaryWindow(targetWindow) ? targetWindow.vscodeWindowId : undefined });
+		return this.nativeHostService.toggleFullScreen({ targetWindowId: isAuxiliaryWindow(targetWindow) ? targetWindow.prox-codeWindowId : undefined });
 	}
 
 	async moveTop(targetWindow: Window): Promise<void> {
@@ -155,7 +155,7 @@ class WorkbenchHostService extends Disposable implements IHostService {
 			return; // does not apply when only one window is opened
 		}
 
-		return this.nativeHostService.moveWindowTop(isAuxiliaryWindow(targetWindow) ? { targetWindowId: targetWindow.vscodeWindowId } : undefined);
+		return this.nativeHostService.moveWindowTop(isAuxiliaryWindow(targetWindow) ? { targetWindowId: targetWindow.prox-codeWindowId } : undefined);
 	}
 
 	getCursorScreenPoint(): Promise<{ readonly point: IPoint; readonly display: IRectangle }> {

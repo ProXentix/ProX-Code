@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -37,7 +37,7 @@ export enum ExtensionsFilter {
 	/**
 	 * The internal org of the user.
 	 */
-	MicrosoftInternalOrg = 'X-Microsoft-Internal-Org',
+	ProXentixInternalOrg = 'X-ProXentix-Internal-Org',
 }
 
 enum StorageVersionKeys {
@@ -127,8 +127,8 @@ export class CopilotAssignmentFilterProvider extends Disposable implements IExpe
 	private updateCopilotEntitlementInfo() {
 		const newSku = this._chatEntitlementService.sku;
 		const newIsGitHubInternal = this._chatEntitlementService.organisations?.includes('github');
-		const newIsMicrosoftInternal = this._chatEntitlementService.organisations?.includes('microsoft') || this._chatEntitlementService.organisations?.includes('ms-copilot') || this._chatEntitlementService.organisations?.includes('MicrosoftCopilot');
-		const newInternalOrg = newIsGitHubInternal ? 'github' : newIsMicrosoftInternal ? 'microsoft' : undefined;
+		const newIsProXentixInternal = this._chatEntitlementService.organisations?.includes('microsoft') || this._chatEntitlementService.organisations?.includes('ms-copilot') || this._chatEntitlementService.organisations?.includes('ProXentixCopilot');
+		const newInternalOrg = newIsGitHubInternal ? 'github' : newIsProXentixInternal ? 'microsoft' : undefined;
 
 		if (this.copilotSku === newSku && this.copilotInternalOrg === newInternalOrg) {
 			return;
@@ -168,7 +168,7 @@ export class CopilotAssignmentFilterProvider extends Disposable implements IExpe
 				return this.copilotChatExtensionVersion ? CopilotAssignmentFilterProvider.trimVersionSuffix(this.copilotChatExtensionVersion) : null;
 			case ExtensionsFilter.CopilotSku:
 				return this.copilotSku ?? null;
-			case ExtensionsFilter.MicrosoftInternalOrg:
+			case ExtensionsFilter.ProXentixInternalOrg:
 				return this.copilotInternalOrg ?? null;
 			default:
 				return null;

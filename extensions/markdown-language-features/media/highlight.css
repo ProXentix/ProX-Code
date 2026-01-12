@@ -122,70 +122,70 @@ Visual Studio-like style based on original C# coloring by Jason Diamond <jason@d
 
 */
 
-.vscode-light .hljs-function,
-.vscode-light .hljs-params,
-.vscode-light .hljs-number,
-.vscode-light .hljs-class  {
+.prox-code-light .hljs-function,
+.prox-code-light .hljs-params,
+.prox-code-light .hljs-number,
+.prox-code-light .hljs-class  {
 	color: inherit;
 }
 
-.vscode-light .hljs-comment,
-.vscode-light .hljs-quote,
-.vscode-light .hljs-number,
-.vscode-light .hljs-class,
-.vscode-light .hljs-variable {
+.prox-code-light .hljs-comment,
+.prox-code-light .hljs-quote,
+.prox-code-light .hljs-number,
+.prox-code-light .hljs-class,
+.prox-code-light .hljs-variable {
 	color: #008000;
 }
 
-.vscode-light .hljs-keyword,
-.vscode-light .hljs-selector-tag,
-.vscode-light .hljs-name,
-.vscode-light .hljs-tag {
+.prox-code-light .hljs-keyword,
+.prox-code-light .hljs-selector-tag,
+.prox-code-light .hljs-name,
+.prox-code-light .hljs-tag {
 	color: #00f;
 }
 
-.vscode-light .hljs-built_in,
-.vscode-light .hljs-builtin-name {
+.prox-code-light .hljs-built_in,
+.prox-code-light .hljs-builtin-name {
 	color: #007acc;
 }
 
-.vscode-light .hljs-string,
-.vscode-light .hljs-section,
-.vscode-light .hljs-attribute,
-.vscode-light .hljs-literal,
-.vscode-light .hljs-template-tag,
-.vscode-light .hljs-template-variable,
-.vscode-light .hljs-type {
+.prox-code-light .hljs-string,
+.prox-code-light .hljs-section,
+.prox-code-light .hljs-attribute,
+.prox-code-light .hljs-literal,
+.prox-code-light .hljs-template-tag,
+.prox-code-light .hljs-template-variable,
+.prox-code-light .hljs-type {
 	color: #a31515;
 }
 
-.vscode-light .hljs-subst,
-.vscode-light .hljs-selector-attr,
-.vscode-light .hljs-selector-pseudo,
-.vscode-light .hljs-meta,
-.vscode-light .hljs-meta-keyword {
+.prox-code-light .hljs-subst,
+.prox-code-light .hljs-selector-attr,
+.prox-code-light .hljs-selector-pseudo,
+.prox-code-light .hljs-meta,
+.prox-code-light .hljs-meta-keyword {
 	color: #2b91af;
 }
-.vscode-light .hljs-title,
-.vscode-light .hljs-doctag {
+.prox-code-light .hljs-title,
+.prox-code-light .hljs-doctag {
 	color: #808080;
 }
 
-.vscode-light .hljs-attr {
+.prox-code-light .hljs-attr {
 	color: #f00;
 }
 
-.vscode-light .hljs-symbol,
-.vscode-light .hljs-bullet,
-.vscode-light .hljs-link {
+.prox-code-light .hljs-symbol,
+.prox-code-light .hljs-bullet,
+.prox-code-light .hljs-link {
 	color: #00b0e8;
 }
 
 
-.vscode-light .hljs-emphasis {
+.prox-code-light .hljs-emphasis {
 	font-style: italic;
 }
 
-.vscode-light .hljs-strong {
+.prox-code-light .hljs-strong {
 	font-weight: bold;
 }

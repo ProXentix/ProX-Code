@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -170,7 +170,7 @@ const extensionKindSchema: IJSONSchema = {
 	],
 };
 
-const schemaId = 'vscode://schemas/vscode-extensions';
+const schemaId = 'prox-code://schemas/vscode-extensions';
 export const schema: IJSONSchema = {
 	properties: {
 		engines: {
@@ -179,7 +179,7 @@ export const schema: IJSONSchema = {
 			properties: {
 				'vscode': {
 					type: 'string',
-					description: nls.localize('vscode.extension.engines.vscode', 'For VS Code extensions, specifies the VS Code version that the extension is compatible with. Cannot be *. For example: ^0.10.5 indicates compatibility with a minimum VS Code version of 0.10.5.'),
+					description: nls.localize('vscode.extension.engines.prox-code', 'For VS Code extensions, specifies the VS Code version that the extension is compatible with. Cannot be *. For example: ^0.10.5 indicates compatibility with a minimum VS Code version of 0.10.5.'),
 					default: '^1.22.0',
 				}
 			}

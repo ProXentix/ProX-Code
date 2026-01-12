@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -58,7 +58,7 @@ export abstract class AbstractWorkspaceEditingService extends Disposable impleme
 	async pickNewWorkspacePath(): Promise<URI | undefined> {
 		const availableFileSystems = [Schemas.file];
 		if (this.environmentService.remoteAuthority) {
-			availableFileSystems.unshift(Schemas.vscodeRemote);
+			availableFileSystems.unshift(Schemas.prox-codeRemote);
 		}
 		let workspacePath = await this.fileDialogService.showSaveDialog({
 			saveLabel: localize('save', "Save"),
@@ -174,7 +174,7 @@ export abstract class AbstractWorkspaceEditingService extends Disposable impleme
 		const remoteAuthority = this.environmentService.remoteAuthority;
 		if (remoteAuthority) {
 			// https://github.com/microsoft/vscode/issues/94191
-			foldersToAdd = foldersToAdd.filter(folder => folder.uri.scheme !== Schemas.file && (folder.uri.scheme !== Schemas.vscodeRemote || isEqualAuthority(folder.uri.authority, remoteAuthority)));
+			foldersToAdd = foldersToAdd.filter(folder => folder.uri.scheme !== Schemas.file && (folder.uri.scheme !== Schemas.prox-codeRemote || isEqualAuthority(folder.uri.authority, remoteAuthority)));
 		}
 
 		// If we are in no-workspace or single-folder workspace, adding folders has to

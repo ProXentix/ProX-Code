@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -513,7 +513,7 @@ async function startClientWithParticipants(_context: ExtensionContext, languageP
 	}));
 
 	const associationWatcher = workspace.createFileSystemWatcher(new RelativePattern(
-		Uri.parse(`vscode://schemas-associations/`),
+		Uri.parse(`prox-code://schemas-associations/`),
 		'**/schemas-associations.json')
 	);
 	toDispose.push(associationWatcher);
@@ -665,7 +665,7 @@ function getSchemaExtensionAssociations(): ISchemaAssociation[] {
 async function getDynamicSchemaAssociations(): Promise<ISchemaAssociation[]> {
 	const result: ISchemaAssociation[] = [];
 	try {
-		const data = await workspace.fs.readFile(Uri.parse(`vscode://schemas-associations/schemas-associations.json`));
+		const data = await workspace.fs.readFile(Uri.parse(`prox-code://schemas-associations/schemas-associations.json`));
 		const rawStr = new TextDecoder().decode(data);
 		const obj = <Record<string, string[]>>JSON.parse(rawStr);
 		for (const item of Object.keys(obj)) {
@@ -763,7 +763,7 @@ function getSchemaId(schema: JSONSchemaSettings, settingsLocation?: Uri): string
 	let url = schema.url;
 	if (!url) {
 		if (schema.schema) {
-			url = schema.schema.id || `vscode://schemas/custom/${encodeURIComponent(hash(schema.schema).toString(16))}`;
+			url = schema.schema.id || `prox-code://schemas/custom/${encodeURIComponent(hash(schema.schema).toString(16))}`;
 		}
 	} else if (settingsLocation && (url[0] === '.' || url[0] === '/')) {
 		url = Uri.joinPath(settingsLocation, url).toString(false);

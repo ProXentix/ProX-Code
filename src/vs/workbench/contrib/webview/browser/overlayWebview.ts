@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -121,7 +121,7 @@ export class OverlayWebview extends Disposable implements IOverlayWebview {
 
 		const oldOwner = this._owner;
 
-		if (this._windowId !== targetWindow.vscodeWindowId) {
+		if (this._windowId !== targetWindow.prox-codeWindowId) {
 			// moving to a new window
 			this.release(oldOwner);
 			// since we are moving to a new window, we need to dispose the webview and recreate
@@ -132,7 +132,7 @@ export class OverlayWebview extends Disposable implements IOverlayWebview {
 		}
 
 		this._owner = owner;
-		this._windowId = targetWindow.vscodeWindowId;
+		this._windowId = targetWindow.prox-codeWindowId;
 		this._show(targetWindow);
 
 		if (oldOwner !== owner) {

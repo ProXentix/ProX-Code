@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -308,7 +308,7 @@ export function startServer(connection: Connection, runtime: RuntimeEnvironment)
 	});
 
 	connection.onRequest(ValidateContentRequest.type, async ({ schemaUri, content }) => {
-		const docURI = 'vscode://schemas/temp/' + new Date().getTime();
+		const docURI = 'prox-code://schemas/temp/' + new Date().getTime();
 		const document = TextDocument.create(docURI, 'json', 1, content);
 		updateConfiguration([{ uri: schemaUri, fileMatch: [docURI] }]);
 		return await validateTextDocument(document);
@@ -359,7 +359,7 @@ export function startServer(connection: Connection, runtime: RuntimeEnvironment)
 			jsonConfigurationSettings.forEach((schema, index) => {
 				let uri = schema.url;
 				if (!uri && schema.schema) {
-					uri = schema.schema.id || `vscode://schemas/custom/${index}`;
+					uri = schema.schema.id || `prox-code://schemas/custom/${index}`;
 				}
 				if (uri) {
 					languageSettings.schemas.push({ uri, fileMatch: schema.fileMatch, schema: schema.schema, folderUri: schema.folderUri });

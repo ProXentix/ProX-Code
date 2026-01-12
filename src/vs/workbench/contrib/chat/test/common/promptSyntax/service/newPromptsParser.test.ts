@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -249,7 +249,7 @@ suite('NewPromptsParser', () => {
 			/* 05 */'    vscode-playright-mcp:',
 			/* 06 */'      browser-click: true',
 			/* 07 */'  extensions:',
-			/* 08 */'    github.vscode-pull-request-github:',
+			/* 08 */'    github.prox-code-pull-request-github:',
 			/* 09 */'      openPullRequest: true',
 			/* 10 */'      copilotCodingAgent: false',
 			/* 11 */'---',
@@ -287,7 +287,7 @@ suite('NewPromptsParser', () => {
 							'value': {
 								type: 'object', range: new Range(8, 5, 10, 32), properties: [
 									{
-										'key': { type: 'string', value: 'github.vscode-pull-request-github', range: new Range(8, 5, 8, 38) }, 'value': {
+										'key': { type: 'string', value: 'github.prox-code-pull-request-github', range: new Range(8, 5, 8, 38) }, 'value': {
 											type: 'object', range: new Range(9, 7, 10, 32), properties: [
 												{ 'key': { type: 'string', value: 'openPullRequest', range: new Range(9, 7, 9, 22) }, 'value': { type: 'boolean', value: true, range: new Range(9, 24, 9, 28) } },
 												{ 'key': { type: 'string', value: 'copilotCodingAgent', range: new Range(10, 7, 10, 25) }, 'value': { type: 'boolean', value: false, range: new Range(10, 27, 10, 32) } }

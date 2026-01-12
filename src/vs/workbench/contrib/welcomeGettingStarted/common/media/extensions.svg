@@ -51,7 +51,7 @@
 </a>
 
 <!-- ESLint -->
-<a xlink:href="command:workbench.extensions.search?%22@id:dbaeumer.vscode-eslint%22">
+<a xlink:href="command:workbench.extensions.search?%22@id:dbaeumer.prox-code-eslint%22">
 	<g filter="url(#filter1_d)">
 		<rect x="236" y="316" width="48" height="48" rx="4" fill="white"/>
 		<rect x="240" y="320" width="40" height="40" fill="url(#pattern1)"/>
@@ -75,7 +75,7 @@
 </a>
 
 <!-- GitHub Pull Request -->
-<a xlink:href="command:workbench.extensions.search?%22@id:github.vscode-pull-request-github%22">
+<a xlink:href="command:workbench.extensions.search?%22@id:github.prox-code-pull-request-github%22">
 	<g filter="url(#filter4_d)">
 		<rect x="276" y="228" width="48" height="48" rx="4" fill="white"/>
 		<rect x="280" y="232" width="40" height="40" fill="url(#pattern4)"/>

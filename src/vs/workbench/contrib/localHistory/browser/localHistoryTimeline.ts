@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -113,7 +113,7 @@ export class LocalHistoryTimeline extends Disposable implements IWorkbenchContri
 		if (uri.scheme === LocalHistoryFileSystemProvider.SCHEMA) {
 			// `vscode-local-history`: convert back to the associated resource
 			resource = LocalHistoryFileSystemProvider.fromLocalHistoryFileSystem(uri).associatedResource;
-		} else if (uri.scheme === this.pathService.defaultUriScheme || uri.scheme === Schemas.vscodeUserData) {
+		} else if (uri.scheme === this.pathService.defaultUriScheme || uri.scheme === Schemas.prox-codeUserData) {
 			// default-scheme / settings: keep as is
 			resource = uri;
 		} else if (this.fileService.hasProvider(uri)) {

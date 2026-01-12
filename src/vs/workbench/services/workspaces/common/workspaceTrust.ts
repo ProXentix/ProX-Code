@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -163,7 +163,7 @@ export class WorkspaceTrustManagementService extends Disposable implements IWork
 			this.remoteAuthorityResolverService.resolveAuthority(this.environmentService.remoteAuthority)
 				.then(async result => {
 					this._remoteAuthority = result;
-					await this.fileService.activateProvider(Schemas.vscodeRemote);
+					await this.fileService.activateProvider(Schemas.prox-codeRemote);
 					await this.updateWorkspaceTrust();
 				})
 				.finally(() => {
@@ -200,7 +200,7 @@ export class WorkspaceTrustManagementService extends Disposable implements IWork
 
 	private async getCanonicalUri(uri: URI): Promise<URI> {
 		let canonicalUri = uri;
-		if (this.environmentService.remoteAuthority && uri.scheme === Schemas.vscodeRemote) {
+		if (this.environmentService.remoteAuthority && uri.scheme === Schemas.prox-codeRemote) {
 			canonicalUri = await this.remoteAuthorityResolverService.getCanonicalURI(uri);
 		} else if (uri.scheme === 'vscode-vfs') {
 			const index = uri.authority.indexOf('+');
@@ -515,7 +515,7 @@ export class WorkspaceTrustManagementService extends Disposable implements IWork
 			return false;
 		}
 
-		if (workspaceIdentifier.uri.scheme !== Schemas.file && workspaceIdentifier.uri.scheme !== Schemas.vscodeRemote) {
+		if (workspaceIdentifier.uri.scheme !== Schemas.file && workspaceIdentifier.uri.scheme !== Schemas.prox-codeRemote) {
 			return false;
 		}
 

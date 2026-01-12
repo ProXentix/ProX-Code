@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -117,7 +117,7 @@ export class ReplaceService implements IReplaceService {
 		await this.bulkEditorService.apply(edits, { progress });
 
 		const rawTextPromises = edits.map(async e => {
-			if (e.resource.scheme === network.Schemas.vscodeNotebookCell) {
+			if (e.resource.scheme === network.Schemas.prox-codeNotebookCell) {
 				const notebookResource = CellUri.parse(e.resource)?.notebook;
 				if (notebookResource) {
 					let ref: IReference<IResolvedNotebookEditorModel> | undefined;

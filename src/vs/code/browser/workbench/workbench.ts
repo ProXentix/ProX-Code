@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -425,7 +425,7 @@ class WorkspaceProvider implements IWorkspaceProvider {
 						// when connected to a remote and having a value
 						// that is a path (begins with a `/`), assume this
 						// is a vscode-remote resource as simplified URL.
-						workspace = { folderUri: URI.from({ scheme: Schemas.vscodeRemote, path: value, authority: config.remoteAuthority }) };
+						workspace = { folderUri: URI.from({ scheme: Schemas.prox-codeRemote, path: value, authority: config.remoteAuthority }) };
 					} else {
 						workspace = { folderUri: URI.parse(value) };
 					}
@@ -438,7 +438,7 @@ class WorkspaceProvider implements IWorkspaceProvider {
 						// when connected to a remote and having a value
 						// that is a path (begins with a `/`), assume this
 						// is a vscode-remote resource as simplified URL.
-						workspace = { workspaceUri: URI.from({ scheme: Schemas.vscodeRemote, path: value, authority: config.remoteAuthority }) };
+						workspace = { workspaceUri: URI.from({ scheme: Schemas.prox-codeRemote, path: value, authority: config.remoteAuthority }) };
 					} else {
 						workspace = { workspaceUri: URI.parse(value) };
 					}
@@ -538,7 +538,7 @@ class WorkspaceProvider implements IWorkspaceProvider {
 	}
 
 	private encodeWorkspacePath(uri: URI): string {
-		if (this.config.remoteAuthority && uri.scheme === Schemas.vscodeRemote) {
+		if (this.config.remoteAuthority && uri.scheme === Schemas.prox-codeRemote) {
 
 			// when connected to a remote and having a folder
 			// or workspace for that remote, only use the path
@@ -572,11 +572,11 @@ class WorkspaceProvider implements IWorkspaceProvider {
 	hasRemote(): boolean {
 		if (this.workspace) {
 			if (isFolderToOpen(this.workspace)) {
-				return this.workspace.folderUri.scheme === Schemas.vscodeRemote;
+				return this.workspace.folderUri.scheme === Schemas.prox-codeRemote;
 			}
 
 			if (isWorkspaceToOpen(this.workspace)) {
-				return this.workspace.workspaceUri.scheme === Schemas.vscodeRemote;
+				return this.workspace.workspaceUri.scheme === Schemas.prox-codeRemote;
 			}
 		}
 

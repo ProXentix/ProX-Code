@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -412,7 +412,7 @@ export class CustomEditorInput extends LazilyResolvedWebviewEditorInput {
 	}
 
 	public override claim(claimant: unknown, targetWindow: CodeWindow, scopedContextKeyService: IContextKeyService | undefined): void {
-		if (this.doCanMove(targetWindow.vscodeWindowId) !== true) {
+		if (this.doCanMove(targetWindow.prox-codeWindowId) !== true) {
 			throw createEditorOpenError(localize('editorUnsupportedInWindow', "Unable to open the editor in this window, it contains modifications that can only be saved in the original window."), [
 				toAction({
 					id: 'openInOriginalWindow',
@@ -442,7 +442,7 @@ export class CustomEditorInput extends LazilyResolvedWebviewEditorInput {
 
 	private doCanMove(targetWindowId: number): true | string {
 		if (this.isModified() && this._modelRef?.object.canHotExit === false) {
-			const sourceWindowId = getWindow(this.webview.container).vscodeWindowId;
+			const sourceWindowId = getWindow(this.webview.container).prox-codeWindowId;
 			if (sourceWindowId !== targetWindowId) {
 
 				// The custom editor is modified, not backed by a file and without a backup.

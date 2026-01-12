@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -274,8 +274,8 @@ export class PlaywrightDriver {
 			const keys = chord.split('+');
 			const keysDown: string[] = [];
 			for (let i = 0; i < keys.length; i++) {
-				if (keys[i] in PlaywrightDriver.vscodeToPlaywrightKey) {
-					keys[i] = PlaywrightDriver.vscodeToPlaywrightKey[keys[i]];
+				if (keys[i] in PlaywrightDriver.prox-codeToPlaywrightKey) {
+					keys[i] = PlaywrightDriver.prox-codeToPlaywrightKey[keys[i]];
 				}
 				await this.page.keyboard.down(keys[i]);
 				keysDown.push(keys[i]);

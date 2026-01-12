@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -78,7 +78,7 @@ export class Kernel {
 
 async function assertKernel(kernel: Kernel, notebook: vscode.NotebookDocument): Promise<void> {
 	const success = await vscode.commands.executeCommand('notebook.selectKernel', {
-		extension: 'vscode.vscode-api-tests',
+		extension: 'vscode.prox-code-api-tests',
 		id: kernel.controller.id
 	});
 	assert.ok(success, `expected selected kernel to be ${kernel.controller.id}`);

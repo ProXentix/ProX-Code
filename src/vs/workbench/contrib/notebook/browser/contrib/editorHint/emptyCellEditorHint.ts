@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -46,7 +46,7 @@ export class EmptyCellEditorHintContribution extends EmptyTextEditorHintContribu
 			return false;
 		}
 
-		const isNotebookCell = model?.uri.scheme === Schemas.vscodeNotebookCell;
+		const isNotebookCell = model?.uri.scheme === Schemas.prox-codeNotebookCell;
 		if (!isNotebookCell) {
 			return false;
 		}

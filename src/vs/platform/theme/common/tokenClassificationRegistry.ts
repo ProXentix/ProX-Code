@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -619,7 +619,7 @@ function getStylingSchemeEntry(description?: string, deprecationMessage?: string
 	};
 }
 
-export const tokenStylingSchemaId = 'vscode://schemas/token-styling';
+export const tokenStylingSchemaId = 'prox-code://schemas/token-styling';
 
 const schemaRegistry = platform.Registry.as<IJSONContributionRegistry>(JSONExtensions.JSONContribution);
 schemaRegistry.registerSchema(tokenStylingSchemaId, tokenClassificationRegistry.getTokenStylingSchema());

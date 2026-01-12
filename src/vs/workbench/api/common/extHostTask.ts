@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -759,8 +759,8 @@ export class WorkerExtHostTask extends ExtHostTaskBase {
 		@IExtHostApiDeprecationService deprecationService: IExtHostApiDeprecationService
 	) {
 		super(extHostRpc, initData, workspaceService, editorService, configurationService, extHostTerminalService, logService, deprecationService);
-		this.registerTaskSystem(Schemas.vscodeRemote, {
-			scheme: Schemas.vscodeRemote,
+		this.registerTaskSystem(Schemas.prox-codeRemote, {
+			scheme: Schemas.prox-codeRemote,
 			authority: '',
 			platform: Platform.PlatformToString(Platform.Platform.Web)
 		});

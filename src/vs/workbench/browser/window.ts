@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -52,7 +52,7 @@ export abstract class BaseWindow extends Disposable {
 		this.enableWindowFocusOnElementFocus(targetWindow);
 		this.enableMultiWindowAwareTimeout(targetWindow, dom);
 
-		this.registerFullScreenListeners(targetWindow.vscodeWindowId);
+		this.registerFullScreenListeners(targetWindow.prox-codeWindowId);
 		this.registerContextMenuListeners(targetWindow);
 	}
 
@@ -142,7 +142,7 @@ export abstract class BaseWindow extends Disposable {
 				// this can happen for timeouts on unfocused windows
 				let didClear = false;
 
-				const handle = (window as { vscodeOriginalSetTimeout?: typeof window.setTimeout }).vscodeOriginalSetTimeout?.apply(this, [(...args: unknown[]) => {
+				const handle = (window as { vscodeOriginalSetTimeout?: typeof window.setTimeout }).prox-codeOriginalSetTimeout?.apply(this, [(...args: unknown[]) => {
 					if (didClear) {
 						return;
 					}
@@ -151,7 +151,7 @@ export abstract class BaseWindow extends Disposable {
 
 				const timeoutDisposable = toDisposable(() => {
 					didClear = true;
-					(window as { vscodeOriginalClearTimeout?: typeof window.clearTimeout }).vscodeOriginalClearTimeout?.apply(this, [handle]);
+					(window as { vscodeOriginalClearTimeout?: typeof window.clearTimeout }).prox-codeOriginalClearTimeout?.apply(this, [handle]);
 					timeoutDisposables.delete(timeoutDisposable);
 				});
 
@@ -451,7 +451,7 @@ export class BrowserWindow extends BaseWindow {
 
 	private registerLabelFormatters(): void {
 		this._register(this.labelService.registerFormatter({
-			scheme: Schemas.vscodeUserData,
+			scheme: Schemas.prox-codeUserData,
 			priority: true,
 			formatting: {
 				label: '(Settings) ${path}',

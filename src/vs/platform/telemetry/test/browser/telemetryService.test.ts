@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 import assert from 'assert';
@@ -752,7 +752,7 @@ suite('TelemetryService', () => {
 			const service = new TestErrorTelemetryService({ appenders: [testAppender] });
 			const errorTelemetry = new ErrorTelemetry(service);
 
-			const windowsUserPath = 'c:/Users/bpasero/AppData/Local/Programs/Microsoft%20VS%20Code%20Insiders/resources/app/';
+			const windowsUserPath = 'c:/Users/bpasero/AppData/Local/Programs/ProXentix%20VS%20Code%20Insiders/resources/app/';
 			const codePath = 'out/vs/workbench/workbench.desktop.main.js';
 			const stack = [
 				`    at cTe.gc (vscode-file://vscode-app/${windowsUserPath}${codePath}:2724:81492)`,
@@ -792,7 +792,7 @@ suite('TelemetryService', () => {
 		const service = new TestErrorTelemetryService({ appenders: [testAppender] });
 		const errorTelemetry = new ErrorTelemetry(service);
 
-		const windowsUserPath = 'c:/Users/bpasero/AppData/Local/Programs/Microsoft%20VS%20Code%20Insiders/resources/app/';
+		const windowsUserPath = 'c:/Users/bpasero/AppData/Local/Programs/ProXentix%20VS%20Code%20Insiders/resources/app/';
 		const codePath = 'out/vs/workbench/workbench.desktop.main.js';
 		const stack = [
 			`    at cTe.gc (vscode-file://vscode-app/${windowsUserPath}${codePath}:2724:81492)`,

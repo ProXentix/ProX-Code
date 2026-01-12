@@ -7,4 +7,4 @@ extension-browser.webpack.config.js
 package-lock.json
 build/**
 schemas/devContainer.codespaces.schema.json
-schemas/devContainer.vscode.schema.json
+schemas/devContainer.prox-code.schema.json

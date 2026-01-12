@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -120,7 +120,7 @@ suite('LspTerminalModelContentProvider', () => {
 		});
 
 		test('Mac, Linux - createTerminalLanguageVirtualUri should return the correct URI', () => {
-			const expectedUri = URI.from({ scheme: Schemas.vscodeTerminal, path: '/terminal1.py' });
+			const expectedUri = URI.from({ scheme: Schemas.prox-codeTerminal, path: '/terminal1.py' });
 			const actualUri = createTerminalLanguageVirtualUri(1, 'py');
 			assert.strictEqual(actualUri.toString(), expectedUri.toString());
 		});

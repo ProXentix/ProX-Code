@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -50,7 +50,7 @@ const postProcessRemoteBranches: Fig.Generator["postProcess"] = (out) => {
 		return {
 			name,
 			description: "Branch",
-			icon: `vscode://icon?type=${vscode.TerminalCompletionItemKind.ScmBranch}`,
+			icon: `prox-code://icon?type=${vscode.TerminalCompletionItemKind.ScmBranch}`,
 			priority: 75,
 		};
 	});
@@ -190,7 +190,7 @@ const ghGenerators: Record<string, Fig.Generator> = {
 					name: number.toString(),
 					displayName: title,
 					description: `#${number} | ${headRefName}`,
-					icon: `vscode://icon?type=${state === "OPEN" ? vscode.TerminalCompletionItemKind.PullRequest : vscode.TerminalCompletionItemKind.PullRequestDone}`,
+					icon: `prox-code://icon?type=${state === "OPEN" ? vscode.TerminalCompletionItemKind.PullRequest : vscode.TerminalCompletionItemKind.PullRequestDone}`,
 				};
 			});
 		},
@@ -2578,16 +2578,16 @@ For more information about output formatting flags, see 'gh help formatting'`,
 			subcommands: [
 				{
 					name: "code",
-					description: "Open a codespace in Visual Studio Code",
+					description: "Open a codespace in ProX-Code",
 					options: [
 						codespaceOption,
 						{
 							name: "--insiders",
-							description: "Use the insiders version of Visual Studio Code",
+							description: "Use the insiders version of ProX-Code",
 						},
 						{
 							name: ["-w", "--web"],
-							description: "Use the web version of Visual Studio Code",
+							description: "Use the web version of ProX-Code",
 						},
 					],
 				},

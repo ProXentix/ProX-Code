@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -77,7 +77,7 @@ export class ChatImplicitContextContribution extends Disposable implements IWork
 					activeEditorDisposables.add(notebookEditor.onDidChangeActiveCell(() => {
 						activeCellDisposables.clear();
 						const codeEditor = this.codeEditorService.getActiveCodeEditor();
-						if (codeEditor && codeEditor.getModel()?.uri.scheme === Schemas.vscodeNotebookCell) {
+						if (codeEditor && codeEditor.getModel()?.uri.scheme === Schemas.prox-codeNotebookCell) {
 							activeCellDisposables.add(Event.debounce(
 								Event.any(
 									codeEditor.onDidChangeModel,
@@ -133,7 +133,7 @@ export class ChatImplicitContextContribution extends Disposable implements IWork
 		const codeEditor = this.codeEditorService.getActiveCodeEditor();
 		if (codeEditor) {
 			const model = codeEditor.getModel();
-			if (model?.uri.scheme === Schemas.vscodeNotebookCell) {
+			if (model?.uri.scheme === Schemas.prox-codeNotebookCell) {
 				return undefined;
 			}
 

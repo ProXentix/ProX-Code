@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -345,7 +345,7 @@ suite('dom', () => {
 		assert.strictEqual(hasWindow(windowId), true);
 		assert.strictEqual(isAuxiliaryWindow(mainWindow), false);
 		ensureCodeWindow(mainWindow, 1);
-		assert.ok(typeof mainWindow.vscodeWindowId === 'number');
+		assert.ok(typeof mainWindow.prox-codeWindowId === 'number');
 
 		const div = document.createElement('div');
 		assert.strictEqual(getWindow(div), mainWindow);

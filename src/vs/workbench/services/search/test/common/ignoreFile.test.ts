@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -259,7 +259,7 @@ suite('Parsing .gitignore files', () => {
 			.profile/
 			.cdp-profile/
 			.headless-profile/
-			.vscode-test/
+			.prox-code-test/
 			.DS_Store
 			node_modules/
 			out/

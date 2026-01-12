@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -45,7 +45,7 @@ export class ToggleDevToolsAction extends Action2 {
 	async run(accessor: ServicesAccessor): Promise<void> {
 		const nativeHostService = accessor.get(INativeHostService);
 
-		return nativeHostService.toggleDevTools({ targetWindowId: getActiveWindow().vscodeWindowId });
+		return nativeHostService.toggleDevTools({ targetWindowId: getActiveWindow().prox-codeWindowId });
 	}
 }
 

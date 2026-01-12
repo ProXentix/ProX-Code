@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -82,7 +82,7 @@ export class NativeTitlebarPart extends BrowserTitlebarPart {
 
 		this.tahoeOrNewer = isTahoeOrNewer(environmentService.os.release);
 
-		this.handleWindowsAlwaysOnTop(targetWindow.vscodeWindowId);
+		this.handleWindowsAlwaysOnTop(targetWindow.prox-codeWindowId);
 	}
 
 	private async handleWindowsAlwaysOnTop(targetWindowId: number): Promise<void> {

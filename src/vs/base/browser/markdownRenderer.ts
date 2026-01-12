@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -596,10 +596,10 @@ function getDomSanitizerConfig(mdStrConfig: MdStrConfig, options: MarkdownSaniti
 		Schemas.https,
 		Schemas.mailto,
 		Schemas.file,
-		Schemas.vscodeFileResource,
-		Schemas.vscodeRemote,
-		Schemas.vscodeRemoteResource,
-		Schemas.vscodeNotebookCell,
+		Schemas.prox-codeFileResource,
+		Schemas.prox-codeRemote,
+		Schemas.prox-codeRemoteResource,
+		Schemas.prox-codeNotebookCell,
 		// For links that are handled entirely by the action handler
 		Schemas.internal,
 	];
@@ -633,9 +633,9 @@ function getDomSanitizerConfig(mdStrConfig: MdStrConfig, options: MarkdownSaniti
 				Schemas.https,
 				Schemas.data,
 				Schemas.file,
-				Schemas.vscodeFileResource,
-				Schemas.vscodeRemote,
-				Schemas.vscodeRemoteResource,
+				Schemas.prox-codeFileResource,
+				Schemas.prox-codeRemote,
+				Schemas.prox-codeRemoteResource,
 			]
 		},
 		allowRelativeMediaPaths: !!mdStrConfig.baseUri,

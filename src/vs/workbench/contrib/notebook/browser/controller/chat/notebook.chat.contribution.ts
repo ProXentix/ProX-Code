@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -69,7 +69,7 @@ class NotebookChatContribution extends Disposable implements IWorkbenchContribut
 		updateNotebookAgentStatus();
 		this._register(chatAgentService.onDidChangeAgents(updateNotebookAgentStatus));
 
-		this._register(this.languageFeaturesService.completionProvider.register({ scheme: Schemas.vscodeChatInput, hasAccessToAllModels: true }, {
+		this._register(this.languageFeaturesService.completionProvider.register({ scheme: Schemas.prox-codeChatInput, hasAccessToAllModels: true }, {
 			_debugDisplayName: 'chatKernelDynamicCompletions',
 			triggerCharacters: [chatVariableLeader],
 			provideCompletionItems: async (model: ITextModel, position: Position, _context: CompletionContext, token: CancellationToken) => {

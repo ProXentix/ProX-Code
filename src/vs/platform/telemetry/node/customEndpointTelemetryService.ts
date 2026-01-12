@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -30,8 +30,8 @@ export class CustomEndpointTelemetryService implements ICustomEndpointTelemetryS
 	private getCustomTelemetryService(endpoint: ITelemetryEndpoint): ITelemetryService {
 		if (!this.customTelemetryServices.has(endpoint.id)) {
 			const telemetryInfo: { [key: string]: string } = Object.create(null);
-			telemetryInfo['common.vscodemachineid'] = this.telemetryService.machineId;
-			telemetryInfo['common.vscodesessionid'] = this.telemetryService.sessionId;
+			telemetryInfo['common.prox-codemachineid'] = this.telemetryService.machineId;
+			telemetryInfo['common.prox-codesessionid'] = this.telemetryService.sessionId;
 			const args = [endpoint.id, JSON.stringify(telemetryInfo), endpoint.aiKey];
 			const client = new TelemetryClient(
 				FileAccess.asFileUri('bootstrap-fork').fsPath,

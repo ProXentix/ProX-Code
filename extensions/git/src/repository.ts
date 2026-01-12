@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -1609,7 +1609,7 @@ export class Repository implements Disposable {
 	async deleteBranch(name: string, force?: boolean): Promise<void> {
 		return this.run(Operation.DeleteBranch, async () => {
 			await this.repository.deleteBranch(name, force);
-			await this.repository.config('unset', 'local', `branch.${name}.vscode-merge-base`);
+			await this.repository.config('unset', 'local', `branch.${name}.prox-code-merge-base`);
 		});
 	}
 
@@ -1666,7 +1666,7 @@ export class Repository implements Disposable {
 		const branch = await this.getBranch(ref);
 
 		// Git config
-		const mergeBaseConfigKey = `branch.${branch.name}.vscode-merge-base`;
+		const mergeBaseConfigKey = `branch.${branch.name}.prox-code-merge-base`;
 
 		try {
 			const mergeBase = await this.getConfig(mergeBaseConfigKey);

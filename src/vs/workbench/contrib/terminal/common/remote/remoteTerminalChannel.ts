@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -160,7 +160,7 @@ export class RemoteTerminalChannelClient implements IPtyHostController {
 
 		const activeFileResource = EditorResourceAccessor.getOriginalUri(this._editorService.activeEditor, {
 			supportSideBySide: SideBySideEditor.PRIMARY,
-			filterByScheme: [Schemas.file, Schemas.vscodeUserData, Schemas.vscodeRemote]
+			filterByScheme: [Schemas.file, Schemas.prox-codeUserData, Schemas.prox-codeRemote]
 		});
 
 		const args: ICreateTerminalProcessArguments = {

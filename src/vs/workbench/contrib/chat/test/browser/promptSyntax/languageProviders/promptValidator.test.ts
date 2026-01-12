@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -59,7 +59,7 @@ suite('PromptValidator', () => {
 		const testTool3 = { id: 'testTool3', displayName: 'tool3', canBeReferencedInPrompt: true, toolReferenceName: 'tool3', modelDescription: 'Test Tool 3', source: myExtSource, inputSchema: {} } satisfies IToolData;
 		disposables.add(toolService.registerToolData(testTool3));
 
-		const prExtSource = { type: 'extension', label: 'GitHub Pull Request Extension', extensionId: new ExtensionIdentifier('github.vscode-pull-request-github') } satisfies ToolDataSource;
+		const prExtSource = { type: 'extension', label: 'GitHub Pull Request Extension', extensionId: new ExtensionIdentifier('github.prox-code-pull-request-github') } satisfies ToolDataSource;
 		const prExtTool1 = { id: 'suggestFix', canBeReferencedInPrompt: true, toolReferenceName: 'suggest-fix', modelDescription: 'tool4', displayName: 'Test Tool 4', source: prExtSource, inputSchema: {} } satisfies IToolData;
 		disposables.add(toolService.registerToolData(prExtTool1));
 
@@ -1107,15 +1107,15 @@ suite('PromptValidator', () => {
 				'tools: []',
 				'---',
 				'I need',
-				'#tool:ms-azuretools.vscode-azure-github-copilot/azure_recommend_custom_modes',
-				'#tool:github.vscode-pull-request-github/suggest-fix',
+				'#tool:ms-azuretools.prox-code-azure-github-copilot/azure_recommend_custom_modes',
+				'#tool:github.prox-code-pull-request-github/suggest-fix',
 				'#tool:openSimpleBrowser',
 			].join('\n');
 			const markers = await validate(content, PromptsType.prompt);
 			const actual = markers.sort((a, b) => a.startLineNumber - b.startLineNumber).map(m => ({ message: m.message, startColumn: m.startColumn, endColumn: m.endColumn }));
 			assert.deepEqual(actual, [
-				{ message: `Unknown tool or toolset 'ms-azuretools.vscode-azure-github-copilot/azure_recommend_custom_modes'.`, startColumn: 7, endColumn: 77 },
-				{ message: `Tool or toolset 'github.vscode-pull-request-github/suggest-fix' also needs to be enabled in the header.`, startColumn: 7, endColumn: 52 },
+				{ message: `Unknown tool or toolset 'ms-azuretools.prox-code-azure-github-copilot/azure_recommend_custom_modes'.`, startColumn: 7, endColumn: 77 },
+				{ message: `Tool or toolset 'github.prox-code-pull-request-github/suggest-fix' also needs to be enabled in the header.`, startColumn: 7, endColumn: 52 },
 				{ message: `Unknown tool or toolset 'openSimpleBrowser'.`, startColumn: 7, endColumn: 24 },
 			]);
 		});

@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -14,7 +14,7 @@ import { fromNow } from './date';
 
 const LIMIT = 40;
 
-const USER_AGENT = 'Visual Studio Code';
+const USER_AGENT = 'ProX-Code';
 
 export class PackageJSONContribution implements IJSONContribution {
 

@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -137,13 +137,13 @@ suite('FileDialogService', function () {
 		class TestSimpleFileDialog implements ISimpleFileDialog {
 			async showOpenDialog(options: IOpenDialogOptions): Promise<URI | undefined> {
 				assert.strictEqual(options.availableFileSystems?.length, 2);
-				assert.strictEqual(options.availableFileSystems[0], Schemas.vscodeRemote);
+				assert.strictEqual(options.availableFileSystems[0], Schemas.prox-codeRemote);
 				assert.strictEqual(options.availableFileSystems[1], Schemas.file);
 				return testFile;
 			}
 			async showSaveDialog(options: ISaveDialogOptions): Promise<URI | undefined> {
 				assert.strictEqual(options.availableFileSystems?.length, 2);
-				assert.strictEqual(options.availableFileSystems[0], Schemas.vscodeRemote);
+				assert.strictEqual(options.availableFileSystems[0], Schemas.prox-codeRemote);
 				assert.strictEqual(options.availableFileSystems[1], Schemas.file);
 				return testFile;
 			}
@@ -156,7 +156,7 @@ suite('FileDialogService', function () {
 			}
 		});
 		instantiationService.stub(IPathService, new class {
-			defaultUriScheme: string = Schemas.vscodeRemote;
+			defaultUriScheme: string = Schemas.prox-codeRemote;
 			userHome = async () => URI.file('/user/home');
 		} as IPathService);
 		const dialogService = instantiationService.createInstance(TestFileDialogService, new TestSimpleFileDialog());
@@ -182,7 +182,7 @@ suite('FileDialogService', function () {
 			}
 		});
 		instantiationService.stub(IPathService, new class {
-			defaultUriScheme: string = Schemas.vscodeRemote;
+			defaultUriScheme: string = Schemas.prox-codeRemote;
 			userHome = async () => URI.file('/user/home');
 		} as IPathService);
 
@@ -193,10 +193,10 @@ suite('FileDialogService', function () {
 		const getLastActiveFile = sinon.spy(historyService, 'getLastActiveFile');
 
 		await dialogService.defaultFilePath();
-		assert.deepStrictEqual(getLastActiveFile.args, [[Schemas.vscodeRemote, 'testRemote']]);
-		assert.deepStrictEqual(getLastActiveWorkspaceRoot.args, [[Schemas.vscodeRemote, 'testRemote']]);
+		assert.deepStrictEqual(getLastActiveFile.args, [[Schemas.prox-codeRemote, 'testRemote']]);
+		assert.deepStrictEqual(getLastActiveWorkspaceRoot.args, [[Schemas.prox-codeRemote, 'testRemote']]);
 
 		await dialogService.defaultFolderPath();
-		assert.deepStrictEqual(getLastActiveWorkspaceRoot.args[1], [Schemas.vscodeRemote, 'testRemote']);
+		assert.deepStrictEqual(getLastActiveWorkspaceRoot.args[1], [Schemas.prox-codeRemote, 'testRemote']);
 	});
 });

@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -106,7 +106,7 @@ export class MarkerDecorationsService extends Disposable implements IMarkerDecor
 		// clean up markers for internal, transient models
 		if (model.uri.scheme === Schemas.inMemory
 			|| model.uri.scheme === Schemas.internal
-			|| model.uri.scheme === Schemas.vscode) {
+			|| model.uri.scheme === Schemas.prox-code) {
 			this._markerService?.read({ resource: model.uri }).map(marker => marker.owner).forEach(owner => this._markerService.remove(owner, [model.uri]));
 		}
 	}

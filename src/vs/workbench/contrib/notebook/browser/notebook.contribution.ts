@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -442,16 +442,16 @@ class CellInfoContentProvider {
 		@ILabelService private readonly _labelService: ILabelService,
 		@INotebookEditorModelResolverService private readonly _notebookModelResolverService: INotebookEditorModelResolverService,
 	) {
-		this._disposables.push(textModelService.registerTextModelContentProvider(Schemas.vscodeNotebookCellMetadata, {
+		this._disposables.push(textModelService.registerTextModelContentProvider(Schemas.prox-codeNotebookCellMetadata, {
 			provideTextContent: this.provideMetadataTextContent.bind(this)
 		}));
 
-		this._disposables.push(textModelService.registerTextModelContentProvider(Schemas.vscodeNotebookCellOutput, {
+		this._disposables.push(textModelService.registerTextModelContentProvider(Schemas.prox-codeNotebookCellOutput, {
 			provideTextContent: this.provideOutputTextContent.bind(this)
 		}));
 
 		this._disposables.push(this._labelService.registerFormatter({
-			scheme: Schemas.vscodeNotebookCellMetadata,
+			scheme: Schemas.prox-codeNotebookCellMetadata,
 			formatting: {
 				label: '${path} (metadata)',
 				separator: '/'
@@ -459,7 +459,7 @@ class CellInfoContentProvider {
 		}));
 
 		this._disposables.push(this._labelService.registerFormatter({
-			scheme: Schemas.vscodeNotebookCellOutput,
+			scheme: Schemas.prox-codeNotebookCellOutput,
 			formatting: {
 				label: '${path} (output)',
 				separator: '/'
@@ -477,7 +477,7 @@ class CellInfoContentProvider {
 			return existing;
 		}
 
-		const data = CellUri.parseCellPropertyUri(resource, Schemas.vscodeNotebookCellMetadata);
+		const data = CellUri.parseCellPropertyUri(resource, Schemas.prox-codeNotebookCellMetadata);
 		if (!data) {
 			return null;
 		}
@@ -575,7 +575,7 @@ class CellInfoContentProvider {
 			return existing;
 		}
 
-		const data = CellUri.parseCellPropertyUri(resource, Schemas.vscodeNotebookCellOutput);
+		const data = CellUri.parseCellPropertyUri(resource, Schemas.prox-codeNotebookCellOutput);
 		if (!data) {
 			return null;
 		}
@@ -663,12 +663,12 @@ class NotebookMetadataContentProvider {
 		@ILabelService private readonly _labelService: ILabelService,
 		@INotebookEditorModelResolverService private readonly _notebookModelResolverService: INotebookEditorModelResolverService,
 	) {
-		this._disposables.push(textModelService.registerTextModelContentProvider(Schemas.vscodeNotebookMetadata, {
+		this._disposables.push(textModelService.registerTextModelContentProvider(Schemas.prox-codeNotebookMetadata, {
 			provideTextContent: this.provideMetadataTextContent.bind(this)
 		}));
 
 		this._disposables.push(this._labelService.registerFormatter({
-			scheme: Schemas.vscodeNotebookMetadata,
+			scheme: Schemas.prox-codeNotebookMetadata,
 			formatting: {
 				label: '${path} (metadata)',
 				separator: '/'
@@ -751,7 +751,7 @@ class RegisterSchemasContribution extends Disposable implements IWorkbenchContri
 			allowComments: true
 		};
 
-		jsonRegistry.registerSchema('vscode://schemas/notebook/cellmetadata', metadataSchema);
+		jsonRegistry.registerSchema('prox-code://schemas/notebook/cellmetadata', metadataSchema);
 	}
 }
 

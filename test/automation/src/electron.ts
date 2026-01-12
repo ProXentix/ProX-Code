@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -30,7 +30,7 @@ export async function resolveElectronConfiguration(options: LaunchOptions): Prom
 		'--disable-experiments',
 		'--no-cached-data',
 		'--disable-updates',
-		'--disable-extension=vscode.vscode-api-tests',
+		'--disable-extension=vscode.prox-code-api-tests',
 		`--crash-reporter-directory=${crashesPath}`,
 		'--disable-workspace-trust',
 		`--logsPath=${logsPath}`
@@ -59,7 +59,7 @@ export async function resolveElectronConfiguration(options: LaunchOptions): Prom
 			// running against a build: copy the test resolver extension
 			await measureAndLog(() => copyExtension(root, extensionsPath, 'vscode-test-resolver'), 'copyExtension(vscode-test-resolver)', logger);
 		}
-		args.push('--enable-proposed-api=vscode.vscode-test-resolver');
+		args.push('--enable-proposed-api=vscode.prox-code-test-resolver');
 		if (userDataDir) {
 			const remoteDataDir = `${userDataDir}-server`;
 			fs.mkdirSync(remoteDataDir, { recursive: true });

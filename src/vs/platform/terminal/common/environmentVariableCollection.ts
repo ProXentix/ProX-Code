@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -14,7 +14,7 @@ const mutatorTypeToLabelMap: Map<EnvironmentVariableMutatorType, string> = new M
 	[EnvironmentVariableMutatorType.Replace, 'REPLACE']
 ]);
 const PYTHON_ACTIVATION_VARS_PATTERN = /^VSCODE_PYTHON_(PWSH|ZSH|BASH|FISH)_ACTIVATE/;
-const PYTHON_ENV_EXTENSION_ID = 'ms-python.vscode-python-envs';
+const PYTHON_ENV_EXTENSION_ID = 'ms-python.prox-code-python-envs';
 
 export class MergedEnvironmentVariableCollection implements IMergedEnvironmentVariableCollection {
 	private readonly map: Map<string, IExtensionOwnedEnvironmentVariableMutator[]> = new Map();

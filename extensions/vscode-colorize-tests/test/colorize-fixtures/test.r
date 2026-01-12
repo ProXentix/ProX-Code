@@ -1,4 +1,4 @@
-# © Microsoft. All rights reserved.
+# © ProXentix. All rights reserved.
 
 #' Add together two numbers.
 #'

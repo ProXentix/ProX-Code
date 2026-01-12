@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -810,7 +810,7 @@ export class EncodingOracle extends Disposable implements IResourceEncodings {
 
 		// Folder Settings
 		this.contextService.getWorkspace().folders.forEach(folder => {
-			defaultEncodingOverrides.push({ parent: joinPath(folder.uri, '.vscode'), encoding: UTF8 });
+			defaultEncodingOverrides.push({ parent: joinPath(folder.uri, '.prox-code'), encoding: UTF8 });
 		});
 
 		return defaultEncodingOverrides;

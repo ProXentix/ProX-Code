@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -2038,8 +2038,8 @@ class EditorHelper {
 		// durable across editor changes and restarts
 		const hasValidResourceEditorInputScheme =
 			resource?.scheme === Schemas.file ||
-			resource?.scheme === Schemas.vscodeRemote ||
-			resource?.scheme === Schemas.vscodeUserData ||
+			resource?.scheme === Schemas.prox-codeRemote ||
+			resource?.scheme === Schemas.prox-codeUserData ||
 			resource?.scheme === this.pathService.defaultUriScheme;
 
 		// Scheme is valid: prefer the untyped input

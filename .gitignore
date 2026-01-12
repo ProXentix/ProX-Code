@@ -4,7 +4,7 @@ npm-debug.log
 Thumbs.db
 node_modules/
 .build/
-.vscode/extensions/**/out/
+.prox-code/extensions/**/out/
 extensions/**/dist/
 /out*/
 /extensions/**/out/
@@ -21,5 +21,5 @@ vscode.db
 product.overrides.json
 *.snap.actual
 *.tsbuildinfo
-.vscode-test
+.prox-code-test
 vscode-telemetry-docs/

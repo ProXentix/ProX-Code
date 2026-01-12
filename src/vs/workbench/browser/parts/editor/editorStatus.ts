@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -501,7 +501,7 @@ class EditorStatus extends Disposable {
 		}
 
 		const editorURI = getCodeEditor(this.editorService.activeTextEditorControl)?.getModel()?.uri;
-		if (editorURI?.scheme === Schemas.vscodeNotebookCell) {
+		if (editorURI?.scheme === Schemas.prox-codeNotebookCell) {
 			this.selectionElement.clear();
 			return;
 		}
@@ -524,7 +524,7 @@ class EditorStatus extends Disposable {
 		}
 
 		const editorURI = getCodeEditor(this.editorService.activeTextEditorControl)?.getModel()?.uri;
-		if (editorURI?.scheme === Schemas.vscodeNotebookCell) {
+		if (editorURI?.scheme === Schemas.prox-codeNotebookCell) {
 			this.indentationElement.clear();
 			return;
 		}

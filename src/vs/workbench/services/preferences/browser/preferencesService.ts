@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -108,8 +108,8 @@ export class PreferencesService extends Disposable implements IPreferencesServic
 		this._register(urlService.registerHandler(this));
 	}
 
-	readonly defaultKeybindingsResource = URI.from({ scheme: network.Schemas.vscode, authority: 'defaultsettings', path: '/keybindings.json' });
-	private readonly defaultSettingsRawResource = URI.from({ scheme: network.Schemas.vscode, authority: 'defaultsettings', path: '/defaultSettings.jsonc' });
+	readonly defaultKeybindingsResource = URI.from({ scheme: network.Schemas.prox-code, authority: 'defaultsettings', path: '/keybindings.json' });
+	private readonly defaultSettingsRawResource = URI.from({ scheme: network.Schemas.prox-code, authority: 'defaultsettings', path: '/defaultSettings.jsonc' });
 
 	get userSettingsResource(): URI {
 		return this.userDataProfileService.currentProfile.settingsResource;
@@ -417,25 +417,25 @@ export class PreferencesService extends Disposable implements IPreferencesServic
 	}
 
 	private isDefaultUserSettingsResource(uri: URI): boolean {
-		return uri.authority === 'defaultsettings' && uri.scheme === network.Schemas.vscode && !!uri.path.match(/\/(\d+\/)?settings\.json$/);
+		return uri.authority === 'defaultsettings' && uri.scheme === network.Schemas.prox-code && !!uri.path.match(/\/(\d+\/)?settings\.json$/);
 	}
 
 	private isDefaultWorkspaceSettingsResource(uri: URI): boolean {
-		return uri.authority === 'defaultsettings' && uri.scheme === network.Schemas.vscode && !!uri.path.match(/\/(\d+\/)?workspaceSettings\.json$/);
+		return uri.authority === 'defaultsettings' && uri.scheme === network.Schemas.prox-code && !!uri.path.match(/\/(\d+\/)?workspaceSettings\.json$/);
 	}
 
 	private isDefaultFolderSettingsResource(uri: URI): boolean {
-		return uri.authority === 'defaultsettings' && uri.scheme === network.Schemas.vscode && !!uri.path.match(/\/(\d+\/)?resourceSettings\.json$/);
+		return uri.authority === 'defaultsettings' && uri.scheme === network.Schemas.prox-code && !!uri.path.match(/\/(\d+\/)?resourceSettings\.json$/);
 	}
 
 	private getDefaultSettingsResource(configurationTarget: ConfigurationTarget): URI {
 		switch (configurationTarget) {
 			case ConfigurationTarget.WORKSPACE:
-				return URI.from({ scheme: network.Schemas.vscode, authority: 'defaultsettings', path: `/workspaceSettings.json` });
+				return URI.from({ scheme: network.Schemas.prox-code, authority: 'defaultsettings', path: `/workspaceSettings.json` });
 			case ConfigurationTarget.WORKSPACE_FOLDER:
-				return URI.from({ scheme: network.Schemas.vscode, authority: 'defaultsettings', path: `/resourceSettings.json` });
+				return URI.from({ scheme: network.Schemas.prox-code, authority: 'defaultsettings', path: `/resourceSettings.json` });
 		}
-		return URI.from({ scheme: network.Schemas.vscode, authority: 'defaultsettings', path: `/settings.json` });
+		return URI.from({ scheme: network.Schemas.prox-code, authority: 'defaultsettings', path: `/settings.json` });
 	}
 
 	private async getOrCreateEditableSettingsEditorInput(target: ConfigurationTarget, resource: URI): Promise<EditorInput> {

@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -91,7 +91,7 @@ export class InspectEditorTokensController extends Disposable implements IEditor
 		if (!this._editor.hasModel()) {
 			return;
 		}
-		if (this._editor.getModel().uri.scheme === Schemas.vscodeNotebookCell) {
+		if (this._editor.getModel().uri.scheme === Schemas.prox-codeNotebookCell) {
 			// disable in notebooks
 			return;
 		}

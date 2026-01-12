@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -223,7 +223,7 @@ export class CodeBlockModelCollection extends Disposable {
 		const indexPart = this.tag ? `${this.tag}-${index}` : `${index}`;
 		const encodedSessionId = encodeBase64(VSBuffer.wrap(new TextEncoder().encode(sessionResource.toString())), false, true);
 		return URI.from({
-			scheme: Schemas.vscodeChatCodeBlock,
+			scheme: Schemas.prox-codeChatCodeBlock,
 			authority: encodedSessionId,
 			path: `/${chat.id}/${indexPart}`,
 			fragment: metadata ? JSON.stringify(metadata) : undefined,

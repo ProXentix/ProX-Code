@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -30,7 +30,7 @@ suite('FileWorkingCopyManager', () => {
 		accessor = instantiationService.createInstance(TestServiceAccessor);
 
 		accessor.fileService.registerProvider(Schemas.file, new TestInMemoryFileSystemProvider());
-		accessor.fileService.registerProvider(Schemas.vscodeRemote, new TestInMemoryFileSystemProvider());
+		accessor.fileService.registerProvider(Schemas.prox-codeRemote, new TestInMemoryFileSystemProvider());
 
 		manager = disposables.add(new FileWorkingCopyManager(
 			'testFileWorkingCopyType',

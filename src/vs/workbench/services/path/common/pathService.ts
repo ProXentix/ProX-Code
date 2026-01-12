@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -128,7 +128,7 @@ export abstract class AbstractPathService implements IPathService {
 		// Our `isValidBasename` method only works with our
 		// standard schemes for files on disk, either locally
 		// or remote.
-		if (resource.scheme === Schemas.file || resource.scheme === Schemas.vscodeRemote) {
+		if (resource.scheme === Schemas.file || resource.scheme === Schemas.prox-codeRemote) {
 			return isValidBasename(name ?? basename(resource), os === OperatingSystem.Windows);
 		}
 
@@ -141,7 +141,7 @@ export abstract class AbstractPathService implements IPathService {
 
 	static findDefaultUriScheme(environmentService: IWorkbenchEnvironmentService, contextService: IWorkspaceContextService): string {
 		if (environmentService.remoteAuthority) {
-			return Schemas.vscodeRemote;
+			return Schemas.prox-codeRemote;
 		}
 
 		const virtualWorkspace = getVirtualWorkspaceScheme(contextService.getWorkspace());

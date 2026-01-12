@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -110,27 +110,27 @@ interface IRawGalleryQueryResult {
 }
 
 const AssetType = {
-	Icon: 'Microsoft.VisualStudio.Services.Icons.Default',
-	Details: 'Microsoft.VisualStudio.Services.Content.Details',
-	Changelog: 'Microsoft.VisualStudio.Services.Content.Changelog',
-	Manifest: 'Microsoft.VisualStudio.Code.Manifest',
-	VSIX: 'Microsoft.VisualStudio.Services.VSIXPackage',
-	License: 'Microsoft.VisualStudio.Services.Content.License',
-	Repository: 'Microsoft.VisualStudio.Services.Links.Source',
-	Signature: 'Microsoft.VisualStudio.Services.VsixSignature'
+	Icon: 'ProXentix.VisualStudio.Services.Icons.Default',
+	Details: 'ProXentix.VisualStudio.Services.Content.Details',
+	Changelog: 'ProXentix.VisualStudio.Services.Content.Changelog',
+	Manifest: 'ProXentix.VisualStudio.Code.Manifest',
+	VSIX: 'ProXentix.VisualStudio.Services.VSIXPackage',
+	License: 'ProXentix.VisualStudio.Services.Content.License',
+	Repository: 'ProXentix.VisualStudio.Services.Links.Source',
+	Signature: 'ProXentix.VisualStudio.Services.VsixSignature'
 };
 
 const PropertyType = {
-	Dependency: 'Microsoft.VisualStudio.Code.ExtensionDependencies',
-	ExtensionPack: 'Microsoft.VisualStudio.Code.ExtensionPack',
-	Engine: 'Microsoft.VisualStudio.Code.Engine',
-	PreRelease: 'Microsoft.VisualStudio.Code.PreRelease',
-	EnabledApiProposals: 'Microsoft.VisualStudio.Code.EnabledApiProposals',
-	LocalizedLanguages: 'Microsoft.VisualStudio.Code.LocalizedLanguages',
-	WebExtension: 'Microsoft.VisualStudio.Code.WebExtension',
-	SponsorLink: 'Microsoft.VisualStudio.Code.SponsorLink',
-	SupportLink: 'Microsoft.VisualStudio.Services.Links.Support',
-	ExecutesCode: 'Microsoft.VisualStudio.Code.ExecutesCode',
+	Dependency: 'ProXentix.VisualStudio.Code.ExtensionDependencies',
+	ExtensionPack: 'ProXentix.VisualStudio.Code.ExtensionPack',
+	Engine: 'ProXentix.VisualStudio.Code.Engine',
+	PreRelease: 'ProXentix.VisualStudio.Code.PreRelease',
+	EnabledApiProposals: 'ProXentix.VisualStudio.Code.EnabledApiProposals',
+	LocalizedLanguages: 'ProXentix.VisualStudio.Code.LocalizedLanguages',
+	WebExtension: 'ProXentix.VisualStudio.Code.WebExtension',
+	SponsorLink: 'ProXentix.VisualStudio.Code.SponsorLink',
+	SupportLink: 'ProXentix.VisualStudio.Services.Links.Support',
+	ExecutesCode: 'ProXentix.VisualStudio.Code.ExecutesCode',
 	Private: 'PrivateMarketplace',
 };
 
@@ -299,7 +299,7 @@ function getStatistic(statistics: IRawGalleryExtensionStatistics[], name: string
 }
 
 function getCoreTranslationAssets(version: IRawGalleryExtensionVersion): [string, IGalleryExtensionAsset][] {
-	const coreTranslationAssetPrefix = 'Microsoft.VisualStudio.Code.Translation.';
+	const coreTranslationAssetPrefix = 'ProXentix.VisualStudio.Code.Translation.';
 	const result = version.files.filter(f => f.assetType.indexOf(coreTranslationAssetPrefix) === 0);
 	return result.reduce<[string, IGalleryExtensionAsset][]>((result, file) => {
 		const asset = getVersionAsset(version, file.assetType);
@@ -986,7 +986,7 @@ export abstract class AbstractExtensionGalleryService implements IExtensionGalle
 					this.logService.error(`Manifest was not found for the extension ${extensionId} with version ${version}`);
 					return false;
 				}
-				engine = manifest.engines.vscode;
+				engine = manifest.engines.prox-code;
 			} catch (error) {
 				this.logService.error(`Error while getting the engine for the version ${version}.`, getErrorMessage(error));
 				return false;
@@ -1253,7 +1253,7 @@ export abstract class AbstractExtensionGalleryService implements IExtensionGalle
 		query = query
 			/* Always exclude non validated extensions */
 			.withFlags(...query.flags, Flag.ExcludeNonValidated)
-			.withFilter(FilterType.Target, 'Microsoft.VisualStudio.Code');
+			.withFilter(FilterType.Target, 'ProXentix.VisualStudio.Code');
 
 		const unpublishedFlag = extensionGalleryManifest.capabilities.extensionQuery.flags?.find(f => f.name === Flag.Unpublished);
 		/* Always exclude unpublished extensions */

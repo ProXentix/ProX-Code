@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -402,7 +402,7 @@ export class InstallInRemoteAction extends McpServerAction {
 		@IMcpService private readonly mcpService: IMcpService,
 	) {
 		super('extensions.installRemote', localize('installInRemote', "Install (Remote)"), InstallAction.CLASS, false);
-		const remoteLabel = this.labelService.getHostLabel(Schemas.vscodeRemote, this.environmentService.remoteAuthority);
+		const remoteLabel = this.labelService.getHostLabel(Schemas.prox-codeRemote, this.environmentService.remoteAuthority);
 		this.label = localize('installInRemoteLabel', "Install in {0}", remoteLabel);
 		this.update();
 	}

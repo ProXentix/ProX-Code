@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -22,7 +22,7 @@ export function registerRemoteContributions() {
 			const nativeEnvironmentService = accessor.get(INativeEnvironmentService);
 			let cwd: URI | undefined;
 			try {
-				const activeWorkspaceRootUri = historyService.getLastActiveWorkspaceRoot(Schemas.vscodeRemote);
+				const activeWorkspaceRootUri = historyService.getLastActiveWorkspaceRoot(Schemas.prox-codeRemote);
 				if (activeWorkspaceRootUri) {
 					const canonicalUri = await remoteAuthorityResolverService.getCanonicalURI(activeWorkspaceRootUri);
 					if (canonicalUri.scheme === Schemas.file) {

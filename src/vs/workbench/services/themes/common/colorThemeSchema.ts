@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 import * as nls from '../../../../nls.js';
@@ -114,7 +114,7 @@ const textMateScopes = [
 	'variable.parameter'
 ];
 
-export const textmateColorsSchemaId = 'vscode://schemas/textmate-colors';
+export const textmateColorsSchemaId = 'prox-code://schemas/textmate-colors';
 export const textmateColorGroupSchemaId = `${textmateColorsSchemaId}#/definitions/colorGroup`;
 
 const textmateColorSchema: IJSONSchema = {
@@ -229,7 +229,7 @@ const textmateColorSchema: IJSONSchema = {
 	}
 };
 
-export const colorThemeSchemaId = 'vscode://schemas/color-theme';
+export const colorThemeSchemaId = 'prox-code://schemas/color-theme';
 
 const colorThemeSchema: IJSONSchema = {
 	type: 'object',

@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 import { Disposable, MutableDisposable } from '../../../../../base/common/lifecycle.js';
@@ -19,7 +19,7 @@ export interface ILspTerminalModelContentProvider extends ITextModelContentProvi
 }
 
 export class LspTerminalModelContentProvider extends Disposable implements ILspTerminalModelContentProvider, ITextModelContentProvider {
-	static readonly scheme = Schemas.vscodeTerminal;
+	static readonly scheme = Schemas.prox-codeTerminal;
 	private _commandDetection: ICommandDetectionCapability | undefined;
 	private _capabilitiesStore: ITerminalCapabilityStore;
 	private readonly _virtualTerminalDocumentUri: URI;
@@ -152,7 +152,7 @@ export class LspTerminalModelContentProvider extends Disposable implements ILspT
 // TODO: Make this [OS generic](https://github.com/microsoft/vscode/issues/249477)
 export function createTerminalLanguageVirtualUri(terminalId: number, languageExtension: string): URI {
 	return URI.from({
-		scheme: Schemas.vscodeTerminal,
+		scheme: Schemas.prox-codeTerminal,
 		path: `/terminal${terminalId}.${languageExtension}`,
 	});
 }

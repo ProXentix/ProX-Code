@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -103,12 +103,12 @@ export namespace ChatAgentLocation {
  * List of file schemes that are always unsupported for use in chat
  */
 const chatAlwaysUnsupportedFileSchemes = new Set([
-	Schemas.vscodeChatEditor,
+	Schemas.prox-codeChatEditor,
 	Schemas.walkThrough,
-	Schemas.vscodeLocalChatSession,
-	Schemas.vscodeSettings,
+	Schemas.prox-codeLocalChatSession,
+	Schemas.prox-codeSettings,
 	Schemas.webviewPanel,
-	Schemas.vscodeUserData,
+	Schemas.prox-codeUserData,
 	Schemas.extension,
 	'ccreq',
 	'openai-codex', // Codex session custom editor scheme

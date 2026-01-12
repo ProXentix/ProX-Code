@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -76,8 +76,8 @@ const domEval = (container: Element) => {
 
 function getAltText(outputInfo: OutputItem) {
 	const metadata = outputInfo.metadata as Record<string, unknown> | undefined;
-	if (typeof metadata === 'object' && metadata && typeof metadata.vscode_altText === 'string') {
-		return metadata.vscode_altText;
+	if (typeof metadata === 'object' && metadata && typeof metadata.prox-code_altText === 'string') {
+		return metadata.prox-code_altText;
 	}
 	return undefined;
 }

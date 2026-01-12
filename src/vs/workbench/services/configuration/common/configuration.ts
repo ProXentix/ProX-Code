@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -11,19 +11,19 @@ import { Event } from '../../../../base/common/event.js';
 import { ResourceMap } from '../../../../base/common/map.js';
 import { IAnyWorkspaceIdentifier } from '../../../../platform/workspace/common/workspace.js';
 
-export const FOLDER_CONFIG_FOLDER_NAME = '.vscode';
+export const FOLDER_CONFIG_FOLDER_NAME = '.prox-code';
 export const FOLDER_SETTINGS_NAME = 'settings';
 export const FOLDER_SETTINGS_PATH = `${FOLDER_CONFIG_FOLDER_NAME}/${FOLDER_SETTINGS_NAME}.json`;
 
-export const defaultSettingsSchemaId = 'vscode://schemas/settings/default';
-export const userSettingsSchemaId = 'vscode://schemas/settings/user';
-export const profileSettingsSchemaId = 'vscode://schemas/settings/profile';
-export const machineSettingsSchemaId = 'vscode://schemas/settings/machine';
-export const workspaceSettingsSchemaId = 'vscode://schemas/settings/workspace';
-export const folderSettingsSchemaId = 'vscode://schemas/settings/folder';
-export const launchSchemaId = 'vscode://schemas/launch';
-export const tasksSchemaId = 'vscode://schemas/tasks';
-export const mcpSchemaId = 'vscode://schemas/mcp';
+export const defaultSettingsSchemaId = 'prox-code://schemas/settings/default';
+export const userSettingsSchemaId = 'prox-code://schemas/settings/user';
+export const profileSettingsSchemaId = 'prox-code://schemas/settings/profile';
+export const machineSettingsSchemaId = 'prox-code://schemas/settings/machine';
+export const workspaceSettingsSchemaId = 'prox-code://schemas/settings/workspace';
+export const folderSettingsSchemaId = 'prox-code://schemas/settings/folder';
+export const launchSchemaId = 'prox-code://schemas/launch';
+export const tasksSchemaId = 'prox-code://schemas/tasks';
+export const mcpSchemaId = 'prox-code://schemas/mcp';
 
 export const APPLICATION_SCOPES = [ConfigurationScope.APPLICATION, ConfigurationScope.APPLICATION_MACHINE];
 export const PROFILE_SCOPES = [ConfigurationScope.MACHINE, ConfigurationScope.WINDOW, ConfigurationScope.RESOURCE, ConfigurationScope.LANGUAGE_OVERRIDABLE, ConfigurationScope.MACHINE_OVERRIDABLE];

@@ -1,5 +1,5 @@
-.vscode/**
-server/.vscode/**
+.prox-code/**
+server/.prox-code/**
 server/node_modules/**
 client/src/**
 server/src/**

@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -1061,7 +1061,7 @@ export class NativeExtensionsScannerService extends AbstractExtensionsScannerSer
 		super(
 			systemExtensionsLocation,
 			userExtensionsLocation,
-			joinPath(userHome, '.vscode-oss-dev', 'extensions', 'control.json'),
+			joinPath(userHome, '.vsprox-code-dev', 'extensions', 'control.json'),
 			currentProfile,
 			userDataProfilesService, extensionsProfileScannerService, fileService, logService, environmentService, productService, uriIdentityService, instantiationService);
 		this.translationsPromise = (async () => {

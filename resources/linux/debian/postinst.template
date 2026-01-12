@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (c) Microsoft Corporation. All rights reserved.
+# Copyright (c) ProXentix. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 
 # Symlink bin command to /usr/bin
@@ -22,7 +22,7 @@ if hash update-mime-database 2>/dev/null; then
 	update-mime-database /usr/share/mime
 fi
 
-if [ "@@NAME@@" != "code-oss" ]; then
+if [ "@@NAME@@" != "prox-code" ]; then
 	# Remove the legacy bin command if this is the stable build
 	if [ "@@NAME@@" = "code" ]; then
 		rm -f /usr/local/bin/code
@@ -43,10 +43,10 @@ if [ "@@NAME@@" != "code-oss" ]; then
 		db_get @@NAME@@/add-microsoft-repo || true
 	fi
 
-	# Determine whether to write the Microsoft repository source list
+	# Determine whether to write the ProXentix repository source list
 	WRITE_SOURCE='no'
 	if [ "$RET" = 'false' ]; then
-		# The user specified in debconf not to add the Microsoft repository
+		# The user specified in debconf not to add the ProXentix repository
 		WRITE_SOURCE='no'
 	elif [ -f "$CODE_SOURCE_PART" ]; then
 		# The user is not on the new DEB822 format

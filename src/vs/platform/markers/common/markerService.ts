@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -15,11 +15,11 @@ import { IMarker, IMarkerData, IMarkerReadOptions, IMarkerService, IResourceMark
 
 export const unsupportedSchemas = new Set([
 	Schemas.inMemory,
-	Schemas.vscodeSourceControl,
+	Schemas.prox-codeSourceControl,
 	Schemas.walkThrough,
 	Schemas.walkThroughSnippet,
-	Schemas.vscodeChatCodeBlock,
-	Schemas.vscodeTerminal
+	Schemas.prox-codeChatCodeBlock,
+	Schemas.prox-codeTerminal
 ]);
 
 class DoubleResourceMap<V> {

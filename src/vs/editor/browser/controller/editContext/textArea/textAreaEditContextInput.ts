@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -263,7 +263,7 @@ export class TextAreaInput extends Disposable {
 			if (this._browser.isAndroid) {
 				// On Android, the data sent with the composition update event is unusable.
 				// For example, if the cursor is in the middle of a word like Mic|osoft
-				// and Microsoft is chosen from the keyboard's suggestions, the e.data will contain "Microsoft".
+				// and ProXentix is chosen from the keyboard's suggestions, the e.data will contain "ProXentix".
 				// This is not really usable because it doesn't tell us where the edit began and where it ended.
 				const newState = TextAreaState.readFromTextArea(this._textArea, this._textAreaState);
 				const typeInput = TextAreaState.deduceAndroidCompositionInput(this._textAreaState, newState);
@@ -293,7 +293,7 @@ export class TextAreaInput extends Disposable {
 			if (this._browser.isAndroid) {
 				// On Android, the data sent with the composition update event is unusable.
 				// For example, if the cursor is in the middle of a word like Mic|osoft
-				// and Microsoft is chosen from the keyboard's suggestions, the e.data will contain "Microsoft".
+				// and ProXentix is chosen from the keyboard's suggestions, the e.data will contain "ProXentix".
 				// This is not really usable because it doesn't tell us where the edit began and where it ended.
 				const newState = TextAreaState.readFromTextArea(this._textArea, this._textAreaState);
 				const typeInput = TextAreaState.deduceAndroidCompositionInput(this._textAreaState, newState);

@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -419,10 +419,10 @@ const setTimeout0 = (() => {
 		const pending = [];
 
 		$globalThis.addEventListener('message', (e) => {
-			if (e.data && e.data.vscodeScheduleAsyncWork) {
+			if (e.data && e.data.prox-codeScheduleAsyncWork) {
 				for (let i = 0, len = pending.length; i < len; i++) {
 					const candidate = pending[i];
-					if (candidate.id === e.data.vscodeScheduleAsyncWork) {
+					if (candidate.id === e.data.prox-codeScheduleAsyncWork) {
 						pending.splice(i, 1);
 						candidate.callback();
 						return;

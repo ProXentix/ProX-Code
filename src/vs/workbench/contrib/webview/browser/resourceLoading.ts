@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -115,9 +115,9 @@ function containsResource(root: URI, resource: URI): boolean {
 
 function normalizeResourcePath(resource: URI): URI {
 	// Rewrite remote uris to a path that the remote file system can understand
-	if (resource.scheme === Schemas.vscodeRemote) {
+	if (resource.scheme === Schemas.prox-codeRemote) {
 		return URI.from({
-			scheme: Schemas.vscodeRemote,
+			scheme: Schemas.prox-codeRemote,
 			authority: resource.authority,
 			path: '/vscode-resource',
 			query: JSON.stringify({

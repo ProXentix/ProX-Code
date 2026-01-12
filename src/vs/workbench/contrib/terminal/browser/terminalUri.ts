@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -27,7 +27,7 @@ export function getTerminalUri(workspaceId: string, instanceId: number, title?: 
 		params.set('command', commandId);
 	}
 	return URI.from({
-		scheme: Schemas.vscodeTerminal,
+		scheme: Schemas.prox-codeTerminal,
 		path: `/${workspaceId}/${instanceId}`,
 		fragment: title || undefined,
 		query: commandId ? params.toString() : undefined

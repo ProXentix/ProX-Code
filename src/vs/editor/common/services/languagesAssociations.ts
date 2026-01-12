@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -148,7 +148,7 @@ function getAssociations(resource: URI | null, firstLine?: string): IdAndMime[] 
 				path = metadata.get(DataUri.META_DATA_LABEL);
 				break;
 			}
-			case Schemas.vscodeNotebookCell:
+			case Schemas.prox-codeNotebookCell:
 				// File path not relevant for language detection of cell
 				path = undefined;
 				break;

@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -578,7 +578,7 @@ export class ExplorerFindProvider implements IAsyncFindProvider<ExplorerItem> {
 
 	private searchSupportsScheme(scheme: string): boolean {
 		// Limited by the search API
-		if (scheme !== Schemas.file && scheme !== Schemas.vscodeRemote) {
+		if (scheme !== Schemas.file && scheme !== Schemas.prox-codeRemote) {
 			return false;
 		}
 		return this.searchService.schemeHasFileSearchProvider(scheme);

@@ -1,4 +1,4 @@
-' Copyright (c) Microsoft Corporation. All rights reserved.
+' Copyright (c) ProXentix. All rights reserved.
 
 Public Sub LongTask(ByVal Duration As Single, _
                      ByVal MinimumInterval As Single)

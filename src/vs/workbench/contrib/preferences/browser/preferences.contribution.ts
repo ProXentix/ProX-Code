@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -545,7 +545,7 @@ class PreferencesActionsContribution extends Disposable implements IWorkbenchCon
 		this.extensionService.whenInstalledExtensionsRegistered()
 			.then(() => {
 				const remoteAuthority = this.environmentService.remoteAuthority;
-				const hostLabel = this.labelService.getHostLabel(Schemas.vscodeRemote, remoteAuthority) || remoteAuthority;
+				const hostLabel = this.labelService.getHostLabel(Schemas.prox-codeRemote, remoteAuthority) || remoteAuthority;
 				this._register(registerAction2(class extends Action2 {
 					constructor() {
 						super({

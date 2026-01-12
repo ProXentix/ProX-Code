@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -31,7 +31,7 @@ export const webviewGenericCspSource = `'self' https://*.${webviewResourceBaseHo
  * we know where to load the resource from (remote or truly local):
  *
  * ```txt
- * ${scheme}+${resource-authority}.vscode-resource.vscode-cdn.net/${path}
+ * ${scheme}+${resource-authority}.prox-code-resource.prox-code-cdn.net/${path}
  * ```
  *
  * @param resource Uri of the resource to load.
@@ -44,7 +44,7 @@ export function asWebviewUri(resource: URI, remoteInfo?: WebviewRemoteInfo): URI
 
 	if (remoteInfo && remoteInfo.authority && remoteInfo.isRemote && resource.scheme === Schemas.file) {
 		resource = URI.from({
-			scheme: Schemas.vscodeRemote,
+			scheme: Schemas.prox-codeRemote,
 			authority: remoteInfo.authority,
 			path: resource.path,
 		});

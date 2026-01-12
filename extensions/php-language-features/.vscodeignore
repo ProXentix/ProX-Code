@@ -1,4 +1,4 @@
-.vscode/**
+.prox-code/**
 src/**
 out/**
 tsconfig.json

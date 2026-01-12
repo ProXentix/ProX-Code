@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -8,7 +8,7 @@ import { URI } from '../../../base/common/uri.js';
 import { IWorkspace } from './workspace.js';
 
 export function isVirtualResource(resource: URI) {
-	return resource.scheme !== Schemas.file && resource.scheme !== Schemas.vscodeRemote;
+	return resource.scheme !== Schemas.file && resource.scheme !== Schemas.prox-codeRemote;
 }
 
 export function getVirtualWorkspaceLocation(workspace: IWorkspace): { scheme: string; authority: string } | undefined {

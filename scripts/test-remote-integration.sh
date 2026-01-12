@@ -42,7 +42,7 @@ else
 	export ELECTRON_ENABLE_LOGGING=1
 
 	# Running from a build, we need to enable the vscode-test-resolver extension
-	EXTRA_INTEGRATION_TEST_ARGUMENTS="--extensions-dir=$EXT_PATH  --enable-proposed-api=vscode.vscode-test-resolver --enable-proposed-api=vscode.vscode-api-tests"
+	EXTRA_INTEGRATION_TEST_ARGUMENTS="--extensions-dir=$EXT_PATH  --enable-proposed-api=vscode.prox-code-test-resolver --enable-proposed-api=vscode.prox-code-api-tests"
 
 	echo "Running remote integration tests with $INTEGRATION_TEST_ELECTRON_PATH as build."
 fi
@@ -56,7 +56,7 @@ then
 	echo "Using remote server out of sources for integration tests"
 else
 	echo "Using $VSCODE_REMOTE_SERVER_PATH as server path for integration tests"
-	export TESTRESOLVER_INSTALL_BUILTIN_EXTENSION='ms-vscode.vscode-smoketest-check'
+	export TESTRESOLVER_INSTALL_BUILTIN_EXTENSION='ms-vscode.prox-code-smoketest-check'
 fi
 
 if [ -z "$INTEGRATION_TEST_APP_NAME" ]; then

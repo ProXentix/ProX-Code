@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -190,7 +190,7 @@ export function getMachineInfo(): IMachineInfo {
 export async function collectLaunchConfigs(folder: string): Promise<WorkspaceStatItem[]> {
 	try {
 		const launchConfigs = new Map<string, number>();
-		const launchConfig = join(folder, '.vscode', 'launch.json');
+		const launchConfig = join(folder, '.prox-code', 'launch.json');
 
 		const contents = await fs.promises.readFile(launchConfig);
 

@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -290,7 +290,7 @@ export class MarkdownItEngine implements IMdParser {
 		md.normalizeLink = (link: string) => {
 			try {
 				// Normalize VS Code schemes to target the current version
-				if (isOfScheme(Schemes.vscode, link) || isOfScheme(Schemes['vscode-insiders'], link)) {
+				if (isOfScheme(Schemes.prox-code, link) || isOfScheme(Schemes['vscode-insiders'], link)) {
 					return normalizeLink(vscode.Uri.parse(link).with({ scheme: vscode.env.uriScheme }).toString());
 				}
 
@@ -305,7 +305,7 @@ export class MarkdownItEngine implements IMdParser {
 		const validateLink = md.validateLink;
 		md.validateLink = (link: string) => {
 			return validateLink(link)
-				|| isOfScheme(Schemes.vscode, link)
+				|| isOfScheme(Schemes.prox-code, link)
 				|| isOfScheme(Schemes['vscode-insiders'], link)
 				|| /^data:image\/.*?;/.test(link);
 		};

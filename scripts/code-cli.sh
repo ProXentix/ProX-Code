@@ -30,7 +30,7 @@ function code() {
 	fi
 
 	# Disable test extension
-	DISABLE_TEST_EXTENSION="--disable-extension=vscode.vscode-api-tests"
+	DISABLE_TEST_EXTENSION="--disable-extension=vscode.prox-code-api-tests"
 	if [[ "$@" == *"--extensionTestsPath"* ]]; then
 		DISABLE_TEST_EXTENSION=""
 	fi

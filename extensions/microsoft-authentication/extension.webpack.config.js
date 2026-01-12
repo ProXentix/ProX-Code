@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 // @ts-check
@@ -30,7 +30,7 @@ switch (process.platform) {
 }
 
 const arch = process.env.VSCODE_ARCH || process.arch;
-console.log(`Building Microsoft Authentication Extension for ${process.platform} (${arch})`);
+console.log(`Building ProXentix Authentication Extension for ${process.platform} (${arch})`);
 
 const plugins = [...nodePlugins(import.meta.dirname)];
 if (

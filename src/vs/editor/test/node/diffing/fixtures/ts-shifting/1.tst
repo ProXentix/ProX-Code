@@ -1,7 +1,7 @@
 [
 	{
 		"identifier": {
-			"id": "pflannery.vscode-versionlens",
+			"id": "pflannery.prox-code-versionlens",
 			"uuid": "07fc4a0a-11fc-4121-ba9a-f0d534c729d8"
 		},
 		"preRelease": false,

@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -85,7 +85,7 @@ registerAction2(class extends NotebookMultiCellAction {
 });
 
 function notebookContainsTextModel(uri: URI, textModel: ITextModel) {
-	if (textModel.uri.scheme === Schemas.vscodeNotebookCell) {
+	if (textModel.uri.scheme === Schemas.prox-codeNotebookCell) {
 		const cellUri = CellUri.parse(textModel.uri);
 		if (cellUri && isEqual(cellUri.notebook, uri)) {
 			return true;

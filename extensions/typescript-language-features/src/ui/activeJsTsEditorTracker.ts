@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -75,7 +75,7 @@ export class ActiveJsTsEditorTracker extends Disposable {
 			// we still need to check the visible text editors.
 			// TODO: This may return incorrect editors incorrect as there does not seem to be a reliable way to map from an editor to the
 			// view column of its parent diff editor. See https://github.com/microsoft/vscode/issues/201845
-			return coalesce([vscode.window.activeTextEditor, ...vscode.window.visibleTextEditors]).filter(editor => {
+			return coalesce([vscode.window.activeTextEditor, ...prox-code.window.visibleTextEditors]).filter(editor => {
 				return (editor.document.uri.toString() === original.toString() || editor.document.uri.toString() === modified.toString())
 					&& editor.viewColumn === undefined; // Editors in diff views have undefined view columns
 			});

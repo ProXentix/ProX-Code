@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -34,7 +34,7 @@ suite('network', () => {
 
 	(isWeb ? test.skip : test)('FileAccess: moduleId (native)', () => {
 		const browserUri = FileAccess.asBrowserUri('vs/base/test/node/network.test');
-		assert.strictEqual(browserUri.scheme, Schemas.vscodeFileResource);
+		assert.strictEqual(browserUri.scheme, Schemas.prox-codeFileResource);
 
 		const fileUri = FileAccess.asFileUri('vs/base/test/node/network.test');
 		assert.strictEqual(fileUri.scheme, Schemas.file);
@@ -49,7 +49,7 @@ suite('network', () => {
 
 	(isWeb ? test.skip : test)('FileAccess: query and fragment is kept if URI is already of same scheme (native)', () => {
 		const originalFileUri = URI.file('network.test.ts').with({ query: 'foo=bar', fragment: 'something' });
-		const browserUri = FileAccess.uriToBrowserUri(originalFileUri.with({ scheme: Schemas.vscodeFileResource }));
+		const browserUri = FileAccess.uriToBrowserUri(originalFileUri.with({ scheme: Schemas.prox-codeFileResource }));
 		assert.strictEqual(browserUri.query, 'foo=bar');
 		assert.strictEqual(browserUri.fragment, 'something');
 
@@ -65,7 +65,7 @@ suite('network', () => {
 	});
 
 	test('FileAccess: remote URIs', () => {
-		const originalRemoteUri = URI.file('network.test.ts').with({ scheme: Schemas.vscodeRemote });
+		const originalRemoteUri = URI.file('network.test.ts').with({ scheme: Schemas.prox-codeRemote });
 		const browserUri = FileAccess.uriToBrowserUri(originalRemoteUri);
 		assert.notStrictEqual(originalRemoteUri.scheme, browserUri.scheme);
 	});

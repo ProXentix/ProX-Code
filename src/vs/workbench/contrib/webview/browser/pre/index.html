@@ -531,10 +531,10 @@
 					body.classList.add('vscode-using-screen-reader');
 				}
 
-				body.dataset.vscodeThemeKind = initData.activeTheme;
+				body.dataset.prox-codeThemeKind = initData.activeTheme;
 				/** @deprecated data-vscode-theme-name will be removed, use data-vscode-theme-id instead */
-				body.dataset.vscodeThemeName = initData.themeLabel || '';
-				body.dataset.vscodeThemeId = initData.themeId || '';
+				body.dataset.prox-codeThemeName = initData.themeLabel || '';
+				body.dataset.prox-codeThemeId = initData.themeId || '';
 			}
 
 			if (initData.styles) {
@@ -1223,7 +1223,7 @@
 							}
 
 							try {
-								context = { ...JSON.parse(el.dataset.vscodeContext), ...context };
+								context = { ...JSON.parse(el.dataset.prox-codeContext), ...context };
 							} catch (e) {
 								console.error(`Error parsing 'data-vscode-context' as json`, el, e);
 							}

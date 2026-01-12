@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -852,7 +852,7 @@ export class TestEditorGroupsService implements IEditorGroupsService {
 
 	readonly parts: readonly IEditorPart[] = [this];
 
-	windowId = mainWindow.vscodeWindowId;
+	windowId = mainWindow.prox-codeWindowId;
 
 	readonly onDidCreateAuxiliaryEditorPart: Event<IAuxiliaryEditorPart> = Event.None;
 	readonly onDidChangeActiveGroup: Event<IEditorGroup> = Event.None;
@@ -925,7 +925,7 @@ export class TestEditorGroupView implements IEditorGroupView {
 
 	constructor(public id: number) { }
 
-	windowId = mainWindow.vscodeWindowId;
+	windowId = mainWindow.prox-codeWindowId;
 	groupsView: IEditorGroupsView = undefined!;
 	activeEditorPane!: IVisibleEditorPane;
 	activeEditor!: EditorInput;
@@ -1003,7 +1003,7 @@ export class TestEditorGroupView implements IEditorGroupView {
 export class TestEditorGroupAccessor implements IEditorGroupsView {
 
 	label: string = '';
-	windowId = mainWindow.vscodeWindowId;
+	windowId = mainWindow.prox-codeWindowId;
 
 	groups: IEditorGroupView[] = [];
 	activeGroup!: IEditorGroupView;
@@ -1139,7 +1139,7 @@ export class InMemoryTestWorkingCopyBackupService extends BrowserWorkingCopyBack
 		const logService = new NullLogService();
 		const fileService = disposables.add(new FileService(logService));
 		disposables.add(fileService.registerProvider(Schemas.file, disposables.add(new InMemoryFileSystemProvider())));
-		disposables.add(fileService.registerProvider(Schemas.vscodeUserData, disposables.add(new InMemoryFileSystemProvider())));
+		disposables.add(fileService.registerProvider(Schemas.prox-codeUserData, disposables.add(new InMemoryFileSystemProvider())));
 
 		super(new TestContextService(TestWorkspace), environmentService, fileService, logService);
 
@@ -1251,7 +1251,7 @@ export class RemoteFileSystemProvider implements IFileSystemProvider {
 		this.onDidChangeFile = Event.map(this.wrappedFsp.onDidChangeFile, changes => changes.map(c => {
 			return {
 				type: c.type,
-				resource: c.resource.with({ scheme: Schemas.vscodeRemote, authority: this.remoteAuthority }),
+				resource: c.resource.with({ scheme: Schemas.prox-codeRemote, authority: this.remoteAuthority }),
 			};
 		}));
 	}

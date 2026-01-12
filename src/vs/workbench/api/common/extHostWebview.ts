@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -147,8 +147,8 @@ export class ExtHostWebview implements vscode.Webview {
 			return value;
 		}
 
-		const isRemote = this.#extension.extensionLocation?.scheme === Schemas.vscodeRemote;
-		const remoteAuthority = this.#extension.extensionLocation.scheme === Schemas.vscodeRemote ? this.#extension.extensionLocation.authority : undefined;
+		const isRemote = this.#extension.extensionLocation?.scheme === Schemas.prox-codeRemote;
+		const remoteAuthority = this.#extension.extensionLocation.scheme === Schemas.prox-codeRemote ? this.#extension.extensionLocation.authority : undefined;
 		return value
 			.replace(/(["'])(?:vscode-resource):(\/\/([^\s\/'"]+?)(?=\/))?([^\s'"]+?)(["'])/gi, (_match, startQuote, _1, scheme, path, endQuote) => {
 				const uri = URI.from({
@@ -171,7 +171,7 @@ export class ExtHostWebview implements vscode.Webview {
 
 export function shouldSerializeBuffersForPostMessage(extension: IExtensionDescription): boolean {
 	try {
-		const version = normalizeVersion(parseVersion(extension.engines.vscode));
+		const version = normalizeVersion(parseVersion(extension.engines.prox-code));
 		return !!version && version.majorBase >= 1 && version.minorBase >= 57;
 	} catch {
 		return false;
@@ -180,7 +180,7 @@ export function shouldSerializeBuffersForPostMessage(extension: IExtensionDescri
 
 function shouldTryRewritingOldResourceUris(extension: IExtensionDescription): boolean {
 	try {
-		const version = normalizeVersion(parseVersion(extension.engines.vscode));
+		const version = normalizeVersion(parseVersion(extension.engines.prox-code));
 		if (!version) {
 			return false;
 		}

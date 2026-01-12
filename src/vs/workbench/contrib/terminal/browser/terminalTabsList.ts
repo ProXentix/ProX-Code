@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -814,7 +814,7 @@ class TabDecorationsProvider extends Disposable implements IDecorationsProvider 
 	}
 
 	provideDecorations(resource: URI): IDecorationData | undefined {
-		if (resource.scheme !== Schemas.vscodeTerminal) {
+		if (resource.scheme !== Schemas.prox-codeTerminal) {
 			return undefined;
 		}
 

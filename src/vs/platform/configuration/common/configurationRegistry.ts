@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -292,8 +292,8 @@ export const machineOverridableSettings: { properties: IStringDictionary<IConfig
 export const windowSettings: { properties: IStringDictionary<IConfigurationPropertySchema>; patternProperties: IStringDictionary<IConfigurationPropertySchema> } = { properties: {}, patternProperties: {} };
 export const resourceSettings: { properties: IStringDictionary<IConfigurationPropertySchema>; patternProperties: IStringDictionary<IConfigurationPropertySchema> } = { properties: {}, patternProperties: {} };
 
-export const resourceLanguageSettingsSchemaId = 'vscode://schemas/settings/resourceLanguage';
-export const configurationDefaultsSchemaId = 'vscode://schemas/settings/configurationDefaults';
+export const resourceLanguageSettingsSchemaId = 'prox-code://schemas/settings/resourceLanguage';
+export const configurationDefaultsSchemaId = 'prox-code://schemas/settings/configurationDefaults';
 
 const contributionRegistry = Registry.as<IJSONContributionRegistry>(JSONExtensions.JSONContribution);
 

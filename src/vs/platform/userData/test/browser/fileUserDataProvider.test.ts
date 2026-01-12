@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -30,7 +30,7 @@ class TestEnvironmentService extends AbstractNativeEnvironmentService {
 	constructor(private readonly _appSettingsHome: URI) {
 		super(Object.create(null), Object.create(null), { _serviceBrand: undefined, ...product });
 	}
-	override get userRoamingDataHome() { return this._appSettingsHome.with({ scheme: Schemas.vscodeUserData }); }
+	override get userRoamingDataHome() { return this._appSettingsHome.with({ scheme: Schemas.prox-codeUserData }); }
 	override get cacheHome() { return this.userRoamingDataHome; }
 }
 
@@ -60,9 +60,9 @@ suite('FileUserDataProvider', () => {
 		const uriIdentityService = disposables.add(new UriIdentityService(testObject));
 		userDataProfilesService = disposables.add(new UserDataProfilesService(environmentService, testObject, uriIdentityService, logService));
 
-		fileUserDataProvider = disposables.add(new FileUserDataProvider(ROOT.scheme, fileSystemProvider, Schemas.vscodeUserData, userDataProfilesService, uriIdentityService, logService));
+		fileUserDataProvider = disposables.add(new FileUserDataProvider(ROOT.scheme, fileSystemProvider, Schemas.prox-codeUserData, userDataProfilesService, uriIdentityService, logService));
 		disposables.add(fileUserDataProvider);
-		disposables.add(testObject.registerProvider(Schemas.vscodeUserData, fileUserDataProvider));
+		disposables.add(testObject.registerProvider(Schemas.prox-codeUserData, fileUserDataProvider));
 	});
 
 	test('exists return false when file does not exist', async () => {
@@ -317,7 +317,7 @@ suite('FileUserDataProvider - Watching', () => {
 	let testObject: FileUserDataProvider;
 	const disposables = ensureNoDisposablesAreLeakedInTestSuite();
 	const rootFileResource = joinPath(ROOT, 'User');
-	const rootUserDataResource = rootFileResource.with({ scheme: Schemas.vscodeUserData });
+	const rootUserDataResource = rootFileResource.with({ scheme: Schemas.prox-codeUserData });
 
 	let fileEventEmitter: Emitter<readonly IFileChange[]>;
 
@@ -329,7 +329,7 @@ suite('FileUserDataProvider - Watching', () => {
 		const userDataProfilesService = disposables.add(new UserDataProfilesService(environmentService, fileService, uriIdentityService, logService));
 
 		fileEventEmitter = disposables.add(new Emitter<readonly IFileChange[]>());
-		testObject = disposables.add(new FileUserDataProvider(rootFileResource.scheme, new TestFileSystemProvider(fileEventEmitter.event), Schemas.vscodeUserData, userDataProfilesService, uriIdentityService, new NullLogService()));
+		testObject = disposables.add(new FileUserDataProvider(rootFileResource.scheme, new TestFileSystemProvider(fileEventEmitter.event), Schemas.prox-codeUserData, userDataProfilesService, uriIdentityService, new NullLogService()));
 	});
 
 	test('file added change event', done => {

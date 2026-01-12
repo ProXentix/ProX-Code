@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -40,7 +40,7 @@ impl WindowsService {
 
 	fn open_key() -> Result<RegKey, AnyError> {
 		RegKey::predef(HKEY_CURRENT_USER)
-			.create_subkey(r"Software\Microsoft\Windows\CurrentVersion\Run")
+			.create_subkey(r"Software\ProXentix\Windows\CurrentVersion\Run")
 			.map_err(|e| wrap(e, "error opening run registry key").into())
 			.map(|(key, _)| key)
 	}

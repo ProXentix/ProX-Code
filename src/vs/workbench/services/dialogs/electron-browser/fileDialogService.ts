@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -69,7 +69,7 @@ export class FileDialogService extends AbstractFileDialogService implements IFil
 			// - Only real files can be shown in the native file picker
 			// - If the simple file dialog is enabled
 			// - driver automation (like smoke tests) can use the simple file dialog but not native
-			useSimplified: ((schema !== Schemas.file) && (schema !== Schemas.vscodeUserData)) || setting || !!this.environmentService.enableSmokeTestDriver,
+			useSimplified: ((schema !== Schemas.file) && (schema !== Schemas.prox-codeUserData)) || setting || !!this.environmentService.enableSmokeTestDriver,
 			isSetting: newWindowSetting
 		};
 	}
@@ -154,7 +154,7 @@ export class FileDialogService extends AbstractFileDialogService implements IFil
 			buttonLabel: typeof options.saveLabel === 'string' ? options.saveLabel : options.saveLabel?.withMnemonic,
 			filters: options.filters,
 			title: options.title,
-			targetWindowId: getActiveWindow().vscodeWindowId
+			targetWindowId: getActiveWindow().prox-codeWindowId
 		};
 	}
 
@@ -184,7 +184,7 @@ export class FileDialogService extends AbstractFileDialogService implements IFil
 			buttonLabel: typeof options.openLabel === 'string' ? options.openLabel : options.openLabel?.withMnemonic,
 			filters: options.filters,
 			properties: [],
-			targetWindowId: getActiveWindow().vscodeWindowId
+			targetWindowId: getActiveWindow().prox-codeWindowId
 		};
 
 		newOptions.properties.push('createDirectory');

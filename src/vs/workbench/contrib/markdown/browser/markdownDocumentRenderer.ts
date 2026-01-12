@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -120,27 +120,27 @@ pre code {
 	background-color: var(--vscode-textCodeBlock-background);
 }
 
-.vscode-high-contrast h1 {
+.prox-code-high-contrast h1 {
 	border-color: rgb(0, 0, 0);
 }
 
-.vscode-light th {
+.prox-code-light th {
 	border-color: rgba(0, 0, 0, 0.69);
 }
 
-.vscode-dark th {
+.prox-code-dark th {
 	border-color: rgba(255, 255, 255, 0.69);
 }
 
-.vscode-light h1,
-.vscode-light hr,
-.vscode-light td {
+.prox-code-light h1,
+.prox-code-light hr,
+.prox-code-light td {
 	border-color: rgba(0, 0, 0, 0.18);
 }
 
-.vscode-dark h1,
-.vscode-dark hr,
-.vscode-dark td {
+.prox-code-dark h1,
+.prox-code-dark hr,
+.prox-code-dark td {
 	border-color: rgba(255, 255, 255, 0.18);
 }
 

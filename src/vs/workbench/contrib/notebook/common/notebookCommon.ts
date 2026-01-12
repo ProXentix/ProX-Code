@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -599,7 +599,7 @@ export interface INotebookContributionData {
 }
 
 export namespace NotebookMetadataUri {
-	export const scheme = Schemas.vscodeNotebookMetadata;
+	export const scheme = Schemas.prox-codeNotebookMetadata;
 	export function generate(notebook: URI): URI {
 		return generateMetadataUri(notebook);
 	}
@@ -609,7 +609,7 @@ export namespace NotebookMetadataUri {
 }
 
 export namespace CellUri {
-	export const scheme = Schemas.vscodeNotebookCell;
+	export const scheme = Schemas.prox-codeNotebookCell;
 	export function generate(notebook: URI, handle: number): URI {
 		return generateUri(notebook, handle);
 	}
@@ -624,7 +624,7 @@ export namespace CellUri {
 	 */
 	export function generateCellOutputUriWithId(notebook: URI, outputId?: string) {
 		return notebook.with({
-			scheme: Schemas.vscodeNotebookCellOutput,
+			scheme: Schemas.prox-codeNotebookCellOutput,
 			query: new URLSearchParams({
 				openIn: 'editor',
 				outputId: outputId ?? '',
@@ -638,7 +638,7 @@ export namespace CellUri {
 	 */
 	export function generateCellOutputUriWithIndex(notebook: URI, cellUri: URI, outputIndex: number): URI {
 		return notebook.with({
-			scheme: Schemas.vscodeNotebookCellOutput,
+			scheme: Schemas.prox-codeNotebookCellOutput,
 			fragment: cellUri.fragment,
 			query: new URLSearchParams({
 				openIn: 'notebook',
@@ -649,7 +649,7 @@ export namespace CellUri {
 
 	export function generateOutputEditorUri(notebook: URI, cellId: string, cellIndex: number, outputId: string, outputIndex: number): URI {
 		return notebook.with({
-			scheme: Schemas.vscodeNotebookCellOutput,
+			scheme: Schemas.prox-codeNotebookCellOutput,
 			query: new URLSearchParams({
 				openIn: 'notebookOutputEditor',
 				notebook: notebook.toString(),

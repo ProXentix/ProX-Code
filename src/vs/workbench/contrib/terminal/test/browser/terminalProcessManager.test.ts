@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -119,7 +119,7 @@ suite('Workbench - TerminalProcessManager', () => {
 		});
 		suite('remote', () => {
 			const remoteCwd = URI.from({
-				scheme: Schemas.vscodeRemote,
+				scheme: Schemas.prox-codeRemote,
 				path: 'test/cwd'
 			});
 

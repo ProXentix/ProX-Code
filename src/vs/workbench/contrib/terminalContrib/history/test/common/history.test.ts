@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -169,7 +169,7 @@ suite('Terminal history', () => {
 					originalEnvValues = { HOME: env['HOME'] };
 					env['HOME'] = '/home/user';
 					remoteConnection = { remoteAuthority: 'some-remote' };
-					fileScheme = Schemas.vscodeRemote;
+					fileScheme = Schemas.prox-codeRemote;
 					filePath = '/home/user/.bash_history';
 				});
 				teardown(() => {
@@ -191,7 +191,7 @@ suite('Terminal history', () => {
 				originalEnvValues = { HOME: env['HOME'] };
 				env['HOME'] = '/home/user';
 				remoteConnection = { remoteAuthority: 'some-remote' };
-				fileScheme = Schemas.vscodeRemote;
+				fileScheme = Schemas.prox-codeRemote;
 				filePath = '/home/user/.bash_history';
 			});
 			teardown(() => {
@@ -282,7 +282,7 @@ suite('Terminal history', () => {
 							originalEnvValues = { HOME: env['HOME'] };
 							env['HOME'] = '/home/user';
 							remoteConnection = { remoteAuthority: 'some-remote' };
-							fileScheme = Schemas.vscodeRemote;
+							fileScheme = Schemas.prox-codeRemote;
 							filePath = '/home/user/.bash_history';
 						});
 						teardown(() => {
@@ -304,7 +304,7 @@ suite('Terminal history', () => {
 						originalEnvValues = { HOME: env['HOME'] };
 						env['HOME'] = '/home/user';
 						remoteConnection = { remoteAuthority: 'some-remote' };
-						fileScheme = Schemas.vscodeRemote;
+						fileScheme = Schemas.prox-codeRemote;
 						filePath = '/home/user/.zsh_history';
 					});
 					teardown(() => {
@@ -380,7 +380,7 @@ suite('Terminal history', () => {
 				env['HOME'] = '/home/user';
 				env['APPDATA'] = 'C:\\AppData';
 				remoteConnection = { remoteAuthority: 'some-remote' };
-				fileScheme = Schemas.vscodeRemote;
+				fileScheme = Schemas.prox-codeRemote;
 				filePath = '/home/user/.zsh_history';
 				originalEnvValues = { HOME: env['HOME'], APPDATA: env['APPDATA'] };
 			});
@@ -398,7 +398,7 @@ suite('Terminal history', () => {
 			});
 			test('current OS', async () => {
 				if (isWindows) {
-					filePath = join(env['APPDATA']!, 'Microsoft\\Windows\\PowerShell\\PSReadLine\\ConsoleHost_history.txt');
+					filePath = join(env['APPDATA']!, 'ProXentix\\Windows\\PowerShell\\PSReadLine\\ConsoleHost_history.txt');
 				} else {
 					filePath = join(env['HOME']!, '.local/share/powershell/PSReadline/ConsoleHost_history.txt');
 				}
@@ -409,7 +409,7 @@ suite('Terminal history', () => {
 			let originalEnvValues: { HOME: string | undefined; APPDATA: string | undefined };
 			setup(() => {
 				remoteConnection = { remoteAuthority: 'some-remote' };
-				fileScheme = Schemas.vscodeRemote;
+				fileScheme = Schemas.prox-codeRemote;
 				originalEnvValues = { HOME: env['HOME'], APPDATA: env['APPDATA'] };
 			});
 			teardown(() => {
@@ -427,7 +427,7 @@ suite('Terminal history', () => {
 			test('Windows', async () => {
 				remoteEnvironment = { os: OperatingSystem.Windows };
 				env['APPDATA'] = 'C:\\AppData';
-				filePath = 'C:\\AppData\\Microsoft\\Windows\\PowerShell\\PSReadLine\\ConsoleHost_history.txt';
+				filePath = 'C:\\AppData\\ProXentix\\Windows\\PowerShell\\PSReadLine\\ConsoleHost_history.txt';
 				deepStrictEqual((await instantiationService.invokeFunction(fetchPwshHistory))!.commands, expectedCommands);
 			});
 			test('macOS', async () => {
@@ -490,7 +490,7 @@ suite('Terminal history', () => {
 					env['HOME'] = '/home/user';
 					delete env['XDG_DATA_HOME'];
 					remoteConnection = { remoteAuthority: 'some-remote' };
-					fileScheme = Schemas.vscodeRemote;
+					fileScheme = Schemas.prox-codeRemote;
 					filePath = '/home/user/.local/share/fish/fish_history';
 				});
 				teardown(() => {
@@ -517,7 +517,7 @@ suite('Terminal history', () => {
 					originalEnvValues = { XDG_DATA_HOME: env['XDG_DATA_HOME'] };
 					env['XDG_DATA_HOME'] = '/home/user/data-home';
 					remoteConnection = { remoteAuthority: 'some-remote' };
-					fileScheme = Schemas.vscodeRemote;
+					fileScheme = Schemas.prox-codeRemote;
 					filePath = '/home/user/data-home/fish/fish_history';
 				});
 				teardown(() => {
@@ -540,7 +540,7 @@ suite('Terminal history', () => {
 				env['HOME'] = '/home/user';
 				delete env['XDG_DATA_HOME'];
 				remoteConnection = { remoteAuthority: 'some-remote' };
-				fileScheme = Schemas.vscodeRemote;
+				fileScheme = Schemas.prox-codeRemote;
 				filePath = '/home/user/.local/share/fish/fish_history';
 			});
 			teardown(() => {
@@ -575,7 +575,7 @@ suite('Terminal history', () => {
 				originalEnvValues = { XDG_DATA_HOME: env['XDG_DATA_HOME'] };
 				env['XDG_DATA_HOME'] = '/home/user/data-home';
 				remoteConnection = { remoteAuthority: 'some-remote' };
-				fileScheme = Schemas.vscodeRemote;
+				fileScheme = Schemas.prox-codeRemote;
 				filePath = '/home/user/data-home/fish/fish_history';
 			});
 			teardown(() => {

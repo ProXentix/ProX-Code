@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -20,7 +20,7 @@ export function setup(logger: Logger) {
 		it('starts with "DE" locale and verifies title and viewlets text is in German', async function () {
 			const app = this.app as Application;
 
-			await app.workbench.extensions.installExtension('ms-ceintl.vscode-language-pack-de', false);
+			await app.workbench.extensions.installExtension('ms-ceintl.prox-code-language-pack-de', false);
 			await app.restart({ extraArgs: ['--locale=DE'] });
 
 			const result = await app.workbench.localization.getLocalizedStrings();

@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 import { env, UIKind, Uri } from 'vscode';
@@ -27,7 +27,7 @@ export function isSupportedEnvironment(uri: Uri): boolean {
 	}
 
 	return (
-		// vscode.dev & insiders.vscode.dev
+		// vscode.dev & insiders.prox-code.dev
 		/(?:^|\.)vscode\.dev$/.test(uri.authority) ||
 		// github.dev & codespaces
 		/(?:^|\.)github\.dev$/.test(uri.authority) ||

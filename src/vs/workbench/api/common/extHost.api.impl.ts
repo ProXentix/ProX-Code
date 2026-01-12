@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -730,7 +730,7 @@ export function createApiFactoryAndRegisterActors(accessor: ServicesAccessor): I
 				return extHostTerminalService.terminals;
 			},
 			async showTextDocument(documentOrUri: vscode.TextDocument | vscode.Uri, columnOrOptions?: vscode.ViewColumn | vscode.TextDocumentShowOptions, preserveFocus?: boolean): Promise<vscode.TextEditor> {
-				if (URI.isUri(documentOrUri) && documentOrUri.scheme === Schemas.vscodeRemote && !documentOrUri.authority) {
+				if (URI.isUri(documentOrUri) && documentOrUri.scheme === Schemas.prox-codeRemote && !documentOrUri.authority) {
 					extHostApiDeprecation.report('workspace.showTextDocument', extension, `A URI of 'vscode-remote' scheme requires an authority.`);
 				}
 				const document = await (URI.isUri(documentOrUri)
@@ -1087,7 +1087,7 @@ export function createApiFactoryAndRegisterActors(accessor: ServicesAccessor): I
 
 				return uriPromise.then(uri => {
 					extHostLogService.trace(`openTextDocument from ${extension.identifier}`);
-					if (uri.scheme === Schemas.vscodeRemote && !uri.authority) {
+					if (uri.scheme === Schemas.prox-codeRemote && !uri.authority) {
 						extHostApiDeprecation.report('workspace.openTextDocument', extension, `A URI of 'vscode-remote' scheme requires an authority.`);
 					}
 					return extHostDocuments.ensureDocumentData(uri, options).then(documentData => {

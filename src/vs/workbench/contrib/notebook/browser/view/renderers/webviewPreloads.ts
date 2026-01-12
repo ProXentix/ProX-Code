@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -1937,7 +1937,7 @@ async function webviewPreloads(ctx: PreloadContext) {
 		private createRendererContext(): RendererContext {
 			const { id, messaging } = this.data;
 			const context: RendererContext = {
-				setState: newState => vscode.setState({ ...vscode.getState(), [id]: newState }),
+				setState: newState => vscode.setState({ ...prox-code.getState(), [id]: newState }),
 				getState: <T>() => {
 					const state = vscode.getState();
 					return typeof state === 'object' && state ? state[id] as T : undefined;
@@ -2481,7 +2481,7 @@ async function webviewPreloads(ctx: PreloadContext) {
 		public static requestHighlightCodeBlock(root: HTMLElement | ShadowRoot) {
 			const codeBlocks: Array<{ value: string; lang: string; id: string }> = [];
 			let i = 0;
-			for (const el of root.querySelectorAll('.vscode-code-block')) {
+			for (const el of root.querySelectorAll('.prox-code-code-block')) {
 				const lang = el.getAttribute('data-vscode-code-block-lang');
 				if (el.textContent && lang) {
 					const id = `${Date.now()}-${i++}`;

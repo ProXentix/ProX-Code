@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -63,12 +63,12 @@ export class ChatEditorInput extends EditorInput implements IEditorCloseHandler 
 	) {
 		super();
 
-		if (resource.scheme === Schemas.vscodeChatEditor) {
+		if (resource.scheme === Schemas.prox-codeChatEditor) {
 			const parsed = ChatEditorUri.parse(resource);
 			if (!parsed || typeof parsed !== 'number') {
 				throw new Error('Invalid chat URI');
 			}
-		} else if (resource.scheme === Schemas.vscodeLocalChatSession) {
+		} else if (resource.scheme === Schemas.prox-codeLocalChatSession) {
 			const localSessionId = LocalChatSessionUri.parseLocalSessionId(resource);
 			if (!localSessionId) {
 				throw new Error('Invalid local chat session URI');
@@ -280,7 +280,7 @@ export class ChatEditorModel extends Disposable {
 
 namespace ChatEditorUri {
 
-	const scheme = Schemas.vscodeChatEditor;
+	const scheme = Schemas.prox-codeChatEditor;
 
 	export function getNewEditorUri(): URI {
 		const handle = Math.floor(Math.random() * 1e9);
@@ -345,7 +345,7 @@ export class ChatEditorInputSerializer implements IEditorSerializer {
 
 			// Otherwise check to see if we're a chat editor with a local session id
 			let resource = URI.revive(parsed.resource);
-			if (resource.scheme === Schemas.vscodeChatEditor && parsed.sessionId) {
+			if (resource.scheme === Schemas.prox-codeChatEditor && parsed.sessionId) {
 				resource = LocalChatSessionUri.forSession(parsed.sessionId);
 			}
 

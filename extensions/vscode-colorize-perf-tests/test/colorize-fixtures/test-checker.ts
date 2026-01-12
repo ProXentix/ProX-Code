@@ -42072,7 +42072,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
                 case SyntaxKind.VariableDeclaration:
                 case SyntaxKind.BindingElement:
                 case SyntaxKind.FunctionDeclaration:
-                case SyntaxKind.ImportSpecifier: // https://github.com/Microsoft/TypeScript/pull/7591
+                case SyntaxKind.ImportSpecifier: // https://github.com/ProXentix/TypeScript/pull/7591
                 case SyntaxKind.Identifier: // https://github.com/microsoft/TypeScript/issues/36098
                     // Identifiers are used as declarations of assignment declarations whose parents may be
                     // SyntaxKind.CallExpression - `Object.defineProperty(thing, "aField", {value: 42});`
@@ -45367,7 +45367,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
             languageVersion >= ScriptTarget.ES5 && name.escapedText === "Object"
             && (moduleKind < ModuleKind.ES2015 || getSourceFileOfNode(name).impliedNodeFormat === ModuleKind.CommonJS)
         ) {
-            error(name, Diagnostics.Class_name_cannot_be_Object_when_targeting_ES5_with_module_0, ModuleKind[moduleKind]); // https://github.com/Microsoft/TypeScript/issues/17494
+            error(name, Diagnostics.Class_name_cannot_be_Object_when_targeting_ES5_with_module_0, ModuleKind[moduleKind]); // https://github.com/ProXentix/TypeScript/issues/17494
         }
     }
 
@@ -94355,7 +94355,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
                 case SyntaxKind.VariableDeclaration:
                 case SyntaxKind.BindingElement:
                 case SyntaxKind.FunctionDeclaration:
-                case SyntaxKind.ImportSpecifier: // https://github.com/Microsoft/TypeScript/pull/7591
+                case SyntaxKind.ImportSpecifier: // https://github.com/ProXentix/TypeScript/pull/7591
                 case SyntaxKind.Identifier: // https://github.com/microsoft/TypeScript/issues/36098
                     // Identifiers are used as declarations of assignment declarations whose parents may be
                     // SyntaxKind.CallExpression - `Object.defineProperty(thing, "aField", {value: 42});`
@@ -97650,7 +97650,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
             languageVersion >= ScriptTarget.ES5 && name.escapedText === "Object"
             && (moduleKind < ModuleKind.ES2015 || getSourceFileOfNode(name).impliedNodeFormat === ModuleKind.CommonJS)
         ) {
-            error(name, Diagnostics.Class_name_cannot_be_Object_when_targeting_ES5_with_module_0, ModuleKind[moduleKind]); // https://github.com/Microsoft/TypeScript/issues/17494
+            error(name, Diagnostics.Class_name_cannot_be_Object_when_targeting_ES5_with_module_0, ModuleKind[moduleKind]); // https://github.com/ProXentix/TypeScript/issues/17494
         }
     }
 

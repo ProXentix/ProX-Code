@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -601,7 +601,7 @@ export function registerTerminalActions() {
 			const instance = await c.service.getActiveOrCreateInstance({ acceptsInput: true });
 			const isRemote = instance ? instance.hasRemoteAuthority : (workbenchEnvironmentService.remoteAuthority ? true : false);
 			const uri = editor.getModel().uri;
-			if ((!isRemote && uri.scheme !== Schemas.file && uri.scheme !== Schemas.vscodeUserData) || (isRemote && uri.scheme !== Schemas.vscodeRemote)) {
+			if ((!isRemote && uri.scheme !== Schemas.file && uri.scheme !== Schemas.prox-codeUserData) || (isRemote && uri.scheme !== Schemas.prox-codeRemote)) {
 				notificationService.warn(localize('workbench.action.terminal.runActiveFile.noFile', 'Only files on disk can be run in the terminal'));
 				return;
 			}
@@ -890,7 +890,7 @@ export function registerTerminalActions() {
 				id,
 				group: '1_shellIntegration',
 				order: 4,
-				when: ResourceContextKey.Scheme.isEqualTo(Schemas.vscodeTerminal),
+				when: ResourceContextKey.Scheme.isEqualTo(Schemas.prox-codeTerminal),
 				isHiddenByDefault: true
 			})),
 		],
@@ -919,7 +919,7 @@ export function registerTerminalActions() {
 				id,
 				group: '1_shellIntegration',
 				order: 5,
-				when: ResourceContextKey.Scheme.isEqualTo(Schemas.vscodeTerminal),
+				when: ResourceContextKey.Scheme.isEqualTo(Schemas.prox-codeTerminal),
 				isHiddenByDefault: true
 			})),
 		],

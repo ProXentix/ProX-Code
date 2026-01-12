@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -40,7 +40,7 @@ class RunCommands extends Action2 {
 									items: {
 										anyOf: [
 											{
-												$ref: 'vscode://schemas/keybindings#/definitions/commandNames'
+												$ref: 'prox-code://schemas/keybindings#/definitions/commandNames'
 											},
 											{
 												type: 'string',
@@ -52,7 +52,7 @@ class RunCommands extends Action2 {
 													command: {
 														'anyOf': [
 															{
-																$ref: 'vscode://schemas/keybindings#/definitions/commandNames'
+																$ref: 'prox-code://schemas/keybindings#/definitions/commandNames'
 															},
 															{
 																type: 'string'
@@ -60,7 +60,7 @@ class RunCommands extends Action2 {
 														]
 													}
 												},
-												$ref: 'vscode://schemas/keybindings#/definitions/commandsSchemas'
+												$ref: 'prox-code://schemas/keybindings#/definitions/commandsSchemas'
 											}
 										]
 									}

@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -32,7 +32,7 @@ export class RemoteFileSystemProviderClient extends DiskFileSystemProviderClient
 					// Register remote fsp even before it is asked to activate
 					// because, some features (configuration) wait for its
 					// registration before making fs calls.
-					fileService.registerProvider(Schemas.vscodeRemote, disposables.add(new RemoteFileSystemProviderClient(environment, connection)));
+					fileService.registerProvider(Schemas.prox-codeRemote, disposables.add(new RemoteFileSystemProviderClient(environment, connection)));
 				} else {
 					logService.error('Cannot register remote filesystem provider. Remote environment doesnot exist.');
 				}
@@ -42,7 +42,7 @@ export class RemoteFileSystemProviderClient extends DiskFileSystemProviderClient
 		})();
 
 		disposables.add(fileService.onWillActivateFileSystemProvider(e => {
-			if (e.scheme === Schemas.vscodeRemote) {
+			if (e.scheme === Schemas.prox-codeRemote) {
 				e.join(environmentPromise);
 			}
 		}));

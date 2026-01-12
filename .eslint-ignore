@@ -37,4 +37,4 @@
 **/test/automation/out/**
 **/typings/**
 **/.build/**
-!.vscode
+!.prox-code

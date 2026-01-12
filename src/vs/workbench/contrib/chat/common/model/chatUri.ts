@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -16,7 +16,7 @@ type ChatSessionIdentifier = {
 
 export namespace LocalChatSessionUri {
 
-	export const scheme = Schemas.vscodeLocalChatSession;
+	export const scheme = Schemas.prox-codeLocalChatSession;
 
 	export function forSession(sessionId: string): URI {
 		const encodedId = encodeBase64(VSBuffer.wrap(new TextEncoder().encode(sessionId)), false, true);
@@ -76,7 +76,7 @@ export function chatSessionResourceToId(resource: URI): string {
  *          for contributed sessions.
  */
 export function getChatSessionType(resource: URI): string {
-	if (resource.scheme === Schemas.vscodeChatEditor) {
+	if (resource.scheme === Schemas.prox-codeChatEditor) {
 		return localChatSessionType;
 	}
 

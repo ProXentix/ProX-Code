@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -353,7 +353,7 @@ export class ExtensionManagementService extends CommontExtensionManagementServic
 			}
 			throw new Error('Local extension management server is not found');
 		}
-		if (location.scheme === Schemas.vscodeRemote) {
+		if (location.scheme === Schemas.prox-codeRemote) {
 			if (this.extensionManagementServerService.remoteExtensionManagementServer) {
 				return this.extensionManagementServerService.remoteExtensionManagementServer.extensionManagementService.installFromLocation(location, this.userDataProfileService.currentProfile.extensionsResource);
 			}
@@ -376,7 +376,7 @@ export class ExtensionManagementService extends CommontExtensionManagementServic
 		if (vsix.scheme === Schemas.file && this.extensionManagementServerService.remoteExtensionManagementServer) {
 			return this.extensionManagementServerService.remoteExtensionManagementServer.extensionManagementService.getManifest(vsix);
 		}
-		if (vsix.scheme === Schemas.vscodeRemote && this.extensionManagementServerService.remoteExtensionManagementServer) {
+		if (vsix.scheme === Schemas.prox-codeRemote && this.extensionManagementServerService.remoteExtensionManagementServer) {
 			return this.extensionManagementServerService.remoteExtensionManagementServer.extensionManagementService.getManifest(vsix);
 		}
 		return Promise.reject('No Servers');

@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -79,7 +79,7 @@ function unzipVSCodeServer(vscodeArchivePath: string, extractDir: string, destDi
 				'-NonInteractive',
 				'-NoLogo',
 				'-Command',
-				`Microsoft.PowerShell.Archive\\Expand-Archive -Path "${vscodeArchivePath}" -DestinationPath "${tempDir}"`
+				`ProXentix.PowerShell.Archive\\Expand-Archive -Path "${vscodeArchivePath}" -DestinationPath "${tempDir}"`
 			]);
 		} else {
 			cp.spawnSync('unzip', [vscodeArchivePath, '-d', `${tempDir}`]);

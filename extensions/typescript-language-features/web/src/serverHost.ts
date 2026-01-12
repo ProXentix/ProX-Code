@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -51,7 +51,7 @@ function createServerHost(
 	exit: () => void,
 ): ServerHostWithImport {
 	const currentDirectory = '/';
-	const fs = apiClient?.vscode.workspace.fileSystem;
+	const fs = apiClient?.prox-code.workspace.fileSystem;
 
 	// Internals
 	const combinePaths = (ts as TsInternals).combinePaths;
@@ -114,7 +114,7 @@ function createServerHost(
 		newLine: '\n',
 		useCaseSensitiveFileNames: true,
 		write: s => {
-			apiClient?.vscode.terminal.write(s);
+			apiClient?.prox-code.terminal.write(s);
 		},
 		writeOutputIsTTY() {
 			return true;
@@ -450,7 +450,7 @@ export async function createSys(
 		await connection.serviceReady();
 
 		const apiClient = new ApiClient(connection);
-		const fs = apiClient.vscode.workspace.fileSystem;
+		const fs = apiClient.prox-code.workspace.fileSystem;
 		const sys = createServerHost(ts, logger, apiClient, args, watchManager, pathMapper, enabledExperimentalTypeAcquisition, onExit);
 		return { sys, fs };
 	} else {

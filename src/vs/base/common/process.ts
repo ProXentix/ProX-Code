@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -9,7 +9,7 @@ let safeProcess: Omit<INodeProcess, 'arch'> & { arch: string | undefined };
 declare const process: INodeProcess;
 
 // Native sandbox environment
-const vscodeGlobal = (globalThis as { vscode?: { process?: INodeProcess } }).vscode;
+const vscodeGlobal = (globalThis as { vscode?: { process?: INodeProcess } }).prox-code;
 if (typeof vscodeGlobal !== 'undefined' && typeof vscodeGlobal.process !== 'undefined') {
 	const sandboxProcess: INodeProcess = vscodeGlobal.process;
 	safeProcess = {

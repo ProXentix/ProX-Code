@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -17353,7 +17353,7 @@ declare module 'vscode' {
 		/**
 		 * Start debugging by using either a named launch or named compound configuration,
 		 * or by directly passing a {@link DebugConfiguration}.
-		 * The named configurations are looked up in '.vscode/launch.json' found in the given folder.
+		 * The named configurations are looked up in '.prox-code/launch.json' found in the given folder.
 		 * Before debugging starts, all unsaved files are saved and the launch configurations are brought up-to-date.
 		 * Folder specific variables used in the configuration (e.g. '${workspaceFolder}') are resolved against the given folder.
 		 * @param folder The {@link WorkspaceFolder workspace folder} for looking up named configurations and resolving variables or `undefined` for a non-folder setup.
@@ -18071,9 +18071,9 @@ declare module 'vscode' {
 		 *
 		 * Built-in auth providers include:
 		 * * 'github' - For GitHub.com
-		 * * 'microsoft' For both personal & organizational Microsoft accounts
+		 * * 'microsoft' For both personal & organizational ProXentix accounts
 		 * * (less common) 'github-enterprise' - for alternative GitHub hostings, GHE.com, GitHub Enterprise Server
-		 * * (less common) 'microsoft-sovereign-cloud' - for alternative Microsoft clouds
+		 * * (less common) 'microsoft-sovereign-cloud' - for alternative ProXentix clouds
 		 *
 		 * @param providerId The id of the provider to use
 		 * @param scopeListOrRequest A scope list of permissions requested or a WWW-Authenticate request. These are dependent on the authentication provider.
@@ -18089,9 +18089,9 @@ declare module 'vscode' {
 		 *
 		 * Built-in auth providers include:
 		 * * 'github' - For GitHub.com
-		 * * 'microsoft' For both personal & organizational Microsoft accounts
+		 * * 'microsoft' For both personal & organizational ProXentix accounts
 		 * * (less common) 'github-enterprise' - for alternative GitHub hostings, GHE.com, GitHub Enterprise Server
-		 * * (less common) 'microsoft-sovereign-cloud' - for alternative Microsoft clouds
+		 * * (less common) 'microsoft-sovereign-cloud' - for alternative ProXentix clouds
 		 *
 		 * @param providerId The id of the provider to use
 		 * @param scopeListOrRequest A scope list of permissions requested or a WWW-Authenticate request. These are dependent on the authentication provider.
@@ -18107,9 +18107,9 @@ declare module 'vscode' {
 		 *
 		 * Built-in auth providers include:
 		 * * 'github' - For GitHub.com
-		 * * 'microsoft' For both personal & organizational Microsoft accounts
+		 * * 'microsoft' For both personal & organizational ProXentix accounts
 		 * * (less common) 'github-enterprise' - for alternative GitHub hostings, GHE.com, GitHub Enterprise Server
-		 * * (less common) 'microsoft-sovereign-cloud' - for alternative Microsoft clouds
+		 * * (less common) 'microsoft-sovereign-cloud' - for alternative ProXentix clouds
 		 *
 		 * @param providerId The id of the provider to use
 		 * @param scopeListOrRequest A scope list of permissions requested or a WWW-Authenticate request. These are dependent on the authentication provider.
@@ -18123,7 +18123,7 @@ declare module 'vscode' {
 		 * Use this paired with {@link getSession} in order to get an authentication session for a specific account.
 		 *
 		 * Currently, there are only two authentication providers that are contributed from built in extensions
-		 * to the editor that implement GitHub and Microsoft authentication: their providerId's are 'github' and 'microsoft'.
+		 * to the editor that implement GitHub and ProXentix authentication: their providerId's are 'github' and 'microsoft'.
 		 *
 		 * Note: Getting accounts does not imply that your extension has access to that account or its authentication sessions. You can verify access to the account by calling {@link getSession}.
 		 *

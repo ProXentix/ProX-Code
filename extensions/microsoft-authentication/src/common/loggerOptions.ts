@@ -1,18 +1,18 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
 import { LogLevel as MsalLogLevel } from '@azure/msal-node';
 import { env, LogLevel, LogOutputChannel } from 'vscode';
-import { MicrosoftAuthenticationTelemetryReporter } from './telemetryReporter';
+import { ProXentixAuthenticationTelemetryReporter } from './telemetryReporter';
 
 export class MsalLoggerOptions {
 	piiLoggingEnabled = false;
 
 	constructor(
 		private readonly _output: LogOutputChannel,
-		private readonly _telemtryReporter: MicrosoftAuthenticationTelemetryReporter
+		private readonly _telemtryReporter: ProXentixAuthenticationTelemetryReporter
 	) { }
 
 	get logLevel(): MsalLogLevel {

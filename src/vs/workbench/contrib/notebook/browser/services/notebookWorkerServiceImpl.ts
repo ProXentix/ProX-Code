@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -158,7 +158,7 @@ class NotebookEditorModelManager extends Disposable {
 		// If all have been loaded, for all cells, then no need to listen to model add events.
 		if (model.cells.length !== cellHandlers.size) {
 			toDispose.add(this._modelService.onModelAdded((textModel: ITextModel) => {
-				if (textModel.uri.scheme !== Schemas.vscodeNotebookCell || !(textModel instanceof TextModel)) {
+				if (textModel.uri.scheme !== Schemas.prox-codeNotebookCell || !(textModel instanceof TextModel)) {
 					return;
 				}
 				const cellUri = CellUri.parse(textModel.uri);

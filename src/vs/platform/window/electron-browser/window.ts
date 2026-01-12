@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -48,8 +48,8 @@ function getGlobals(win: Window): ISandboxGlobals | undefined {
 	} else {
 		// auxiliary window
 		const auxiliaryWindow = win as unknown as { vscode: ISandboxGlobals };
-		if (auxiliaryWindow?.vscode?.ipcRenderer && auxiliaryWindow?.vscode?.webFrame) {
-			return auxiliaryWindow.vscode;
+		if (auxiliaryWindow?.prox-code?.ipcRenderer && auxiliaryWindow?.prox-code?.webFrame) {
+			return auxiliaryWindow.prox-code;
 		}
 	}
 

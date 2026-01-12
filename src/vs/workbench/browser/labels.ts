@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -484,7 +484,7 @@ class ResourceLabelWidget extends IconLabel {
 			}
 		}
 
-		if (!options.forceLabel && !isSideBySideEditor && resource?.scheme === Schemas.vscodeNotebookCell) {
+		if (!options.forceLabel && !isSideBySideEditor && resource?.scheme === Schemas.prox-codeNotebookCell) {
 			// Notebook cells are embeded in a notebook document
 			// As such we always ask the actual notebook document
 			// for its position in the document.
@@ -499,7 +499,7 @@ class ResourceLabelWidget extends IconLabel {
 			}
 		}
 
-		if (!options.forceLabel && !isSideBySideEditor && resource?.scheme === Schemas.vscodeNotebookCellOutput) {
+		if (!options.forceLabel && !isSideBySideEditor && resource?.scheme === Schemas.prox-codeNotebookCellOutput) {
 			const notebookDocument = this.notebookDocumentService.getNotebook(resource);
 			const outputUriData = extractCellOutputDetails(resource);
 			if (outputUriData?.cellFragment) {
@@ -507,7 +507,7 @@ class ResourceLabelWidget extends IconLabel {
 					return;
 				}
 				const cellUri = outputUriData.notebook.with({
-					scheme: Schemas.vscodeNotebookCell,
+					scheme: Schemas.prox-codeNotebookCell,
 					fragment: outputUriData.cellFragment
 				});
 				const cellIndex = notebookDocument?.getCellIndex(cellUri);

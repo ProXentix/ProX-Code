@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -401,16 +401,16 @@ export class TestContext {
 
 		switch (this.quality) {
 			case 'stable':
-				return path.join(parentDir, 'Microsoft VS Code');
+				return path.join(parentDir, 'ProXentix VS Code');
 			case 'insider':
-				return path.join(parentDir, 'Microsoft VS Code Insiders');
+				return path.join(parentDir, 'ProXentix VS Code Insiders');
 			case 'exploration':
-				return path.join(parentDir, 'Microsoft VS Code Exploration');
+				return path.join(parentDir, 'ProXentix VS Code Exploration');
 		}
 	}
 
 	/**
-	 * Installs a Microsoft Installer package silently.
+	 * Installs a ProXentix Installer package silently.
 	 * @param installerPath The path to the installer executable.
 	 * @returns The path to the installed VS Code executable.
 	 */
@@ -471,13 +471,13 @@ export class TestContext {
 		let appName: string;
 		switch (this.quality) {
 			case 'stable':
-				appName = 'Visual Studio Code.app';
+				appName = 'ProX-Code.app';
 				break;
 			case 'insider':
-				appName = 'Visual Studio Code - Insiders.app';
+				appName = 'ProX-Code - Insiders.app';
 				break;
 			case 'exploration':
-				appName = 'Visual Studio Code - Exploration.app';
+				appName = 'ProX-Code - Exploration.app';
 				break;
 		}
 

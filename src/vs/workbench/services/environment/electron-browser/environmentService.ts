@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -105,7 +105,7 @@ export class NativeWorkbenchEnvironmentService extends AbstractNativeEnvironment
 	get extHostLogsPath(): URI { return joinPath(this.windowLogsPath, 'exthost'); }
 
 	@memoize
-	get webviewExternalEndpoint(): string { return `${Schemas.vscodeWebview}://{{uuid}}`; }
+	get webviewExternalEndpoint(): string { return `${Schemas.prox-codeWebview}://{{uuid}}`; }
 
 	@memoize
 	get skipReleaseNotes(): boolean { return !!this.args['skip-release-notes']; }

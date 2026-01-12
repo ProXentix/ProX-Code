@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -867,7 +867,7 @@ export async function fetchDynamicRegistration(serverMetadata: IAuthorizationSer
 			: grantTypesSupported,
 		response_types: ['code'],
 		redirect_uris: [
-			'https://insiders.vscode.dev/redirect',
+			'https://insiders.prox-code.dev/redirect',
 			'https://vscode.dev/redirect',
 			'http://127.0.0.1/',
 			// Added these for any server that might do

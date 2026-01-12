@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -21,12 +21,12 @@ const schemaRegistry = Registry.as<JSONContributionRegistry.IJSONContributionReg
 
 export class SettingsFileSystemProvider extends Disposable implements IFileSystemProviderWithFileReadWriteCapability {
 
-	static readonly SCHEMA = Schemas.vscode;
+	static readonly SCHEMA = Schemas.prox-code;
 
 	protected readonly _onDidChangeFile = this._register(new Emitter<readonly IFileChange[]>());
 	readonly onDidChangeFile = this._onDidChangeFile.event;
 
-	private static SCHEMA_ASSOCIATIONS = URI.parse(`${Schemas.vscode}://schemas-associations/schemas-associations.json`);
+	private static SCHEMA_ASSOCIATIONS = URI.parse(`${Schemas.prox-code}://schemas-associations/schemas-associations.json`);
 
 	constructor(
 		@IPreferencesService private readonly preferencesService: IPreferencesService,

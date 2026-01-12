@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -323,7 +323,7 @@ registry.registerConfiguration({
 	'properties': {
 		'workbench.enableExperiments': {
 			'type': 'boolean',
-			'description': localize('workbench.enableExperiments', "Fetches experiments to run from a Microsoft online service."),
+			'description': localize('workbench.enableExperiments', "Fetches experiments to run from a ProXentix online service."),
 			'default': true,
 			'scope': ConfigurationScope.APPLICATION,
 			'restricted': true,

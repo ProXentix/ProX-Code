@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -64,7 +64,7 @@ export class ElectronRemoteResourceLoader extends Disposable {
 
 	public getResourceUriProvider() {
 		return (uri: URI) => uri.with({
-			scheme: Schemas.vscodeManagedRemoteResource,
+			scheme: Schemas.prox-codeManagedRemoteResource,
 			authority: `window:${this.windowId}`,
 			query: new URLSearchParams({ authority: uri.authority, scheme: uri.scheme }).toString(),
 		});

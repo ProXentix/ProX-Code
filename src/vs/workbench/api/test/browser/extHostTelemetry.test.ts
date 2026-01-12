@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -263,7 +263,7 @@ suite('ExtHostTelemetry', function () {
 			'fake-email': 'no-reply@example.com',
 			'fake-token': 'token=123',
 			'fake-slack-token': 'xoxp-123',
-			'fake-path': '/Users/username/.vscode/extensions',
+			'fake-path': '/Users/username/.prox-code/extensions',
 		});
 
 		assert.strictEqual(functionSpy.dataArr.length, 1);

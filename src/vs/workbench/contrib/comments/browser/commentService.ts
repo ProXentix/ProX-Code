@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -238,7 +238,7 @@ export class CommentService extends Disposable implements ICommentService {
 
 		this._register(this.modelService.onModelAdded(model => {
 			// Excluded schemes
-			if ((model.uri.scheme === Schemas.vscodeSourceControl)) {
+			if ((model.uri.scheme === Schemas.prox-codeSourceControl)) {
 				return;
 			}
 			// Allows comment providers to cause their commenting ranges to be prefetched by opening text documents in the background.

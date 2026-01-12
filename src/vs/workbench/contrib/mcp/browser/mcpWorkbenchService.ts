@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -599,7 +599,7 @@ export class McpWorkbenchService extends Disposable implements IMcpWorkbenchServ
 			id: REMOTE_USER_CONFIG_ID,
 			key: 'userRemoteValue',
 			target: ConfigurationTarget.USER_REMOTE,
-			label: this.environmentService.remoteAuthority ? this.labelService.getHostLabel(Schemas.vscodeRemote, this.environmentService.remoteAuthority) : 'Remote',
+			label: this.environmentService.remoteAuthority ? this.labelService.getHostLabel(Schemas.prox-codeRemote, this.environmentService.remoteAuthority) : 'Remote',
 			scope: StorageScope.PROFILE,
 			order: McpCollectionSortOrder.User + McpCollectionSortOrder.RemoteBoost,
 			remoteAuthority: this.environmentService.remoteAuthority,
@@ -632,7 +632,7 @@ export class McpWorkbenchService extends Disposable implements IMcpWorkbenchServ
 					id: `${WORKSPACE_FOLDER_CONFIG_ID_PREFIX}${index}`,
 					key: 'workspaceFolderValue',
 					target: ConfigurationTarget.WORKSPACE_FOLDER,
-					label: `${workspaceFolder.name}/.vscode/mcp.json`,
+					label: `${workspaceFolder.name}/.prox-code/mcp.json`,
 					scope: StorageScope.WORKSPACE,
 					remoteAuthority: this.environmentService.remoteAuthority,
 					order: McpCollectionSortOrder.WorkspaceFolder,

@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -299,7 +299,7 @@ export class ExtensionRunningLocationTracker {
 		const localWebWorkerExtensions: IExtensionDescription[] = [];
 		for (const extension of toAdd) {
 			const extensionKind = this.readExtensionKinds(extension);
-			const isRemote = extension.extensionLocation.scheme === Schemas.vscodeRemote;
+			const isRemote = extension.extensionLocation.scheme === Schemas.prox-codeRemote;
 			const extensionHostKind = this._extensionHostKindPicker.pickExtensionHostKind(extension.identifier, extensionKind, !isRemote, isRemote, ExtensionRunningPreference.None);
 			let runningLocation: ExtensionRunningLocation | null = null;
 			if (extensionHostKind === ExtensionHostKind.LocalProcess) {

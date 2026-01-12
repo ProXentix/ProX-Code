@@ -28,7 +28,7 @@ set TESTRESOLVER_LOGS_FOLDER=%VSCODELOGSDIR%\server
 if "%VSCODE_REMOTE_SERVER_PATH%"=="" (
 	echo Using remote server out of sources for integration tests
 ) else (
-	set TESTRESOLVER_INSTALL_BUILTIN_EXTENSION=ms-vscode.vscode-smoketest-check
+	set TESTRESOLVER_INSTALL_BUILTIN_EXTENSION=ms-vscode.prox-code-smoketest-check
 	echo Using '%VSCODE_REMOTE_SERVER_PATH%' as server path
 )
 
@@ -44,7 +44,7 @@ if "%INTEGRATION_TEST_ELECTRON_PATH%"=="" (
 	set ELECTRON_ENABLE_LOGGING=1
 
 	:: Extra arguments only when running against a built version
-	set API_TESTS_EXTRA_ARGS_BUILT=--extensions-dir=%EXT_PATH% --enable-proposed-api=vscode.vscode-test-resolver --enable-proposed-api=vscode.vscode-api-tests
+	set API_TESTS_EXTRA_ARGS_BUILT=--extensions-dir=%EXT_PATH% --enable-proposed-api=vscode.prox-code-test-resolver --enable-proposed-api=vscode.prox-code-api-tests
 
  	echo Using %INTEGRATION_TEST_ELECTRON_PATH% as Electron path
 )

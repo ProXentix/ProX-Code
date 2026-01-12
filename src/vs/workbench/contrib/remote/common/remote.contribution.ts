@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -50,16 +50,16 @@ export class LabelContribution implements IWorkbenchContribution {
 				separator: os === OperatingSystem.Windows ? '\\' : '/',
 				tildify: os !== OperatingSystem.Windows,
 				normalizeDriveLetter: os === OperatingSystem.Windows,
-				workspaceSuffix: isWeb ? undefined : Schemas.vscodeRemote
+				workspaceSuffix: isWeb ? undefined : Schemas.prox-codeRemote
 			};
 			this.labelService.registerFormatter({
-				scheme: Schemas.vscodeRemote,
+				scheme: Schemas.prox-codeRemote,
 				formatting
 			});
 
 			if (remoteEnvironment) {
 				this.labelService.registerFormatter({
-					scheme: Schemas.vscodeUserData,
+					scheme: Schemas.prox-codeUserData,
 					formatting
 				});
 			}

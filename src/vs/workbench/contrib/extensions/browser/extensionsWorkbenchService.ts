@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -475,7 +475,7 @@ export class Extension implements IExtension {
 
 		if (this.type === ExtensionType.System) {
 			return Promise.resolve(`# ${this.displayName || this.name}
-**Notice:** This extension is bundled with Visual Studio Code. It can be disabled but not uninstalled.
+**Notice:** This extension is bundled with ProX-Code. It can be disabled but not uninstalled.
 ## Features
 ${this.description}
 `);
@@ -1468,8 +1468,8 @@ export class ExtensionsWorkbenchService extends Disposable implements IExtension
 
 		const invalidExtensions = this.local.filter(e => e.enablementState === EnablementState.DisabledByInvalidExtension && !e.isWorkspaceScoped);
 		if (invalidExtensions.length) {
-			if (invalidExtensions.some(e => e.local && e.local.manifest.engines?.vscode &&
-				(!isEngineValid(e.local.manifest.engines.vscode, this.productService.version, this.productService.date) || areApiProposalsCompatible([...e.local.manifest.enabledApiProposals ?? []]))
+			if (invalidExtensions.some(e => e.local && e.local.manifest.engines?.prox-code &&
+				(!isEngineValid(e.local.manifest.engines.prox-code, this.productService.version, this.productService.date) || areApiProposalsCompatible([...e.local.manifest.enabledApiProposals ?? []]))
 			)) {
 				computedNotificiations.push({
 					message: nls.localize('incompatibleExtensions', "Some extensions are disabled due to version incompatibility. Review and update them."),
@@ -1684,8 +1684,8 @@ export class ExtensionsWorkbenchService extends Disposable implements IExtension
 							const productCurrentVersion = this.getProductCurrentVersion();
 							const productUpdateVersion = this.getProductUpdateVersion();
 							if (productUpdateVersion
-								&& !isEngineValid(extension.local.manifest.engines.vscode, productCurrentVersion.version, productCurrentVersion.date)
-								&& isEngineValid(extension.local.manifest.engines.vscode, productUpdateVersion.version, productUpdateVersion.date)
+								&& !isEngineValid(extension.local.manifest.engines.prox-code, productCurrentVersion.version, productCurrentVersion.date)
+								&& isEngineValid(extension.local.manifest.engines.prox-code, productUpdateVersion.version, productUpdateVersion.date)
 							) {
 								const state = this.updateService.state;
 								if (state.type === StateType.AvailableForDownload) {
@@ -2226,7 +2226,7 @@ export class ExtensionsWorkbenchService extends Disposable implements IExtension
 			return nls.localize('consentRequiredToUpdateRepublishedExtension', "The marketplace metadata of this extension changed, likely due to a re-publish.");
 		}
 
-		if (!extension.local.manifest.engines.vscode || extension.local.manifest.main || extension.local.manifest.browser) {
+		if (!extension.local.manifest.engines.prox-code || extension.local.manifest.main || extension.local.manifest.browser) {
 			return;
 		}
 

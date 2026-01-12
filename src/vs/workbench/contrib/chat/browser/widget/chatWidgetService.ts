@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -150,7 +150,7 @@ export class ChatWidgetService extends Disposable implements IChatWidgetService 
 			// focus transfer to other documents is async. If we depend on the focus
 			// being synchronously transferred in consuming code, this can fail, so
 			// wait for it to propagate
-			const isGroupActive = () => dom.getWindow(this.layoutService.activeContainer).vscodeWindowId === existingEditorWindowId;
+			const isGroupActive = () => dom.getWindow(this.layoutService.activeContainer).prox-codeWindowId === existingEditorWindowId;
 
 			let ensureFocusTransfer: Promise<void> | undefined;
 			if (!isGroupActive()) {

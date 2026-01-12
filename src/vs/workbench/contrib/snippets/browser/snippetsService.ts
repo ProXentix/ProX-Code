@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -432,7 +432,7 @@ export class SnippetsService implements ISnippetsService {
 
 	private async _initWorkspaceFolderSnippets(workspace: IWorkspace, bucket: DisposableStore): Promise<any> {
 		const promises = workspace.folders.map(async folder => {
-			const snippetFolder = folder.toResource('.vscode');
+			const snippetFolder = folder.toResource('.prox-code');
 			const value = await this._fileService.exists(snippetFolder);
 			if (value) {
 				this._initFolderSnippets(SnippetSource.Workspace, snippetFolder, bucket);

@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -353,7 +353,7 @@ export function resolveColorValue(colorValue: ColorValue | null, theme: IColorTh
 	return undefined;
 }
 
-export const workbenchColorsSchemaId = 'vscode://schemas/workbench-colors';
+export const workbenchColorsSchemaId = 'prox-code://schemas/workbench-colors';
 
 const schemaRegistry = platform.Registry.as<IJSONContributionRegistry>(JSONExtensions.JSONContribution);
 schemaRegistry.registerSchema(workbenchColorsSchemaId, colorRegistry.getColorSchema());

@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -394,7 +394,7 @@ import { MAX_ZOOM_LEVEL, MIN_ZOOM_LEVEL } from '../../platform/window/electron-b
 
 // JSON Schemas
 (function registerJSONSchemas(): void {
-	const argvDefinitionFileSchemaId = 'vscode://schemas/argv';
+	const argvDefinitionFileSchemaId = 'prox-code://schemas/argv';
 	const jsonRegistry = Registry.as<IJSONContributionRegistry>(JSONExtensions.JSONContribution);
 	const schema: IJSONSchema = {
 		id: argvDefinitionFileSchemaId,

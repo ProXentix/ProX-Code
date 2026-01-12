@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -168,7 +168,7 @@ export class NotebookOutputEditor extends EditorPane implements INotebookDelegat
 
 		const resolvedNotebookEditorModel = model.resolvedNotebookEditorModel;
 
-		await this._createOriginalWebview(generateUuid(), resolvedNotebookEditorModel.viewType, URI.from({ scheme: Schemas.vscodeNotebookCellOutput, path: '', query: 'openIn=notebookOutputEditor' }));
+		await this._createOriginalWebview(generateUuid(), resolvedNotebookEditorModel.viewType, URI.from({ scheme: Schemas.prox-codeNotebookCellOutput, path: '', query: 'openIn=notebookOutputEditor' }));
 
 		const notebookTextModel = resolvedNotebookEditorModel.notebook;
 		const eventDispatcher = this._register(new NotebookEventDispatcher());
@@ -345,7 +345,7 @@ export class NotebookOutputEditorContribution implements IWorkbenchContribution 
 		@IInstantiationService private readonly instantiationService: IInstantiationService,
 		@IUriIdentityService private readonly uriIdentityService: IUriIdentityService,) {
 		editorResolverService.registerEditor(
-			`${Schemas.vscodeNotebookCellOutput}:/**`,
+			`${Schemas.prox-codeNotebookCellOutput}:/**`,
 			{
 				id: 'notebookOutputEditor',
 				label: 'Notebook Output Editor',
@@ -353,7 +353,7 @@ export class NotebookOutputEditorContribution implements IWorkbenchContribution 
 			},
 			{
 				canSupportResource: (resource: URI) => {
-					if (resource.scheme === Schemas.vscodeNotebookCellOutput) {
+					if (resource.scheme === Schemas.prox-codeNotebookCellOutput) {
 						const params = new URLSearchParams(resource.query);
 						return params.get('openIn') === 'notebookOutputEditor';
 					}

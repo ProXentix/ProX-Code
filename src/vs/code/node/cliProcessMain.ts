@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -175,7 +175,7 @@ class CliMain extends Disposable {
 
 		// Use FileUserDataProvider for user data to
 		// enable atomic read / write operations.
-		fileService.registerProvider(Schemas.vscodeUserData, new FileUserDataProvider(Schemas.file, diskFileSystemProvider, Schemas.vscodeUserData, userDataProfilesService, uriIdentityService, logService));
+		fileService.registerProvider(Schemas.prox-codeUserData, new FileUserDataProvider(Schemas.file, diskFileSystemProvider, Schemas.prox-codeUserData, userDataProfilesService, uriIdentityService, logService));
 
 		// Policy
 		let policyService: IPolicyService | undefined;

@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -359,8 +359,8 @@ export async function fetchPwshHistory(accessor: ServicesAccessor): Promise<IShe
 	let sourceLabel: string;
 	if (isFileWindows) {
 		folderPrefix = env['APPDATA'];
-		filePath = 'Microsoft\\Windows\\PowerShell\\PSReadLine\\ConsoleHost_history.txt';
-		sourceLabel = `$APPDATA\\Microsoft\\Windows\\PowerShell\\PSReadLine\\ConsoleHost_history.txt`;
+		filePath = 'ProXentix\\Windows\\PowerShell\\PSReadLine\\ConsoleHost_history.txt';
+		sourceLabel = `$APPDATA\\ProXentix\\Windows\\PowerShell\\PSReadLine\\ConsoleHost_history.txt`;
 	} else {
 		folderPrefix = remoteEnvironment?.userHome?.fsPath ?? env['HOME'];
 		filePath = '.local/share/powershell/PSReadline/ConsoleHost_history.txt';
@@ -535,7 +535,7 @@ async function fetchFileContents(
 	const connection = remoteAgentService.getConnection();
 	const isRemote = !!connection?.remoteAuthority;
 	const resource = URI.from({
-		scheme: isRemote ? Schemas.vscodeRemote : Schemas.file,
+		scheme: isRemote ? Schemas.prox-codeRemote : Schemas.file,
 		authority: isRemote ? connection.remoteAuthority : undefined,
 		path: URI.file(join(folderPrefix, filePath)).path
 	});

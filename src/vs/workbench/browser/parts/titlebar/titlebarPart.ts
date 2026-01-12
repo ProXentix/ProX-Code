@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -310,7 +310,7 @@ export class BrowserTitlebarPart extends Part implements ITitlebarPart {
 	) {
 		super(id, { hasTitle: false }, themeService, storageService, layoutService);
 
-		this.isAuxiliary = targetWindow.vscodeWindowId !== mainWindow.vscodeWindowId;
+		this.isAuxiliary = targetWindow.prox-codeWindowId !== mainWindow.prox-codeWindowId;
 
 		this.isCompactContextKey = IsCompactTitleBarContext.bindTo(this.contextKeyService);
 

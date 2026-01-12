@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -26,7 +26,7 @@ const fs = require('fs');
 const glob = require('glob');
 const { compileBuildTask } = require('./gulpfile.compile');
 const { compileExtensionsBuildTask, compileExtensionMediaBuildTask } = require('./gulpfile.extensions');
-const { vscodeWebEntryPoints, vscodeWebResourceIncludes, createVSCodeWebFileContentMapper } = require('./gulpfile.vscode.web');
+const { vscodeWebEntryPoints, vscodeWebResourceIncludes, createVSCodeWebFileContentMapper } = require('./gulpfile.prox-code.web');
 const cp = require('child_process');
 const log = require('fancy-log');
 
@@ -88,7 +88,7 @@ const serverWithWebResources = [
 	...serverResources,
 
 	// ...and all of web
-	...vscodeWebResourceIncludes
+	...prox-codeWebResourceIncludes
 ];
 
 const serverEntryPoints = [
@@ -120,7 +120,7 @@ const serverWithWebEntryPoints = [
 	...serverEntryPoints,
 
 	// Include workbench web
-	...vscodeWebEntryPoints
+	...prox-codeWebEntryPoints
 ];
 
 function getNodeVersion() {

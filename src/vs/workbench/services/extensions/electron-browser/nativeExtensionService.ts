@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -332,7 +332,7 @@ export class NativeExtensionService extends AbstractExtensionService implements 
 		if (remoteAuthority) {
 
 			this._remoteAuthorityResolverService._setCanonicalURIProvider(async (uri) => {
-				if (uri.scheme !== Schemas.vscodeRemote || uri.authority !== remoteAuthority) {
+				if (uri.scheme !== Schemas.prox-codeRemote || uri.authority !== remoteAuthority) {
 					// The current remote authority resolver cannot give the canonical URI for this URI
 					return uri;
 				}

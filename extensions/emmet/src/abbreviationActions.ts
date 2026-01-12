@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -377,7 +377,7 @@ export function expandEmmetAbbreviation(args: any): Thenable<boolean | undefined
 			return;
 		}
 		if (isStyleSheet(syntax) && abbreviation.endsWith(':')) {
-			// Fix for https://github.com/Microsoft/vscode/issues/1623
+			// Fix for https://github.com/ProXentix/vscode/issues/1623
 			return;
 		}
 

@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -22,7 +22,7 @@ export class SettingsEditor2Input extends EditorInput {
 	private readonly _settingsModel: Settings2EditorModel;
 
 	readonly resource: URI = URI.from({
-		scheme: Schemas.vscodeSettings,
+		scheme: Schemas.prox-codeSettings,
 		path: `settingseditor`
 	});
 
@@ -68,7 +68,7 @@ export class PreferencesEditorInput extends EditorInput {
 	static readonly ID: string = 'workbench.input.preferences';
 
 	readonly resource: URI = URI.from({
-		scheme: Schemas.vscodeSettings,
+		scheme: Schemas.prox-codeSettings,
 		path: `preferenceseditor`
 	});
 

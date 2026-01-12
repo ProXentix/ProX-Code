@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -52,9 +52,9 @@ declare const process: INodeProcess;
 const $globalThis: any = globalThis;
 
 let nodeProcess: INodeProcess | undefined = undefined;
-if (typeof $globalThis.vscode !== 'undefined' && typeof $globalThis.vscode.process !== 'undefined') {
+if (typeof $globalThis.prox-code !== 'undefined' && typeof $globalThis.prox-code.process !== 'undefined') {
 	// Native environment (sandboxed)
-	nodeProcess = $globalThis.vscode.process;
+	nodeProcess = $globalThis.prox-code.process;
 } else if (typeof process !== 'undefined' && typeof process?.versions?.node === 'string') {
 	// Native environment (non-sandboxed)
 	nodeProcess = process;
@@ -224,10 +224,10 @@ export const setTimeout0 = (() => {
 		const pending: IQueueElement[] = [];
 
 		$globalThis.addEventListener('message', (e: any) => {
-			if (e.data && e.data.vscodeScheduleAsyncWork) {
+			if (e.data && e.data.prox-codeScheduleAsyncWork) {
 				for (let i = 0, len = pending.length; i < len; i++) {
 					const candidate = pending[i];
-					if (candidate.id === e.data.vscodeScheduleAsyncWork) {
+					if (candidate.id === e.data.prox-codeScheduleAsyncWork) {
 						pending.splice(i, 1);
 						candidate.callback();
 						return;

@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -280,8 +280,8 @@ export class BrowserAuxiliaryWindowService extends Disposable implements IAuxili
 		auxiliaryWindow.updateOptions({ compact: options?.compact ?? false });
 
 		const registryDisposables = new DisposableStore();
-		this.windows.set(targetWindow.vscodeWindowId, auxiliaryWindow);
-		registryDisposables.add(toDisposable(() => this.windows.delete(targetWindow.vscodeWindowId)));
+		this.windows.set(targetWindow.prox-codeWindowId, auxiliaryWindow);
+		registryDisposables.add(toDisposable(() => this.windows.delete(targetWindow.prox-codeWindowId)));
 
 		const eventDisposables = new DisposableStore();
 

@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -77,14 +77,14 @@ export class TerminalMainContribution extends Disposable implements IWorkbenchCo
 
 		// Register terminal editors
 		this._register(editorResolverService.registerEditor(
-			`${Schemas.vscodeTerminal}:/**`,
+			`${Schemas.prox-codeTerminal}:/**`,
 			{
 				id: terminalEditorId,
 				label: terminalStrings.terminal,
 				priority: RegisteredEditorPriority.exclusive
 			},
 			{
-				canSupportResource: uri => uri.scheme === Schemas.vscodeTerminal,
+				canSupportResource: uri => uri.scheme === Schemas.prox-codeTerminal,
 				singlePerResource: true
 			},
 			{
@@ -128,7 +128,7 @@ export class TerminalMainContribution extends Disposable implements IWorkbenchCo
 
 		// Register a resource formatter for terminal URIs
 		this._register(labelService.registerFormatter({
-			scheme: Schemas.vscodeTerminal,
+			scheme: Schemas.prox-codeTerminal,
 			formatting: {
 				label: '${path}',
 				separator: ''

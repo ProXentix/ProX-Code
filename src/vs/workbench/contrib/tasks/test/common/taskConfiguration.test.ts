@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 import { URI } from '../../../../../base/common/uri.js';
@@ -201,7 +201,7 @@ class CustomTaskBuilder {
 		this.commandBuilder = new CommandConfigurationBuilder(this, command);
 		this.result = new Tasks.CustomTask(
 			name,
-			{ kind: Tasks.TaskSourceKind.Workspace, label: 'workspace', config: { workspaceFolder: workspaceFolder, element: undefined, index: -1, file: '.vscode/tasks.json' } },
+			{ kind: Tasks.TaskSourceKind.Workspace, label: 'workspace', config: { workspaceFolder: workspaceFolder, element: undefined, index: -1, file: '.prox-code/tasks.json' } },
 			name,
 			Tasks.CUSTOMIZED_TASK_TYPE,
 			this.commandBuilder.result,

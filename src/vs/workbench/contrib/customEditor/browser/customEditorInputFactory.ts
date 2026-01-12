@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -144,7 +144,7 @@ export class ComplexCustomWorkingCopyEditorHandler extends Disposable implements
 	}
 
 	handles(workingCopy: IWorkingCopyIdentifier): boolean {
-		return workingCopy.resource.scheme === Schemas.vscodeCustomEditor;
+		return workingCopy.resource.scheme === Schemas.prox-codeCustomEditor;
 	}
 
 	isOpen(workingCopy: IWorkingCopyIdentifier, editor: EditorInput): boolean {

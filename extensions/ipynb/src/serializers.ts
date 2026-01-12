@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -72,15 +72,15 @@ export function getCellMetadata(options: { cell: NotebookCell | NotebookCellData
 }
 
 export function getVSCodeCellLanguageId(metadata: CellMetadata): string | undefined {
-	return metadata.metadata?.vscode?.languageId;
+	return metadata.metadata?.prox-code?.languageId;
 }
 export function setVSCodeCellLanguageId(metadata: CellMetadata, languageId: string) {
 	metadata.metadata = metadata.metadata || {};
-	metadata.metadata.vscode = { languageId };
+	metadata.metadata.prox-code = { languageId };
 }
 export function removeVSCodeCellLanguageId(metadata: CellMetadata) {
-	if (metadata.metadata?.vscode) {
-		delete metadata.metadata.vscode;
+	if (metadata.metadata?.prox-code) {
+		delete metadata.metadata.prox-code;
 	}
 }
 

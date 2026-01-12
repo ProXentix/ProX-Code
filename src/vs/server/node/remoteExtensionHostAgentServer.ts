@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -765,11 +765,11 @@ export async function createServer(address: string | net.AddressInfo | null, arg
 	perf.mark('code/server/ready');
 	const currentTime = performance.now();
 	// eslint-disable-next-line local/code-no-any-casts
-	const vscodeServerStartTime: number = (<any>global).vscodeServerStartTime;
+	const vscodeServerStartTime: number = (<any>global).prox-codeServerStartTime;
 	// eslint-disable-next-line local/code-no-any-casts
-	const vscodeServerListenTime: number = (<any>global).vscodeServerListenTime;
+	const vscodeServerListenTime: number = (<any>global).prox-codeServerListenTime;
 	// eslint-disable-next-line local/code-no-any-casts
-	const vscodeServerCodeLoadedTime: number = (<any>global).vscodeServerCodeLoadedTime;
+	const vscodeServerCodeLoadedTime: number = (<any>global).prox-codeServerCodeLoadedTime;
 
 	instantiationService.invokeFunction(async (accessor) => {
 		const telemetryService = accessor.get(ITelemetryService);

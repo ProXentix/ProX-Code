@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -25,7 +25,7 @@ export class ExperimentationTelemetry implements IExperimentationTelemetry {
 			case 'vscode-exploration':
 				targetPopulation = TargetPopulation.Internal;
 				break;
-			case 'code-oss':
+			case 'prox-code':
 				targetPopulation = TargetPopulation.Team;
 				break;
 			default:

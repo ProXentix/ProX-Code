@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -127,7 +127,7 @@ export abstract class AbstractExtensionService extends Disposable implements IEx
 
 		// help the file service to activate providers by activating extensions by file system event
 		this._register(this._fileService.onWillActivateFileSystemProvider(e => {
-			if (e.scheme !== Schemas.vscodeRemote) {
+			if (e.scheme !== Schemas.prox-codeRemote) {
 				e.join(this.activateByEvent(`onFileSystem:${e.scheme}`));
 			}
 		}));
@@ -376,7 +376,7 @@ export abstract class AbstractExtensionService extends Disposable implements IEx
 		}
 
 		const extensionKinds = this._runningLocations.readExtensionKinds(extension);
-		const isRemote = extension.extensionLocation.scheme === Schemas.vscodeRemote;
+		const isRemote = extension.extensionLocation.scheme === Schemas.prox-codeRemote;
 		const extensionHostKind = this._extensionHostKindPicker.pickExtensionHostKind(extension.identifier, extensionKinds, !isRemote, isRemote, ExtensionRunningPreference.None);
 		if (extensionHostKind === null) {
 			return false;
@@ -592,7 +592,7 @@ export abstract class AbstractExtensionService extends Disposable implements IEx
 		if (runningLocation === null) {
 			// not sure if we should support that, but it was possible to have an test outside an extension
 
-			if (testLocation.scheme === Schemas.vscodeRemote) {
+			if (testLocation.scheme === Schemas.prox-codeRemote) {
 				runningLocation = new RemoteRunningLocation();
 			} else {
 				// When a debugger attaches to the extension host, it will surface all console.log messages from the extension host,

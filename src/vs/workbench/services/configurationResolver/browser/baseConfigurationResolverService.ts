@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 import { Queue } from '../../../../base/common/async.js';
@@ -71,7 +71,7 @@ export abstract class BaseConfigurationResolverService extends AbstractVariableR
 			getFilePath: (): string | undefined => {
 				const fileResource = EditorResourceAccessor.getOriginalUri(editorService.activeEditor, {
 					supportSideBySide: SideBySideEditor.PRIMARY,
-					filterByScheme: [Schemas.file, Schemas.vscodeUserData, this.pathService.defaultUriScheme]
+					filterByScheme: [Schemas.file, Schemas.prox-codeUserData, this.pathService.defaultUriScheme]
 				});
 				if (!fileResource) {
 					return undefined;
@@ -81,7 +81,7 @@ export abstract class BaseConfigurationResolverService extends AbstractVariableR
 			getWorkspaceFolderPathForFile: (): string | undefined => {
 				const fileResource = EditorResourceAccessor.getOriginalUri(editorService.activeEditor, {
 					supportSideBySide: SideBySideEditor.PRIMARY,
-					filterByScheme: [Schemas.file, Schemas.vscodeUserData, this.pathService.defaultUriScheme]
+					filterByScheme: [Schemas.file, Schemas.prox-codeUserData, this.pathService.defaultUriScheme]
 				});
 				if (!fileResource) {
 					return undefined;

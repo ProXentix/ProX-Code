@@ -59,18 +59,18 @@
 			<rect x="376" y="368" width="40" height="40" fill="url(#pattern2)" />
 		</g>
 	</a>
-	<a xlink:href="command:workbench.extensions.search?%22@id:hediet.vscode-drawio%22">
+	<a xlink:href="command:workbench.extensions.search?%22@id:hediet.prox-code-drawio%22">
 		<g filter="url(#filter3_d_703:9950)">
 			<rect x="148" y="60" width="48" height="48" fill="url(#pattern3)" />
 		</g>
 	</a>
-		<a xlink:href="command:workbench.extensions.search?%22@id:GitHub.vscode-pull-request-github%22">
+		<a xlink:href="command:workbench.extensions.search?%22@id:GitHub.prox-code-pull-request-github%22">
 			<g filter="url(#filter4_d_703:9950)">
 				<rect x="276" y="228" width="48" height="48" rx="4" fill="white" />
 				<rect x="278" y="230" width="44" height="44" fill="url(#pattern4)" />
 			</g>
 		</a>
-		<a xlink:href="command:workbench.extensions.search?%22@id:ms-vscode.vscode-github-issue-notebooks%22">
+		<a xlink:href="command:workbench.extensions.search?%22@id:ms-vscode.prox-code-github-issue-notebooks%22">
 			<g filter="url(#filter5_d_703:9950)">
 				<rect x="60" y="320" width="48" height="48" rx="4" fill="white" />
 				<rect x="64" y="324" width="40" height="40" fill="url(#pattern5)" />

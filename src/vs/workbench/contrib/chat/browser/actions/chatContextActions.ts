@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -101,7 +101,7 @@ abstract class AttachResourceAction extends Action2 {
 				uri = EditorResourceAccessor.getCanonicalUri(editorService.activeEditor, { supportSideBySide: SideBySideEditor.PRIMARY });
 			}
 
-			if (uri && [Schemas.file, Schemas.vscodeRemote, Schemas.untitled].includes(uri.scheme)) {
+			if (uri && [Schemas.file, Schemas.prox-codeRemote, Schemas.untitled].includes(uri.scheme)) {
 				files.push(uri);
 			}
 		}
@@ -144,7 +144,7 @@ class AttachFileToChatAction extends AttachResourceAction {
 					ExplorerFolderContext.negate(),
 					ContextKeyExpr.or(
 						ResourceContextKey.Scheme.isEqualTo(Schemas.file),
-						ResourceContextKey.Scheme.isEqualTo(Schemas.vscodeRemote)
+						ResourceContextKey.Scheme.isEqualTo(Schemas.prox-codeRemote)
 					)
 				),
 			}, {
@@ -155,7 +155,7 @@ class AttachFileToChatAction extends AttachResourceAction {
 					ChatContextKeys.enabled,
 					ContextKeyExpr.or(
 						ResourceContextKey.Scheme.isEqualTo(Schemas.file),
-						ResourceContextKey.Scheme.isEqualTo(Schemas.vscodeRemote)
+						ResourceContextKey.Scheme.isEqualTo(Schemas.prox-codeRemote)
 					)
 				),
 			}, {
@@ -166,9 +166,9 @@ class AttachFileToChatAction extends AttachResourceAction {
 					ChatContextKeys.enabled,
 					ContextKeyExpr.or(
 						ResourceContextKey.Scheme.isEqualTo(Schemas.file),
-						ResourceContextKey.Scheme.isEqualTo(Schemas.vscodeRemote),
+						ResourceContextKey.Scheme.isEqualTo(Schemas.prox-codeRemote),
 						ResourceContextKey.Scheme.isEqualTo(Schemas.untitled),
-						ResourceContextKey.Scheme.isEqualTo(Schemas.vscodeUserData)
+						ResourceContextKey.Scheme.isEqualTo(Schemas.prox-codeUserData)
 					)
 				)
 			}]
@@ -208,7 +208,7 @@ class AttachFolderToChatAction extends AttachResourceAction {
 					ExplorerFolderContext,
 					ContextKeyExpr.or(
 						ResourceContextKey.Scheme.isEqualTo(Schemas.file),
-						ResourceContextKey.Scheme.isEqualTo(Schemas.vscodeRemote)
+						ResourceContextKey.Scheme.isEqualTo(Schemas.prox-codeRemote)
 					)
 				)
 			}
@@ -249,9 +249,9 @@ class AttachSelectionToChatAction extends Action2 {
 					EditorContextKeys.hasNonEmptySelection,
 					ContextKeyExpr.or(
 						ResourceContextKey.Scheme.isEqualTo(Schemas.file),
-						ResourceContextKey.Scheme.isEqualTo(Schemas.vscodeRemote),
+						ResourceContextKey.Scheme.isEqualTo(Schemas.prox-codeRemote),
 						ResourceContextKey.Scheme.isEqualTo(Schemas.untitled),
-						ResourceContextKey.Scheme.isEqualTo(Schemas.vscodeUserData)
+						ResourceContextKey.Scheme.isEqualTo(Schemas.prox-codeUserData)
 					)
 				)
 			}
@@ -294,7 +294,7 @@ class AttachSelectionToChatAction extends Action2 {
 		} else {
 			const activeEditor = editorService.activeTextEditorControl;
 			const activeUri = EditorResourceAccessor.getCanonicalUri(editorService.activeEditor, { supportSideBySide: SideBySideEditor.PRIMARY });
-			if (activeEditor && activeUri && [Schemas.file, Schemas.vscodeRemote, Schemas.untitled].includes(activeUri.scheme)) {
+			if (activeEditor && activeUri && [Schemas.file, Schemas.prox-codeRemote, Schemas.untitled].includes(activeUri.scheme)) {
 				const selection = activeEditor.getSelection();
 				if (selection) {
 					widget.focusInput();

@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -323,7 +323,7 @@ export class BrowserEditor extends EditorPane {
 
 		// Listen for zoom level changes and update browser view zoom factor
 		this._inputDisposables.add(onDidChangeZoomLevel(targetWindowId => {
-			if (targetWindowId === this.window.vscodeWindowId) {
+			if (targetWindowId === this.window.prox-codeWindowId) {
 				this.layout();
 			}
 		}));

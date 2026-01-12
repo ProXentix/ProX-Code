@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -38,7 +38,7 @@ export class TestWorkingCopyHistoryService extends NativeWorkingCopyHistoryServi
 		if (!fileService) {
 			fileService = disposables.add(new FileService(logService));
 			disposables.add(fileService.registerProvider(Schemas.inMemory, disposables.add(new InMemoryFileSystemProvider())));
-			disposables.add(fileService.registerProvider(Schemas.vscodeUserData, disposables.add(new InMemoryFileSystemProvider())));
+			disposables.add(fileService.registerProvider(Schemas.prox-codeUserData, disposables.add(new InMemoryFileSystemProvider())));
 		}
 
 		const remoteAgentService = new TestRemoteAgentService();

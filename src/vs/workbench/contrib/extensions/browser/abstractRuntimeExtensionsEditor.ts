@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -390,8 +390,8 @@ export abstract class AbstractRuntimeExtensionsEditor extends EditorPane {
 				let extraLabel: string | null = null;
 				if (element.status.runningLocation && element.status.runningLocation.equals(new LocalWebWorkerRunningLocation(0))) {
 					extraLabel = `$(globe) web worker`;
-				} else if (element.description.extensionLocation.scheme === Schemas.vscodeRemote) {
-					const hostLabel = this._labelService.getHostLabel(Schemas.vscodeRemote, this._environmentService.remoteAuthority);
+				} else if (element.description.extensionLocation.scheme === Schemas.prox-codeRemote) {
+					const hostLabel = this._labelService.getHostLabel(Schemas.prox-codeRemote, this._environmentService.remoteAuthority);
 					if (hostLabel) {
 						extraLabel = `$(remote) ${hostLabel}`;
 					} else {

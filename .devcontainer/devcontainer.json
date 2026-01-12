@@ -1,5 +1,5 @@
 {
-	"name": "Code - OSS",
+	"name": "ProX-Code",
 	"build": {
 		"dockerfile": "Dockerfile"
 	},
@@ -27,11 +27,11 @@
 				"resmon.show.cpufreq": false
 			},
 			"extensions": [
-				"dbaeumer.vscode-eslint",
+				"dbaeumer.prox-code-eslint",
 				"EditorConfig.EditorConfig",
-				"GitHub.vscode-pull-request-github",
-				"ms-vscode.vscode-github-issue-notebooks",
-				"ms-vscode.vscode-selfhost-test-provider",
+				"GitHub.prox-code-pull-request-github",
+				"ms-vscode.prox-code-github-issue-notebooks",
+				"ms-vscode.prox-code-selfhost-test-provider",
 				"mutantdino.resourcemonitor"
 			]
 		}

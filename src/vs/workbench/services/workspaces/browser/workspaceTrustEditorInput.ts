@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -26,7 +26,7 @@ export class WorkspaceTrustEditorInput extends EditorInput {
 	}
 
 	readonly resource: URI = URI.from({
-		scheme: Schemas.vscodeWorkspaceTrust,
+		scheme: Schemas.prox-codeWorkspaceTrust,
 		path: `workspaceTrustEditor`
 	});
 

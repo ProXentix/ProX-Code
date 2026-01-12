@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 import * as nls from '../../../../nls.js';
@@ -9,7 +9,7 @@ import { Extensions as JSONExtensions, IJSONContributionRegistry } from '../../.
 import { IJSONSchema } from '../../../../base/common/jsonSchema.js';
 import { fontWeightRegex, fontStyleRegex, fontSizeRegex, fontIdRegex, fontColorRegex, fontIdErrorMessage } from '../../../../platform/theme/common/iconRegistry.js';
 
-const schemaId = 'vscode://schemas/icon-theme';
+const schemaId = 'prox-code://schemas/icon-theme';
 const schema: IJSONSchema = {
 	type: 'object',
 	allowComments: true,

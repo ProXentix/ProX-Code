@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -134,7 +134,7 @@ export class UITest {
 	private verifyExtensionInstalled() {
 		this.context.log('Verifying extension is installed');
 		const extensions = fs.readdirSync(this.extensionsDir);
-		const hasExtension = extensions.some(ext => ext.startsWith('github.vscode-pull-request-github'));
+		const hasExtension = extensions.some(ext => ext.startsWith('github.prox-code-pull-request-github'));
 		assert.strictEqual(hasExtension, true);
 	}
 }

@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -49,14 +49,14 @@ class BrowserEditorResolverContribution implements IWorkbenchContribution {
 		@IInstantiationService instantiationService: IInstantiationService
 	) {
 		editorResolverService.registerEditor(
-			`${Schemas.vscodeBrowser}:/**`,
+			`${Schemas.prox-codeBrowser}:/**`,
 			{
 				id: BrowserEditorInput.ID,
 				label: localize('browser.editorLabel', "Browser"),
 				priority: RegisteredEditorPriority.exclusive
 			},
 			{
-				canSupportResource: resource => resource.scheme === Schemas.vscodeBrowser,
+				canSupportResource: resource => resource.scheme === Schemas.prox-codeBrowser,
 				singlePerResource: true
 			},
 			{

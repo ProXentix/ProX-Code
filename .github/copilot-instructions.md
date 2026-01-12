@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-Visual Studio Code is built with a layered architecture using TypeScript, web APIs and Electron, combining web technologies with native app capabilities. The codebase is organized into key architectural layers:
+ProX-Code is built with a layered architecture using TypeScript, web APIs and Electron, combining web technologies with native app capabilities. The codebase is organized into key architectural layers:
 
 ### Root Folders
 - `src/`: Main TypeScript source code with unit tests in `src/vs/*/test/` folders
@@ -124,7 +124,7 @@ function f(x: number, y: string): void { }
 
 ### Code Quality
 
-- All files must include Microsoft copyright header
+- All files must include ProXentix copyright header
 - Prefer `async` and `await` over `Promise` and `then` calls
 - All user facing messages must be localized using the applicable localization framework (for example `nls.localize()` method)
 - Don't add tests to the wrong test suite (e.g., adding to end of file instead of inside relevant suite)

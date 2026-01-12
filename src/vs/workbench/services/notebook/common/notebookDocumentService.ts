@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -21,7 +21,7 @@ const _lengths = ['W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f'];
 const _padRegexp = new RegExp(`^[${_lengths.join('')}]+`);
 const _radix = 7;
 export function parse(cell: URI): { notebook: URI; handle: number } | undefined {
-	if (cell.scheme !== Schemas.vscodeNotebookCell) {
+	if (cell.scheme !== Schemas.prox-codeNotebookCell) {
 		return undefined;
 	}
 
@@ -48,11 +48,11 @@ export function generate(notebook: URI, handle: number): URI {
 	const p = s.length < _lengths.length ? _lengths[s.length - 1] : 'z';
 
 	const fragment = `${p}${s}s${encodeBase64(VSBuffer.fromString(notebook.scheme), true, true)}`;
-	return notebook.with({ scheme: Schemas.vscodeNotebookCell, fragment });
+	return notebook.with({ scheme: Schemas.prox-codeNotebookCell, fragment });
 }
 
 export function parseMetadataUri(metadata: URI): URI | undefined {
-	if (metadata.scheme !== Schemas.vscodeNotebookMetadata) {
+	if (metadata.scheme !== Schemas.prox-codeNotebookMetadata) {
 		return undefined;
 	}
 
@@ -63,11 +63,11 @@ export function parseMetadataUri(metadata: URI): URI | undefined {
 
 export function generateMetadataUri(notebook: URI): URI {
 	const fragment = `${encodeBase64(VSBuffer.fromString(notebook.scheme), true, true)}`;
-	return notebook.with({ scheme: Schemas.vscodeNotebookMetadata, fragment });
+	return notebook.with({ scheme: Schemas.prox-codeNotebookMetadata, fragment });
 }
 
 export function extractCellOutputDetails(uri: URI): { notebook: URI; openIn: string; outputId?: string; cellFragment?: string; outputIndex?: number; cellHandle?: number; cellIndex?: number } | undefined {
-	if (uri.scheme !== Schemas.vscodeNotebookCellOutput) {
+	if (uri.scheme !== Schemas.prox-codeNotebookCellOutput) {
 		return;
 	}
 
@@ -77,7 +77,7 @@ export function extractCellOutputDetails(uri: URI): { notebook: URI; openIn: str
 		return;
 	}
 	const outputId = params.get('outputId') ?? undefined;
-	const parsedCell = parse(uri.with({ scheme: Schemas.vscodeNotebookCell, query: null }));
+	const parsedCell = parse(uri.with({ scheme: Schemas.prox-codeNotebookCell, query: null }));
 	const outputIndex = params.get('outputIndex') ? parseInt(params.get('outputIndex') || '', 10) : undefined;
 	const notebookUri = parsedCell ? parsedCell.notebook : uri.with({
 		scheme: params.get('notebookScheme') || Schemas.file,
@@ -112,7 +112,7 @@ export class NotebookDocumentWorkbenchService implements INotebookDocumentServic
 	private readonly _documents = new ResourceMap<INotebookDocument>();
 
 	getNotebook(uri: URI): INotebookDocument | undefined {
-		if (uri.scheme === Schemas.vscodeNotebookCell) {
+		if (uri.scheme === Schemas.prox-codeNotebookCell) {
 			const cellUri = parse(uri);
 			if (cellUri) {
 				const document = this._documents.get(cellUri.notebook);
@@ -121,7 +121,7 @@ export class NotebookDocumentWorkbenchService implements INotebookDocumentServic
 				}
 			}
 		}
-		if (uri.scheme === Schemas.vscodeNotebookCellOutput) {
+		if (uri.scheme === Schemas.prox-codeNotebookCellOutput) {
 			const parsedData = extractCellOutputDetails(uri);
 			if (parsedData) {
 				const document = this._documents.get(parsedData.notebook);

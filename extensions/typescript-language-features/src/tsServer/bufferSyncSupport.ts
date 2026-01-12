@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -402,7 +402,7 @@ class TabResourceTracker extends Disposable {
 	}
 
 	public has(resource: vscode.Uri): boolean {
-		if (resource.scheme === fileSchemes.vscodeNotebookCell) {
+		if (resource.scheme === fileSchemes.prox-codeNotebookCell) {
 			const notebook = vscode.workspace.notebookDocuments.find(doc =>
 				doc.getCells().some(cell => cell.document.uri.toString() === resource.toString()));
 

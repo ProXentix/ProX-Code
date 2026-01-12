@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -181,7 +181,7 @@ export class WebWorkerExtensionHost extends Disposable implements IExtensionHost
 			if (event.source !== iframe.contentWindow) {
 				return;
 			}
-			if (event.data.vscodeWebWorkerExtHostId !== vscodeWebWorkerExtHostId) {
+			if (event.data.prox-codeWebWorkerExtHostId !== vscodeWebWorkerExtHostId) {
 				return;
 			}
 			if (event.data.error) {

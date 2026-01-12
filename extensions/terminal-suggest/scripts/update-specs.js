@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -35,7 +35,7 @@ const specSpecificReplaceStrings = new Map([
 			'.match(argRegex)',
 			'.match(argRegex)!'
 		], [
-			'"https://upload.wikimedia.org/wikipedia/commons/7/7d/Microsoft_.NET_logo.svg";',
+			'"https://upload.wikimedia.org/wikipedia/commons/7/7d/ProXentix_.NET_logo.svg";',
 			'undefined;',
 		]
 	]],
@@ -50,7 +50,7 @@ const specSpecificReplaceStrings = new Map([
 		],
 		[
 			'icon: "fig://icon?type=git"',
-			'icon: "vscode://icon?type=11"'
+			'icon: "prox-code://icon?type=11"'
 		]
 	]],
 	['git', [

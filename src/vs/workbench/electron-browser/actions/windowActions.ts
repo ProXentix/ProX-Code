@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -61,7 +61,7 @@ export class CloseWindowAction extends Action2 {
 	override async run(accessor: ServicesAccessor): Promise<void> {
 		const nativeHostService = accessor.get(INativeHostService);
 
-		return nativeHostService.closeWindow({ targetWindowId: getActiveWindow().vscodeWindowId });
+		return nativeHostService.closeWindow({ targetWindowId: getActiveWindow().prox-codeWindowId });
 	}
 }
 
@@ -80,7 +80,7 @@ export class CloseOtherWindowsAction extends Action2 {
 	override async run(accessor: ServicesAccessor): Promise<void> {
 		const nativeHostService = accessor.get(INativeHostService);
 
-		const currentWindowId = getActiveWindow().vscodeWindowId;
+		const currentWindowId = getActiveWindow().prox-codeWindowId;
 		const windows = await nativeHostService.getWindows({ includeAuxiliaryWindows: false });
 
 		for (const window of windows) {
@@ -257,7 +257,7 @@ abstract class BaseSwitchWindow extends Action2 {
 		const languageService = accessor.get(ILanguageService);
 		const nativeHostService = accessor.get(INativeHostService);
 
-		const currentWindowId = getActiveWindow().vscodeWindowId;
+		const currentWindowId = getActiveWindow().prox-codeWindowId;
 
 		const windows = await nativeHostService.getWindows({ includeAuxiliaryWindows: true });
 
@@ -467,7 +467,7 @@ export class ToggleWindowAlwaysOnTopAction extends Action2 {
 			return; // Currently, we only support toggling always on top for auxiliary windows
 		}
 
-		return nativeHostService.toggleWindowAlwaysOnTop({ targetWindowId: getActiveWindow().vscodeWindowId });
+		return nativeHostService.toggleWindowAlwaysOnTop({ targetWindowId: getActiveWindow().prox-codeWindowId });
 	}
 }
 
@@ -496,7 +496,7 @@ export class EnableWindowAlwaysOnTopAction extends Action2 {
 			return; // Currently, we only support toggling always on top for auxiliary windows
 		}
 
-		return nativeHostService.setWindowAlwaysOnTop(true, { targetWindowId: targetWindow.vscodeWindowId });
+		return nativeHostService.setWindowAlwaysOnTop(true, { targetWindowId: targetWindow.prox-codeWindowId });
 	}
 }
 
@@ -525,6 +525,6 @@ export class DisableWindowAlwaysOnTopAction extends Action2 {
 			return; // Currently, we only support toggling always on top for auxiliary windows
 		}
 
-		return nativeHostService.setWindowAlwaysOnTop(false, { targetWindowId: targetWindow.vscodeWindowId });
+		return nativeHostService.setWindowAlwaysOnTop(false, { targetWindowId: targetWindow.prox-codeWindowId });
 	}
 }

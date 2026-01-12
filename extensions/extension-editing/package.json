@@ -34,33 +34,33 @@
     "jsonValidation": [
       {
         "fileMatch": "package.json",
-        "url": "vscode://schemas/vscode-extensions"
+        "url": "prox-code://schemas/vscode-extensions"
       },
       {
         "fileMatch": "*language-configuration.json",
-        "url": "vscode://schemas/language-configuration"
+        "url": "prox-code://schemas/language-configuration"
       },
       {
         "fileMatch": [
           "*icon-theme.json",
           "!*product-icon-theme.json"
         ],
-        "url": "vscode://schemas/icon-theme"
+        "url": "prox-code://schemas/icon-theme"
       },
       {
         "fileMatch": "*product-icon-theme.json",
-        "url": "vscode://schemas/product-icon-theme"
+        "url": "prox-code://schemas/product-icon-theme"
       },
       {
         "fileMatch": "*color-theme.json",
-        "url": "vscode://schemas/color-theme"
+        "url": "prox-code://schemas/color-theme"
       }
     ],
     "languages": [
       {
         "id": "ignore",
         "filenames": [
-          ".vscodeignore"
+          ".prox-codeignore"
         ]
       }
     ]

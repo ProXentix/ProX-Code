@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -22,7 +22,7 @@ function shouldIncludeLocationLink(sourceModel: ITextModel, loc: LocationLink): 
 	}
 
 	// Otherwise filter out locations from internal schemes
-	if (matchesSomeScheme(loc.uri, Schemas.walkThroughSnippet, Schemas.vscodeChatCodeBlock, Schemas.vscodeChatCodeCompareBlock)) {
+	if (matchesSomeScheme(loc.uri, Schemas.walkThroughSnippet, Schemas.prox-codeChatCodeBlock, Schemas.prox-codeChatCodeCompareBlock)) {
 		return false;
 	}
 

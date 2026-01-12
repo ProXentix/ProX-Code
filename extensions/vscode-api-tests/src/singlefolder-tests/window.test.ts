@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -1017,7 +1017,7 @@ suite('vscode API - window', () => {
 
 	test('createStatusBar', async function () {
 		const statusBarEntryWithoutId = window.createStatusBarItem(StatusBarAlignment.Left, 100);
-		assert.strictEqual(statusBarEntryWithoutId.id, 'vscode.vscode-api-tests');
+		assert.strictEqual(statusBarEntryWithoutId.id, 'vscode.prox-code-api-tests');
 		assert.strictEqual(statusBarEntryWithoutId.alignment, StatusBarAlignment.Left);
 		assert.strictEqual(statusBarEntryWithoutId.priority, 100);
 		assert.strictEqual(statusBarEntryWithoutId.name, undefined);

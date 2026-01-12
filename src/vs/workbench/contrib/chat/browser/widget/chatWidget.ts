@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -503,7 +503,7 @@ export class ChatWidget extends Disposable implements IChatWidget {
 
 		this._register(codeEditorService.registerCodeEditorOpenHandler(async (input: ITextResourceEditorInput, _source: ICodeEditor | null, _sideBySide?: boolean): Promise<ICodeEditor | null> => {
 			const resource = input.resource;
-			if (resource.scheme !== Schemas.vscodeChatCodeBlock) {
+			if (resource.scheme !== Schemas.prox-codeChatCodeBlock) {
 				return null;
 			}
 
@@ -1035,7 +1035,7 @@ export class ChatWidget extends Disposable implements IChatWidget {
 			if (isEmpty) {
 				return [
 					{
-						icon: Codicon.vscode,
+						icon: Codicon.prox-code,
 						label: localize('chatWidget.suggestedPrompts.gettingStarted', "Ask @vscode"),
 						prompt: localize('chatWidget.suggestedPrompts.gettingStartedPrompt', "@vscode How do I change the theme to light mode?"),
 					},
@@ -1408,7 +1408,7 @@ export class ChatWidget extends Disposable implements IChatWidget {
 	}
 
 	private async archiveLocalParentSession(sessionResource: URI): Promise<void> {
-		if (sessionResource.scheme !== Schemas.vscodeLocalChatSession) {
+		if (sessionResource.scheme !== Schemas.prox-codeLocalChatSession) {
 			return;
 		}
 

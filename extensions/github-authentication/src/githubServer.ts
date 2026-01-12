@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -16,7 +16,7 @@ import { Config } from './config';
 import { base64Encode } from './node/buffer';
 
 const REDIRECT_URL_STABLE = 'https://vscode.dev/redirect';
-const REDIRECT_URL_INSIDERS = 'https://insiders.vscode.dev/redirect';
+const REDIRECT_URL_INSIDERS = 'https://insiders.prox-code.dev/redirect';
 
 export interface IGitHubServer {
 	login(scopes: string, signInProvider?: GitHubSocialSignInProvider, extraAuthorizeParameters?: Record<string, string>, existingLogin?: string): Promise<string>;
@@ -60,12 +60,12 @@ export class GitHubServer implements IGitHubServer {
 			const proxyEndpoints = await vscode.commands.executeCommand<{ [providerId: string]: string } | undefined>('workbench.getCodeExchangeProxyEndpoints');
 			// If we are running in insiders vscode.dev, then ensure we use the redirect route on that.
 			this._redirectEndpoint = REDIRECT_URL_STABLE;
-			if (proxyEndpoints?.github && new URL(proxyEndpoints.github).hostname === 'insiders.vscode.dev') {
+			if (proxyEndpoints?.github && new URL(proxyEndpoints.github).hostname === 'insiders.prox-code.dev') {
 				this._redirectEndpoint = REDIRECT_URL_INSIDERS;
 			}
 		} else {
 			// GHE only supports a single redirect endpoint, so we can't use
-			// insiders.vscode.dev/redirect when we're running in Insiders, unfortunately.
+			// insiders.prox-code.dev/redirect when we're running in Insiders, unfortunately.
 			// Additionally, we make the assumption that this function will only be used
 			// in flows that target supported GHE targets, not on-prem GHES. Because of this
 			// assumption, we can assume that the GHE version used is at least 3.8 which is

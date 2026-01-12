@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -46,7 +46,7 @@ class RemoteAgentDiagnosticListener implements IWorkbenchContribution {
 			const request = args[0] as { replyChannel: string; args: IDiagnosticInfoOptions };
 			const connection = remoteAgentService.getConnection();
 			if (connection) {
-				const hostName = labelService.getHostLabel(Schemas.vscodeRemote, connection.remoteAuthority);
+				const hostName = labelService.getHostLabel(Schemas.prox-codeRemote, connection.remoteAuthority);
 				remoteAgentService.getDiagnosticInfo(request.args)
 					.then(info => {
 						if (info) {

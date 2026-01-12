@@ -11,7 +11,7 @@
 	"serverLicense": [],
 	"serverLicensePrompt": "",
 	"serverApplicationName": "code-server-oss",
-	"serverDataFolderName": ".vscode-server-oss",
+	"serverDataFolderName": ".prox-code-server-oss",
 	"tunnelApplicationName": "code-tunnel-oss",
 	"win32DirName": "ProXentix ProX-Code",
 	"win32NameVersion": "ProXentix ProX-Code",
@@ -32,7 +32,7 @@
 	"reportIssueUrl": "https://github.com/ProXentix/ProX-Code/issues/new",
 	"nodejsRepository": "https://nodejs.org",
 	"urlProtocol": "prox-code",
-	"webviewContentExternalBaseUrlTemplate": "https://{{uuid}}.vscode-cdn.net/insider/ef65ac1ba57f57f2a3961bfe94aa20481caca4c6/out/vs/workbench/contrib/webview/browser/pre/",
+	"webviewContentExternalBaseUrlTemplate": "https://{{uuid}}.prox-code-cdn.net/insider/ef65ac1ba57f57f2a3961bfe94aa20481caca4c6/out/vs/workbench/contrib/webview/browser/pre/",
 	"builtInExtensions": [
 		{
 			"name": "ms-vscode.js-debug-companion",
@@ -44,10 +44,10 @@
 				"publisherId": {
 					"publisherId": "5f5636e7-69ed-4afe-b5d6-8d231fb3d3ee",
 					"publisherName": "ms-vscode",
-					"displayName": "Microsoft",
+					"displayName": "ProXentix",
 					"flags": "verified"
 				},
-				"publisherDisplayName": "Microsoft"
+				"publisherDisplayName": "ProXentix"
 			}
 		},
 		{
@@ -60,14 +60,14 @@
 				"publisherId": {
 					"publisherId": "5f5636e7-69ed-4afe-b5d6-8d231fb3d3ee",
 					"publisherName": "ms-vscode",
-					"displayName": "Microsoft",
+					"displayName": "ProXentix",
 					"flags": "verified"
 				},
-				"publisherDisplayName": "Microsoft"
+				"publisherDisplayName": "ProXentix"
 			}
 		},
 		{
-			"name": "ms-vscode.vscode-js-profile-table",
+			"name": "ms-vscode.prox-code-js-profile-table",
 			"version": "1.0.10",
 			"sha256": "7361748ddf9fd09d8a2ed1f2a2d7376a2cf9aae708692820b799708385c38e08",
 			"repo": "https://github.com/microsoft/vscode-js-profile-visualizer",
@@ -76,10 +76,10 @@
 				"publisherId": {
 					"publisherId": "5f5636e7-69ed-4afe-b5d6-8d231fb3d3ee",
 					"publisherName": "ms-vscode",
-					"displayName": "Microsoft",
+					"displayName": "ProXentix",
 					"flags": "verified"
 				},
-				"publisherDisplayName": "Microsoft"
+				"publisherDisplayName": "ProXentix"
 			}
 		}
 	],

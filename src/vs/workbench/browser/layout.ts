@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -206,7 +206,7 @@ export abstract class Layout extends Disposable implements IWorkbenchLayoutServi
 
 	private readonly containerStylesLoaded = new Map<number /* window ID */, Promise<void>>();
 	whenContainerStylesLoaded(window: CodeWindow): Promise<void> | undefined {
-		return this.containerStylesLoaded.get(window.vscodeWindowId);
+		return this.containerStylesLoaded.get(window.prox-codeWindowId);
 	}
 
 	private _mainContainerDimension!: IDimension;
@@ -432,7 +432,7 @@ export abstract class Layout extends Disposable implements IWorkbenchLayoutServi
 
 		// Auxiliary windows
 		this._register(this.auxiliaryWindowService.onDidOpenAuxiliaryWindow(({ window, disposables }) => {
-			const windowId = window.window.vscodeWindowId;
+			const windowId = window.window.prox-codeWindowId;
 			this.containerStylesLoaded.set(windowId, window.whenStylesHaveLoaded);
 			window.whenStylesHaveLoaded.then(() => this.containerStylesLoaded.delete(windowId));
 			disposables.add(toDisposable(() => this.containerStylesLoaded.delete(windowId)));
@@ -480,7 +480,7 @@ export abstract class Layout extends Disposable implements IWorkbenchLayoutServi
 	}
 
 	private onFullscreenChanged(windowId: number): void {
-		if (windowId !== mainWindow.vscodeWindowId) {
+		if (windowId !== mainWindow.prox-codeWindowId) {
 			return; // ignore all but main window
 		}
 
@@ -537,7 +537,7 @@ export abstract class Layout extends Disposable implements IWorkbenchLayoutServi
 	private getActiveContainerId(): number {
 		const activeContainer = this.activeContainer;
 
-		return getWindow(activeContainer).vscodeWindowId;
+		return getWindow(activeContainer).prox-codeWindowId;
 	}
 
 	private doUpdateLayoutConfiguration(skipLayout?: boolean): void {

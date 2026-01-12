@@ -8,4 +8,4 @@ extension-browser.webpack.config.js
 CONTRIBUTING.md
 cgmanifest.json
 package-lock.json
-.vscode
+.prox-code

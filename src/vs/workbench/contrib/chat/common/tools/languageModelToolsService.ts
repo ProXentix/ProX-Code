@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -401,7 +401,7 @@ export function createToolSchemaUri(toolOrId: IToolData | string): URI {
 	if (typeof toolOrId !== 'string') {
 		toolOrId = toolOrId.id;
 	}
-	return URI.from({ scheme: Schemas.vscode, authority: 'schemas', path: `/lm/tool/${toolOrId}` });
+	return URI.from({ scheme: Schemas.prox-code, authority: 'schemas', path: `/lm/tool/${toolOrId}` });
 }
 
 export namespace SpecedToolAliases {

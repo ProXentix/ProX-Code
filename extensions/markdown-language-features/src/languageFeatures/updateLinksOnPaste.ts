@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -11,7 +11,7 @@ class UpdatePastedLinksEditProvider implements vscode.DocumentPasteEditProvider 
 
 	public static readonly kind = vscode.DocumentDropOrPasteEditKind.Text.append('updateLinks', 'markdown');
 
-	public static readonly metadataMime = 'application/vnd.vscode.markdown.updatelinks.metadata';
+	public static readonly metadataMime = 'application/vnd.prox-code.markdown.updatelinks.metadata';
 
 	constructor(
 		private readonly _client: MdLanguageClient,

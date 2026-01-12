@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -81,7 +81,7 @@ export class EditorConfiguration extends Disposable implements IEditorConfigurat
 		this.isSimpleWidget = isSimpleWidget;
 		this.contextMenuId = contextMenuId;
 		this._containerObserver = this._register(new ElementSizeObserver(container, options.dimension));
-		this._targetWindowId = getWindow(container).vscodeWindowId;
+		this._targetWindowId = getWindow(container).prox-codeWindowId;
 
 		this._rawOptions = deepCloneAndMigrateOptions(options);
 		this._validatedOptions = EditorOptionsUtil.validateOptions(this._rawOptions);

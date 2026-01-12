@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -28,7 +28,7 @@ async function createStorageService(): Promise<[DisposableStore, BrowserStorageS
 	const fileService = disposables.add(new FileService(logService));
 
 	const userDataProvider = disposables.add(new InMemoryFileSystemProvider());
-	disposables.add(fileService.registerProvider(Schemas.vscodeUserData, userDataProvider));
+	disposables.add(fileService.registerProvider(Schemas.prox-codeUserData, userDataProvider));
 
 	const profilesRoot = URI.file('/profiles').with({ scheme: Schemas.inMemory });
 

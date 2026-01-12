@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -573,7 +573,7 @@ registerAction2(class extends Action2 {
 		const pathService = accessor.get(IPathService);
 
 		const resource = EditorResourceAccessor.getOriginalUri(editorService.activeEditor, { supportSideBySide: SideBySideEditor.PRIMARY });
-		if (resource?.scheme !== pathService.defaultUriScheme && resource?.scheme !== Schemas.vscodeUserData) {
+		if (resource?.scheme !== pathService.defaultUriScheme && resource?.scheme !== Schemas.prox-codeUserData) {
 			return; // only enable for selected schemes
 		}
 

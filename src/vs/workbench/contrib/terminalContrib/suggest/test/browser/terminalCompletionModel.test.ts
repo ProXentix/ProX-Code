@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 import assert, { notStrictEqual, strictEqual } from 'assert';
@@ -124,8 +124,8 @@ suite('TerminalCompletionModel', function () {
 					'.eslint-plugin-local',
 					'.github',
 					'.profile-oss',
-					'.vscode',
-					'.vscode-test',
+					'.prox-code',
+					'.prox-code-test',
 					'build',
 					'cli',
 					'extensions',
@@ -149,7 +149,7 @@ suite('TerminalCompletionModel', function () {
 					'.mention-bot',
 					'.npmrc',
 					'.nvmrc',
-					'.vscode-test.js',
+					'.prox-code-test.js',
 					'cglicenses.json',
 					'cgmanifest.json',
 					'CodeQL.yml',
@@ -208,9 +208,9 @@ suite('TerminalCompletionModel', function () {
 				'test',
 				'ThirdPartyNotices.txt',
 				'tsfmt.json',
-				'.vscode',
-				'.vscode-test',
-				'.vscode-test.js',
+				'.prox-code',
+				'.prox-code-test',
+				'.prox-code-test.js',
 				'__init__.py',
 				'__pycache',
 			]);

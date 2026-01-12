@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -252,7 +252,7 @@ export function getSizeRegistry(): ISizeRegistry {
 	return sizeRegistry;
 }
 
-export const workbenchSizesSchemaId = 'vscode://schemas/workbench-sizes';
+export const workbenchSizesSchemaId = 'prox-code://schemas/workbench-sizes';
 
 const schemaRegistry = platform.Registry.as<IJSONContributionRegistry>(JSONExtensions.JSONContribution);
 schemaRegistry.registerSchema(workbenchSizesSchemaId, sizeRegistry.getSizeSchema());

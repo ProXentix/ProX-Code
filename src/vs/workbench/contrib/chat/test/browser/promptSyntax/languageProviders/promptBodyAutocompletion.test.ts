@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -68,7 +68,7 @@ suite('PromptBodyAutocompletion', () => {
 		const testTool3 = { id: 'testTool3', displayName: 'tool3', canBeReferencedInPrompt: true, toolReferenceName: 'tool3', modelDescription: 'Test Tool 3', source: myExtSource, inputSchema: {} } satisfies IToolData;
 		disposables.add(toolService.registerToolData(testTool3));
 
-		const prExtSource = { type: 'extension', label: 'GitHub Pull Request Extension', extensionId: new ExtensionIdentifier('github.vscode-pull-request-github') } satisfies ToolDataSource;
+		const prExtSource = { type: 'extension', label: 'GitHub Pull Request Extension', extensionId: new ExtensionIdentifier('github.prox-code-pull-request-github') } satisfies ToolDataSource;
 		const prExtTool1 = { id: 'suggestFix', canBeReferencedInPrompt: true, toolReferenceName: 'suggest-fix', modelDescription: 'tool4', displayName: 'Test Tool 4', source: prExtSource, inputSchema: {} } satisfies IToolData;
 		disposables.add(toolService.registerToolData(prExtTool1));
 
@@ -171,8 +171,8 @@ suite('PromptBodyAutocompletion', () => {
 						result: 'Use #tool:my.extension/tool3 to reference a tool.'
 					},
 					{
-						label: 'github.vscode-pull-request-github/suggest-fix',
-						result: 'Use #tool:github.vscode-pull-request-github/suggest-fix to reference a tool.'
+						label: 'github.prox-code-pull-request-github/suggest-fix',
+						result: 'Use #tool:github.prox-code-pull-request-github/suggest-fix to reference a tool.'
 					}
 				]);
 			}

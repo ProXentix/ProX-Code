@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -67,7 +67,7 @@ body.showEditorSelection :not(tr,ul,ol).code-line:hover:before {
 	height: 100%;
 }
 
-.vscode-high-contrast.showEditorSelection  :not(tr,ul,ol).code-line .code-line:hover:before {
+.prox-code-high-contrast.showEditorSelection  :not(tr,ul,ol).code-line .code-line:hover:before {
 	border-left: none;
 }
 
@@ -76,27 +76,27 @@ body.showEditorSelection li.code-line:hover:before {
 	left: -30px;
 }
 
-.vscode-light.showEditorSelection .code-active-line:before {
+.prox-code-light.showEditorSelection .code-active-line:before {
 	border-left: 3px solid rgba(0, 0, 0, 0.15);
 }
 
-.vscode-light.showEditorSelection .code-line:hover:before {
+.prox-code-light.showEditorSelection .code-line:hover:before {
 	border-left: 3px solid rgba(0, 0, 0, 0.40);
 }
 
-.vscode-dark.showEditorSelection .code-active-line:before {
+.prox-code-dark.showEditorSelection .code-active-line:before {
 	border-left: 3px solid rgba(255, 255, 255, 0.4);
 }
 
-.vscode-dark.showEditorSelection .code-line:hover:before {
+.prox-code-dark.showEditorSelection .code-line:hover:before {
 	border-left: 3px solid rgba(255, 255, 255, 0.60);
 }
 
-.vscode-high-contrast.showEditorSelection .code-active-line:before {
+.prox-code-high-contrast.showEditorSelection .code-active-line:before {
 	border-left: 3px solid rgba(255, 160, 0, 0.7);
 }
 
-.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+.prox-code-high-contrast.showEditorSelection .code-line:hover:before {
 	border-left: 3px solid rgba(255, 160, 0, 1);
 }
 
@@ -242,28 +242,28 @@ pre {
 	border: 1px solid var(--vscode-widget-border);
 }
 
-.vscode-high-contrast h1 {
+.prox-code-high-contrast h1 {
 	border-color: rgb(0, 0, 0);
 }
 
-.vscode-light th {
+.prox-code-light th {
 	border-color: rgba(0, 0, 0, 0.69);
 }
 
-.vscode-dark th {
+.prox-code-dark th {
 	border-color: rgba(255, 255, 255, 0.69);
 }
 
-.vscode-light h1,
-.vscode-light h2,
-.vscode-light hr,
-.vscode-light td {
+.prox-code-light h1,
+.prox-code-light h2,
+.prox-code-light hr,
+.prox-code-light td {
 	border-color: rgba(0, 0, 0, 0.18);
 }
 
-.vscode-dark h1,
-.vscode-dark h2,
-.vscode-dark hr,
-.vscode-dark td {
+.prox-code-dark h1,
+.prox-code-dark h2,
+.prox-code-dark hr,
+.prox-code-dark td {
 	border-color: rgba(255, 255, 255, 0.18);
 }

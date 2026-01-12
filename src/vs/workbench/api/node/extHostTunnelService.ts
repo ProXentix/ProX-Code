@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -109,7 +109,7 @@ function knownExcludeCmdline(command: string): boolean {
 	if (command.length > 500) {
 		return false;
 	}
-	return !!command.match(/.*\.vscode-server-[a-zA-Z]+\/bin.*/)
+	return !!command.match(/.*\.prox-code-server-[a-zA-Z]+\/bin.*/)
 		|| (command.indexOf('out/server-main.js') !== -1)
 		|| (command.indexOf('_productName=VSCode') !== -1);
 }

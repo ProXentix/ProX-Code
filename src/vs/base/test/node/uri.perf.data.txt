@@ -110,7 +110,7 @@
 /Users/example/.build/extensions/ms-vscode.js-debug/src/extension.js
 /Users/example/.build/extensions/emmet/images/icon.png
 /Users/example/.build/extensions/emmet/README.md
-/Users/example/.build/extensions/debug-auto-launch/.vscode/launch.json
+/Users/example/.build/extensions/debug-auto-launch/.prox-code/launch.json
 /Users/example/.build/extensions/debug-auto-launch/media/icon.png
 /Users/example/.build/extensions/debug-server-ready/media/icon.png
 /Users/example/.build/extensions/theme-defaults/fileicons/images/root-folder-light.svg
@@ -130,22 +130,22 @@
 /Users/example/.build/extensions/coffeescript/syntaxes/coffeescript.tmLanguage.json
 /Users/example/.build/extensions/coffeescript/language-configuration.json
 /Users/example/.build/extensions/coffeescript/package.nls.json
-/Users/example/.build/extensions/ms-vscode.vscode-js-profile-table/ThirdPartyNotices.txt
-/Users/example/.build/extensions/ms-vscode.vscode-js-profile-table/out/extension.web.js
-/Users/example/.build/extensions/ms-vscode.vscode-js-profile-table/out/94625be35e004f01f9d5.module.wasm
-/Users/example/.build/extensions/ms-vscode.vscode-js-profile-table/out/cpu-client.bundle.js
-/Users/example/.build/extensions/ms-vscode.vscode-js-profile-table/out/9.extension.web.js
-/Users/example/.build/extensions/ms-vscode.vscode-js-profile-table/out/heap-client.bundle.js
-/Users/example/.build/extensions/ms-vscode.vscode-js-profile-table/out/heapsnapshotWorker.js
-/Users/example/.build/extensions/ms-vscode.vscode-js-profile-table/out/heapsnapshot-client.bundle.js
-/Users/example/.build/extensions/ms-vscode.vscode-js-profile-table/out/84b6bc62673660f3ffa2.module.wasm
-/Users/example/.build/extensions/ms-vscode.vscode-js-profile-table/out/extension.js
-/Users/example/.build/extensions/ms-vscode.vscode-js-profile-table/resources/icon.png
-/Users/example/.build/extensions/ms-vscode.vscode-js-profile-table/README.md
-/Users/example/.build/extensions/ms-vscode.vscode-js-profile-table/package.json
-/Users/example/.build/extensions/ms-vscode.vscode-js-profile-table/tsconfig.browser.json
-/Users/example/.build/extensions/ms-vscode.vscode-js-profile-table/ci.yml
-/Users/example/.build/extensions/tunnel-forwarding/.vscode/launch.json
+/Users/example/.build/extensions/ms-vscode.prox-code-js-profile-table/ThirdPartyNotices.txt
+/Users/example/.build/extensions/ms-vscode.prox-code-js-profile-table/out/extension.web.js
+/Users/example/.build/extensions/ms-vscode.prox-code-js-profile-table/out/94625be35e004f01f9d5.module.wasm
+/Users/example/.build/extensions/ms-vscode.prox-code-js-profile-table/out/cpu-client.bundle.js
+/Users/example/.build/extensions/ms-vscode.prox-code-js-profile-table/out/9.extension.web.js
+/Users/example/.build/extensions/ms-vscode.prox-code-js-profile-table/out/heap-client.bundle.js
+/Users/example/.build/extensions/ms-vscode.prox-code-js-profile-table/out/heapsnapshotWorker.js
+/Users/example/.build/extensions/ms-vscode.prox-code-js-profile-table/out/heapsnapshot-client.bundle.js
+/Users/example/.build/extensions/ms-vscode.prox-code-js-profile-table/out/84b6bc62673660f3ffa2.module.wasm
+/Users/example/.build/extensions/ms-vscode.prox-code-js-profile-table/out/extension.js
+/Users/example/.build/extensions/ms-vscode.prox-code-js-profile-table/resources/icon.png
+/Users/example/.build/extensions/ms-vscode.prox-code-js-profile-table/README.md
+/Users/example/.build/extensions/ms-vscode.prox-code-js-profile-table/package.json
+/Users/example/.build/extensions/ms-vscode.prox-code-js-profile-table/tsconfig.browser.json
+/Users/example/.build/extensions/ms-vscode.prox-code-js-profile-table/ci.yml
+/Users/example/.build/extensions/tunnel-forwarding/.prox-code/launch.json
 /Users/example/.build/logs/integration-tests-browser/window.log
 /Users/example/.build/logs/integration-tests-browser/server/network.log
 /Users/example/.build/logs/integration-tests-browser/server/remoteagent.log
@@ -394,128 +394,128 @@
 /Users/example/.build/node/v18.15.0/darwin-arm64/node
 /Users/example/.build/log_api-proposal-names
 /Users/example/.build/electron/LICENSE
-/Users/example/.build/electron/Code - OSS.app/Contents/MacOS/Electron
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/Javascript.icns
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/Shell.icns
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/css.icns
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/JSON.icns
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/SQL.icns
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/PHP.icns
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/React.icns
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/YAML.icns
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/TypeScript.icns
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/Python.icns
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/Powershell.icns
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/SASS.icns
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/Vue.icns
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/html.icns
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/c.icns
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/Less.icns
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/bat.icns
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/default.icns
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/XML.icns
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/Code - OSS.icns
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/LICENSES.chromium.html
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/cpp.icns
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/Jade.icns
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/Java.icns
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/csharp.icns
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/default_app.asar
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/Bower.icns
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/go.icns
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/config.icns
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/Ruby.icns
-/Users/example/.build/electron/Code - OSS.app/Contents/Resources/Markdown.icns
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/de.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ur.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/he.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ar.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/el.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ja.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/fa.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/mr.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/en.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/chrome_200_percent.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/uk.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/es_419.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/gu.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/zh_CN.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/kn.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/nb.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/chrome_100_percent.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/am.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/es.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/sw.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/sl.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/pt_BR.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/da.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/et.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/it.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/bg.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/sk.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/pt_PT.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/icudtl.dat
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/sr.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ms.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ta.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ml.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/sv.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/te.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/cs.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ko.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/fil.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/MainMenu.nib
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/hu.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/v8_context_snapshot.arm64.bin
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/tr.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/pl.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/zh_TW.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/en_GB.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/resources.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/vi.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/lv.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/lt.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ru.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/af.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/fr.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/fi.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/id.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/nl.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/th.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/bn.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ro.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/Info.plist
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/hr.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/hi.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ca.lproj/locale.pak
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Libraries/libEGL.dylib
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Libraries/vk_swiftshader_icd.json
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Libraries/libvk_swiftshader.dylib
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Libraries/libGLESv2.dylib
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Libraries/libffmpeg.dylib
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Helpers/chrome_crashpad_handler
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/ReactiveObjC.framework/Versions/A/Resources/Info.plist
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/ReactiveObjC.framework/Versions/A/ReactiveObjC
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Squirrel.framework/Versions/A/Resources/ShipIt
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Squirrel.framework/Versions/A/Resources/Info.plist
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Squirrel.framework/Versions/A/Squirrel
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Code - OSS Helper (GPU).app/Contents/MacOS/Code - OSS Helper (GPU)
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Code - OSS Helper (GPU).app/Contents/Info.plist
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Code - OSS Helper (GPU).app/Contents/PkgInfo
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Mantle.framework/Versions/A/Mantle
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Mantle.framework/Versions/A/Resources/Info.plist
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Code - OSS Helper (Plugin).app/Contents/MacOS/Code - OSS Helper (Plugin)
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Code - OSS Helper (Plugin).app/Contents/Info.plist
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Code - OSS Helper (Plugin).app/Contents/PkgInfo
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Code - OSS Helper (Renderer).app/Contents/MacOS/Code - OSS Helper (Renderer)
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Code - OSS Helper (Renderer).app/Contents/Info.plist
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Code - OSS Helper (Renderer).app/Contents/PkgInfo
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Code - OSS Helper.app/Contents/MacOS/Code - OSS Helper
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Code - OSS Helper.app/Contents/Info.plist
-/Users/example/.build/electron/Code - OSS.app/Contents/Frameworks/Code - OSS Helper.app/Contents/PkgInfo
-/Users/example/.build/electron/Code - OSS.app/Contents/Info.plist
-/Users/example/.build/electron/Code - OSS.app/Contents/PkgInfo
+/Users/example/.build/electron/ProX-Code.app/Contents/MacOS/Electron
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/Javascript.icns
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/Shell.icns
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/css.icns
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/JSON.icns
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/SQL.icns
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/PHP.icns
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/React.icns
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/YAML.icns
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/TypeScript.icns
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/Python.icns
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/Powershell.icns
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/SASS.icns
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/Vue.icns
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/html.icns
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/c.icns
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/Less.icns
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/bat.icns
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/default.icns
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/XML.icns
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/ProX-Code.icns
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/LICENSES.chromium.html
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/cpp.icns
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/Jade.icns
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/Java.icns
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/csharp.icns
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/default_app.asar
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/Bower.icns
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/go.icns
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/config.icns
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/Ruby.icns
+/Users/example/.build/electron/ProX-Code.app/Contents/Resources/Markdown.icns
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/de.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ur.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/he.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ar.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/el.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ja.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/fa.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/mr.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/en.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/chrome_200_percent.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/uk.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/es_419.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/gu.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/zh_CN.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/kn.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/nb.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/chrome_100_percent.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/am.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/es.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/sw.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/sl.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/pt_BR.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/da.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/et.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/it.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/bg.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/sk.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/pt_PT.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/icudtl.dat
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/sr.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ms.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ta.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ml.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/sv.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/te.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/cs.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ko.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/fil.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/MainMenu.nib
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/hu.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/v8_context_snapshot.arm64.bin
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/tr.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/pl.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/zh_TW.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/en_GB.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/resources.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/vi.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/lv.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/lt.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ru.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/af.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/fr.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/fi.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/id.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/nl.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/th.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/bn.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ro.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/Info.plist
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/hr.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/hi.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Resources/ca.lproj/locale.pak
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Libraries/libEGL.dylib
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Libraries/vk_swiftshader_icd.json
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Libraries/libvk_swiftshader.dylib
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Libraries/libGLESv2.dylib
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Libraries/libffmpeg.dylib
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Helpers/chrome_crashpad_handler
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/ReactiveObjC.framework/Versions/A/Resources/Info.plist
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/ReactiveObjC.framework/Versions/A/ReactiveObjC
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Squirrel.framework/Versions/A/Resources/ShipIt
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Squirrel.framework/Versions/A/Resources/Info.plist
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Squirrel.framework/Versions/A/Squirrel
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/ProX-Code Helper (GPU).app/Contents/MacOS/ProX-Code Helper (GPU)
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/ProX-Code Helper (GPU).app/Contents/Info.plist
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/ProX-Code Helper (GPU).app/Contents/PkgInfo
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Mantle.framework/Versions/A/Mantle
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/Mantle.framework/Versions/A/Resources/Info.plist
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/ProX-Code Helper (Plugin).app/Contents/MacOS/ProX-Code Helper (Plugin)
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/ProX-Code Helper (Plugin).app/Contents/Info.plist
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/ProX-Code Helper (Plugin).app/Contents/PkgInfo
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/ProX-Code Helper (Renderer).app/Contents/MacOS/ProX-Code Helper (Renderer)
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/ProX-Code Helper (Renderer).app/Contents/Info.plist
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/ProX-Code Helper (Renderer).app/Contents/PkgInfo
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/ProX-Code Helper.app/Contents/MacOS/ProX-Code Helper
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/ProX-Code Helper.app/Contents/Info.plist
+/Users/example/.build/electron/ProX-Code.app/Contents/Frameworks/ProX-Code Helper.app/Contents/PkgInfo
+/Users/example/.build/electron/ProX-Code.app/Contents/Info.plist
+/Users/example/.build/electron/ProX-Code.app/Contents/PkgInfo
 /Users/example/.build/electron/version
 /Users/example/.build/builtInExtensions/ms-vscode.js-debug-companion/ThirdPartyNotices.txt
 /Users/example/.build/builtInExtensions/ms-vscode.js-debug-companion/out/extension.js
@@ -582,64 +582,64 @@
 /Users/example/.build/builtInExtensions/ms-vscode.js-debug/src/vendor/acorn-loose.js
 /Users/example/.build/builtInExtensions/ms-vscode.js-debug/src/vendor/acorn.js
 /Users/example/.build/builtInExtensions/ms-vscode.js-debug/src/extension.js
-/Users/example/.build/builtInExtensions/ms-vscode.vscode-js-profile-table/ThirdPartyNotices.txt
-/Users/example/.build/builtInExtensions/ms-vscode.vscode-js-profile-table/out/dbd61d846b1102299709.module.wasm
-/Users/example/.build/builtInExtensions/ms-vscode.vscode-js-profile-table/out/extension.web.js
-/Users/example/.build/builtInExtensions/ms-vscode.vscode-js-profile-table/out/848.extension.web.js
-/Users/example/.build/builtInExtensions/ms-vscode.vscode-js-profile-table/out/cpu-client.bundle.js
-/Users/example/.build/builtInExtensions/ms-vscode.vscode-js-profile-table/out/heap-client.bundle.js
-/Users/example/.build/builtInExtensions/ms-vscode.vscode-js-profile-table/out/heapsnapshotWorker.js
-/Users/example/.build/builtInExtensions/ms-vscode.vscode-js-profile-table/out/heapsnapshot-client.bundle.js
-/Users/example/.build/builtInExtensions/ms-vscode.vscode-js-profile-table/out/425.heapsnapshotWorker.js
-/Users/example/.build/builtInExtensions/ms-vscode.vscode-js-profile-table/out/extension.js
-/Users/example/.build/builtInExtensions/ms-vscode.vscode-js-profile-table/out/a443ca1a33b96237dd48.module.wasm
-/Users/example/.build/builtInExtensions/ms-vscode.vscode-js-profile-table/resources/icon.png
-/Users/example/.build/builtInExtensions/ms-vscode.vscode-js-profile-table/README.md
-/Users/example/.build/builtInExtensions/ms-vscode.vscode-js-profile-table/package.json
-/Users/example/.build/builtInExtensions/ms-vscode.vscode-js-profile-table/tsconfig.browser.json
-/Users/example/.build/builtInExtensions/ms-vscode.vscode-js-profile-table/ci.yml
+/Users/example/.build/builtInExtensions/ms-vscode.prox-code-js-profile-table/ThirdPartyNotices.txt
+/Users/example/.build/builtInExtensions/ms-vscode.prox-code-js-profile-table/out/dbd61d846b1102299709.module.wasm
+/Users/example/.build/builtInExtensions/ms-vscode.prox-code-js-profile-table/out/extension.web.js
+/Users/example/.build/builtInExtensions/ms-vscode.prox-code-js-profile-table/out/848.extension.web.js
+/Users/example/.build/builtInExtensions/ms-vscode.prox-code-js-profile-table/out/cpu-client.bundle.js
+/Users/example/.build/builtInExtensions/ms-vscode.prox-code-js-profile-table/out/heap-client.bundle.js
+/Users/example/.build/builtInExtensions/ms-vscode.prox-code-js-profile-table/out/heapsnapshotWorker.js
+/Users/example/.build/builtInExtensions/ms-vscode.prox-code-js-profile-table/out/heapsnapshot-client.bundle.js
+/Users/example/.build/builtInExtensions/ms-vscode.prox-code-js-profile-table/out/425.heapsnapshotWorker.js
+/Users/example/.build/builtInExtensions/ms-vscode.prox-code-js-profile-table/out/extension.js
+/Users/example/.build/builtInExtensions/ms-vscode.prox-code-js-profile-table/out/a443ca1a33b96237dd48.module.wasm
+/Users/example/.build/builtInExtensions/ms-vscode.prox-code-js-profile-table/resources/icon.png
+/Users/example/.build/builtInExtensions/ms-vscode.prox-code-js-profile-table/README.md
+/Users/example/.build/builtInExtensions/ms-vscode.prox-code-js-profile-table/package.json
+/Users/example/.build/builtInExtensions/ms-vscode.prox-code-js-profile-table/tsconfig.browser.json
+/Users/example/.build/builtInExtensions/ms-vscode.prox-code-js-profile-table/ci.yml
 /Users/example/.git-blame-ignore-revs
-/Users/example/.vscode-test/extensions/extensions.json
-/Users/example/.vscode-test/user-data/Session Storage/000003.log
-/Users/example/.vscode-test/user-data/Session Storage/MANIFEST-000001
-/Users/example/.vscode-test/user-data/Session Storage/LOCK
-/Users/example/.vscode-test/user-data/Session Storage/CURRENT
-/Users/example/.vscode-test/user-data/Session Storage/LOG
-/Users/example/.vscode-test/user-data/Session Storage/LOG.old
-/Users/example/.vscode-test/user-data/GPUCache/data_1
-/Users/example/.vscode-test/user-data/GPUCache/data_0
-/Users/example/.vscode-test/user-data/GPUCache/index
-/Users/example/.vscode-test/user-data/GPUCache/data_2
-/Users/example/.vscode-test/user-data/GPUCache/data_3
-/Users/example/.vscode-test/user-data/Preferences
-/Users/example/.vscode-test/user-data/Cache/Cache_Data/index-dir/the-real-index
-/Users/example/.vscode-test/user-data/Cache/Cache_Data/a97c96d98c7c4739_0
-/Users/example/.vscode-test/user-data/Cache/Cache_Data/index
-/Users/example/.vscode-test/user-data/User/workspaceStorage/80588c694169cc54a860a7592826daaf/meta.json
-/Users/example/.vscode-test/user-data/User/workspaceStorage/f7cae582673345b4483931b790f30239/meta.json
-/Users/example/.vscode-test/user-data/User/globalStorage/storage.json
-/Users/example/.vscode-test/user-data/Network Persistent State
-/Users/example/.vscode-test/user-data/languagepacks.json
-/Users/example/.vscode-test/user-data/Trust Tokens-journal
-/Users/example/.vscode-test/user-data/machineid
-/Users/example/.vscode-test/user-data/Trust Tokens
-/Users/example/.vscode-test/user-data/Code Cache/js/index-dir/the-real-index
-/Users/example/.vscode-test/user-data/Code Cache/js/index
-/Users/example/.vscode-test/user-data/Code Cache/wasm/index-dir/the-real-index
-/Users/example/.vscode-test/user-data/Code Cache/wasm/index
-/Users/example/.vscode-test/user-data/Local Storage/leveldb/000003.log
-/Users/example/.vscode-test/user-data/Local Storage/leveldb/MANIFEST-000001
-/Users/example/.vscode-test/user-data/Local Storage/leveldb/LOCK
-/Users/example/.vscode-test/user-data/Local Storage/leveldb/CURRENT
-/Users/example/.vscode-test/user-data/Local Storage/leveldb/LOG
-/Users/example/.vscode-test/user-data/Local Storage/leveldb/LOG.old
-/Users/example/.vscode-test/user-data/Cookies
-/Users/example/.vscode-test/user-data/DawnCache/data_1
-/Users/example/.vscode-test/user-data/DawnCache/data_0
-/Users/example/.vscode-test/user-data/DawnCache/index
-/Users/example/.vscode-test/user-data/DawnCache/data_2
-/Users/example/.vscode-test/user-data/DawnCache/data_3
-/Users/example/.vscode-test/user-data/Cookies-journal
+/Users/example/.prox-code-test/extensions/extensions.json
+/Users/example/.prox-code-test/user-data/Session Storage/000003.log
+/Users/example/.prox-code-test/user-data/Session Storage/MANIFEST-000001
+/Users/example/.prox-code-test/user-data/Session Storage/LOCK
+/Users/example/.prox-code-test/user-data/Session Storage/CURRENT
+/Users/example/.prox-code-test/user-data/Session Storage/LOG
+/Users/example/.prox-code-test/user-data/Session Storage/LOG.old
+/Users/example/.prox-code-test/user-data/GPUCache/data_1
+/Users/example/.prox-code-test/user-data/GPUCache/data_0
+/Users/example/.prox-code-test/user-data/GPUCache/index
+/Users/example/.prox-code-test/user-data/GPUCache/data_2
+/Users/example/.prox-code-test/user-data/GPUCache/data_3
+/Users/example/.prox-code-test/user-data/Preferences
+/Users/example/.prox-code-test/user-data/Cache/Cache_Data/index-dir/the-real-index
+/Users/example/.prox-code-test/user-data/Cache/Cache_Data/a97c96d98c7c4739_0
+/Users/example/.prox-code-test/user-data/Cache/Cache_Data/index
+/Users/example/.prox-code-test/user-data/User/workspaceStorage/80588c694169cc54a860a7592826daaf/meta.json
+/Users/example/.prox-code-test/user-data/User/workspaceStorage/f7cae582673345b4483931b790f30239/meta.json
+/Users/example/.prox-code-test/user-data/User/globalStorage/storage.json
+/Users/example/.prox-code-test/user-data/Network Persistent State
+/Users/example/.prox-code-test/user-data/languagepacks.json
+/Users/example/.prox-code-test/user-data/Trust Tokens-journal
+/Users/example/.prox-code-test/user-data/machineid
+/Users/example/.prox-code-test/user-data/Trust Tokens
+/Users/example/.prox-code-test/user-data/Code Cache/js/index-dir/the-real-index
+/Users/example/.prox-code-test/user-data/Code Cache/js/index
+/Users/example/.prox-code-test/user-data/Code Cache/wasm/index-dir/the-real-index
+/Users/example/.prox-code-test/user-data/Code Cache/wasm/index
+/Users/example/.prox-code-test/user-data/Local Storage/leveldb/000003.log
+/Users/example/.prox-code-test/user-data/Local Storage/leveldb/MANIFEST-000001
+/Users/example/.prox-code-test/user-data/Local Storage/leveldb/LOCK
+/Users/example/.prox-code-test/user-data/Local Storage/leveldb/CURRENT
+/Users/example/.prox-code-test/user-data/Local Storage/leveldb/LOG
+/Users/example/.prox-code-test/user-data/Local Storage/leveldb/LOG.old
+/Users/example/.prox-code-test/user-data/Cookies
+/Users/example/.prox-code-test/user-data/DawnCache/data_1
+/Users/example/.prox-code-test/user-data/DawnCache/data_0
+/Users/example/.prox-code-test/user-data/DawnCache/index
+/Users/example/.prox-code-test/user-data/DawnCache/data_2
+/Users/example/.prox-code-test/user-data/DawnCache/data_3
+/Users/example/.prox-code-test/user-data/Cookies-journal
 /Users/example/ThirdPartyNotices.txt
 /Users/example/.yarnrc
 /Users/example/test/smoke/test/index.js
@@ -10012,7 +10012,7 @@
 /Users/example/out/bootstrap.js
 /Users/example/out/server-cli.js
 /Users/example/out/bootstrap-node.js
-/Users/example/out/tsconfig.vscode-dts.json
+/Users/example/out/tsconfig.prox-code-dts.json
 /Users/example/out/tsec.exemptions.json
 /Users/example/out/main.js
 /Users/example/out/tsconfig.monaco.json
@@ -10021,7 +10021,7 @@
 /Users/example/out/tsconfig.json
 /Users/example/out/tsconfig.tsec.json
 /Users/example/out/cli.js
-/Users/example/out/tsconfig.vscode-proposed-dts.json
+/Users/example/out/tsconfig.prox-code-proposed-dts.json
 /Users/example/out/buildfile.js
 /Users/example/out/bootstrap-fork.js
 /Users/example/out/vscode-dts/README.md
@@ -15250,8 +15250,8 @@
 /Users/example/node_modules/@vscode/spdlog/build/Release/spdlog.node
 /Users/example/node_modules/@vscode/spdlog/build/config.gypi
 /Users/example/node_modules/@vscode/spdlog/build/binding.Makefile
-/Users/example/node_modules/@vscode/spdlog/.vscode/settings.json
-/Users/example/node_modules/@vscode/spdlog/.vscode/c_cpp_properties.json
+/Users/example/node_modules/@vscode/spdlog/.prox-code/settings.json
+/Users/example/node_modules/@vscode/spdlog/.prox-code/c_cpp_properties.json
 /Users/example/node_modules/@vscode/spdlog/index.d.ts
 /Users/example/node_modules/@vscode/spdlog/SECURITY.md
 /Users/example/node_modules/@vscode/spdlog/src/main.cc
@@ -15988,7 +15988,7 @@
 /Users/example/node_modules/@vscode/ripgrep/lib/index.js
 /Users/example/node_modules/@vscode/ripgrep/lib/index.d.ts
 /Users/example/node_modules/@vscode/ripgrep/build/pipeline.yml
-/Users/example/node_modules/@vscode/ripgrep/.vscode/launch.json
+/Users/example/node_modules/@vscode/ripgrep/.prox-code/launch.json
 /Users/example/node_modules/@vscode/ripgrep/SECURITY.md
 /Users/example/node_modules/@vscode/l10n-dev/dist/main.d.ts
 /Users/example/node_modules/@vscode/l10n-dev/dist/tsdoc-metadata.json
@@ -42419,7 +42419,7 @@
 /Users/example/node_modules/commandpost/lib/option.js.map
 /Users/example/node_modules/commandpost/tsconfig.json
 /Users/example/node_modules/commandpost/LICENSE.txt
-/Users/example/node_modules/commandpost/.vscode/settings.json
+/Users/example/node_modules/commandpost/.prox-code/settings.json
 /Users/example/node_modules/commandpost/index.d.ts
 /Users/example/node_modules/asynckit/stream.js
 /Users/example/node_modules/asynckit/LICENSE
@@ -44563,79 +44563,79 @@
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/PLK/Targets/TypeScriptCompile.xaml.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/PLK/Targets/ProjectItemsSchema.xaml.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/PLK/Targets/TypeScriptProjectProperties.xaml.lcl
-/Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/PLK/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl
+/Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/PLK/TypeScriptLanguageService/ProXentix.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/CHS/TypeScriptTasks/TypeScript.Tasks.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/CHS/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/CHS/Targets/TypeScriptCompile.xaml.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/CHS/Targets/ProjectItemsSchema.xaml.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/CHS/Targets/TypeScriptProjectProperties.xaml.lcl
-/Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/CHS/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl
+/Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/CHS/TypeScriptLanguageService/ProXentix.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/CHT/TypeScriptTasks/TypeScript.Tasks.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/CHT/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/CHT/Targets/TypeScriptCompile.xaml.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/CHT/Targets/ProjectItemsSchema.xaml.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/CHT/Targets/TypeScriptProjectProperties.xaml.lcl
-/Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/CHT/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl
+/Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/CHT/TypeScriptLanguageService/ProXentix.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/FRA/TypeScriptTasks/TypeScript.Tasks.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/FRA/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/FRA/Targets/TypeScriptCompile.xaml.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/FRA/Targets/ProjectItemsSchema.xaml.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/FRA/Targets/TypeScriptProjectProperties.xaml.lcl
-/Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/FRA/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl
+/Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/FRA/TypeScriptLanguageService/ProXentix.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/PTB/TypeScriptTasks/TypeScript.Tasks.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/PTB/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/PTB/Targets/TypeScriptCompile.xaml.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/PTB/Targets/ProjectItemsSchema.xaml.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/PTB/Targets/TypeScriptProjectProperties.xaml.lcl
-/Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/PTB/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl
+/Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/PTB/TypeScriptLanguageService/ProXentix.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/DEU/TypeScriptTasks/TypeScript.Tasks.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/DEU/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/DEU/Targets/TypeScriptCompile.xaml.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/DEU/Targets/ProjectItemsSchema.xaml.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/DEU/Targets/TypeScriptProjectProperties.xaml.lcl
-/Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/DEU/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl
+/Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/DEU/TypeScriptLanguageService/ProXentix.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/ITA/TypeScriptTasks/TypeScript.Tasks.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/ITA/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/ITA/Targets/TypeScriptCompile.xaml.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/ITA/Targets/ProjectItemsSchema.xaml.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/ITA/Targets/TypeScriptProjectProperties.xaml.lcl
-/Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/ITA/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl
+/Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/ITA/TypeScriptLanguageService/ProXentix.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/JPN/TypeScriptTasks/TypeScript.Tasks.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/JPN/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/JPN/Targets/TypeScriptCompile.xaml.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/JPN/Targets/ProjectItemsSchema.xaml.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/JPN/Targets/TypeScriptProjectProperties.xaml.lcl
-/Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/JPN/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl
+/Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/JPN/TypeScriptLanguageService/ProXentix.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/ESN/TypeScriptTasks/TypeScript.Tasks.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/ESN/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/ESN/Targets/TypeScriptCompile.xaml.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/ESN/Targets/ProjectItemsSchema.xaml.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/ESN/Targets/TypeScriptProjectProperties.xaml.lcl
-/Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/ESN/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl
+/Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/ESN/TypeScriptLanguageService/ProXentix.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/CSY/TypeScriptTasks/TypeScript.Tasks.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/CSY/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/CSY/Targets/TypeScriptCompile.xaml.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/CSY/Targets/ProjectItemsSchema.xaml.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/CSY/Targets/TypeScriptProjectProperties.xaml.lcl
-/Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/CSY/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl
+/Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/CSY/TypeScriptLanguageService/ProXentix.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/TRK/TypeScriptTasks/TypeScript.Tasks.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/TRK/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/TRK/Targets/TypeScriptCompile.xaml.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/TRK/Targets/ProjectItemsSchema.xaml.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/TRK/Targets/TypeScriptProjectProperties.xaml.lcl
-/Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/TRK/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl
+/Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/TRK/TypeScriptLanguageService/ProXentix.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/RUS/TypeScriptTasks/TypeScript.Tasks.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/RUS/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/RUS/Targets/TypeScriptCompile.xaml.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/RUS/Targets/ProjectItemsSchema.xaml.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/RUS/Targets/TypeScriptProjectProperties.xaml.lcl
-/Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/RUS/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl
+/Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/RUS/TypeScriptLanguageService/ProXentix.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/KOR/TypeScriptTasks/TypeScript.Tasks.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/KOR/TypeScriptDebugEngine/TypeScriptDebugEngine.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/KOR/Targets/TypeScriptCompile.xaml.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/KOR/Targets/ProjectItemsSchema.xaml.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/KOR/Targets/TypeScriptProjectProperties.xaml.lcl
-/Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/KOR/TypeScriptLanguageService/Microsoft.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl
+/Users/example/node_modules/pseudo-localization/node_modules/typescript/loc/lcl/KOR/TypeScriptLanguageService/ProXentix.CodeAnalysis.TypeScript.EditorFeatures.dll.lcl
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/bin/tsserver
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/bin/tsc
 /Users/example/node_modules/pseudo-localization/node_modules/typescript/CopyrightNotice.txt
@@ -48898,7 +48898,7 @@
 /Users/example/extensions/merge-conflict/out/commandHandler.js
 /Users/example/extensions/merge-conflict/out/documentMergeConflict.js.map
 /Users/example/extensions/merge-conflict/out/mergeConflictMain.js.map
-/Users/example/extensions/merge-conflict/.vscodeignore
+/Users/example/extensions/merge-conflict/.prox-codeignore
 /Users/example/extensions/merge-conflict/node_modules/@types/node/path.d.ts
 /Users/example/extensions/merge-conflict/node_modules/@types/node/constants.d.ts
 /Users/example/extensions/merge-conflict/node_modules/@types/node/domain.d.ts
@@ -50250,7 +50250,7 @@
 /Users/example/extensions/media-preview/out/mediaPreview.js.map
 /Users/example/extensions/media-preview/out/audioPreview.js
 /Users/example/extensions/media-preview/out/extension.js
-/Users/example/extensions/media-preview/.vscodeignore
+/Users/example/extensions/media-preview/.prox-codeignore
 /Users/example/extensions/media-preview/node_modules/vscode-uri/LICENSE.md
 /Users/example/extensions/media-preview/node_modules/vscode-uri/.lsifrc.json
 /Users/example/extensions/media-preview/node_modules/vscode-uri/README.md
@@ -51490,7 +51490,7 @@
 /Users/example/extensions/media-preview/src/videoPreview.ts
 /Users/example/extensions/media-preview/src/binarySizeStatusBarEntry.ts
 /Users/example/extensions/media-preview/src/mediaPreview.ts
-/Users/example/extensions/razor/.vscodeignore
+/Users/example/extensions/razor/.prox-codeignore
 /Users/example/extensions/razor/yarn.lock
 /Users/example/extensions/razor/package.json
 /Users/example/extensions/razor/build/update-grammar.mjs
@@ -51498,7 +51498,7 @@
 /Users/example/extensions/razor/language-configuration.json
 /Users/example/extensions/razor/cgmanifest.json
 /Users/example/extensions/razor/package.nls.json
-/Users/example/extensions/shaderlab/.vscodeignore
+/Users/example/extensions/shaderlab/.prox-codeignore
 /Users/example/extensions/shaderlab/yarn.lock
 /Users/example/extensions/shaderlab/package.json
 /Users/example/extensions/shaderlab/syntaxes/shaderlab.tmLanguage.json
@@ -51506,7 +51506,7 @@
 /Users/example/extensions/shaderlab/cgmanifest.json
 /Users/example/extensions/shaderlab/package.nls.json
 /Users/example/extensions/theme-seti/ThirdPartyNotices.txt
-/Users/example/extensions/theme-seti/.vscodeignore
+/Users/example/extensions/theme-seti/.prox-codeignore
 /Users/example/extensions/theme-seti/README.md
 /Users/example/extensions/theme-seti/yarn.lock
 /Users/example/extensions/theme-seti/package.json
@@ -51518,7 +51518,7 @@
 /Users/example/extensions/theme-seti/build/update-icon-theme.js
 /Users/example/extensions/theme-seti/cgmanifest.json
 /Users/example/extensions/theme-seti/package.nls.json
-/Users/example/extensions/html-language-features/.vscodeignore
+/Users/example/extensions/html-language-features/.prox-codeignore
 /Users/example/extensions/html-language-features/node_modules/vscode-jsonrpc/thirdpartynotices.txt
 /Users/example/extensions/html-language-features/node_modules/vscode-jsonrpc/typings/thenable.d.ts
 /Users/example/extensions/html-language-features/node_modules/vscode-jsonrpc/README.md
@@ -53812,8 +53812,8 @@
 /Users/example/extensions/html-language-features/server/lib/cgmanifest.json
 /Users/example/extensions/html-language-features/server/tsconfig.json
 /Users/example/extensions/html-language-features/server/build/javaScriptLibraryLoader.js
-/Users/example/extensions/html-language-features/server/.vscode/launch.json
-/Users/example/extensions/html-language-features/server/.vscode/tasks.json
+/Users/example/extensions/html-language-features/server/.prox-code/launch.json
+/Users/example/extensions/html-language-features/server/.prox-code/tasks.json
 /Users/example/extensions/html-language-features/server/extension.webpack.config.js
 /Users/example/extensions/html-language-features/server/src/languageModelCache.ts
 /Users/example/extensions/html-language-features/server/src/customData.ts
@@ -53871,9 +53871,9 @@
 /Users/example/extensions/html-language-features/CONTRIBUTING.md
 /Users/example/extensions/html-language-features/icons/html.png
 /Users/example/extensions/html-language-features/build/bundleTypeScriptLibraries.js
-/Users/example/extensions/html-language-features/.vscode/settings.json
-/Users/example/extensions/html-language-features/.vscode/launch.json
-/Users/example/extensions/html-language-features/.vscode/tasks.json
+/Users/example/extensions/html-language-features/.prox-code/settings.json
+/Users/example/extensions/html-language-features/.prox-code/launch.json
+/Users/example/extensions/html-language-features/.prox-code/tasks.json
 /Users/example/extensions/html-language-features/extension.webpack.config.js
 /Users/example/extensions/html-language-features/cgmanifest.json
 /Users/example/extensions/html-language-features/client/out/autoInsertion.js
@@ -53902,7 +53902,7 @@
 /Users/example/extensions/html-language-features/client/src/node/htmlClientMain.ts
 /Users/example/extensions/html-language-features/client/src/node/nodeFs.ts
 /Users/example/extensions/html-language-features/package.nls.json
-/Users/example/extensions/docker/.vscodeignore
+/Users/example/extensions/docker/.prox-codeignore
 /Users/example/extensions/docker/yarn.lock
 /Users/example/extensions/docker/package.json
 /Users/example/extensions/docker/syntaxes/docker.tmLanguage.json
@@ -53911,7 +53911,7 @@
 /Users/example/extensions/docker/package.nls.json
 /Users/example/extensions/types/lib.textEncoder.d.ts
 /Users/example/extensions/types/lib.url.d.ts
-/Users/example/extensions/go/.vscodeignore
+/Users/example/extensions/go/.prox-codeignore
 /Users/example/extensions/go/yarn.lock
 /Users/example/extensions/go/package.json
 /Users/example/extensions/go/syntaxes/go.tmLanguage.json
@@ -53926,7 +53926,7 @@
 /Users/example/extensions/simple-browser/out/dispose.js
 /Users/example/extensions/simple-browser/out/simpleBrowserManager.js
 /Users/example/extensions/simple-browser/out/extension.js
-/Users/example/extensions/simple-browser/.vscodeignore
+/Users/example/extensions/simple-browser/.prox-codeignore
 /Users/example/extensions/simple-browser/node_modules/@types/vscode-webview/LICENSE
 /Users/example/extensions/simple-browser/node_modules/@types/vscode-webview/README.md
 /Users/example/extensions/simple-browser/node_modules/@types/vscode-webview/package.json
@@ -54591,7 +54591,7 @@
 /Users/example/extensions/simple-browser/node_modules/vscode-codicons/scripts/reset.js
 /Users/example/extensions/simple-browser/node_modules/vscode-codicons/scripts/export-to-csv.js
 /Users/example/extensions/simple-browser/node_modules/vscode-codicons/config.yml
-/Users/example/extensions/simple-browser/node_modules/vscode-codicons/.vscode/tasks.json
+/Users/example/extensions/simple-browser/node_modules/vscode-codicons/.prox-code/tasks.json
 /Users/example/extensions/simple-browser/node_modules/vscode-codicons/SECURITY.md
 /Users/example/extensions/simple-browser/node_modules/vscode-codicons/src/template/mapping.json
 /Users/example/extensions/simple-browser/node_modules/vscode-codicons/src/template/preview.hbs
@@ -55512,13 +55512,13 @@
 /Users/example/extensions/simple-browser/src/dispose.ts
 /Users/example/extensions/simple-browser/src/extension.ts
 /Users/example/extensions/simple-browser/src/simpleBrowserView.ts
-/Users/example/extensions/theme-monokai/.vscodeignore
+/Users/example/extensions/theme-monokai/.prox-codeignore
 /Users/example/extensions/theme-monokai/yarn.lock
 /Users/example/extensions/theme-monokai/package.json
 /Users/example/extensions/theme-monokai/cgmanifest.json
 /Users/example/extensions/theme-monokai/themes/monokai-color-theme.json
 /Users/example/extensions/theme-monokai/package.nls.json
-/Users/example/extensions/json-language-features/.vscodeignore
+/Users/example/extensions/json-language-features/.prox-codeignore
 /Users/example/extensions/json-language-features/node_modules/vscode-jsonrpc/thirdpartynotices.txt
 /Users/example/extensions/json-language-features/node_modules/vscode-jsonrpc/typings/thenable.d.ts
 /Users/example/extensions/json-language-features/node_modules/vscode-jsonrpc/README.md
@@ -57658,8 +57658,8 @@
 /Users/example/extensions/json-language-features/server/yarn.lock
 /Users/example/extensions/json-language-features/server/package.json
 /Users/example/extensions/json-language-features/server/tsconfig.json
-/Users/example/extensions/json-language-features/server/.vscode/launch.json
-/Users/example/extensions/json-language-features/server/.vscode/tasks.json
+/Users/example/extensions/json-language-features/server/.prox-code/launch.json
+/Users/example/extensions/json-language-features/server/.prox-code/tasks.json
 /Users/example/extensions/json-language-features/server/extension.webpack.config.js
 /Users/example/extensions/json-language-features/server/src/languageModelCache.ts
 /Users/example/extensions/json-language-features/server/src/utils/validation.ts
@@ -57676,8 +57676,8 @@
 /Users/example/extensions/json-language-features/package.json
 /Users/example/extensions/json-language-features/CONTRIBUTING.md
 /Users/example/extensions/json-language-features/icons/json.png
-/Users/example/extensions/json-language-features/.vscode/launch.json
-/Users/example/extensions/json-language-features/.vscode/tasks.json
+/Users/example/extensions/json-language-features/.prox-code/launch.json
+/Users/example/extensions/json-language-features/.prox-code/tasks.json
 /Users/example/extensions/json-language-features/extension.webpack.config.js
 /Users/example/extensions/json-language-features/client/out/jsonClient.js
 /Users/example/extensions/json-language-features/client/out/languageStatus.js
@@ -57724,7 +57724,7 @@
 /Users/example/extensions/references-view/out/utils.js
 /Users/example/extensions/references-view/out/utils.js.map
 /Users/example/extensions/references-view/out/extension.js
-/Users/example/extensions/references-view/.vscodeignore
+/Users/example/extensions/references-view/.prox-codeignore
 /Users/example/extensions/references-view/node_modules/@types/node/path.d.ts
 /Users/example/extensions/references-view/node_modules/@types/node/constants.d.ts
 /Users/example/extensions/references-view/node_modules/@types/node/domain.d.ts
@@ -57860,7 +57860,7 @@
 /Users/example/extensions/references-view/src/tree.ts
 /Users/example/extensions/gulp/out/main.js.map
 /Users/example/extensions/gulp/out/main.js
-/Users/example/extensions/gulp/.vscodeignore
+/Users/example/extensions/gulp/.prox-codeignore
 /Users/example/extensions/gulp/images/gulp.png
 /Users/example/extensions/gulp/node_modules/@types/node/path.d.ts
 /Users/example/extensions/gulp/node_modules/@types/node/constants.d.ts
@@ -57997,7 +57997,7 @@
 /Users/example/extensions/configuration-editing/out/node/net.js.map
 /Users/example/extensions/configuration-editing/out/settingsDocumentHelper.js.map
 /Users/example/extensions/configuration-editing/out/importExportProfiles.js.map
-/Users/example/extensions/configuration-editing/.vscodeignore
+/Users/example/extensions/configuration-editing/.prox-codeignore
 /Users/example/extensions/configuration-editing/images/icon.png
 /Users/example/extensions/configuration-editing/node_modules/@types/node/path.d.ts
 /Users/example/extensions/configuration-editing/node_modules/@types/node/constants.d.ts
@@ -58519,7 +58519,7 @@
 /Users/example/extensions/configuration-editing/node_modules/universal-user-agent/dist-web/index.js
 /Users/example/extensions/configuration-editing/node_modules/universal-user-agent/dist-web/index.js.map
 /Users/example/extensions/configuration-editing/schemas/attachContainer.schema.json
-/Users/example/extensions/configuration-editing/schemas/devContainer.vscode.schema.json
+/Users/example/extensions/configuration-editing/schemas/devContainer.prox-code.schema.json
 /Users/example/extensions/configuration-editing/schemas/devContainer.codespaces.schema.json
 /Users/example/extensions/configuration-editing/extension-browser.webpack.config.js
 /Users/example/extensions/configuration-editing/yarn.lock
@@ -58608,7 +58608,7 @@
 /Users/example/extensions/vscode-api-tests/out/singlefolder-tests/window.test.js.map
 /Users/example/extensions/vscode-api-tests/out/utils.js.map
 /Users/example/extensions/vscode-api-tests/out/extension.js
-/Users/example/extensions/vscode-api-tests/.vscodeignore
+/Users/example/extensions/vscode-api-tests/.prox-codeignore
 /Users/example/extensions/vscode-api-tests/node_modules/@types/mocha/LICENSE
 /Users/example/extensions/vscode-api-tests/node_modules/@types/mocha/README.md
 /Users/example/extensions/vscode-api-tests/node_modules/@types/mocha/package.json
@@ -58725,7 +58725,7 @@
 /Users/example/extensions/vscode-api-tests/node_modules/@types/node/fs/promises.d.ts
 /Users/example/extensions/vscode-api-tests/node_modules/@types/node/net.d.ts
 /Users/example/extensions/vscode-api-tests/node_modules/.yarn-integrity
-/Users/example/extensions/vscode-api-tests/testWorkspace2/.vscode/settings.json
+/Users/example/extensions/vscode-api-tests/testWorkspace2/.prox-code/settings.json
 /Users/example/extensions/vscode-api-tests/testWorkspace2/simple.txt
 /Users/example/extensions/vscode-api-tests/yarn.lock
 /Users/example/extensions/vscode-api-tests/.gitignore
@@ -58738,9 +58738,9 @@
 /Users/example/extensions/vscode-api-tests/testWorkspace/sub/image.png
 /Users/example/extensions/vscode-api-tests/testWorkspace/myFile.ts
 /Users/example/extensions/vscode-api-tests/testWorkspace/lorem.txt
-/Users/example/extensions/vscode-api-tests/testWorkspace/.vscode/settings.json
-/Users/example/extensions/vscode-api-tests/testWorkspace/.vscode/launch.json
-/Users/example/extensions/vscode-api-tests/testWorkspace/.vscode/tasks.json
+/Users/example/extensions/vscode-api-tests/testWorkspace/.prox-code/settings.json
+/Users/example/extensions/vscode-api-tests/testWorkspace/.prox-code/launch.json
+/Users/example/extensions/vscode-api-tests/testWorkspace/.prox-code/tasks.json
 /Users/example/extensions/vscode-api-tests/testWorkspace/simple.txt
 /Users/example/extensions/vscode-api-tests/testWorkspace/files-exclude/file.txt
 /Users/example/extensions/vscode-api-tests/testWorkspace/test.ipynb
@@ -58749,8 +58749,8 @@
 /Users/example/extensions/vscode-api-tests/testWorkspace/image.png
 /Users/example/extensions/vscode-api-tests/testWorkspace/debug.js
 /Users/example/extensions/vscode-api-tests/tsconfig.json
-/Users/example/extensions/vscode-api-tests/.vscode/launch.json
-/Users/example/extensions/vscode-api-tests/.vscode/tasks.json
+/Users/example/extensions/vscode-api-tests/.prox-code/launch.json
+/Users/example/extensions/vscode-api-tests/.prox-code/tasks.json
 /Users/example/extensions/vscode-api-tests/testworkspace.code-workspace
 /Users/example/extensions/vscode-api-tests/media/icon.png
 /Users/example/extensions/vscode-api-tests/src/extension.ts
@@ -58790,32 +58790,32 @@
 /Users/example/extensions/vscode-api-tests/src/singlefolder-tests/debug.test.ts
 /Users/example/extensions/vscode-api-tests/src/memfs.ts
 /Users/example/extensions/tsconfig.base.json
-/Users/example/extensions/python/.vscodeignore
+/Users/example/extensions/python/.prox-codeignore
 /Users/example/extensions/python/yarn.lock
 /Users/example/extensions/python/package.json
 /Users/example/extensions/python/syntaxes/MagicRegExp.tmLanguage.json
 /Users/example/extensions/python/syntaxes/MagicPython.tmLanguage.json
-/Users/example/extensions/python/.vscode/launch.json
-/Users/example/extensions/python/.vscode/tasks.json
+/Users/example/extensions/python/.prox-code/launch.json
+/Users/example/extensions/python/.prox-code/tasks.json
 /Users/example/extensions/python/language-configuration.json
 /Users/example/extensions/python/cgmanifest.json
 /Users/example/extensions/python/package.nls.json
-/Users/example/extensions/css/.vscodeignore
+/Users/example/extensions/css/.prox-codeignore
 /Users/example/extensions/css/yarn.lock
 /Users/example/extensions/css/package.json
 /Users/example/extensions/css/syntaxes/css.tmLanguage.json
-/Users/example/extensions/css/.vscode/launch.json
+/Users/example/extensions/css/.prox-code/launch.json
 /Users/example/extensions/css/language-configuration.json
 /Users/example/extensions/css/cgmanifest.json
 /Users/example/extensions/css/package.nls.json
-/Users/example/extensions/clojure/.vscodeignore
+/Users/example/extensions/clojure/.prox-codeignore
 /Users/example/extensions/clojure/yarn.lock
 /Users/example/extensions/clojure/package.json
 /Users/example/extensions/clojure/syntaxes/clojure.tmLanguage.json
 /Users/example/extensions/clojure/language-configuration.json
 /Users/example/extensions/clojure/cgmanifest.json
 /Users/example/extensions/clojure/package.nls.json
-/Users/example/extensions/less/.vscodeignore
+/Users/example/extensions/less/.prox-codeignore
 /Users/example/extensions/less/yarn.lock
 /Users/example/extensions/less/package.json
 /Users/example/extensions/less/build/update-grammar.js
@@ -58825,7 +58825,7 @@
 /Users/example/extensions/less/package.nls.json
 /Users/example/extensions/mangle-loader.js
 /Users/example/extensions/css-language-features/test/mocha.opts
-/Users/example/extensions/css-language-features/.vscodeignore
+/Users/example/extensions/css-language-features/.prox-codeignore
 /Users/example/extensions/css-language-features/node_modules/vscode-jsonrpc/thirdpartynotices.txt
 /Users/example/extensions/css-language-features/node_modules/vscode-jsonrpc/typings/thenable.d.ts
 /Users/example/extensions/css-language-features/node_modules/vscode-jsonrpc/README.md
@@ -59839,8 +59839,8 @@
 /Users/example/extensions/css-language-features/server/yarn.lock
 /Users/example/extensions/css-language-features/server/package.json
 /Users/example/extensions/css-language-features/server/tsconfig.json
-/Users/example/extensions/css-language-features/server/.vscode/launch.json
-/Users/example/extensions/css-language-features/server/.vscode/tasks.json
+/Users/example/extensions/css-language-features/server/.prox-code/launch.json
+/Users/example/extensions/css-language-features/server/.prox-code/tasks.json
 /Users/example/extensions/css-language-features/server/extension.webpack.config.js
 /Users/example/extensions/css-language-features/server/src/languageModelCache.ts
 /Users/example/extensions/css-language-features/server/src/customData.ts
@@ -59864,9 +59864,9 @@
 /Users/example/extensions/css-language-features/package.json
 /Users/example/extensions/css-language-features/CONTRIBUTING.md
 /Users/example/extensions/css-language-features/icons/css.png
-/Users/example/extensions/css-language-features/.vscode/settings.json
-/Users/example/extensions/css-language-features/.vscode/launch.json
-/Users/example/extensions/css-language-features/.vscode/tasks.json
+/Users/example/extensions/css-language-features/.prox-code/settings.json
+/Users/example/extensions/css-language-features/.prox-code/launch.json
+/Users/example/extensions/css-language-features/.prox-code/tasks.json
 /Users/example/extensions/css-language-features/extension.webpack.config.js
 /Users/example/extensions/css-language-features/client/out/cssClient.js
 /Users/example/extensions/css-language-features/client/out/requests.js
@@ -59888,13 +59888,13 @@
 /Users/example/extensions/css-language-features/client/src/node/nodeFs.ts
 /Users/example/extensions/css-language-features/client/src/cssClient.ts
 /Users/example/extensions/css-language-features/package.nls.json
-/Users/example/extensions/theme-red/.vscodeignore
+/Users/example/extensions/theme-red/.prox-codeignore
 /Users/example/extensions/theme-red/yarn.lock
 /Users/example/extensions/theme-red/package.json
 /Users/example/extensions/theme-red/cgmanifest.json
 /Users/example/extensions/theme-red/themes/Red-color-theme.json
 /Users/example/extensions/theme-red/package.nls.json
-/Users/example/extensions/dart/.vscodeignore
+/Users/example/extensions/dart/.prox-codeignore
 /Users/example/extensions/dart/package.json
 /Users/example/extensions/dart/syntaxes/dart.tmLanguage.json
 /Users/example/extensions/dart/language-configuration.json
@@ -59903,7 +59903,7 @@
 /Users/example/extensions/latex/latex-language-configuration.json
 /Users/example/extensions/latex/cpp-bailout-license.txt
 /Users/example/extensions/latex/markdown-latex-combined-license.txt
-/Users/example/extensions/latex/.vscodeignore
+/Users/example/extensions/latex/.prox-codeignore
 /Users/example/extensions/latex/markdown-latex-combined-language-configuration.json
 /Users/example/extensions/latex/latex-cpp-embedded-language-configuration.json
 /Users/example/extensions/latex/package.json
@@ -60205,7 +60205,7 @@
 /Users/example/extensions/typescript-language-features/out/filesystems/memFs.js
 /Users/example/extensions/typescript-language-features/out/extension.js
 /Users/example/extensions/typescript-language-features/out/typeScriptServiceClientHost.js.map
-/Users/example/extensions/typescript-language-features/.vscodeignore
+/Users/example/extensions/typescript-language-features/.prox-codeignore
 /Users/example/extensions/typescript-language-features/web/out/pathMapper.js
 /Users/example/extensions/typescript-language-features/web/out/logging.js.map
 /Users/example/extensions/typescript-language-features/web/out/wasmCancellationToken.js.map
@@ -61979,7 +61979,7 @@
 /Users/example/extensions/typescript-language-features/src/filesystems/memFs.ts
 /Users/example/extensions/grunt/out/main.js.map
 /Users/example/extensions/grunt/out/main.js
-/Users/example/extensions/grunt/.vscodeignore
+/Users/example/extensions/grunt/.prox-codeignore
 /Users/example/extensions/grunt/images/grunt.png
 /Users/example/extensions/grunt/node_modules/@types/node/path.d.ts
 /Users/example/extensions/grunt/node_modules/@types/node/constants.d.ts
@@ -62132,7 +62132,7 @@
 /Users/example/extensions/microsoft-authentication/out/logger.js.map
 /Users/example/extensions/microsoft-authentication/out/extension.js
 /Users/example/extensions/microsoft-authentication/out/UriEventHandler.js
-/Users/example/extensions/microsoft-authentication/.vscodeignore
+/Users/example/extensions/microsoft-authentication/.prox-codeignore
 /Users/example/extensions/microsoft-authentication/node_modules/@types/node-fetch/LICENSE
 /Users/example/extensions/microsoft-authentication/node_modules/@types/node-fetch/node_modules/@types/node/path.d.ts
 /Users/example/extensions/microsoft-authentication/node_modules/@types/node-fetch/node_modules/@types/node/constants.d.ts
@@ -63754,13 +63754,13 @@
 /Users/example/extensions/microsoft-authentication/src/node/crypto.ts
 /Users/example/extensions/microsoft-authentication/src/node/authServer.ts
 /Users/example/extensions/microsoft-authentication/src/node/fetch.ts
-/Users/example/extensions/theme-abyss/.vscodeignore
+/Users/example/extensions/theme-abyss/.prox-codeignore
 /Users/example/extensions/theme-abyss/yarn.lock
 /Users/example/extensions/theme-abyss/package.json
 /Users/example/extensions/theme-abyss/cgmanifest.json
 /Users/example/extensions/theme-abyss/themes/abyss-color-theme.json
 /Users/example/extensions/theme-abyss/package.nls.json
-/Users/example/extensions/scss/.vscodeignore
+/Users/example/extensions/scss/.prox-codeignore
 /Users/example/extensions/scss/yarn.lock
 /Users/example/extensions/scss/package.json
 /Users/example/extensions/scss/syntaxes/scss.tmLanguage.json
@@ -63770,7 +63770,7 @@
 /Users/example/extensions/scss/package.nls.json
 /Users/example/extensions/jake/out/main.js.map
 /Users/example/extensions/jake/out/main.js
-/Users/example/extensions/jake/.vscodeignore
+/Users/example/extensions/jake/.prox-codeignore
 /Users/example/extensions/jake/images/cowboy_hat.png
 /Users/example/extensions/jake/node_modules/@types/node/path.d.ts
 /Users/example/extensions/jake/node_modules/@types/node/constants.d.ts
@@ -63893,14 +63893,14 @@
 /Users/example/extensions/jake/src/main.ts
 /Users/example/extensions/perl/perl6.language-configuration.json
 /Users/example/extensions/perl/perl.language-configuration.json
-/Users/example/extensions/perl/.vscodeignore
+/Users/example/extensions/perl/.prox-codeignore
 /Users/example/extensions/perl/yarn.lock
 /Users/example/extensions/perl/package.json
 /Users/example/extensions/perl/syntaxes/perl6.tmLanguage.json
 /Users/example/extensions/perl/syntaxes/perl.tmLanguage.json
 /Users/example/extensions/perl/cgmanifest.json
 /Users/example/extensions/perl/package.nls.json
-/Users/example/extensions/rust/.vscodeignore
+/Users/example/extensions/rust/.prox-codeignore
 /Users/example/extensions/rust/yarn.lock
 /Users/example/extensions/rust/package.json
 /Users/example/extensions/rust/build/update-grammar.mjs
@@ -63908,7 +63908,7 @@
 /Users/example/extensions/rust/language-configuration.json
 /Users/example/extensions/rust/cgmanifest.json
 /Users/example/extensions/rust/package.nls.json
-/Users/example/extensions/pug/.vscodeignore
+/Users/example/extensions/pug/.prox-codeignore
 /Users/example/extensions/pug/yarn.lock
 /Users/example/extensions/pug/package.json
 /Users/example/extensions/pug/syntaxes/pug.tmLanguage.json
@@ -64221,14 +64221,14 @@
 /Users/example/extensions/node_modules/@esbuild/darwin-arm64/README.md
 /Users/example/extensions/node_modules/@esbuild/darwin-arm64/package.json
 /Users/example/extensions/fsharp/snippets/fsharp.code-snippets
-/Users/example/extensions/fsharp/.vscodeignore
+/Users/example/extensions/fsharp/.prox-codeignore
 /Users/example/extensions/fsharp/yarn.lock
 /Users/example/extensions/fsharp/package.json
 /Users/example/extensions/fsharp/syntaxes/fsharp.tmLanguage.json
 /Users/example/extensions/fsharp/language-configuration.json
 /Users/example/extensions/fsharp/cgmanifest.json
 /Users/example/extensions/fsharp/package.nls.json
-/Users/example/extensions/r/.vscodeignore
+/Users/example/extensions/r/.prox-codeignore
 /Users/example/extensions/r/yarn.lock
 /Users/example/extensions/r/package.json
 /Users/example/extensions/r/syntaxes/r.tmLanguage.json
@@ -64262,7 +64262,7 @@
 /Users/example/extensions/ipynb/out/common.js.map
 /Users/example/extensions/ipynb/out/helper.js
 /Users/example/extensions/ipynb/out/notebookImagePaste.js
-/Users/example/extensions/ipynb/.vscodeignore
+/Users/example/extensions/ipynb/.prox-codeignore
 /Users/example/extensions/ipynb/node_modules/@types/mdurl/encode.d.ts
 /Users/example/extensions/ipynb/node_modules/@types/mdurl/parse.d.ts
 /Users/example/extensions/ipynb/node_modules/@types/mdurl/LICENSE
@@ -64367,7 +64367,7 @@
 /Users/example/extensions/ipynb/.gitignore
 /Users/example/extensions/ipynb/package.json
 /Users/example/extensions/ipynb/tsconfig.json
-/Users/example/extensions/ipynb/.vscode/launch.json
+/Users/example/extensions/ipynb/.prox-code/launch.json
 /Users/example/extensions/ipynb/extension.webpack.config.js
 /Users/example/extensions/ipynb/notebook-src/cellAttachmentRenderer.ts
 /Users/example/extensions/ipynb/package.nls.json
@@ -64412,7 +64412,7 @@
 /Users/example/extensions/notebook-renderers/out/linkify.js.map
 /Users/example/extensions/notebook-renderers/out/linkify.js
 /Users/example/extensions/notebook-renderers/out/stackTraceHelper.js.map
-/Users/example/extensions/notebook-renderers/.vscodeignore
+/Users/example/extensions/notebook-renderers/.prox-codeignore
 /Users/example/extensions/notebook-renderers/node_modules/@types/jsdom/LICENSE
 /Users/example/extensions/notebook-renderers/node_modules/@types/jsdom/README.md
 /Users/example/extensions/notebook-renderers/node_modules/@types/jsdom/package.json
@@ -65740,14 +65740,14 @@
 /Users/example/extensions/notebook-renderers/src/htmlHelper.ts
 /Users/example/extensions/notebook-renderers/src/colorMap.ts
 /Users/example/extensions/java/snippets/java.code-snippets
-/Users/example/extensions/java/.vscodeignore
+/Users/example/extensions/java/.prox-codeignore
 /Users/example/extensions/java/yarn.lock
 /Users/example/extensions/java/package.json
 /Users/example/extensions/java/syntaxes/java.tmLanguage.json
 /Users/example/extensions/java/language-configuration.json
 /Users/example/extensions/java/cgmanifest.json
 /Users/example/extensions/java/package.nls.json
-/Users/example/extensions/diff/.vscodeignore
+/Users/example/extensions/diff/.prox-codeignore
 /Users/example/extensions/diff/package.json
 /Users/example/extensions/diff/syntaxes/diff.tmLanguage.json
 /Users/example/extensions/diff/language-configuration.json
@@ -65755,7 +65755,7 @@
 /Users/example/extensions/diff/package.nls.json
 /Users/example/extensions/esbuild-webview-common.js
 /Users/example/extensions/html/snippets/html.code-snippets
-/Users/example/extensions/html/.vscodeignore
+/Users/example/extensions/html/.prox-codeignore
 /Users/example/extensions/html/yarn.lock
 /Users/example/extensions/html/package.json
 /Users/example/extensions/html/build/update-grammar.mjs
@@ -65765,18 +65765,18 @@
 /Users/example/extensions/html/cgmanifest.json
 /Users/example/extensions/html/package.nls.json
 /Users/example/extensions/php/snippets/php.code-snippets
-/Users/example/extensions/php/.vscodeignore
+/Users/example/extensions/php/.prox-codeignore
 /Users/example/extensions/php/yarn.lock
 /Users/example/extensions/php/package.json
 /Users/example/extensions/php/build/update-grammar.mjs
 /Users/example/extensions/php/syntaxes/php.tmLanguage.json
 /Users/example/extensions/php/syntaxes/html.tmLanguage.json
-/Users/example/extensions/php/.vscode/launch.json
-/Users/example/extensions/php/.vscode/tasks.json
+/Users/example/extensions/php/.prox-code/launch.json
+/Users/example/extensions/php/.prox-code/tasks.json
 /Users/example/extensions/php/language-configuration.json
 /Users/example/extensions/php/cgmanifest.json
 /Users/example/extensions/php/package.nls.json
-/Users/example/extensions/lua/.vscodeignore
+/Users/example/extensions/lua/.prox-codeignore
 /Users/example/extensions/lua/yarn.lock
 /Users/example/extensions/lua/package.json
 /Users/example/extensions/lua/syntaxes/lua.tmLanguage.json
@@ -65861,7 +65861,7 @@
 /Users/example/extensions/emmet/out/defaultCompletionProvider.js
 /Users/example/extensions/emmet/out/removeTag.js
 /Users/example/extensions/emmet/out/selectItemStylesheet.js.map
-/Users/example/extensions/emmet/.vscodeignore
+/Users/example/extensions/emmet/.prox-codeignore
 /Users/example/extensions/emmet/images/icon.png
 /Users/example/extensions/emmet/node_modules/vscode-uri/LICENSE.md
 /Users/example/extensions/emmet/node_modules/vscode-uri/README.md
@@ -65870,7 +65870,7 @@
 /Users/example/extensions/emmet/node_modules/vscode-uri/lib/esm/index.d.ts
 /Users/example/extensions/emmet/node_modules/vscode-uri/lib/umd/index.js
 /Users/example/extensions/emmet/node_modules/vscode-uri/lib/umd/index.d.ts
-/Users/example/extensions/emmet/node_modules/vscode-uri/.vscode/settings.json
+/Users/example/extensions/emmet/node_modules/vscode-uri/.prox-code/settings.json
 /Users/example/extensions/emmet/node_modules/vscode-uri/.travis.yml
 /Users/example/extensions/emmet/node_modules/@types/node/path.d.ts
 /Users/example/extensions/emmet/node_modules/@types/node/constants.d.ts
@@ -66250,12 +66250,12 @@
 /Users/example/extensions/emmet/package.json
 /Users/example/extensions/emmet/CONTRIBUTING.md
 /Users/example/extensions/emmet/tsconfig.json
-/Users/example/extensions/emmet/.vscode/settings.json
-/Users/example/extensions/emmet/.vscode/launch.json
+/Users/example/extensions/emmet/.prox-code/settings.json
+/Users/example/extensions/emmet/.prox-code/launch.json
 /Users/example/extensions/emmet/extension.webpack.config.js
 /Users/example/extensions/emmet/cgmanifest.json
 /Users/example/extensions/emmet/package.nls.json
-/Users/example/extensions/emmet/test-workspace/.vscode/settings.json
+/Users/example/extensions/emmet/test-workspace/.prox-code/settings.json
 /Users/example/extensions/emmet/src/updateImageSize.ts
 /Users/example/extensions/emmet/src/emmetCommon.ts
 /Users/example/extensions/emmet/src/balance.ts
@@ -66301,7 +66301,7 @@
 /Users/example/extensions/emmet/src/abbreviationActions.ts
 /Users/example/extensions/emmet/src/mergeLines.ts
 /Users/example/extensions/xml/xml.language-configuration.json
-/Users/example/extensions/xml/.vscodeignore
+/Users/example/extensions/xml/.prox-codeignore
 /Users/example/extensions/xml/yarn.lock
 /Users/example/extensions/xml/package.json
 /Users/example/extensions/xml/syntaxes/xml.tmLanguage.json
@@ -66309,27 +66309,27 @@
 /Users/example/extensions/xml/cgmanifest.json
 /Users/example/extensions/xml/xsl.language-configuration.json
 /Users/example/extensions/xml/package.nls.json
-/Users/example/extensions/theme-quietlight/.vscodeignore
+/Users/example/extensions/theme-quietlight/.prox-codeignore
 /Users/example/extensions/theme-quietlight/yarn.lock
 /Users/example/extensions/theme-quietlight/package.json
 /Users/example/extensions/theme-quietlight/cgmanifest.json
 /Users/example/extensions/theme-quietlight/themes/quietlight-color-theme.json
 /Users/example/extensions/theme-quietlight/package.nls.json
 /Users/example/extensions/vb/snippets/vb.code-snippets
-/Users/example/extensions/vb/.vscodeignore
+/Users/example/extensions/vb/.prox-codeignore
 /Users/example/extensions/vb/yarn.lock
 /Users/example/extensions/vb/package.json
 /Users/example/extensions/vb/syntaxes/asp-vb-net.tmLanguage.json
 /Users/example/extensions/vb/language-configuration.json
 /Users/example/extensions/vb/cgmanifest.json
 /Users/example/extensions/vb/package.nls.json
-/Users/example/extensions/theme-solarized-dark/.vscodeignore
+/Users/example/extensions/theme-solarized-dark/.prox-codeignore
 /Users/example/extensions/theme-solarized-dark/yarn.lock
 /Users/example/extensions/theme-solarized-dark/package.json
 /Users/example/extensions/theme-solarized-dark/cgmanifest.json
 /Users/example/extensions/theme-solarized-dark/themes/solarized-dark-color-theme.json
 /Users/example/extensions/theme-solarized-dark/package.nls.json
-/Users/example/extensions/powershell/.vscodeignore
+/Users/example/extensions/powershell/.prox-codeignore
 /Users/example/extensions/powershell/yarn.lock
 /Users/example/extensions/powershell/package.json
 /Users/example/extensions/powershell/syntaxes/powershell.tmLanguage.json
@@ -66337,7 +66337,7 @@
 /Users/example/extensions/powershell/cgmanifest.json
 /Users/example/extensions/powershell/package.nls.json
 /Users/example/extensions/typescript-basics/snippets/typescript.code-snippets
-/Users/example/extensions/typescript-basics/.vscodeignore
+/Users/example/extensions/typescript-basics/.prox-codeignore
 /Users/example/extensions/typescript-basics/yarn.lock
 /Users/example/extensions/typescript-basics/package.json
 /Users/example/extensions/typescript-basics/build/update-grammars.mjs
@@ -66351,7 +66351,7 @@
 /Users/example/extensions/typescript-basics/package.nls.json
 /Users/example/extensions/debug-auto-launch/out/extension.js.map
 /Users/example/extensions/debug-auto-launch/out/extension.js
-/Users/example/extensions/debug-auto-launch/.vscodeignore
+/Users/example/extensions/debug-auto-launch/.prox-codeignore
 /Users/example/extensions/debug-auto-launch/node_modules/@types/node/path.d.ts
 /Users/example/extensions/debug-auto-launch/node_modules/@types/node/constants.d.ts
 /Users/example/extensions/debug-auto-launch/node_modules/@types/node/domain.d.ts
@@ -66467,14 +66467,14 @@
 /Users/example/extensions/debug-auto-launch/yarn.lock
 /Users/example/extensions/debug-auto-launch/package.json
 /Users/example/extensions/debug-auto-launch/tsconfig.json
-/Users/example/extensions/debug-auto-launch/.vscode/launch.json
+/Users/example/extensions/debug-auto-launch/.prox-code/launch.json
 /Users/example/extensions/debug-auto-launch/extension.webpack.config.js
 /Users/example/extensions/debug-auto-launch/package.nls.json
 /Users/example/extensions/debug-auto-launch/media/icon.png
 /Users/example/extensions/debug-auto-launch/src/extension.ts
 /Users/example/extensions/debug-server-ready/out/extension.js.map
 /Users/example/extensions/debug-server-ready/out/extension.js
-/Users/example/extensions/debug-server-ready/.vscodeignore
+/Users/example/extensions/debug-server-ready/.prox-codeignore
 /Users/example/extensions/debug-server-ready/node_modules/@types/node/path.d.ts
 /Users/example/extensions/debug-server-ready/node_modules/@types/node/constants.d.ts
 /Users/example/extensions/debug-server-ready/node_modules/@types/node/domain.d.ts
@@ -66590,13 +66590,13 @@
 /Users/example/extensions/debug-server-ready/yarn.lock
 /Users/example/extensions/debug-server-ready/package.json
 /Users/example/extensions/debug-server-ready/tsconfig.json
-/Users/example/extensions/debug-server-ready/.vscode/launch.json
+/Users/example/extensions/debug-server-ready/.prox-code/launch.json
 /Users/example/extensions/debug-server-ready/extension.webpack.config.js
 /Users/example/extensions/debug-server-ready/package.nls.json
 /Users/example/extensions/debug-server-ready/media/icon.png
 /Users/example/extensions/debug-server-ready/src/extension.ts
 /Users/example/extensions/yarn.lock
-/Users/example/extensions/ini/.vscodeignore
+/Users/example/extensions/ini/.prox-codeignore
 /Users/example/extensions/ini/properties.language-configuration.json
 /Users/example/extensions/ini/yarn.lock
 /Users/example/extensions/ini/ini.language-configuration.json
@@ -66604,7 +66604,7 @@
 /Users/example/extensions/ini/syntaxes/ini.tmLanguage.json
 /Users/example/extensions/ini/cgmanifest.json
 /Users/example/extensions/ini/package.nls.json
-/Users/example/extensions/json/.vscodeignore
+/Users/example/extensions/json/.prox-codeignore
 /Users/example/extensions/json/yarn.lock
 /Users/example/extensions/json/package.json
 /Users/example/extensions/json/build/update-grammars.js
@@ -66615,7 +66615,7 @@
 /Users/example/extensions/json/language-configuration.json
 /Users/example/extensions/json/cgmanifest.json
 /Users/example/extensions/json/package.nls.json
-/Users/example/extensions/theme-tomorrow-night-blue/.vscodeignore
+/Users/example/extensions/theme-tomorrow-night-blue/.prox-codeignore
 /Users/example/extensions/theme-tomorrow-night-blue/yarn.lock
 /Users/example/extensions/theme-tomorrow-night-blue/package.json
 /Users/example/extensions/theme-tomorrow-night-blue/cgmanifest.json
@@ -66651,7 +66651,7 @@
 /Users/example/extensions/github/out/remoteSourcePublisher.js
 /Users/example/extensions/github/out/branchProtection.js
 /Users/example/extensions/github/out/extension.js
-/Users/example/extensions/github/.vscodeignore
+/Users/example/extensions/github/.prox-codeignore
 /Users/example/extensions/github/images/icon.png
 /Users/example/extensions/github/markdown.css
 /Users/example/extensions/github/node_modules/@types/node/path.d.ts
@@ -68973,7 +68973,7 @@
 /Users/example/extensions/markdown-language-features/out/markdownEngine.js.map
 /Users/example/extensions/markdown-language-features/out/extension.js
 /Users/example/extensions/markdown-language-features/out/telemetryReporter.js
-/Users/example/extensions/markdown-language-features/.vscodeignore
+/Users/example/extensions/markdown-language-features/.prox-codeignore
 /Users/example/extensions/markdown-language-features/node_modules/vscode-jsonrpc/thirdpartynotices.txt
 /Users/example/extensions/markdown-language-features/node_modules/vscode-jsonrpc/typings/thenable.d.ts
 /Users/example/extensions/markdown-language-features/node_modules/vscode-jsonrpc/README.md
@@ -73550,9 +73550,9 @@
 /Users/example/extensions/markdown-language-features/server/package.json
 /Users/example/extensions/markdown-language-features/server/tsconfig.json
 /Users/example/extensions/markdown-language-features/server/build/pipeline.yml
-/Users/example/extensions/markdown-language-features/server/.vscode/settings.json
-/Users/example/extensions/markdown-language-features/server/.vscode/launch.json
-/Users/example/extensions/markdown-language-features/server/.vscode/tasks.json
+/Users/example/extensions/markdown-language-features/server/.prox-code/settings.json
+/Users/example/extensions/markdown-language-features/server/.prox-code/launch.json
+/Users/example/extensions/markdown-language-features/server/.prox-code/tasks.json
 /Users/example/extensions/markdown-language-features/server/extension.webpack.config.js
 /Users/example/extensions/markdown-language-features/server/src/util/limiter.ts
 /Users/example/extensions/markdown-language-features/server/src/util/dispose.ts
@@ -73713,7 +73713,7 @@
 /Users/example/extensions/git-base/out/model.js
 /Users/example/extensions/git-base/out/decorators.js.map
 /Users/example/extensions/git-base/out/extension.js
-/Users/example/extensions/git-base/.vscodeignore
+/Users/example/extensions/git-base/.prox-codeignore
 /Users/example/extensions/git-base/resources/icons/git.png
 /Users/example/extensions/git-base/node_modules/@types/node/path.d.ts
 /Users/example/extensions/git-base/node_modules/@types/node/constants.d.ts
@@ -73852,13 +73852,13 @@
 /Users/example/extensions/git-base/src/remoteSource.ts
 /Users/example/extensions/git-base/src/remoteProvider.ts
 /Users/example/extensions/package.json
-/Users/example/extensions/theme-solarized-light/.vscodeignore
+/Users/example/extensions/theme-solarized-light/.prox-codeignore
 /Users/example/extensions/theme-solarized-light/yarn.lock
 /Users/example/extensions/theme-solarized-light/package.json
 /Users/example/extensions/theme-solarized-light/cgmanifest.json
 /Users/example/extensions/theme-solarized-light/themes/solarized-light-color-theme.json
 /Users/example/extensions/theme-solarized-light/package.nls.json
-/Users/example/extensions/handlebars/.vscodeignore
+/Users/example/extensions/handlebars/.prox-codeignore
 /Users/example/extensions/handlebars/yarn.lock
 /Users/example/extensions/handlebars/package.json
 /Users/example/extensions/handlebars/syntaxes/Handlebars.tmLanguage.json
@@ -73867,7 +73867,7 @@
 /Users/example/extensions/handlebars/package.nls.json
 /Users/example/extensions/cpp/snippets/cpp.code-snippets
 /Users/example/extensions/cpp/snippets/c.code-snippets
-/Users/example/extensions/cpp/.vscodeignore
+/Users/example/extensions/cpp/.prox-codeignore
 /Users/example/extensions/cpp/yarn.lock
 /Users/example/extensions/cpp/package.json
 /Users/example/extensions/cpp/build/update-grammars.js
@@ -73880,21 +73880,21 @@
 /Users/example/extensions/cpp/cgmanifest.json
 /Users/example/extensions/cpp/package.nls.json
 /Users/example/extensions/swift/snippets/swift.code-snippets
-/Users/example/extensions/swift/.vscodeignore
+/Users/example/extensions/swift/.prox-codeignore
 /Users/example/extensions/swift/yarn.lock
 /Users/example/extensions/swift/package.json
 /Users/example/extensions/swift/syntaxes/swift.tmLanguage.json
 /Users/example/extensions/swift/language-configuration.json
 /Users/example/extensions/swift/cgmanifest.json
 /Users/example/extensions/swift/package.nls.json
-/Users/example/extensions/make/.vscodeignore
+/Users/example/extensions/make/.prox-codeignore
 /Users/example/extensions/make/yarn.lock
 /Users/example/extensions/make/package.json
 /Users/example/extensions/make/syntaxes/make.tmLanguage.json
 /Users/example/extensions/make/language-configuration.json
 /Users/example/extensions/make/cgmanifest.json
 /Users/example/extensions/make/package.nls.json
-/Users/example/extensions/shellscript/.vscodeignore
+/Users/example/extensions/shellscript/.prox-codeignore
 /Users/example/extensions/shellscript/yarn.lock
 /Users/example/extensions/shellscript/package.json
 /Users/example/extensions/shellscript/syntaxes/shell-unix-bash.tmLanguage.json
@@ -73902,7 +73902,7 @@
 /Users/example/extensions/shellscript/cgmanifest.json
 /Users/example/extensions/shellscript/package.nls.json
 /Users/example/extensions/vscode-colorize-tests/test/semantic-test/semantic-test.json
-/Users/example/extensions/vscode-colorize-tests/test/semantic-test/.vscode/settings.json
+/Users/example/extensions/vscode-colorize-tests/test/semantic-test/.prox-code/settings.json
 /Users/example/extensions/vscode-colorize-tests/test/colorize-results/test_sql.json
 /Users/example/extensions/vscode-colorize-tests/test/colorize-results/test-object-literals_ts.json
 /Users/example/extensions/vscode-colorize-tests/test/colorize-results/test_ts.json
@@ -74252,14 +74252,14 @@
 /Users/example/extensions/vscode-colorize-tests/.gitignore
 /Users/example/extensions/vscode-colorize-tests/package.json
 /Users/example/extensions/vscode-colorize-tests/tsconfig.json
-/Users/example/extensions/vscode-colorize-tests/.vscode/launch.json
-/Users/example/extensions/vscode-colorize-tests/.vscode/tasks.json
+/Users/example/extensions/vscode-colorize-tests/.prox-code/launch.json
+/Users/example/extensions/vscode-colorize-tests/.prox-code/tasks.json
 /Users/example/extensions/vscode-colorize-tests/media/icon.png
 /Users/example/extensions/vscode-colorize-tests/src/colorizer.test.ts
 /Users/example/extensions/vscode-colorize-tests/src/index.ts
 /Users/example/extensions/vscode-colorize-tests/src/colorizerTestMain.ts
 /Users/example/extensions/markdown-basics/snippets/markdown.code-snippets
-/Users/example/extensions/markdown-basics/.vscodeignore
+/Users/example/extensions/markdown-basics/.prox-codeignore
 /Users/example/extensions/markdown-basics/yarn.lock
 /Users/example/extensions/markdown-basics/package.json
 /Users/example/extensions/markdown-basics/syntaxes/markdown.tmLanguage.json
@@ -74291,7 +74291,7 @@
 /Users/example/extensions/markdown-math/notebook-out/fonts/KaTeX_Caligraphic-Regular.woff2
 /Users/example/extensions/markdown-math/out/extension.js.map
 /Users/example/extensions/markdown-math/out/extension.js
-/Users/example/extensions/markdown-math/.vscodeignore
+/Users/example/extensions/markdown-math/.prox-codeignore
 /Users/example/extensions/markdown-math/node_modules/@types/markdown-it/README.md
 /Users/example/extensions/markdown-math/node_modules/@types/markdown-it/package.json
 /Users/example/extensions/markdown-math/node_modules/@types/markdown-it/types-metadata.json
@@ -74543,14 +74543,14 @@
 /Users/example/extensions/markdown-math/cgmanifest.json
 /Users/example/extensions/markdown-math/package.nls.json
 /Users/example/extensions/markdown-math/src/extension.ts
-/Users/example/extensions/yaml/.vscodeignore
+/Users/example/extensions/yaml/.prox-codeignore
 /Users/example/extensions/yaml/yarn.lock
 /Users/example/extensions/yaml/package.json
 /Users/example/extensions/yaml/syntaxes/yaml.tmLanguage.json
 /Users/example/extensions/yaml/language-configuration.json
 /Users/example/extensions/yaml/cgmanifest.json
 /Users/example/extensions/yaml/package.nls.json
-/Users/example/extensions/log/.vscodeignore
+/Users/example/extensions/log/.prox-codeignore
 /Users/example/extensions/log/yarn.lock
 /Users/example/extensions/log/package.json
 /Users/example/extensions/log/syntaxes/log.tmLanguage.json
@@ -74598,7 +74598,7 @@
 /Users/example/extensions/github-authentication/out/githubServer.js
 /Users/example/extensions/github-authentication/out/flows.js
 /Users/example/extensions/github-authentication/out/extension.js
-/Users/example/extensions/github-authentication/.vscodeignore
+/Users/example/extensions/github-authentication/.prox-codeignore
 /Users/example/extensions/github-authentication/images/icon.png
 /Users/example/extensions/github-authentication/node_modules/@types/mocha/LICENSE
 /Users/example/extensions/github-authentication/node_modules/@types/mocha/README.md
@@ -76167,27 +76167,27 @@
 /Users/example/extensions/theme-defaults/themes/hc_light.json
 /Users/example/extensions/theme-defaults/package.nls.json
 /Users/example/extensions/csharp/snippets/csharp.code-snippets
-/Users/example/extensions/csharp/.vscodeignore
+/Users/example/extensions/csharp/.prox-codeignore
 /Users/example/extensions/csharp/yarn.lock
 /Users/example/extensions/csharp/package.json
 /Users/example/extensions/csharp/syntaxes/csharp.tmLanguage.json
 /Users/example/extensions/csharp/language-configuration.json
 /Users/example/extensions/csharp/cgmanifest.json
 /Users/example/extensions/csharp/package.nls.json
-/Users/example/extensions/julia/.vscodeignore
+/Users/example/extensions/julia/.prox-codeignore
 /Users/example/extensions/julia/package.json
 /Users/example/extensions/julia/syntaxes/julia.tmLanguage.json
 /Users/example/extensions/julia/language-configuration.json
 /Users/example/extensions/julia/cgmanifest.json
 /Users/example/extensions/julia/package.nls.json
-/Users/example/extensions/theme-monokai-dimmed/.vscodeignore
+/Users/example/extensions/theme-monokai-dimmed/.prox-codeignore
 /Users/example/extensions/theme-monokai-dimmed/yarn.lock
 /Users/example/extensions/theme-monokai-dimmed/package.json
 /Users/example/extensions/theme-monokai-dimmed/cgmanifest.json
 /Users/example/extensions/theme-monokai-dimmed/themes/dimmed-monokai-color-theme.json
 /Users/example/extensions/theme-monokai-dimmed/package.nls.json
 /Users/example/extensions/bat/snippets/batchfile.code-snippets
-/Users/example/extensions/bat/.vscodeignore
+/Users/example/extensions/bat/.prox-codeignore
 /Users/example/extensions/bat/yarn.lock
 /Users/example/extensions/bat/package.json
 /Users/example/extensions/bat/syntaxes/batchfile.tmLanguage.json
@@ -76195,7 +76195,7 @@
 /Users/example/extensions/bat/cgmanifest.json
 /Users/example/extensions/bat/package.nls.json
 /Users/example/extensions/groovy/snippets/groovy.code-snippets
-/Users/example/extensions/groovy/.vscodeignore
+/Users/example/extensions/groovy/.prox-codeignore
 /Users/example/extensions/groovy/yarn.lock
 /Users/example/extensions/groovy/package.json
 /Users/example/extensions/groovy/syntaxes/groovy.tmLanguage.json
@@ -76203,7 +76203,7 @@
 /Users/example/extensions/groovy/cgmanifest.json
 /Users/example/extensions/groovy/package.nls.json
 /Users/example/extensions/coffeescript/snippets/coffeescript.code-snippets
-/Users/example/extensions/coffeescript/.vscodeignore
+/Users/example/extensions/coffeescript/.prox-codeignore
 /Users/example/extensions/coffeescript/yarn.lock
 /Users/example/extensions/coffeescript/package.json
 /Users/example/extensions/coffeescript/syntaxes/coffeescript.tmLanguage.json
@@ -76211,7 +76211,7 @@
 /Users/example/extensions/coffeescript/cgmanifest.json
 /Users/example/extensions/coffeescript/package.nls.json
 /Users/example/extensions/javascript/snippets/javascript.code-snippets
-/Users/example/extensions/javascript/.vscodeignore
+/Users/example/extensions/javascript/.prox-codeignore
 /Users/example/extensions/javascript/yarn.lock
 /Users/example/extensions/javascript/package.json
 /Users/example/extensions/javascript/tags-language-configuration.json
@@ -76240,7 +76240,7 @@
 /Users/example/extensions/php-language-features/out/features/signatureHelpProvider.js
 /Users/example/extensions/php-language-features/out/features/hoverProvider.js
 /Users/example/extensions/php-language-features/out/features/phpGlobalFunctions.js
-/Users/example/extensions/php-language-features/.vscodeignore
+/Users/example/extensions/php-language-features/.prox-codeignore
 /Users/example/extensions/php-language-features/node_modules/@types/node/path.d.ts
 /Users/example/extensions/php-language-features/node_modules/@types/node/constants.d.ts
 /Users/example/extensions/php-language-features/node_modules/@types/node/domain.d.ts
@@ -76395,7 +76395,7 @@
 /Users/example/extensions/tunnel-forwarding/out/extension.js.map
 /Users/example/extensions/tunnel-forwarding/out/split.js
 /Users/example/extensions/tunnel-forwarding/out/extension.js
-/Users/example/extensions/tunnel-forwarding/.vscodeignore
+/Users/example/extensions/tunnel-forwarding/.prox-codeignore
 /Users/example/extensions/tunnel-forwarding/node_modules/@types/node/path.d.ts
 /Users/example/extensions/tunnel-forwarding/node_modules/@types/node/constants.d.ts
 /Users/example/extensions/tunnel-forwarding/node_modules/@types/node/domain.d.ts
@@ -76511,7 +76511,7 @@
 /Users/example/extensions/tunnel-forwarding/yarn.lock
 /Users/example/extensions/tunnel-forwarding/package.json
 /Users/example/extensions/tunnel-forwarding/tsconfig.json
-/Users/example/extensions/tunnel-forwarding/.vscode/launch.json
+/Users/example/extensions/tunnel-forwarding/.prox-code/launch.json
 /Users/example/extensions/tunnel-forwarding/extension.webpack.config.js
 /Users/example/extensions/tunnel-forwarding/package.nls.json
 /Users/example/extensions/tunnel-forwarding/media/icon.png
@@ -76532,7 +76532,7 @@
 /Users/example/extensions/extension-editing/out/jsonReconstruct.js
 /Users/example/extensions/extension-editing/out/extensionLinter.js.map
 /Users/example/extensions/extension-editing/out/extensionLinter.js
-/Users/example/extensions/extension-editing/.vscodeignore
+/Users/example/extensions/extension-editing/.prox-codeignore
 /Users/example/extensions/extension-editing/images/icon.png
 /Users/example/extensions/extension-editing/node_modules/mdurl/LICENSE
 /Users/example/extensions/extension-editing/node_modules/mdurl/format.js
@@ -76820,14 +76820,14 @@
 /Users/example/extensions/extension-editing/src/extensionLinter.ts
 /Users/example/extensions/extension-editing/src/constants.ts
 /Users/example/extensions/extension-editing/src/extensionEditingMain.ts
-/Users/example/extensions/hlsl/.vscodeignore
+/Users/example/extensions/hlsl/.prox-codeignore
 /Users/example/extensions/hlsl/yarn.lock
 /Users/example/extensions/hlsl/package.json
 /Users/example/extensions/hlsl/syntaxes/hlsl.tmLanguage.json
 /Users/example/extensions/hlsl/language-configuration.json
 /Users/example/extensions/hlsl/cgmanifest.json
 /Users/example/extensions/hlsl/package.nls.json
-/Users/example/extensions/restructuredtext/.vscodeignore
+/Users/example/extensions/restructuredtext/.prox-codeignore
 /Users/example/extensions/restructuredtext/yarn.lock
 /Users/example/extensions/restructuredtext/package.json
 /Users/example/extensions/restructuredtext/syntaxes/rst.tmLanguage.json
@@ -76835,13 +76835,13 @@
 /Users/example/extensions/restructuredtext/cgmanifest.json
 /Users/example/extensions/restructuredtext/package.nls.json
 /Users/example/extensions/shared.webpack.config.js
-/Users/example/extensions/theme-kimbie-dark/.vscodeignore
+/Users/example/extensions/theme-kimbie-dark/.prox-codeignore
 /Users/example/extensions/theme-kimbie-dark/yarn.lock
 /Users/example/extensions/theme-kimbie-dark/package.json
 /Users/example/extensions/theme-kimbie-dark/cgmanifest.json
 /Users/example/extensions/theme-kimbie-dark/themes/kimbie-dark-color-theme.json
 /Users/example/extensions/theme-kimbie-dark/package.nls.json
-/Users/example/extensions/objective-c/.vscodeignore
+/Users/example/extensions/objective-c/.prox-codeignore
 /Users/example/extensions/objective-c/yarn.lock
 /Users/example/extensions/objective-c/package.json
 /Users/example/extensions/objective-c/build/update-grammars.js
@@ -76876,7 +76876,7 @@
 /Users/example/extensions/npm/out/scriptHover.js.map
 /Users/example/extensions/npm/out/commands.js.map
 /Users/example/extensions/npm/out/readScripts.js.map
-/Users/example/extensions/npm/.vscodeignore
+/Users/example/extensions/npm/.prox-codeignore
 /Users/example/extensions/npm/images/code.svg
 /Users/example/extensions/npm/images/npm_icon.png
 /Users/example/extensions/npm/node_modules/vscode-uri/LICENSE.md
@@ -77289,8 +77289,8 @@
 /Users/example/extensions/npm/yarn.lock
 /Users/example/extensions/npm/package.json
 /Users/example/extensions/npm/tsconfig.json
-/Users/example/extensions/npm/.vscode/launch.json
-/Users/example/extensions/npm/.vscode/tasks.json
+/Users/example/extensions/npm/.prox-code/launch.json
+/Users/example/extensions/npm/.prox-code/tasks.json
 /Users/example/extensions/npm/extension.webpack.config.js
 /Users/example/extensions/npm/package.nls.json
 /Users/example/extensions/npm/src/preferred-pm.ts
@@ -77306,7 +77306,7 @@
 /Users/example/extensions/npm/src/npmView.ts
 /Users/example/extensions/npm/src/scriptHover.ts
 /Users/example/extensions/npm/src/tasks.ts
-/Users/example/extensions/ruby/.vscodeignore
+/Users/example/extensions/ruby/.prox-codeignore
 /Users/example/extensions/ruby/yarn.lock
 /Users/example/extensions/ruby/package.json
 /Users/example/extensions/ruby/syntaxes/ruby.tmLanguage.json
@@ -77401,7 +77401,7 @@
 /Users/example/extensions/git/out/branchProtection.js
 /Users/example/extensions/git/out/git-base.js.map
 /Users/example/extensions/git/out/uri.js
-/Users/example/extensions/git/.vscodeignore
+/Users/example/extensions/git/.prox-codeignore
 /Users/example/extensions/git/resources/icons/git.png
 /Users/example/extensions/git/resources/icons/light/status-renamed.svg
 /Users/example/extensions/git/resources/icons/light/status-modified.svg
@@ -77429,7 +77429,7 @@
 /Users/example/extensions/git/node_modules/vscode-uri/lib/esm/index.d.ts
 /Users/example/extensions/git/node_modules/vscode-uri/lib/umd/index.js
 /Users/example/extensions/git/node_modules/vscode-uri/lib/umd/index.d.ts
-/Users/example/extensions/git/node_modules/vscode-uri/.vscode/settings.json
+/Users/example/extensions/git/node_modules/vscode-uri/.prox-code/settings.json
 /Users/example/extensions/git/node_modules/vscode-uri/.travis.yml
 /Users/example/extensions/git/node_modules/readable-web-to-node-stream/README.md
 /Users/example/extensions/git/node_modules/readable-web-to-node-stream/package.json
@@ -79072,7 +79072,7 @@
 /Users/example/extensions/vscode-test-resolver/out/extension.js.map
 /Users/example/extensions/vscode-test-resolver/out/extension.browser.js
 /Users/example/extensions/vscode-test-resolver/out/extension.js
-/Users/example/extensions/vscode-test-resolver/.vscodeignore
+/Users/example/extensions/vscode-test-resolver/.prox-codeignore
 /Users/example/extensions/vscode-test-resolver/node_modules/@types/node/path.d.ts
 /Users/example/extensions/vscode-test-resolver/node_modules/@types/node/constants.d.ts
 /Users/example/extensions/vscode-test-resolver/node_modules/@types/node/domain.d.ts
@@ -79191,7 +79191,7 @@
 /Users/example/extensions/vscode-test-resolver/package.json
 /Users/example/extensions/vscode-test-resolver/scripts/terminateProcess.sh
 /Users/example/extensions/vscode-test-resolver/tsconfig.json
-/Users/example/extensions/vscode-test-resolver/.vscode/launch.json
+/Users/example/extensions/vscode-test-resolver/.prox-code/launch.json
 /Users/example/extensions/vscode-test-resolver/media/icon.png
 /Users/example/extensions/vscode-test-resolver/src/util/processes.ts
 /Users/example/extensions/vscode-test-resolver/src/extension.ts
@@ -79201,7 +79201,7 @@
 /Users/example/extensions/search-result/out/extension.js
 /Users/example/extensions/search-result/out/media/refresh-dark.svg
 /Users/example/extensions/search-result/out/media/refresh-light.svg
-/Users/example/extensions/search-result/.vscodeignore
+/Users/example/extensions/search-result/.prox-codeignore
 /Users/example/extensions/search-result/images/icon.png
 /Users/example/extensions/search-result/node_modules/.yarn-integrity
 /Users/example/extensions/search-result/README.md
@@ -79217,7 +79217,7 @@
 /Users/example/extensions/search-result/src/media/refresh-dark.svg
 /Users/example/extensions/search-result/src/media/refresh-light.svg
 /Users/example/extensions/postinstall.mjs
-/Users/example/extensions/sql/.vscodeignore
+/Users/example/extensions/sql/.prox-codeignore
 /Users/example/extensions/sql/yarn.lock
 /Users/example/extensions/sql/package.json
 /Users/example/extensions/sql/build/update-grammar.mjs
@@ -79399,13 +79399,13 @@
 /Users/example/.profile-oss/DawnCache/data_3
 /Users/example/.profile-oss/Cookies-journal
 /Users/example/.configurations/configuration.dsc.yaml
-/Users/example/.vscode-test.js
+/Users/example/.prox-code-test.js
 /Users/example/.eslintignore
 /Users/example/build/.moduleignore
 /Users/example/build/eslint.js
 /Users/example/build/gulpfile.hygiene.js
 /Users/example/build/gulpfile.compile.js
-/Users/example/build/gulpfile.vscode.win32.js
+/Users/example/build/gulpfile.prox-code.win32.js
 /Users/example/build/.yarnrc
 /Users/example/build/gulpfile.cli.js
 /Users/example/build/azure-pipelines/distro-build.yml
@@ -79512,7 +79512,7 @@
 /Users/example/build/azure-pipelines/win32/import-esrp-auth-cert.ps1
 /Users/example/build/azure-pipelines/upload-cdn.ts
 /Users/example/build/azure-pipelines/sdl-scan.yml
-/Users/example/build/gulpfile.vscode.web.js
+/Users/example/build/gulpfile.prox-code.web.js
 /Users/example/build/node_modules/isbinaryfile/index.js
 /Users/example/build/node_modules/isbinaryfile/README.md
 /Users/example/build/node_modules/isbinaryfile/package.json
@@ -89059,9 +89059,9 @@
 /Users/example/build/gulpfile.extensions.js
 /Users/example/build/gulpfile.reh.js
 /Users/example/build/.moduleignore.darwin
-/Users/example/build/gulpfile.vscode.js
+/Users/example/build/gulpfile.prox-code.js
 /Users/example/build/setup-npm-registry.js
-/Users/example/build/gulpfile.vscode.linux.js
+/Users/example/build/gulpfile.prox-code.linux.js
 /Users/example/build/yarn.lock
 /Users/example/build/checksums/vscode-sysroot.txt
 /Users/example/build/checksums/electron.txt
@@ -97295,202 +97295,202 @@
 /Users/example/.git/COMMIT_EDITMSG
 /Users/example/.git/FETCH_HEAD
 /Users/example/LICENSE.txt
-/Users/example/.vscode/searches/ts36031.code-search
-/Users/example/.vscode/settings.json
-/Users/example/.vscode/shared.code-snippets
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/icon.png
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/out/sourceUtils.js
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/out/testTree.js.map
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/out/coverageProvider.js.map
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/out/testOutputScanner.js
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/out/memoize.js
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/out/coverageProvider.js
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/out/sourceUtils.js.map
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/out/snapshot.js.map
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/out/metadata.js
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/out/debounce.js.map
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/out/extension.js.map
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/out/vscodeTestRunner.js
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/out/debounce.js
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/out/streamSplitter.js
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/out/streamSplitter.js.map
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/out/snapshot.js
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/out/failingDeepStrictEqualAssertFixer.js
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/out/metadata.js.map
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/out/vscodeTestRunner.js.map
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/out/testTree.js
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/out/memoize.js.map
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/out/failingDeepStrictEqualAssertFixer.js.map
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/out/extension.js
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/out/testOutputScanner.js.map
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/istanbul-lib-coverage/LICENSE
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/istanbul-lib-coverage/README.md
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/istanbul-lib-coverage/package.json
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/istanbul-lib-coverage/index.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/path.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/constants.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/domain.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/diagnostics_channel.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/globals.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/string_decoder.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/tls.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/tty.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/punycode.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/LICENSE
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/readline.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/crypto.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/trace_events.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/events.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/os.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/buffer.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/querystring.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/worker_threads.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/dom-events.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/timers/promises.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/console.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/async_hooks.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/stream/consumers.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/stream/web.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/stream/promises.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/dns.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/readline/promises.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/vm.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/timers.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/globals.global.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/test.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/http.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/http2.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/stream.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/inspector.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/assert/strict.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/README.md
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/v8.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/perf_hooks.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/url.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/cluster.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/package.json
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/https.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/assert.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/fs.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/repl.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/dgram.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/child_process.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/zlib.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/module.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/process.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/util.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/wasi.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/index.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/dns/promises.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/fs/promises.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@types/node/net.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/.yarn-integrity
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/global-origin.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/header.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/pool-stats.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/mock-client.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/api.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/readable.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/dispatcher.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/errors.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/websocket.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/file.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/connector.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/balanced-pool.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/agent.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/mock-agent.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/interceptors.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/fetch.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/README.md
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/webidl.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/formdata.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/handlers.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/filereader.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/package.json
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/cache.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/cookies.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/pool.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/diagnostics-channel.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/patch.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/index.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/mock-pool.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/proxy-agent.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/global-dispatcher.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/client.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/content-type.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/mock-interceptor.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/undici-types/mock-errors.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/istanbul-to-vscode/LICENSE
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/istanbul-to-vscode/index.js
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/istanbul-to-vscode/readme.md
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/istanbul-to-vscode/package.json
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/istanbul-to-vscode/index.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/ansi-styles/license
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/ansi-styles/index.js
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/ansi-styles/readme.md
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/ansi-styles/package.json
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/ansi-styles/index.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/sourcemap-codec/LICENSE
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/sourcemap-codec/dist/sourcemap-codec.umd.js
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/sourcemap-codec/dist/types/sourcemap-codec.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/sourcemap-codec/dist/sourcemap-codec.umd.js.map
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/sourcemap-codec/dist/sourcemap-codec.mjs
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/sourcemap-codec/dist/sourcemap-codec.mjs.map
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/sourcemap-codec/README.md
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/sourcemap-codec/package.json
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/LICENSE
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/dist/types/resolve.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/dist/types/types.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/dist/types/trace-mapping.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/dist/types/by-source.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/dist/types/binary-search.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/dist/types/any-map.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/dist/types/strip-filename.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/dist/types/sourcemap-segment.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/dist/types/sort.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/dist/trace-mapping.mjs.map
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/dist/trace-mapping.umd.js.map
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/dist/trace-mapping.umd.js
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/dist/trace-mapping.mjs
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/README.md
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/package.json
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/resolve-uri/LICENSE
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/resolve-uri/dist/resolve-uri.umd.js
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/resolve-uri/dist/resolve-uri.umd.js.map
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/resolve-uri/dist/types/resolve-uri.d.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/resolve-uri/dist/resolve-uri.mjs
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/resolve-uri/dist/resolve-uri.mjs.map
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/resolve-uri/README.md
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/resolve-uri/package.json
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/yarn.lock
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/package.json
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/tsconfig.json
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/src/snapshot.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/src/failingDeepStrictEqualAssertFixer.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/src/debounce.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/src/vscodeTestRunner.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/src/streamSplitter.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/src/extension.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/src/testTree.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/src/sourceUtils.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/src/testOutputScanner.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/src/metadata.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/src/memoize.ts
-/Users/example/.vscode/extensions/vscode-selfhost-test-provider/src/coverageProvider.ts
-/Users/example/.vscode/extensions.json
-/Users/example/.vscode/launch.json
-/Users/example/.vscode/tasks.json
-/Users/example/.vscode/notebooks/grooming-delta.github-issues
-/Users/example/.vscode/notebooks/api.github-issues
-/Users/example/.vscode/notebooks/vscode-dev.github-issues
-/Users/example/.vscode/notebooks/papercuts.github-issues
-/Users/example/.vscode/notebooks/my-endgame.github-issues
-/Users/example/.vscode/notebooks/grooming.github-issues
-/Users/example/.vscode/notebooks/inbox.github-issues
-/Users/example/.vscode/notebooks/my-work.github-issues
-/Users/example/.vscode/notebooks/verification.github-issues
-/Users/example/.vscode/notebooks/endgame.github-issues
-/Users/example/.vscode/cglicenses.schema.json
+/Users/example/.prox-code/searches/ts36031.code-search
+/Users/example/.prox-code/settings.json
+/Users/example/.prox-code/shared.code-snippets
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/icon.png
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/out/sourceUtils.js
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/out/testTree.js.map
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/out/coverageProvider.js.map
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/out/testOutputScanner.js
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/out/memoize.js
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/out/coverageProvider.js
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/out/sourceUtils.js.map
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/out/snapshot.js.map
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/out/metadata.js
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/out/debounce.js.map
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/out/extension.js.map
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/out/vscodeTestRunner.js
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/out/debounce.js
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/out/streamSplitter.js
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/out/streamSplitter.js.map
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/out/snapshot.js
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/out/failingDeepStrictEqualAssertFixer.js
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/out/metadata.js.map
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/out/vscodeTestRunner.js.map
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/out/testTree.js
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/out/memoize.js.map
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/out/failingDeepStrictEqualAssertFixer.js.map
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/out/extension.js
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/out/testOutputScanner.js.map
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/istanbul-lib-coverage/LICENSE
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/istanbul-lib-coverage/README.md
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/istanbul-lib-coverage/package.json
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/istanbul-lib-coverage/index.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/path.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/constants.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/domain.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/diagnostics_channel.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/globals.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/string_decoder.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/tls.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/tty.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/punycode.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/LICENSE
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/readline.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/crypto.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/trace_events.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/events.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/os.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/buffer.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/querystring.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/worker_threads.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/dom-events.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/timers/promises.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/console.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/async_hooks.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/stream/consumers.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/stream/web.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/stream/promises.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/dns.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/readline/promises.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/vm.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/timers.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/globals.global.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/test.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/http.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/http2.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/stream.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/inspector.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/assert/strict.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/README.md
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/v8.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/perf_hooks.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/url.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/cluster.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/package.json
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/https.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/assert.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/fs.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/repl.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/dgram.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/child_process.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/zlib.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/module.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/process.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/util.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/wasi.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/index.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/dns/promises.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/fs/promises.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@types/node/net.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/.yarn-integrity
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/global-origin.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/header.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/pool-stats.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/mock-client.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/api.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/readable.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/dispatcher.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/errors.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/websocket.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/file.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/connector.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/balanced-pool.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/agent.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/mock-agent.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/interceptors.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/fetch.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/README.md
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/webidl.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/formdata.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/handlers.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/filereader.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/package.json
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/cache.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/cookies.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/pool.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/diagnostics-channel.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/patch.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/index.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/mock-pool.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/proxy-agent.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/global-dispatcher.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/client.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/content-type.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/mock-interceptor.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/undici-types/mock-errors.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/istanbul-to-vscode/LICENSE
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/istanbul-to-vscode/index.js
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/istanbul-to-vscode/readme.md
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/istanbul-to-vscode/package.json
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/istanbul-to-vscode/index.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/ansi-styles/license
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/ansi-styles/index.js
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/ansi-styles/readme.md
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/ansi-styles/package.json
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/ansi-styles/index.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/sourcemap-codec/LICENSE
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/sourcemap-codec/dist/sourcemap-codec.umd.js
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/sourcemap-codec/dist/types/sourcemap-codec.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/sourcemap-codec/dist/sourcemap-codec.umd.js.map
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/sourcemap-codec/dist/sourcemap-codec.mjs
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/sourcemap-codec/dist/sourcemap-codec.mjs.map
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/sourcemap-codec/README.md
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/sourcemap-codec/package.json
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/LICENSE
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/dist/types/resolve.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/dist/types/types.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/dist/types/trace-mapping.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/dist/types/by-source.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/dist/types/binary-search.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/dist/types/any-map.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/dist/types/strip-filename.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/dist/types/sourcemap-segment.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/dist/types/sort.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/dist/trace-mapping.mjs.map
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/dist/trace-mapping.umd.js.map
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/dist/trace-mapping.umd.js
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/dist/trace-mapping.mjs
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/README.md
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/trace-mapping/package.json
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/resolve-uri/LICENSE
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/resolve-uri/dist/resolve-uri.umd.js
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/resolve-uri/dist/resolve-uri.umd.js.map
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/resolve-uri/dist/types/resolve-uri.d.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/resolve-uri/dist/resolve-uri.mjs
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/resolve-uri/dist/resolve-uri.mjs.map
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/resolve-uri/README.md
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/node_modules/@jridgewell/resolve-uri/package.json
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/yarn.lock
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/package.json
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/tsconfig.json
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/src/snapshot.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/src/failingDeepStrictEqualAssertFixer.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/src/debounce.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/src/vscodeTestRunner.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/src/streamSplitter.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/src/extension.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/src/testTree.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/src/sourceUtils.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/src/testOutputScanner.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/src/metadata.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/src/memoize.ts
+/Users/example/.prox-code/extensions/vscode-selfhost-test-provider/src/coverageProvider.ts
+/Users/example/.prox-code/extensions.json
+/Users/example/.prox-code/launch.json
+/Users/example/.prox-code/tasks.json
+/Users/example/.prox-code/notebooks/grooming-delta.github-issues
+/Users/example/.prox-code/notebooks/api.github-issues
+/Users/example/.prox-code/notebooks/vscode-dev.github-issues
+/Users/example/.prox-code/notebooks/papercuts.github-issues
+/Users/example/.prox-code/notebooks/my-endgame.github-issues
+/Users/example/.prox-code/notebooks/grooming.github-issues
+/Users/example/.prox-code/notebooks/inbox.github-issues
+/Users/example/.prox-code/notebooks/my-work.github-issues
+/Users/example/.prox-code/notebooks/verification.github-issues
+/Users/example/.prox-code/notebooks/endgame.github-issues
+/Users/example/.prox-code/cglicenses.schema.json
 /Users/example/cgmanifest.json
 /Users/example/.eslintrc.json
 /Users/example/SECURITY.md
@@ -102024,7 +102024,7 @@
 /Users/example/src/typings/thenable.d.ts
 /Users/example/src/server-cli.js
 /Users/example/src/bootstrap-node.js
-/Users/example/src/tsconfig.vscode-dts.json
+/Users/example/src/tsconfig.prox-code-dts.json
 /Users/example/src/tsec.exemptions.json
 /Users/example/src/main.js
 /Users/example/src/tsconfig.monaco.json
@@ -102033,7 +102033,7 @@
 /Users/example/src/tsconfig.json
 /Users/example/src/tsconfig.tsec.json
 /Users/example/src/cli.js
-/Users/example/src/tsconfig.vscode-proposed-dts.json
+/Users/example/src/tsconfig.prox-code-proposed-dts.json
 /Users/example/src/buildfile.js
 /Users/example/src/bootstrap-fork.js
 /Users/example/src/vscode-dts/vscode.proposed.contribDiffEditorGutterToolBarMenus.d.ts
@@ -103349,8 +103349,8 @@
 /Users/example/remote/node_modules/@vscode/spdlog/build/Release/spdlog.node
 /Users/example/remote/node_modules/@vscode/spdlog/build/config.gypi
 /Users/example/remote/node_modules/@vscode/spdlog/build/binding.Makefile
-/Users/example/remote/node_modules/@vscode/spdlog/.vscode/settings.json
-/Users/example/remote/node_modules/@vscode/spdlog/.vscode/c_cpp_properties.json
+/Users/example/remote/node_modules/@vscode/spdlog/.prox-code/settings.json
+/Users/example/remote/node_modules/@vscode/spdlog/.prox-code/c_cpp_properties.json
 /Users/example/remote/node_modules/@vscode/spdlog/index.d.ts
 /Users/example/remote/node_modules/@vscode/spdlog/SECURITY.md
 /Users/example/remote/node_modules/@vscode/spdlog/src/main.cc
@@ -103403,7 +103403,7 @@
 /Users/example/remote/node_modules/@vscode/ripgrep/lib/index.js
 /Users/example/remote/node_modules/@vscode/ripgrep/lib/index.d.ts
 /Users/example/remote/node_modules/@vscode/ripgrep/build/pipeline.yml
-/Users/example/remote/node_modules/@vscode/ripgrep/.vscode/launch.json
+/Users/example/remote/node_modules/@vscode/ripgrep/.prox-code/launch.json
 /Users/example/remote/node_modules/@vscode/ripgrep/SECURITY.md
 /Users/example/remote/node_modules/prebuild-install/download.js
 /Users/example/remote/node_modules/prebuild-install/proxy.js

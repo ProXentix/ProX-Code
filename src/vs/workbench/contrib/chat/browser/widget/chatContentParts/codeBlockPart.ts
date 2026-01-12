@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -514,7 +514,7 @@ export class ChatCodeBlockContentProvider extends Disposable implements ITextMod
 		@IModelService private readonly _modelService: IModelService,
 	) {
 		super();
-		this._register(textModelService.registerTextModelContentProvider(Schemas.vscodeChatCodeBlock, this));
+		this._register(textModelService.registerTextModelContentProvider(Schemas.prox-codeChatCodeBlock, this));
 	}
 
 	async provideTextContent(resource: URI): Promise<ITextModel | null> {
@@ -928,7 +928,7 @@ export class DefaultChatTextEditor {
 					continue;
 				}
 				const model = candidate.getModel();
-				if (!model || !isEqual(model.original.uri, item.uri) || model.modified.uri.scheme !== Schemas.vscodeChatCodeCompareBlock) {
+				if (!model || !isEqual(model.original.uri, item.uri) || model.modified.uri.scheme !== Schemas.prox-codeChatCodeCompareBlock) {
 					diffEditor = candidate;
 					break;
 				}

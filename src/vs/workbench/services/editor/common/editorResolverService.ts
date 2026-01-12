@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -211,8 +211,8 @@ export function globMatchesResource(globPattern: string | glob.IRelativePattern,
 	const excludedSchemes = new Set([
 		Schemas.extension,
 		Schemas.webviewPanel,
-		Schemas.vscodeWorkspaceTrust,
-		Schemas.vscodeSettings
+		Schemas.prox-codeWorkspaceTrust,
+		Schemas.prox-codeSettings
 	]);
 	// We want to say that the above schemes match no glob patterns
 	if (excludedSchemes.has(resource.scheme)) {

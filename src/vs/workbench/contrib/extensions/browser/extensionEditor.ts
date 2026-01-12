@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -821,7 +821,7 @@ export class ExtensionEditor extends EditorPane {
 						box-shadow: 2px 2px 2px rgba(0,0,0,.25);
 					}
 
-					body.vscode-high-contrast #scroll-to-top {
+					body.prox-code-high-contrast #scroll-to-top {
 						border-width: 2px;
 						border-style: solid;
 						box-shadow: none;
@@ -1227,7 +1227,7 @@ class AdditionalDetailsWidget extends Disposable {
 
 	private async getCacheLocation(extension: ILocalExtension): Promise<URI | undefined> {
 		let extensionCacheLocation = this.uriIdentityService.extUri.joinPath(this.userDataProfilesService.defaultProfile.globalStorageHome, extension.identifier.id.toLowerCase());
-		if (extension.location.scheme === Schemas.vscodeRemote) {
+		if (extension.location.scheme === Schemas.prox-codeRemote) {
 			const environment = await this.remoteAgentService.getEnvironment();
 			if (!environment) {
 				return undefined;

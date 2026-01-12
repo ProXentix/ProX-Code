@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -12,7 +12,7 @@ import { Registry } from '../../../../../platform/registry/common/platform.js';
  * This is a subset of https://json-schema.org/draft-07/schema to capture what is actually supported by language models for tools, mainly, that they must be an object at the top level.
  * Possibly it can be whittled down some more based on which attributes are supported by language models.
  */
-export const toolsParametersSchemaSchemaId = 'vscode://schemas/toolsParameters';
+export const toolsParametersSchemaSchemaId = 'prox-code://schemas/toolsParameters';
 const toolsParametersSchemaSchema: IJSONSchema = {
 	definitions: {
 		schemaArray: {

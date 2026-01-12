@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -242,7 +242,7 @@ export class WorkbenchKeybindingService extends AbstractKeybindingService {
 		this._register(Event.runAndSubscribe(dom.onDidRegisterWindow, ({ window, disposables }) => disposables.add(this._registerKeyListeners(window)), { window: mainWindow, disposables: this._store }));
 
 		this._register(browser.onDidChangeFullscreen(windowId => {
-			if (windowId !== mainWindow.vscodeWindowId) {
+			if (windowId !== mainWindow.prox-codeWindowId) {
 				return;
 			}
 
@@ -835,7 +835,7 @@ class UserKeybindings extends Disposable {
  */
 class KeybindingsJsonSchema {
 
-	private static readonly schemaId = 'vscode://schemas/keybindings';
+	private static readonly schemaId = 'prox-code://schemas/keybindings';
 
 	private readonly commandsSchemas: IJSONSchema[] = [];
 	private readonly commandsEnum: string[] = [];

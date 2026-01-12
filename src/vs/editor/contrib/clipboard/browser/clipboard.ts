@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -295,7 +295,7 @@ if (PasteAction) {
 			}
 
 			logService.trace('registerExecCommandImpl (before triggerPaste)');
-			const triggerPaste = clipboardService.triggerPaste(getActiveWindow().vscodeWindowId);
+			const triggerPaste = clipboardService.triggerPaste(getActiveWindow().prox-codeWindowId);
 			if (triggerPaste) {
 				logService.trace('registerExecCommandImpl (triggerPaste defined)');
 				return triggerPaste.then(async () => {
@@ -339,7 +339,7 @@ if (PasteAction) {
 	PasteAction.addImplementation(0, 'generic-dom', (accessor: ServicesAccessor, args: unknown) => {
 		const logService = accessor.get(ILogService);
 		logService.trace('registerExecCommandImpl (addImplementation generic-dom for : paste)');
-		const triggerPaste = accessor.get(IClipboardService).triggerPaste(getActiveWindow().vscodeWindowId);
+		const triggerPaste = accessor.get(IClipboardService).triggerPaste(getActiveWindow().prox-codeWindowId);
 		return triggerPaste ?? false;
 	});
 }

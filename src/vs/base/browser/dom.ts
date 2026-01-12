@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -44,7 +44,7 @@ export const {
 
 	ensureCodeWindow(mainWindow, 1);
 	const mainWindowRegistration = { window: mainWindow, disposables: new DisposableStore() };
-	windows.set(mainWindow.vscodeWindowId, mainWindowRegistration);
+	windows.set(mainWindow.prox-codeWindowId, mainWindowRegistration);
 
 	const onDidRegisterWindow = new event.Emitter<IRegisteredCodeWindow>();
 	const onDidUnregisterWindow = new event.Emitter<CodeWindow>();
@@ -63,7 +63,7 @@ export const {
 		onWillUnregisterWindow: onWillUnregisterWindow.event,
 		onDidUnregisterWindow: onDidUnregisterWindow.event,
 		registerWindow(window: CodeWindow): IDisposable {
-			if (windows.has(window.vscodeWindowId)) {
+			if (windows.has(window.prox-codeWindowId)) {
 				return Disposable.None;
 			}
 
@@ -73,10 +73,10 @@ export const {
 				window,
 				disposables: disposables.add(new DisposableStore())
 			};
-			windows.set(window.vscodeWindowId, registeredWindow);
+			windows.set(window.prox-codeWindowId, registeredWindow);
 
 			disposables.add(toDisposable(() => {
-				windows.delete(window.vscodeWindowId);
+				windows.delete(window.prox-codeWindowId);
 				onDidUnregisterWindow.fire(window);
 			}));
 
@@ -95,7 +95,7 @@ export const {
 			return windows.size;
 		},
 		getWindowId(targetWindow: Window): number {
-			return (targetWindow as CodeWindow).vscodeWindowId;
+			return (targetWindow as CodeWindow).prox-codeWindowId;
 		},
 		hasWindow(windowId: number): boolean {
 			return windows.has(windowId);

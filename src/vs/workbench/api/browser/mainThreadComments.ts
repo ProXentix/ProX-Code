@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -437,7 +437,7 @@ export class MainThreadCommentController extends Disposable implements ICommentC
 	}
 
 	async getDocumentComments(resource: URI, token: CancellationToken) {
-		if (resource.scheme === Schemas.vscodeNotebookCell) {
+		if (resource.scheme === Schemas.prox-codeNotebookCell) {
 			return {
 				uniqueOwner: this._uniqueId,
 				label: this.label,
@@ -475,7 +475,7 @@ export class MainThreadCommentController extends Disposable implements ICommentC
 	}
 
 	async getNotebookComments(resource: URI, token: CancellationToken) {
-		if (resource.scheme !== Schemas.vscodeNotebookCell) {
+		if (resource.scheme !== Schemas.prox-codeNotebookCell) {
 			return {
 				uniqueOwner: this._uniqueId,
 				label: this.label,

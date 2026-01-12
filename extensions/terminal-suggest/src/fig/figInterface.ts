@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -373,13 +373,13 @@ export function getFigSuggestionLabel(spec: Fig.Spec | Fig.Arg | Fig.Suggestion 
 
 function convertIconToKind(icon: string | undefined): vscode.TerminalCompletionItemKind | undefined {
 	switch (icon) {
-		case 'vscode://icon?type=10': return vscode.TerminalCompletionItemKind.ScmCommit;
-		case 'vscode://icon?type=11': return vscode.TerminalCompletionItemKind.ScmBranch;
-		case 'vscode://icon?type=12': return vscode.TerminalCompletionItemKind.ScmTag;
-		case 'vscode://icon?type=13': return vscode.TerminalCompletionItemKind.ScmStash;
-		case 'vscode://icon?type=14': return vscode.TerminalCompletionItemKind.ScmRemote;
-		case 'vscode://icon?type=15': return vscode.TerminalCompletionItemKind.PullRequest;
-		case 'vscode://icon?type=16': return vscode.TerminalCompletionItemKind.PullRequestDone;
+		case 'prox-code://icon?type=10': return vscode.TerminalCompletionItemKind.ScmCommit;
+		case 'prox-code://icon?type=11': return vscode.TerminalCompletionItemKind.ScmBranch;
+		case 'prox-code://icon?type=12': return vscode.TerminalCompletionItemKind.ScmTag;
+		case 'prox-code://icon?type=13': return vscode.TerminalCompletionItemKind.ScmStash;
+		case 'prox-code://icon?type=14': return vscode.TerminalCompletionItemKind.ScmRemote;
+		case 'prox-code://icon?type=15': return vscode.TerminalCompletionItemKind.PullRequest;
+		case 'prox-code://icon?type=16': return vscode.TerminalCompletionItemKind.PullRequestDone;
 		default: return undefined;
 	}
 }

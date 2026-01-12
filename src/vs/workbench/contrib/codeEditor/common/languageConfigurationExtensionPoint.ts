@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -495,7 +495,7 @@ export class LanguageConfigurationFileHandler extends Disposable {
 	}
 }
 
-const schemaId = 'vscode://schemas/language-configuration';
+const schemaId = 'prox-code://schemas/language-configuration';
 const schema: IJSONSchema = {
 	allowComments: true,
 	allowTrailingCommas: true,

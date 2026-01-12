@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -40,7 +40,7 @@ export async function openSession(accessor: ServicesAccessor, session: IAgentSes
 		target = ChatViewPaneTarget;
 	}
 
-	const isLocalChatSession = session.resource.scheme === Schemas.vscodeChatEditor || session.resource.scheme === Schemas.vscodeLocalChatSession;
+	const isLocalChatSession = session.resource.scheme === Schemas.prox-codeChatEditor || session.resource.scheme === Schemas.prox-codeLocalChatSession;
 	if (!isLocalChatSession && !(await chatSessionsService.canResolveChatSession(session.resource))) {
 		target = openOptions?.sideBySide ? SIDE_GROUP : ACTIVE_GROUP; // force to open in editor if session cannot be resolved in panel
 		options = { ...options, revealIfOpened: true };

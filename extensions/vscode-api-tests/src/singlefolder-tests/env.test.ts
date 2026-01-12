@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -53,7 +53,7 @@ suite('vscode API - env', () => {
 	});
 
 	test('env.uiKind', async function () {
-		const uri = Uri.parse(`${env.uriScheme}:://vscode.vscode-api-tests/path?key=value&other=false`);
+		const uri = Uri.parse(`${env.uriScheme}:://vscode.prox-code-api-tests/path?key=value&other=false`);
 		const result = await env.asExternalUri(uri);
 
 		const kind = env.uiKind;
@@ -65,7 +65,7 @@ suite('vscode API - env', () => {
 	});
 
 	test('env.asExternalUri - with env.uriScheme', async function () {
-		const uri = Uri.parse(`${env.uriScheme}:://vscode.vscode-api-tests/path?key=value&other=false`);
+		const uri = Uri.parse(`${env.uriScheme}:://vscode.prox-code-api-tests/path?key=value&other=false`);
 		const result = await env.asExternalUri(uri);
 		assert.ok(result);
 

@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -28,7 +28,7 @@ export class TerminalLinkResolver implements ITerminalLinkResolver {
 		// Correct scheme and authority for remote terminals
 		if (uri && uri.scheme === Schemas.file && processManager.remoteAuthority) {
 			uri = uri.with({
-				scheme: Schemas.vscodeRemote,
+				scheme: Schemas.prox-codeRemote,
 				authority: processManager.remoteAuthority
 			});
 		}
@@ -95,7 +95,7 @@ export class TerminalLinkResolver implements ITerminalLinkResolver {
 			let uri: URI;
 			if (processManager.remoteAuthority) {
 				uri = URI.from({
-					scheme: Schemas.vscodeRemote,
+					scheme: Schemas.prox-codeRemote,
 					authority: processManager.remoteAuthority,
 					path: linkUrl
 				});

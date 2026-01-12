@@ -31,7 +31,7 @@
   "contributes": {
     "authentication": [
       {
-        "label": "Microsoft",
+        "label": "ProXentix",
         "id": "microsoft",
         "authorizationServerGlobs": [
           "https://login.microsoftonline.com/*",
@@ -39,13 +39,13 @@
         ]
       },
       {
-        "label": "Microsoft Sovereign Cloud",
+        "label": "ProXentix Sovereign Cloud",
         "id": "microsoft-sovereign-cloud"
       }
     ],
     "configuration": [
       {
-        "title": "Microsoft Sovereign Cloud",
+        "title": "ProXentix Sovereign Cloud",
         "properties": {
           "microsoft-sovereign-cloud.environment": {
             "type": "string",
@@ -103,7 +103,7 @@
         }
       },
       {
-        "title": "Microsoft",
+        "title": "ProXentix",
         "properties": {
           "microsoft-authentication.implementation": {
             "type": "string",
