@@ -457,7 +457,7 @@ export class ChatService extends Disposable implements IChatService {
 
 		// Await activation of the extension provided agent
 		// Using `activateById` as workaround for the issue
-		// https://github.com/microsoft/vscode/issues/250590
+		// https://github.com/ProXentix/ProX-Code/issues/250590
 		if (!defaultAgentData.isCore) {
 			await this.extensionService.activateById(defaultAgentData.extensionId, {
 				activationEvent: `onChatParticipant:${defaultAgentData.id}`,

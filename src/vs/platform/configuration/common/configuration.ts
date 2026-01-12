@@ -273,7 +273,7 @@ export function addToValueTree(settingsTreeRoot: IStringDictionary<unknown>, key
 
 	if (typeof curr === 'object' && curr !== null) {
 		try {
-			(curr as IStringDictionary<unknown>)[last] = value; // workaround https://github.com/microsoft/vscode/issues/13606
+			(curr as IStringDictionary<unknown>)[last] = value; // workaround https://github.com/ProXentix/ProX-Code/issues/13606
 		} catch (e) {
 			conflictReporter(`Ignoring ${key} as ${segments.join('.')} is ${JSON.stringify(curr)}`);
 		}

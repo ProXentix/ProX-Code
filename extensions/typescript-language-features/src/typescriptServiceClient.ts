@@ -746,7 +746,7 @@ export default class TypeScriptServiceClient extends Disposable implements IType
 									minModernTsVersion.displayName),
 							});
 					} else {
-						vscode.env.openExternal(vscode.Uri.parse('https://github.com/microsoft/vscode/wiki/TypeScript-Issues'));
+						vscode.env.openExternal(vscode.Uri.parse('https://github.com/ProXentix/ProX-Code/wiki/TypeScript-Issues'));
 					}
 				}
 			});

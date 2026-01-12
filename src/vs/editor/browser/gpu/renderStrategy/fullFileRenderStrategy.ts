@@ -143,7 +143,7 @@ export class FullFileRenderStrategy extends BaseRenderStrategy {
 
 	public override onTokensChanged(e: ViewTokensChangedEvent): boolean {
 		// TODO: This currently fires for the entire viewport whenever scrolling stops
-		//       https://github.com/microsoft/vscode/issues/233942
+		//       https://github.com/ProXentix/ProX-Code/issues/233942
 		for (const range of e.ranges) {
 			this._invalidateLineRange(range.fromLineNumber, range.toLineNumber);
 		}
@@ -413,10 +413,10 @@ export class FullFileRenderStrategy extends BaseRenderStrategy {
 										const parsedValue = parseCssFontWeight(value);
 										if (parsedValue >= 400) {
 											decorationStyleSetBold = true;
-											// TODO: Set bold (https://github.com/microsoft/vscode/issues/237584)
+											// TODO: Set bold (https://github.com/ProXentix/ProX-Code/issues/237584)
 										} else {
 											decorationStyleSetBold = false;
-											// TODO: Set normal (https://github.com/microsoft/vscode/issues/237584)
+											// TODO: Set normal (https://github.com/ProXentix/ProX-Code/issues/237584)
 										}
 										break;
 									}

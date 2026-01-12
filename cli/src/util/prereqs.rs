@@ -169,7 +169,7 @@ async fn check_glibc_version() -> Result<bool, String> {
 }
 
 /// Check for nixos to avoid mandating glibc versions. See:
-/// https://github.com/microsoft/vscode-remote-release/issues/7129
+/// https://github.com/ProXentix/ProX-Code-remote-release/issues/7129
 #[allow(dead_code)]
 async fn check_is_nixos() -> bool {
 	fs::metadata(NIXOS_TEST_PATH).await.is_ok()

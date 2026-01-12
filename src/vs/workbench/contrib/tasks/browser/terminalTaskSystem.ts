@@ -943,7 +943,7 @@ export class TerminalTaskSystem extends Disposable implements ITaskSystem {
 			let onData: IDisposable | undefined;
 			if (problemMatchers.length) {
 				// this._fireTaskEvent(TaskEvent.general(TaskEventKind.ProblemMatcherStarted, task, terminal.instanceId));
-				// prevent https://github.com/microsoft/vscode/issues/174511 from happening
+				// prevent https://github.com/ProXentix/ProX-Code/issues/174511 from happening
 				onData = terminal.onLineData((line) => {
 					watchingProblemMatcher.processLine(line);
 					if (!delayer) {
@@ -1278,7 +1278,7 @@ export class TerminalTaskSystem extends Disposable implements ITaskSystem {
 				if (!shellSpecified) {
 					// Under Mac remove -l to not start it as a login shell.
 					if (platform === Platform.Platform.Mac) {
-						// Background on -l on osx https://github.com/microsoft/vscode/issues/107563
+						// Background on -l on osx https://github.com/ProXentix/ProX-Code/issues/107563
 						// TODO: Handle by pulling the default terminal profile?
 						// const osxShellArgs = this._configurationService.inspect(TerminalSettingId.ShellArgsMacOs);
 						// if ((osxShellArgs.user === undefined) && (osxShellArgs.userLocal === undefined) && (osxShellArgs.userLocalValue === undefined)

@@ -62,6 +62,12 @@ def rebrand():
         (".vscode", ".prox-code"),
         ("Microsoft Corporation", "ProXentix"),
         ("Microsoft", "ProXentix"),
+        ("code.visualstudio.com", "proxentix.in/proxpl"),
+        ("aka.ms/vscode-pack-extension-red", "proxentix.in/proxpl"),
+        ("aka.ms/vscode", "proxentix.in/proxpl"),
+        ("https://github.com/microsoft/vscode", "https://github.com/ProXentix/ProX-Code"),
+        ("github.com/microsoft/vscode", "github.com/ProXentix/ProX-Code"),
+        ("microsoft/vscode", "ProXentix/ProX-Code"),
     ]
 
     # Directories to skip

@@ -5,7 +5,7 @@
 
 declare module 'vscode' {
 
-	// https://github.com/microsoft/vscode/issues/59921
+	// https://github.com/ProXentix/ProX-Code/issues/59921
 
 	/**
 	 * The parameters of a query for text search. All optional booleans default to `false`.

@@ -128,8 +128,8 @@ suite('chat', () => {
 	});
 
 	// fixme(rwoll): workbench.action.chat.open.blockOnResponse tests are flaking in CI:
-	//               * https://github.com/microsoft/vscode/issues/263572
-	//               * https://github.com/microsoft/vscode/issues/263575
+	//               * https://github.com/ProXentix/ProX-Code/issues/263572
+	//               * https://github.com/ProXentix/ProX-Code/issues/263575
 	test.skip('workbench.action.chat.open.blockOnResponse defaults to non-blocking for backwards compatibility', async () => {
 		const toolRegistration = lm.registerTool<void>('requires_confirmation_tool', {
 			invoke: async (_options, _token) => null, prepareInvocation: async (_options, _token) => {

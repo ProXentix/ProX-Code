@@ -55,7 +55,7 @@ const ttPolicy = ((): ReturnType<typeof createTrustedTypesPolicy> => {
 
 	// Reuse the trusted types policy defined from worker bootstrap
 	// when available.
-	// Refs https://github.com/microsoft/vscode/issues/222193
+	// Refs https://github.com/ProXentix/ProX-Code/issues/222193
 	const workerGlobalThis = globalThis as WorkerGlobalWithPolicy;
 	if (typeof self === 'object' && self.constructor && self.constructor.name === 'DedicatedWorkerGlobalScope' && workerGlobalThis.workerttPolicy !== undefined) {
 		return workerGlobalThis.workerttPolicy;

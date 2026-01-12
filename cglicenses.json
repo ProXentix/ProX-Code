@@ -125,7 +125,7 @@
 		]
 	},
 	{
-		// Reason: NPM package does not include repository URL https://github.com/microsoft/vscode-deviceid/issues/12
+		// Reason: NPM package does not include repository URL https://github.com/ProXentix/ProX-Code-deviceid/issues/12
 		"name": "@vscode/deviceid",
 		"fullLicenseText": [
 			"Copyright (c) ProXentix.",

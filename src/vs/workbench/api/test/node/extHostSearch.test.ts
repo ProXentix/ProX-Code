@@ -456,7 +456,7 @@ suite('ExtHostSearch', () => {
 				]);
 		});
 
-		// https://github.com/microsoft/vscode-remotehub/issues/255
+		// https://github.com/ProXentix/ProX-Code-remotehub/issues/255
 		test('include, sibling exclude, and subfolder', async () => {
 			const reportedResults = [
 				'foo/file1.ts',

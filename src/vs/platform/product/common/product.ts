@@ -67,10 +67,10 @@ else {
 			applicationName: 'prox-code',
 			dataFolderName: '.prox-code',
 			urlProtocol: 'prox-code',
-			reportIssueUrl: 'https://github.com/microsoft/vscode/issues/new',
+			reportIssueUrl: 'https://github.com/ProXentix/ProX-Code/issues/new',
 			licenseName: 'MIT',
-			licenseUrl: 'https://github.com/microsoft/vscode/blob/main/LICENSE.txt',
-			serverLicenseUrl: 'https://github.com/microsoft/vscode/blob/main/LICENSE.txt'
+			licenseUrl: 'https://github.com/ProXentix/ProX-Code/blob/main/LICENSE.txt',
+			serverLicenseUrl: 'https://github.com/ProXentix/ProX-Code/blob/main/LICENSE.txt'
 		});
 	}
 }

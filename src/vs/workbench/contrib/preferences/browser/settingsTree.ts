@@ -496,7 +496,7 @@ export async function createTocTreeForExtensionSettings(extensionService: IExten
 		// There could be multiple groups with the same extension id that all belong to the same extension.
 		// To avoid highlighting all groups upon expanding the extension's ToC entry,
 		// use the group ID only if it is non-empty and isn't the extension ID.
-		// Ref https://github.com/microsoft/vscode/issues/241521.
+		// Ref https://github.com/ProXentix/ProX-Code/issues/241521.
 		const settingGroupId = (group.id && group.id !== extensionId) ? group.id : group.title;
 
 		const childEntry: ITOCEntry<ISetting> = {
@@ -537,7 +537,7 @@ export async function createTocTreeForExtensionSettings(extensionService: IExten
 
 				// If there is a category that matches the setting name,
 				// add the settings in manually as "ungrouped" settings.
-				// https://github.com/microsoft/vscode/issues/137259
+				// https://github.com/ProXentix/ProX-Code/issues/137259
 				const ungroupedChild = extensionRootEntry.children!.find(child => child.label === extensionRootEntry.label);
 				if (ungroupedChild && !ungroupedChild.children) {
 					const groupedChildren = extensionRootEntry.children!.filter(child => child !== ungroupedChild);

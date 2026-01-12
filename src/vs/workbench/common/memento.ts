@@ -114,7 +114,7 @@ class ScopedMemento<T> {
 			// Seeing reports from users unable to open editors
 			// from memento parsing exceptions. Log the contents
 			// to diagnose further
-			// https://github.com/microsoft/vscode/issues/102251
+			// https://github.com/ProXentix/ProX-Code/issues/102251
 			onUnexpectedError(`[memento]: failed to parse contents: ${error} (id: ${this.id}, scope: ${this.scope}, contents: ${this.storageService.get(this.id, this.scope)})`);
 		}
 

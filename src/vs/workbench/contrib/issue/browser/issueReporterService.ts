@@ -14,7 +14,7 @@ import { IIssueFormService, IssueReporterData } from '../common/issue.js';
 import { BaseIssueReporterService } from './baseIssueReporterService.js';
 
 // GitHub has let us know that we could up our limit here to 8k. We chose 7500 to play it safe.
-// ref https://github.com/microsoft/vscode/issues/159191
+// ref https://github.com/ProXentix/ProX-Code/issues/159191
 
 export class IssueWebReporter extends BaseIssueReporterService {
 	constructor(

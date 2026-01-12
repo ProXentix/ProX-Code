@@ -92,7 +92,7 @@ export class ExtHostCommands implements ExtHostCommandsShape {
 			{
 				processArgument(arg) {
 					return cloneAndChange(arg, function (obj) {
-						// Reverse of https://github.com/microsoft/vscode/blob/1f28c5fc681f4c01226460b6d1c7e91b8acb4a5b/src/vs/workbench/api/node/extHostCommands.ts#L112-L127
+						// Reverse of https://github.com/ProXentix/ProX-Code/blob/1f28c5fc681f4c01226460b6d1c7e91b8acb4a5b/src/vs/workbench/api/node/extHostCommands.ts#L112-L127
 						if (Range.isIRange(obj)) {
 							return extHostTypeConverter.Range.to(obj);
 						}
@@ -288,7 +288,7 @@ export class ExtHostCommands implements ExtHostCommandsShape {
 			return;
 		}
 		if (id.startsWith('code.copilot.logStructured')) {
-			// This command is very active. See https://github.com/microsoft/vscode/issues/254153.
+			// This command is very active. See https://github.com/ProXentix/ProX-Code/issues/254153.
 			return;
 		}
 		type ExtensionActionTelemetry = {

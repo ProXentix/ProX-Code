@@ -330,7 +330,7 @@ suite('TextAreaInput', () => {
 
 	test('macOS - Chrome - Korean using 2-Set Korean (2)', async () => {
 		// macOS, 2-Set Korean, type 'qud' and click
-		// See https://github.com/microsoft/vscode/issues/134254
+		// See https://github.com/ProXentix/ProX-Code/issues/134254
 		const recorded: IRecorded = {
 			env: { OS: OperatingSystem.Macintosh, browser: { isAndroid: false, isFirefox: false, isChrome: true, isSafari: false } },
 			initial: { value: 'aaaa', selectionStart: 2, selectionEnd: 2, selectionDirection: 'none' },
@@ -498,7 +498,7 @@ suite('TextAreaInput', () => {
 
 	test('macOS - Chrome - long press with arrow keys', async () => {
 		// macOS, English, long press o, press arrow right twice and then press Enter
-		// See https://github.com/microsoft/vscode/issues/67739
+		// See https://github.com/ProXentix/ProX-Code/issues/67739
 		const recorded: IRecorded = {
 			env: { OS: OperatingSystem.Macintosh, browser: { isAndroid: false, isFirefox: false, isChrome: true, isSafari: false } },
 			initial: { value: 'aaaa', selectionStart: 2, selectionEnd: 2, selectionDirection: 'none' },
@@ -608,7 +608,7 @@ suite('TextAreaInput', () => {
 
 	test('macOS - Chrome - inserting emoji using ctrl+cmd+space', async () => {
 		// macOS, English, press ctrl+cmd+space, and then pick an emoji using the mouse
-		// See https://github.com/microsoft/vscode/issues/4271
+		// See https://github.com/ProXentix/ProX-Code/issues/4271
 		const recorded: IRecorded = {
 			env: { OS: OperatingSystem.Macintosh, browser: { isAndroid: false, isFirefox: false, isChrome: true, isSafari: false } },
 			initial: { value: 'aaaa', selectionStart: 2, selectionEnd: 2, selectionDirection: 'none' },
@@ -670,7 +670,7 @@ suite('TextAreaInput', () => {
 
 	test('macOS - Firefox - inserting emojis', async () => {
 		// macOS, English, from the edit menu, click Emoji & Symbols, select an emoji
-		// See https://github.com/microsoft/vscode/issues/106392
+		// See https://github.com/ProXentix/ProX-Code/issues/106392
 		const recorded: IRecorded = {
 			env: { OS: OperatingSystem.Macintosh, browser: { isAndroid: false, isFirefox: true, isChrome: false, isSafari: false } },
 			initial: { value: 'aaaa', selectionStart: 2, selectionEnd: 2, selectionDirection: 'forward' },

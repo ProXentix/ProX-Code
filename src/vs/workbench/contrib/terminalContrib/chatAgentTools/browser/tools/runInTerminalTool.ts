@@ -692,7 +692,7 @@ export class RunInTerminalTool extends Disposable implements IToolImpl {
 				switch (toolTerminal.shellIntegrationQuality) {
 					case ShellIntegrationQuality.None: {
 						strategy = this._instantiationService.createInstance(NoneExecuteStrategy, toolTerminal.instance, () => toolTerminal.receivedUserInput ?? false);
-						toolResultMessage = '$(info) Enable [shell integration](https://code.visualstudio.com/docs/terminal/shell-integration) to improve command detection';
+						toolResultMessage = '$(info) Enable [shell integration](https://proxentix.in/proxpl/docs/terminal/shell-integration) to improve command detection';
 						break;
 					}
 					case ShellIntegrationQuality.Basic: {

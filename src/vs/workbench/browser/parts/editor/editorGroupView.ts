@@ -1333,7 +1333,7 @@ export class EditorGroupView extends Themable implements IEditorGroupView {
 			}, {
 				...openEditorsOptions,
 				// optimization: update the title control later
-				// https://github.com/microsoft/vscode/issues/130634
+				// https://github.com/ProXentix/ProX-Code/issues/130634
 				skipTitleUpdate: true
 			});
 		}));
@@ -1453,7 +1453,7 @@ export class EditorGroupView extends Themable implements IEditorGroupView {
 		const options = fillActiveEditorViewState(this, editor, {
 			...openOptions,
 			pinned: true, 																// always pin moved editor
-			sticky: openOptions?.sticky ?? (!keepCopy && this.model.isSticky(editor))	// preserve sticky state only if editor is moved or explicitly wanted (https://github.com/microsoft/vscode/issues/99035)
+			sticky: openOptions?.sticky ?? (!keepCopy && this.model.isSticky(editor))	// preserve sticky state only if editor is moved or explicitly wanted (https://github.com/ProXentix/ProX-Code/issues/99035)
 		});
 
 		// Indicate will move event
@@ -1602,7 +1602,7 @@ export class EditorGroupView extends Themable implements IEditorGroupView {
 				// If we are opening the next editor in an inactive group
 				// without focussing it, ensure we preserve the editor
 				// group sizes in case that group is minimized.
-				// https://github.com/microsoft/vscode/issues/117686
+				// https://github.com/ProXentix/ProX-Code/issues/117686
 				activation = EditorActivation.PRESERVE;
 			}
 
@@ -1711,7 +1711,7 @@ export class EditorGroupView extends Themable implements IEditorGroupView {
 		// because it may be less obvious that one side of a side by side editor is dirty
 		// and can still be changed.
 		// The only exception is when the same editor is opened on both sides of a side
-		// by side editor (https://github.com/microsoft/vscode/issues/138442)
+		// by side editor (https://github.com/ProXentix/ProX-Code/issues/138442)
 
 		if (this.editorPartsView.groups.some(groupView => {
 			if (groupView === this) {
@@ -1743,7 +1743,7 @@ export class EditorGroupView extends Themable implements IEditorGroupView {
 		if (!editor.hasCapability(EditorInputCapabilities.Untitled) && !options?.skipAutoSave && !editor.closeHandler) {
 
 			// Auto-save on focus change: save, because a dialog would steal focus
-			// (see https://github.com/microsoft/vscode/issues/108752)
+			// (see https://github.com/ProXentix/ProX-Code/issues/108752)
 			if (this.filesConfigurationService.getAutoSaveMode(editor).mode === AutoSaveMode.ON_FOCUS_CHANGE) {
 				autoSave = true;
 				confirmation = ConfirmResult.SAVE;
@@ -1752,7 +1752,7 @@ export class EditorGroupView extends Themable implements IEditorGroupView {
 
 			// Auto-save on window change: save, because on Windows and Linux, a
 			// native dialog triggers the window focus change
-			// (see https://github.com/microsoft/vscode/issues/134250)
+			// (see https://github.com/ProXentix/ProX-Code/issues/134250)
 			else if ((isNative && (isWindows || isLinux)) && this.filesConfigurationService.getAutoSaveMode(editor).mode === AutoSaveMode.ON_WINDOW_CHANGE) {
 				autoSave = true;
 				confirmation = ConfirmResult.SAVE;
@@ -1814,7 +1814,7 @@ export class EditorGroupView extends Themable implements IEditorGroupView {
 					// Save failed and we need to signal this back to the user, so
 					// we handle the dirty editor again but this time ensuring to
 					// show the confirm dialog
-					// (see https://github.com/microsoft/vscode/issues/108752)
+					// (see https://github.com/ProXentix/ProX-Code/issues/108752)
 					return this.doHandleCloseConfirmation(editor, { skipAutoSave: true });
 				}
 

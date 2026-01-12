@@ -156,7 +156,7 @@ export function escapeMarkdownSyntaxTokens(text: string): string {
 }
 
 /**
- * @see https://github.com/microsoft/vscode/issues/193746
+ * @see https://github.com/ProXentix/ProX-Code/issues/193746
  */
 export function appendEscapedMarkdownCodeBlockFence(code: string, langId: string) {
 	const longestFenceLength =

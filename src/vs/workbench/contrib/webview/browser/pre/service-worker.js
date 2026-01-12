@@ -263,7 +263,7 @@ async function processResourceRequest(
 
 	const webviewId = getWebviewIdForClient(client);
 
-	// Refs https://github.com/microsoft/vscode/issues/244143
+	// Refs https://github.com/ProXentix/ProX-Code/issues/244143
 	// With PlzDedicatedWorker, worker subresources and blob wokers
 	// will use clients different from the window client.
 	// Since we cannot different a worker main resource from a worker subresource
@@ -441,7 +441,7 @@ async function processLocalhostRequest(
 		return fetch(event.request);
 	}
 	const webviewId = getWebviewIdForClient(client);
-	// Refs https://github.com/microsoft/vscode/issues/244143
+	// Refs https://github.com/ProXentix/ProX-Code/issues/244143
 	// With PlzDedicatedWorker, worker subresources and blob wokers
 	// will use clients different from the window client.
 	// Since we cannot different a worker main resource from a worker subresource

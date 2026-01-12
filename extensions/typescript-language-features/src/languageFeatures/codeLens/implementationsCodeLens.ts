@@ -52,7 +52,7 @@ export default class TypeScriptImplementationsCodeLensProvider extends TypeScrip
 
 		const locations = response.body
 			.map(reference =>
-				// Only take first line on implementation: https://github.com/microsoft/vscode/issues/23924
+				// Only take first line on implementation: https://github.com/ProXentix/ProX-Code/issues/23924
 				new vscode.Location(this.client.toResource(reference.file),
 					reference.start.line === reference.end.line
 						? typeConverters.Range.fromTextSpan(reference)

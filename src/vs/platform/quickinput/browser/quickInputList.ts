@@ -1138,7 +1138,7 @@ export class QuickInputList extends Disposable {
 		this._setElementsToTree(this._elementTree);
 
 		// Accessibility hack, unfortunately on next tick
-		// https://github.com/microsoft/vscode/issues/211976
+		// https://github.com/ProXentix/ProX-Code/issues/211976
 		if (this.accessibilityService.isScreenReaderOptimized()) {
 			setTimeout(() => {
 				// eslint-disable-next-line no-restricted-syntax

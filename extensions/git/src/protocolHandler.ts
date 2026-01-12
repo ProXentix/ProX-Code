@@ -21,7 +21,7 @@ export class GitProtocolHandler implements UriHandler {
 		this.disposables.push(window.registerUriHandler(this));
 	}
 
-	// example prox-code://vscode.git/clone?url=https://github.com/microsoft/vscode
+	// example prox-code://vscode.git/clone?url=https://github.com/ProXentix/ProX-Code
 	handleUri(uri: Uri): void {
 		this.logger.info(`[GitProtocolHandler][handleUri] URI:(${uri.toString()})`);
 
@@ -54,7 +54,7 @@ export class GitProtocolHandler implements UriHandler {
 			let rawUri = Array.isArray(data.url) ? data.url[0] : data.url;
 
 			// Handle SSH Uri
-			// Ex: git@github.com:microsoft/vscode.git
+			// Ex: git@github.com:ProXentix/ProX-Code.git
 			rawUri = rawUri.replace(/^(git@[^\/:]+)(:)/i, 'ssh://$1/');
 
 			cloneUri = Uri.parse(rawUri, true);
@@ -81,7 +81,7 @@ export class GitProtocolHandler implements UriHandler {
 			const downloadGit = l10n.t('Download Git');
 
 			if (await window.showErrorMessage(errorMessage, { modal: true }, downloadGit) === downloadGit) {
-				commands.executeCommand('vscode.open', Uri.parse('https://aka.ms/vscode-download-git'));
+				commands.executeCommand('vscode.open', Uri.parse('https://proxentix.in/proxpl-download-git'));
 			}
 
 			return;

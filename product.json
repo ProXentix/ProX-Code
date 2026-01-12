@@ -5,8 +5,8 @@
 	"dataFolderName": ".prox-code",
 	"win32MutexName": "proxcode",
 	"licenseName": "MIT",
-	"licenseUrl": "https://github.com/microsoft/vscode/blob/main/LICENSE.txt",
-	"serverLicenseUrl": "https://github.com/microsoft/vscode/blob/main/LICENSE.txt",
+	"licenseUrl": "https://github.com/ProXentix/ProX-Code/blob/main/LICENSE.txt",
+	"serverLicenseUrl": "https://github.com/ProXentix/ProX-Code/blob/main/LICENSE.txt",
 	"serverGreeting": [],
 	"serverLicense": [],
 	"serverLicensePrompt": "",
@@ -38,7 +38,7 @@
 			"name": "ms-vscode.js-debug-companion",
 			"version": "1.1.3",
 			"sha256": "7380a890787452f14b2db7835dfa94de538caf358ebc263f9d46dd68ac52de93",
-			"repo": "https://github.com/microsoft/vscode-js-debug-companion",
+			"repo": "https://github.com/ProXentix/ProX-Code-js-debug-companion",
 			"metadata": {
 				"id": "99cb0b7f-7354-4278-b8da-6cc79972169d",
 				"publisherId": {
@@ -54,7 +54,7 @@
 			"name": "ms-vscode.js-debug",
 			"version": "1.105.0",
 			"sha256": "0c45b90342e8aafd4ff2963b4006de64208ca58c2fd01fea7a710fe61dcfd12a",
-			"repo": "https://github.com/microsoft/vscode-js-debug",
+			"repo": "https://github.com/ProXentix/ProX-Code-js-debug",
 			"metadata": {
 				"id": "25629058-ddac-4e17-abba-74678e126c5d",
 				"publisherId": {
@@ -70,7 +70,7 @@
 			"name": "ms-vscode.prox-code-js-profile-table",
 			"version": "1.0.10",
 			"sha256": "7361748ddf9fd09d8a2ed1f2a2d7376a2cf9aae708692820b799708385c38e08",
-			"repo": "https://github.com/microsoft/vscode-js-profile-visualizer",
+			"repo": "https://github.com/ProXentix/ProX-Code-js-profile-visualizer",
 			"metadata": {
 				"id": "7e52b41b-71ad-457b-ab7e-0620f1fc4feb",
 				"publisherId": {

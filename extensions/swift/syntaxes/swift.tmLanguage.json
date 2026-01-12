@@ -1593,7 +1593,7 @@
 					"name": "entity.name.function.operator.swift"
 				},
 				"4": {
-					"comment": "workaround for https://github.com/microsoft/vscode-textmate/issues/140#issuecomment-1793610346",
+					"comment": "workaround for https://github.com/ProXentix/ProX-Code-textmate/issues/140#issuecomment-1793610346",
 					"name": "entity.name.function.operator.swift",
 					"patterns": [
 						{
@@ -3155,7 +3155,7 @@
 			]
 		},
 		"literals-regular-expression-literal-backreference-or-subpattern": {
-			"comment": "These patterns are separated to work around issues like https://github.com/microsoft/vscode-textmate/issues/164",
+			"comment": "These patterns are separated to work around issues like https://github.com/ProXentix/ProX-Code-textmate/issues/164",
 			"patterns": [
 				{
 					"comment": "'\\g{' NamedOrNumberRef '}'",

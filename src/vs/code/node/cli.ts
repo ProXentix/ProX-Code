@@ -62,7 +62,7 @@ export async function main(argv: string[]): Promise<void> {
 			// bootstrap-esm.js determines the electron environment based
 			// on the following variable. For the server we need to unset
 			// it to prevent importing any electron specific modules.
-			// Refs https://github.com/microsoft/vscode/issues/221883
+			// Refs https://github.com/ProXentix/ProX-Code/issues/221883
 			delete env['ELECTRON_RUN_AS_NODE'];
 
 			const tunnelArgs = argv.slice(argv.indexOf(subcommand) + 1); // all arguments behind `tunnel`
@@ -199,9 +199,9 @@ export async function main(argv: string[]): Promise<void> {
 				// On Windows we use a different strategy of saving the file
 				// by first truncating the file and then writing with r+ mode.
 				// This helps to save hidden files on Windows
-				// (see https://github.com/microsoft/vscode/issues/931) and
+				// (see https://github.com/ProXentix/ProX-Code/issues/931) and
 				// prevent removing alternate data streams
-				// (see https://github.com/microsoft/vscode/issues/6363)
+				// (see https://github.com/ProXentix/ProX-Code/issues/6363)
 				truncateSync(target, 0);
 				writeFileSync(target, data, { flag: 'r+' });
 			} else {
@@ -266,7 +266,7 @@ export async function main(argv: string[]): Promise<void> {
 
 			// Read from stdin: we require a single "-" argument to be passed in order to start reading from
 			// stdin. We do this because there is no reliable way to find out if data is piped to stdin. Just
-			// checking for stdin being connected to a TTY is not enough (https://github.com/microsoft/vscode/issues/40351)
+			// checking for stdin being connected to a TTY is not enough (https://github.com/ProXentix/ProX-Code/issues/40351)
 
 			if (hasReadStdinArg) {
 				stdinFilePath = getStdinFilePath();
@@ -489,7 +489,7 @@ export async function main(argv: string[]): Promise<void> {
 		} else {
 			// On macOS, we spawn using the open command to obtain behavior
 			// similar to if the app was launched from the dock
-			// https://github.com/microsoft/vscode/issues/102975
+			// https://github.com/ProXentix/ProX-Code/issues/102975
 
 			// The following args are for the open command itself, rather than for VS Code:
 			// -n creates a new instance.
@@ -538,7 +538,7 @@ export async function main(argv: string[]): Promise<void> {
 				// Ignore the _ env var, because the open command
 				// ignores it anyway.
 				// Pass the rest of the env vars in to fix
-				// https://github.com/microsoft/vscode/issues/134696.
+				// https://github.com/ProXentix/ProX-Code/issues/134696.
 				if (e !== '_') {
 					spawnArgs.push('--env');
 					spawnArgs.push(`${e}=${env[e]}`);

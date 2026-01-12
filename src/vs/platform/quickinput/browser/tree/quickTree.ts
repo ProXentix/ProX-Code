@@ -144,7 +144,7 @@ export class QuickTree<T extends IQuickTreeItem> extends QuickInput implements I
 		// Initial state
 		// TODO@TylerLeonhardt: Without this setTimeout, the screen reader will not read out
 		// the final count of checked items correctly. Investigate a better way
-		// to do this. ref https://github.com/microsoft/vscode/issues/258617
+		// to do this. ref https://github.com/ProXentix/ProX-Code/issues/258617
 		setTimeout0(() => this.ui.count.setCount(this.ui.tree.getCheckedLeafItems().length));
 		const checkAllState = getParentNodeState([...this.ui.tree.tree.getNode().children]);
 		if (this.ui.checkAll.checked !== checkAllState) {

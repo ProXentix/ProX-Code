@@ -983,7 +983,7 @@ export class ChatListItemRenderer extends Disposable implements ITreeRenderer<Ch
 				this.traceLayout('doNextProgressiveRender', 'caught up with the stream- no new content to render');
 
 				if (!templateData.renderedParts) {
-					// First render? Initialize currentRenderedHeight. https://github.com/microsoft/vscode/issues/232096
+					// First render? Initialize currentRenderedHeight. https://github.com/ProXentix/ProX-Code/issues/232096
 					const height = templateData.rowContainer.offsetHeight;
 					element.currentRenderedHeight = height;
 				}

@@ -1328,7 +1328,7 @@ export class NotebookEditorWidget extends Disposable implements INotebookEditorD
 		}
 
 		// select cells if options tell to do so
-		// todo@rebornix https://github.com/microsoft/vscode/issues/118108 support selections not just focus
+		// todo@rebornix https://github.com/ProXentix/ProX-Code/issues/118108 support selections not just focus
 		// todo@rebornix support multipe selections
 		if (options?.cellSelections) {
 			const focusCellIndex = options.cellSelections[0].start;

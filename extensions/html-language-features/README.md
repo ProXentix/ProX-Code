@@ -4,6 +4,6 @@
 
 ## Features
 
-See [HTML in ProX-Code](https://code.visualstudio.com/docs/languages/html) to learn about the features of this extension.
+See [HTML in ProX-Code](https://proxentix.in/proxpl/docs/languages/html) to learn about the features of this extension.
 
-Please read the [CONTRIBUTING.md](https://github.com/microsoft/vscode/blob/master/extensions/html-language-features/CONTRIBUTING.md) file to learn how to contribute to this extension.
+Please read the [CONTRIBUTING.md](https://github.com/ProXentix/ProX-Code/blob/master/extensions/html-language-features/CONTRIBUTING.md) file to learn how to contribute to this extension.

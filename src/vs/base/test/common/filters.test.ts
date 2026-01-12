@@ -71,7 +71,7 @@ suite('Filters', () => {
 		filterNotOk(matchesPrefix, 'x', 'alpha');
 		filterOk(matchesPrefix, 'A', 'alpha', [{ start: 0, end: 1 }]);
 		filterOk(matchesPrefix, 'AlPh', 'alPHA', [{ start: 0, end: 4 }]);
-		filterNotOk(matchesPrefix, 'T', '4'); // see https://github.com/microsoft/vscode/issues/22401
+		filterNotOk(matchesPrefix, 'T', '4'); // see https://github.com/ProXentix/ProX-Code/issues/22401
 	});
 
 	test('CamelCaseFilter', () => {
@@ -377,7 +377,7 @@ suite('Filters', () => {
 		);
 	});
 
-	test('Freeze when fjfj -> jfjf, https://github.com/microsoft/vscode/issues/91807', function () {
+	test('Freeze when fjfj -> jfjf, https://github.com/ProXentix/ProX-Code/issues/91807', function () {
 		assertMatches(
 			'jfjfj',
 			'fjfjfjfjfjfjfjfjfjfjfj',
@@ -611,7 +611,7 @@ suite('Filters', () => {
 		assert.ok(bBoost);
 		assert.ok(aBoost[0] < bBoost[0]);
 
-		// also works with wordStart > 0 (https://github.com/microsoft/vscode/issues/187921)
+		// also works with wordStart > 0 (https://github.com/ProXentix/ProX-Code/issues/187921)
 		const wordPrefix = '$(symbol-function) ';
 		aBoost = fuzzyScore(prefix, prefix, 0, `${wordPrefix}${a}`, `${wordPrefix}${a}`.toLowerCase(), wordPrefix.length, { boostFullMatch: true, firstMatchCanBeWeak: true });
 		bBoost = fuzzyScore(prefix, prefix, 0, `${wordPrefix}${b}`, `${wordPrefix}${b}`.toLowerCase(), wordPrefix.length, { boostFullMatch: true, firstMatchCanBeWeak: true });

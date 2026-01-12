@@ -142,7 +142,7 @@ process.once('exit', () => {
 	}
 });
 
-const testRepoUrl = 'https://github.com/microsoft/vscode-smoketest-express';
+const testRepoUrl = 'https://github.com/ProXentix/ProX-Code-smoketest-express';
 const workspacePath = path.join(testDataPath, `vscode-smoketest-express`);
 const extensionsPath = path.join(testDataPath, 'extensions-dir');
 fs.mkdirSync(extensionsPath, { recursive: true });
@@ -274,7 +274,7 @@ async function ensureStableCode(): Promise<void> {
 	let stableCodePath = opts['stable-build'];
 	if (!stableCodePath) {
 		const current = parseVersion(version!);
-		const versionsReq = await retry(() => measureAndLog(() => fetch('https://update.code.visualstudio.com/api/releases/stable'), 'versionReq', logger), 1000, 20);
+		const versionsReq = await retry(() => measureAndLog(() => fetch('https://update.proxentix.in/proxpl/api/releases/stable'), 'versionReq', logger), 1000, 20);
 
 		if (!versionsReq.ok) {
 			throw new Error('Could not fetch releases from update server');

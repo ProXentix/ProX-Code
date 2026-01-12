@@ -267,7 +267,7 @@ export function getTitleBarStyle(configurationService: IConfigurationService): T
 
 		const useSimpleFullScreen = isMacintosh && configuration.nativeFullScreen === false;
 		if (useSimpleFullScreen) {
-			return TitlebarStyle.NATIVE; // simple fullscreen does not work well with custom title style (https://github.com/microsoft/vscode/issues/63291)
+			return TitlebarStyle.NATIVE; // simple fullscreen does not work well with custom title style (https://github.com/ProXentix/ProX-Code/issues/63291)
 		}
 
 		const style = configuration.titleBarStyle;

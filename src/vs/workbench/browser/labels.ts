@@ -436,7 +436,7 @@ class ResourceLabelWidget extends IconLabel {
 			if (descriptionCandidate && descriptionCandidate !== '.') {
 				// omit description if its not significant: a relative path
 				// of '.' just indicates that there is no parent to the path
-				// https://github.com/microsoft/vscode/issues/208692
+				// https://github.com/ProXentix/ProX-Code/issues/208692
 				description = descriptionCandidate;
 			}
 		}

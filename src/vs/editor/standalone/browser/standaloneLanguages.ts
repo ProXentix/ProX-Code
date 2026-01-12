@@ -712,7 +712,7 @@ export interface CodeActionContext {
 
 /**
  * The code action interface defines the contract between extensions and
- * the [light bulb](https://code.visualstudio.com/docs/editor/editingevolved#_code-action) feature.
+ * the [light bulb](https://proxentix.in/proxpl/docs/editor/editingevolved#_code-action) feature.
  */
 export interface CodeActionProvider {
 	/**

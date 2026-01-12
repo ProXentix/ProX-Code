@@ -49,7 +49,7 @@ suite('Suggest Widget Model', () => {
 		});
 	});
 
-	// This test is skipped because the fix for this causes https://github.com/microsoft/vscode/issues/166023
+	// This test is skipped because the fix for this causes https://github.com/ProXentix/ProX-Code/issues/166023
 	test.skip('Active', async () => {
 		await withAsyncTestCodeEditorAndInlineCompletionsModel('',
 			{ fakeClock: true, provider, },

@@ -229,7 +229,7 @@ async function loadCode(nlsConfiguration: INLSConfiguration) {
 	// required for `bootstrap-esm` to pick up NLS messages
 	process.env['VSCODE_NLS_CONFIG'] = JSON.stringify(nlsConfiguration);
 
-	// See https://github.com/microsoft/vscode-remote-release/issues/6543
+	// See https://github.com/ProXentix/ProX-Code-remote-release/issues/6543
 	// We would normally install a SIGPIPE listener in bootstrap-node.js
 	// But in certain situations, the console itself can be in a broken pipe state
 	// so logging SIGPIPE to the console will cause an infinite async loop

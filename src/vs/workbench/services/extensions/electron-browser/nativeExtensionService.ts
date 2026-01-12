@@ -133,7 +133,7 @@ export class NativeExtensionService extends AbstractExtensionService implements 
 		// extension host more (LifecyclePhase.Restored) because
 		// some editors require the extension host to restore
 		// and this would result in a deadlock
-		// see https://github.com/microsoft/vscode/issues/41322
+		// see https://github.com/ProXentix/ProX-Code/issues/41322
 		lifecycleService.when(LifecyclePhase.Ready).then(() => {
 			// reschedule to ensure this runs after restoring viewlets, panels, and editors
 			runWhenWindowIdle(mainWindow, () => {
@@ -216,7 +216,7 @@ export class NativeExtensionService extends AbstractExtensionService implements 
 						run: () => {
 							this._instantiationService.invokeFunction(accessor => {
 								const openerService = accessor.get(IOpenerService);
-								openerService.open('https://aka.ms/vscode-extension-bisect');
+								openerService.open('https://proxentix.in/proxpl-extension-bisect');
 							});
 						}
 					});

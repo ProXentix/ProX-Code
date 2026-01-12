@@ -256,8 +256,8 @@ export class NativeWindow extends BaseWindow {
 					label: localize('downloadArmBuild', "Download"),
 					run: () => {
 						const quality = this.productService.quality;
-						const stableURL = 'https://code.visualstudio.com/docs/?dv=osx';
-						const insidersURL = 'https://code.visualstudio.com/docs/?dv=osx&build=insiders';
+						const stableURL = 'https://proxentix.in/proxpl/docs/?dv=osx';
+						const insidersURL = 'https://proxentix.in/proxpl/docs/?dv=osx&build=insiders';
 						this.openerService.open(quality === 'stable' ? stableURL : insidersURL);
 					}
 				}],
@@ -766,7 +766,7 @@ export class NativeWindow extends BaseWindow {
 					message,
 					[{
 						label: localize('learnMore', "Learn More"),
-						run: () => this.openerService.open(URI.parse('https://aka.ms/vscode-faq-old-macOS'))
+						run: () => this.openerService.open(URI.parse('https://proxentix.in/proxpl-faq-old-macOS'))
 					}],
 					{
 						neverShowAgain: { id: 'macoseol', isSecondary: true, scope: NeverShowAgainScope.APPLICATION },

@@ -137,12 +137,12 @@ export function removeDangerousEnvVariables(env: IProcessEnvironment | undefined
 	}
 
 	// Unset `DEBUG`, as an invalid value might lead to process crashes
-	// See https://github.com/microsoft/vscode/issues/130072
+	// See https://github.com/ProXentix/ProX-Code/issues/130072
 	delete env['DEBUG'];
 
 	if (isLinux) {
 		// Unset `LD_PRELOAD`, as it might lead to process crashes
-		// See https://github.com/microsoft/vscode/issues/134177
+		// See https://github.com/ProXentix/ProX-Code/issues/134177
 		delete env['LD_PRELOAD'];
 	}
 }

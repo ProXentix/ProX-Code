@@ -104,7 +104,7 @@ function createTerminalProfileMarkdownDescription(platform: Platform.Linux | Pla
 		PlatformToString(platform),
 		'```json\n"terminal.integrated.profile.' + key + '": {\n  "bash": null\n}\n```',
 		'[',
-		'](https://code.visualstudio.com/docs/terminal/profiles)'
+		'](https://proxentix.in/proxpl/docs/terminal/profiles)'
 	);
 }
 

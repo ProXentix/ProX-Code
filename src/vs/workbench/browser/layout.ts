@@ -631,7 +631,7 @@ export abstract class Layout extends Disposable implements IWorkbenchLayoutServi
 	}
 
 	private initLayoutState(lifecycleService: ILifecycleService, fileService: IFileService): void {
-		this._mainContainerDimension = getClientArea(this.parent, this.contextService.getWorkbenchState() === WorkbenchState.EMPTY ? DEFAULT_EMPTY_WINDOW_DIMENSIONS : DEFAULT_WORKSPACE_WINDOW_DIMENSIONS); // running with fallback to ensure no error is thrown (https://github.com/microsoft/vscode/issues/240242)
+		this._mainContainerDimension = getClientArea(this.parent, this.contextService.getWorkbenchState() === WorkbenchState.EMPTY ? DEFAULT_EMPTY_WINDOW_DIMENSIONS : DEFAULT_WORKSPACE_WINDOW_DIMENSIONS); // running with fallback to ensure no error is thrown (https://github.com/ProXentix/ProX-Code/issues/240242)
 
 		this.stateModel = new LayoutStateModel(this.storageService, this.configurationService, this.contextService, this.environmentService);
 		this.stateModel.load({
@@ -1633,7 +1633,7 @@ export abstract class Layout extends Disposable implements IWorkbenchLayoutServi
 			this._mainContainerDimension = getClientArea(this.state.runtime.mainWindowFullscreen ?
 				mainWindow.document.body : 	// in fullscreen mode, make sure to use <body> element because
 				this.parent,				// in that case the workbench will span the entire site
-				this.contextService.getWorkbenchState() === WorkbenchState.EMPTY ? DEFAULT_EMPTY_WINDOW_DIMENSIONS : DEFAULT_WORKSPACE_WINDOW_DIMENSIONS // running with fallback to ensure no error is thrown (https://github.com/microsoft/vscode/issues/240242)
+				this.contextService.getWorkbenchState() === WorkbenchState.EMPTY ? DEFAULT_EMPTY_WINDOW_DIMENSIONS : DEFAULT_WORKSPACE_WINDOW_DIMENSIONS // running with fallback to ensure no error is thrown (https://github.com/ProXentix/ProX-Code/issues/240242)
 			);
 			this.logService.trace(`Layout#layout, height: ${this._mainContainerDimension.height}, width: ${this._mainContainerDimension.width}`);
 
@@ -1944,7 +1944,7 @@ export abstract class Layout extends Disposable implements IWorkbenchLayoutServi
 
 	private setPanelHidden(hidden: boolean, skipLayout?: boolean): void {
 		if (!this.workbenchGrid) {
-			return; // Return if not initialized fully (https://github.com/microsoft/vscode/issues/105480)
+			return; // Return if not initialized fully (https://github.com/ProXentix/ProX-Code/issues/105480)
 		}
 
 		if (!hidden && this.setAuxiliaryBarMaximized(false) && this.isVisible(Parts.PANEL_PART)) {
@@ -1980,7 +1980,7 @@ export abstract class Layout extends Disposable implements IWorkbenchLayoutServi
 		if (hidden && this.paneCompositeService.getActivePaneComposite(ViewContainerLocation.Panel)) {
 			this.paneCompositeService.hideActivePaneComposite(ViewContainerLocation.Panel);
 			if (
-				!isIOS &&						// do not auto focus on iOS (https://github.com/microsoft/vscode/issues/127832)
+				!isIOS &&						// do not auto focus on iOS (https://github.com/ProXentix/ProX-Code/issues/127832)
 				!this.isAuxiliaryBarMaximized()	// do not auto focus when auxiliary bar is maximized
 			) {
 				focusEditor = true;

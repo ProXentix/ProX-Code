@@ -31,7 +31,7 @@ const enum ShutdownConstants {
 	 * flush to hang the pty host][2] because [conhost should be hosted on another thread][3].
 	 *
 	 * [1]: https://github.com/Tyriar/node-pty/issues/72
-	 * [2]: https://github.com/microsoft/vscode/issues/71966
+	 * [2]: https://github.com/ProXentix/ProX-Code/issues/71966
 	 * [3]: https://github.com/microsoft/node-pty/pull/415
 	 */
 	DataFlushTimeout = 250,
@@ -45,9 +45,9 @@ const enum Constants {
 	/**
 	 * The minimum duration between kill and spawn calls on Windows/conpty as a mitigation for a
 	 * hang issue. See:
-	 * - https://github.com/microsoft/vscode/issues/71966
-	 * - https://github.com/microsoft/vscode/issues/117956
-	 * - https://github.com/microsoft/vscode/issues/121336
+	 * - https://github.com/ProXentix/ProX-Code/issues/71966
+	 * - https://github.com/ProXentix/ProX-Code/issues/117956
+	 * - https://github.com/ProXentix/ProX-Code/issues/121336
 	 */
 	KillSpawnThrottleInterval = 250,
 	/**
@@ -414,7 +414,7 @@ export class TerminalProcess extends Disposable implements ITerminalChildProcess
 		if (this._store.isDisposed) {
 			return;
 		}
-		// HACK: The node-pty API can return undefined somehow https://github.com/microsoft/vscode/issues/222323
+		// HACK: The node-pty API can return undefined somehow https://github.com/ProXentix/ProX-Code/issues/222323
 		this._currentTitle = (ptyProcess.process ?? '');
 		this._onDidChangeProperty.fire({ type: ProcessPropertyType.Title, value: this._currentTitle });
 		// If fig is installed it may change the title of the process
@@ -440,7 +440,7 @@ export class TerminalProcess extends Disposable implements ITerminalChildProcess
 			this._logService.trace('TerminalProcess#shutdown', new Error().stack?.replace(/^Error/, ''));
 		}
 		// don't force immediate disposal of the terminal processes on Windows as an additional
-		// mitigation for https://github.com/microsoft/vscode/issues/71966 which causes the pty host
+		// mitigation for https://github.com/ProXentix/ProX-Code/issues/71966 which causes the pty host
 		// to become unresponsive, disconnecting all terminals across all windows.
 		if (immediate && !isWindows) {
 			this._kill();

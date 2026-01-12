@@ -4,4 +4,4 @@
 
 ## Features
 
-See [Markdown in ProX-Code](https://code.visualstudio.com/docs/languages/markdown) to learn about the features of this extension.
+See [Markdown in ProX-Code](https://proxentix.in/proxpl/docs/languages/markdown) to learn about the features of this extension.

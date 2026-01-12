@@ -74,7 +74,7 @@ const constants: Readonly<WebviewStyles> = {
 /**
  * Transforms base vscode theme variables into generic variables for notebook
  * renderers.
- * @see https://github.com/microsoft/vscode/issues/107985 for context
+ * @see https://github.com/ProXentix/ProX-Code/issues/107985 for context
  * @deprecated
  */
 export const transformWebviewThemeVars = (s: Readonly<WebviewStyles>): WebviewStyles => {

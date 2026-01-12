@@ -12,7 +12,7 @@ fi
 
 cd $ROOT
 
-echo "Runs tests against the current documentation in https://github.com/microsoft/vscode-docs/tree/vnext"
+echo "Runs tests against the current documentation in https://github.com/ProXentix/ProX-Code-docs/tree/vnext"
 
 # Tests
 ./scripts/test.sh --runGlob **/*.releaseTest.js "$@"

@@ -10,7 +10,7 @@ import { TSESTree } from '@typescript-eslint/utils';
 export default new class ApiTypeDiscrimination implements eslint.Rule.RuleModule {
 
 	readonly meta: eslint.Rule.RuleMetaData = {
-		docs: { url: 'https://github.com/microsoft/vscode/wiki/Extension-API-guidelines' },
+		docs: { url: 'https://github.com/ProXentix/ProX-Code/wiki/Extension-API-guidelines' },
 		messages: {
 			noTypeDiscrimination: 'Do not use type discrimination properties'
 		},

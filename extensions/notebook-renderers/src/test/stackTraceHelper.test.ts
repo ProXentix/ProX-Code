@@ -63,7 +63,7 @@ suite('StackTraceHelper', () => {
 		assert.equal(errorLocation, '<a href=\'vscode-notebook-cell:?execution_count=3&line=2\'>line 2</a>');
 	});
 
-	test('Does not have catastrophic backtracking https://github.com/microsoft/vscode/issues/251731', () => {
+	test('Does not have catastrophic backtracking https://github.com/ProXentix/ProX-Code/issues/251731', () => {
 		const stack =
 			'\u001b[31m---------------------------------------------------------------------------\u001b[39m\n' +
 			'\u001b[31mZeroDivisionError\u001b[39m                         Traceback (most recent call last)\n' +

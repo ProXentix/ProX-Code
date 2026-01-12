@@ -75,9 +75,9 @@ A `fancier link`_ .
 .. _fancier link: https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html
 
 
-An `inline link <https://code.visualstudio.com>`__ .
+An `inline link <https://proxentix.in/proxpl>`__ .
 
-.. image:: https://code.visualstudio.com/assets/images/code-stable.png
+.. image:: https://proxentix.in/proxpl/assets/images/code-stable.png
 
 .. function: example()
    :module: mod

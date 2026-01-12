@@ -4,4 +4,4 @@
 
 ## Features
 
-See [PHP in ProX-Code](https://code.visualstudio.com/docs/languages/php) to learn about the features of this extension.
+See [PHP in ProX-Code](https://proxentix.in/proxpl/docs/languages/php) to learn about the features of this extension.

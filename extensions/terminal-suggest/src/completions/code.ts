@@ -92,7 +92,7 @@ export const commonOptions: Fig.Option[] = [
 		args: {
 			name: 'locale',
 			suggestions: [
-				// Supported locales: https://code.visualstudio.com/docs/getstarted/locales#_available-locales
+				// Supported locales: https://proxentix.in/proxpl/docs/getstarted/locales#_available-locales
 				// allow-any-unicode-next-line
 				{ name: 'en', icon: '🇺🇸', description: 'English (US)' },
 				// allow-any-unicode-next-line

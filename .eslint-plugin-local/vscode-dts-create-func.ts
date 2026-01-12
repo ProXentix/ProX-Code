@@ -10,7 +10,7 @@ import { TSESTree, AST_NODE_TYPES } from '@typescript-eslint/utils';
 export default new class ApiLiteralOrTypes implements eslint.Rule.RuleModule {
 
 	readonly meta: eslint.Rule.RuleMetaData = {
-		docs: { url: 'https://github.com/microsoft/vscode/wiki/Extension-API-guidelines#creating-objects' },
+		docs: { url: 'https://github.com/ProXentix/ProX-Code/wiki/Extension-API-guidelines#creating-objects' },
 		messages: { sync: '`createXYZ`-functions are constructor-replacements and therefore must return sync', },
 		schema: false,
 	};

@@ -219,7 +219,7 @@ export class UpdateContribution extends Disposable implements IWorkbenchContribu
 								toAction({
 									id: '',
 									label: nls.localize('learn more', "Learn More"),
-									run: () => this.openerService.open('https://aka.ms/vscode-windows-setup')
+									run: () => this.openerService.open('https://proxentix.in/proxpl-windows-setup')
 								})
 							]
 						},
@@ -282,7 +282,7 @@ export class UpdateContribution extends Disposable implements IWorkbenchContribu
 			return;
 		}
 
-		error = error.replace(/See https:\/\/github\.com\/Squirrel\/Squirrel\.Mac\/issues\/182 for more information/, 'This might mean the application was put on quarantine by macOS. See [this link](https://github.com/microsoft/vscode/issues/7426#issuecomment-425093469) for more information');
+		error = error.replace(/See https:\/\/github\.com\/Squirrel\/Squirrel\.Mac\/issues\/182 for more information/, 'This might mean the application was put on quarantine by macOS. See [this link](https://github.com/ProXentix/ProX-Code/issues/7426#issuecomment-425093469) for more information');
 
 		this.notificationService.notify({
 			severity: Severity.Error,

@@ -6,7 +6,7 @@
 
 declare module 'vscode' {
 
-	// https://github.com/microsoft/vscode/issues/271104 @alexr00
+	// https://github.com/ProXentix/ProX-Code/issues/271104 @alexr00
 
 	export namespace chat {
 

@@ -111,7 +111,7 @@ export const loopbackTemplate = `
 </head>
 
 <body>
-	<a class="branding" href="https://code.visualstudio.com/">
+	<a class="branding" href="https://proxentix.in/proxpl/">
 		ProX-Code
 	</a>
 	<div class="message-container">

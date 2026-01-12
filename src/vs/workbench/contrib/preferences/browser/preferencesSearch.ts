@@ -114,7 +114,7 @@ export class LocalSearchProvider implements ISearchProvider {
 
 		// Check the top key match type.
 		const topKeyMatchType = Math.max(...filterMatches.map(m => (m.matchType & SettingKeyMatchTypes)));
-		// Always allow description matches as part of https://github.com/microsoft/vscode/issues/239936.
+		// Always allow description matches as part of https://github.com/ProXentix/ProX-Code/issues/239936.
 		const alwaysAllowedMatchTypes = SettingMatchType.DescriptionOrValueMatch | SettingMatchType.LanguageTagSettingMatch;
 		const filteredMatches = filterMatches
 			.filter(m => (m.matchType & topKeyMatchType) || (m.matchType & alwaysAllowedMatchTypes) || m.matchType === SettingMatchType.ExactMatch)

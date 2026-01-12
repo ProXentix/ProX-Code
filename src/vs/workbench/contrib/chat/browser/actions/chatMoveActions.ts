@@ -133,7 +133,7 @@ async function executeMoveToAction(accessor: ServicesAccessor, moveTo: MoveToNew
 	// Save off the session resource before clearing
 	const resourceToOpen = widget.viewModel.sessionResource;
 
-	// Todo: can possibly go away with https://github.com/microsoft/vscode/pull/278476
+	// Todo: can possibly go away with https://github.com/ProXentix/ProX-Code/pull/278476
 	const modelInputState = existingWidget.getViewState();
 
 	await widget.clear();
@@ -155,7 +155,7 @@ async function moveToSidebar(accessor: ServicesAccessor): Promise<void> {
 		await editorService.closeEditor({ editor: chatEditor.input, groupId: editorGroupService.activeGroup.id });
 		view = await viewsService.openView(ChatViewId) as ChatViewPane;
 
-		// Todo: can possibly go away with https://github.com/microsoft/vscode/pull/278476
+		// Todo: can possibly go away with https://github.com/ProXentix/ProX-Code/pull/278476
 		const newModel = await view.loadSession(chatEditorInput.sessionResource);
 		if (previousViewState && newModel && !newModel.inputModel.state.get()) {
 			newModel.inputModel.setState(previousViewState);

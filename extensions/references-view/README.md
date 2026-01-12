@@ -7,7 +7,7 @@ This extension shows reference search results as separate view, just like search
 - Navigate through search results via <kbd>F4</kbd> and <kbd>Shift+F4</kbd>
 - Remove references from the list via inline commands
 
-![](https://raw.githubusercontent.com/microsoft/vscode-references-view/master/media/demo.png)
+![](https://raw.githubusercontent.com/ProXentix/ProX-Code-references-view/master/media/demo.png)
 
 **Note** that this extension is bundled with ProX-Code version 1.29 and later - it doesn't need to be installed anymore.
 

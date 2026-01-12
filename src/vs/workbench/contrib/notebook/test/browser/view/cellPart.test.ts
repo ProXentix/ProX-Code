@@ -592,7 +592,7 @@ suite('CellPart', () => {
 
 	test('CodeCellLayout maintains content height after paste when scrolling', () => {
 		/**
-		 * Regression test for https://github.com/microsoft/vscode/issues/284524
+		 * Regression test for https://github.com/ProXentix/ProX-Code/issues/284524
 		 *
 		 * Scenario: Cell starts with 1 line (37px), user pastes text (grows to 679px),
 		 * then scrolls. During scroll, Monaco may report a transient smaller height (39px)

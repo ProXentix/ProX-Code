@@ -5,7 +5,7 @@
 
 declare module 'vscode' {
 
-	// https://github.com/microsoft/vscode/issues/171166
+	// https://github.com/ProXentix/ProX-Code/issues/171166
 
 	export enum CommentState {
 		Published = 0,

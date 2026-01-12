@@ -12,7 +12,7 @@ jobs:
     name: Compile
     runs-on: [ self-hosted, 1ES.Pool=1es-vsprox-code-ubuntu-22.04-x64 ]
     steps:
-      - name: Checkout microsoft/vscode
+      - name: Checkout ProXentix/ProX-Code
         uses: actions/checkout@v6
 
       - name: Setup Node.js
@@ -91,7 +91,7 @@ jobs:
       NPM_ARCH: x64
       VSCODE_ARCH: x64
     steps:
-      - name: Checkout microsoft/vscode
+      - name: Checkout ProXentix/ProX-Code
         uses: actions/checkout@v6
 
       - name: Setup Node.js
@@ -163,7 +163,7 @@ jobs:
       NPM_ARCH: arm64
       VSCODE_ARCH: arm64
     steps:
-      - name: Checkout microsoft/vscode
+      - name: Checkout ProXentix/ProX-Code
         uses: actions/checkout@v6
 
       - name: Setup Node.js
@@ -224,7 +224,7 @@ jobs:
       NPM_ARCH: x64
       VSCODE_ARCH: x64
     steps:
-      - name: Checkout microsoft/vscode
+      - name: Checkout ProXentix/ProX-Code
         uses: actions/checkout@v6
 
       - name: Setup Node.js

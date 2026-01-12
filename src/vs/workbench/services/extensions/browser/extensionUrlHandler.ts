@@ -348,7 +348,7 @@ registerSingleton(IExtensionUrlHandler, ExtensionUrlHandler, InstantiationType.E
 
 /**
  * This class handles URLs before `ExtensionUrlHandler` is instantiated.
- * More info: https://github.com/microsoft/vscode/issues/73101
+ * More info: https://github.com/ProXentix/ProX-Code/issues/73101
  */
 class ExtensionUrlBootstrapHandler implements IWorkbenchContribution, IURLHandler {
 

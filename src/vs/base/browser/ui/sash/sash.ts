@@ -525,7 +525,7 @@ export class Sash extends Disposable {
 		this.el.classList.add('active');
 		this._onDidStart.fire(startEvent);
 
-		// fix https://github.com/microsoft/vscode/issues/21675
+		// fix https://github.com/ProXentix/ProX-Code/issues/21675
 		const style = createStyleSheet(this.el);
 		const updateStyle = () => {
 			let cursor = '';

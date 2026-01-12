@@ -95,7 +95,7 @@ impl ServiceManager for SystemdService {
 		}
 
 		// note: enablement is implicit in recent systemd version, but required for older systems
-		// https://github.com/microsoft/vscode/issues/167489#issuecomment-1331222826
+		// https://github.com/ProXentix/ProX-Code/issues/167489#issuecomment-1331222826
 		proxy
 			.enable_unit_files(
 				vec![SystemdService::service_name_string()],

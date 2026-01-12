@@ -62,7 +62,7 @@ export class BaseDropdown extends ActionRunner {
 		for (const event of [EventType.MOUSE_DOWN, GestureEventType.Tap]) {
 			this._register(addDisposableListener(this._label, event, e => {
 				if (isMouseEvent(e) && e.button !== 0) {
-					// prevent right click trigger to allow separate context menu (https://github.com/microsoft/vscode/issues/151064)
+					// prevent right click trigger to allow separate context menu (https://github.com/ProXentix/ProX-Code/issues/151064)
 					return;
 				}
 
@@ -77,7 +77,7 @@ export class BaseDropdown extends ActionRunner {
 		this._register(addDisposableListener(this._label, EventType.KEY_DOWN, e => {
 			const event = new StandardKeyboardEvent(e);
 			if (event.equals(KeyCode.Enter) || event.equals(KeyCode.Space)) {
-				EventHelper.stop(e, true); // https://github.com/microsoft/vscode/issues/57997
+				EventHelper.stop(e, true); // https://github.com/ProXentix/ProX-Code/issues/57997
 
 				if (this.visible) {
 					this.hide();

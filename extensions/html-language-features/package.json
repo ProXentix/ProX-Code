@@ -255,7 +255,7 @@
     "jsonValidation": [
       {
         "fileMatch": "*.html-data.json",
-        "url": "https://raw.githubusercontent.com/microsoft/vscode-html-languageservice/master/docs/customData.schema.json"
+        "url": "https://raw.githubusercontent.com/ProXentix/ProX-Code-html-languageservice/master/docs/customData.schema.json"
       },
       {
         "fileMatch": "package.json",
@@ -273,6 +273,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/microsoft/vscode.git"
+    "url": "https://github.com/ProXentix/ProX-Code.git"
   }
 }

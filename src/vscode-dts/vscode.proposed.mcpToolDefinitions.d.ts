@@ -5,7 +5,7 @@
 
 declare module 'vscode' {
 
-	// https://github.com/microsoft/vscode/issues/272000 @connor4312
+	// https://github.com/ProXentix/ProX-Code/issues/272000 @connor4312
 
 	/**
 	 * Defines when a {@link McpServerLanguageModelToolDefinition} is available

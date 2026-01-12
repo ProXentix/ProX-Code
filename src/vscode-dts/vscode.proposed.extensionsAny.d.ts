@@ -5,7 +5,7 @@
 
 declare module 'vscode' {
 
-	// https://github.com/microsoft/vscode/issues/145307 @alexdima
+	// https://github.com/ProXentix/ProX-Code/issues/145307 @alexdima
 
 	export interface Extension<T> {
 

@@ -112,7 +112,7 @@ class CliMain extends Disposable {
 			this.registerErrorHandler(logService);
 
 			// DNS result order
-			// Refs https://github.com/microsoft/vscode/issues/264136
+			// Refs https://github.com/ProXentix/ProX-Code/issues/264136
 			setDefaultResultOrder('ipv4first');
 
 			// Run based on argv

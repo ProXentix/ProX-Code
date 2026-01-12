@@ -89,7 +89,7 @@ export function upgradeToISocket(req: http.IncomingMessage, socket: Socket, {
  * ends. For unix domain sockets, the close event may not fire consistently
  * due to what appears to be a Node.js bug.
  *
- * @see https://github.com/microsoft/vscode/issues/211462#issuecomment-2155471996
+ * @see https://github.com/ProXentix/ProX-Code/issues/211462#issuecomment-2155471996
  */
 const socketEndTimeoutMs = 30_000;
 
@@ -840,7 +840,7 @@ function unmask(buffer: VSBuffer, mask: number): void {
 }
 
 // Read this before there's any chance it is overwritten
-// Related to https://github.com/microsoft/vscode/issues/30624
+// Related to https://github.com/ProXentix/ProX-Code/issues/30624
 export const XDG_RUNTIME_DIR = process.env['XDG_RUNTIME_DIR'];
 
 const safeIpcPathLengths: { [platform: number]: number } = {

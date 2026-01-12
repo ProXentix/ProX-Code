@@ -7,19 +7,19 @@ if [ $# -eq 0 ]; then
 fi
 
 header="// Type definitions for ProX-Code ${1}
-// Project: https://github.com/microsoft/vscode
+// Project: https://github.com/ProXentix/ProX-Code
 // Definitions by: ProX-Code Team, ProXentix <https://github.com/microsoft>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 /*---------------------------------------------------------------------------------------------
  *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License.
- *  See https://github.com/microsoft/vscode/blob/main/LICENSE.txt for license information.
+ *  See https://github.com/ProXentix/ProX-Code/blob/main/LICENSE.txt for license information.
  *--------------------------------------------------------------------------------------------*/
 
 /**
  * Type Definition for ProX-Code ${1} Extension API
- * See https://code.visualstudio.com/api for more information
+ * See https://proxentix.in/proxpl/api for more information
  */"
 
 if [ -f ./src/vscode-dts/vscode.d.ts ]; then

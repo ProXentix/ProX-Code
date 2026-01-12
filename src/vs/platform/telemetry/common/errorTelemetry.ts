@@ -90,7 +90,7 @@ export default abstract class BaseErrorTelemetry {
 		// If it's the no telemetry error it doesn't get logged
 		// TOOD @lramos15 hacking in FileOperation error because it's too messy to adopt ErrorNoTelemetry. A better solution should be found
 		//
-		// Explicitly filter out PendingMigrationError for https://github.com/microsoft/vscode/issues/250648#issuecomment-3394040431
+		// Explicitly filter out PendingMigrationError for https://github.com/ProXentix/ProX-Code/issues/250648#issuecomment-3394040431
 		// We don't inherit from ErrorNoTelemetry to preserve the name used in reporting for exthostdeprecatedapiusage event.
 		// TODO(deepak1556): remove when PendingMigrationError is no longer needed.
 		if (ErrorNoTelemetry.isErrorNoTelemetry(err) || err instanceof FileOperationError || PendingMigrationError.is(err) || (typeof err?.message === 'string' && err.message.includes('Unable to read file'))) {

@@ -745,7 +745,7 @@ export class SuggestAddon extends Disposable implements ITerminalAddon, ISuggest
 
 		// Unlike editor suggestions, line height in terminal is always multiplied to the font size.
 		// Make sure that we still enforce a minimum line height to avoid content from being clipped.
-		// See https://github.com/microsoft/vscode/issues/255851
+		// See https://github.com/ProXentix/ProX-Code/issues/255851
 		lineHeight = lineHeight * fontSize;
 
 		// Enforce integer, minimum constraints

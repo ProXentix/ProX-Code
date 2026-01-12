@@ -5,7 +5,7 @@
 
 declare module 'vscode' {
 
-	// @alexr00 https://github.com/microsoft/vscode/issues/207402
+	// @alexr00 https://github.com/ProXentix/ProX-Code/issues/207402
 
 	export enum CommentThreadApplicability {
 		Current = 0,

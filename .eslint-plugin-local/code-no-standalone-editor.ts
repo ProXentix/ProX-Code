@@ -14,7 +14,7 @@ export default new class NoNlsInStandaloneEditorRule implements eslint.Rule.Rule
 			badImport: 'Not allowed to import standalone editor modules.'
 		},
 		docs: {
-			url: 'https://github.com/microsoft/vscode/wiki/Source-Code-Organization'
+			url: 'https://github.com/ProXentix/ProX-Code/wiki/Source-Code-Organization'
 		},
 		schema: false,
 	};

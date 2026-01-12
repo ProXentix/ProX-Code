@@ -182,7 +182,7 @@ fi
 
 # Build mime.cache needed for gtk and qt icon
 # TODO(deepak1556): Re-enable this once we move to core22
-# Refs https://github.com/microsoft/vscode/issues/230454#issuecomment-2418352959
+# Refs https://github.com/ProXentix/ProX-Code/issues/230454#issuecomment-2418352959
 if [ "$needs_update" = true ]; then
   rm -rf "$XDG_DATA_HOME/mime"
 #  if [ ! -f "$SNAP/usr/share/mime/mime.cache" ]; then

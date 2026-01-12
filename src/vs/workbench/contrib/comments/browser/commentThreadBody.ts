@@ -231,7 +231,7 @@ export class CommentThreadBody<T extends IRange | ICellRange = IRange> extends D
 
 		this._commentThread = commentThread;
 		this._commentElements = newCommentNodeList;
-		// Start editing *after* updating the thread and elements to avoid a sequencing issue https://github.com/microsoft/vscode/issues/239191
+		// Start editing *after* updating the thread and elements to avoid a sequencing issue https://github.com/ProXentix/ProX-Code/issues/239191
 		await Promise.all(startEditing);
 
 		if (newCommentsInEditMode.length) {

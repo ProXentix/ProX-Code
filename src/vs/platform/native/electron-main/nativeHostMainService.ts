@@ -635,7 +635,7 @@ export class NativeHostMainService extends Disposable implements INativeHostMain
 				// for opening the browser to fallback to the default.
 				// On Windows, unfortunately PowerShell seems to always write
 				// to stderr so we cannot use it there
-				// (see also https://github.com/microsoft/vscode/issues/230636)
+				// (see also https://github.com/ProXentix/ProX-Code/issues/230636)
 				res.stderr?.once('data', (data: Buffer) => {
 					this.logService.error(`Error openening external URL '${url}' using browser '${configuredBrowser}': ${data.toString()}`);
 					return this.doOpenShellExternal(windowId, url);
@@ -942,7 +942,7 @@ export class NativeHostMainService extends Disposable implements INativeHostMain
 			// the reload and rather go back to an empty window. Transient
 			// workspaces should never restore, even when the user wants
 			// to reload.
-			// For: https://github.com/microsoft/vscode/issues/119695
+			// For: https://github.com/ProXentix/ProX-Code/issues/119695
 			if (isWorkspaceIdentifier(window.openedWorkspace)) {
 				const configPath = window.openedWorkspace.configPath;
 				if (configPath.scheme === Schemas.file) {

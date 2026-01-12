@@ -435,7 +435,7 @@ function addIncomingOutgoingChangesHistoryItems(
 			if (beforeHistoryItemIndex !== -1 && afterHistoryItemIndex !== -1) {
 				// There is a known edge case in which the incoming changes have already
 				// been merged. For this scenario, we will not be showing the incoming
-				// changes history item. https://github.com/microsoft/vscode/issues/276064
+				// changes history item. https://github.com/ProXentix/ProX-Code/issues/276064
 				const incomingChangeMerged = viewModels[beforeHistoryItemIndex].historyItem.parentIds.length === 2 &&
 					viewModels[beforeHistoryItemIndex].historyItem.parentIds.includes(mergeBase);
 

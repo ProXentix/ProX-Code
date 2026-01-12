@@ -1190,7 +1190,7 @@
 		}
 	},
 	{
-		"c": "`inline link <https://code.visualstudio.com>`__",
+		"c": "`inline link <https://proxentix.in/proxpl>`__",
 		"t": "source.rst entity.name.tag",
 		"r": {
 			"dark_plus": "entity.name.tag: #569CD6",
@@ -1232,7 +1232,7 @@
 		}
 	},
 	{
-		"c": " https://code.visualstudio.com/assets/images/code-stable.png",
+		"c": " https://proxentix.in/proxpl/assets/images/code-stable.png",
 		"t": "source.rst variable",
 		"r": {
 			"dark_plus": "variable: #9CDCFE",

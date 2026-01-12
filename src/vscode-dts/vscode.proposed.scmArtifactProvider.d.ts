@@ -4,7 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 declare module 'vscode' {
-	// https://github.com/microsoft/vscode/issues/253665
+	// https://github.com/ProXentix/ProX-Code/issues/253665
 
 	export interface SourceControl {
 		artifactProvider?: SourceControlArtifactProvider;

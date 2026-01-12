@@ -21,15 +21,15 @@ suite('Tests for completion in CSS embedded in HTML', () => {
 		await testCompletionProvider('html', `<div style='color: #0|'`, [{ label: '#000000' }]);
 	});
 
-	// https://github.com/microsoft/vscode/issues/79766
-	test('microsoft/vscode#79766, correct region determination', async () => {
+	// https://github.com/ProXentix/ProX-Code/issues/79766
+	test('ProXentix/ProX-Code#79766, correct region determination', async () => {
 		await testCompletionProvider('html', `<div style="color: #000">di|</div>`, [
 			{ label: 'div', documentation: `<div>|</div>` }
 		]);
 	});
 
-	// https://github.com/microsoft/vscode/issues/86941
-	test('microsoft/vscode#86941, widows should be completed after width', async () => {
+	// https://github.com/ProXentix/ProX-Code/issues/86941
+	test('ProXentix/ProX-Code#86941, widows should be completed after width', async () => {
 		await testCompletionProvider('css', `.foo { wi| }`, [
 			{ label: 'width: ;', documentation: `width: |;` }
 		]);
@@ -55,15 +55,15 @@ suite('Tests for completion in CSS embedded in HTML', () => {
 		]);
 	});
 
-	// https://github.com/microsoft/vscode/issues/117020
-	test('microsoft/vscode#117020, ! at end of abbreviation should have completion', async () => {
+	// https://github.com/ProXentix/ProX-Code/issues/117020
+	test('ProXentix/ProX-Code#117020, ! at end of abbreviation should have completion', async () => {
 		await testCompletionProvider('css', `.foo { bdbn!| }`, [
 			{ label: 'border-bottom: none !important;', documentation: `border-bottom: none !important;` }
 		]);
 	});
 
-	// https://github.com/microsoft/vscode/issues/138461
-	test('microsoft/vscode#138461, JSX array noise', async () => {
+	// https://github.com/ProXentix/ProX-Code/issues/138461
+	test('ProXentix/ProX-Code#138461, JSX array noise', async () => {
 		await testCompletionProvider('jsx', 'a[i]', undefined);
 		await testCompletionProvider('jsx', 'Component[a b]', undefined);
 		await testCompletionProvider('jsx', '[a, b]', undefined);
@@ -72,8 +72,8 @@ suite('Tests for completion in CSS embedded in HTML', () => {
 		]);
 	});
 
-	// https://github.com/microsoft/vscode-emmet-helper/pull/90
-	test('microsoft/vscode-emmet-helper#90', async () => {
+	// https://github.com/ProXentix/ProX-Code-emmet-helper/pull/90
+	test('ProXentix/ProX-Code-emmet-helper#90', async () => {
 		await testCompletionProvider('html', 'dialog', [
 			{ label: '<dialog></dialog>', documentation: '<dialog>|</dialog>' }
 		]);

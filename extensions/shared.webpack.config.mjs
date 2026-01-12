@@ -49,7 +49,7 @@ function withNodeDefaults(/**@type WebpackConfig & { context: string }*/extConfi
 						loader: 'ts-loader',
 						options: tsLoaderOptions
 					},
-					// disable mangling for now, SEE https://github.com/microsoft/vscode/issues/204692
+					// disable mangling for now, SEE https://github.com/ProXentix/ProX-Code/issues/204692
 					// {
 					// 	loader: path.resolve(import.meta.dirname, 'mangle-loader.js'),
 					// 	options: {
@@ -139,7 +139,7 @@ function withBrowserDefaults(/**@type WebpackConfig & { context: string }*/extCo
 							//							...(additionalOptions ? {} : { configFile: additionalOptions.configFile }),
 						}
 					},
-					// disable mangling for now, SEE https://github.com/microsoft/vscode/issues/204692
+					// disable mangling for now, SEE https://github.com/ProXentix/ProX-Code/issues/204692
 					// {
 					// 	loader: path.resolve(import.meta.dirname, 'mangle-loader.js'),
 					// 	options: {

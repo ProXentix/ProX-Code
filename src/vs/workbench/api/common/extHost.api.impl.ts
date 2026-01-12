@@ -980,7 +980,7 @@ export function createApiFactoryAndRegisterActors(accessor: ServicesAccessor): I
 		const workspace: typeof vscode.workspace = {
 			get rootPath() {
 				extHostApiDeprecation.report('workspace.rootPath', extension,
-					`Please use 'workspace.workspaceFolders' instead. More details: https://aka.ms/vscode-eliminating-rootpath`);
+					`Please use 'workspace.workspaceFolders' instead. More details: https://proxentix.in/proxpl-eliminating-rootpath`);
 
 				return extHostWorkspace.getPath();
 			},

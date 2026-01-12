@@ -169,7 +169,7 @@ body {
 }
 
 .monaco-workbench .codicon[class*='codicon-'] {
-	font-size: 16px; /* sets font-size for codicons in workbench (https://github.com/microsoft/vscode/issues/98495) */
+	font-size: 16px; /* sets font-size for codicons in workbench (https://github.com/ProXentix/ProX-Code/issues/98495) */
 }
 
 .monaco-workbench .predefined-file-icon[class*='codicon-']::before {
@@ -187,7 +187,7 @@ body {
 }
 
 .monaco-workbench.modal-dialog-visible .monaco-progress-container.infinite .progress-bit {
-	display: none; /* stop progress animations when dialogs are visible (https://github.com/microsoft/vscode/issues/138396) */
+	display: none; /* stop progress animations when dialogs are visible (https://github.com/ProXentix/ProX-Code/issues/138396) */
 }
 
 /* Custom Dropdown (select) Arrows */
@@ -257,7 +257,7 @@ body {
 }
 
 .monaco-workbench.mac select:focus {
-	border-color: transparent; /* outline is a square, but border has a radius, so we avoid this glitch when focused (https://github.com/microsoft/vscode/issues/26045) */
+	border-color: transparent; /* outline is a square, but border has a radius, so we avoid this glitch when focused (https://github.com/ProXentix/ProX-Code/issues/26045) */
 }
 
 .monaco-workbench .monaco-list:not(.element-focused):not(:active):focus:before {

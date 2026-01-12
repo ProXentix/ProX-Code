@@ -2019,7 +2019,7 @@ export class ChatWidget extends Disposable implements IChatWidget {
 		const delay = renderImmediately ? MicrotaskDelay : 0;
 		this.viewModelDisposables.add(Event.runAndSubscribe(Event.accumulate(this.viewModel.onDidChange, delay), (events => {
 			if (!this.viewModel || this._store.isDisposed) {
-				// See https://github.com/microsoft/vscode/issues/278969
+				// See https://github.com/ProXentix/ProX-Code/issues/278969
 				return;
 			}
 

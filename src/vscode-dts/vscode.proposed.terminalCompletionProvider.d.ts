@@ -5,7 +5,7 @@
 
 declare module 'vscode' {
 
-	// https://github.com/microsoft/vscode/issues/226562
+	// https://github.com/ProXentix/ProX-Code/issues/226562
 
 	/**
 	 * A provider that supplies terminal completion items.

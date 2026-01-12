@@ -1231,7 +1231,7 @@ export class ObjectSettingDropdownWidget extends AbstractListSettingWidget<IObje
 					: { ...changedKeyOrValue, data: keyOrValue.options[0].value }
 			);
 		} else if (changedKeyOrValue.type === 'boolean') {
-			// https://github.com/microsoft/vscode/issues/129581
+			// https://github.com/ProXentix/ProX-Code/issues/129581
 			update({ ...changedKeyOrValue, data: keyOrValue.data === 'true' });
 		}
 

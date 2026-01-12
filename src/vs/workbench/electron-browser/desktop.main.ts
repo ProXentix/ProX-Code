@@ -122,7 +122,7 @@ export class DesktopMain extends Disposable {
 		// workspace, so we need the resolved configuration service.
 		// Finally, it is possible for the window to have a custom
 		// zoom level that is not derived from settings.
-		// (fixes https://github.com/microsoft/vscode/issues/187982)
+		// (fixes https://github.com/ProXentix/ProX-Code/issues/187982)
 		this.applyWindowZoomLevel(services.configurationService);
 
 		// Create Workbench

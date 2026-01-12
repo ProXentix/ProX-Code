@@ -93,7 +93,7 @@ suite('TreeSitterCommandParser', () => {
 				test('multi-line', () => t('echo a\necho b', ['echo a', 'echo b']));
 			});
 
-			// TODO: These should be common but the pwsh grammar doesn't handle && yet https://github.com/microsoft/vscode/issues/272704
+			// TODO: These should be common but the pwsh grammar doesn't handle && yet https://github.com/ProXentix/ProX-Code/issues/272704
 			suite('real-world scenarios', () => {
 				test('complex Docker commands', () => t('docker run -it --rm -v $(pwd):/app ubuntu:latest bash -c "cd /app && npm install && npm test"', ['docker run -it --rm -v $(pwd):/app ubuntu:latest bash -c "cd /app && npm install && npm test"', 'pwd']));
 				test('Git workflow commands', () => t('git add . && git commit -m "Update feature" && git push origin main', [

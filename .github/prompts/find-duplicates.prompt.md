@@ -12,5 +12,5 @@ tools:
 ---
 
 ## Your Task
-1. Use the GitHub MCP server to retrieve the prompt file https://github.com/microsoft/vscode-engineering/blob/main/.github/prompts/find-duplicates-gh-cli.prompt.md.
+1. Use the GitHub MCP server to retrieve the prompt file https://github.com/ProXentix/ProX-Code-engineering/blob/main/.github/prompts/find-duplicates-gh-cli.prompt.md.
 2. Follow those instructions PRECISELY to identify potential duplicate issues for a given issue number in the VS Code repository.

@@ -1580,7 +1580,7 @@ export namespace GlobPattern {
 		// `vscode.GlobPattern` which can be `vscode.RelativePattern` class,
 		// but given we cannot enforce classes from our vscode.d.ts, we have
 		// to probe for objects too
-		// Refs: https://github.com/microsoft/vscode/issues/140771
+		// Refs: https://github.com/ProXentix/ProX-Code/issues/140771
 		if (isRelativePatternShape(pattern) || isLegacyRelativePatternShape(pattern)) {
 			return new types.RelativePattern(pattern.baseUri ?? pattern.base, pattern.pattern).toJSON();
 		}
@@ -3750,7 +3750,7 @@ export namespace IconPath {
 	 * Converts a {@link vscode.IconPath} to an {@link extHostProtocol.IconPathDto}.
 	 * @note This function will tolerate strings specified instead of URIs in IconPath for historical reasons.
 	 * Such strings are treated as file paths and converted using {@link URI.file} function, not {@link URI.from}.
-	 * See https://github.com/microsoft/vscode/issues/110432#issuecomment-726144556 for context.
+	 * See https://github.com/ProXentix/ProX-Code/issues/110432#issuecomment-726144556 for context.
 	 */
 	export function from(value: undefined): undefined;
 	export function from(value: vscode.IconPath): extHostProtocol.IconPathDto;

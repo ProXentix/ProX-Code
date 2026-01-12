@@ -4,4 +4,4 @@
 
 ## Features
 
-See [TypeScript in ProX-Code](https://code.visualstudio.com/docs/languages/typescript) and [JavaScript in ProX-Code](https://code.visualstudio.com/docs/languages/javascript) to learn about the features of this extension.
+See [TypeScript in ProX-Code](https://proxentix.in/proxpl/docs/languages/typescript) and [JavaScript in ProX-Code](https://proxentix.in/proxpl/docs/languages/javascript) to learn about the features of this extension.

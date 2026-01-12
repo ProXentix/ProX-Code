@@ -125,7 +125,7 @@ export class ToolTerminalCreator {
 	/**
 	 * Synchronously update shell integration quality based on the terminal instance's current
 	 * capabilities. This is a defensive change to avoid no shell integration being sticky
-	 * https://github.com/microsoft/vscode/issues/260880
+	 * https://github.com/ProXentix/ProX-Code/issues/260880
 	 *
 	 * Only upgrade quality just in case.
 	 */

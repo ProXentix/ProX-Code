@@ -4,7 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 declare module 'vscode' {
-	// https://github.com/microsoft/vscode/issues/185269
+	// https://github.com/ProXentix/ProX-Code/issues/185269
 
 	export interface SourceControl {
 		historyProvider?: SourceControlHistoryProvider;

@@ -355,7 +355,7 @@ suite('CommandLineAutoApprover', () => {
 			ok(!await isAutoApproved('Echo hello'));
 		});
 
-		// https://github.com/microsoft/vscode/issues/252411
+		// https://github.com/ProXentix/ProX-Code/issues/252411
 		test('should handle string-based values with special regex characters', async () => {
 			setAutoApprove({
 				'pwsh.exe -File D:\\foo.bar\\a-script.ps1': true

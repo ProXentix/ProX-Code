@@ -92,9 +92,9 @@ suite('urlGlob', () => {
 		});
 
 		test('complex patterns', () => {
-			assert.strictEqual(testUrlMatchesGlob('https://api.github.com/repos/microsoft/vscode', 'https://*.github.com/repos/*/*'), true);
-			assert.strictEqual(testUrlMatchesGlob('https://github.com/microsoft/vscode', 'https://*.github.com/repos/*/*'), false);
-			assert.strictEqual(testUrlMatchesGlob('https://api.github.com:443/repos/microsoft/vscode', 'https://*.github.com:*/repos/*/*'), true);
+			assert.strictEqual(testUrlMatchesGlob('https://api.github.com/repos/ProXentix/ProX-Code', 'https://*.github.com/repos/*/*'), true);
+			assert.strictEqual(testUrlMatchesGlob('https://github.com/ProXentix/ProX-Code', 'https://*.github.com/repos/*/*'), false);
+			assert.strictEqual(testUrlMatchesGlob('https://api.github.com:443/repos/ProXentix/ProX-Code', 'https://*.github.com:*/repos/*/*'), true);
 		});
 
 		test('edge cases', () => {

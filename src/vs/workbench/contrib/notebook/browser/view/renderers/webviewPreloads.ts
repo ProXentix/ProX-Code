@@ -683,7 +683,7 @@ async function webviewPreloads(ctx: PreloadContext) {
 				deltaX: event.deltaX,
 				deltaY: event.deltaY,
 				deltaZ: event.deltaZ,
-				// Refs https://github.com/microsoft/vscode/issues/146403#issuecomment-1854538928
+				// Refs https://github.com/ProXentix/ProX-Code/issues/146403#issuecomment-1854538928
 				wheelDelta: event.wheelDelta && isChrome ? (event.wheelDelta / window.devicePixelRatio) : event.wheelDelta,
 				wheelDeltaX: event.wheelDeltaX && isChrome ? (event.wheelDeltaX / window.devicePixelRatio) : event.wheelDeltaX,
 				wheelDeltaY: event.wheelDeltaY && isChrome ? (event.wheelDeltaY / window.devicePixelRatio) : event.wheelDeltaY,

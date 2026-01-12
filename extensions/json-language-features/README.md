@@ -4,4 +4,4 @@
 
 ## Features
 
-See [JSON in ProX-Code](https://code.visualstudio.com/docs/languages/json) to learn about the features of this extension.
+See [JSON in ProX-Code](https://proxentix.in/proxpl/docs/languages/json) to learn about the features of this extension.

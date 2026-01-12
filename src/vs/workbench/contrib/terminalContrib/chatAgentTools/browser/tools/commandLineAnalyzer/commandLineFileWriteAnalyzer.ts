@@ -135,8 +135,8 @@ export class CommandLineFileWriteAnalyzer extends Disposable implements ICommand
 								}
 							}
 							const fileUri = URI.isUri(fileWrite) ? fileWrite : URI.file(fileWrite);
-							// TODO: Handle command substitutions/complex destinations properly https://github.com/microsoft/vscode/issues/274167
-							// TODO: Handle environment variables properly https://github.com/microsoft/vscode/issues/274166
+							// TODO: Handle command substitutions/complex destinations properly https://github.com/ProXentix/ProX-Code/issues/274167
+							// TODO: Handle environment variables properly https://github.com/ProXentix/ProX-Code/issues/274166
 							if (fileUri.fsPath.match(/[$\(\){}`]/)) {
 								isAutoApproveAllowed = false;
 								this._log('File write blocked due to likely containing a variable or sub-command', fileUri.toString());

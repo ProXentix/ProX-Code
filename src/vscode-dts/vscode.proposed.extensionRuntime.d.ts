@@ -5,7 +5,7 @@
 
 declare module 'vscode' {
 
-	// https://github.com/microsoft/vscode/issues/104436
+	// https://github.com/ProXentix/ProX-Code/issues/104436
 
 	export enum ExtensionRuntime {
 		/**

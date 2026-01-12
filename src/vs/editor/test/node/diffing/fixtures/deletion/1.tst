@@ -12,7 +12,7 @@ export const OtherToolsView = () => {
 							{ name: 'VS Code Standup (Zurich)', href: 'http://stand.azurewebsites.net/' },
 							{},
 							{ name: 'VS Code Errors', href: 'https://vscode-errors.azurewebsites.net' },
-							{ name: 'VS Code GDPR', href: 'https://github.com/microsoft/vscode-gdpr-tooling' },
+							{ name: 'VS Code GDPR', href: 'https://github.com/ProXentix/ProX-Code-gdpr-tooling' },
 						]}
 						onRenderCell={(item) => {
 							if (!item?.name) {

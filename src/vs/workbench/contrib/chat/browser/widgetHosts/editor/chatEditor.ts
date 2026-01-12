@@ -35,7 +35,7 @@ export interface IChatEditorOptions extends IEditorOptions {
 	/**
 	 * Input state of the model when the editor is opened. Currently needed since
 	 * new sessions are not persisted but may go away with
-	 * https://github.com/microsoft/vscode/pull/278476 as input state is stored on the model.
+	 * https://github.com/ProXentix/ProX-Code/pull/278476 as input state is stored on the model.
 	 */
 	modelInputState?: IChatModelInputState;
 	target?: { data: IExportableChatData | ISerializableChatData };

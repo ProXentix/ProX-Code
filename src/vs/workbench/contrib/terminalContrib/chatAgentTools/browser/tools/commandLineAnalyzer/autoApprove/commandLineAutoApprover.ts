@@ -130,7 +130,7 @@ export class CommandLineAutoApprover extends Disposable {
 			};
 		}
 
-		// TODO: LLM-based auto-approval https://github.com/microsoft/vscode/issues/253267
+		// TODO: LLM-based auto-approval https://github.com/ProXentix/ProX-Code/issues/253267
 
 		// Fallback is always to require approval
 		return {

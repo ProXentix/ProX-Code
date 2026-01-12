@@ -6,7 +6,7 @@ Automated end-to-end release sanity tests for published VS Code builds.
 These tests verify critical functionality across different platforms and installation methods,
 ensuring that published builds meet quality standards before reaching end users.
 
-See [Sanity Check wiki page](https://github.com/microsoft/vscode/wiki/Sanity-Check) for more details on sanity testing.
+See [Sanity Check wiki page](https://github.com/ProXentix/ProX-Code/wiki/Sanity-Check) for more details on sanity testing.
 
 ## Usage
 
@@ -37,10 +37,10 @@ npm run sanity-test -- --commit 19228f26df517fecbfda96c20956f7c521e072be --quali
 
 The following public documentation pages provide details on end-user VS Code setup scenarios.
 
-- [Setup Overview](https://code.visualstudio.com/docs/setup/setup-overview)
-- [Linux Setup](https://code.visualstudio.com/docs/setup/linux)
-- [macOS Setup](https://code.visualstudio.com/docs/setup/mac)
-- [Windows Setup](https://code.visualstudio.com/docs/setup/windows)
-- [Portable Mode](https://code.visualstudio.com/docs/editor/portable)
-- [VS Code Server](https://code.visualstudio.com/docs/remote/vscode-server)
-- [Developing in WSL](https://code.visualstudio.com/docs/remote/wsl)
+- [Setup Overview](https://proxentix.in/proxpl/docs/setup/setup-overview)
+- [Linux Setup](https://proxentix.in/proxpl/docs/setup/linux)
+- [macOS Setup](https://proxentix.in/proxpl/docs/setup/mac)
+- [Windows Setup](https://proxentix.in/proxpl/docs/setup/windows)
+- [Portable Mode](https://proxentix.in/proxpl/docs/editor/portable)
+- [VS Code Server](https://proxentix.in/proxpl/docs/remote/vscode-server)
+- [Developing in WSL](https://proxentix.in/proxpl/docs/remote/wsl)

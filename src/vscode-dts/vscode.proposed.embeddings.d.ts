@@ -5,7 +5,7 @@
 
 declare module 'vscode' {
 
-	// https://github.com/microsoft/vscode/issues/212083
+	// https://github.com/ProXentix/ProX-Code/issues/212083
 
 	export interface Embedding {
 		readonly values: number[];

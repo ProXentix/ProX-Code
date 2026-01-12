@@ -1553,7 +1553,7 @@ suite('Async', () => {
 			assert.strictEqual(worked, false);
 		});
 
-		//  https://github.com/microsoft/vscode/issues/230366
+		//  https://github.com/ProXentix/ProX-Code/issues/230366
 		// 	test('waitThrottleDelayBetweenWorkUnits option', async () => {
 		// 		const handled: number[] = [];
 		// 		let handledCallback: Function;

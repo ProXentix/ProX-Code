@@ -5,7 +5,7 @@
 
 declare module 'vscode' {
 
-	// https://github.com/microsoft/vscode/issues/84899
+	// https://github.com/ProXentix/ProX-Code/issues/84899
 
 	/**
 	 * The contiguous set of modified lines in a diff.

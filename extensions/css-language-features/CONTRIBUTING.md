@@ -1,7 +1,7 @@
 
 ## Setup
 
-- Clone [microsoft/vscode](https://github.com/microsoft/vscode)
+- Clone [ProXentix/ProX-Code](https://github.com/ProXentix/ProX-Code)
 - Run `npm i` at `/`, this will install
 	- Dependencies for `/extension/css-language-features/`
 	- Dependencies for `/extension/css-language-features/server/`
@@ -9,7 +9,7 @@
 
 - Open `/extensions/css-language-features/` as the workspace in VS Code
 - In `/extensions/css-language-features/` run `npm run compile`(or `npm run watch`) to build the client and server
-- Run the [`Launch Extension`](https://github.com/microsoft/vscode/blob/master/extensions/css-language-features/.prox-code/launch.json) debug target in the Debug View. This will:
+- Run the [`Launch Extension`](https://github.com/ProXentix/ProX-Code/blob/master/extensions/css-language-features/.prox-code/launch.json) debug target in the Debug View. This will:
 	- Launch a new VS Code instance with the `css-language-features` extension loaded
 - Open a `.css` file to activate the extension. The extension will start the CSS language server process.
 - Add `"css.trace.server": "verbose"` to the settings to observe the communication between client and server in the `CSS Language Server` output.
@@ -21,22 +21,22 @@
 
 ## Contribute to vscode-css-languageservice
 
-[microsoft/vscode-css-languageservice](https://github.com/microsoft/vscode-css-languageservice) contains the language smarts for CSS/SCSS/Less.
+[ProXentix/ProX-Code-css-languageservice](https://github.com/ProXentix/ProX-Code-css-languageservice) contains the language smarts for CSS/SCSS/Less.
 This extension wraps the css language service into a Language Server for VS Code.
-If you want to fix CSS/SCSS/Less issues or make improvements, you should make changes at [microsoft/vscode-css-languageservice](https://github.com/microsoft/vscode-css-languageservice).
+If you want to fix CSS/SCSS/Less issues or make improvements, you should make changes at [ProXentix/ProX-Code-css-languageservice](https://github.com/ProXentix/ProX-Code-css-languageservice).
 
 However, within this extension, you can run a development version of `vscode-css-languageservice` to debug code or test language features interactively:
 
 #### Linking `vscode-css-languageservice` in `css-language-features/server/`
 
-- Clone [microsoft/vscode-css-languageservice](https://github.com/microsoft/vscode-css-languageservice)
+- Clone [ProXentix/ProX-Code-css-languageservice](https://github.com/ProXentix/ProX-Code-css-languageservice)
 - Run `npm i` in `vscode-css-languageservice`
 - Run `npm link` in `vscode-css-languageservice`. This will compile and link `vscode-css-languageservice`
 - In `css-language-features/server/`, run `npm link vscode-css-languageservice`
 
 #### Testing the development version of `vscode-css-languageservice`
 
-- Open both `vscode-css-languageservice` and this extension in a single workspace with [multi-root workspace](https://code.visualstudio.com/docs/editor/multi-root-workspaces) feature
+- Open both `vscode-css-languageservice` and this extension in a single workspace with [multi-root workspace](https://proxentix.in/proxpl/docs/editor/multi-root-workspaces) feature
 - Run `npm run watch` in `vscode-css-languageservice` to recompile the extension whenever it changes
 - Run `npm run watch` at `css-language-features/server/` to recompile this extension with the linked version of `vscode-css-languageservice`
 - Make some changes in `vscode-css-languageservice`

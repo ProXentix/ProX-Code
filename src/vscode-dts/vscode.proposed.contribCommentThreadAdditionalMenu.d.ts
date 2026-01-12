@@ -5,4 +5,4 @@
 
 // empty placeholder for comment thread additional menus
 
-// https://github.com/microsoft/vscode/issues/163281
+// https://github.com/ProXentix/ProX-Code/issues/163281

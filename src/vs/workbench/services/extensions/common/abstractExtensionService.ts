@@ -980,7 +980,7 @@ export abstract class AbstractExtensionService extends Disposable implements IEx
 
 				// Note: some callers come in so early that the extension hosts have not even been created yet.
 				// Therefore we kick off the extension host creation, but without awaiting it.
-				// See https://github.com/microsoft/vscode/issues/260061
+				// See https://github.com/ProXentix/ProX-Code/issues/260061
 				void this._initializeIfNeeded();
 
 				return this._activateByEvent(activationEvent, activationKind);
@@ -1284,7 +1284,7 @@ class ExtensionHostCollection extends Disposable {
 	}
 
 	public async stopAllInReverse(): Promise<void> {
-		// See https://github.com/microsoft/vscode/issues/152204
+		// See https://github.com/ProXentix/ProX-Code/issues/152204
 		// Dispose extension hosts in reverse creation order because the local extension host
 		// might be critical in sustaining a connection to the remote extension host
 		for (let i = this._extensionHostManagers.length - 1; i >= 0; i--) {

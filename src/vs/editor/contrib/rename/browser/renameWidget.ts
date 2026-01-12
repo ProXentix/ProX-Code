@@ -317,7 +317,7 @@ export class RenameWidget implements IRenameWidget, IContentWidget, IDisposable 
 	}
 
 	afterRender(position: ContentWidgetPositionPreference | null): void {
-		// FIXME@ulugbekna: commenting trace log out until we start unmounting the widget from editor properly - https://github.com/microsoft/vscode/issues/226975
+		// FIXME@ulugbekna: commenting trace log out until we start unmounting the widget from editor properly - https://github.com/ProXentix/ProX-Code/issues/226975
 		// this._trace('invoking afterRender, position: ', position ? 'not null' : 'null');
 		if (position === null) {
 			// cancel rename when input widget isn't rendered anymore

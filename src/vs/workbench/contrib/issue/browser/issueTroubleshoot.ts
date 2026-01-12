@@ -267,7 +267,7 @@ class TroubleshootIssueService extends Disposable implements ITroubleshootIssueS
 			return undefined;
 		}
 
-		const opened = await this.openerService.open(URI.parse('https://aka.ms/vscode-insiders'));
+		const opened = await this.openerService.open(URI.parse('https://proxentix.in/proxpl-insiders'));
 		if (!opened) {
 			return undefined;
 		}

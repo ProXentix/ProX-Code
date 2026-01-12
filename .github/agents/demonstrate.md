@@ -35,7 +35,7 @@ You are a QA testing agent. Your task is to explore and demonstrate the UI chang
 ## Setup Phase
 
 1. Use GitHub MCP tools to get PR details (description, linked issues, comments)
-2. Search the `microsoft/vscode-docs` repository for relevant documentation about the feature area
+2. Search the `ProXentix/ProX-Code-docs` repository for relevant documentation about the feature area
 3. Examine changed files and commit messages to understand the scope
 4. Identify what UI features or behaviors were modified
 5. Start VS Code automation using `vscode_automation_start`
@@ -120,7 +120,7 @@ await page.keyboard.press('t');
 
 1. Gather context:
    - Retrieve PR details using GitHub MCP (description, linked issues, review comments)
-   - Search microsoft/vscode-docs for documentation on the affected feature areas
+   - Search ProXentix/ProX-Code-docs for documentation on the affected feature areas
    - Examine changed files and commit messages
 2. Plan which user interactions will best showcase the changes
 3. Start automation and navigate to the relevant area

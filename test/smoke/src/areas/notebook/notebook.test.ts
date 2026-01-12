@@ -8,7 +8,7 @@ import { Application, Logger } from '../../../../automation';
 import { installAllHandlers } from '../../utils';
 
 export function setup(logger: Logger) {
-	describe('Notebooks', () => { // https://github.com/microsoft/vscode/issues/140575
+	describe('Notebooks', () => { // https://github.com/ProXentix/ProX-Code/issues/140575
 
 		// Shared before/after handling
 		installAllHandlers(logger);
@@ -78,7 +78,7 @@ export function setup(logger: Logger) {
 			await app.workbench.notebook.waitForActiveCellEditorContents('# added cell');
 		});
 
-		it.skip('moves focus in and out of output', async function () { // TODO@rebornix https://github.com/microsoft/vscode/issues/139270
+		it.skip('moves focus in and out of output', async function () { // TODO@rebornix https://github.com/ProXentix/ProX-Code/issues/139270
 			const app = this.app as Application;
 			await app.workbench.notebook.openNotebook();
 			// first cell is a code cell that already has output
@@ -88,7 +88,7 @@ export function setup(logger: Logger) {
 		});
 
 		// broken: there is no kernel available to execute code
-		it.skip('cell action execution', async function () { // TODO@rebornix https://github.com/microsoft/vscode/issues/139270
+		it.skip('cell action execution', async function () { // TODO@rebornix https://github.com/ProXentix/ProX-Code/issues/139270
 			const app = this.app as Application;
 			await app.workbench.notebook.openNotebook();
 			await app.workbench.notebook.insertNotebookCell('code');

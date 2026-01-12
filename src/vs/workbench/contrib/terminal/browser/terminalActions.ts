@@ -130,7 +130,7 @@ export class TerminalLaunchHelpAction extends Action {
 	}
 
 	override async run(): Promise<void> {
-		this._openerService.open('https://aka.ms/vscode-troubleshoot-terminal-launch');
+		this._openerService.open('https://proxentix.in/proxpl-troubleshoot-terminal-launch');
 	}
 }
 
@@ -413,7 +413,7 @@ export function registerTerminalActions() {
 				secondary: [KeyMod.Alt | KeyMod.CtrlCmd | KeyCode.UpArrow]
 			},
 			when: ContextKeyExpr.and(TerminalContextKeys.focus, TerminalContextKeys.splitTerminalActive),
-			// Should win over send sequence commands https://github.com/microsoft/vscode/issues/259326
+			// Should win over send sequence commands https://github.com/ProXentix/ProX-Code/issues/259326
 			weight: KeybindingWeight.WorkbenchContrib + 1
 		},
 		precondition: sharedWhenClause.terminalAvailable,
@@ -434,7 +434,7 @@ export function registerTerminalActions() {
 				secondary: [KeyMod.Alt | KeyMod.CtrlCmd | KeyCode.DownArrow]
 			},
 			when: ContextKeyExpr.and(TerminalContextKeys.focus, TerminalContextKeys.splitTerminalActive),
-			// Should win over send sequence commands https://github.com/microsoft/vscode/issues/259326
+			// Should win over send sequence commands https://github.com/ProXentix/ProX-Code/issues/259326
 			weight: KeybindingWeight.WorkbenchContrib + 1
 		},
 		precondition: sharedWhenClause.terminalAvailable,

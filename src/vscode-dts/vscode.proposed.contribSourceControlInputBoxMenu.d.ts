@@ -4,4 +4,4 @@
  *--------------------------------------------------------------------------------------------*/
 
 // empty placeholder declaration for the `scm/inputBox`-menu contribution point
-// https://github.com/microsoft/vscode/issues/195474
+// https://github.com/ProXentix/ProX-Code/issues/195474

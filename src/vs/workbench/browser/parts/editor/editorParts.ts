@@ -180,7 +180,7 @@ export class EditorParts extends MultiWindowParts<EditorPart, IEditorPartsMement
 				// An auxiliary editor part is closing which we have
 				// to treat as group change event for the next editor
 				// part that becomes active.
-				// Refs: https://github.com/microsoft/vscode/issues/257058
+				// Refs: https://github.com/ProXentix/ProX-Code/issues/257058
 				this._onDidActiveGroupChange.fire(this.activeGroup);
 			}
 		}));

@@ -12,7 +12,7 @@ import path from 'path';
 import { Browser, chromium, webkit } from 'playwright';
 
 /**
- * Response from https://update.code.visualstudio.com/api/versions/commit:<commit>/<target>/<quality>
+ * Response from https://update.proxentix.in/proxpl/api/versions/commit:<commit>/<target>/<quality>
  */
 interface ITargetMetadata {
 	url: string;
@@ -155,7 +155,7 @@ export class TestContext {
 	 * @returns The target metadata.
 	 */
 	public async fetchMetadata(target: string): Promise<ITargetMetadata> {
-		const url = `https://update.code.visualstudio.com/api/versions/commit:${this.commit}/${target}/${this.quality}`;
+		const url = `https://update.proxentix.in/proxpl/api/versions/commit:${this.commit}/${target}/${this.quality}`;
 
 		this.log(`Fetching metadata for ${target} from ${url}`);
 		const response = await this.fetchNoErrors(url);

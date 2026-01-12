@@ -74,7 +74,7 @@ export class NoneExecuteStrategy implements ITerminalExecuteStrategy {
 			// Execute the command
 			// IMPORTANT: This uses `sendText` not `runCommand` since when no shell integration
 			// is used as sending ctrl+c before a shell is initialized (eg. PSReadLine) can result
-			// in failure (https://github.com/microsoft/vscode/issues/258989)
+			// in failure (https://github.com/ProXentix/ProX-Code/issues/258989)
 			this._log(`Executing command line \`${commandLine}\``);
 			this._instance.sendText(commandLine, true);
 

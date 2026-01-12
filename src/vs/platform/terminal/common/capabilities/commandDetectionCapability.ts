@@ -418,7 +418,7 @@ export class CommandDetectionCapability extends Disposable implements ICommandDe
 			this._onBeforeCommandFinished.fire(newCommand);
 			// NOTE: onCommandFinished used to not fire if the command was invalid, but this causes
 			// problems especially with the associated execution event never firing in the extension
-			// API. See https://github.com/microsoft/vscode/issues/252489
+			// API. See https://github.com/ProXentix/ProX-Code/issues/252489
 			this._logService.debug('CommandDetectionCapability#onCommandFinished', newCommand);
 			this._onCommandFinished.fire(newCommand);
 		}

@@ -5,8 +5,8 @@
 
 declare module 'vscode' {
 
-	// https://github.com/microsoft/vscode/issues/267992
-	// and historically: https://github.com/microsoft/vscode/issues/260156
+	// https://github.com/ProXentix/ProX-Code/issues/267992
+	// and historically: https://github.com/ProXentix/ProX-Code/issues/260156
 
 	/**********
 	 * "Extension providing auth" API

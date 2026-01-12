@@ -142,7 +142,7 @@ export class CodeBlockModelCollection extends Disposable {
 		if (!entry) {
 			return;
 		}
-		// TODO: fill this in once we've implemented https://github.com/microsoft/vscode/issues/232538
+		// TODO: fill this in once we've implemented https://github.com/ProXentix/ProX-Code/issues/232538
 	}
 
 	async update(sessionResource: URI, chat: IChatRequestViewModel | IChatResponseViewModel, codeBlockIndex: number, content: CodeBlockContent): Promise<CodeBlockEntry> {

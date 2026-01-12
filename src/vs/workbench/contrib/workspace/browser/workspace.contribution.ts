@@ -114,7 +114,7 @@ export class WorkspaceTrustRequestHandler extends Disposable implements IWorkben
 				this.workspaceContextService.getWorkbenchState() !== WorkbenchState.EMPTY ?
 					localize('openLooseFileWorkspaceDetails', "You are trying to open untrusted files in a workspace which is trusted.") :
 					localize('openLooseFileWindowDetails', "You are trying to open untrusted files in a window which is trusted."),
-				localize('openLooseFileLearnMore', "If you don't want to open untrusted files, we recommend to open them in Restricted Mode in a new window as the files may be malicious. See [our docs](https://aka.ms/vscode-workspace-trust) to learn more.")
+				localize('openLooseFileLearnMore', "If you don't want to open untrusted files, we recommend to open them in Restricted Mode in a new window as the files may be malicious. See [our docs](https://proxentix.in/proxpl-workspace-trust) to learn more.")
 			];
 
 			// Dialog
@@ -179,7 +179,7 @@ export class WorkspaceTrustRequestHandler extends Disposable implements IWorkben
 					icon: Codicon.shield,
 					markdownDetails: [
 						{ markdown: new MarkdownString(details) },
-						{ markdown: new MarkdownString(localize('immediateTrustRequestLearnMore', "If you don't trust the authors of these files, we do not recommend continuing as the files may be malicious. See [our docs](https://aka.ms/vscode-workspace-trust) to learn more.")) }
+						{ markdown: new MarkdownString(localize('immediateTrustRequestLearnMore', "If you don't trust the authors of these files, we do not recommend continuing as the files may be malicious. See [our docs](https://proxentix.in/proxpl-workspace-trust) to learn more.")) }
 					]
 				},
 				buttons: buttons.filter(b => b.type !== 'Cancel').map(button => {
@@ -352,7 +352,7 @@ export class WorkspaceTrustUXHandler extends Disposable implements IWorkbenchCon
 					!isSingleFolderWorkspace ?
 						localize('workspaceStartupTrustDetails', "{0} provides features that may automatically execute files in this workspace.", this.productService.nameShort) :
 						localize('folderStartupTrustDetails', "{0} provides features that may automatically execute files in this folder.", this.productService.nameShort),
-					learnMoreString ?? localize('startupTrustRequestLearnMore', "If you don't trust the authors of these files, we recommend to continue in restricted mode as the files may be malicious. See [our docs](https://aka.ms/vscode-workspace-trust) to learn more."),
+					learnMoreString ?? localize('startupTrustRequestLearnMore', "If you don't trust the authors of these files, we recommend to continue in restricted mode as the files may be malicious. See [our docs](https://proxentix.in/proxpl-workspace-trust) to learn more."),
 					!isEmptyWindow ?
 						`\`${this.labelService.getWorkspaceLabel(workspaceIdentifier, { verbose: Verbosity.LONG })}\`` : '',
 				],
@@ -505,7 +505,7 @@ export class WorkspaceTrustUXHandler extends Disposable implements IWorkbenchCon
 				},
 				{
 					label: localize('restrictedModeBannerLearnMore', "Learn More"),
-					href: 'https://aka.ms/vscode-workspace-trust'
+					href: 'https://proxentix.in/proxpl-workspace-trust'
 				}
 			];
 
