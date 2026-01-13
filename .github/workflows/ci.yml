@@ -156,9 +156,9 @@ jobs:
         working-directory: ./test/monaco
         run: npm run esm-check
       - name: Typings validation
-        working-directory: ./typings-test
         run: |
           mkdir -p typings-test
+          cd typings-test
           npm init -yp
           ../node_modules/.bin/tsc --init
           echo "import '../out-monaco-editor-core';" > a.ts
