@@ -318,12 +318,6 @@ Root: {#SoftwareClassesRootKey}; Subkey: "Software\Classes\{#RegValueName}.confi
 Root: {#SoftwareClassesRootKey}; Subkey: "Software\Classes\{#RegValueName}.config\shell\open"; ValueType: string; ValueName: "Icon"; ValueData: """{app}\{#ExeBasename}.exe"""; Tasks: associatewithfiles
 Root: {#SoftwareClassesRootKey}; Subkey: "Software\Classes\{#RegValueName}.config\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#ExeBasename}.exe"" ""%1"""; Tasks: associatewithfiles
 
-Root: {#SoftwareClassesRootKey}; Subkey: "Software\Classes\.containerfile\OpenWithProgids"; ValueType: none; ValueName: "{#RegValueName}"; Flags: deletevalue uninsdeletevalue; Tasks: associatewithfiles
-Root: {#SoftwareClassesRootKey}; Subkey: "Software\Classes\.containerfile\OpenWithProgids"; ValueType: string; ValueName: "{#RegValueName}.containerfile"; ValueData: ""; Flags: uninsdeletevalue; Tasks: associatewithfiles
-Root: {#SoftwareClassesRootKey}; Subkey: "Software\Classes\{#RegValueName}.containerfile"; ValueType: string; ValueName: ""; ValueData: "{cm:SourceFile,Containerfile}"; Flags: uninsdeletekey; Tasks: associatewithfiles
-Root: {#SoftwareClassesRootKey}; Subkey: "Software\Classes\{#RegValueName}.containerfile"; ValueType: string; ValueName: "AppUserModelID"; ValueData: "{#AppUserId}"; Flags: uninsdeletekey; Tasks: associatewithfiles
-Root: {#SoftwareClassesRootKey}; Subkey: "Software\Classes\{#RegValueName}.containerfile\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\{#VersionedResourcesFolder}\resources\app\resources\win32\default.ico"; Tasks: associatewithfiles
-Root: {#SoftwareClassesRootKey}; Subkey: "Software\Classes\{#RegValueName}.containerfile\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#ExeBasename}.exe"" ""%1"""; Tasks: associatewithfiles
 
 Root: {#SoftwareClassesRootKey}; Subkey: "Software\Classes\.cpp\OpenWithProgids"; ValueType: none; ValueName: "{#RegValueName}"; Flags: deletevalue uninsdeletevalue; Tasks: associatewithfiles
 Root: {#SoftwareClassesRootKey}; Subkey: "Software\Classes\.cpp\OpenWithProgids"; ValueType: string; ValueName: "{#RegValueName}.cpp"; ValueData: ""; Flags: uninsdeletevalue; Tasks: associatewithfiles
@@ -413,13 +407,6 @@ Root: {#SoftwareClassesRootKey}; Subkey: "Software\Classes\{#RegValueName}.diff\
 Root: {#SoftwareClassesRootKey}; Subkey: "Software\Classes\{#RegValueName}.diff\shell\open"; ValueType: string; ValueName: "Icon"; ValueData: """{app}\{#ExeBasename}.exe"""; Tasks: associatewithfiles
 Root: {#SoftwareClassesRootKey}; Subkey: "Software\Classes\{#RegValueName}.diff\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#ExeBasename}.exe"" ""%1"""; Tasks: associatewithfiles
 
-Root: {#SoftwareClassesRootKey}; Subkey: "Software\Classes\.dockerfile\OpenWithProgids"; ValueType: none; ValueName: "{#RegValueName}"; Flags: deletevalue uninsdeletevalue; Tasks: associatewithfiles
-Root: {#SoftwareClassesRootKey}; Subkey: "Software\Classes\.dockerfile\OpenWithProgids"; ValueType: string; ValueName: "{#RegValueName}.dockerfile"; ValueData: ""; Flags: uninsdeletevalue; Tasks: associatewithfiles
-Root: {#SoftwareClassesRootKey}; Subkey: "Software\Classes\{#RegValueName}.dockerfile"; ValueType: string; ValueName: ""; ValueData: "{cm:SourceFile,Dockerfile}"; Flags: uninsdeletekey; Tasks: associatewithfiles
-Root: {#SoftwareClassesRootKey}; Subkey: "Software\Classes\{#RegValueName}.dockerfile"; ValueType: string; ValueName: "AppUserModelID"; ValueData: "{#AppUserId}"; Flags: uninsdeletekey; Tasks: associatewithfiles
-Root: {#SoftwareClassesRootKey}; Subkey: "Software\Classes\{#RegValueName}.dockerfile\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\{#VersionedResourcesFolder}\resources\app\resources\win32\default.ico"; Tasks: associatewithfiles
-Root: {#SoftwareClassesRootKey}; Subkey: "Software\Classes\{#RegValueName}.dockerfile\shell\open"; ValueType: string; ValueName: "Icon"; ValueData: """{app}\{#ExeBasename}.exe"""; Tasks: associatewithfiles
-Root: {#SoftwareClassesRootKey}; Subkey: "Software\Classes\{#RegValueName}.dockerfile\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#ExeBasename}.exe"" ""%1"""; Tasks: associatewithfiles
 
 Root: {#SoftwareClassesRootKey}; Subkey: "Software\Classes\.dot\OpenWithProgids"; ValueType: none; ValueName: "{#RegValueName}"; Flags: deletevalue uninsdeletevalue; Tasks: associatewithfiles
 Root: {#SoftwareClassesRootKey}; Subkey: "Software\Classes\.dot\OpenWithProgids"; ValueType: string; ValueName: "{#RegValueName}.dot"; ValueData: ""; Flags: uninsdeletevalue; Tasks: associatewithfiles

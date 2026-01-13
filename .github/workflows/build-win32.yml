@@ -1,0 +1,57 @@
+name: Build Win32
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    name: Build Windows x64
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout ProX-Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: |
+          npm ci
+        env:
+          npm_config_arch: x64
+          ELECTRON_SKIP_BINARY_DOWNLOAD: 1
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+
+      - name: Transpile client and extensions
+        run: |
+          npm run gulp transpile-client-esbuild transpile-extensions
+
+      - name: Build client
+        run: |
+          npm run gulp "vscode-win32-x64-min-ci"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build inno updater
+        run: |
+          npm run gulp "vscode-win32-x64-inno-updater"
+
+      - name: Build user setup
+        run: |
+          npm run gulp "vscode-win32-x64-user-setup"
+
+      - name: Upload Installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: ProX-Code-Windows-x64-Setup
+          path: .build/win32-x64/user-setup/VSCodeSetup.exe

@@ -101,9 +101,6 @@ export const upstreamSpecs = [
 	// Android
 	'adb',
 
-	// Docker
-	'docker',
-	'docker-compose',
 
 	// Dotnet
 	'dotnet',
