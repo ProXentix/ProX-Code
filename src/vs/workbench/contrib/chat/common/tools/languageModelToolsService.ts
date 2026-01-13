@@ -360,7 +360,7 @@ export type CountTokensCallback = (input: string, token: CancellationToken) => P
 
 export interface ILanguageModelToolsService {
 	_serviceBrand: undefined;
-	readonly vscodeToolSet: ToolSet;
+	readonly proxCodeToolSet: ToolSet;
 	readonly executeToolSet: ToolSet;
 	readonly readToolSet: ToolSet;
 	readonly onDidChangeTools: Event<void>;
@@ -401,7 +401,7 @@ export function createToolSchemaUri(toolOrId: IToolData | string): URI {
 	if (typeof toolOrId !== 'string') {
 		toolOrId = toolOrId.id;
 	}
-	return URI.from({ scheme: Schemas.prox-code, authority: 'schemas', path: `/lm/tool/${toolOrId}` });
+	return URI.from({ scheme: Schemas.proxCode, authority: 'schemas', path: `/lm/tool/${toolOrId}` });
 }
 
 export namespace SpecedToolAliases {
@@ -416,6 +416,6 @@ export namespace SpecedToolAliases {
 
 export namespace VSCodeToolReference {
 	export const runSubagent = 'runSubagent';
-	export const vscode = 'vscode';
+	export const proxCode = 'vscode';
 
 }

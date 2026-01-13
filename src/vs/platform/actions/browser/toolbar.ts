@@ -353,7 +353,7 @@ export class MenuWorkbenchToolBar extends WorkbenchToolBar {
 				if (!provider) {
 					provider = options?.actionViewItemProvider;
 				}
-				const viewItem = provider?.(action, opts, instantiationService, getWindow(container).prox-codeWindowId);
+				const viewItem = provider?.(action, opts, instantiationService, getWindow(container).proxCodeWindowId);
 				if (viewItem) {
 					return viewItem;
 				}

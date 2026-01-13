@@ -52,9 +52,9 @@ declare const process: INodeProcess;
 const $globalThis: any = globalThis;
 
 let nodeProcess: INodeProcess | undefined = undefined;
-if (typeof $globalThis.prox-code !== 'undefined' && typeof $globalThis.prox-code.process !== 'undefined') {
+if (typeof $globalThis.proxCode !== 'undefined' && typeof $globalThis.proxCode.process !== 'undefined') {
 	// Native environment (sandboxed)
-	nodeProcess = $globalThis.prox-code.process;
+	nodeProcess = $globalThis.proxCode.process;
 } else if (typeof process !== 'undefined' && typeof process?.versions?.node === 'string') {
 	// Native environment (non-sandboxed)
 	nodeProcess = process;
@@ -224,10 +224,10 @@ export const setTimeout0 = (() => {
 		const pending: IQueueElement[] = [];
 
 		$globalThis.addEventListener('message', (e: any) => {
-			if (e.data && e.data.prox-codeScheduleAsyncWork) {
+			if (e.data && e.data.proxCodeScheduleAsyncWork) {
 				for (let i = 0, len = pending.length; i < len; i++) {
 					const candidate = pending[i];
-					if (candidate.id === e.data.prox-codeScheduleAsyncWork) {
+					if (candidate.id === e.data.proxCodeScheduleAsyncWork) {
 						pending.splice(i, 1);
 						candidate.callback();
 						return;
@@ -242,7 +242,7 @@ export const setTimeout0 = (() => {
 				id: myId,
 				callback: callback
 			});
-			$globalThis.postMessage({ vscodeScheduleAsyncWork: myId }, '*');
+			$globalThis.postMessage({ proxCodeScheduleAsyncWork: myId }, '*');
 		};
 	}
 	return (callback: () => void) => setTimeout(callback);

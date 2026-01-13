@@ -596,10 +596,10 @@ function getDomSanitizerConfig(mdStrConfig: MdStrConfig, options: MarkdownSaniti
 		Schemas.https,
 		Schemas.mailto,
 		Schemas.file,
-		Schemas.prox-codeFileResource,
-		Schemas.prox-codeRemote,
-		Schemas.prox-codeRemoteResource,
-		Schemas.prox-codeNotebookCell,
+		Schemas.proxCodeFileResource,
+		Schemas.proxCodeRemote,
+		Schemas.proxCodeRemoteResource,
+		Schemas.proxCodeNotebookCell,
 		// For links that are handled entirely by the action handler
 		Schemas.internal,
 	];
@@ -633,9 +633,9 @@ function getDomSanitizerConfig(mdStrConfig: MdStrConfig, options: MarkdownSaniti
 				Schemas.https,
 				Schemas.data,
 				Schemas.file,
-				Schemas.prox-codeFileResource,
-				Schemas.prox-codeRemote,
-				Schemas.prox-codeRemoteResource,
+				Schemas.proxCodeFileResource,
+				Schemas.proxCodeRemote,
+				Schemas.proxCodeRemoteResource,
 			]
 		},
 		allowRelativeMediaPaths: !!mdStrConfig.baseUri,

@@ -295,7 +295,7 @@ if (PasteAction) {
 			}
 
 			logService.trace('registerExecCommandImpl (before triggerPaste)');
-			const triggerPaste = clipboardService.triggerPaste(getActiveWindow().prox-codeWindowId);
+			const triggerPaste = clipboardService.triggerPaste(getActiveWindow().proxCodeWindowId);
 			if (triggerPaste) {
 				logService.trace('registerExecCommandImpl (triggerPaste defined)');
 				return triggerPaste.then(async () => {
@@ -339,7 +339,7 @@ if (PasteAction) {
 	PasteAction.addImplementation(0, 'generic-dom', (accessor: ServicesAccessor, args: unknown) => {
 		const logService = accessor.get(ILogService);
 		logService.trace('registerExecCommandImpl (addImplementation generic-dom for : paste)');
-		const triggerPaste = accessor.get(IClipboardService).triggerPaste(getActiveWindow().prox-codeWindowId);
+		const triggerPaste = accessor.get(IClipboardService).triggerPaste(getActiveWindow().proxCodeWindowId);
 		return triggerPaste ?? false;
 	});
 }

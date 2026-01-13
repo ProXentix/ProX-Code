@@ -22,7 +22,7 @@ function shouldIncludeLocationLink(sourceModel: ITextModel, loc: LocationLink): 
 	}
 
 	// Otherwise filter out locations from internal schemes
-	if (matchesSomeScheme(loc.uri, Schemas.walkThroughSnippet, Schemas.prox-codeChatCodeBlock, Schemas.prox-codeChatCodeCompareBlock)) {
+	if (matchesSomeScheme(loc.uri, Schemas.walkThroughSnippet, Schemas.proxCodeChatCodeBlock, Schemas.proxCodeChatCodeCompareBlock)) {
 		return false;
 	}
 

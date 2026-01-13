@@ -12,7 +12,7 @@ import { generateUuid } from '../../../base/common/uuid.js';
  */
 export namespace BrowserViewUri {
 
-	export const scheme = Schemas.prox-codeBrowser;
+	export const scheme = Schemas.proxCodeBrowser;
 
 	/**
 	 * Creates a resource URI for a browser view with the given URL.

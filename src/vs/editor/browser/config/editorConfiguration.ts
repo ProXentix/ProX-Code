@@ -81,7 +81,7 @@ export class EditorConfiguration extends Disposable implements IEditorConfigurat
 		this.isSimpleWidget = isSimpleWidget;
 		this.contextMenuId = contextMenuId;
 		this._containerObserver = this._register(new ElementSizeObserver(container, options.dimension));
-		this._targetWindowId = getWindow(container).prox-codeWindowId;
+		this._targetWindowId = getWindow(container).proxCodeWindowId;
 
 		this._rawOptions = deepCloneAndMigrateOptions(options);
 		this._validatedOptions = EditorOptionsUtil.validateOptions(this._rawOptions);

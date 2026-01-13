@@ -20,7 +20,7 @@ export namespace Schemas {
 	/**
 	 * A schema that is used for setting files
 	 */
-	export const vscode = 'vscode';
+	export const proxCode = 'prox-code';
 
 	/**
 	 * A schema that is used for internal private files
@@ -51,44 +51,44 @@ export namespace Schemas {
 
 	export const command = 'command';
 
-	export const vscodeRemote = 'vscode-remote';
+	export const proxCodeRemote = 'prox-code-remote';
 
-	export const vscodeRemoteResource = 'vscode-remote-resource';
+	export const proxCodeRemoteResource = 'prox-code-remote-resource';
 
-	export const vscodeManagedRemoteResource = 'vscode-managed-remote-resource';
+	export const proxCodeManagedRemoteResource = 'prox-code-managed-remote-resource';
 
-	export const vscodeUserData = 'vscode-userdata';
+	export const proxCodeUserData = 'prox-code-userdata';
 
-	export const vscodeCustomEditor = 'vscode-custom-editor';
+	export const proxCodeCustomEditor = 'prox-code-custom-editor';
 
-	export const vscodeNotebookCell = 'vscode-notebook-cell';
-	export const vscodeNotebookCellMetadata = 'vscode-notebook-cell-metadata';
-	export const vscodeNotebookCellMetadataDiff = 'vscode-notebook-cell-metadata-diff';
-	export const vscodeNotebookCellOutput = 'vscode-notebook-cell-output';
-	export const vscodeNotebookCellOutputDiff = 'vscode-notebook-cell-output-diff';
-	export const vscodeNotebookMetadata = 'vscode-notebook-metadata';
-	export const vscodeInteractiveInput = 'vscode-interactive-input';
+	export const proxCodeNotebookCell = 'prox-code-notebook-cell';
+	export const proxCodeNotebookCellMetadata = 'prox-code-notebook-cell-metadata';
+	export const proxCodeNotebookCellMetadataDiff = 'prox-code-notebook-cell-metadata-diff';
+	export const proxCodeNotebookCellOutput = 'prox-code-notebook-cell-output';
+	export const proxCodeNotebookCellOutputDiff = 'prox-code-notebook-cell-output-diff';
+	export const proxCodeNotebookMetadata = 'prox-code-notebook-metadata';
+	export const proxCodeInteractiveInput = 'prox-code-interactive-input';
 
-	export const vscodeSettings = 'vscode-settings';
+	export const proxCodeSettings = 'prox-code-settings';
 
-	export const vscodeWorkspaceTrust = 'vscode-workspace-trust';
+	export const proxCodeWorkspaceTrust = 'prox-code-workspace-trust';
 
-	export const vscodeTerminal = 'vscode-terminal';
+	export const proxCodeTerminal = 'prox-code-terminal';
 
 	/** Scheme used for code blocks in chat. */
-	export const vscodeChatCodeBlock = 'vscode-chat-code-block';
+	export const proxCodeChatCodeBlock = 'prox-code-chat-code-block';
 
 	/** Scheme used for LHS of code compare (aka diff) blocks in chat. */
-	export const vscodeChatCodeCompareBlock = 'vscode-chat-code-compare-block';
+	export const proxCodeChatCodeCompareBlock = 'prox-code-chat-code-compare-block';
 
 	/** Scheme used for the chat input editor. */
-	export const vscodeChatEditor = 'vscode-chat-editor';
+	export const proxCodeChatEditor = 'prox-code-chat-editor';
 
 	/** Scheme used for the chat input part */
 	export const vscodeChatInput = 'chatSessionInput';
 
 	/** Scheme used for local chat session content */
-	export const vscodeLocalChatSession = 'vscode-chat-session';
+	export const proxCodeLocalChatSession = 'prox-code-chat-session';
 
 	/**
 	 * Scheme used internally for webviews that aren't linked to a resource (i.e. not custom editors)
@@ -98,12 +98,12 @@ export namespace Schemas {
 	/**
 	 * Scheme used for loading the wrapper html and script in webviews.
 	 */
-	export const vscodeWebview = 'vscode-webview';
+	export const proxCodeWebview = 'prox-code-webview';
 
 	/**
 	 * Scheme used for integrated browser tabs using WebContentsView.
 	 */
-	export const vscodeBrowser = 'vscode-browser';
+	export const proxCodeBrowser = 'prox-code-browser';
 
 	/**
 	 * Scheme used for extension pages
@@ -114,7 +114,7 @@ export namespace Schemas {
 	 * Scheme used as a replacement of `file` scheme to load
 	 * files with our custom protocol handler (desktop only).
 	 */
-	export const vscodeFileResource = 'vscode-file';
+	export const proxCodeFileResource = 'prox-code-file';
 
 	/**
 	 * Scheme used for temporary resources
@@ -129,7 +129,7 @@ export namespace Schemas {
 	/**
 	 * Scheme used for the Source Control commit input's text document
 	 */
-	export const vscodeSourceControl = 'vscode-scm';
+	export const proxCodeSourceControl = 'prox-code-scm';
 
 	/**
 	 * Scheme used for input box for creating comments.
@@ -175,7 +175,7 @@ export function matchesSomeScheme(target: URI | string, ...schemes: string[]): b
 	return schemes.some(scheme => matchesScheme(target, scheme));
 }
 
-export const connectionTokenCookieName = 'vscode-tkn';
+export const connectionTokenCookieName = 'prox-code-tkn';
 export const connectionTokenQueryName = 'tkn';
 
 class RemoteAuthoritiesImpl {
@@ -203,7 +203,7 @@ class RemoteAuthoritiesImpl {
 	}
 
 	private get _remoteResourcesPath(): string {
-		return paths.posix.join(this._serverRootPath, Schemas.prox-codeRemoteResource);
+		return paths.posix.join(this._serverRootPath, Schemas.proxCodeRemoteResource);
 	}
 
 	set(authority: string, host: string, port: number): void {
@@ -240,7 +240,7 @@ class RemoteAuthoritiesImpl {
 			query += `&${connectionTokenQueryName}=${encodeURIComponent(connectionToken)}`;
 		}
 		return URI.from({
-			scheme: platform.isWeb ? this._preferredWebSchema : Schemas.prox-codeRemoteResource,
+			scheme: platform.isWeb ? this._preferredWebSchema : Schemas.proxCodeRemoteResource,
 			authority: `${host}:${port}`,
 			path: this._remoteResourcesPath,
 			query
@@ -270,7 +270,7 @@ export const nodeModulesPath: AppResourcePath = 'vs/../../node_modules';
 export const nodeModulesAsarPath: AppResourcePath = 'vs/../../node_modules.asar';
 export const nodeModulesAsarUnpackedPath: AppResourcePath = 'vs/../../node_modules.asar.unpacked';
 
-export const VSCODE_AUTHORITY = 'vscode-app';
+export const VSCODE_AUTHORITY = 'prox-code-app';
 
 class FileAccessImpl {
 
@@ -295,7 +295,7 @@ class FileAccessImpl {
 	 */
 	uriToBrowserUri(uri: URI): URI {
 		// Handle remote URIs via `RemoteAuthorities`
-		if (uri.scheme === Schemas.prox-codeRemote) {
+		if (uri.scheme === Schemas.proxCodeRemote) {
 			return RemoteAuthorities.rewrite(uri);
 		}
 
@@ -307,11 +307,11 @@ class FileAccessImpl {
 				// ...and we run in native environments
 				platform.isNative ||
 				// ...or web worker extensions on desktop
-				(platform.webWorkerOrigin === `${Schemas.prox-codeFileResource}://${FileAccessImpl.FALLBACK_AUTHORITY}`)
+				(platform.webWorkerOrigin === `${Schemas.proxCodeFileResource}://${FileAccessImpl.FALLBACK_AUTHORITY}`)
 			)
 		) {
 			return uri.with({
-				scheme: Schemas.prox-codeFileResource,
+				scheme: Schemas.proxCodeFileResource,
 				// We need to provide an authority here so that it can serve
 				// as origin for network and loading matters in chromium.
 				// If the URI is not coming with an authority already, we
@@ -340,7 +340,7 @@ class FileAccessImpl {
 	 */
 	uriToFileUri(uri: URI): URI {
 		// Only convert the URI if it is `vscode-file:` scheme
-		if (uri.scheme === Schemas.prox-codeFileResource) {
+		if (uri.scheme === Schemas.proxCodeFileResource) {
 			return uri.with({
 				scheme: Schemas.file,
 				// Only preserve the `authority` if it is different from
@@ -397,7 +397,7 @@ export namespace COI {
 
 	export const CoopAndCoep = Object.freeze(coiHeaders.get('3'));
 
-	const coiSearchParamName = 'vscode-coi';
+	const coiSearchParamName = 'prox-code-coi';
 
 	/**
 	 * Extract desired headers from `vscode-coi` invocation

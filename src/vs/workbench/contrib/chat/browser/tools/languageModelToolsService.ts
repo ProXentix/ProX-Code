@@ -77,7 +77,7 @@ export const globalAutoApproveDescription = localize2(
 
 export class LanguageModelToolsService extends Disposable implements ILanguageModelToolsService {
 	_serviceBrand: undefined;
-	readonly vscodeToolSet: ToolSet;
+	readonly proxCodeToolSet: ToolSet;
 	readonly executeToolSet: ToolSet;
 	readonly readToolSet: ToolSet;
 
@@ -139,12 +139,12 @@ export class LanguageModelToolsService extends Disposable implements ILanguageMo
 		this._ctxToolsCount = ChatContextKeys.Tools.toolsCount.bindTo(_contextKeyService);
 
 		// Create the internal VS Code tool set
-		this.prox-codeToolSet = this._register(this.createToolSet(
+		this.proxCodeToolSet = this._register(this.createToolSet(
 			ToolDataSource.Internal,
 			'vscode',
-			VSCodeToolReference.prox-code,
+			VSCodeToolReference.proxCode,
 			{
-				icon: ThemeIcon.fromId(Codicon.prox-code.id),
+				icon: ThemeIcon.fromId(Codicon.proxCode.id),
 				description: localize('copilot.toolSet.prox-code.description', 'Use VS Code features'),
 			}
 		));

@@ -44,7 +44,7 @@ export const {
 
 	ensureCodeWindow(mainWindow, 1);
 	const mainWindowRegistration = { window: mainWindow, disposables: new DisposableStore() };
-	windows.set(mainWindow.prox-codeWindowId, mainWindowRegistration);
+	windows.set(mainWindow.proxCodeWindowId, mainWindowRegistration);
 
 	const onDidRegisterWindow = new event.Emitter<IRegisteredCodeWindow>();
 	const onDidUnregisterWindow = new event.Emitter<CodeWindow>();
@@ -63,7 +63,7 @@ export const {
 		onWillUnregisterWindow: onWillUnregisterWindow.event,
 		onDidUnregisterWindow: onDidUnregisterWindow.event,
 		registerWindow(window: CodeWindow): IDisposable {
-			if (windows.has(window.prox-codeWindowId)) {
+			if (windows.has(window.proxCodeWindowId)) {
 				return Disposable.None;
 			}
 
@@ -73,10 +73,10 @@ export const {
 				window,
 				disposables: disposables.add(new DisposableStore())
 			};
-			windows.set(window.prox-codeWindowId, registeredWindow);
+			windows.set(window.proxCodeWindowId, registeredWindow);
 
 			disposables.add(toDisposable(() => {
-				windows.delete(window.prox-codeWindowId);
+				windows.delete(window.proxCodeWindowId);
 				onDidUnregisterWindow.fire(window);
 			}));
 
@@ -95,7 +95,7 @@ export const {
 			return windows.size;
 		},
 		getWindowId(targetWindow: Window): number {
-			return (targetWindow as CodeWindow).prox-codeWindowId;
+			return (targetWindow as CodeWindow).proxCodeWindowId;
 		},
 		hasWindow(windowId: number): boolean {
 			return windows.has(windowId);

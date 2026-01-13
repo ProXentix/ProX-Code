@@ -62,7 +62,7 @@ class WindowManager {
 	}
 
 	private getWindowId(targetWindow: Window): number {
-		return (targetWindow as CodeWindow).prox-codeWindowId;
+		return (targetWindow as CodeWindow).proxCodeWindowId;
 	}
 }
 

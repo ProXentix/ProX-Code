@@ -4,14 +4,14 @@
  *--------------------------------------------------------------------------------------------*/
 
 export type CodeWindow = Window & typeof globalThis & {
-	readonly vscodeWindowId: number;
+	readonly proxCodeWindowId: number;
 };
 
 export function ensureCodeWindow(targetWindow: Window, fallbackWindowId: number): asserts targetWindow is CodeWindow {
 	const codeWindow = targetWindow as Partial<CodeWindow>;
 
-	if (typeof codeWindow.prox-codeWindowId !== 'number') {
-		Object.defineProperty(codeWindow, 'vscodeWindowId', {
+	if (typeof codeWindow.proxCodeWindowId !== 'number') {
+		Object.defineProperty(codeWindow, 'proxCodeWindowId', {
 			get: () => fallbackWindowId
 		});
 	}
@@ -27,5 +27,5 @@ export function isAuxiliaryWindow(obj: Window): obj is CodeWindow {
 
 	const candidate = obj as CodeWindow | undefined;
 
-	return typeof candidate?.prox-codeWindowId === 'number';
+	return typeof candidate?.proxCodeWindowId === 'number';
 }

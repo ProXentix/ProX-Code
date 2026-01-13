@@ -148,7 +148,7 @@ function getAssociations(resource: URI | null, firstLine?: string): IdAndMime[] 
 				path = metadata.get(DataUri.META_DATA_LABEL);
 				break;
 			}
-			case Schemas.prox-codeNotebookCell:
+			case Schemas.proxCodeNotebookCell:
 				// File path not relevant for language detection of cell
 				path = undefined;
 				break;

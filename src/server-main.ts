@@ -20,7 +20,7 @@ import { INLSConfiguration } from './vs/nls.js';
 import { IServerAPI } from './vs/server/node/remoteExtensionHostAgentServer.js';
 
 perf.mark('code/server/start');
-(globalThis as { vscodeServerStartTime?: number }).prox-codeServerStartTime = performance.now();
+(globalThis as { proxCodeServerStartTime?: number }).proxCodeServerStartTime = performance.now();
 
 // Do a quick parse to determine if a server or the cli needs to be started
 const parsedArgs = minimist(process.argv.slice(2), {
@@ -138,7 +138,7 @@ if (shouldSpawnCli) {
 		console.log(output);
 
 		perf.mark('code/server/started');
-		(globalThis as { vscodeServerListenTime?: number }).prox-codeServerListenTime = performance.now();
+		(globalThis as { proxCodeServerListenTime?: number }).proxCodeServerListenTime = performance.now();
 
 		await getRemoteExtensionHostAgentServer();
 	});
