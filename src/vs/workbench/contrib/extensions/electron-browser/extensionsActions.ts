@@ -21,7 +21,7 @@ export class OpenExtensionsFolderAction extends Action2 {
 			id: 'workbench.extensions.action.openExtensionsFolder',
 			title: localize2('openExtensionsFolder', 'Open Extensions Folder'),
 			category: Categories.Developer,
-			f1: true
+			f1: false
 		});
 	}
 
@@ -53,7 +53,7 @@ export class CleanUpExtensionsFolderAction extends Action2 {
 			id: '_workbench.extensions.action.cleanUpExtensionsFolder',
 			title: localize2('cleanUpExtensionsFolder', 'Cleanup Extensions Folder'),
 			category: Categories.Developer,
-			f1: true
+			f1: false
 		});
 	}
 

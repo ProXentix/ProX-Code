@@ -222,7 +222,7 @@ export class ExtensionsViewletViewsContribution extends Disposable implements IW
 							},
 							category: REMOTE_CATEGORY,
 							icon: installLocalInRemoteIcon,
-							f1: true,
+							f1: false,
 							menu: {
 								id: MenuId.ViewTitle,
 								when: ContextKeyExpr.equals('view', id),
@@ -244,7 +244,7 @@ export class ExtensionsViewletViewsContribution extends Disposable implements IW
 						id: 'workbench.extensions.actions.installLocalExtensionsInRemote',
 						title: localize2('install remote in local', 'Install Remote Extensions Locally...'),
 						category: REMOTE_CATEGORY,
-						f1: true
+						f1: false
 					});
 				}
 				run(accessor: ServicesAccessor): Promise<void> {

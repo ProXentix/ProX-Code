@@ -111,6 +111,7 @@ Registry.as<IEditorPaneRegistry>(EditorExtensions.EditorPane).registerEditorPane
 		new SyncDescriptor(ExtensionsInput)
 	]);
 
+/*
 export const VIEW_CONTAINER = Registry.as<IViewContainersRegistry>(ViewContainerExtensions.ViewContainersRegistry).registerViewContainer(
 	{
 		id: VIEWLET_ID,
@@ -127,6 +128,7 @@ export const VIEW_CONTAINER = Registry.as<IViewContainersRegistry>(ViewContainer
 		rejectAddedViews: true,
 		alwaysUseContainerInfo: true,
 	}, ViewContainerLocation.Sidebar);
+*/
 
 Registry.as<IConfigurationRegistry>(ConfigurationExtensions.Configuration)
 	.registerConfiguration({
@@ -606,28 +608,30 @@ class ExtensionsContributions extends Disposable implements IWorkbenchContributi
 
 	// Global actions
 	private registerGlobalActions(): void {
-		this._register(MenuRegistry.appendMenuItem(MenuId.MenubarPreferencesMenu, {
-			command: {
-				id: VIEWLET_ID,
-				title: localize({ key: 'miPreferencesExtensions', comment: ['&& denotes a mnemonic'] }, "&&Extensions")
-			},
-			group: '2_configuration',
-			order: 3
-		}));
-		this._register(MenuRegistry.appendMenuItem(MenuId.GlobalActivity, {
-			command: {
-				id: VIEWLET_ID,
-				title: localize('showExtensions', "Extensions")
-			},
-			group: '2_configuration',
-			order: 3
-		}));
+		/*
+				this._register(MenuRegistry.appendMenuItem(MenuId.MenubarPreferencesMenu, {
+					command: {
+						id: VIEWLET_ID,
+						title: localize({ key: 'miPreferencesExtensions', comment: ['&& denotes a mnemonic'] }, "&&Extensions")
+					},
+					group: '2_configuration',
+					order: 3
+				}));
+				this._register(MenuRegistry.appendMenuItem(MenuId.GlobalActivity, {
+					command: {
+						id: VIEWLET_ID,
+						title: localize('showExtensions', "Extensions")
+					},
+					group: '2_configuration',
+					order: 3
+				}));
+		*/
 
 		this.registerExtensionAction({
 			id: 'workbench.extensions.action.focusExtensionsView',
 			title: localize2('focusExtensions', 'Focus on Extensions View'),
 			category: ExtensionsLocalizedLabel,
-			f1: true,
+			f1: false,
 			run: async (accessor: ServicesAccessor) => {
 				await accessor.get(IExtensionsWorkbenchService).openSearch('');
 			}
@@ -1084,7 +1088,7 @@ class ExtensionsContributions extends Disposable implements IWorkbenchContributi
 			id: 'workbench.extensions.action.installedExtensions',
 			title: localize2('installedExtensions', 'Show Installed Extensions'),
 			category: ExtensionsLocalizedLabel,
-			f1: true,
+			f1: false,
 			menu: [{
 				id: extensionsFilterSubMenu,
 				group: '3_installed',
@@ -1119,7 +1123,7 @@ class ExtensionsContributions extends Disposable implements IWorkbenchContributi
 			title: localize2('extensionUpdates', 'Show Extension Updates'),
 			category: ExtensionsLocalizedLabel,
 			precondition: CONTEXT_HAS_GALLERY,
-			f1: true,
+			f1: false,
 			menu: [{
 				id: extensionsFilterSubMenu,
 				group: '3_installed',
@@ -1228,7 +1232,7 @@ class ExtensionsContributions extends Disposable implements IWorkbenchContributi
 			title: localize2('clearExtensionsSearchResults', 'Clear Extensions Search Results'),
 			category: ExtensionsLocalizedLabel,
 			icon: clearSearchResultsIcon,
-			f1: true,
+			f1: false,
 			precondition: SearchHasTextContext,
 			menu: {
 				id: extensionsSearchActionsMenu,
@@ -1250,7 +1254,7 @@ class ExtensionsContributions extends Disposable implements IWorkbenchContributi
 			title: localize2('refreshExtension', 'Refresh'),
 			category: ExtensionsLocalizedLabel,
 			icon: refreshIcon,
-			f1: true,
+			f1: false,
 			menu: {
 				id: MenuId.ViewContainerTitle,
 				when: ContextKeyExpr.equals('viewContainer', VIEWLET_ID),
@@ -1901,7 +1905,7 @@ class ExtensionsContributions extends Disposable implements IWorkbenchContributi
 			id: 'workbench.extensions.action.manageTrustedPublishers',
 			title: localize2('workbench.extensions.action.manageTrustedPublishers', "Manage Trusted Extension Publishers"),
 			category: EXTENSIONS_CATEGORY,
-			f1: true,
+			f1: false,
 			run: async (accessor: ServicesAccessor) => {
 				const quickInputService = accessor.get(IQuickInputService);
 				const extensionManagementService = accessor.get(IWorkbenchExtensionManagementService);
@@ -2024,7 +2028,7 @@ class ExtensionToolsContribution extends Disposable implements IWorkbenchContrib
 		super();
 		const searchExtensionsTool = instantiationService.createInstance(SearchExtensionsTool);
 		this._register(toolsService.registerTool(SearchExtensionsToolData, searchExtensionsTool));
-		this._register(toolsService.prox-codeToolSet.addTool(SearchExtensionsToolData));
+		this._register(toolsService.prox - codeToolSet.addTool(SearchExtensionsToolData));
 	}
 }
 

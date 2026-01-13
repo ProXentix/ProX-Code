@@ -390,8 +390,8 @@ export abstract class AbstractRuntimeExtensionsEditor extends EditorPane {
 				let extraLabel: string | null = null;
 				if (element.status.runningLocation && element.status.runningLocation.equals(new LocalWebWorkerRunningLocation(0))) {
 					extraLabel = `$(globe) web worker`;
-				} else if (element.description.extensionLocation.scheme === Schemas.prox-codeRemote) {
-					const hostLabel = this._labelService.getHostLabel(Schemas.prox-codeRemote, this._environmentService.remoteAuthority);
+				} else if (element.description.extensionLocation.scheme === Schemas.prox - codeRemote) {
+					const hostLabel = this._labelService.getHostLabel(Schemas.prox - codeRemote, this._environmentService.remoteAuthority);
 					if (hostLabel) {
 						extraLabel = `$(remote) ${hostLabel}`;
 					} else {
@@ -519,7 +519,7 @@ export class ShowRuntimeExtensionsAction extends Action2 {
 			id: 'workbench.action.showRuntimeExtensions',
 			title: nls.localize2('showRuntimeExtensions', "Show Running Extensions"),
 			category: Categories.Developer,
-			f1: true,
+			f1: false,
 			menu: {
 				id: MenuId.ViewContainerTitle,
 				when: ContextKeyExpr.equals('viewContainer', 'workbench.view.extensions'),

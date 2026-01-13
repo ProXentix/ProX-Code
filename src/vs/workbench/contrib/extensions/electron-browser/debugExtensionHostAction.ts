@@ -34,7 +34,7 @@ export class DebugExtensionHostInDevToolsAction extends Action2 {
 			id: 'workbench.extensions.action.devtoolsExtensionHost',
 			title: nls.localize2('openDevToolsForExtensionHost', 'Debug Extension Host In Dev Tools'),
 			category: Categories.Developer,
-			f1: true,
+			f1: false,
 			icon: Codicon.debugStart,
 		});
 	}
@@ -81,7 +81,7 @@ export class DebugExtensionHostInNewWindowAction extends Action2 {
 			id: 'workbench.extensions.action.debugExtensionHost',
 			title: nls.localize2('debugExtensionHost', "Debug Extension Host In New Window"),
 			category: Categories.Developer,
-			f1: true,
+			f1: false,
 			icon: Codicon.debugStart,
 			menu: {
 				id: MenuId.EditorTitle,

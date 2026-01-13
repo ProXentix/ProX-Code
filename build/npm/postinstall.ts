@@ -127,6 +127,11 @@ function removeParcelWatcherPrebuild(dir: string) {
 
 for (const dir of dirs) {
 
+	if (dir !== '' && !fs.existsSync(path.join(root, dir))) {
+		log(dir, 'Skipping non-existent directory');
+		continue;
+	}
+
 	if (dir === '') {
 		removeParcelWatcherPrebuild(dir);
 		continue; // already executed in root
