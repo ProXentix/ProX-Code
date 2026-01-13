@@ -45,8 +45,7 @@ const REMOTE_FOLDER = path.join(REPO_ROOT, 'remote');
 const BUILD_TARGETS = [
 	{ platform: 'win32', arch: 'x64' },
 	{ platform: 'win32', arch: 'arm64' },
-	{ platform: 'darwin', arch: 'x64' },
-	{ platform: 'darwin', arch: 'arm64' },
+	{ platform: 'win32', arch: 'arm64' },
 	{ platform: 'linux', arch: 'x64' },
 	{ platform: 'linux', arch: 'armhf' },
 	{ platform: 'linux', arch: 'arm64' },
@@ -65,9 +64,6 @@ const serverResourceIncludes = [
 	// Process monitor
 	'out-build/vs/base/node/cpuUsage.sh',
 	'out-build/vs/base/node/ps.sh',
-
-	// External Terminal
-	'out-build/vs/workbench/contrib/externalTerminal/**/*.scpt',
 
 	// Terminal shell integration
 	'out-build/vs/workbench/contrib/terminal/common/scripts/shellIntegration.ps1',
@@ -207,8 +203,6 @@ function nodejs(platform: string, arch: string): NodeJS.ReadWriteStream | undefi
 				`win-${arch}-node.exe` : `win-${arch}/node.exe`;
 			break;
 
-		case 'darwin':
-			expectedName = `node-v${nodeVersion}-${platform}-${arch}.tar.gz`;
 			break;
 		case 'linux':
 			expectedName = `node-v${nodeVersion}${glibcPrefix}-${platform}-${arch}.tar.gz`;
@@ -231,7 +225,6 @@ function nodejs(platform: string, arch: string): NodeJS.ReadWriteStream | undefi
 				fetchGithub(product.nodejsRepository, { version: `${nodeVersion}-${internalNodeVersion}`, name: expectedName!, checksumSha256 }) :
 				fetchUrls(`/dist/v${nodeVersion}/win-${arch}/node.exe`, { base: 'https://nodejs.org', checksumSha256 }))
 				.pipe(rename('node.exe'));
-		case 'darwin':
 		case 'linux':
 			return (product.nodejsRepository !== 'https://nodejs.org' ?
 				fetchGithub(product.nodejsRepository, { version: `${nodeVersion}-${internalNodeVersion}`, name: expectedName!, checksumSha256 }) :
@@ -384,21 +377,21 @@ function packageTask(type: string, platform: string, arch: string, sourceFolderN
 				gulp.src('resources/server/bin/code-server.cmd', { base: '.' })
 					.pipe(rename(`bin/${product.serverApplicationName}.cmd`)),
 			);
-		} else if (platform === 'linux' || platform === 'alpine' || platform === 'darwin') {
+		} else if (platform === 'linux' || platform === 'alpine') {
 			result = es.merge(result,
-				gulp.src(`resources/server/bin/remote-cli/${platform === 'darwin' ? 'code-darwin.sh' : 'code-linux.sh'}`, { base: '.' })
+				gulp.src(`resources/server/bin/remote-cli/code-linux.sh`, { base: '.' })
 					.pipe(replace('@@VERSION@@', version))
 					.pipe(replace('@@COMMIT@@', commit || ''))
 					.pipe(replace('@@APPNAME@@', product.applicationName))
 					.pipe(rename(`bin/remote-cli/${product.applicationName}`))
 					.pipe(util.setExecutableBit()),
-				gulp.src(`resources/server/bin/helpers/${platform === 'darwin' ? 'browser-darwin.sh' : 'browser-linux.sh'}`, { base: '.' })
+				gulp.src(`resources/server/bin/helpers/browser-linux.sh`, { base: '.' })
 					.pipe(replace('@@VERSION@@', version))
 					.pipe(replace('@@COMMIT@@', commit || ''))
 					.pipe(replace('@@APPNAME@@', product.applicationName))
 					.pipe(rename(`bin/helpers/browser.sh`))
 					.pipe(util.setExecutableBit()),
-				gulp.src(`resources/server/bin/${platform === 'darwin' ? 'code-server-darwin.sh' : 'code-server-linux.sh'}`, { base: '.' })
+				gulp.src(`resources/server/bin/code-server-linux.sh`, { base: '.' })
 					.pipe(rename(`bin/${product.serverApplicationName}`))
 					.pipe(util.setExecutableBit())
 			);

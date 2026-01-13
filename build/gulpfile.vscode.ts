@@ -71,13 +71,6 @@ const vscodeResourceIncludes = [
 	// Node Scripts
 	'out-build/vs/base/node/{terminateProcess.sh,cpuUsage.sh,ps.sh}',
 
-	// Touchbar
-	'out-build/vs/workbench/browser/parts/editor/media/*.png',
-	'out-build/vs/workbench/contrib/debug/browser/media/*.png',
-
-	// External Terminal
-	'out-build/vs/workbench/contrib/externalTerminal/**/*.scpt',
-
 	// Terminal shell integration
 	'out-build/vs/workbench/contrib/terminal/common/scripts/*.fish',
 	'out-build/vs/workbench/contrib/terminal/common/scripts/*.ps1',
@@ -364,13 +357,6 @@ function packageTask(platform: string, arch: string, sourceFolderName: string, d
 			const policyDest = gulp.src('.build/policies/linux/**', { base: '.build/policies/linux' })
 				.pipe(rename(f => f.dirname = `policies/${f.dirname}`));
 			all = es.merge(all, gulp.src('resources/linux/code.png', { base: '.' }), policyDest);
-		} else if (platform === 'darwin') {
-			const shortcut = gulp.src('resources/darwin/bin/code.sh')
-				.pipe(replace('@@APPNAME@@', product.applicationName))
-				.pipe(rename('bin/code'));
-			const policyDest = gulp.src('.build/policies/darwin/**', { base: '.build/policies/darwin' })
-				.pipe(rename(f => f.dirname = `policies/${f.dirname}`));
-			all = es.merge(all, shortcut, policyDest);
 		}
 
 		let result: NodeJS.ReadWriteStream = all
@@ -500,8 +486,6 @@ const buildRoot = path.dirname(root);
 const BUILD_TARGETS = [
 	{ platform: 'win32', arch: 'x64' },
 	{ platform: 'win32', arch: 'arm64' },
-	{ platform: 'darwin', arch: 'x64', opts: { stats: true } },
-	{ platform: 'darwin', arch: 'arm64', opts: { stats: true } },
 	{ platform: 'linux', arch: 'x64' },
 	{ platform: 'linux', arch: 'armhf' },
 	{ platform: 'linux', arch: 'arm64' },
