@@ -7,7 +7,7 @@ import { Schemas } from '../../../base/common/network.js';
 import { URI } from '../../../base/common/uri.js';
 
 export function getRemoteAuthority(uri: URI): string | undefined {
-	return uri.scheme === Schemas.prox-codeRemote ? uri.authority : undefined;
+	return uri.scheme === Schemas.proxCodeRemote ? uri.authority : undefined;
 }
 
 export function getRemoteName(authority: string): string;

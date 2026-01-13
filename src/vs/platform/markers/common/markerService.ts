@@ -15,11 +15,11 @@ import { IMarker, IMarkerData, IMarkerReadOptions, IMarkerService, IResourceMark
 
 export const unsupportedSchemas = new Set([
 	Schemas.inMemory,
-	Schemas.prox-codeSourceControl,
+	Schemas.proxCodeSourceControl,
 	Schemas.walkThrough,
 	Schemas.walkThroughSnippet,
-	Schemas.prox-codeChatCodeBlock,
-	Schemas.prox-codeTerminal
+	Schemas.proxCodeChatCodeBlock,
+	Schemas.proxCodeTerminal
 ]);
 
 class DoubleResourceMap<V> {

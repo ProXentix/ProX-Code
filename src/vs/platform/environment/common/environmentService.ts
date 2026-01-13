@@ -65,7 +65,7 @@ export abstract class AbstractNativeEnvironmentService implements INativeEnviron
 	get stateResource(): URI { return joinPath(this.appSettingsHome, 'globalStorage', 'storage.json'); }
 
 	@memoize
-	get userRoamingDataHome(): URI { return this.appSettingsHome.with({ scheme: Schemas.prox-codeUserData }); }
+	get userRoamingDataHome(): URI { return this.appSettingsHome.with({ scheme: Schemas.proxCodeUserData }); }
 
 	@memoize
 	get userDataSyncHome(): URI { return joinPath(this.appSettingsHome, 'sync'); }

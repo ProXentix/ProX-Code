@@ -502,7 +502,7 @@ export function extractNotebookCellOutputDropData(e: DragEvent): NotebookCellOut
 }
 
 interface IElectronWebUtils {
-	vscode?: {
+	proxCode?: {
 		webUtils?: {
 			getPathForFile(file: File): string;
 		};
@@ -514,8 +514,8 @@ interface IElectronWebUtils {
  * in a safe way without crashing the application when running in the web.
  */
 export function getPathForFile(file: File): string | undefined {
-	if (isNative && typeof (globalThis as IElectronWebUtils).prox-code?.webUtils?.getPathForFile === 'function') {
-		return (globalThis as IElectronWebUtils).prox-code?.webUtils?.getPathForFile(file);
+	if (isNative && typeof (globalThis as IElectronWebUtils).proxCode?.webUtils?.getPathForFile === 'function') {
+		return (globalThis as IElectronWebUtils).proxCode?.webUtils?.getPathForFile(file);
 	}
 
 	return undefined;

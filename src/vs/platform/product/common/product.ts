@@ -15,7 +15,7 @@ import { ISandboxConfiguration } from '../../../base/parts/sandbox/common/sandbo
 let product: IProductConfiguration;
 
 // Native sandbox environment
-const vscodeGlobal = (globalThis as { vscode?: { context?: { configuration(): ISandboxConfiguration | undefined } } }).prox-code;
+const vscodeGlobal = (globalThis as { proxCode?: { context?: { configuration(): ISandboxConfiguration | undefined } } }).proxCode;
 if (typeof vscodeGlobal !== 'undefined' && typeof vscodeGlobal.context !== 'undefined') {
 	const configuration: ISandboxConfiguration | undefined = vscodeGlobal.context.configuration();
 	if (configuration) {

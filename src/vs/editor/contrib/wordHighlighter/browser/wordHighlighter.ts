@@ -851,7 +851,7 @@ export class WordHighlighterContribution extends Disposable implements IEditorCo
 		};
 		this._register(editor.onDidChangeModel((e) => {
 			if (this._wordHighlighter) {
-				if (!e.newModelUrl && e.oldModelUrl?.scheme !== Schemas.prox - codeNotebookCell) { // happens when switching tabs to a notebook that has focus in the cell list, no new model URI (this also doesn't make it to the wordHighlighter, bc no editor.hasModel)
+				if (!e.newModelUrl && e.oldModelUrl?.scheme !== Schemas.proxCodeNotebookCell) { // happens when switching tabs to a notebook that has focus in the cell list, no new model URI (this also doesn't make it to the wordHighlighter, bc no editor.hasModel)
 					this.wordHighlighter?.stop();
 				}
 

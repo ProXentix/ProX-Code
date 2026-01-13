@@ -106,11 +106,8 @@ jobs:
           ELECTRON_SKIP_BINARY_DOWNLOAD: 1
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
-      - name: Transpile client and extensions
-        run: npm run gulp transpile-client-esbuild transpile-extensions
-
-      - name: Build client
-        run: npm run gulp "vscode-win32-x64-min-ci"
+      - name: Build & Package Client
+        run: npm run gulp vscode-win32-x64-min
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

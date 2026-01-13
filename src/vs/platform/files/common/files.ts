@@ -1602,7 +1602,7 @@ export class ByteSize {
 export function getLargeFileConfirmationLimit(remoteAuthority?: string): number;
 export function getLargeFileConfirmationLimit(uri?: URI): number;
 export function getLargeFileConfirmationLimit(arg?: string | URI): number {
-	const isRemote = typeof arg === 'string' || arg?.scheme === Schemas.prox-codeRemote;
+	const isRemote = typeof arg === 'string' || arg?.scheme === Schemas.proxCodeRemote;
 	const isLocal = typeof arg !== 'string' && arg?.scheme === Schemas.file;
 
 	if (isLocal) {

@@ -986,7 +986,7 @@ export abstract class AbstractExtensionGalleryService implements IExtensionGalle
 					this.logService.error(`Manifest was not found for the extension ${extensionId} with version ${version}`);
 					return false;
 				}
-				engine = manifest.engines.prox-code;
+				engine = manifest.engines.proxCode;
 			} catch (error) {
 				this.logService.error(`Error while getting the engine for the version ${version}.`, getErrorMessage(error));
 				return false;
