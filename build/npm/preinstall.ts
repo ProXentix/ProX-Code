@@ -7,7 +7,7 @@ import * as fs from 'fs';
 import * as child_process from 'child_process';
 import * as os from 'os';
 
-if (!process.env['VSCODE_SKIP_NODE_VERSION_CHECK']) {
+if (false) {
 	// Get the running Node.js version
 	const nodeVersion = /^(\d+)\.(\d+)\.(\d+)/.exec(process.versions.node);
 	const majorNodeVersion = parseInt(nodeVersion![1]);
@@ -50,7 +50,7 @@ if (process.platform === 'win32') {
 	}
 }
 
-installHeaders();
+// installHeaders();
 
 if (process.arch !== os.arch()) {
 	console.error(`\x1b[1;31m*** ARCHITECTURE MISMATCH: The node.js process is ${process.arch}, but your OS architecture is ${os.arch()}. ***\x1b[0;0m`);

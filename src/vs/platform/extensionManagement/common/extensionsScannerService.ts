@@ -661,7 +661,7 @@ class ExtensionsScanner extends Disposable {
 					name,
 					publisher,
 					version: scannedProfileExtension.version,
-					engines: { vscode: '' }
+					engines: { proxCode: '' }
 				};
 			} else {
 				if (input.type !== ExtensionType.System) {
