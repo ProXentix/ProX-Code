@@ -1,10 +1,14 @@
-name: Code OSS
+name: Unified CI
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
       - 'release/*'
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -16,6 +20,7 @@ env:
   VSCODE_QUALITY: 'oss'
 
 jobs:
+  # Job from pr.yml (Compile & Hygiene)
   compile:
     name: Compile & Hygiene
     runs-on: [ self-hosted, 1ES.Pool=1es-vsprox-code-ubuntu-22.04-x64 ]
@@ -50,8 +55,7 @@ jobs:
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: |
           set -e
-
-          for i in {1..5}; do # try 5 times
+          for i in {1..5}; do
             npm ci && break
             if [ $i -eq 5 ]; then
               echo "Npm install failed too many times" >&2
@@ -81,71 +85,164 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+  # Job from build-win32.yml
+  build-windows:
+    name: Build Windows x64
+    runs-on: windows-latest
+    steps:
+      - name: Checkout ProX-Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+        env:
+          npm_config_arch: x64
+          ELECTRON_SKIP_BINARY_DOWNLOAD: 1
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+
+      - name: Transpile client and extensions
+        run: npm run gulp transpile-client-esbuild transpile-extensions
+
+      - name: Build client
+        run: npm run gulp "vscode-win32-x64-min-ci"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build inno updater
+        run: npm run gulp "vscode-win32-x64-inno-updater"
+
+      - name: Build user setup
+        run: npm run gulp "vscode-win32-x64-user-setup"
+
+      - name: Upload Installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: ProX-Code-Windows-x64-Setup
+          path: .build/win32-x64/user-setup/VSCodeSetup.exe
+
+  # Job from monaco-editor.yml
+  monaco-checks:
+    name: Monaco Editor checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+      - name: Install system dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y libxkbfile-dev pkg-config libkrb5-dev libxss1
+      - name: Execute npm
+        run: npm ci
+        env:
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+          ELECTRON_SKIP_BINARY_DOWNLOAD: 1
+      - name: Download Playwright
+        run: npm run playwright-install
+      - name: Run Monaco Editor Checks
+        run: npm run monaco-compile-check
+      - name: Editor Distro & ESM
+        run: npm run gulp editor-distro
+      - name: Editor ESM sources check
+        working-directory: ./test/monaco
+        run: npm run esm-check
+      - name: Typings validation
+        working-directory: ./typings-test
+        run: |
+          mkdir -p typings-test
+          npm init -yp
+          ../node_modules/.bin/tsc --init
+          echo "import '../out-monaco-editor-core';" > a.ts
+          ../node_modules/.bin/tsc --noEmit
+      - name: Package Editor with Webpack
+        working-directory: ./test/monaco
+        run: npm run bundle-webpack
+      - name: Compile Editor Tests
+        working-directory: ./test/monaco
+        run: npm run compile
+      - name: Run Editor Tests
+        timeout-minutes: 5
+        working-directory: ./test/monaco
+        run: npm run test
+
+  # Jobs from pr.yml calling reusable workflows
   linux-cli-tests:
-    name: Linux
+    name: Linux CLI
     uses: ./.github/workflows/pr-linux-cli-test.yml
     with:
       job_name: CLI
       rustup_toolchain: 1.85
 
   linux-electron-tests:
-    name: Linux
+    name: Linux Electron
     uses: ./.github/workflows/pr-linux-test.yml
     with:
       job_name: Electron
       electron_tests: true
 
   linux-browser-tests:
-    name: Linux
+    name: Linux Browser
     uses: ./.github/workflows/pr-linux-test.yml
     with:
       job_name: Browser
       browser_tests: true
 
   linux-remote-tests:
-    name: Linux
+    name: Linux Remote
     uses: ./.github/workflows/pr-linux-test.yml
     with:
       job_name: Remote
       remote_tests: true
 
   macos-electron-tests:
-    name: macOS
+    name: macOS Electron
     uses: ./.github/workflows/pr-darwin-test.yml
     with:
       job_name: Electron
       electron_tests: true
 
   macos-browser-tests:
-    name: macOS
+    name: macOS Browser
     uses: ./.github/workflows/pr-darwin-test.yml
     with:
       job_name: Browser
       browser_tests: true
 
   macos-remote-tests:
-    name: macOS
+    name: macOS Remote
     uses: ./.github/workflows/pr-darwin-test.yml
     with:
       job_name: Remote
       remote_tests: true
 
   windows-electron-tests:
-    name: Windows
+    name: Windows Electron
     uses: ./.github/workflows/pr-win32-test.yml
     with:
       job_name: Electron
       electron_tests: true
 
   windows-browser-tests:
-    name: Windows
+    name: Windows Browser
     uses: ./.github/workflows/pr-win32-test.yml
     with:
       job_name: Browser
       browser_tests: true
 
   windows-remote-tests:
-    name: Windows
+    name: Windows Remote
     uses: ./.github/workflows/pr-win32-test.yml
     with:
       job_name: Remote
