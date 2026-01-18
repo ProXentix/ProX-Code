@@ -5,11 +5,12 @@
 import gulp from 'gulp';
 import es from 'event-stream';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import fs from 'fs';
 import * as task from './lib/task.ts';
 import { hygiene } from './hygiene.ts';
 
-const dirName = path.dirname(new URL(import.meta.url).pathname);
+const dirName = path.dirname(fileURLToPath(import.meta.url));
 
 function checkPackageJSON(this: NodeJS.ReadWriteStream, actualPath: string) {
 	const actual = JSON.parse(fs.readFileSync(path.join(dirName, '..', actualPath), 'utf8'));

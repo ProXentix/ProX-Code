@@ -29,7 +29,7 @@ async function build(options, didBuild) {
 		sourcemap: false,
 		format: 'esm',
 		platform: 'browser',
-		target: ['es2024'],
+		target: ['es2022'],
 		...options,
 	});
 
@@ -85,6 +85,9 @@ export async function run(config, args, didBuild) {
 		const watcher = await import('@parcel/watcher');
 		watcher.subscribe(config.srcDir, () => tryBuild(resolvedOptions, didBuild));
 	} else {
-		return build(resolvedOptions, didBuild).catch(() => process.exit(1));
+		return build(resolvedOptions, didBuild).catch((err) => {
+			console.error(err);
+			process.exit(1);
+		});
 	}
 }
