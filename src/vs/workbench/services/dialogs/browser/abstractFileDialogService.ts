@@ -321,7 +321,7 @@ export abstract class AbstractFileDialogService implements IFileDialogService {
 		}
 		const availableFileSystems = [Schemas.file];
 		if (this.environmentService.remoteAuthority) {
-			availableFileSystems.unshift(Schemas.prox-codeRemote);
+			availableFileSystems.unshift(Schemas.proxCodeRemote);
 		}
 		return availableFileSystems;
 	}

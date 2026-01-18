@@ -119,7 +119,7 @@ suite('Workbench - TerminalProcessManager', () => {
 		});
 		suite('remote', () => {
 			const remoteCwd = URI.from({
-				scheme: Schemas.prox-codeRemote,
+				scheme: Schemas.proxCodeRemote,
 				path: 'test/cwd'
 			});
 

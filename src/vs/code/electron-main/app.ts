@@ -133,7 +133,7 @@ export class CodeApplication extends Disposable {
 
 	private static readonly SECURITY_PROTOCOL_HANDLING_CONFIRMATION_SETTING_KEY = {
 		[Schemas.file]: 'security.promptForLocalFileProtocolHandling' as const,
-		[Schemas.prox-codeRemote]: 'security.promptForRemoteFileProtocolHandling' as const
+		[Schemas.prox - codeRemote]: 'security.promptForRemoteFileProtocolHandling' as const
 	};
 
 	private windowsMainService: IWindowsMainService | undefined;
@@ -167,8 +167,8 @@ export class CodeApplication extends Disposable {
 		// !!! DO NOT CHANGE without consulting the documentation !!!
 		//
 
-		const isUrlFromWindow = (requestingUrl?: string | undefined) => requestingUrl?.startsWith(`${Schemas.prox-codeFileResource}://${VSCODE_AUTHORITY}`);
-		const isUrlFromWebview = (requestingUrl: string | undefined) => requestingUrl?.startsWith(`${Schemas.prox-codeWebview}://`);
+		const isUrlFromWindow = (requestingUrl?: string | undefined) => requestingUrl?.startsWith(`${Schemas.prox - codeFileResource}://${VSCODE_AUTHORITY}`);
+		const isUrlFromWebview = (requestingUrl: string | undefined) => requestingUrl?.startsWith(`${Schemas.prox - codeWebview}://`);
 
 		const alwaysAllowedPermissions = new Set(['pointerLock', 'notifications']);
 
@@ -215,12 +215,12 @@ export class CodeApplication extends Disposable {
 		//#region Request filtering
 
 		// Block all SVG requests from unsupported origins
-		const supportedSvgSchemes = new Set([Schemas.file, Schemas.prox-codeFileResource, Schemas.prox-codeRemoteResource, Schemas.prox-codeManagedRemoteResource, 'devtools']);
+		const supportedSvgSchemes = new Set([Schemas.file, Schemas.prox - codeFileResource, Schemas.prox - codeRemoteResource, Schemas.prox - codeManagedRemoteResource, 'devtools']);
 
 		// But allow them if they are made from inside an webview
 		const isSafeFrame = (requestFrame: WebFrameMain | null | undefined): boolean => {
 			for (let frame: WebFrameMain | null | undefined = requestFrame; frame; frame = frame.parent) {
-				if (frame.url.startsWith(`${Schemas.prox-codeWebview}://`)) {
+				if (frame.url.startsWith(`${Schemas.prox - codeWebview}://`)) {
 					return true;
 				}
 			}
@@ -272,14 +272,14 @@ export class CodeApplication extends Disposable {
 
 		session.defaultSession.webRequest.onBeforeRequest((details, callback) => {
 			const uri = URI.parse(details.url);
-			if (uri.scheme === Schemas.prox-codeWebview) {
+			if (uri.scheme === Schemas.prox - codeWebview) {
 				if (!isAllowedWebviewRequest(uri, details)) {
 					this.logService.error('Blocked vscode-webview request', details.url);
 					return callback({ cancel: true });
 				}
 			}
 
-			if (uri.scheme === Schemas.prox-codeFileResource) {
+			if (uri.scheme === Schemas.prox - codeFileResource) {
 				if (!isAllowedVsCodeFileRequest(details)) {
 					this.logService.error('Blocked vscode-file request', details.url);
 					return callback({ cancel: true });
@@ -315,7 +315,7 @@ export class CodeApplication extends Disposable {
 
 				// remote extension schemes have the following format
 				// http://127.0.0.1:<port>/vscode-remote-resource?path=
-				if (!uri.path.endsWith(Schemas.prox-codeRemoteResource) && contentTypes.some(contentType => contentType.toLowerCase().includes('image/svg'))) {
+				if (!uri.path.endsWith(Schemas.prox - codeRemoteResource) && contentTypes.some(contentType => contentType.toLowerCase().includes('image/svg'))) {
 					return callback({ cancel: !isSvgRequestFromSafeContext(details) });
 				}
 			}
@@ -407,7 +407,7 @@ export class CodeApplication extends Disposable {
 		app.on('web-contents-created', (event, contents) => {
 
 			// Auxiliary Window: delegate to `AuxiliaryWindow` class
-			if (contents?.opener?.url.startsWith(`${Schemas.prox-codeFileResource}://${VSCODE_AUTHORITY}/`)) {
+			if (contents?.opener?.url.startsWith(`${Schemas.prox - codeFileResource}://${VSCODE_AUTHORITY}/`)) {
 				this.logService.trace('[aux window]  app.on("web-contents-created"): Registering auxiliary window');
 
 				this.auxiliaryWindowsMainService?.registerWindow(contents);
@@ -667,7 +667,7 @@ export class CodeApplication extends Disposable {
 			new NodeRemoteResourceRouter(),
 		));
 
-		protocol.registerBufferProtocol(Schemas.prox-codeManagedRemoteResource, (request, callback) => {
+		protocol.registerBufferProtocol(Schemas.prox - codeManagedRemoteResource, (request, callback) => {
 			const url = URI.parse(request.url);
 			if (!url.authority.startsWith('window:')) {
 				return callback(notFound());
@@ -760,7 +760,7 @@ export class CodeApplication extends Disposable {
 			message = localize('confirmOpenMessageFileOrFolder', "An external application wants to open '{0}' in {1}. Do you want to open this file or folder?", openableUri.scheme === Schemas.file ? getPathLabel(openableUri, { os: OS, tildify: this.environmentMainService }) : openableUri.toString(true), this.productService.nameShort);
 		}
 
-		if (openableUri.scheme !== Schemas.file && openableUri.scheme !== Schemas.prox-codeRemote) {
+		if (openableUri.scheme !== Schemas.file && openableUri.scheme !== Schemas.proxCodeRemote) {
 
 			// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			//
@@ -827,7 +827,7 @@ export class CodeApplication extends Disposable {
 		}
 
 		// Remote path
-		else if (uri.authority === Schemas.prox-codeRemote) {
+		else if (uri.authority === Schemas.proxCodeRemote) {
 
 			// Example conversion:
 			// From: prox-code://vscode-remote/wsl+ubuntu/mnt/c/GitDevelopment/monaco
@@ -853,7 +853,7 @@ export class CodeApplication extends Disposable {
 				query = params.toString();
 			}
 
-			const remoteUri = URI.from({ scheme: Schemas.prox-codeRemote, authority, path, query, fragment: uri.fragment });
+			const remoteUri = URI.from({ scheme: Schemas.proxCodeRemote, authority, path, query, fragment: uri.fragment });
 
 			if (hasWorkspaceFileExtension(path)) {
 				return { workspaceUri: remoteUri };
@@ -1380,7 +1380,7 @@ export class CodeApplication extends Disposable {
 		this.installMutex();
 
 		// Remote Authorities
-		protocol.registerHttpProtocol(Schemas.prox-codeRemoteResource, (request, callback) => {
+		protocol.registerHttpProtocol(Schemas.proxCodeRemoteResource, (request, callback) => {
 			callback({
 				url: request.url.replace(/^vscode-remote-resource:/, 'http:'),
 				method: request.method
