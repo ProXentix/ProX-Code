@@ -242,7 +242,7 @@ export class WorkbenchKeybindingService extends AbstractKeybindingService {
 		this._register(Event.runAndSubscribe(dom.onDidRegisterWindow, ({ window, disposables }) => disposables.add(this._registerKeyListeners(window)), { window: mainWindow, disposables: this._store }));
 
 		this._register(browser.onDidChangeFullscreen(windowId => {
-			if (windowId !== mainWindow.prox-codeWindowId) {
+			if (windowId !== mainWindow.proxCodeWindowId) {
 				return;
 			}
 
