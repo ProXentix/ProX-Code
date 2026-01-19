@@ -565,7 +565,6 @@ const esbuildMediaScripts = [
 	'markdown-language-features/esbuild-notebook.mjs',
 	'markdown-language-features/esbuild-preview.mjs',
 	'markdown-math/esbuild.mjs',
-	'notebook-renderers/esbuild.mjs',
 ];
 
 export async function webpackExtensions(taskName: string, isWatch: boolean, webpackConfigLocations: { configPath: string; outputRoot?: string }[]) {

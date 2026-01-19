@@ -123,7 +123,7 @@ registerActiveInstanceAction({
 			id,
 			group: '1_shellIntegration',
 			order: 0,
-			when: ResourceContextKey.Scheme.isEqualTo(Schemas.prox-codeTerminal),
+			when: ResourceContextKey.Scheme.isEqualTo(Schemas.proxCodeTerminal),
 			isHiddenByDefault: true
 		})),
 	],
@@ -170,7 +170,7 @@ registerTerminalAction({
 			id,
 			group: '1_shellIntegration',
 			order: 1,
-			when: ResourceContextKey.Scheme.isEqualTo(Schemas.prox-codeTerminal),
+			when: ResourceContextKey.Scheme.isEqualTo(Schemas.proxCodeTerminal),
 			isHiddenByDefault: true
 		})),
 	],
