@@ -17,11 +17,14 @@ import { getVersion } from './lib/getVersion.ts';
 import * as task from './lib/task.ts';
 import watcher from './lib/watch/index.ts';
 import { createReporter } from './lib/reporter.ts';
-import glob from 'glob';
 import plumber from 'gulp-plumber';
 import * as ext from './lib/extensions.ts';
 import * as tsb from './lib/tsb/index.ts';
 import sourcemaps from 'gulp-sourcemaps';
+import { createRequire } from 'node:module';
+
+const require = createRequire(import.meta.url);
+const glob = require('glob');
 
 const root = path.dirname(import.meta.dirname);
 const commit = getVersion(root);

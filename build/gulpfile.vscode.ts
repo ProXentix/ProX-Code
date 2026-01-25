@@ -31,11 +31,12 @@ import minimist from 'minimist';
 import { compileBuildWithoutManglingTask, compileBuildWithManglingTask } from './gulpfile.compile.ts';
 import { compileNonNativeExtensionsBuildTask, compileNativeExtensionsBuildTask, compileAllExtensionsBuildTask, compileExtensionMediaBuildTask, cleanExtensionsBuildTask } from './gulpfile.extensions.ts';
 import { promisify } from 'util';
-import globCallback from 'glob';
 import rceditCallback from 'rcedit';
+import { createRequire } from 'node:module';
 
-
-const glob = promisify(globCallback);
+const require = createRequire(import.meta.url);
+const globModule = require('glob');
+const glob = promisify(globModule.glob);
 const rcedit = promisify(rceditCallback);
 const root = path.dirname(import.meta.dirname);
 const commit = getVersion(root);

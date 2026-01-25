@@ -6,7 +6,6 @@
 import es from 'event-stream';
 import fs from 'fs';
 import cp from 'child_process';
-import glob from 'glob';
 import gulp from 'gulp';
 import path from 'path';
 import crypto from 'crypto';
@@ -29,6 +28,7 @@ import vzip from 'gulp-vinyl-zip';
 
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
+const glob = require('glob');
 
 const root = path.dirname(path.dirname(import.meta.dirname));
 const commit = getVersion(root);

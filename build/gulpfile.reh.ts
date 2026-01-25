@@ -24,7 +24,6 @@ import gunzip from 'gulp-gunzip';
 import untar from 'gulp-untar';
 import File from 'vinyl';
 import * as fs from 'fs';
-import glob from 'glob';
 import { compileBuildWithManglingTask } from './gulpfile.compile.ts';
 import { cleanExtensionsBuildTask, compileNonNativeExtensionsBuildTask, compileNativeExtensionsBuildTask, compileExtensionMediaBuildTask } from './gulpfile.extensions.ts';
 import { vscodeWebResourceIncludes, createVSCodeWebFileContentMapper } from './gulpfile.vscode.web.ts';
@@ -33,7 +32,10 @@ import log from 'fancy-log';
 import buildfile from './buildfile.ts';
 import { fetchUrls, fetchGithub } from './lib/fetch.ts';
 import jsonEditor from 'gulp-json-editor';
+import { createRequire } from 'node:module';
 
+const require = createRequire(import.meta.url);
+const glob = require('glob');
 
 const REPO_ROOT = path.dirname(import.meta.dirname);
 const commit = getVersion(REPO_ROOT);
