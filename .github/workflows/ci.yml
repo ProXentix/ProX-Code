@@ -139,13 +139,14 @@ jobs:
           node-version-file: .nvmrc
       - name: Install system dependencies
         run: |
-          sudo apt update
-          sudo apt install -y libxkbfile-dev pkg-config libkrb5-dev libxss1
+          sudo apt update -y
+          sudo apt install -y build-essential pkg-config libx11-dev libx11-xcb-dev libxkbfile-dev libkrb5-dev libxss1
       - name: Execute npm
         run: npm ci
         env:
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
           ELECTRON_SKIP_BINARY_DOWNLOAD: 1
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Download Playwright
         run: npm run playwright-install
       - name: Run Monaco Editor Checks
