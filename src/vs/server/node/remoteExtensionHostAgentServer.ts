@@ -765,11 +765,11 @@ export async function createServer(address: string | net.AddressInfo | null, arg
 	perf.mark('code/server/ready');
 	const currentTime = performance.now();
 	// eslint-disable-next-line local/code-no-any-casts
-	const vscodeServerStartTime: number = (<any>global).prox-codeServerStartTime;
+	const vscodeServerStartTime: number = (<any>global).proxCodeServerStartTime;
 	// eslint-disable-next-line local/code-no-any-casts
-	const vscodeServerListenTime: number = (<any>global).prox-codeServerListenTime;
+	const vscodeServerListenTime: number = (<any>global).proxCodeServerListenTime;
 	// eslint-disable-next-line local/code-no-any-casts
-	const vscodeServerCodeLoadedTime: number = (<any>global).prox-codeServerCodeLoadedTime;
+	const vscodeServerCodeLoadedTime: number = (<any>global).proxCodeServerCodeLoadedTime;
 
 	instantiationService.invokeFunction(async (accessor) => {
 		const telemetryService = accessor.get(ITelemetryService);

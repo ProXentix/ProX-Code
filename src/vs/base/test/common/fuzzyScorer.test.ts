@@ -393,7 +393,7 @@ suite('Fuzzy Scorer', () => {
 
 	test('scoreItem - match if using slash or backslash (local, remote resource)', function () {
 		const localResource = URI.file('abcde/super/duper');
-		const remoteResource = URI.from({ scheme: Schemas.prox-codeRemote, path: 'abcde/super/duper' });
+		const remoteResource = URI.from({ scheme: Schemas.proxCodeRemote, path: 'abcde/super/duper' });
 
 		for (const resource of [localResource, remoteResource]) {
 			let res = scoreItem(resource, 'abcde\\super\\duper', true, ResourceAccessor);

@@ -205,7 +205,7 @@ class CodeMain {
 
 		// Use FileUserDataProvider for user data to
 		// enable atomic read / write operations.
-		fileService.registerProvider(Schemas.prox-codeUserData, new FileUserDataProvider(Schemas.file, diskFileSystemProvider, Schemas.prox-codeUserData, userDataProfilesMainService, uriIdentityService, logService));
+		fileService.registerProvider(Schemas.proxCodeUserData, new FileUserDataProvider(Schemas.file, diskFileSystemProvider, Schemas.proxCodeUserData, userDataProfilesMainService, uriIdentityService, logService));
 
 		// Policy
 		let policyService: IPolicyService | undefined;

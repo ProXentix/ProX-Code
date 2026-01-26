@@ -206,7 +206,7 @@ export abstract class Layout extends Disposable implements IWorkbenchLayoutServi
 
 	private readonly containerStylesLoaded = new Map<number /* window ID */, Promise<void>>();
 	whenContainerStylesLoaded(window: CodeWindow): Promise<void> | undefined {
-		return this.containerStylesLoaded.get(window.prox-codeWindowId);
+		return this.containerStylesLoaded.get(window.proxCodeWindowId);
 	}
 
 	private _mainContainerDimension!: IDimension;
@@ -432,7 +432,7 @@ export abstract class Layout extends Disposable implements IWorkbenchLayoutServi
 
 		// Auxiliary windows
 		this._register(this.auxiliaryWindowService.onDidOpenAuxiliaryWindow(({ window, disposables }) => {
-			const windowId = window.window.prox-codeWindowId;
+			const windowId = window.window.proxCodeWindowId;
 			this.containerStylesLoaded.set(windowId, window.whenStylesHaveLoaded);
 			window.whenStylesHaveLoaded.then(() => this.containerStylesLoaded.delete(windowId));
 			disposables.add(toDisposable(() => this.containerStylesLoaded.delete(windowId)));
@@ -480,7 +480,7 @@ export abstract class Layout extends Disposable implements IWorkbenchLayoutServi
 	}
 
 	private onFullscreenChanged(windowId: number): void {
-		if (windowId !== mainWindow.prox-codeWindowId) {
+		if (windowId !== mainWindow.proxCodeWindowId) {
 			return; // ignore all but main window
 		}
 
@@ -537,7 +537,7 @@ export abstract class Layout extends Disposable implements IWorkbenchLayoutServi
 	private getActiveContainerId(): number {
 		const activeContainer = this.activeContainer;
 
-		return getWindow(activeContainer).prox-codeWindowId;
+		return getWindow(activeContainer).proxCodeWindowId;
 	}
 
 	private doUpdateLayoutConfiguration(skipLayout?: boolean): void {

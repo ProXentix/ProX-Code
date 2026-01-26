@@ -484,7 +484,7 @@ class ResourceLabelWidget extends IconLabel {
 			}
 		}
 
-		if (!options.forceLabel && !isSideBySideEditor && resource?.scheme === Schemas.prox-codeNotebookCell) {
+		if (!options.forceLabel && !isSideBySideEditor && resource?.scheme === Schemas.proxCodeNotebookCell) {
 			// Notebook cells are embeded in a notebook document
 			// As such we always ask the actual notebook document
 			// for its position in the document.
@@ -499,7 +499,7 @@ class ResourceLabelWidget extends IconLabel {
 			}
 		}
 
-		if (!options.forceLabel && !isSideBySideEditor && resource?.scheme === Schemas.prox-codeNotebookCellOutput) {
+		if (!options.forceLabel && !isSideBySideEditor && resource?.scheme === Schemas.proxCodeNotebookCellOutput) {
 			const notebookDocument = this.notebookDocumentService.getNotebook(resource);
 			const outputUriData = extractCellOutputDetails(resource);
 			if (outputUriData?.cellFragment) {
@@ -507,7 +507,7 @@ class ResourceLabelWidget extends IconLabel {
 					return;
 				}
 				const cellUri = outputUriData.notebook.with({
-					scheme: Schemas.prox-codeNotebookCell,
+					scheme: Schemas.proxCodeNotebookCell,
 					fragment: outputUriData.cellFragment
 				});
 				const cellIndex = notebookDocument?.getCellIndex(cellUri);

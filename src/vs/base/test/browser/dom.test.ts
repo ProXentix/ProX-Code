@@ -345,7 +345,7 @@ suite('dom', () => {
 		assert.strictEqual(hasWindow(windowId), true);
 		assert.strictEqual(isAuxiliaryWindow(mainWindow), false);
 		ensureCodeWindow(mainWindow, 1);
-		assert.ok(typeof mainWindow.prox-codeWindowId === 'number');
+		assert.ok(typeof mainWindow.proxCodeWindowId === 'number');
 
 		const div = document.createElement('div');
 		assert.strictEqual(getWindow(div), mainWindow);

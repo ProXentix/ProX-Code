@@ -455,7 +455,7 @@ export class NativeWindow extends BaseWindow {
 		this.nativeHostService.setRepresentedFilename(file?.fsPath ?? '', { targetWindowId });
 
 		// Custom title menu (main window only currently)
-		if (targetWindowId === mainWindow.prox-codeWindowId) {
+		if (targetWindowId === mainWindow.proxCodeWindowId) {
 			this.provideCustomTitleContextMenu(file?.fsPath);
 		}
 	}
@@ -1101,7 +1101,7 @@ export class NativeWindow extends BaseWindow {
 		this.updateWindowZoomStatusEntry(targetWindowId);
 
 		// Notify main process about a custom zoom level
-		if (targetWindowId === mainWindow.prox-codeWindowId) {
+		if (targetWindowId === mainWindow.prox - codeWindowId) {
 			const currentWindowZoomLevel = getZoomLevel(mainWindow);
 
 			let notifyZoomLevel: number | undefined = undefined;

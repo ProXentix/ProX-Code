@@ -34,7 +34,7 @@ suite('network', () => {
 
 	(isWeb ? test.skip : test)('FileAccess: moduleId (native)', () => {
 		const browserUri = FileAccess.asBrowserUri('vs/base/test/node/network.test');
-		assert.strictEqual(browserUri.scheme, Schemas.prox-codeFileResource);
+		assert.strictEqual(browserUri.scheme, Schemas.proxCodeFileResource);
 
 		const fileUri = FileAccess.asFileUri('vs/base/test/node/network.test');
 		assert.strictEqual(fileUri.scheme, Schemas.file);
@@ -49,7 +49,7 @@ suite('network', () => {
 
 	(isWeb ? test.skip : test)('FileAccess: query and fragment is kept if URI is already of same scheme (native)', () => {
 		const originalFileUri = URI.file('network.test.ts').with({ query: 'foo=bar', fragment: 'something' });
-		const browserUri = FileAccess.uriToBrowserUri(originalFileUri.with({ scheme: Schemas.prox-codeFileResource }));
+		const browserUri = FileAccess.uriToBrowserUri(originalFileUri.with({ scheme: Schemas.proxCodeFileResource }));
 		assert.strictEqual(browserUri.query, 'foo=bar');
 		assert.strictEqual(browserUri.fragment, 'something');
 
@@ -65,7 +65,7 @@ suite('network', () => {
 	});
 
 	test('FileAccess: remote URIs', () => {
-		const originalRemoteUri = URI.file('network.test.ts').with({ scheme: Schemas.prox-codeRemote });
+		const originalRemoteUri = URI.file('network.test.ts').with({ scheme: Schemas.proxCodeRemote });
 		const browserUri = FileAccess.uriToBrowserUri(originalRemoteUri);
 		assert.notStrictEqual(originalRemoteUri.scheme, browserUri.scheme);
 	});

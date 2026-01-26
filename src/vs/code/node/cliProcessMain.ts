@@ -175,7 +175,7 @@ class CliMain extends Disposable {
 
 		// Use FileUserDataProvider for user data to
 		// enable atomic read / write operations.
-		fileService.registerProvider(Schemas.prox-codeUserData, new FileUserDataProvider(Schemas.file, diskFileSystemProvider, Schemas.prox-codeUserData, userDataProfilesService, uriIdentityService, logService));
+		fileService.registerProvider(Schemas.proxCodeUserData, new FileUserDataProvider(Schemas.file, diskFileSystemProvider, Schemas.proxCodeUserData, userDataProfilesService, uriIdentityService, logService));
 
 		// Policy
 		let policyService: IPolicyService | undefined;

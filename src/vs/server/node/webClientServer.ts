@@ -322,7 +322,7 @@ export class WebClientServer {
 		const callbackRoute = posix.join(basePath, this._productPath, CALLBACK_PATH);
 		const webExtensionRoute = posix.join(basePath, this._productPath, WEB_EXTENSION_PATH);
 
-		const resolveWorkspaceURI = (defaultLocation?: string) => defaultLocation && URI.file(resolve(defaultLocation)).with({ scheme: Schemas.prox-codeRemote, authority: remoteAuthority });
+		const resolveWorkspaceURI = (defaultLocation?: string) => defaultLocation && URI.file(resolve(defaultLocation)).with({ scheme: Schemas.proxCodeRemote, authority: remoteAuthority });
 
 		const filePath = FileAccess.asFileUri(`vs/code/browser/workbench/workbench${this._environmentService.isBuilt ? '' : '-dev'}.html`).fsPath;
 		const authSessionInfo = !this._environmentService.isBuilt && this._environmentService.args['github-auth'] ? {

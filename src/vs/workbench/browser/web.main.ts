@@ -218,7 +218,7 @@ export class BrowserMain extends Disposable {
 							name: tunnelOptions.label,
 							source: {
 								source: TunnelSource.Extension,
-								description: labelService.getHostLabel(Schemas.prox-codeRemote, this.configuration.remoteAuthority)
+								description: labelService.getHostLabel(Schemas.proxCodeRemote, this.configuration.remoteAuthority)
 							},
 							elevateIfNeeded: false,
 							privacy: tunnelOptions.privacy
@@ -487,14 +487,14 @@ export class BrowserMain extends Disposable {
 		// User data
 		let userDataProvider;
 		if (indexedDB) {
-			userDataProvider = new IndexedDBFileSystemProvider(Schemas.prox-codeUserData, indexedDB, userDataStore, true);
+			userDataProvider = new IndexedDBFileSystemProvider(Schemas.proxCodeUserData, indexedDB, userDataStore, true);
 			this.indexedDBFileSystemProviders.push(userDataProvider);
 			this.registerDeveloperActions(userDataProvider);
 		} else {
 			logService.info('Using in-memory user data provider');
 			userDataProvider = new InMemoryFileSystemProvider();
 		}
-		fileService.registerProvider(Schemas.prox-codeUserData, userDataProvider);
+		fileService.registerProvider(Schemas.proxCodeUserData, userDataProvider);
 
 		// Local file access (if supported by browser)
 		if (WebFileSystemAccess.supported(mainWindow)) {
@@ -577,7 +577,7 @@ export class BrowserMain extends Disposable {
 			}
 		}
 
-		const configurationCache = new ConfigurationCache([Schemas.file, Schemas.prox-codeUserData, Schemas.tmp] /* Cache all non native resources */, environmentService, fileService);
+		const configurationCache = new ConfigurationCache([Schemas.file, Schemas.prox - codeUserData, Schemas.tmp] /* Cache all non native resources */, environmentService, fileService);
 		const workspaceService = new WorkspaceService({ remoteAuthority: this.configuration.remoteAuthority, configurationCache }, environmentService, userDataProfileService, userDataProfilesService, fileService, remoteAgentService, uriIdentityService, logService, policyService);
 
 		try {
