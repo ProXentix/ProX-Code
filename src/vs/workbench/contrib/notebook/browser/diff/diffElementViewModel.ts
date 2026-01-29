@@ -869,8 +869,8 @@ export class SideBySideDiffElementViewModel extends DiffElementCellViewModelBase
 
 	private async computeModifiedMetadataEditorHeight() {
 		if (this.checkMetadataIfModified()) {
-			const originalMetadataUri = CellUri.generateCellPropertyUri(this.originalDocument.uri, this.original.handle, Schemas.prox-codeNotebookCellMetadata);
-			const modifiedMetadataUri = CellUri.generateCellPropertyUri(this.modifiedDocument.uri, this.modified.handle, Schemas.prox-codeNotebookCellMetadata);
+			const originalMetadataUri = CellUri.generateCellPropertyUri(this.originalDocument.uri, this.original.handle, Schemas.proxCodeNotebookCellMetadata);
+			const modifiedMetadataUri = CellUri.generateCellPropertyUri(this.modifiedDocument.uri, this.modified.handle, Schemas.proxCodeNotebookCellMetadata);
 			this._layoutInfo.metadataHeight = await this.diffEditorHeightCalculator.diffAndComputeHeight(originalMetadataUri, modifiedMetadataUri);
 		}
 	}

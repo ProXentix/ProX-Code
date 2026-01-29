@@ -577,7 +577,7 @@ export class BrowserMain extends Disposable {
 			}
 		}
 
-		const configurationCache = new ConfigurationCache([Schemas.file, Schemas.prox - codeUserData, Schemas.tmp] /* Cache all non native resources */, environmentService, fileService);
+		const configurationCache = new ConfigurationCache([Schemas.file, Schemas.proxCodeUserData, Schemas.tmp] /* Cache all non native resources */, environmentService, fileService);
 		const workspaceService = new WorkspaceService({ remoteAuthority: this.configuration.remoteAuthority, configurationCache }, environmentService, userDataProfileService, userDataProfilesService, fileService, remoteAgentService, uriIdentityService, logService, policyService);
 
 		try {

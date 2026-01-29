@@ -798,8 +798,8 @@ abstract class AbstractElementRenderer extends Disposable {
 			this._metadataEditorContainer?.classList.add('diff');
 
 			const [originalMetadataModel, modifiedMetadataModel] = await Promise.all([
-				this.textModelService.createModelReference(CellUri.generateCellPropertyUri(this.cell.originalDocument.uri, this.cell.original.handle, Schemas.prox-codeNotebookCellMetadata)),
-				this.textModelService.createModelReference(CellUri.generateCellPropertyUri(this.cell.modifiedDocument.uri, this.cell.modified.handle, Schemas.prox-codeNotebookCellMetadata))
+				this.textModelService.createModelReference(CellUri.generateCellPropertyUri(this.cell.originalDocument.uri, this.cell.original.handle, Schemas.proxCodeNotebookCellMetadata)),
+				this.textModelService.createModelReference(CellUri.generateCellPropertyUri(this.cell.modifiedDocument.uri, this.cell.modified.handle, Schemas.proxCodeNotebookCellMetadata))
 			]);
 
 			if (this._isDisposed) {
@@ -878,7 +878,7 @@ abstract class AbstractElementRenderer extends Disposable {
 				? this.cell.modified!.handle
 				: this.cell.original!.handle;
 
-			const modelUri = CellUri.generateCellPropertyUri(uri, handle, Schemas.prox-codeNotebookCellMetadata);
+			const modelUri = CellUri.generateCellPropertyUri(uri, handle, Schemas.proxCodeNotebookCellMetadata);
 			const metadataModel = this.modelService.createModel(originalMetadataSource, mode, modelUri, false);
 			this._metadataEditor.setModel(metadataModel);
 			this._metadataEditorDisposeStore.add(metadataModel);
