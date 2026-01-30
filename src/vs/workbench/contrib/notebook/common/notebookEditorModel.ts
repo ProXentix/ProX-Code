@@ -223,7 +223,7 @@ export class NotebookFileWorkingCopyModel extends Disposable implements IStoredF
 
 		const saveWithReducedCommunication = this._configurationService.getValue(NotebookSetting.remoteSaving);
 
-		if (saveWithReducedCommunication || _notebookModel.uri.scheme === Schemas.prox-codeRemote) {
+		if (saveWithReducedCommunication || _notebookModel.uri.scheme === Schemas.proxCodeRemote) {
 			this.configuration = {
 				// Intentionally pick a larger delay for triggering backups to allow auto-save
 				// to complete first on the optimized save path
@@ -278,7 +278,7 @@ export class NotebookFileWorkingCopyModel extends Disposable implements IStoredF
 					const isIPynb = this._notebookModel.viewType === 'jupyter-notebook' || this._notebookModel.viewType === 'interactive';
 					const errorMessage = getSaveErrorMessage(error);
 					this._telemetryService.publicLogError2<notebookSaveErrorData, notebookSaveErrorClassification>('notebook/SaveError', {
-						isRemote: this._notebookModel.uri.scheme === Schemas.prox-codeRemote,
+						isRemote: this._notebookModel.uri.scheme === Schemas.proxCodeRemote,
 						isIPyNbWorkerSerializer: isIPynb && this._configurationService.getValue<boolean>('ipynb.experimental.serialization'),
 						error: errorMessage
 					});

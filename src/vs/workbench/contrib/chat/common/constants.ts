@@ -103,12 +103,12 @@ export namespace ChatAgentLocation {
  * List of file schemes that are always unsupported for use in chat
  */
 const chatAlwaysUnsupportedFileSchemes = new Set([
-	Schemas.prox-codeChatEditor,
+	Schemas.proxCodeChatEditor,
 	Schemas.walkThrough,
-	Schemas.prox-codeLocalChatSession,
-	Schemas.prox-codeSettings,
+	Schemas.proxCodeLocalChatSession,
+	Schemas.proxCodeSettings,
 	Schemas.webviewPanel,
-	Schemas.prox-codeUserData,
+	Schemas.proxCodeUserData,
 	Schemas.extension,
 	'ccreq',
 	'openai-codex', // Codex session custom editor scheme

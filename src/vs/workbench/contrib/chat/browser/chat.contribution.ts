@@ -898,8 +898,8 @@ class ChatResolverContribution extends Disposable {
 	) {
 		super();
 
-		this._registerEditor(Schemas.prox-codeChatEditor);
-		this._registerEditor(Schemas.prox-codeLocalChatSession);
+		this._registerEditor(Schemas.proxCodeChatEditor);
+		this._registerEditor(Schemas.proxCodeLocalChatSession);
 
 		this._register(chatSessionsService.onDidChangeContentProviderSchemes((e) => {
 			for (const scheme of e.added) {

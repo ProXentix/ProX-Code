@@ -119,7 +119,7 @@ suite('ConfigurationEditing', () => {
 		const userDataProfilesService = instantiationService.stub(IUserDataProfilesService, disposables.add(new UserDataProfilesService(environmentService, fileService, uriIdentityService, logService)));
 		userDataProfileService = disposables.add(new UserDataProfileService(userDataProfilesService.defaultProfile));
 		const remoteAgentService = disposables.add(instantiationService.createInstance(RemoteAgentService));
-		disposables.add(fileService.registerProvider(Schemas.prox-codeUserData, disposables.add(new FileUserDataProvider(ROOT.scheme, fileSystemProvider, Schemas.prox-codeUserData, userDataProfilesService, uriIdentityService, logService))));
+		disposables.add(fileService.registerProvider(Schemas.proxCodeUserData, disposables.add(new FileUserDataProvider(ROOT.scheme, fileSystemProvider, Schemas.proxCodeUserData, userDataProfilesService, uriIdentityService, logService))));
 		instantiationService.stub(IFileService, fileService);
 		instantiationService.stub(IRemoteAgentService, remoteAgentService);
 		workspaceService = disposables.add(new WorkspaceService({ configurationCache: new ConfigurationCache() }, environmentService, userDataProfileService, userDataProfilesService, fileService, remoteAgentService, uriIdentityService, new NullLogService(), disposables.add(new FilePolicyService(environmentService.policyFile, fileService, logService))));

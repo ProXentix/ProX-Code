@@ -30,7 +30,7 @@ class TestEnvironmentService extends AbstractNativeEnvironmentService {
 	constructor(private readonly _appSettingsHome: URI) {
 		super(Object.create(null), Object.create(null), { _serviceBrand: undefined, ...product });
 	}
-	override get userRoamingDataHome() { return this._appSettingsHome.with({ scheme: Schemas.prox-codeUserData }); }
+	override get userRoamingDataHome() { return this._appSettingsHome.with({ scheme: Schemas.proxCodeUserData }); }
 	override get cacheHome() { return this.userRoamingDataHome; }
 }
 
@@ -60,9 +60,9 @@ suite('FileUserDataProvider', () => {
 		const uriIdentityService = disposables.add(new UriIdentityService(testObject));
 		userDataProfilesService = disposables.add(new UserDataProfilesService(environmentService, testObject, uriIdentityService, logService));
 
-		fileUserDataProvider = disposables.add(new FileUserDataProvider(ROOT.scheme, fileSystemProvider, Schemas.prox-codeUserData, userDataProfilesService, uriIdentityService, logService));
+		fileUserDataProvider = disposables.add(new FileUserDataProvider(ROOT.scheme, fileSystemProvider, Schemas.proxCodeUserData, userDataProfilesService, uriIdentityService, logService));
 		disposables.add(fileUserDataProvider);
-		disposables.add(testObject.registerProvider(Schemas.prox-codeUserData, fileUserDataProvider));
+		disposables.add(testObject.registerProvider(Schemas.proxCodeUserData, fileUserDataProvider));
 	});
 
 	test('exists return false when file does not exist', async () => {
@@ -317,7 +317,7 @@ suite('FileUserDataProvider - Watching', () => {
 	let testObject: FileUserDataProvider;
 	const disposables = ensureNoDisposablesAreLeakedInTestSuite();
 	const rootFileResource = joinPath(ROOT, 'User');
-	const rootUserDataResource = rootFileResource.with({ scheme: Schemas.prox-codeUserData });
+	const rootUserDataResource = rootFileResource.with({ scheme: Schemas.proxCodeUserData });
 
 	let fileEventEmitter: Emitter<readonly IFileChange[]>;
 
@@ -329,7 +329,7 @@ suite('FileUserDataProvider - Watching', () => {
 		const userDataProfilesService = disposables.add(new UserDataProfilesService(environmentService, fileService, uriIdentityService, logService));
 
 		fileEventEmitter = disposables.add(new Emitter<readonly IFileChange[]>());
-		testObject = disposables.add(new FileUserDataProvider(rootFileResource.scheme, new TestFileSystemProvider(fileEventEmitter.event), Schemas.prox-codeUserData, userDataProfilesService, uriIdentityService, new NullLogService()));
+		testObject = disposables.add(new FileUserDataProvider(rootFileResource.scheme, new TestFileSystemProvider(fileEventEmitter.event), Schemas.proxCodeUserData, userDataProfilesService, uriIdentityService, new NullLogService()));
 	});
 
 	test('file added change event', done => {

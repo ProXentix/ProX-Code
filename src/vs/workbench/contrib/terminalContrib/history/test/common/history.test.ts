@@ -169,7 +169,7 @@ suite('Terminal history', () => {
 					originalEnvValues = { HOME: env['HOME'] };
 					env['HOME'] = '/home/user';
 					remoteConnection = { remoteAuthority: 'some-remote' };
-					fileScheme = Schemas.prox-codeRemote;
+					fileScheme = Schemas.proxCodeRemote;
 					filePath = '/home/user/.bash_history';
 				});
 				teardown(() => {
@@ -191,7 +191,7 @@ suite('Terminal history', () => {
 				originalEnvValues = { HOME: env['HOME'] };
 				env['HOME'] = '/home/user';
 				remoteConnection = { remoteAuthority: 'some-remote' };
-				fileScheme = Schemas.prox-codeRemote;
+				fileScheme = Schemas.proxCodeRemote;
 				filePath = '/home/user/.bash_history';
 			});
 			teardown(() => {
@@ -282,7 +282,7 @@ suite('Terminal history', () => {
 							originalEnvValues = { HOME: env['HOME'] };
 							env['HOME'] = '/home/user';
 							remoteConnection = { remoteAuthority: 'some-remote' };
-							fileScheme = Schemas.prox-codeRemote;
+							fileScheme = Schemas.proxCodeRemote;
 							filePath = '/home/user/.bash_history';
 						});
 						teardown(() => {
@@ -304,7 +304,7 @@ suite('Terminal history', () => {
 						originalEnvValues = { HOME: env['HOME'] };
 						env['HOME'] = '/home/user';
 						remoteConnection = { remoteAuthority: 'some-remote' };
-						fileScheme = Schemas.prox-codeRemote;
+						fileScheme = Schemas.proxCodeRemote;
 						filePath = '/home/user/.zsh_history';
 					});
 					teardown(() => {
@@ -380,7 +380,7 @@ suite('Terminal history', () => {
 				env['HOME'] = '/home/user';
 				env['APPDATA'] = 'C:\\AppData';
 				remoteConnection = { remoteAuthority: 'some-remote' };
-				fileScheme = Schemas.prox-codeRemote;
+				fileScheme = Schemas.proxCodeRemote;
 				filePath = '/home/user/.zsh_history';
 				originalEnvValues = { HOME: env['HOME'], APPDATA: env['APPDATA'] };
 			});
@@ -409,7 +409,7 @@ suite('Terminal history', () => {
 			let originalEnvValues: { HOME: string | undefined; APPDATA: string | undefined };
 			setup(() => {
 				remoteConnection = { remoteAuthority: 'some-remote' };
-				fileScheme = Schemas.prox-codeRemote;
+				fileScheme = Schemas.proxCodeRemote;
 				originalEnvValues = { HOME: env['HOME'], APPDATA: env['APPDATA'] };
 			});
 			teardown(() => {
@@ -490,7 +490,7 @@ suite('Terminal history', () => {
 					env['HOME'] = '/home/user';
 					delete env['XDG_DATA_HOME'];
 					remoteConnection = { remoteAuthority: 'some-remote' };
-					fileScheme = Schemas.prox-codeRemote;
+					fileScheme = Schemas.proxCodeRemote;
 					filePath = '/home/user/.local/share/fish/fish_history';
 				});
 				teardown(() => {
@@ -517,7 +517,7 @@ suite('Terminal history', () => {
 					originalEnvValues = { XDG_DATA_HOME: env['XDG_DATA_HOME'] };
 					env['XDG_DATA_HOME'] = '/home/user/data-home';
 					remoteConnection = { remoteAuthority: 'some-remote' };
-					fileScheme = Schemas.prox-codeRemote;
+					fileScheme = Schemas.proxCodeRemote;
 					filePath = '/home/user/data-home/fish/fish_history';
 				});
 				teardown(() => {
@@ -540,7 +540,7 @@ suite('Terminal history', () => {
 				env['HOME'] = '/home/user';
 				delete env['XDG_DATA_HOME'];
 				remoteConnection = { remoteAuthority: 'some-remote' };
-				fileScheme = Schemas.prox-codeRemote;
+				fileScheme = Schemas.proxCodeRemote;
 				filePath = '/home/user/.local/share/fish/fish_history';
 			});
 			teardown(() => {
@@ -575,7 +575,7 @@ suite('Terminal history', () => {
 				originalEnvValues = { XDG_DATA_HOME: env['XDG_DATA_HOME'] };
 				env['XDG_DATA_HOME'] = '/home/user/data-home';
 				remoteConnection = { remoteAuthority: 'some-remote' };
-				fileScheme = Schemas.prox-codeRemote;
+				fileScheme = Schemas.proxCodeRemote;
 				filePath = '/home/user/data-home/fish/fish_history';
 			});
 			teardown(() => {

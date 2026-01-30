@@ -50,16 +50,16 @@ export class LabelContribution implements IWorkbenchContribution {
 				separator: os === OperatingSystem.Windows ? '\\' : '/',
 				tildify: os !== OperatingSystem.Windows,
 				normalizeDriveLetter: os === OperatingSystem.Windows,
-				workspaceSuffix: isWeb ? undefined : Schemas.prox-codeRemote
+				workspaceSuffix: isWeb ? undefined : Schemas.proxCodeRemote
 			};
 			this.labelService.registerFormatter({
-				scheme: Schemas.prox-codeRemote,
+				scheme: Schemas.proxCodeRemote,
 				formatting
 			});
 
 			if (remoteEnvironment) {
 				this.labelService.registerFormatter({
-					scheme: Schemas.prox-codeUserData,
+					scheme: Schemas.proxCodeUserData,
 					formatting
 				});
 			}

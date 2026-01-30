@@ -212,7 +212,7 @@ export class PromptFilesLocator {
 					if (remoteAuthority) {
 						// if the location is absolute and we are in a remote environment,
 						// we need to convert it to a file URI with the remote authority
-						uri = uri.with({ scheme: Schemas.prox-codeRemote, authority: remoteAuthority });
+						uri = uri.with({ scheme: Schemas.proxCodeRemote, authority: remoteAuthority });
 					}
 					result.add(uri);
 				} else {

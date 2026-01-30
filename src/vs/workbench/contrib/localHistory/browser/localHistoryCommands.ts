@@ -573,7 +573,7 @@ registerAction2(class extends Action2 {
 		const pathService = accessor.get(IPathService);
 
 		const resource = EditorResourceAccessor.getOriginalUri(editorService.activeEditor, { supportSideBySide: SideBySideEditor.PRIMARY });
-		if (resource?.scheme !== pathService.defaultUriScheme && resource?.scheme !== Schemas.prox-codeUserData) {
+		if (resource?.scheme !== pathService.defaultUriScheme && resource?.scheme !== Schemas.proxCodeUserData) {
 			return; // only enable for selected schemes
 		}
 

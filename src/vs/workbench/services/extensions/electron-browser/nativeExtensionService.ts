@@ -332,7 +332,7 @@ export class NativeExtensionService extends AbstractExtensionService implements 
 		if (remoteAuthority) {
 
 			this._remoteAuthorityResolverService._setCanonicalURIProvider(async (uri) => {
-				if (uri.scheme !== Schemas.prox-codeRemote || uri.authority !== remoteAuthority) {
+				if (uri.scheme !== Schemas.proxCodeRemote || uri.authority !== remoteAuthority) {
 					// The current remote authority resolver cannot give the canonical URI for this URI
 					return uri;
 				}

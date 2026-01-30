@@ -117,7 +117,7 @@ export class ReplaceService implements IReplaceService {
 		await this.bulkEditorService.apply(edits, { progress });
 
 		const rawTextPromises = edits.map(async e => {
-			if (e.resource.scheme === network.Schemas.prox-codeNotebookCell) {
+			if (e.resource.scheme === network.Schemas.proxCodeNotebookCell) {
 				const notebookResource = CellUri.parse(e.resource)?.notebook;
 				if (notebookResource) {
 					let ref: IReference<IResolvedNotebookEditorModel> | undefined;

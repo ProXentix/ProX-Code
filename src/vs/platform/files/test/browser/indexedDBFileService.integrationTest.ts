@@ -22,7 +22,7 @@ flakySuite('IndexedDBFileSystemProvider', function () {
 	let userdataFileProvider: IndexedDBFileSystemProvider;
 	const testDir = '/';
 
-	const userdataURIFromPaths = (paths: readonly string[]) => joinPath(URI.from({ scheme: Schemas.prox-codeUserData, path: testDir }), ...paths);
+	const userdataURIFromPaths = (paths: readonly string[]) => joinPath(URI.from({ scheme: Schemas.proxCodeUserData, path: testDir }), ...paths);
 
 	const disposables = new DisposableStore();
 
@@ -65,8 +65,8 @@ flakySuite('IndexedDBFileSystemProvider', function () {
 
 		const indexedDB = await IndexedDB.create('vscode-web-db-test', 1, ['vscode-userdata-store', 'vscode-logs-store']);
 
-		userdataFileProvider = new IndexedDBFileSystemProvider(Schemas.prox-codeUserData, indexedDB, 'vscode-userdata-store', true);
-		disposables.add(service.registerProvider(Schemas.prox-codeUserData, userdataFileProvider));
+		userdataFileProvider = new IndexedDBFileSystemProvider(Schemas.proxCodeUserData, indexedDB, 'vscode-userdata-store', true);
+		disposables.add(service.registerProvider(Schemas.proxCodeUserData, userdataFileProvider));
 		disposables.add(userdataFileProvider);
 	};
 

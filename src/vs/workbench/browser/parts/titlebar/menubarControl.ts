@@ -819,7 +819,7 @@ export class CustomMenubarControl extends MenubarControl {
 		// Mnemonics require fullscreen in web
 		if (isWeb) {
 			this._register(onDidChangeFullscreen(windowId => {
-				if (windowId === mainWindow.prox-codeWindowId) {
+				if (windowId === mainWindow.proxCodeWindowId) {
 					this.updateMenubar();
 				}
 			}));

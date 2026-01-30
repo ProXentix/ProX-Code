@@ -1816,7 +1816,7 @@ export class ChatModel extends Disposable implements IChatModel {
 
 				if (
 					request === this._requests.at(-1) &&
-					request.session.sessionResource.scheme !== Schemas.prox-codeLocalChatSession &&
+					request.session.sessionResource.scheme !== Schemas.proxCodeLocalChatSession &&
 					this.configurationService.getValue<boolean>('chat.checkpoints.showFileChanges') === true &&
 					this._editingSession.hasEditsInRequest(request.id)
 				) {

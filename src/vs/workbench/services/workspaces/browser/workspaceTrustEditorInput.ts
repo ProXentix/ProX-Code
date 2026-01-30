@@ -26,7 +26,7 @@ export class WorkspaceTrustEditorInput extends EditorInput {
 	}
 
 	readonly resource: URI = URI.from({
-		scheme: Schemas.prox-codeWorkspaceTrust,
+		scheme: Schemas.proxCodeWorkspaceTrust,
 		path: `workspaceTrustEditor`
 	});
 

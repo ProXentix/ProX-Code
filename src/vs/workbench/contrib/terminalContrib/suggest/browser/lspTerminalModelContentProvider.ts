@@ -19,7 +19,7 @@ export interface ILspTerminalModelContentProvider extends ITextModelContentProvi
 }
 
 export class LspTerminalModelContentProvider extends Disposable implements ILspTerminalModelContentProvider, ITextModelContentProvider {
-	static readonly scheme = Schemas.prox-codeTerminal;
+	static readonly scheme = Schemas.proxCodeTerminal;
 	private _commandDetection: ICommandDetectionCapability | undefined;
 	private _capabilitiesStore: ITerminalCapabilityStore;
 	private readonly _virtualTerminalDocumentUri: URI;
@@ -152,7 +152,7 @@ export class LspTerminalModelContentProvider extends Disposable implements ILspT
 // TODO: Make this [OS generic](https://github.com/ProXentix/ProX-Code/issues/249477)
 export function createTerminalLanguageVirtualUri(terminalId: number, languageExtension: string): URI {
 	return URI.from({
-		scheme: Schemas.prox-codeTerminal,
+		scheme: Schemas.proxCodeTerminal,
 		path: `/terminal${terminalId}.${languageExtension}`,
 	});
 }

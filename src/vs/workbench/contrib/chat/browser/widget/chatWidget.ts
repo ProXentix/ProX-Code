@@ -503,7 +503,7 @@ export class ChatWidget extends Disposable implements IChatWidget {
 
 		this._register(codeEditorService.registerCodeEditorOpenHandler(async (input: ITextResourceEditorInput, _source: ICodeEditor | null, _sideBySide?: boolean): Promise<ICodeEditor | null> => {
 			const resource = input.resource;
-			if (resource.scheme !== Schemas.prox-codeChatCodeBlock) {
+			if (resource.scheme !== Schemas.proxCodeChatCodeBlock) {
 				return null;
 			}
 
@@ -1408,7 +1408,7 @@ export class ChatWidget extends Disposable implements IChatWidget {
 	}
 
 	private async archiveLocalParentSession(sessionResource: URI): Promise<void> {
-		if (sessionResource.scheme !== Schemas.prox-codeLocalChatSession) {
+		if (sessionResource.scheme !== Schemas.proxCodeLocalChatSession) {
 			return;
 		}
 

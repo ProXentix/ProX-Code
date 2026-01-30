@@ -63,12 +63,12 @@ export class ChatEditorInput extends EditorInput implements IEditorCloseHandler 
 	) {
 		super();
 
-		if (resource.scheme === Schemas.prox-codeChatEditor) {
+		if (resource.scheme === Schemas.proxCodeChatEditor) {
 			const parsed = ChatEditorUri.parse(resource);
 			if (!parsed || typeof parsed !== 'number') {
 				throw new Error('Invalid chat URI');
 			}
-		} else if (resource.scheme === Schemas.prox-codeLocalChatSession) {
+		} else if (resource.scheme === Schemas.proxCodeLocalChatSession) {
 			const localSessionId = LocalChatSessionUri.parseLocalSessionId(resource);
 			if (!localSessionId) {
 				throw new Error('Invalid local chat session URI');
@@ -280,7 +280,7 @@ export class ChatEditorModel extends Disposable {
 
 namespace ChatEditorUri {
 
-	const scheme = Schemas.prox-codeChatEditor;
+	const scheme = Schemas.proxCodeChatEditor;
 
 	export function getNewEditorUri(): URI {
 		const handle = Math.floor(Math.random() * 1e9);
@@ -345,7 +345,7 @@ export class ChatEditorInputSerializer implements IEditorSerializer {
 
 			// Otherwise check to see if we're a chat editor with a local session id
 			let resource = URI.revive(parsed.resource);
-			if (resource.scheme === Schemas.prox-codeChatEditor && parsed.sessionId) {
+			if (resource.scheme === Schemas.proxCodeChatEditor && parsed.sessionId) {
 				resource = LocalChatSessionUri.forSession(parsed.sessionId);
 			}
 

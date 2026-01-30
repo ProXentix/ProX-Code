@@ -19,7 +19,7 @@ export class ChatInputBoxContentProvider extends Disposable implements ITextMode
 		@ILanguageService private readonly languageService: ILanguageService
 	) {
 		super();
-		this._register(textModelService.registerTextModelContentProvider(Schemas.prox-codeChatInput, this));
+		this._register(textModelService.registerTextModelContentProvider(Schemas.proxCodeChatInput, this));
 	}
 
 	async provideTextContent(resource: URI): Promise<ITextModel | null> {

@@ -70,7 +70,7 @@ export const terminalSendSequenceCommand = async (accessor: ServicesAccessor, ar
 			text = processedText;
 		}
 
-		const activeWorkspaceRootUri = historyService.getLastActiveWorkspaceRoot(instance.hasRemoteAuthority ? Schemas.prox-codeRemote : Schemas.file);
+		const activeWorkspaceRootUri = historyService.getLastActiveWorkspaceRoot(instance.hasRemoteAuthority ? Schemas.proxCodeRemote : Schemas.file);
 		const lastActiveWorkspaceRoot = activeWorkspaceRootUri ? workspaceContextService.getWorkspaceFolder(activeWorkspaceRootUri) ?? undefined : undefined;
 		const resolvedText = await configurationResolverService.resolveAsync(lastActiveWorkspaceRoot, text);
 		instance.sendText(resolvedText, false);

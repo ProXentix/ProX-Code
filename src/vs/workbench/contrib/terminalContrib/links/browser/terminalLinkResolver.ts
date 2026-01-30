@@ -28,7 +28,7 @@ export class TerminalLinkResolver implements ITerminalLinkResolver {
 		// Correct scheme and authority for remote terminals
 		if (uri && uri.scheme === Schemas.file && processManager.remoteAuthority) {
 			uri = uri.with({
-				scheme: Schemas.prox-codeRemote,
+				scheme: Schemas.proxCodeRemote,
 				authority: processManager.remoteAuthority
 			});
 		}
@@ -95,7 +95,7 @@ export class TerminalLinkResolver implements ITerminalLinkResolver {
 			let uri: URI;
 			if (processManager.remoteAuthority) {
 				uri = URI.from({
-					scheme: Schemas.prox-codeRemote,
+					scheme: Schemas.proxCodeRemote,
 					authority: processManager.remoteAuthority,
 					path: linkUrl
 				});

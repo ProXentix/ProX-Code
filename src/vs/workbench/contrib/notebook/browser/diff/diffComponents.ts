@@ -72,8 +72,8 @@ export class CellDiffPlaceholderElement extends Disposable {
 		super();
 		templateData.body.classList.remove('left', 'right', 'full');
 		const text = (placeholder.hiddenCells.length === 1) ?
-			localize('hiddenCell', '{0} hidden cell', placeholder.hiddenCells.length) :
-			localize('hiddenCells', '{0} hidden cells', placeholder.hiddenCells.length);
+			localize('hiddenCell', '{0} hidden cell', String(placeholder.hiddenCells.length)) :
+			localize('hiddenCells', '{0} hidden cells', String(placeholder.hiddenCells.length));
 		templateData.placeholder.innerText = text;
 
 		this._register(DOM.addDisposableListener(templateData.placeholder, 'dblclick', (e: MouseEvent) => {

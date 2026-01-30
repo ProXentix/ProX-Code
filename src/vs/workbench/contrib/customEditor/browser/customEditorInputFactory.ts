@@ -144,7 +144,7 @@ export class ComplexCustomWorkingCopyEditorHandler extends Disposable implements
 	}
 
 	handles(workingCopy: IWorkingCopyIdentifier): boolean {
-		return workingCopy.resource.scheme === Schemas.prox-codeCustomEditor;
+		return workingCopy.resource.scheme === Schemas.proxCodeCustomEditor;
 	}
 
 	isOpen(workingCopy: IWorkingCopyIdentifier, editor: EditorInput): boolean {

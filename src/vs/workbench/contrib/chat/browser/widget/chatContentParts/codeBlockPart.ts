@@ -514,7 +514,7 @@ export class ChatCodeBlockContentProvider extends Disposable implements ITextMod
 		@IModelService private readonly _modelService: IModelService,
 	) {
 		super();
-		this._register(textModelService.registerTextModelContentProvider(Schemas.prox-codeChatCodeBlock, this));
+		this._register(textModelService.registerTextModelContentProvider(Schemas.proxCodeChatCodeBlock, this));
 	}
 
 	async provideTextContent(resource: URI): Promise<ITextModel | null> {
@@ -928,7 +928,7 @@ export class DefaultChatTextEditor {
 					continue;
 				}
 				const model = candidate.getModel();
-				if (!model || !isEqual(model.original.uri, item.uri) || model.modified.uri.scheme !== Schemas.prox-codeChatCodeCompareBlock) {
+				if (!model || !isEqual(model.original.uri, item.uri) || model.modified.uri.scheme !== Schemas.proxCodeChatCodeCompareBlock) {
 					diffEditor = candidate;
 					break;
 				}

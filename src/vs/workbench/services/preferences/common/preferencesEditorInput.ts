@@ -22,7 +22,7 @@ export class SettingsEditor2Input extends EditorInput {
 	private readonly _settingsModel: Settings2EditorModel;
 
 	readonly resource: URI = URI.from({
-		scheme: Schemas.prox-codeSettings,
+		scheme: Schemas.proxCodeSettings,
 		path: `settingseditor`
 	});
 
@@ -68,7 +68,7 @@ export class PreferencesEditorInput extends EditorInput {
 	static readonly ID: string = 'workbench.input.preferences';
 
 	readonly resource: URI = URI.from({
-		scheme: Schemas.prox-codeSettings,
+		scheme: Schemas.proxCodeSettings,
 		path: `preferenceseditor`
 	});
 

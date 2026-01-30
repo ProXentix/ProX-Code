@@ -105,7 +105,7 @@ export class NativeWorkbenchEnvironmentService extends AbstractNativeEnvironment
 	get extHostLogsPath(): URI { return joinPath(this.windowLogsPath, 'exthost'); }
 
 	@memoize
-	get webviewExternalEndpoint(): string { return `${Schemas.prox-codeWebview}://{{uuid}}`; }
+	get webviewExternalEndpoint(): string { return `${Schemas.proxCodeWebview}://{{uuid}}`; }
 
 	@memoize
 	get skipReleaseNotes(): boolean { return !!this.args['skip-release-notes']; }

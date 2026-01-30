@@ -541,7 +541,7 @@ export class ChatEditingModifiedNotebookEntry extends AbstractChatEditingModifie
 
 	private newNotebookEditGenerator?: ChatEditingNewNotebookContentEdits;
 	override async acceptAgentEdits(resource: URI, edits: (TextEdit | ICellEditOperation)[], isLastEdits: boolean, responseModel: IChatResponseModel | undefined): Promise<void> {
-		const isCellUri = resource.scheme === Schemas.prox-codeNotebookCell;
+		const isCellUri = resource.scheme === Schemas.proxCodeNotebookCell;
 		const cell = isCellUri && this.modifiedModel.cells.find(cell => isEqual(cell.uri, resource));
 		let cellEntry: ChatEditingNotebookCellEntry | undefined;
 		if (cell) {

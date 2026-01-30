@@ -115,9 +115,9 @@ function containsResource(root: URI, resource: URI): boolean {
 
 function normalizeResourcePath(resource: URI): URI {
 	// Rewrite remote uris to a path that the remote file system can understand
-	if (resource.scheme === Schemas.prox-codeRemote) {
+	if (resource.scheme === Schemas.proxCodeRemote) {
 		return URI.from({
-			scheme: Schemas.prox-codeRemote,
+			scheme: Schemas.proxCodeRemote,
 			authority: resource.authority,
 			path: '/vscode-resource',
 			query: JSON.stringify({

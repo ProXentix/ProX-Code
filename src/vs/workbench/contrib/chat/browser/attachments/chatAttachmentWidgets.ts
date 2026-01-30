@@ -166,7 +166,7 @@ abstract class AbstractChatAttachmentWidget extends Disposable {
 			return;
 		}
 
-		if (resource.scheme === Schemas.prox-codeTerminal) {
+		if (resource.scheme === Schemas.proxCodeTerminal) {
 			this.terminalService?.openResource(resource);
 			return;
 		}

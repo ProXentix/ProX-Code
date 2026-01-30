@@ -261,7 +261,7 @@ export class NotebookTextModel extends Disposable implements INotebookTextModel 
 		this._initialize(cells);
 
 		const maybeUpdateCellTextModel = (textModel: ITextModel) => {
-			if (textModel.uri.scheme === Schemas.prox-codeNotebookCell && textModel instanceof TextModel) {
+			if (textModel.uri.scheme === Schemas.proxCodeNotebookCell && textModel instanceof TextModel) {
 				const cellUri = CellUri.parse(textModel.uri);
 				if (cellUri && isEqual(cellUri.notebook, this.uri)) {
 					const cellIdx = this._getCellIndexByHandle(cellUri.handle);

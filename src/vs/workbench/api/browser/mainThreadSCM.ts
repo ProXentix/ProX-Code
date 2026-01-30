@@ -66,7 +66,7 @@ class SCMInputBoxContentProvider extends Disposable implements ITextModelContent
 		private readonly languageService: ILanguageService,
 	) {
 		super();
-		this._register(textModelService.registerTextModelContentProvider(Schemas.prox-codeSourceControl, this));
+		this._register(textModelService.registerTextModelContentProvider(Schemas.proxCodeSourceControl, this));
 	}
 
 	async provideTextContent(resource: URI): Promise<ITextModel | null> {

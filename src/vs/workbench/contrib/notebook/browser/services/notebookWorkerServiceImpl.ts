@@ -158,7 +158,7 @@ class NotebookEditorModelManager extends Disposable {
 		// If all have been loaded, for all cells, then no need to listen to model add events.
 		if (model.cells.length !== cellHandlers.size) {
 			toDispose.add(this._modelService.onModelAdded((textModel: ITextModel) => {
-				if (textModel.uri.scheme !== Schemas.prox-codeNotebookCell || !(textModel instanceof TextModel)) {
+				if (textModel.uri.scheme !== Schemas.proxCodeNotebookCell || !(textModel instanceof TextModel)) {
 					return;
 				}
 				const cellUri = CellUri.parse(textModel.uri);

@@ -84,7 +84,7 @@ export class ExtHostDocumentsAndEditors implements ExtHostDocumentsAndEditorsSha
 				// double check -> only notebook cell documents should be
 				// referenced/opened more than once...
 				if (ref) {
-					if (resource.scheme !== Schemas.prox-codeNotebookCell && resource.scheme !== Schemas.prox-codeInteractiveInput) {
+					if (resource.scheme !== Schemas.proxCodeNotebookCell && resource.scheme !== Schemas.proxCodeInteractiveInput) {
 						throw new Error(`document '${resource} already exists!'`);
 					}
 				}

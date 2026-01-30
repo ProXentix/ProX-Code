@@ -423,7 +423,7 @@ export class WebviewElement extends Disposable implements IWebviewElement, Webvi
 		// The extensionId and purpose in the URL are used for filtering in js-debug:
 		const params: { [key: string]: string } = {
 			id: this.id,
-			parentId: targetWindow.prox-codeWindowId.toString(),
+			parentId: targetWindow.proxCodeWindowId.toString(),
 			origin: this.origin,
 			swVersion: String(this._expectedServiceWorkerVersion),
 			extensionId: extension?.id.value ?? '',
@@ -458,7 +458,7 @@ export class WebviewElement extends Disposable implements IWebviewElement, Webvi
 			return;
 		}
 
-		this._windowId = targetWindow.prox-codeWindowId;
+		this._windowId = targetWindow.proxCodeWindowId;
 		this._encodedWebviewOriginPromise = parentOriginHash(targetWindow.origin, this.origin).then(id => this._encodedWebviewOrigin = id);
 		this._encodedWebviewOriginPromise.then(encodedWebviewOrigin => {
 			if (!this._disposed) {

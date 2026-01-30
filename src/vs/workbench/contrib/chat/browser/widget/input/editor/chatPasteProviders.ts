@@ -178,7 +178,7 @@ export class CopyTextProvider implements DocumentPasteEditProvider {
 	public readonly pasteMimeTypes = [];
 
 	async prepareDocumentPaste(model: ITextModel, ranges: readonly IRange[], dataTransfer: IReadonlyVSDataTransfer, token: CancellationToken): Promise<undefined | IReadonlyVSDataTransfer> {
-		if (model.uri.scheme === Schemas.prox-codeChatInput) {
+		if (model.uri.scheme === Schemas.proxCodeChatInput) {
 			return;
 		}
 
@@ -302,7 +302,7 @@ export class PasteTextProvider implements DocumentPasteEditProvider {
 	) { }
 
 	async provideDocumentPasteEdits(model: ITextModel, ranges: readonly IRange[], dataTransfer: IReadonlyVSDataTransfer, _context: DocumentPasteContext, token: CancellationToken): Promise<DocumentPasteEditsSession | undefined> {
-		if (model.uri.scheme !== Schemas.prox-codeChatInput) {
+		if (model.uri.scheme !== Schemas.proxCodeChatInput) {
 			return;
 		}
 		const text = dataTransfer.get(Mimes.text);
@@ -440,9 +440,9 @@ export class ChatPasteProvidersFeature extends Disposable {
 		@ILogService logService: ILogService,
 	) {
 		super();
-		this._register(languageFeaturesService.documentPasteEditProvider.register({ scheme: Schemas.prox-codeChatInput, pattern: '*', hasAccessToAllModels: true }, instaService.createInstance(CopyAttachmentsProvider)));
-		this._register(languageFeaturesService.documentPasteEditProvider.register({ scheme: Schemas.prox-codeChatInput, pattern: '*', hasAccessToAllModels: true }, new PasteImageProvider(chatWidgetService, extensionService, fileService, environmentService, logService)));
-		this._register(languageFeaturesService.documentPasteEditProvider.register({ scheme: Schemas.prox-codeChatInput, pattern: '*', hasAccessToAllModels: true }, new PasteTextProvider(chatWidgetService, modelService)));
+		this._register(languageFeaturesService.documentPasteEditProvider.register({ scheme: Schemas.proxCodeChatInput, pattern: '*', hasAccessToAllModels: true }, instaService.createInstance(CopyAttachmentsProvider)));
+		this._register(languageFeaturesService.documentPasteEditProvider.register({ scheme: Schemas.proxCodeChatInput, pattern: '*', hasAccessToAllModels: true }, new PasteImageProvider(chatWidgetService, extensionService, fileService, environmentService, logService)));
+		this._register(languageFeaturesService.documentPasteEditProvider.register({ scheme: Schemas.proxCodeChatInput, pattern: '*', hasAccessToAllModels: true }, new PasteTextProvider(chatWidgetService, modelService)));
 		this._register(languageFeaturesService.documentPasteEditProvider.register('*', new CopyTextProvider()));
 		this._register(languageFeaturesService.documentPasteEditProvider.register('*', new CopyTextProvider()));
 	}

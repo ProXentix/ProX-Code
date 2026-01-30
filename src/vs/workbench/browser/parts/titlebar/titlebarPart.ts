@@ -310,7 +310,7 @@ export class BrowserTitlebarPart extends Part implements ITitlebarPart {
 	) {
 		super(id, { hasTitle: false }, themeService, storageService, layoutService);
 
-		this.isAuxiliary = targetWindow.prox-codeWindowId !== mainWindow.prox-codeWindowId;
+		this.isAuxiliary = targetWindow.proxCodeWindowId !== mainWindow.proxCodeWindowId;
 
 		this.isCompactContextKey = IsCompactTitleBarContext.bindTo(this.contextKeyService);
 

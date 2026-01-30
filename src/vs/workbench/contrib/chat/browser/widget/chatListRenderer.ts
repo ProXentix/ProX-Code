@@ -1284,7 +1284,7 @@ export class ChatListItemRenderer extends Disposable implements ITreeRenderer<Ch
 		// Don't pin terminal tools
 		const isTerminalTool = (part.kind === 'toolInvocation' || part.kind === 'toolInvocationSerialized') && part.toolSpecificData?.kind === 'terminal';
 		const isContributedTerminalToolInvocation = element
-			&& (element.sessionResource.scheme !== Schemas.prox-codeChatInput && element.sessionResource.scheme !== Schemas.prox-codeLocalChatSession) // contributed sessions
+			&& (element.sessionResource.scheme !== Schemas.proxCodeChatInput && element.sessionResource.scheme !== Schemas.proxCodeLocalChatSession) // contributed sessions
 			&& part.kind === 'toolInvocationSerialized' && part.toolSpecificData?.kind === 'terminal'; // contributed serialized terminal tool invocations data
 		if (isTerminalTool && !isContributedTerminalToolInvocation) {
 			return false;

@@ -147,8 +147,8 @@ export class ExtHostWebview implements vscode.Webview {
 			return value;
 		}
 
-		const isRemote = this.#extension.extensionLocation?.scheme === Schemas.prox-codeRemote;
-		const remoteAuthority = this.#extension.extensionLocation.scheme === Schemas.prox-codeRemote ? this.#extension.extensionLocation.authority : undefined;
+		const isRemote = this.#extension.extensionLocation?.scheme === Schemas.proxCodeRemote;
+		const remoteAuthority = this.#extension.extensionLocation.scheme === Schemas.proxCodeRemote ? this.#extension.extensionLocation.authority : undefined;
 		return value
 			.replace(/(["'])(?:vscode-resource):(\/\/([^\s\/'"]+?)(?=\/))?([^\s'"]+?)(["'])/gi, (_match, startQuote, _1, scheme, path, endQuote) => {
 				const uri = URI.from({

@@ -545,7 +545,7 @@ class PreferencesActionsContribution extends Disposable implements IWorkbenchCon
 		this.extensionService.whenInstalledExtensionsRegistered()
 			.then(() => {
 				const remoteAuthority = this.environmentService.remoteAuthority;
-				const hostLabel = this.labelService.getHostLabel(Schemas.prox-codeRemote, remoteAuthority) || remoteAuthority;
+				const hostLabel = this.labelService.getHostLabel(Schemas.proxCodeRemote, remoteAuthority) || remoteAuthority;
 				this._register(registerAction2(class extends Action2 {
 					constructor() {
 						super({

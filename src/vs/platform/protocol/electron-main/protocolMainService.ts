@@ -50,14 +50,14 @@ export class ProtocolMainService extends Disposable implements IProtocolMainServ
 		const { defaultSession } = session;
 
 		// Register vscode-file:// handler
-		defaultSession.protocol.registerFileProtocol(Schemas.prox-codeFileResource, (request, callback) => this.handleResourceRequest(request, callback));
+		defaultSession.protocol.registerFileProtocol(Schemas.proxCodeFileResource, (request, callback) => this.handleResourceRequest(request, callback));
 
 		// Block any file:// access
 		defaultSession.protocol.interceptFileProtocol(Schemas.file, (request, callback) => this.handleFileRequest(request, callback));
 
 		// Cleanup
 		this._register(toDisposable(() => {
-			defaultSession.protocol.unregisterProtocol(Schemas.prox-codeFileResource);
+			defaultSession.protocol.unregisterProtocol(Schemas.proxCodeFileResource);
 			defaultSession.protocol.uninterceptProtocol(Schemas.file);
 		}));
 	}
@@ -134,7 +134,7 @@ export class ProtocolMainService extends Disposable implements IProtocolMainServ
 		}
 
 		// finally block to load the resource
-		this.logService.error(`${Schemas.prox-codeFileResource}: Refused to load resource ${path} from ${Schemas.prox-codeFileResource}: protocol (original URL: ${request.url})`);
+		this.logService.error(`${Schemas.proxCodeFileResource}: Refused to load resource ${path} from ${Schemas.proxCodeFileResource}: protocol (original URL: ${request.url})`);
 
 		return callback({ error: -3 /* ABORTED */ });
 	}

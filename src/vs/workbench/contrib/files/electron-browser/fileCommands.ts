@@ -14,7 +14,7 @@ import { INativeHostService } from '../../../../platform/native/common/native.js
 export function revealResourcesInOS(resources: URI[], nativeHostService: INativeHostService, workspaceContextService: IWorkspaceContextService): void {
 	if (resources.length) {
 		sequence(resources.map(r => async () => {
-			if (r.scheme === Schemas.file || r.scheme === Schemas.prox-codeUserData) {
+			if (r.scheme === Schemas.file || r.scheme === Schemas.proxCodeUserData) {
 				nativeHostService.showItemInFolder(r.with({ scheme: Schemas.file }).fsPath);
 			}
 		}));

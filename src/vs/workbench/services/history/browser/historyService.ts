@@ -2038,8 +2038,8 @@ class EditorHelper {
 		// durable across editor changes and restarts
 		const hasValidResourceEditorInputScheme =
 			resource?.scheme === Schemas.file ||
-			resource?.scheme === Schemas.prox-codeRemote ||
-			resource?.scheme === Schemas.prox-codeUserData ||
+			resource?.scheme === Schemas.proxCodeRemote ||
+			resource?.scheme === Schemas.proxCodeUserData ||
 			resource?.scheme === this.pathService.defaultUriScheme;
 
 		// Scheme is valid: prefer the untyped input

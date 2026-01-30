@@ -52,7 +52,7 @@ export class PartsSplash {
 			lastIdleSchedule.value = dom.runWhenWindowIdle(mainWindow, () => this._savePartsSplash(), 2500);
 		};
 		lifecycleService.when(LifecyclePhase.Restored).then(() => {
-			Event.any(Event.filter(onDidChangeFullscreen, windowId => windowId === mainWindow.prox-codeWindowId), editorGroupsService.mainPart.onDidLayout, _themeService.onDidColorThemeChange)(savePartsSplashSoon, undefined, this._disposables);
+			Event.any(Event.filter(onDidChangeFullscreen, windowId => windowId === mainWindow.proxCodeWindowId), editorGroupsService.mainPart.onDidLayout, _themeService.onDidColorThemeChange)(savePartsSplashSoon, undefined, this._disposables);
 			savePartsSplashSoon();
 		});
 

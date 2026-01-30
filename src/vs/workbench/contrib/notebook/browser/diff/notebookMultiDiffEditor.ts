@@ -220,15 +220,15 @@ export class NotebookMultiTextDiffEditor extends EditorPane {
 	}
 
 	public getDiffElementViewModel(uri: URI): IDiffElementViewModelBase | undefined {
-		if (uri.scheme === Schemas.prox-codeNotebookCellOutput || uri.scheme === Schemas.prox-codeNotebookCellOutputDiff ||
-			uri.scheme === Schemas.prox-codeNotebookCellMetadata || uri.scheme === Schemas.prox-codeNotebookCellMetadataDiff
+		if (uri.scheme === Schemas.proxCodeNotebookCellOutput || uri.scheme === Schemas.proxCodeNotebookCellOutputDiff ||
+			uri.scheme === Schemas.proxCodeNotebookCellMetadata || uri.scheme === Schemas.proxCodeNotebookCellMetadataDiff
 		) {
 			const data = CellUri.parseCellPropertyUri(uri, uri.scheme);
 			if (data) {
 				uri = CellUri.generate(data.notebook, data.handle);
 			}
 		}
-		if (uri.scheme === Schemas.prox-codeNotebookMetadata) {
+		if (uri.scheme === Schemas.proxCodeNotebookMetadata) {
 			return this.viewModel?.items.find(item =>
 				item.type === 'modifiedMetadata' ||
 				item.type === 'unchangedMetadata'
@@ -270,18 +270,18 @@ class WorkbenchUIElementFactory implements IWorkbenchUIElementFactory {
 					let description = '';
 					let extraClasses: string[] | undefined = undefined;
 
-					if (uri.scheme === Schemas.prox-codeNotebookCell) {
-						const notebookDocument = uri.scheme === Schemas.prox-codeNotebookCell ? that.notebookDocumentService.getNotebook(uri) : undefined;
-						const cellIndex = Schemas.prox-codeNotebookCell ? that.notebookDocumentService.getNotebook(uri)?.getCellIndex(uri) : undefined;
+					if (uri.scheme === Schemas.proxCodeNotebookCell) {
+						const notebookDocument = uri.scheme === Schemas.proxCodeNotebookCell ? that.notebookDocumentService.getNotebook(uri) : undefined;
+						const cellIndex = Schemas.proxCodeNotebookCell ? that.notebookDocumentService.getNotebook(uri)?.getCellIndex(uri) : undefined;
 						if (notebookDocument && cellIndex !== undefined) {
 							name = localize('notebookCellLabel', "Cell {0}", `${cellIndex + 1}`);
 							const nb = notebookDocument ? that.notebookService.getNotebookTextModel(notebookDocument?.uri) : undefined;
 							const cellLanguage = nb && cellIndex !== undefined ? nb.cells[cellIndex].language : undefined;
 							extraClasses = cellLanguage ? getIconClassesForLanguageId(cellLanguage) : undefined;
 						}
-					} else if (uri.scheme === Schemas.prox-codeNotebookCellMetadata || uri.scheme === Schemas.prox-codeNotebookCellMetadataDiff) {
+					} else if (uri.scheme === Schemas.proxCodeNotebookCellMetadata || uri.scheme === Schemas.proxCodeNotebookCellMetadataDiff) {
 						description = localize('notebookCellMetadataLabel', "Metadata");
-					} else if (uri.scheme === Schemas.prox-codeNotebookCellOutput || uri.scheme === Schemas.prox-codeNotebookCellOutputDiff) {
+					} else if (uri.scheme === Schemas.proxCodeNotebookCellOutput || uri.scheme === Schemas.proxCodeNotebookCellOutputDiff) {
 						description = localize('notebookCellOutputLabel', "Output");
 					}
 

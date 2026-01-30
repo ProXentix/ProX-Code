@@ -427,7 +427,7 @@ export class ChatTerminalToolConfirmationSubPart extends BaseChatToolInvocationS
 
 	private _getUniqueCodeBlockUri() {
 		return URI.from({
-			scheme: Schemas.prox-codeChatCodeBlock,
+			scheme: Schemas.proxCodeChatCodeBlock,
 			path: generateUuid(),
 		});
 	}

@@ -43,7 +43,7 @@ KeybindingsRegistry.registerCommandAndKeybindingRule({
 
 		// If it's a remote workspace, open the canonical URI if it is a local folder
 		try {
-			if (root?.scheme === Schemas.prox-codeRemote) {
+			if (root?.scheme === Schemas.proxCodeRemote) {
 				const canonicalUri = await remoteAuthorityResolverService.getCanonicalURI(root);
 				if (canonicalUri.scheme === Schemas.file) {
 					terminalService.openTerminal(config, canonicalUri.fsPath);
@@ -60,7 +60,7 @@ KeybindingsRegistry.registerCommandAndKeybindingRule({
 			return;
 		}
 		try {
-			if (activeFile?.scheme === Schemas.prox-codeRemote) {
+			if (activeFile?.scheme === Schemas.proxCodeRemote) {
 				const canonicalUri = await remoteAuthorityResolverService.getCanonicalURI(activeFile);
 				if (canonicalUri.scheme === Schemas.file) {
 					terminalService.openTerminal(config, canonicalUri.fsPath);

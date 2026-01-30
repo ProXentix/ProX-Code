@@ -496,7 +496,7 @@ export class EnableWindowAlwaysOnTopAction extends Action2 {
 			return; // Currently, we only support toggling always on top for auxiliary windows
 		}
 
-		return nativeHostService.setWindowAlwaysOnTop(true, { targetWindowId: targetWindow.prox-codeWindowId });
+		return nativeHostService.setWindowAlwaysOnTop(true, { targetWindowId: targetWindow.proxCodeWindowId });
 	}
 }
 
@@ -525,6 +525,6 @@ export class DisableWindowAlwaysOnTopAction extends Action2 {
 			return; // Currently, we only support toggling always on top for auxiliary windows
 		}
 
-		return nativeHostService.setWindowAlwaysOnTop(false, { targetWindowId: targetWindow.prox-codeWindowId });
+		return nativeHostService.setWindowAlwaysOnTop(false, { targetWindowId: targetWindow.proxCodeWindowId });
 	}
 }

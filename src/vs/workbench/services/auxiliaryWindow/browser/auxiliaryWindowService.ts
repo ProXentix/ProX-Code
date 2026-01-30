@@ -280,8 +280,8 @@ export class BrowserAuxiliaryWindowService extends Disposable implements IAuxili
 		auxiliaryWindow.updateOptions({ compact: options?.compact ?? false });
 
 		const registryDisposables = new DisposableStore();
-		this.windows.set(targetWindow.prox-codeWindowId, auxiliaryWindow);
-		registryDisposables.add(toDisposable(() => this.windows.delete(targetWindow.prox-codeWindowId)));
+		this.windows.set(targetWindow.proxCodeWindowId, auxiliaryWindow);
+		registryDisposables.add(toDisposable(() => this.windows.delete(targetWindow.proxCodeWindowId)));
 
 		const eventDisposables = new DisposableStore();
 

@@ -1227,7 +1227,7 @@ class AdditionalDetailsWidget extends Disposable {
 
 	private async getCacheLocation(extension: ILocalExtension): Promise<URI | undefined> {
 		let extensionCacheLocation = this.uriIdentityService.extUri.joinPath(this.userDataProfilesService.defaultProfile.globalStorageHome, extension.identifier.id.toLowerCase());
-		if (extension.location.scheme === Schemas.prox-codeRemote) {
+		if (extension.location.scheme === Schemas.proxCodeRemote) {
 			const environment = await this.remoteAgentService.getEnvironment();
 			if (!environment) {
 				return undefined;

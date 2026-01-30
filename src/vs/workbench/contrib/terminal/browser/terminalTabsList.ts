@@ -814,7 +814,7 @@ class TabDecorationsProvider extends Disposable implements IDecorationsProvider 
 	}
 
 	provideDecorations(resource: URI): IDecorationData | undefined {
-		if (resource.scheme !== Schemas.prox-codeTerminal) {
+		if (resource.scheme !== Schemas.proxCodeTerminal) {
 			return undefined;
 		}
 

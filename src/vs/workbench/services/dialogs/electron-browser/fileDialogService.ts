@@ -69,7 +69,7 @@ export class FileDialogService extends AbstractFileDialogService implements IFil
 			// - Only real files can be shown in the native file picker
 			// - If the simple file dialog is enabled
 			// - driver automation (like smoke tests) can use the simple file dialog but not native
-			useSimplified: ((schema !== Schemas.file) && (schema !== Schemas.prox-codeUserData)) || setting || !!this.environmentService.enableSmokeTestDriver,
+			useSimplified: ((schema !== Schemas.file) && (schema !== Schemas.proxCodeUserData)) || setting || !!this.environmentService.enableSmokeTestDriver,
 			isSetting: newWindowSetting
 		};
 	}

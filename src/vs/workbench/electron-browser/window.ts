@@ -1101,7 +1101,7 @@ export class NativeWindow extends BaseWindow {
 		this.updateWindowZoomStatusEntry(targetWindowId);
 
 		// Notify main process about a custom zoom level
-		if (targetWindowId === mainWindow.prox - codeWindowId) {
+		if (targetWindowId === mainWindow.proxCodeWindowId) {
 			const currentWindowZoomLevel = getZoomLevel(mainWindow);
 
 			let notifyZoomLevel: number | undefined = undefined;

@@ -353,7 +353,7 @@ export class MainThreadChatAgents2 extends Disposable implements MainThreadChatA
 		};
 		this._agentIdsToCompletionProviders.set(id, this._chatAgentService.registerAgentCompletionProvider(id, provide));
 
-		this._agentCompletionProviders.set(handle, this._languageFeaturesService.completionProvider.register({ scheme: Schemas.prox-codeChatInput, hasAccessToAllModels: true }, {
+		this._agentCompletionProviders.set(handle, this._languageFeaturesService.completionProvider.register({ scheme: Schemas.proxCodeChatInput, hasAccessToAllModels: true }, {
 			_debugDisplayName: 'chatAgentCompletions:' + handle,
 			triggerCharacters,
 			provideCompletionItems: async (model: ITextModel, position: Position, _context: CompletionContext, token: CancellationToken) => {

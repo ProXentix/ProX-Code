@@ -46,7 +46,7 @@ export class LocalAgentsSessionsProvider extends Disposable implements IChatSess
 	private registerListeners(): void {
 		this._register(this.chatSessionsService.registerChatModelChangeListeners(
 			this.chatService,
-			Schemas.prox-codeLocalChatSession,
+			Schemas.proxCodeLocalChatSession,
 			() => this._onDidChangeChatSessionItems.fire()
 		));
 

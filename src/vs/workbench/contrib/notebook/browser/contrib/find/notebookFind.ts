@@ -85,7 +85,7 @@ registerAction2(class extends NotebookMultiCellAction {
 });
 
 function notebookContainsTextModel(uri: URI, textModel: ITextModel) {
-	if (textModel.uri.scheme === Schemas.prox-codeNotebookCell) {
+	if (textModel.uri.scheme === Schemas.proxCodeNotebookCell) {
 		const cellUri = CellUri.parse(textModel.uri);
 		if (cellUri && isEqual(cellUri.notebook, uri)) {
 			return true;

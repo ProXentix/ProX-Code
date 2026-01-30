@@ -35,7 +35,7 @@ export class ExtensionManagementServerService implements IExtensionManagementSer
 			this.remoteExtensionManagementServer = {
 				id: 'remote',
 				extensionManagementService,
-				get label() { return labelService.getHostLabel(Schemas.prox-codeRemote, remoteAgentConnection.remoteAuthority) || localize('remote', "Remote"); },
+				get label() { return labelService.getHostLabel(Schemas.proxCodeRemote, remoteAgentConnection.remoteAuthority) || localize('remote', "Remote"); },
 			};
 		}
 		if (isWeb) {
@@ -49,7 +49,7 @@ export class ExtensionManagementServerService implements IExtensionManagementSer
 	}
 
 	getExtensionManagementServer(extension: IExtension): IExtensionManagementServer {
-		if (extension.location.scheme === Schemas.prox-codeRemote) {
+		if (extension.location.scheme === Schemas.proxCodeRemote) {
 			return this.remoteExtensionManagementServer!;
 		}
 		if (this.webExtensionManagementServer) {

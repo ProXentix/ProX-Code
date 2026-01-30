@@ -542,7 +542,7 @@ export class ChatService extends Disposable implements IChatService {
 	async loadSessionForResource(chatSessionResource: URI, location: ChatAgentLocation, token: CancellationToken): Promise<IChatModelReference | undefined> {
 		// TODO: Move this into a new ChatModelService
 
-		if (chatSessionResource.scheme === Schemas.prox-codeLocalChatSession) {
+		if (chatSessionResource.scheme === Schemas.proxCodeLocalChatSession) {
 			return this.getOrRestoreSession(chatSessionResource);
 		}
 

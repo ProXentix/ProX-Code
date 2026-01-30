@@ -249,7 +249,7 @@ export class SettingsTargetsWidget extends Widget {
 
 	private resetLabels() {
 		const remoteAuthority = this.environmentService.remoteAuthority;
-		const hostLabel = remoteAuthority && this.labelService.getHostLabel(Schemas.prox-codeRemote, remoteAuthority);
+		const hostLabel = remoteAuthority && this.labelService.getHostLabel(Schemas.proxCodeRemote, remoteAuthority);
 		this.userLocalSettings.label = localize('userSettings', "User");
 		this.userRemoteSettings.label = localize('userSettingsRemote', "Remote") + (hostLabel ? ` [${hostLabel}]` : '');
 		this.workspaceSettings.label = localize('workspaceSettings', "Workspace");
@@ -271,7 +271,7 @@ export class SettingsTargetsWidget extends Widget {
 
 		this.userRemoteSettings = this._register(new Action('userSettingsRemote', '', '.settings-tab', true, () => this.updateTarget(ConfigurationTarget.USER_REMOTE)));
 		const remoteAuthority = this.environmentService.remoteAuthority;
-		const hostLabel = remoteAuthority && this.labelService.getHostLabel(Schemas.prox-codeRemote, remoteAuthority);
+		const hostLabel = remoteAuthority && this.labelService.getHostLabel(Schemas.proxCodeRemote, remoteAuthority);
 		this.userRemoteSettings.tooltip = localize('userSettingsRemote', "Remote") + (hostLabel ? ` [${hostLabel}]` : '');
 
 		this.workspaceSettings = this._register(new Action('workspaceSettings', '', '.settings-tab', false, () => this.updateTarget(ConfigurationTarget.WORKSPACE)));

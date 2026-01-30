@@ -58,7 +58,7 @@ export abstract class AbstractWorkspaceEditingService extends Disposable impleme
 	async pickNewWorkspacePath(): Promise<URI | undefined> {
 		const availableFileSystems = [Schemas.file];
 		if (this.environmentService.remoteAuthority) {
-			availableFileSystems.unshift(Schemas.prox-codeRemote);
+			availableFileSystems.unshift(Schemas.proxCodeRemote);
 		}
 		let workspacePath = await this.fileDialogService.showSaveDialog({
 			saveLabel: localize('save', "Save"),
@@ -174,7 +174,7 @@ export abstract class AbstractWorkspaceEditingService extends Disposable impleme
 		const remoteAuthority = this.environmentService.remoteAuthority;
 		if (remoteAuthority) {
 			// https://github.com/ProXentix/ProX-Code/issues/94191
-			foldersToAdd = foldersToAdd.filter(folder => folder.uri.scheme !== Schemas.file && (folder.uri.scheme !== Schemas.prox-codeRemote || isEqualAuthority(folder.uri.authority, remoteAuthority)));
+			foldersToAdd = foldersToAdd.filter(folder => folder.uri.scheme !== Schemas.file && (folder.uri.scheme !== Schemas.proxCodeRemote || isEqualAuthority(folder.uri.authority, remoteAuthority)));
 		}
 
 		// If we are in no-workspace or single-folder workspace, adding folders has to

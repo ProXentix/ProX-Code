@@ -38,7 +38,7 @@ export class TestWorkingCopyHistoryService extends NativeWorkingCopyHistoryServi
 		if (!fileService) {
 			fileService = disposables.add(new FileService(logService));
 			disposables.add(fileService.registerProvider(Schemas.inMemory, disposables.add(new InMemoryFileSystemProvider())));
-			disposables.add(fileService.registerProvider(Schemas.prox-codeUserData, disposables.add(new InMemoryFileSystemProvider())));
+			disposables.add(fileService.registerProvider(Schemas.proxCodeUserData, disposables.add(new InMemoryFileSystemProvider())));
 		}
 
 		const remoteAgentService = new TestRemoteAgentService();

@@ -200,7 +200,7 @@ export class TerminalSearchLinkOpener implements ITerminalLinkOpener {
 			let uri: URI;
 			if (this._workbenchEnvironmentService.remoteAuthority) {
 				uri = URI.from({
-					scheme: Schemas.prox-codeRemote,
+					scheme: Schemas.proxCodeRemote,
 					authority: this._workbenchEnvironmentService.remoteAuthority,
 					path: normalizedAbsolutePath
 				});

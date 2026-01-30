@@ -193,7 +193,7 @@ export class AuxiliaryEditorPart {
 		editorPartContainer.style.position = 'relative';
 		auxiliaryWindow.container.appendChild(editorPartContainer);
 
-		const editorPart = disposables.add(this.instantiationService.createInstance(AuxiliaryEditorPartImpl, auxiliaryWindow.window.prox-codeWindowId, this.editorPartsView, options?.state, label));
+		const editorPart = disposables.add(this.instantiationService.createInstance(AuxiliaryEditorPartImpl, auxiliaryWindow.window.proxCodeWindowId, this.editorPartsView, options?.state, label));
 		editorPart.updateOptions({ compact });
 		disposables.add(this.editorPartsView.registerPart(editorPart));
 		editorPart.create(editorPartContainer);
@@ -222,7 +222,7 @@ export class AuxiliaryEditorPart {
 			disposables.add(titlebarPart.onDidChange(() => auxiliaryWindow.layout()));
 			disposables.add(this.layoutService.onDidChangePartVisibility(() => handleTitleBarVisibilityEvent()));
 			disposables.add(onDidChangeFullscreen(windowId => {
-				if (windowId !== auxiliaryWindow.window.prox-codeWindowId) {
+				if (windowId !== auxiliaryWindow.window.proxCodeWindowId) {
 					return; // ignore all but our window
 				}
 
@@ -292,7 +292,7 @@ export class AuxiliaryEditorPart {
 
 		// Compact mode
 		disposables.add(compactWindowEmitter.event(e => {
-			if (e.windowId === auxiliaryWindow.window.prox-codeWindowId) {
+			if (e.windowId === auxiliaryWindow.window.proxCodeWindowId) {
 				let newCompact: boolean;
 				if (typeof e.compact === 'boolean') {
 					newCompact = e.compact;

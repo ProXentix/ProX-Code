@@ -128,7 +128,7 @@ export abstract class AbstractPathService implements IPathService {
 		// Our `isValidBasename` method only works with our
 		// standard schemes for files on disk, either locally
 		// or remote.
-		if (resource.scheme === Schemas.file || resource.scheme === Schemas.prox-codeRemote) {
+		if (resource.scheme === Schemas.file || resource.scheme === Schemas.proxCodeRemote) {
 			return isValidBasename(name ?? basename(resource), os === OperatingSystem.Windows);
 		}
 
@@ -141,7 +141,7 @@ export abstract class AbstractPathService implements IPathService {
 
 	static findDefaultUriScheme(environmentService: IWorkbenchEnvironmentService, contextService: IWorkspaceContextService): string {
 		if (environmentService.remoteAuthority) {
-			return Schemas.prox-codeRemote;
+			return Schemas.proxCodeRemote;
 		}
 
 		const virtualWorkspace = getVirtualWorkspaceScheme(contextService.getWorkspace());

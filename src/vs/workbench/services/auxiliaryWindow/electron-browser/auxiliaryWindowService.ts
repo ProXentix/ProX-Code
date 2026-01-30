@@ -65,17 +65,17 @@ export class NativeAuxiliaryWindow extends AuxiliaryWindow {
 
 	private handleMaximizedState(): void {
 		(async () => {
-			this.maximized = await this.nativeHostService.isMaximized({ targetWindowId: this.window.prox-codeWindowId });
+			this.maximized = await this.nativeHostService.isMaximized({ targetWindowId: this.window.proxCodeWindowId });
 		})();
 
 		this._register(this.nativeHostService.onDidMaximizeWindow(windowId => {
-			if (windowId === this.window.prox-codeWindowId) {
+			if (windowId === this.window.proxCodeWindowId) {
 				this.maximized = true;
 			}
 		}));
 
 		this._register(this.nativeHostService.onDidUnmaximizeWindow(windowId => {
-			if (windowId === this.window.prox-codeWindowId) {
+			if (windowId === this.window.proxCodeWindowId) {
 				this.maximized = false;
 			}
 		}));
@@ -83,18 +83,18 @@ export class NativeAuxiliaryWindow extends AuxiliaryWindow {
 
 	private handleAlwaysOnTopState(): void {
 		(async () => {
-			this.alwaysOnTop = await this.nativeHostService.isWindowAlwaysOnTop({ targetWindowId: this.window.prox-codeWindowId });
+			this.alwaysOnTop = await this.nativeHostService.isWindowAlwaysOnTop({ targetWindowId: this.window.proxCodeWindowId });
 		})();
 
 		this._register(this.nativeHostService.onDidChangeWindowAlwaysOnTop(({ windowId, alwaysOnTop }) => {
-			if (windowId === this.window.prox-codeWindowId) {
+			if (windowId === this.window.proxCodeWindowId) {
 				this.alwaysOnTop = alwaysOnTop;
 			}
 		}));
 	}
 
 	private async handleFullScreenState(): Promise<void> {
-		const fullscreen = await this.nativeHostService.isFullScreen({ targetWindowId: this.window.prox-codeWindowId });
+		const fullscreen = await this.nativeHostService.isFullScreen({ targetWindowId: this.window.proxCodeWindowId });
 		if (fullscreen) {
 			setFullscreen(true, this.window);
 		}
@@ -116,7 +116,7 @@ export class NativeAuxiliaryWindow extends AuxiliaryWindow {
 		const confirmed = await this.instantiationService.invokeFunction(accessor => NativeAuxiliaryWindow.confirmOnShutdown(accessor, ShutdownReason.CLOSE));
 		if (confirmed) {
 			this.skipUnloadConfirmation = true;
-			this.nativeHostService.closeWindow({ targetWindowId: this.window.prox-codeWindowId });
+			this.nativeHostService.closeWindow({ targetWindowId: this.window.proxCodeWindowId });
 		}
 	}
 

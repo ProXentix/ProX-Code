@@ -599,7 +599,7 @@ export class McpWorkbenchService extends Disposable implements IMcpWorkbenchServ
 			id: REMOTE_USER_CONFIG_ID,
 			key: 'userRemoteValue',
 			target: ConfigurationTarget.USER_REMOTE,
-			label: this.environmentService.remoteAuthority ? this.labelService.getHostLabel(Schemas.prox-codeRemote, this.environmentService.remoteAuthority) : 'Remote',
+			label: this.environmentService.remoteAuthority ? this.labelService.getHostLabel(Schemas.proxCodeRemote, this.environmentService.remoteAuthority) : 'Remote',
 			scope: StorageScope.PROFILE,
 			order: McpCollectionSortOrder.User + McpCollectionSortOrder.RemoteBoost,
 			remoteAuthority: this.environmentService.remoteAuthority,

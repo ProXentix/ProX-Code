@@ -113,7 +113,7 @@ export class LocalHistoryTimeline extends Disposable implements IWorkbenchContri
 		if (uri.scheme === LocalHistoryFileSystemProvider.SCHEMA) {
 			// `vscode-local-history`: convert back to the associated resource
 			resource = LocalHistoryFileSystemProvider.fromLocalHistoryFileSystem(uri).associatedResource;
-		} else if (uri.scheme === this.pathService.defaultUriScheme || uri.scheme === Schemas.prox-codeUserData) {
+		} else if (uri.scheme === this.pathService.defaultUriScheme || uri.scheme === Schemas.proxCodeUserData) {
 			// default-scheme / settings: keep as is
 			resource = uri;
 		} else if (this.fileService.hasProvider(uri)) {

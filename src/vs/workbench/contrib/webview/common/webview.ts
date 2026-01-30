@@ -44,7 +44,7 @@ export function asWebviewUri(resource: URI, remoteInfo?: WebviewRemoteInfo): URI
 
 	if (remoteInfo && remoteInfo.authority && remoteInfo.isRemote && resource.scheme === Schemas.file) {
 		resource = URI.from({
-			scheme: Schemas.prox-codeRemote,
+			scheme: Schemas.proxCodeRemote,
 			authority: remoteInfo.authority,
 			path: resource.path,
 		});

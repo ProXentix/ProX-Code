@@ -40,7 +40,7 @@ export async function openSession(accessor: ServicesAccessor, session: IAgentSes
 		target = ChatViewPaneTarget;
 	}
 
-	const isLocalChatSession = session.resource.scheme === Schemas.prox-codeChatEditor || session.resource.scheme === Schemas.prox-codeLocalChatSession;
+	const isLocalChatSession = session.resource.scheme === Schemas.proxCodeChatEditor || session.resource.scheme === Schemas.proxCodeLocalChatSession;
 	if (!isLocalChatSession && !(await chatSessionsService.canResolveChatSession(session.resource))) {
 		target = openOptions?.sideBySide ? SIDE_GROUP : ACTIVE_GROUP; // force to open in editor if session cannot be resolved in panel
 		options = { ...options, revealIfOpened: true };

@@ -89,7 +89,7 @@ suite('WorkspaceContextService - Folder', () => {
 		const environmentService = TestEnvironmentService;
 		const uriIdentityService = disposables.add(new UriIdentityService(fileService));
 		const userDataProfilesService = disposables.add(new UserDataProfilesService(environmentService, fileService, uriIdentityService, logService));
-		disposables.add(fileService.registerProvider(Schemas.prox-codeUserData, disposables.add(new FileUserDataProvider(ROOT.scheme, fileSystemProvider, Schemas.prox-codeUserData, userDataProfilesService, uriIdentityService, new NullLogService()))));
+		disposables.add(fileService.registerProvider(Schemas.proxCodeUserData, disposables.add(new FileUserDataProvider(ROOT.scheme, fileSystemProvider, Schemas.proxCodeUserData, userDataProfilesService, uriIdentityService, new NullLogService()))));
 		const userDataProfileService = disposables.add(new UserDataProfileService(userDataProfilesService.defaultProfile));
 		testObject = disposables.add(new WorkspaceService(
 			{ configurationCache: new ConfigurationCache() },
@@ -145,7 +145,7 @@ suite('WorkspaceContextService - Folder', () => {
 		const environmentService = TestEnvironmentService;
 		const uriIdentityService = disposables.add(new UriIdentityService(fileService));
 		const userDataProfilesService = disposables.add(new UserDataProfilesService(environmentService, fileService, uriIdentityService, logService));
-		disposables.add(fileService.registerProvider(Schemas.prox-codeUserData, disposables.add(new FileUserDataProvider(ROOT.scheme, fileSystemProvider, Schemas.prox-codeUserData, userDataProfilesService, uriIdentityService, new NullLogService()))));
+		disposables.add(fileService.registerProvider(Schemas.proxCodeUserData, disposables.add(new FileUserDataProvider(ROOT.scheme, fileSystemProvider, Schemas.proxCodeUserData, userDataProfilesService, uriIdentityService, new NullLogService()))));
 		const userDataProfileService = disposables.add(new UserDataProfileService(userDataProfilesService.defaultProfile));
 		const testObject = disposables.add(new WorkspaceService(
 			{ configurationCache: new ConfigurationCache() },
@@ -177,7 +177,7 @@ suite('WorkspaceContextService - Folder', () => {
 		const environmentService = TestEnvironmentService;
 		const uriIdentityService = disposables.add(new UriIdentityService(fileService));
 		const userDataProfilesService = disposables.add(new UserDataProfilesService(environmentService, fileService, uriIdentityService, logService));
-		disposables.add(fileService.registerProvider(Schemas.prox-codeUserData, disposables.add(new FileUserDataProvider(ROOT.scheme, fileSystemProvider, Schemas.prox-codeUserData, userDataProfilesService, uriIdentityService, new NullLogService()))));
+		disposables.add(fileService.registerProvider(Schemas.proxCodeUserData, disposables.add(new FileUserDataProvider(ROOT.scheme, fileSystemProvider, Schemas.proxCodeUserData, userDataProfilesService, uriIdentityService, new NullLogService()))));
 		const userDataProfileService = disposables.add(new UserDataProfileService(userDataProfilesService.defaultProfile));
 		const testObject = disposables.add(new WorkspaceService(
 			{ configurationCache: new ConfigurationCache() },
@@ -235,7 +235,7 @@ suite('WorkspaceContextService - Workspace', () => {
 		instantiationService.stub(IRemoteAgentService, remoteAgentService);
 		const uriIdentityService = disposables.add(new UriIdentityService(fileService));
 		const userDataProfilesService = instantiationService.stub(IUserDataProfilesService, disposables.add(new UserDataProfilesService(environmentService, fileService, uriIdentityService, logService)));
-		disposables.add(fileService.registerProvider(Schemas.prox-codeUserData, disposables.add(new FileUserDataProvider(ROOT.scheme, fileSystemProvider, Schemas.prox-codeUserData, userDataProfilesService, uriIdentityService, new NullLogService()))));
+		disposables.add(fileService.registerProvider(Schemas.proxCodeUserData, disposables.add(new FileUserDataProvider(ROOT.scheme, fileSystemProvider, Schemas.proxCodeUserData, userDataProfilesService, uriIdentityService, new NullLogService()))));
 		testObject = disposables.add(new WorkspaceService(
 			{ configurationCache: new ConfigurationCache() },
 			environmentService,
@@ -297,7 +297,7 @@ suite('WorkspaceContextService - Workspace Editing', () => {
 		instantiationService.stub(IRemoteAgentService, remoteAgentService);
 		const uriIdentityService = disposables.add(new UriIdentityService(fileService));
 		const userDataProfilesService = instantiationService.stub(IUserDataProfilesService, disposables.add(new UserDataProfilesService(environmentService, fileService, uriIdentityService, logService)));
-		disposables.add(fileService.registerProvider(Schemas.prox-codeUserData, disposables.add(new FileUserDataProvider(ROOT.scheme, fileSystemProvider, Schemas.prox-codeUserData, userDataProfilesService, uriIdentityService, new NullLogService()))));
+		disposables.add(fileService.registerProvider(Schemas.proxCodeUserData, disposables.add(new FileUserDataProvider(ROOT.scheme, fileSystemProvider, Schemas.proxCodeUserData, userDataProfilesService, uriIdentityService, new NullLogService()))));
 		testObject = disposables.add(new WorkspaceService(
 			{ configurationCache: new ConfigurationCache() },
 			environmentService,
@@ -545,7 +545,7 @@ suite('WorkspaceService - Initialization', () => {
 		instantiationService.stub(IRemoteAgentService, remoteAgentService);
 		const uriIdentityService = disposables.add(new UriIdentityService(fileService));
 		const userDataProfilesService = instantiationService.stub(IUserDataProfilesService, disposables.add(new UserDataProfilesService(environmentService, fileService, uriIdentityService, logService)));
-		disposables.add(fileService.registerProvider(Schemas.prox-codeUserData, disposables.add(new FileUserDataProvider(ROOT.scheme, fileSystemProvider, Schemas.prox-codeUserData, userDataProfilesService, uriIdentityService, new NullLogService()))));
+		disposables.add(fileService.registerProvider(Schemas.proxCodeUserData, disposables.add(new FileUserDataProvider(ROOT.scheme, fileSystemProvider, Schemas.proxCodeUserData, userDataProfilesService, uriIdentityService, new NullLogService()))));
 		userDataProfileService = instantiationService.stub(IUserDataProfileService, disposables.add(new UserDataProfileService(userDataProfilesService.defaultProfile)));
 		testObject = disposables.add(new WorkspaceService(
 			{ configurationCache: new ConfigurationCache() },
@@ -825,7 +825,7 @@ suite('WorkspaceConfigurationService - Folder', () => {
 		instantiationService.stub(IRemoteAgentService, remoteAgentService);
 		const uriIdentityService = disposables.add(new UriIdentityService(fileService));
 		const userDataProfilesService = instantiationService.stub(IUserDataProfilesService, disposables.add(new UserDataProfilesService(environmentService, fileService, uriIdentityService, logService)));
-		disposables.add(fileService.registerProvider(Schemas.prox-codeUserData, disposables.add(new FileUserDataProvider(ROOT.scheme, fileSystemProvider, Schemas.prox-codeUserData, userDataProfilesService, uriIdentityService, new NullLogService()))));
+		disposables.add(fileService.registerProvider(Schemas.proxCodeUserData, disposables.add(new FileUserDataProvider(ROOT.scheme, fileSystemProvider, Schemas.proxCodeUserData, userDataProfilesService, uriIdentityService, new NullLogService()))));
 		userDataProfileService = instantiationService.stub(IUserDataProfileService, disposables.add(new UserDataProfileService(userDataProfilesService.defaultProfile)));
 		workspaceService = testObject = disposables.add(new WorkspaceService(
 			{ configurationCache: new ConfigurationCache() },
@@ -1742,7 +1742,7 @@ suite('WorkspaceConfigurationService - Profiles', () => {
 		instantiationService.stub(IRemoteAgentService, remoteAgentService);
 		const uriIdentityService = disposables.add(new UriIdentityService(fileService));
 		const userDataProfilesService = instantiationService.stub(IUserDataProfilesService, disposables.add(new UserDataProfilesService(environmentService, fileService, uriIdentityService, logService)));
-		disposables.add(fileService.registerProvider(Schemas.prox-codeUserData, disposables.add(new FileUserDataProvider(ROOT.scheme, fileSystemProvider, Schemas.prox-codeUserData, userDataProfilesService, uriIdentityService, new NullLogService()))));
+		disposables.add(fileService.registerProvider(Schemas.proxCodeUserData, disposables.add(new FileUserDataProvider(ROOT.scheme, fileSystemProvider, Schemas.proxCodeUserData, userDataProfilesService, uriIdentityService, new NullLogService()))));
 		userDataProfileService = instantiationService.stub(IUserDataProfileService, disposables.add(new UserDataProfileService(toUserDataProfile('custom', 'custom', joinPath(environmentService.userRoamingDataHome, 'profiles', 'temp'), joinPath(environmentService.cacheHome, 'profilesCache')))));
 		workspaceService = testObject = disposables.add(new WorkspaceService(
 			{ configurationCache: new ConfigurationCache() },
@@ -2109,7 +2109,7 @@ suite('WorkspaceConfigurationService-Multiroot', () => {
 		instantiationService.stub(IRemoteAgentService, remoteAgentService);
 		const uriIdentityService = disposables.add(new UriIdentityService(fileService));
 		const userDataProfilesService = instantiationService.stub(IUserDataProfilesService, disposables.add(new UserDataProfilesService(environmentService, fileService, uriIdentityService, logService)));
-		disposables.add(fileService.registerProvider(Schemas.prox-codeUserData, disposables.add(new FileUserDataProvider(ROOT.scheme, fileSystemProvider, Schemas.prox-codeUserData, userDataProfilesService, uriIdentityService, new NullLogService()))));
+		disposables.add(fileService.registerProvider(Schemas.proxCodeUserData, disposables.add(new FileUserDataProvider(ROOT.scheme, fileSystemProvider, Schemas.proxCodeUserData, userDataProfilesService, uriIdentityService, new NullLogService()))));
 		userDataProfileService = instantiationService.stub(IUserDataProfileService, disposables.add(new UserDataProfileService(userDataProfilesService.defaultProfile)));
 		const workspaceService = disposables.add(new WorkspaceService(
 			{ configurationCache: new ConfigurationCache() },
@@ -2847,7 +2847,7 @@ suite('WorkspaceConfigurationService - Remote Folder', () => {
 		await fileService.createFolder(folder);
 		await fileService.createFolder(appSettingsHome);
 		machineSettingsResource = joinPath(ROOT, 'machine-settings.json');
-		remoteSettingsResource = machineSettingsResource.with({ scheme: Schemas.prox-codeRemote, authority: remoteAuthority });
+		remoteSettingsResource = machineSettingsResource.with({ scheme: Schemas.proxCodeRemote, authority: remoteAuthority });
 
 		instantiationService = workbenchInstantiationService(undefined, disposables);
 		environmentService = TestEnvironmentService;
@@ -2856,7 +2856,7 @@ suite('WorkspaceConfigurationService - Remote Folder', () => {
 		const configurationCache: IConfigurationCache = { read: () => Promise.resolve(''), write: () => Promise.resolve(), remove: () => Promise.resolve(), needsCaching: () => false };
 		const uriIdentityService = disposables.add(new UriIdentityService(fileService));
 		const userDataProfilesService = instantiationService.stub(IUserDataProfilesService, disposables.add(new UserDataProfilesService(environmentService, fileService, uriIdentityService, logService)));
-		disposables.add(fileService.registerProvider(Schemas.prox-codeUserData, disposables.add(new FileUserDataProvider(ROOT.scheme, fileSystemProvider, Schemas.prox-codeUserData, userDataProfilesService, uriIdentityService, new NullLogService()))));
+		disposables.add(fileService.registerProvider(Schemas.proxCodeUserData, disposables.add(new FileUserDataProvider(ROOT.scheme, fileSystemProvider, Schemas.proxCodeUserData, userDataProfilesService, uriIdentityService, new NullLogService()))));
 		userDataProfileService = instantiationService.stub(IUserDataProfileService, disposables.add(new UserDataProfileService(userDataProfilesService.defaultProfile)));
 		testObject = disposables.add(new WorkspaceService({ configurationCache, remoteAuthority }, environmentService, userDataProfileService, userDataProfilesService, fileService, remoteAgentService, uriIdentityService, new NullLogService(), new NullPolicyService()));
 		instantiationService.stub(IWorkspaceContextService, testObject);
@@ -2874,12 +2874,12 @@ suite('WorkspaceConfigurationService - Remote Folder', () => {
 	}
 
 	function registerRemoteFileSystemProvider(): void {
-		disposables.add(instantiationService.get(IFileService).registerProvider(Schemas.prox-codeRemote, new RemoteFileSystemProvider(fileSystemProvider, remoteAuthority)));
+		disposables.add(instantiationService.get(IFileService).registerProvider(Schemas.proxCodeRemote, new RemoteFileSystemProvider(fileSystemProvider, remoteAuthority)));
 	}
 
 	function registerRemoteFileSystemProviderOnActivation(): void {
 		const disposable = disposables.add(instantiationService.get(IFileService).onWillActivateFileSystemProvider(e => {
-			if (e.scheme === Schemas.prox-codeRemote) {
+			if (e.scheme === Schemas.proxCodeRemote) {
 				disposable.dispose();
 				e.join(Promise.resolve().then(() => registerRemoteFileSystemProvider()));
 			}

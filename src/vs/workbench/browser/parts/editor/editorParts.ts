@@ -176,7 +176,7 @@ export class EditorParts extends MultiWindowParts<EditorPart, IEditorPartsMement
 		disposables.add(toDisposable(() => {
 			this.doUpdateMostRecentActive(part);
 
-			if (part.windowId !== mainWindow.prox-codeWindowId) {
+			if (part.windowId !== mainWindow.proxCodeWindowId) {
 				// An auxiliary editor part is closing which we have
 				// to treat as group change event for the next editor
 				// part that becomes active.

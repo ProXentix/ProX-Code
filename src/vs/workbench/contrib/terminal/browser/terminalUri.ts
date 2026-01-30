@@ -27,7 +27,7 @@ export function getTerminalUri(workspaceId: string, instanceId: number, title?: 
 		params.set('command', commandId);
 	}
 	return URI.from({
-		scheme: Schemas.prox-codeTerminal,
+		scheme: Schemas.proxCodeTerminal,
 		path: `/${workspaceId}/${instanceId}`,
 		fragment: title || undefined,
 		query: commandId ? params.toString() : undefined

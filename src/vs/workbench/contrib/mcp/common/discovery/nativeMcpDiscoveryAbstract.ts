@@ -115,7 +115,7 @@ export abstract class NativeFilesystemMcpDiscovery extends FilesystemMcpDiscover
 	) {
 		super(configurationService, fileService, mcpRegistry);
 		if (remoteAuthority) {
-			this.suffix = ' ' + localize('onRemoteLabel', ' on {0}', labelService.getHostLabel(Schemas.prox-codeRemote, remoteAuthority));
+			this.suffix = ' ' + localize('onRemoteLabel', ' on {0}', labelService.getHostLabel(Schemas.proxCodeRemote, remoteAuthority));
 		}
 
 		this.adapters = [

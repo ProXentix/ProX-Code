@@ -599,7 +599,7 @@ export interface INotebookContributionData {
 }
 
 export namespace NotebookMetadataUri {
-	export const scheme = Schemas.prox-codeNotebookMetadata;
+	export const scheme = Schemas.proxCodeNotebookMetadata;
 	export function generate(notebook: URI): URI {
 		return generateMetadataUri(notebook);
 	}
@@ -609,7 +609,7 @@ export namespace NotebookMetadataUri {
 }
 
 export namespace CellUri {
-	export const scheme = Schemas.prox-codeNotebookCell;
+	export const scheme = Schemas.proxCodeNotebookCell;
 	export function generate(notebook: URI, handle: number): URI {
 		return generateUri(notebook, handle);
 	}
@@ -624,7 +624,7 @@ export namespace CellUri {
 	 */
 	export function generateCellOutputUriWithId(notebook: URI, outputId?: string) {
 		return notebook.with({
-			scheme: Schemas.prox-codeNotebookCellOutput,
+			scheme: Schemas.proxCodeNotebookCellOutput,
 			query: new URLSearchParams({
 				openIn: 'editor',
 				outputId: outputId ?? '',
@@ -638,7 +638,7 @@ export namespace CellUri {
 	 */
 	export function generateCellOutputUriWithIndex(notebook: URI, cellUri: URI, outputIndex: number): URI {
 		return notebook.with({
-			scheme: Schemas.prox-codeNotebookCellOutput,
+			scheme: Schemas.proxCodeNotebookCellOutput,
 			fragment: cellUri.fragment,
 			query: new URLSearchParams({
 				openIn: 'notebook',
@@ -649,7 +649,7 @@ export namespace CellUri {
 
 	export function generateOutputEditorUri(notebook: URI, cellId: string, cellIndex: number, outputId: string, outputIndex: number): URI {
 		return notebook.with({
-			scheme: Schemas.prox-codeNotebookCellOutput,
+			scheme: Schemas.proxCodeNotebookCellOutput,
 			query: new URLSearchParams({
 				openIn: 'notebookOutputEditor',
 				notebook: notebook.toString(),

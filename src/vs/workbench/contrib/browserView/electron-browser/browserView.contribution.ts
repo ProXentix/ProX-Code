@@ -49,14 +49,14 @@ class BrowserEditorResolverContribution implements IWorkbenchContribution {
 		@IInstantiationService instantiationService: IInstantiationService
 	) {
 		editorResolverService.registerEditor(
-			`${Schemas.prox-codeBrowser}:/**`,
+			`${Schemas.proxCodeBrowser}:/**`,
 			{
 				id: BrowserEditorInput.ID,
 				label: localize('browser.editorLabel', "Browser"),
 				priority: RegisteredEditorPriority.exclusive
 			},
 			{
-				canSupportResource: resource => resource.scheme === Schemas.prox-codeBrowser,
+				canSupportResource: resource => resource.scheme === Schemas.proxCodeBrowser,
 				singlePerResource: true
 			},
 			{

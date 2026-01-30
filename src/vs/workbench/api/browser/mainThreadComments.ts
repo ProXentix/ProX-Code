@@ -437,7 +437,7 @@ export class MainThreadCommentController extends Disposable implements ICommentC
 	}
 
 	async getDocumentComments(resource: URI, token: CancellationToken) {
-		if (resource.scheme === Schemas.prox-codeNotebookCell) {
+		if (resource.scheme === Schemas.proxCodeNotebookCell) {
 			return {
 				uniqueOwner: this._uniqueId,
 				label: this.label,
@@ -475,7 +475,7 @@ export class MainThreadCommentController extends Disposable implements ICommentC
 	}
 
 	async getNotebookComments(resource: URI, token: CancellationToken) {
-		if (resource.scheme !== Schemas.prox-codeNotebookCell) {
+		if (resource.scheme !== Schemas.proxCodeNotebookCell) {
 			return {
 				uniqueOwner: this._uniqueId,
 				label: this.label,

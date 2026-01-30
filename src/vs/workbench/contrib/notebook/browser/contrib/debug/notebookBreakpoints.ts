@@ -59,7 +59,7 @@ class NotebookBreakpoints extends Disposable implements IWorkbenchContribution {
 		}));
 
 		this._register(this._debugService.getModel().onDidChangeBreakpoints(e => {
-			const newCellBp = e?.added?.find(bp => hasKey(bp, { uri: true }) && bp.uri.scheme === Schemas.prox-codeNotebookCell) as IBreakpoint | undefined;
+			const newCellBp = e?.added?.find(bp => hasKey(bp, { uri: true }) && bp.uri.scheme === Schemas.proxCodeNotebookCell) as IBreakpoint | undefined;
 			if (newCellBp) {
 				const parsed = CellUri.parse(newCellBp.uri);
 				if (!parsed) {

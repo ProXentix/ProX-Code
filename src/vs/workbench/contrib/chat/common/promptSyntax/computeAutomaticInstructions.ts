@@ -419,7 +419,7 @@ export class ComputeAutomaticInstructions {
 
 
 function getFilePath(uri: URI): string {
-	if (uri.scheme === Schemas.file || uri.scheme === Schemas.prox-codeRemote) {
+	if (uri.scheme === Schemas.file || uri.scheme === Schemas.proxCodeRemote) {
 		return uri.fsPath;
 	}
 	return uri.toString();

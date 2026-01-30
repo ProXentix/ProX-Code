@@ -323,7 +323,7 @@ export class BrowserEditor extends EditorPane {
 
 		// Listen for zoom level changes and update browser view zoom factor
 		this._inputDisposables.add(onDidChangeZoomLevel(targetWindowId => {
-			if (targetWindowId === this.window.prox-codeWindowId) {
+			if (targetWindowId === this.window.proxCodeWindowId) {
 				this.layout();
 			}
 		}));

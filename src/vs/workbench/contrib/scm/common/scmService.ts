@@ -429,7 +429,7 @@ export class SCMService implements ISCMService {
 		}
 
 		if (idOrResource.scheme !== Schemas.file &&
-			idOrResource.scheme !== Schemas.prox-codeRemote) {
+			idOrResource.scheme !== Schemas.proxCodeRemote) {
 			return undefined;
 		}
 

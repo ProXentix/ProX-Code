@@ -29,7 +29,7 @@ suite('UntitledFileWorkingCopyManager', () => {
 		accessor = instantiationService.createInstance(TestServiceAccessor);
 
 		disposables.add(accessor.fileService.registerProvider(Schemas.file, disposables.add(new TestInMemoryFileSystemProvider())));
-		disposables.add(accessor.fileService.registerProvider(Schemas.prox-codeRemote, disposables.add(new TestInMemoryFileSystemProvider())));
+		disposables.add(accessor.fileService.registerProvider(Schemas.proxCodeRemote, disposables.add(new TestInMemoryFileSystemProvider())));
 
 		manager = disposables.add(new FileWorkingCopyManager(
 			'testUntitledFileWorkingCopyType',

@@ -77,14 +77,14 @@ export class TerminalMainContribution extends Disposable implements IWorkbenchCo
 
 		// Register terminal editors
 		this._register(editorResolverService.registerEditor(
-			`${Schemas.prox-codeTerminal}:/**`,
+			`${Schemas.proxCodeTerminal}:/**`,
 			{
 				id: terminalEditorId,
 				label: terminalStrings.terminal,
 				priority: RegisteredEditorPriority.exclusive
 			},
 			{
-				canSupportResource: uri => uri.scheme === Schemas.prox-codeTerminal,
+				canSupportResource: uri => uri.scheme === Schemas.proxCodeTerminal,
 				singlePerResource: true
 			},
 			{
@@ -128,7 +128,7 @@ export class TerminalMainContribution extends Disposable implements IWorkbenchCo
 
 		// Register a resource formatter for terminal URIs
 		this._register(labelService.registerFormatter({
-			scheme: Schemas.prox-codeTerminal,
+			scheme: Schemas.proxCodeTerminal,
 			formatting: {
 				label: '${path}',
 				separator: ''

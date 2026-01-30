@@ -120,7 +120,7 @@ suite('LspTerminalModelContentProvider', () => {
 		});
 
 		test('Mac, Linux - createTerminalLanguageVirtualUri should return the correct URI', () => {
-			const expectedUri = URI.from({ scheme: Schemas.prox-codeTerminal, path: '/terminal1.py' });
+			const expectedUri = URI.from({ scheme: Schemas.proxCodeTerminal, path: '/terminal1.py' });
 			const actualUri = createTerminalLanguageVirtualUri(1, 'py');
 			assert.strictEqual(actualUri.toString(), expectedUri.toString());
 		});

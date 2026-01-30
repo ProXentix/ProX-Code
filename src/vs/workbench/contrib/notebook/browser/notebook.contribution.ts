@@ -442,16 +442,16 @@ class CellInfoContentProvider {
 		@ILabelService private readonly _labelService: ILabelService,
 		@INotebookEditorModelResolverService private readonly _notebookModelResolverService: INotebookEditorModelResolverService,
 	) {
-		this._disposables.push(textModelService.registerTextModelContentProvider(Schemas.prox-codeNotebookCellMetadata, {
+		this._disposables.push(textModelService.registerTextModelContentProvider(Schemas.proxCodeNotebookCellMetadata, {
 			provideTextContent: this.provideMetadataTextContent.bind(this)
 		}));
 
-		this._disposables.push(textModelService.registerTextModelContentProvider(Schemas.prox-codeNotebookCellOutput, {
+		this._disposables.push(textModelService.registerTextModelContentProvider(Schemas.proxCodeNotebookCellOutput, {
 			provideTextContent: this.provideOutputTextContent.bind(this)
 		}));
 
 		this._disposables.push(this._labelService.registerFormatter({
-			scheme: Schemas.prox-codeNotebookCellMetadata,
+			scheme: Schemas.proxCodeNotebookCellMetadata,
 			formatting: {
 				label: '${path} (metadata)',
 				separator: '/'
@@ -459,7 +459,7 @@ class CellInfoContentProvider {
 		}));
 
 		this._disposables.push(this._labelService.registerFormatter({
-			scheme: Schemas.prox-codeNotebookCellOutput,
+			scheme: Schemas.proxCodeNotebookCellOutput,
 			formatting: {
 				label: '${path} (output)',
 				separator: '/'
@@ -477,7 +477,7 @@ class CellInfoContentProvider {
 			return existing;
 		}
 
-		const data = CellUri.parseCellPropertyUri(resource, Schemas.prox-codeNotebookCellMetadata);
+		const data = CellUri.parseCellPropertyUri(resource, Schemas.proxCodeNotebookCellMetadata);
 		if (!data) {
 			return null;
 		}
@@ -575,7 +575,7 @@ class CellInfoContentProvider {
 			return existing;
 		}
 
-		const data = CellUri.parseCellPropertyUri(resource, Schemas.prox-codeNotebookCellOutput);
+		const data = CellUri.parseCellPropertyUri(resource, Schemas.proxCodeNotebookCellOutput);
 		if (!data) {
 			return null;
 		}
@@ -663,12 +663,12 @@ class NotebookMetadataContentProvider {
 		@ILabelService private readonly _labelService: ILabelService,
 		@INotebookEditorModelResolverService private readonly _notebookModelResolverService: INotebookEditorModelResolverService,
 	) {
-		this._disposables.push(textModelService.registerTextModelContentProvider(Schemas.prox-codeNotebookMetadata, {
+		this._disposables.push(textModelService.registerTextModelContentProvider(Schemas.proxCodeNotebookMetadata, {
 			provideTextContent: this.provideMetadataTextContent.bind(this)
 		}));
 
 		this._disposables.push(this._labelService.registerFormatter({
-			scheme: Schemas.prox-codeNotebookMetadata,
+			scheme: Schemas.proxCodeNotebookMetadata,
 			formatting: {
 				label: '${path} (metadata)',
 				separator: '/'

@@ -87,7 +87,7 @@ export class ElectronWebviewElement extends WebviewElement {
 	}
 
 	protected override webviewContentEndpoint(iframeId: string): string {
-		return `${Schemas.prox-codeWebview}://${iframeId}`;
+		return `${Schemas.proxCodeWebview}://${iframeId}`;
 	}
 
 	protected override streamToBuffer(stream: VSBufferReadableStream): Promise<ArrayBufferLike> {

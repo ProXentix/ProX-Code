@@ -1269,7 +1269,7 @@ export class WindowsMainService extends Disposable implements IWindowsMainServic
 			path = `/${path}`;
 		}
 
-		const uri = URI.from({ scheme: Schemas.prox-codeRemote, authority: remoteAuthority, path: path });
+		const uri = URI.from({ scheme: Schemas.proxCodeRemote, authority: remoteAuthority, path: path });
 
 		// guess the file type:
 		// - if it ends with a slash it's a folder

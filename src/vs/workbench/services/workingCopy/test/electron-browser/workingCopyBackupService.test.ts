@@ -108,7 +108,7 @@ export class NodeTestWorkingCopyBackupService extends NativeWorkingCopyBackupSer
 		fileService.registerProvider(Schemas.inMemory, fsp);
 		const uriIdentityService = new UriIdentityService(fileService);
 		const userDataProfilesService = new UserDataProfilesService(environmentService, fileService, uriIdentityService, logService);
-		fileService.registerProvider(Schemas.prox-codeUserData, new FileUserDataProvider(Schemas.file, fsp, Schemas.prox-codeUserData, userDataProfilesService, uriIdentityService, logService));
+		fileService.registerProvider(Schemas.proxCodeUserData, new FileUserDataProvider(Schemas.file, fsp, Schemas.proxCodeUserData, userDataProfilesService, uriIdentityService, logService));
 
 		this._fileService = fileService;
 
@@ -326,13 +326,13 @@ suite('WorkingCopyBackupService', () => {
 			// No Type ID
 			let backupId = toUntypedWorkingCopyId(backupResource);
 			let filePathHash = hashIdentifier(backupId);
-			let expectedPath = joinPath(backupHome, workspaceHash, Schemas.file, filePathHash).with({ scheme: Schemas.prox-codeUserData }).toString();
+			let expectedPath = joinPath(backupHome, workspaceHash, Schemas.file, filePathHash).with({ scheme: Schemas.proxCodeUserData }).toString();
 			assert.strictEqual(service.toBackupResource(backupId).toString(), expectedPath);
 
 			// With Type ID
 			backupId = toTypedWorkingCopyId(backupResource);
 			filePathHash = hashIdentifier(backupId);
-			expectedPath = joinPath(backupHome, workspaceHash, Schemas.file, filePathHash).with({ scheme: Schemas.prox-codeUserData }).toString();
+			expectedPath = joinPath(backupHome, workspaceHash, Schemas.file, filePathHash).with({ scheme: Schemas.proxCodeUserData }).toString();
 			assert.strictEqual(service.toBackupResource(backupId).toString(), expectedPath);
 		});
 
@@ -345,13 +345,13 @@ suite('WorkingCopyBackupService', () => {
 			// No Type ID
 			let backupId = toUntypedWorkingCopyId(backupResource);
 			let filePathHash = hashIdentifier(backupId);
-			let expectedPath = joinPath(backupHome, workspaceHash, Schemas.untitled, filePathHash).with({ scheme: Schemas.prox-codeUserData }).toString();
+			let expectedPath = joinPath(backupHome, workspaceHash, Schemas.untitled, filePathHash).with({ scheme: Schemas.proxCodeUserData }).toString();
 			assert.strictEqual(service.toBackupResource(backupId).toString(), expectedPath);
 
 			// With Type ID
 			backupId = toTypedWorkingCopyId(backupResource);
 			filePathHash = hashIdentifier(backupId);
-			expectedPath = joinPath(backupHome, workspaceHash, Schemas.untitled, filePathHash).with({ scheme: Schemas.prox-codeUserData }).toString();
+			expectedPath = joinPath(backupHome, workspaceHash, Schemas.untitled, filePathHash).with({ scheme: Schemas.proxCodeUserData }).toString();
 			assert.strictEqual(service.toBackupResource(backupId).toString(), expectedPath);
 		});
 
@@ -364,13 +364,13 @@ suite('WorkingCopyBackupService', () => {
 			// No Type ID
 			let backupId = toUntypedWorkingCopyId(backupResource);
 			let filePathHash = hashIdentifier(backupId);
-			let expectedPath = joinPath(backupHome, workspaceHash, 'custom', filePathHash).with({ scheme: Schemas.prox-codeUserData }).toString();
+			let expectedPath = joinPath(backupHome, workspaceHash, 'custom', filePathHash).with({ scheme: Schemas.proxCodeUserData }).toString();
 			assert.strictEqual(service.toBackupResource(backupId).toString(), expectedPath);
 
 			// With Type ID
 			backupId = toTypedWorkingCopyId(backupResource);
 			filePathHash = hashIdentifier(backupId);
-			expectedPath = joinPath(backupHome, workspaceHash, 'custom', filePathHash).with({ scheme: Schemas.prox-codeUserData }).toString();
+			expectedPath = joinPath(backupHome, workspaceHash, 'custom', filePathHash).with({ scheme: Schemas.proxCodeUserData }).toString();
 			assert.strictEqual(service.toBackupResource(backupId).toString(), expectedPath);
 		});
 	});

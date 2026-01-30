@@ -223,7 +223,7 @@ export class CodeBlockModelCollection extends Disposable {
 		const indexPart = this.tag ? `${this.tag}-${index}` : `${index}`;
 		const encodedSessionId = encodeBase64(VSBuffer.wrap(new TextEncoder().encode(sessionResource.toString())), false, true);
 		return URI.from({
-			scheme: Schemas.prox-codeChatCodeBlock,
+			scheme: Schemas.proxCodeChatCodeBlock,
 			authority: encodedSessionId,
 			path: `/${chat.id}/${indexPart}`,
 			fragment: metadata ? JSON.stringify(metadata) : undefined,

@@ -66,7 +66,7 @@ export class ImplicitContextAttachmentWidget extends Disposable {
 
 		this.domNode.classList.toggle('disabled', !this.attachment.enabled);
 		const file: URI | undefined = this.attachment.uri;
-		const attachmentTypeName = file?.scheme === Schemas.prox-codeNotebookCell ? localize('cell.lowercase', "cell") : localize('file.lowercase', "file");
+		const attachmentTypeName = file?.scheme === Schemas.proxCodeNotebookCell ? localize('cell.lowercase', "cell") : localize('file.lowercase', "file");
 
 		const isSuggestedEnabled = this.configService.getValue('chat.implicitContext.suggestedContext');
 
@@ -169,7 +169,7 @@ export class ImplicitContextAttachmentWidget extends Disposable {
 		const file = URI.isUri(attachmentValue) ? attachmentValue : attachmentValue!.uri;
 		const range = URI.isUri(attachmentValue) || !this.attachment.isSelection ? undefined : attachmentValue!.range;
 
-		const attachmentTypeName = file.scheme === Schemas.prox-codeNotebookCell ? localize('cell.lowercase', "cell") : localize('file.lowercase', "file");
+		const attachmentTypeName = file.scheme === Schemas.proxCodeNotebookCell ? localize('cell.lowercase', "cell") : localize('file.lowercase', "file");
 
 		const fileBasename = basename(file);
 		const fileDirname = dirname(file);
@@ -214,7 +214,7 @@ export class ImplicitContextAttachmentWidget extends Disposable {
 			this.attachmentModel.addContext(context);
 		} else {
 			const file = URI.isUri(this.attachment.value) ? this.attachment.value : this.attachment.value.uri;
-			if (file.scheme === Schemas.prox-codeNotebookCell && isLocation(this.attachment.value)) {
+			if (file.scheme === Schemas.proxCodeNotebookCell && isLocation(this.attachment.value)) {
 				this.attachmentModel.addFile(file, this.attachment.value.range);
 			} else {
 				this.attachmentModel.addFile(file);

@@ -450,7 +450,7 @@ export async function findInFilesCommand(accessor: ServicesAccessor, _args: IFin
 		const historyService = accessor.get(IHistoryService);
 		const workspaceContextService = accessor.get(IWorkspaceContextService);
 		const activeWorkspaceRootUri = historyService.getLastActiveWorkspaceRoot();
-		const filteredActiveWorkspaceRootUri = activeWorkspaceRootUri?.scheme === Schemas.file || activeWorkspaceRootUri?.scheme === Schemas.prox-codeRemote ? activeWorkspaceRootUri : undefined;
+		const filteredActiveWorkspaceRootUri = activeWorkspaceRootUri?.scheme === Schemas.file || activeWorkspaceRootUri?.scheme === Schemas.proxCodeRemote ? activeWorkspaceRootUri : undefined;
 		const lastActiveWorkspaceRoot = filteredActiveWorkspaceRootUri ? workspaceContextService.getWorkspaceFolder(filteredActiveWorkspaceRootUri) ?? undefined : undefined;
 
 		for (const entry of Object.entries(_args)) {

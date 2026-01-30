@@ -121,7 +121,7 @@ export class OverlayWebview extends Disposable implements IOverlayWebview {
 
 		const oldOwner = this._owner;
 
-		if (this._windowId !== targetWindow.prox-codeWindowId) {
+		if (this._windowId !== targetWindow.proxCodeWindowId) {
 			// moving to a new window
 			this.release(oldOwner);
 			// since we are moving to a new window, we need to dispose the webview and recreate
@@ -132,7 +132,7 @@ export class OverlayWebview extends Disposable implements IOverlayWebview {
 		}
 
 		this._owner = owner;
-		this._windowId = targetWindow.prox-codeWindowId;
+		this._windowId = targetWindow.proxCodeWindowId;
 		this._show(targetWindow);
 
 		if (oldOwner !== owner) {

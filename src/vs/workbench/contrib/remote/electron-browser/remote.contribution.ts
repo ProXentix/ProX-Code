@@ -46,7 +46,7 @@ class RemoteAgentDiagnosticListener implements IWorkbenchContribution {
 			const request = args[0] as { replyChannel: string; args: IDiagnosticInfoOptions };
 			const connection = remoteAgentService.getConnection();
 			if (connection) {
-				const hostName = labelService.getHostLabel(Schemas.prox-codeRemote, connection.remoteAuthority);
+				const hostName = labelService.getHostLabel(Schemas.proxCodeRemote, connection.remoteAuthority);
 				remoteAgentService.getDiagnosticInfo(request.args)
 					.then(info => {
 						if (info) {

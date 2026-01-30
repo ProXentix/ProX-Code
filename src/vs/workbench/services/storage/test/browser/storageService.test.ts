@@ -28,7 +28,7 @@ async function createStorageService(): Promise<[DisposableStore, BrowserStorageS
 	const fileService = disposables.add(new FileService(logService));
 
 	const userDataProvider = disposables.add(new InMemoryFileSystemProvider());
-	disposables.add(fileService.registerProvider(Schemas.prox-codeUserData, userDataProvider));
+	disposables.add(fileService.registerProvider(Schemas.proxCodeUserData, userDataProvider));
 
 	const profilesRoot = URI.file('/profiles').with({ scheme: Schemas.inMemory });
 

@@ -25,7 +25,7 @@ export class MainThreadWebviews extends Disposable implements extHostProtocol.Ma
 		Schemas.http,
 		Schemas.https,
 		Schemas.mailto,
-		Schemas.prox-code,
+		Schemas.proxCode,
 		'vscode-insider',
 	]);
 

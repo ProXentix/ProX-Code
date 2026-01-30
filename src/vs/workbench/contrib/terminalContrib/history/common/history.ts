@@ -535,7 +535,7 @@ async function fetchFileContents(
 	const connection = remoteAgentService.getConnection();
 	const isRemote = !!connection?.remoteAuthority;
 	const resource = URI.from({
-		scheme: isRemote ? Schemas.prox-codeRemote : Schemas.file,
+		scheme: isRemote ? Schemas.proxCodeRemote : Schemas.file,
 		authority: isRemote ? connection.remoteAuthority : undefined,
 		path: URI.file(join(folderPrefix, filePath)).path
 	});

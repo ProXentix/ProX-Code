@@ -150,7 +150,7 @@ class CodeCompareModelService implements ICodeCompareModelService {
 		const modified = await this.textModelService.createModelReference((this.modelService.createModel(
 			createTextBufferFactoryFromSnapshot(original.object.textEditorModel.createSnapshot()),
 			{ languageId: original.object.textEditorModel.getLanguageId(), onDidChange: Event.None },
-			URI.from({ scheme: Schemas.prox-codeChatCodeBlock, path: chatTextEdit.uri.path, query: generateUuid() }),
+			URI.from({ scheme: Schemas.proxCodeChatCodeBlock, path: chatTextEdit.uri.path, query: generateUuid() }),
 			false
 		)).uri);
 

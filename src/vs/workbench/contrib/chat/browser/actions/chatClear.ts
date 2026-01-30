@@ -21,7 +21,7 @@ export async function clearChatEditor(accessor: ServicesAccessor, chatEditorInpu
 	if (chatEditorInput instanceof ChatEditorInput) {
 		// If we have a contributed session, make sure we create an untitled session for it.
 		// Otherwise create a generic new chat editor.
-		const resource = chatEditorInput.sessionResource && chatEditorInput.sessionResource.scheme !== Schemas.prox-codeLocalChatSession
+		const resource = chatEditorInput.sessionResource && chatEditorInput.sessionResource.scheme !== Schemas.proxCodeLocalChatSession
 			? chatEditorInput.sessionResource.with({ path: `/untitled-${generateUuid()}` })
 			: ChatEditorInput.getNewEditorUri();
 

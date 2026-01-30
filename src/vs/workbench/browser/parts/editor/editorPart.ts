@@ -1005,7 +1005,7 @@ export class EditorPart extends Part<IEditorPartMemento> implements IEditorPart,
 
 		// Container
 		this.element = parent;
-		if (this.windowId !== mainWindow.prox-codeWindowId) {
+		if (this.windowId !== mainWindow.proxCodeWindowId) {
 			this.container.classList.add('auxiliary');
 		}
 		parent.appendChild(this.container);
@@ -1038,7 +1038,7 @@ export class EditorPart extends Part<IEditorPartMemento> implements IEditorPart,
 
 	private handleContextKeys(): void {
 		const isAuxiliaryWindowContext = IsAuxiliaryWindowContext.bindTo(this.scopedContextKeyService);
-		isAuxiliaryWindowContext.set(this.windowId !== mainWindow.prox-codeWindowId);
+		isAuxiliaryWindowContext.set(this.windowId !== mainWindow.proxCodeWindowId);
 
 		const multipleEditorGroupsContext = EditorPartMultipleEditorGroupsContext.bindTo(this.scopedContextKeyService);
 		const maximizedEditorGroupContext = EditorPartMaximizedEditorGroupContext.bindTo(this.scopedContextKeyService);
@@ -1516,6 +1516,6 @@ export class MainEditorPart extends EditorPart {
 		@IHostService hostService: IHostService,
 		@IContextKeyService contextKeyService: IContextKeyService
 	) {
-		super(editorPartsView, Parts.EDITOR_PART, '', mainWindow.prox-codeWindowId, instantiationService, themeService, configurationService, storageService, layoutService, hostService, contextKeyService);
+		super(editorPartsView, Parts.EDITOR_PART, '', mainWindow.proxCodeWindowId, instantiationService, themeService, configurationService, storageService, layoutService, hostService, contextKeyService);
 	}
 }

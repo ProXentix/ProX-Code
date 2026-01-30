@@ -668,7 +668,7 @@ export function setupTerminalMenus(): void {
 			id: TerminalCommandId.MoveToTerminalPanel,
 			title: terminalStrings.moveToTerminalPanel
 		},
-		when: ResourceContextKey.Scheme.isEqualTo(Schemas.prox-codeTerminal),
+		when: ResourceContextKey.Scheme.isEqualTo(Schemas.proxCodeTerminal),
 		group: '2_files'
 	});
 
@@ -677,7 +677,7 @@ export function setupTerminalMenus(): void {
 			id: TerminalCommandId.Rename,
 			title: terminalStrings.rename
 		},
-		when: ResourceContextKey.Scheme.isEqualTo(Schemas.prox-codeTerminal),
+		when: ResourceContextKey.Scheme.isEqualTo(Schemas.proxCodeTerminal),
 		group: '2_files'
 	});
 
@@ -686,7 +686,7 @@ export function setupTerminalMenus(): void {
 			id: TerminalCommandId.ChangeColor,
 			title: terminalStrings.changeColor
 		},
-		when: ResourceContextKey.Scheme.isEqualTo(Schemas.prox-codeTerminal),
+		when: ResourceContextKey.Scheme.isEqualTo(Schemas.proxCodeTerminal),
 		group: '2_files'
 	});
 
@@ -695,7 +695,7 @@ export function setupTerminalMenus(): void {
 			id: TerminalCommandId.ChangeIcon,
 			title: terminalStrings.changeIcon
 		},
-		when: ResourceContextKey.Scheme.isEqualTo(Schemas.prox-codeTerminal),
+		when: ResourceContextKey.Scheme.isEqualTo(Schemas.proxCodeTerminal),
 		group: '2_files'
 	});
 	MenuRegistry.appendMenuItem(MenuId.EditorTitleContext, {
@@ -703,7 +703,7 @@ export function setupTerminalMenus(): void {
 			id: TerminalCommandId.SizeToContentWidth,
 			title: terminalStrings.toggleSizeToContentWidth
 		},
-		when: ResourceContextKey.Scheme.isEqualTo(Schemas.prox-codeTerminal),
+		when: ResourceContextKey.Scheme.isEqualTo(Schemas.proxCodeTerminal),
 		group: '2_files'
 	});
 
@@ -721,7 +721,7 @@ export function setupTerminalMenus(): void {
 			},
 			group: 'navigation',
 			order: 0,
-			when: ResourceContextKey.Scheme.isEqualTo(Schemas.prox-codeTerminal)
+			when: ResourceContextKey.Scheme.isEqualTo(Schemas.proxCodeTerminal)
 		});
 		MenuRegistry.appendMenuItem(menuId, {
 			command: {
@@ -731,7 +731,7 @@ export function setupTerminalMenus(): void {
 			},
 			group: 'navigation',
 			order: 6,
-			when: ResourceContextKey.Scheme.isEqualTo(Schemas.prox-codeTerminal),
+			when: ResourceContextKey.Scheme.isEqualTo(Schemas.proxCodeTerminal),
 			isHiddenByDefault: true
 		});
 		MenuRegistry.appendMenuItem(menuId, {
@@ -742,7 +742,7 @@ export function setupTerminalMenus(): void {
 			},
 			group: 'navigation',
 			order: 7,
-			when: ResourceContextKey.Scheme.isEqualTo(Schemas.prox-codeTerminal),
+			when: ResourceContextKey.Scheme.isEqualTo(Schemas.proxCodeTerminal),
 			isHiddenByDefault: true
 		});
 		MenuRegistry.appendMenuItem(menuId, {
@@ -753,7 +753,7 @@ export function setupTerminalMenus(): void {
 			},
 			group: 'navigation',
 			order: 8,
-			when: ResourceContextKey.Scheme.isEqualTo(Schemas.prox-codeTerminal),
+			when: ResourceContextKey.Scheme.isEqualTo(Schemas.proxCodeTerminal),
 			isHiddenByDefault: true
 		});
 		MenuRegistry.appendMenuItem(menuId, {
@@ -764,7 +764,7 @@ export function setupTerminalMenus(): void {
 			},
 			group: 'navigation',
 			order: 9,
-			when: ContextKeyExpr.and(ResourceContextKey.Scheme.isEqualTo(Schemas.prox-codeTerminal), TerminalContextKeys.terminalDictationInProgress.negate()),
+			when: ContextKeyExpr.and(ResourceContextKey.Scheme.isEqualTo(Schemas.proxCodeTerminal), TerminalContextKeys.terminalDictationInProgress.negate()),
 			isHiddenByDefault: true
 		});
 		MenuRegistry.appendMenuItem(menuId, {
@@ -775,7 +775,7 @@ export function setupTerminalMenus(): void {
 			},
 			group: 'navigation',
 			order: 10,
-			when: ContextKeyExpr.and(ResourceContextKey.Scheme.isEqualTo(Schemas.prox-codeTerminal), HasSpeechProvider, TerminalContextKeys.terminalDictationInProgress),
+			when: ContextKeyExpr.and(ResourceContextKey.Scheme.isEqualTo(Schemas.proxCodeTerminal), HasSpeechProvider, TerminalContextKeys.terminalDictationInProgress),
 			isHiddenByDefault: true
 		});
 	}

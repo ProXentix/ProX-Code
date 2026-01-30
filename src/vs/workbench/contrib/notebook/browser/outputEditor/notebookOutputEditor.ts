@@ -168,7 +168,7 @@ export class NotebookOutputEditor extends EditorPane implements INotebookDelegat
 
 		const resolvedNotebookEditorModel = model.resolvedNotebookEditorModel;
 
-		await this._createOriginalWebview(generateUuid(), resolvedNotebookEditorModel.viewType, URI.from({ scheme: Schemas.prox-codeNotebookCellOutput, path: '', query: 'openIn=notebookOutputEditor' }));
+		await this._createOriginalWebview(generateUuid(), resolvedNotebookEditorModel.viewType, URI.from({ scheme: Schemas.proxCodeNotebookCellOutput, path: '', query: 'openIn=notebookOutputEditor' }));
 
 		const notebookTextModel = resolvedNotebookEditorModel.notebook;
 		const eventDispatcher = this._register(new NotebookEventDispatcher());
@@ -345,7 +345,7 @@ export class NotebookOutputEditorContribution implements IWorkbenchContribution 
 		@IInstantiationService private readonly instantiationService: IInstantiationService,
 		@IUriIdentityService private readonly uriIdentityService: IUriIdentityService,) {
 		editorResolverService.registerEditor(
-			`${Schemas.prox-codeNotebookCellOutput}:/**`,
+			`${Schemas.proxCodeNotebookCellOutput}:/**`,
 			{
 				id: 'notebookOutputEditor',
 				label: 'Notebook Output Editor',
@@ -353,7 +353,7 @@ export class NotebookOutputEditorContribution implements IWorkbenchContribution 
 			},
 			{
 				canSupportResource: (resource: URI) => {
-					if (resource.scheme === Schemas.prox-codeNotebookCellOutput) {
+					if (resource.scheme === Schemas.proxCodeNotebookCellOutput) {
 						const params = new URLSearchParams(resource.query);
 						return params.get('openIn') === 'notebookOutputEditor';
 					}

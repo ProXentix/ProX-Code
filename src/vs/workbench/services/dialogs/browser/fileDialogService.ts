@@ -44,7 +44,7 @@ export class FileDialogService extends AbstractFileDialogService implements IFil
 
 	protected override addFileSchemaIfNeeded(schema: string, isFolder: boolean): string[] {
 		return (schema === Schemas.untitled) ? [Schemas.file]
-			: (((schema !== Schemas.file) && (!isFolder || (schema !== Schemas.prox-codeRemote))) ? [schema, Schemas.file] : [schema]);
+			: (((schema !== Schemas.file) && (!isFolder || (schema !== Schemas.proxCodeRemote))) ? [schema, Schemas.file] : [schema]);
 	}
 
 	async pickFileAndOpen(options: IPickAndOpenOptions): Promise<void> {
@@ -272,7 +272,7 @@ export class FileDialogService extends AbstractFileDialogService implements IFil
 	}
 
 	private shouldUseSimplified(scheme: string): boolean {
-		return ![Schemas.file, Schemas.prox-codeUserData, Schemas.tmp].includes(scheme);
+		return ![Schemas.file, Schemas.proxCodeUserData, Schemas.tmp].includes(scheme);
 	}
 }
 

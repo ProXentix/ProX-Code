@@ -91,7 +91,7 @@ export class InspectEditorTokensController extends Disposable implements IEditor
 		if (!this._editor.hasModel()) {
 			return;
 		}
-		if (this._editor.getModel().uri.scheme === Schemas.prox-codeNotebookCell) {
+		if (this._editor.getModel().uri.scheme === Schemas.proxCodeNotebookCell) {
 			// disable in notebooks
 			return;
 		}

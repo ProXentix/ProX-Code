@@ -522,7 +522,7 @@ export class BackLayerWebView<T extends ICommonCellInfo> extends Themable {
 	}
 
 	private asWebviewUri(uri: URI, fromExtension: URI | undefined) {
-		return asWebviewUri(uri, fromExtension?.scheme === Schemas.prox-codeRemote ? { isRemote: true, authority: fromExtension.authority } : undefined);
+		return asWebviewUri(uri, fromExtension?.scheme === Schemas.proxCodeRemote ? { isRemote: true, authority: fromExtension.authority } : undefined);
 	}
 
 	postKernelMessage(message: any) {
@@ -804,7 +804,7 @@ export class BackLayerWebView<T extends ICommonCellInfo> extends Themable {
 
 					if (matchesSomeScheme(data.href, Schemas.http, Schemas.https, Schemas.mailto)) {
 						this.openerService.open(data.href, { fromUserGesture: true, fromWorkspace: true });
-					} else if (matchesScheme(data.href, Schemas.prox-codeNotebookCell)) {
+					} else if (matchesScheme(data.href, Schemas.proxCodeNotebookCell)) {
 						const uri = URI.parse(data.href);
 						await this._handleNotebookCellResource(uri);
 					} else if (!/^[\w\-]+:/.test(data.href)) {

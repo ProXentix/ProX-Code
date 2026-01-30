@@ -21,12 +21,12 @@ const schemaRegistry = Registry.as<JSONContributionRegistry.IJSONContributionReg
 
 export class SettingsFileSystemProvider extends Disposable implements IFileSystemProviderWithFileReadWriteCapability {
 
-	static readonly SCHEMA = Schemas.prox-code;
+	static readonly SCHEMA = Schemas.proxCode;
 
 	protected readonly _onDidChangeFile = this._register(new Emitter<readonly IFileChange[]>());
 	readonly onDidChangeFile = this._onDidChangeFile.event;
 
-	private static SCHEMA_ASSOCIATIONS = URI.parse(`${Schemas.prox-code}://schemas-associations/schemas-associations.json`);
+	private static SCHEMA_ASSOCIATIONS = URI.parse(`${Schemas.proxCode}://schemas-associations/schemas-associations.json`);
 
 	constructor(
 		@IPreferencesService private readonly preferencesService: IPreferencesService,

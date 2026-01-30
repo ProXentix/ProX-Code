@@ -49,7 +49,7 @@ suite('ExtHostWebview', () => {
 
 		return disposables.add(extHostWebviewPanels.createWebviewPanel({
 			extensionLocation: URI.from({
-				scheme: remoteAuthority ? Schemas.prox-codeRemote : Schemas.file,
+				scheme: remoteAuthority ? Schemas.proxCodeRemote : Schemas.file,
 				authority: remoteAuthority,
 				path: '/ext/path',
 			})

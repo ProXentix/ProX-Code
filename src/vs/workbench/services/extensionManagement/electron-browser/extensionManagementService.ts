@@ -74,7 +74,7 @@ export class ExtensionManagementService extends BaseExtensionManagementService {
 	}
 
 	protected override async installVSIXInServer(vsix: URI, server: IExtensionManagementServer, options: InstallOptions | undefined): Promise<ILocalExtension> {
-		if (vsix.scheme === Schemas.prox-codeRemote && server === this.extensionManagementServerService.localExtensionManagementServer) {
+		if (vsix.scheme === Schemas.proxCodeRemote && server === this.extensionManagementServerService.localExtensionManagementServer) {
 			const downloadedLocation = joinPath(this.environmentService.tmpDir, generateUuid());
 			await this.downloadService.download(vsix, downloadedLocation);
 			vsix = downloadedLocation;

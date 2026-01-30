@@ -62,7 +62,7 @@ class ImplictKernelSelector implements IDisposable {
 		// IMPLICITLY select a suggested kernel when users start to hover. This should
 		// be a strong enough hint that the user wants to interact with the notebook. Maybe
 		// add more triggers like goto-providers or completion-providers
-		disposables.add(languageFeaturesService.hoverProvider.register({ scheme: Schemas.prox-codeNotebookCell, pattern: notebook.uri.path }, {
+		disposables.add(languageFeaturesService.hoverProvider.register({ scheme: Schemas.proxCodeNotebookCell, pattern: notebook.uri.path }, {
 			provideHover() {
 				logService.trace('IMPLICIT kernel selection because of hover');
 				selectKernel();

@@ -69,7 +69,7 @@ class NotebookChatContribution extends Disposable implements IWorkbenchContribut
 		updateNotebookAgentStatus();
 		this._register(chatAgentService.onDidChangeAgents(updateNotebookAgentStatus));
 
-		this._register(this.languageFeaturesService.completionProvider.register({ scheme: Schemas.prox-codeChatInput, hasAccessToAllModels: true }, {
+		this._register(this.languageFeaturesService.completionProvider.register({ scheme: Schemas.proxCodeChatInput, hasAccessToAllModels: true }, {
 			_debugDisplayName: 'chatKernelDynamicCompletions',
 			triggerCharacters: [chatVariableLeader],
 			provideCompletionItems: async (model: ITextModel, position: Position, _context: CompletionContext, token: CancellationToken) => {

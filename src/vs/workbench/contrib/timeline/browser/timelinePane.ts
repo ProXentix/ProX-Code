@@ -519,7 +519,7 @@ export class TimelinePane extends ViewPane {
 			}
 
 			// TODO@eamodio: Are these the right the list of schemes to exclude? Is there a better way?
-			if (this.uri?.scheme === Schemas.prox-codeSettings || this.uri?.scheme === Schemas.webviewPanel || this.uri?.scheme === Schemas.walkThrough) {
+			if (this.uri?.scheme === Schemas.proxCodeSettings || this.uri?.scheme === Schemas.webviewPanel || this.uri?.scheme === Schemas.walkThrough) {
 				this.uri = undefined;
 
 				this.clear(false);

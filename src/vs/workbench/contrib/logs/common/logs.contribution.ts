@@ -146,11 +146,11 @@ class LogOutputChannels extends Disposable implements IWorkbenchContribution {
 		}
 
 		const existingChannel = this.outputChannelRegistry.getChannel(logger.id);
-		const remoteLogger = existingChannel && isSingleSourceOutputChannelDescriptor(existingChannel) && existingChannel.source.resource.scheme === Schemas.prox-codeRemote ? this.loggerService.getRegisteredLogger(existingChannel.source.resource) : undefined;
+		const remoteLogger = existingChannel && isSingleSourceOutputChannelDescriptor(existingChannel) && existingChannel.source.resource.scheme === Schemas.proxCodeRemote ? this.loggerService.getRegisteredLogger(existingChannel.source.resource) : undefined;
 		if (remoteLogger) {
 			this.deregisterLogChannel(remoteLogger);
 		}
-		const hasToAppendRemote = existingChannel && logger.resource.scheme === Schemas.prox-codeRemote;
+		const hasToAppendRemote = existingChannel && logger.resource.scheme === Schemas.proxCodeRemote;
 		const id = hasToAppendRemote ? `${logger.id}.remote` : logger.id;
 		const label = hasToAppendRemote ? nls.localize('remote name', "{0} (Remote)", logger.name ?? logger.id) : logger.name ?? logger.id;
 		this.outputChannelRegistry.registerChannel({ id, label, source: { resource: logger.resource }, log: true, extensionId: logger.extensionId });

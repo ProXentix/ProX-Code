@@ -95,7 +95,7 @@ Registry.as<IDragAndDropContributionRegistry>(DragAndDropExtensions.DragAndDropC
 		return editors;
 	},
 	setData(resources, event) {
-		const terminalResources = resources.filter(({ resource }) => resource.scheme === Schemas.prox-codeTerminal);
+		const terminalResources = resources.filter(({ resource }) => resource.scheme === Schemas.proxCodeTerminal);
 		if (terminalResources.length) {
 			event.dataTransfer?.setData(TerminalDataTransfers.Terminals, JSON.stringify(terminalResources.map(({ resource }) => resource.toString())));
 		}

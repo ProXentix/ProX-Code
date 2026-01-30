@@ -88,7 +88,7 @@ class WorkbenchHostService extends Disposable implements IHostService {
 			disposables.add(disposableWindowInterval(window, () => {
 				const hasFocus = window.document.hasFocus();
 				if (hasFocus) {
-					emitter.fire(window.prox-codeWindowId);
+					emitter.fire(window.proxCodeWindowId);
 				}
 
 				return hasFocus;
@@ -147,7 +147,7 @@ class WorkbenchHostService extends Disposable implements IHostService {
 	}
 
 	toggleFullScreen(targetWindow: Window): Promise<void> {
-		return this.nativeHostService.toggleFullScreen({ targetWindowId: isAuxiliaryWindow(targetWindow) ? targetWindow.prox-codeWindowId : undefined });
+		return this.nativeHostService.toggleFullScreen({ targetWindowId: isAuxiliaryWindow(targetWindow) ? targetWindow.proxCodeWindowId : undefined });
 	}
 
 	async moveTop(targetWindow: Window): Promise<void> {
@@ -155,7 +155,7 @@ class WorkbenchHostService extends Disposable implements IHostService {
 			return; // does not apply when only one window is opened
 		}
 
-		return this.nativeHostService.moveWindowTop(isAuxiliaryWindow(targetWindow) ? { targetWindowId: targetWindow.prox-codeWindowId } : undefined);
+		return this.nativeHostService.moveWindowTop(isAuxiliaryWindow(targetWindow) ? { targetWindowId: targetWindow.proxCodeWindowId } : undefined);
 	}
 
 	getCursorScreenPoint(): Promise<{ readonly point: IPoint; readonly display: IRectangle }> {

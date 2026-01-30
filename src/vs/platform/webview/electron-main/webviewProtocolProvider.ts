@@ -23,11 +23,11 @@ export class WebviewProtocolProvider implements IDisposable {
 	) {
 		// Register the protocol for loading webview html
 		const webviewHandler = this.handleWebviewRequest.bind(this);
-		protocol.handle(Schemas.prox-codeWebview, webviewHandler);
+		protocol.handle(Schemas.proxCodeWebview, webviewHandler);
 	}
 
 	dispose(): void {
-		protocol.unhandle(Schemas.prox-codeWebview);
+		protocol.unhandle(Schemas.proxCodeWebview);
 	}
 
 	private async handleWebviewRequest(request: GlobalRequest): Promise<GlobalResponse> {

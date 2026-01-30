@@ -82,7 +82,7 @@ export class NativeTitlebarPart extends BrowserTitlebarPart {
 
 		this.tahoeOrNewer = isTahoeOrNewer(environmentService.os.release);
 
-		this.handleWindowsAlwaysOnTop(targetWindow.prox-codeWindowId);
+		this.handleWindowsAlwaysOnTop(targetWindow.proxCodeWindowId);
 	}
 
 	private async handleWindowsAlwaysOnTop(targetWindowId: number): Promise<void> {

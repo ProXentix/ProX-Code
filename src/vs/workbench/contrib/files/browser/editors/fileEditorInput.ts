@@ -185,9 +185,9 @@ export class FileEditorInput extends AbstractTextResourceEditorInput implements 
 
 	private allowLabelOverride(): boolean {
 		return this.resource.scheme !== this.pathService.defaultUriScheme &&
-			this.resource.scheme !== Schemas.prox-codeUserData &&
+			this.resource.scheme !== Schemas.proxCodeUserData &&
 			this.resource.scheme !== Schemas.file &&
-			this.resource.scheme !== Schemas.prox-codeRemote;
+			this.resource.scheme !== Schemas.proxCodeRemote;
 	}
 
 	getPreferredName(): string | undefined {

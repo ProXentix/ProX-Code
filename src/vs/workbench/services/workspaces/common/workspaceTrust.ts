@@ -163,7 +163,7 @@ export class WorkspaceTrustManagementService extends Disposable implements IWork
 			this.remoteAuthorityResolverService.resolveAuthority(this.environmentService.remoteAuthority)
 				.then(async result => {
 					this._remoteAuthority = result;
-					await this.fileService.activateProvider(Schemas.prox-codeRemote);
+					await this.fileService.activateProvider(Schemas.proxCodeRemote);
 					await this.updateWorkspaceTrust();
 				})
 				.finally(() => {
@@ -200,7 +200,7 @@ export class WorkspaceTrustManagementService extends Disposable implements IWork
 
 	private async getCanonicalUri(uri: URI): Promise<URI> {
 		let canonicalUri = uri;
-		if (this.environmentService.remoteAuthority && uri.scheme === Schemas.prox-codeRemote) {
+		if (this.environmentService.remoteAuthority && uri.scheme === Schemas.proxCodeRemote) {
 			canonicalUri = await this.remoteAuthorityResolverService.getCanonicalURI(uri);
 		} else if (uri.scheme === 'vscode-vfs') {
 			const index = uri.authority.indexOf('+');
@@ -515,7 +515,7 @@ export class WorkspaceTrustManagementService extends Disposable implements IWork
 			return false;
 		}
 
-		if (workspaceIdentifier.uri.scheme !== Schemas.file && workspaceIdentifier.uri.scheme !== Schemas.prox-codeRemote) {
+		if (workspaceIdentifier.uri.scheme !== Schemas.file && workspaceIdentifier.uri.scheme !== Schemas.proxCodeRemote) {
 			return false;
 		}
 

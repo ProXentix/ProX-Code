@@ -1249,7 +1249,7 @@ suite('ExtensionsWorkbenchServiceTest', () => {
 		// multi server setup
 		const extensionKind: ExtensionKind[] = ['ui'];
 		const localExtension = aLocalExtension('a', { extensionKind }, { location: URI.file(`pub.a`) });
-		const remoteExtension = aLocalExtension('a', { extensionKind }, { location: URI.file(`pub.a`).with({ scheme: Schemas.prox-codeRemote }) });
+		const remoteExtension = aLocalExtension('a', { extensionKind }, { location: URI.file(`pub.a`).with({ scheme: Schemas.proxCodeRemote }) });
 
 		const extensionManagementServerService = aMultiExtensionManagementServerService(instantiationService, createExtensionManagementService([localExtension]), createExtensionManagementService([remoteExtension]));
 		instantiationService.stub(IExtensionManagementServerService, extensionManagementServerService);
@@ -1266,7 +1266,7 @@ suite('ExtensionsWorkbenchServiceTest', () => {
 		// multi server setup
 		const extensionKind: ExtensionKind[] = ['ui', 'workspace'];
 		const localExtension = aLocalExtension('a', { extensionKind }, { location: URI.file(`pub.a`) });
-		const remoteExtension = aLocalExtension('a', { extensionKind }, { location: URI.file(`pub.a`).with({ scheme: Schemas.prox-codeRemote }) });
+		const remoteExtension = aLocalExtension('a', { extensionKind }, { location: URI.file(`pub.a`).with({ scheme: Schemas.proxCodeRemote }) });
 
 		const extensionManagementServerService = aMultiExtensionManagementServerService(instantiationService, createExtensionManagementService([localExtension]), createExtensionManagementService([remoteExtension]));
 		instantiationService.stub(IExtensionManagementServerService, extensionManagementServerService);
@@ -1282,7 +1282,7 @@ suite('ExtensionsWorkbenchServiceTest', () => {
 	test('Test remote workspace extension is chosen if it exists in remote server', async () => {
 		// multi server setup
 		const extensionKind: ExtensionKind[] = ['workspace'];
-		const remoteExtension = aLocalExtension('a', { extensionKind }, { location: URI.file(`pub.a`).with({ scheme: Schemas.prox-codeRemote }) });
+		const remoteExtension = aLocalExtension('a', { extensionKind }, { location: URI.file(`pub.a`).with({ scheme: Schemas.proxCodeRemote }) });
 
 		const extensionManagementServerService = aMultiExtensionManagementServerService(instantiationService, createExtensionManagementService(), createExtensionManagementService([remoteExtension]));
 		instantiationService.stub(IExtensionManagementServerService, extensionManagementServerService);
@@ -1299,7 +1299,7 @@ suite('ExtensionsWorkbenchServiceTest', () => {
 		// multi server setup
 		const extensionKind: ExtensionKind[] = ['workspace'];
 		const localExtension = aLocalExtension('a', { extensionKind }, { location: URI.file(`pub.a`) });
-		const remoteExtension = aLocalExtension('a', { extensionKind }, { location: URI.file(`pub.a`).with({ scheme: Schemas.prox-codeRemote }) });
+		const remoteExtension = aLocalExtension('a', { extensionKind }, { location: URI.file(`pub.a`).with({ scheme: Schemas.proxCodeRemote }) });
 
 		const extensionManagementServerService = aMultiExtensionManagementServerService(instantiationService, createExtensionManagementService([localExtension]), createExtensionManagementService([remoteExtension]));
 		instantiationService.stub(IExtensionManagementServerService, extensionManagementServerService);
@@ -1316,7 +1316,7 @@ suite('ExtensionsWorkbenchServiceTest', () => {
 		// multi server setup
 		const extensionKind: ExtensionKind[] = ['workspace'];
 		const localExtension = aLocalExtension('a', { extensionKind }, { location: URI.file(`pub.a`) });
-		const remoteExtension = aLocalExtension('a', { extensionKind }, { location: URI.file(`pub.a`).with({ scheme: Schemas.prox-codeRemote }) });
+		const remoteExtension = aLocalExtension('a', { extensionKind }, { location: URI.file(`pub.a`).with({ scheme: Schemas.proxCodeRemote }) });
 
 		const extensionManagementServerService = aMultiExtensionManagementServerService(instantiationService, createExtensionManagementService([localExtension]), createExtensionManagementService([remoteExtension]));
 		instantiationService.stub(IExtensionManagementServerService, extensionManagementServerService);
@@ -1335,7 +1335,7 @@ suite('ExtensionsWorkbenchServiceTest', () => {
 		// multi server setup
 		const extensionKind: ExtensionKind[] = ['workspace'];
 		const localExtension = aLocalExtension('a', { extensionKind }, { location: URI.file(`pub.a`) });
-		const remoteExtension = aLocalExtension('a', { extensionKind }, { location: URI.file(`pub.a`).with({ scheme: Schemas.prox-codeRemote }) });
+		const remoteExtension = aLocalExtension('a', { extensionKind }, { location: URI.file(`pub.a`).with({ scheme: Schemas.proxCodeRemote }) });
 
 		const extensionManagementServerService = aMultiExtensionManagementServerService(instantiationService, createExtensionManagementService([localExtension]), createExtensionManagementService([remoteExtension]));
 		instantiationService.stub(IExtensionManagementServerService, extensionManagementServerService);
@@ -1354,7 +1354,7 @@ suite('ExtensionsWorkbenchServiceTest', () => {
 		// multi server setup
 		const extensionKind: ExtensionKind[] = ['ui', 'workspace'];
 		const localExtension = aLocalExtension('a', { extensionKind }, { location: URI.file(`pub.a`) });
-		const remoteExtension = aLocalExtension('a', { extensionKind }, { location: URI.file(`pub.a`).with({ scheme: Schemas.prox-codeRemote }) });
+		const remoteExtension = aLocalExtension('a', { extensionKind }, { location: URI.file(`pub.a`).with({ scheme: Schemas.proxCodeRemote }) });
 
 		const extensionManagementServerService = aMultiExtensionManagementServerService(instantiationService, createExtensionManagementService([localExtension]), createExtensionManagementService([remoteExtension]));
 		instantiationService.stub(IExtensionManagementServerService, extensionManagementServerService);
@@ -1373,7 +1373,7 @@ suite('ExtensionsWorkbenchServiceTest', () => {
 		// multi server setup
 		const extensionKind: ExtensionKind[] = ['ui', 'workspace'];
 		const localExtension = aLocalExtension('a', { extensionKind }, { location: URI.file(`pub.a`) });
-		const remoteExtension = aLocalExtension('a', { extensionKind }, { location: URI.file(`pub.a`).with({ scheme: Schemas.prox-codeRemote }) });
+		const remoteExtension = aLocalExtension('a', { extensionKind }, { location: URI.file(`pub.a`).with({ scheme: Schemas.proxCodeRemote }) });
 
 		const extensionManagementServerService = aMultiExtensionManagementServerService(instantiationService, createExtensionManagementService([localExtension]), createExtensionManagementService([remoteExtension]));
 		instantiationService.stub(IExtensionManagementServerService, extensionManagementServerService);
@@ -1392,7 +1392,7 @@ suite('ExtensionsWorkbenchServiceTest', () => {
 		// multi server setup
 		const extensionKind: ExtensionKind[] = ['web'];
 		const localExtension = aLocalExtension('a', { extensionKind }, { location: URI.file(`pub.a`) });
-		const remoteExtension = aLocalExtension('a', { extensionKind }, { location: URI.file(`pub.a`).with({ scheme: Schemas.prox-codeRemote }) });
+		const remoteExtension = aLocalExtension('a', { extensionKind }, { location: URI.file(`pub.a`).with({ scheme: Schemas.proxCodeRemote }) });
 
 		const extensionManagementServerService = aMultiExtensionManagementServerService(instantiationService, createExtensionManagementService([localExtension]), createExtensionManagementService([remoteExtension]));
 		instantiationService.stub(IExtensionManagementServerService, extensionManagementServerService);
@@ -1408,7 +1408,7 @@ suite('ExtensionsWorkbenchServiceTest', () => {
 	test('Test remote web extension is chosen if it exists only in remote', async () => {
 		// multi server setup
 		const extensionKind: ExtensionKind[] = ['web'];
-		const remoteExtension = aLocalExtension('a', { extensionKind }, { location: URI.file(`pub.a`).with({ scheme: Schemas.prox-codeRemote }) });
+		const remoteExtension = aLocalExtension('a', { extensionKind }, { location: URI.file(`pub.a`).with({ scheme: Schemas.proxCodeRemote }) });
 
 		const extensionManagementServerService = aMultiExtensionManagementServerService(instantiationService, createExtensionManagementService([]), createExtensionManagementService([remoteExtension]));
 		instantiationService.stub(IExtensionManagementServerService, extensionManagementServerService);

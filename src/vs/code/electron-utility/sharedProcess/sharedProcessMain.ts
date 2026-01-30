@@ -258,12 +258,12 @@ class SharedProcessMain extends Disposable implements IClientConnectionFilter {
 			// Since user data can change very frequently across multiple
 			// processes, we want a single process handling these operations.
 			this._register(new DiskFileSystemProviderClient(mainProcessService.getChannel(LOCAL_FILE_SYSTEM_CHANNEL_NAME), { pathCaseSensitive: isLinux })),
-			Schemas.prox-codeUserData,
+			Schemas.proxCodeUserData,
 			userDataProfilesService,
 			uriIdentityService,
 			logService
 		));
-		fileService.registerProvider(Schemas.prox-codeUserData, userDataFileSystemProvider);
+		fileService.registerProvider(Schemas.proxCodeUserData, userDataFileSystemProvider);
 
 		// Configuration
 		const configurationService = this._register(new ConfigurationService(userDataProfilesService.defaultProfile.settingsResource, fileService, policyService, logService));

@@ -825,7 +825,7 @@ class ExtHostSourceControl implements vscode.SourceControl {
 		this.#proxy = proxy;
 
 		const inputBoxDocumentUri = URI.from({
-			scheme: Schemas.prox-codeSourceControl,
+			scheme: Schemas.proxCodeSourceControl,
 			path: `${_id}/scm${this.handle}/input`,
 			query: _rootUri ? `rootUri=${encodeURIComponent(_rootUri.toString())}` : undefined
 		});

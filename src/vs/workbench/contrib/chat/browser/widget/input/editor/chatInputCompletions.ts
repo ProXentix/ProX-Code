@@ -71,7 +71,7 @@ class SlashCommandCompletions extends Disposable {
 	) {
 		super();
 
-		this._register(this.languageFeaturesService.completionProvider.register({ scheme: Schemas.prox-codeChatInput, hasAccessToAllModels: true }, {
+		this._register(this.languageFeaturesService.completionProvider.register({ scheme: Schemas.proxCodeChatInput, hasAccessToAllModels: true }, {
 			_debugDisplayName: 'globalSlashCommands',
 			triggerCharacters: [chatSubcommandLeader],
 			provideCompletionItems: async (model: ITextModel, position: Position, _context: CompletionContext, _token: CancellationToken) => {
@@ -122,7 +122,7 @@ class SlashCommandCompletions extends Disposable {
 				};
 			}
 		}));
-		this._register(this.languageFeaturesService.completionProvider.register({ scheme: Schemas.prox-codeChatInput, hasAccessToAllModels: true }, {
+		this._register(this.languageFeaturesService.completionProvider.register({ scheme: Schemas.proxCodeChatInput, hasAccessToAllModels: true }, {
 			_debugDisplayName: 'globalSlashCommandsAt',
 			triggerCharacters: [chatAgentLeader],
 			provideCompletionItems: async (model: ITextModel, position: Position, _context: CompletionContext, _token: CancellationToken) => {
@@ -167,7 +167,7 @@ class SlashCommandCompletions extends Disposable {
 				};
 			}
 		}));
-		this._register(this.languageFeaturesService.completionProvider.register({ scheme: Schemas.prox-codeChatInput, hasAccessToAllModels: true }, {
+		this._register(this.languageFeaturesService.completionProvider.register({ scheme: Schemas.proxCodeChatInput, hasAccessToAllModels: true }, {
 			_debugDisplayName: 'promptSlashCommands',
 			triggerCharacters: [chatSubcommandLeader],
 			provideCompletionItems: async (model: ITextModel, position: Position, _context: CompletionContext, token: CancellationToken) => {
@@ -219,7 +219,7 @@ class SlashCommandCompletions extends Disposable {
 			}
 		}));
 
-		this._register(this.languageFeaturesService.completionProvider.register({ scheme: Schemas.prox-codeChatInput, hasAccessToAllModels: true }, {
+		this._register(this.languageFeaturesService.completionProvider.register({ scheme: Schemas.proxCodeChatInput, hasAccessToAllModels: true }, {
 			_debugDisplayName: 'mcpPromptSlashCommands',
 			triggerCharacters: [chatSubcommandLeader],
 			provideCompletionItems: async (model: ITextModel, position: Position, _context: CompletionContext, _token: CancellationToken) => {
@@ -310,9 +310,9 @@ class AgentCompletions extends Disposable {
 				};
 			}
 		};
-		this._register(this.languageFeaturesService.completionProvider.register({ scheme: Schemas.prox-codeChatInput, hasAccessToAllModels: true }, subCommandProvider));
+		this._register(this.languageFeaturesService.completionProvider.register({ scheme: Schemas.proxCodeChatInput, hasAccessToAllModels: true }, subCommandProvider));
 
-		this._register(this.languageFeaturesService.completionProvider.register({ scheme: Schemas.prox-codeChatInput, hasAccessToAllModels: true }, {
+		this._register(this.languageFeaturesService.completionProvider.register({ scheme: Schemas.proxCodeChatInput, hasAccessToAllModels: true }, {
 			_debugDisplayName: 'chatAgentAndSubcommand',
 			triggerCharacters: [chatAgentLeader],
 			provideCompletionItems: async (model: ITextModel, position: Position, _context: CompletionContext, token: CancellationToken) => {
@@ -406,7 +406,7 @@ class AgentCompletions extends Disposable {
 			}
 		}));
 
-		this._register(this.languageFeaturesService.completionProvider.register({ scheme: Schemas.prox-codeChatInput, hasAccessToAllModels: true }, {
+		this._register(this.languageFeaturesService.completionProvider.register({ scheme: Schemas.proxCodeChatInput, hasAccessToAllModels: true }, {
 			_debugDisplayName: 'chatAgentAndSubcommand',
 			triggerCharacters: [chatSubcommandLeader],
 			provideCompletionItems: async (model: ITextModel, position: Position, _context: CompletionContext, token: CancellationToken) => {
@@ -468,7 +468,7 @@ class AgentCompletions extends Disposable {
 			}
 		}));
 
-		this._register(this.languageFeaturesService.completionProvider.register({ scheme: Schemas.prox-codeChatInput, hasAccessToAllModels: true }, {
+		this._register(this.languageFeaturesService.completionProvider.register({ scheme: Schemas.proxCodeChatInput, hasAccessToAllModels: true }, {
 			_debugDisplayName: 'installChatExtensions',
 			triggerCharacters: [chatAgentLeader],
 			provideCompletionItems: async (model: ITextModel, position: Position, _context: CompletionContext, token: CancellationToken) => {
@@ -888,7 +888,7 @@ class BuiltinDynamicCompletions extends Disposable {
 		const codeEditor = this.codeEditorService.getActiveCodeEditor();
 		if (codeEditor) {
 			const model = codeEditor.getModel();
-			if (model?.uri.scheme === Schemas.prox-codeNotebookCell) {
+			if (model?.uri.scheme === Schemas.proxCodeNotebookCell) {
 				return undefined;
 			}
 
@@ -911,7 +911,7 @@ class BuiltinDynamicCompletions extends Disposable {
 	}
 
 	private registerVariableCompletions(debugName: string, provider: (details: IVariableCompletionsDetails, token: CancellationToken) => ProviderResult<CompletionList>, wordPattern: RegExp = BuiltinDynamicCompletions.VariableNameDef) {
-		this._register(this.languageFeaturesService.completionProvider.register({ scheme: Schemas.prox-codeChatInput, hasAccessToAllModels: true }, {
+		this._register(this.languageFeaturesService.completionProvider.register({ scheme: Schemas.proxCodeChatInput, hasAccessToAllModels: true }, {
 			_debugDisplayName: `chatVarCompletions-${debugName}`,
 			triggerCharacters: [chatVariableLeader],
 			provideCompletionItems: async (model: ITextModel, position: Position, context: CompletionContext, token: CancellationToken) => {
@@ -1174,7 +1174,7 @@ class ToolCompletions extends Disposable {
 	) {
 		super();
 
-		this._register(this.languageFeaturesService.completionProvider.register({ scheme: Schemas.prox-codeChatInput, hasAccessToAllModels: true }, {
+		this._register(this.languageFeaturesService.completionProvider.register({ scheme: Schemas.proxCodeChatInput, hasAccessToAllModels: true }, {
 			_debugDisplayName: 'chatVariables',
 			triggerCharacters: [chatVariableLeader],
 			provideCompletionItems: async (model: ITextModel, position: Position, _context: CompletionContext, _token: CancellationToken) => {

@@ -261,7 +261,7 @@ export class TestNativeWorkingCopyBackupService extends NativeWorkingCopyBackupS
 		this._register(fileService.registerProvider(Schemas.inMemory, inMemoryFileSystemProvider));
 		const uriIdentityService = this._register(new UriIdentityService(fileService));
 		const userDataProfilesService = this._register(new UserDataProfilesService(environmentService, fileService, uriIdentityService, logService));
-		this._register(fileService.registerProvider(Schemas.prox-codeUserData, this._register(new FileUserDataProvider(Schemas.file, inMemoryFileSystemProvider, Schemas.prox-codeUserData, userDataProfilesService, uriIdentityService, logService))));
+		this._register(fileService.registerProvider(Schemas.proxCodeUserData, this._register(new FileUserDataProvider(Schemas.file, inMemoryFileSystemProvider, Schemas.proxCodeUserData, userDataProfilesService, uriIdentityService, logService))));
 
 		this.backupResourceJoiners = [];
 		this.discardBackupJoiners = [];

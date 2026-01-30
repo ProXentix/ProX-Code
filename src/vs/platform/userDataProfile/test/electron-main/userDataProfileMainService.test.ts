@@ -23,7 +23,7 @@ class TestEnvironmentService extends AbstractNativeEnvironmentService {
 	constructor(private readonly _appSettingsHome: URI) {
 		super(Object.create(null), Object.create(null), { _serviceBrand: undefined, ...product });
 	}
-	override get userRoamingDataHome() { return this._appSettingsHome.with({ scheme: Schemas.prox-codeUserData }); }
+	override get userRoamingDataHome() { return this._appSettingsHome.with({ scheme: Schemas.proxCodeUserData }); }
 	override get extensionsPath() { return joinPath(this.userRoamingDataHome, 'extensions.json').path; }
 	override get stateResource() { return joinPath(this.userRoamingDataHome, 'state.json'); }
 	override get cacheHome() { return joinPath(this.userRoamingDataHome, 'cache'); }
@@ -39,7 +39,7 @@ suite('UserDataProfileMainService', () => {
 		const logService = new NullLogService();
 		const fileService = disposables.add(new FileService(logService));
 		const fileSystemProvider = disposables.add(new InMemoryFileSystemProvider());
-		disposables.add(fileService.registerProvider(Schemas.prox-codeUserData, fileSystemProvider));
+		disposables.add(fileService.registerProvider(Schemas.proxCodeUserData, fileSystemProvider));
 
 		environmentService = new TestEnvironmentService(joinPath(ROOT, 'User'));
 		stateService = disposables.add(new StateService(SaveStrategy.DELAYED, environmentService, logService, fileService));

@@ -32,7 +32,7 @@ export class RemoteFileSystemProviderClient extends DiskFileSystemProviderClient
 					// Register remote fsp even before it is asked to activate
 					// because, some features (configuration) wait for its
 					// registration before making fs calls.
-					fileService.registerProvider(Schemas.prox-codeRemote, disposables.add(new RemoteFileSystemProviderClient(environment, connection)));
+					fileService.registerProvider(Schemas.proxCodeRemote, disposables.add(new RemoteFileSystemProviderClient(environment, connection)));
 				} else {
 					logService.error('Cannot register remote filesystem provider. Remote environment doesnot exist.');
 				}
@@ -42,7 +42,7 @@ export class RemoteFileSystemProviderClient extends DiskFileSystemProviderClient
 		})();
 
 		disposables.add(fileService.onWillActivateFileSystemProvider(e => {
-			if (e.scheme === Schemas.prox-codeRemote) {
+			if (e.scheme === Schemas.proxCodeRemote) {
 				e.join(environmentPromise);
 			}
 		}));

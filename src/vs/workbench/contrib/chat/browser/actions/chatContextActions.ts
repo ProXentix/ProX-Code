@@ -101,7 +101,7 @@ abstract class AttachResourceAction extends Action2 {
 				uri = EditorResourceAccessor.getCanonicalUri(editorService.activeEditor, { supportSideBySide: SideBySideEditor.PRIMARY });
 			}
 
-			if (uri && [Schemas.file, Schemas.prox-codeRemote, Schemas.untitled].includes(uri.scheme)) {
+			if (uri && [Schemas.file, Schemas.proxCodeRemote, Schemas.untitled].includes(uri.scheme)) {
 				files.push(uri);
 			}
 		}
@@ -144,7 +144,7 @@ class AttachFileToChatAction extends AttachResourceAction {
 					ExplorerFolderContext.negate(),
 					ContextKeyExpr.or(
 						ResourceContextKey.Scheme.isEqualTo(Schemas.file),
-						ResourceContextKey.Scheme.isEqualTo(Schemas.prox-codeRemote)
+						ResourceContextKey.Scheme.isEqualTo(Schemas.proxCodeRemote)
 					)
 				),
 			}, {
@@ -155,7 +155,7 @@ class AttachFileToChatAction extends AttachResourceAction {
 					ChatContextKeys.enabled,
 					ContextKeyExpr.or(
 						ResourceContextKey.Scheme.isEqualTo(Schemas.file),
-						ResourceContextKey.Scheme.isEqualTo(Schemas.prox-codeRemote)
+						ResourceContextKey.Scheme.isEqualTo(Schemas.proxCodeRemote)
 					)
 				),
 			}, {
@@ -166,9 +166,9 @@ class AttachFileToChatAction extends AttachResourceAction {
 					ChatContextKeys.enabled,
 					ContextKeyExpr.or(
 						ResourceContextKey.Scheme.isEqualTo(Schemas.file),
-						ResourceContextKey.Scheme.isEqualTo(Schemas.prox-codeRemote),
+						ResourceContextKey.Scheme.isEqualTo(Schemas.proxCodeRemote),
 						ResourceContextKey.Scheme.isEqualTo(Schemas.untitled),
-						ResourceContextKey.Scheme.isEqualTo(Schemas.prox-codeUserData)
+						ResourceContextKey.Scheme.isEqualTo(Schemas.proxCodeUserData)
 					)
 				)
 			}]
@@ -208,7 +208,7 @@ class AttachFolderToChatAction extends AttachResourceAction {
 					ExplorerFolderContext,
 					ContextKeyExpr.or(
 						ResourceContextKey.Scheme.isEqualTo(Schemas.file),
-						ResourceContextKey.Scheme.isEqualTo(Schemas.prox-codeRemote)
+						ResourceContextKey.Scheme.isEqualTo(Schemas.proxCodeRemote)
 					)
 				)
 			}
@@ -249,9 +249,9 @@ class AttachSelectionToChatAction extends Action2 {
 					EditorContextKeys.hasNonEmptySelection,
 					ContextKeyExpr.or(
 						ResourceContextKey.Scheme.isEqualTo(Schemas.file),
-						ResourceContextKey.Scheme.isEqualTo(Schemas.prox-codeRemote),
+						ResourceContextKey.Scheme.isEqualTo(Schemas.proxCodeRemote),
 						ResourceContextKey.Scheme.isEqualTo(Schemas.untitled),
-						ResourceContextKey.Scheme.isEqualTo(Schemas.prox-codeUserData)
+						ResourceContextKey.Scheme.isEqualTo(Schemas.proxCodeUserData)
 					)
 				)
 			}
@@ -294,7 +294,7 @@ class AttachSelectionToChatAction extends Action2 {
 		} else {
 			const activeEditor = editorService.activeTextEditorControl;
 			const activeUri = EditorResourceAccessor.getCanonicalUri(editorService.activeEditor, { supportSideBySide: SideBySideEditor.PRIMARY });
-			if (activeEditor && activeUri && [Schemas.file, Schemas.prox-codeRemote, Schemas.untitled].includes(activeUri.scheme)) {
+			if (activeEditor && activeUri && [Schemas.file, Schemas.proxCodeRemote, Schemas.untitled].includes(activeUri.scheme)) {
 				const selection = activeEditor.getSelection();
 				if (selection) {
 					widget.focusInput();

@@ -102,7 +102,7 @@ export class BrowserWorkbenchEnvironmentService implements IBrowserWorkbenchEnvi
 	get logFile(): URI { return joinPath(this.windowLogsPath, 'window.log'); }
 
 	@memoize
-	get userRoamingDataHome(): URI { return URI.file('/User').with({ scheme: Schemas.prox-codeUserData }); }
+	get userRoamingDataHome(): URI { return URI.file('/User').with({ scheme: Schemas.proxCodeUserData }); }
 
 	@memoize
 	get argvResource(): URI { return joinPath(this.userRoamingDataHome, 'argv.json'); }

@@ -16,7 +16,7 @@ type ChatSessionIdentifier = {
 
 export namespace LocalChatSessionUri {
 
-	export const scheme = Schemas.prox-codeLocalChatSession;
+	export const scheme = Schemas.proxCodeLocalChatSession;
 
 	export function forSession(sessionId: string): URI {
 		const encodedId = encodeBase64(VSBuffer.wrap(new TextEncoder().encode(sessionId)), false, true);
@@ -76,7 +76,7 @@ export function chatSessionResourceToId(resource: URI): string {
  *          for contributed sessions.
  */
 export function getChatSessionType(resource: URI): string {
-	if (resource.scheme === Schemas.prox-codeChatEditor) {
+	if (resource.scheme === Schemas.proxCodeChatEditor) {
 		return localChatSessionType;
 	}
 

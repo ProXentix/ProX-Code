@@ -122,12 +122,12 @@ export class FileBasedRecommendations extends ExtensionRecommendations {
 	}
 
 	private onModelAdded(model: ITextModel): void {
-		const uri = model.uri.scheme === Schemas.prox-codeNotebookCell ? CellUri.parse(model.uri)?.notebook : model.uri;
+		const uri = model.uri.scheme === Schemas.proxCodeNotebookCell ? CellUri.parse(model.uri)?.notebook : model.uri;
 		if (!uri) {
 			return;
 		}
 
-		const supportedSchemes = distinct([Schemas.untitled, Schemas.file, Schemas.prox-codeRemote, ...this.workspaceContextService.getWorkspace().folders.map(folder => folder.uri.scheme)]);
+		const supportedSchemes = distinct([Schemas.untitled, Schemas.file, Schemas.proxCodeRemote, ...this.workspaceContextService.getWorkspace().folders.map(folder => folder.uri.scheme)]);
 		if (!uri || !supportedSchemes.includes(uri.scheme)) {
 			return;
 		}

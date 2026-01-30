@@ -101,14 +101,14 @@ export class InteractiveDocumentContribution extends Disposable implements IWork
 		}
 
 		editorResolverService.registerEditor(
-			`${Schemas.prox-codeInteractiveInput}:/**`,
+			`${Schemas.proxCodeInteractiveInput}:/**`,
 			{
 				id: 'vscode-interactive-input',
 				label: 'Interactive Editor',
 				priority: RegisteredEditorPriority.exclusive
 			},
 			{
-				canSupportResource: uri => uri.scheme === Schemas.prox-codeInteractiveInput,
+				canSupportResource: uri => uri.scheme === Schemas.proxCodeInteractiveInput,
 				singlePerResource: true
 			},
 			{
@@ -133,7 +133,7 @@ export class InteractiveDocumentContribution extends Disposable implements IWork
 			{
 				canSupportResource: uri =>
 					(uri.scheme === Schemas.untitled && extname(uri) === '.interactive') ||
-					(uri.scheme === Schemas.prox-codeNotebookCell && extname(uri) === '.interactive'),
+					(uri.scheme === Schemas.proxCodeNotebookCell && extname(uri) === '.interactive'),
 				singlePerResource: true
 			},
 			{
@@ -205,7 +205,7 @@ class InteractiveInputContentProvider implements ITextModelContentProvider {
 		@ITextModelService textModelService: ITextModelService,
 		@IModelService private readonly _modelService: IModelService,
 	) {
-		this._registration = textModelService.registerTextModelContentProvider(Schemas.prox-codeInteractiveInput, this);
+		this._registration = textModelService.registerTextModelContentProvider(Schemas.proxCodeInteractiveInput, this);
 	}
 
 	dispose(): void {
@@ -225,7 +225,7 @@ class InteractiveInputContentProvider implements ITextModelContentProvider {
 function createEditor(resource: URI, instantiationService: IInstantiationService): EditorInput {
 	const counter = /\/Interactive-(\d+)/.exec(resource.path);
 	const inputBoxPath = counter && counter[1] ? `/InteractiveInput-${counter[1]}` : 'InteractiveInput';
-	const inputUri = URI.from({ scheme: Schemas.prox-codeInteractiveInput, path: inputBoxPath });
+	const inputUri = URI.from({ scheme: Schemas.proxCodeInteractiveInput, path: inputBoxPath });
 	const editorInput = InteractiveEditorInput.create(instantiationService, resource, inputUri);
 
 	return editorInput;
@@ -423,7 +423,7 @@ registerAction2(class extends Action2 {
 		let counter = 1;
 		do {
 			notebookUri = URI.from({ scheme: Schemas.untitled, path: `/Interactive-${counter}.interactive` });
-			inputUri = URI.from({ scheme: Schemas.prox-codeInteractiveInput, path: `/InteractiveInput-${counter}` });
+			inputUri = URI.from({ scheme: Schemas.proxCodeInteractiveInput, path: `/InteractiveInput-${counter}` });
 
 			counter++;
 		} while (existingNotebookDocument.has(notebookUri.toString()));

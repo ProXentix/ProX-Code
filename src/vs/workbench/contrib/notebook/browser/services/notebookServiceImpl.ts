@@ -186,16 +186,16 @@ export class NotebookProviderInfoStore extends Disposable {
 			const notebookEditorOptions = {
 				canHandleDiff: () => !!this._configurationService.getValue(NotebookSetting.textDiffEditorPreview) && !this._accessibilityService.isScreenReaderOptimized(),
 				canSupportResource: (resource: URI) => {
-					if (resource.scheme === Schemas.prox-codeNotebookCellOutput) {
+					if (resource.scheme === Schemas.proxCodeNotebookCellOutput) {
 						const params = new URLSearchParams(resource.query);
 						return params.get('openIn') === 'notebook';
 					}
-					return resource.scheme === Schemas.untitled || resource.scheme === Schemas.prox-codeNotebookCell || this._fileService.hasProvider(resource);
+					return resource.scheme === Schemas.untitled || resource.scheme === Schemas.proxCodeNotebookCell || this._fileService.hasProvider(resource);
 				}
 			};
 			const notebookEditorInputFactory: EditorInputFactoryFunction = async ({ resource, options }) => {
 				let data;
-				if (resource.scheme === Schemas.prox-codeNotebookCellOutput) {
+				if (resource.scheme === Schemas.proxCodeNotebookCellOutput) {
 					const outputUriData = CellUri.parseCellOutputUri(resource);
 					if (!outputUriData || !outputUriData.notebook || outputUriData.cellHandle === undefined) {
 						throw new Error('Invalid cell output uri');
@@ -228,7 +228,7 @@ export class NotebookProviderInfoStore extends Disposable {
 
 				let notebookOptions: INotebookEditorOptions;
 
-				if (resource.scheme === Schemas.prox-codeNotebookCellOutput) {
+				if (resource.scheme === Schemas.proxCodeNotebookCellOutput) {
 					if (data?.handle === undefined || !data?.notebook) {
 						throw new Error('Invalid cell handle');
 					}
@@ -348,7 +348,7 @@ export class NotebookProviderInfoStore extends Disposable {
 			));
 			// Then register the schema handler as exclusive for that notebook
 			disposables.add(this._editorResolverService.registerEditor(
-				`${Schemas.prox-codeNotebookCell}:/**/${globPattern}`,
+				`${Schemas.proxCodeNotebookCell}:/**/${globPattern}`,
 				{ ...notebookEditorInfo, priority: RegisteredEditorPriority.exclusive },
 				notebookEditorOptions,
 				notebookCellFactoryObject

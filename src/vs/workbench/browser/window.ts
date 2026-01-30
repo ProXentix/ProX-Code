@@ -52,7 +52,7 @@ export abstract class BaseWindow extends Disposable {
 		this.enableWindowFocusOnElementFocus(targetWindow);
 		this.enableMultiWindowAwareTimeout(targetWindow, dom);
 
-		this.registerFullScreenListeners(targetWindow.prox-codeWindowId);
+		this.registerFullScreenListeners(targetWindow.proxCodeWindowId);
 		this.registerContextMenuListeners(targetWindow);
 	}
 
@@ -142,7 +142,7 @@ export abstract class BaseWindow extends Disposable {
 				// this can happen for timeouts on unfocused windows
 				let didClear = false;
 
-				const handle = (window as { vscodeOriginalSetTimeout?: typeof window.setTimeout }).prox-codeOriginalSetTimeout?.apply(this, [(...args: unknown[]) => {
+				const handle = (window as { vscodeOriginalSetTimeout?: typeof window.setTimeout }).proxCodeOriginalSetTimeout?.apply(this, [(...args: unknown[]) => {
 					if (didClear) {
 						return;
 					}
@@ -151,7 +151,7 @@ export abstract class BaseWindow extends Disposable {
 
 				const timeoutDisposable = toDisposable(() => {
 					didClear = true;
-					(window as { vscodeOriginalClearTimeout?: typeof window.clearTimeout }).prox-codeOriginalClearTimeout?.apply(this, [handle]);
+					(window as { vscodeOriginalClearTimeout?: typeof window.clearTimeout }).proxCodeOriginalClearTimeout?.apply(this, [handle]);
 					timeoutDisposables.delete(timeoutDisposable);
 				});
 
@@ -451,7 +451,7 @@ export class BrowserWindow extends BaseWindow {
 
 	private registerLabelFormatters(): void {
 		this._register(this.labelService.registerFormatter({
-			scheme: Schemas.prox-codeUserData,
+			scheme: Schemas.proxCodeUserData,
 			priority: true,
 			formatting: {
 				label: '(Settings) ${path}',

@@ -40,8 +40,8 @@ export class ExtHostTask extends ExtHostTaskBase {
 	) {
 		super(extHostRpc, initData, workspaceService, editorService, configurationService, extHostTerminalService, logService, deprecationService);
 		if (initData.remote.isRemote && initData.remote.authority) {
-			this.registerTaskSystem(Schemas.prox-codeRemote, {
-				scheme: Schemas.prox-codeRemote,
+			this.registerTaskSystem(Schemas.proxCodeRemote, {
+				scheme: Schemas.proxCodeRemote,
 				authority: initData.remote.authority,
 				platform: process.platform
 			});
