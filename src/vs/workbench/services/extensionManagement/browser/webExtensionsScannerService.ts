@@ -754,7 +754,7 @@ export class WebExtensionsScannerService extends Disposable implements IWebExten
 				name,
 				publisher,
 				version: webExtension.version,
-				engines: { vscode: '*' },
+				engines: { proxCode: '*' },
 			};
 		}
 

@@ -23,7 +23,7 @@ export const nullExtensionDescription = Object.freeze<IExtensionDescription>({
 	name: 'Null Extension Description',
 	version: '0.0.0',
 	publisher: 'vscode',
-	engines: { vscode: '' },
+	engines: { proxCode: '' },
 	extensionLocation: URI.parse('void:location'),
 	isBuiltin: false,
 	targetPlatform: TargetPlatform.UNDEFINED,

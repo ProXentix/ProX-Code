@@ -181,7 +181,7 @@ export class WebWorkerExtensionHost extends Disposable implements IExtensionHost
 			if (event.source !== iframe.contentWindow) {
 				return;
 			}
-			if (event.data.prox-codeWebWorkerExtHostId !== vscodeWebWorkerExtHostId) {
+			if (event.data.vscodeWebWorkerExtHostId !== vscodeWebWorkerExtHostId) {
 				return;
 			}
 			if (event.data.error) {

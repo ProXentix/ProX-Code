@@ -337,7 +337,7 @@ export class TextMateTokenizationFeature extends Disposable implements ITextMate
 	}
 
 	private _updateTheme(colorTheme: IWorkbenchColorTheme, forceUpdate: boolean): void {
-		if (!forceUpdate && this._currentTheme && this._currentTokenColorMap && equalsTokenRules(this._currentTheme.settings, colorTheme.tokenColors as any[])
+		if (!forceUpdate && this._currentTheme && this._currentTokenColorMap && equalsTokenRules(this._currentTheme.settings as any, colorTheme.tokenColors as any[])
 			&& equalArray(this._currentTokenColorMap, colorTheme.tokenColorMap) && this._currentTokenFontMap && equalArray(this._currentTokenFontMap, colorTheme.tokenFontMap)) {
 			return;
 		}

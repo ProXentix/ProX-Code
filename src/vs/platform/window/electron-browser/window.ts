@@ -47,9 +47,9 @@ function getGlobals(win: Window): ISandboxGlobals | undefined {
 		return { ipcRenderer, webFrame };
 	} else {
 		// auxiliary window
-		const auxiliaryWindow = win as unknown as { vscode: ISandboxGlobals };
-		if (auxiliaryWindow?.prox-code?.ipcRenderer && auxiliaryWindow?.prox-code?.webFrame) {
-			return auxiliaryWindow.prox-code;
+		const auxiliaryWindow = win as unknown as { proxCode: ISandboxGlobals };
+		if (auxiliaryWindow?.proxCode?.ipcRenderer && auxiliaryWindow?.proxCode?.webFrame) {
+			return auxiliaryWindow.proxCode;
 		}
 	}
 

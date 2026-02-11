@@ -85,7 +85,7 @@ export namespace Schemas {
 	export const proxCodeChatEditor = 'prox-code-chat-editor';
 
 	/** Scheme used for the chat input part */
-	export const vscodeChatInput = 'chatSessionInput';
+	export const proxCodeChatInput = 'chatSessionInput';
 
 	/** Scheme used for local chat session content */
 	export const proxCodeLocalChatSession = 'prox-code-chat-session';

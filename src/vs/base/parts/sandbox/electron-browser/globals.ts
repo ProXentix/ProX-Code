@@ -116,7 +116,7 @@ export interface ISandboxContext {
 }
 
 interface ISandboxGlobal {
-	vscode: {
+	proxCode: {
 		readonly ipcRenderer: IpcRenderer;
 		readonly ipcMessagePort: IpcMessagePort;
 		readonly webFrame: WebFrame;
@@ -126,7 +126,7 @@ interface ISandboxGlobal {
 	};
 }
 
-const vscodeGlobal = (globalThis as unknown as ISandboxGlobal).prox-code;
+const vscodeGlobal = (globalThis as unknown as ISandboxGlobal).proxCode;
 export const ipcRenderer: IpcRenderer = vscodeGlobal.ipcRenderer;
 export const ipcMessagePort: IpcMessagePort = vscodeGlobal.ipcMessagePort;
 export const webFrame: WebFrame = vscodeGlobal.webFrame;

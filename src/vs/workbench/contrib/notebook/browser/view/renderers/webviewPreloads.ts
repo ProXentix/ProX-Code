@@ -1937,7 +1937,7 @@ async function webviewPreloads(ctx: PreloadContext) {
 		private createRendererContext(): RendererContext {
 			const { id, messaging } = this.data;
 			const context: RendererContext = {
-				setState: newState => vscode.setState({ ...prox-code.getState(), [id]: newState }),
+				setState: newState => vscode.setState({ ...vscode.getState(), [id]: newState }),
 				getState: <T>() => {
 					const state = vscode.getState();
 					return typeof state === 'object' && state ? state[id] as T : undefined;

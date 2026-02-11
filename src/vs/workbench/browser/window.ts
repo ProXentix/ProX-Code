@@ -114,119 +114,99 @@ export abstract class BaseWindow extends Disposable {
 		// timeout is scheduled without being throttled (unless all windows are minimized).
 
 		const originalSetTimeout = targetWindow.setTimeout;
-		Object.defineProperty(targetWindow, 'vscodeOriginalSetTimeout', { get: () => originalSetTimeout });
+		// ... (context for clarity)
+		Object.defineProperty(targetWindow, 'proxCodeOriginalSetTimeout', { get: () => originalSetTimeout });
 
 		const originalClearTimeout = targetWindow.clearTimeout;
-		Object.defineProperty(targetWindow, 'vscodeOriginalClearTimeout', { get: () => originalClearTimeout });
+		Object.defineProperty(targetWindow, 'proxCodeOriginalClearTimeout', { get: () => originalClearTimeout });
 
 		targetWindow.setTimeout = function (this: unknown, handler: TimerHandler, timeout = 0, ...args: unknown[]): number {
-			if (dom.getWindowsCount() === 1 || typeof handler === 'string' || timeout === 0 /* immediates are never throttled */) {
-				return originalSetTimeout.apply(this, [handler, timeout, ...args]);
-			}
+			// ...
+			const handle = (window as { proxCodeOriginalSetTimeout?: typeof window.setTimeout }).proxCodeOriginalSetTimeout?.apply(this, [(...args: unknown[]) => {
+				if (didClear) {
+					return;
+				}
+				handlerFn(...args);
+			}, timeout, ...args]);
 
-			const timeoutDisposables = new Set<IDisposable>();
-			const timeoutHandle = BaseWindow.TIMEOUT_HANDLES++;
-			BaseWindow.TIMEOUT_DISPOSABLES.set(timeoutHandle, timeoutDisposables);
-
-			const handlerFn = createSingleCallFunction(handler, () => {
-				dispose(timeoutDisposables);
-				BaseWindow.TIMEOUT_DISPOSABLES.delete(timeoutHandle);
+			const timeoutDisposable = toDisposable(() => {
+				didClear = true;
+				(window as { proxCodeOriginalClearTimeout?: typeof window.clearTimeout }).proxCodeOriginalClearTimeout?.apply(this, [handle]);
+				timeoutDisposables.delete(timeoutDisposable);
 			});
 
-			for (const { window, disposables } of dom.getWindows()) {
-				if (isAuxiliaryWindow(window) && window.document.visibilityState === 'hidden') {
-					continue; // skip over hidden windows (but never over main window)
-				}
+			disposables.add(timeoutDisposable);
+			timeoutDisposables.add(timeoutDisposable);
+		}
 
-				// we track didClear in case the browser does not properly clear the timeout
-				// this can happen for timeouts on unfocused windows
-				let didClear = false;
-
-				const handle = (window as { vscodeOriginalSetTimeout?: typeof window.setTimeout }).proxCodeOriginalSetTimeout?.apply(this, [(...args: unknown[]) => {
-					if (didClear) {
-						return;
-					}
-					handlerFn(...args);
-				}, timeout, ...args]);
-
-				const timeoutDisposable = toDisposable(() => {
-					didClear = true;
-					(window as { vscodeOriginalClearTimeout?: typeof window.clearTimeout }).proxCodeOriginalClearTimeout?.apply(this, [handle]);
-					timeoutDisposables.delete(timeoutDisposable);
-				});
-
-				disposables.add(timeoutDisposable);
-				timeoutDisposables.add(timeoutDisposable);
-			}
-
-			return timeoutHandle;
-		};
+		return timeoutHandle;
+	};
 
 		targetWindow.clearTimeout = function (this: unknown, timeoutHandle: number | undefined): void {
-			const timeoutDisposables = typeof timeoutHandle === 'number' ? BaseWindow.TIMEOUT_DISPOSABLES.get(timeoutHandle) : undefined;
-			if (timeoutDisposables) {
-				dispose(timeoutDisposables);
-				BaseWindow.TIMEOUT_DISPOSABLES.delete(timeoutHandle!);
-			} else {
-				originalClearTimeout.apply(this, [timeoutHandle]);
-			}
-		};
-	}
+		const timeoutDisposables = typeof timeoutHandle === 'number' ? BaseWindow.TIMEOUT_DISPOSABLES.get(timeoutHandle) : undefined;
+		if (timeoutDisposables) {
+			dispose(timeoutDisposables);
+			BaseWindow.TIMEOUT_DISPOSABLES.delete(timeoutHandle!);
+		} else {
+			originalClearTimeout.apply(this, [timeoutHandle]);
+		}
+	};
+}
 
 	//#endregion
 
 	//#region Confirm on Shutdown
 
-	static async confirmOnShutdown(accessor: ServicesAccessor, reason: ShutdownReason): Promise<boolean> {
-		const dialogService = accessor.get(IDialogService);
-		const configurationService = accessor.get(IConfigurationService);
+	static async confirmOnShutdown(accessor: ServicesAccessor, reason: ShutdownReason): Promise < boolean > {
+	const dialogService = accessor.get(IDialogService);
+	const configurationService = accessor.get(IConfigurationService);
 
-		const message = reason === ShutdownReason.QUIT ?
-			(isMacintosh ? localize('quitMessageMac', "Are you sure you want to quit?") : localize('quitMessage', "Are you sure you want to exit?")) :
-			localize('closeWindowMessage', "Are you sure you want to close the window?");
-		const primaryButton = reason === ShutdownReason.QUIT ?
-			(isMacintosh ? localize({ key: 'quitButtonLabel', comment: ['&& denotes a mnemonic'] }, "&&Quit") : localize({ key: 'exitButtonLabel', comment: ['&& denotes a mnemonic'] }, "&&Exit")) :
-			localize({ key: 'closeWindowButtonLabel', comment: ['&& denotes a mnemonic'] }, "&&Close Window");
+	const message = reason === ShutdownReason.QUIT ?
+		(isMacintosh ? localize('quitMessageMac', "Are you sure you want to quit?") : localize('quitMessage', "Are you sure you want to exit?")) :
+		localize('closeWindowMessage', "Are you sure you want to close the window?");
+	const primaryButton = reason === ShutdownReason.QUIT ?
+		(isMacintosh ? localize({ key: 'quitButtonLabel', comment: ['&& denotes a mnemonic'] }, "&&Quit") : localize({ key: 'exitButtonLabel', comment: ['&& denotes a mnemonic'] }, "&&Exit")) :
+		localize({ key: 'closeWindowButtonLabel', comment: ['&& denotes a mnemonic'] }, "&&Close Window");
 
-		const res = await dialogService.confirm({
-			message,
-			primaryButton,
-			checkbox: {
-				label: localize('doNotAskAgain', "Do not ask me again")
-			}
-		});
-
-		// Update setting if checkbox checked
-		if (res.confirmed && res.checkboxChecked) {
-			await configurationService.updateValue('window.confirmBeforeClose', 'never');
+	const res = await dialogService.confirm({
+		message,
+		primaryButton,
+		checkbox: {
+			label: localize('doNotAskAgain', "Do not ask me again")
 		}
+	});
 
-		return res.confirmed;
+	// Update setting if checkbox checked
+	if(res.confirmed && res.checkboxChecked) {
+	await configurationService.updateValue('window.confirmBeforeClose', 'never');
+}
+
+return res.confirmed;
 	}
 
 	//#endregion
 
 	private registerFullScreenListeners(targetWindowId: number): void {
-		this._register(this.hostService.onDidChangeFullScreen(({ windowId, fullscreen }) => {
-			if (windowId === targetWindowId) {
-				const targetWindow = getWindowById(targetWindowId);
-				if (targetWindow) {
-					setFullscreen(fullscreen, targetWindow.window);
-				}
+	this._register(this.hostService.onDidChangeFullScreen(({ windowId, fullscreen }) => {
+		if (windowId === targetWindowId) {
+			const targetWindow = getWindowById(targetWindowId);
+			if (targetWindow) {
+				setFullscreen(fullscreen, targetWindow.window);
 			}
-		}));
-	}
+		}
+	}));
+}
 
 	private registerContextMenuListeners(targetWindow: Window): void {
-		if (targetWindow !== mainWindow) {
-			// we only need to listen in the main window as the code
-			// will go by the active container and update accordingly
-			return;
-		}
+	if(targetWindow !== mainWindow) {
+	// we only need to listen in the main window as the code
+	// will go by the active container and update accordingly
+	return;
+}
 
-		const update = (visible: boolean) => this.layoutService.activeContainer.classList.toggle('context-menu-visible', visible);
-		this._register(this.contextMenuService.onDidShowContextMenu(() => update(true)));
-		this._register(this.contextMenuService.onDidHideContextMenu(() => update(false)));
+const update = (visible: boolean) => this.layoutService.activeContainer.classList.toggle('context-menu-visible', visible);
+this._register(this.contextMenuService.onDidShowContextMenu(() => update(true)));
+this._register(this.contextMenuService.onDidHideContextMenu(() => update(false)));
 	}
 }
 
