@@ -202,7 +202,7 @@ suite('NativeExtensionsScanerService Test', () => {
 
 	test('scan all user extensions with different versions and higher version is not compatible', async () => {
 		await aUserExtension(anExtensionManifest({ 'name': 'name', 'publisher': 'pub', version: '1.0.1' }));
-		await aUserExtension(anExtensionManifest({ 'name': 'name', 'publisher': 'pub', version: '1.0.2', engines: { vscode: '^1.67.0' } }));
+		await aUserExtension(anExtensionManifest({ 'name': 'name', 'publisher': 'pub', version: '1.0.2', engines: { proxCode: '^1.67.0' } }));
 		const testObject = disposables.add(instantiationService.createInstance(ExtensionsScannerService));
 
 		const actual = await testObject.scanAllUserExtensions({ includeAllVersions: false, includeInvalid: false });
@@ -214,7 +214,7 @@ suite('NativeExtensionsScanerService Test', () => {
 
 	test('scan all user extensions exclude invalid extensions', async () => {
 		await aUserExtension(anExtensionManifest({ 'name': 'name', 'publisher': 'pub' }));
-		await aUserExtension(anExtensionManifest({ 'name': 'name2', 'publisher': 'pub', engines: { vscode: '^1.67.0' } }));
+		await aUserExtension(anExtensionManifest({ 'name': 'name2', 'publisher': 'pub', engines: { proxCode: '^1.67.0' } }));
 		const testObject = disposables.add(instantiationService.createInstance(ExtensionsScannerService));
 
 		const actual = await testObject.scanAllUserExtensions({ includeAllVersions: false, includeInvalid: false });
@@ -225,7 +225,7 @@ suite('NativeExtensionsScanerService Test', () => {
 
 	test('scan all user extensions include invalid extensions', async () => {
 		await aUserExtension(anExtensionManifest({ 'name': 'name', 'publisher': 'pub' }));
-		await aUserExtension(anExtensionManifest({ 'name': 'name2', 'publisher': 'pub', engines: { vscode: '^1.67.0' } }));
+		await aUserExtension(anExtensionManifest({ 'name': 'name2', 'publisher': 'pub', engines: { proxCode: '^1.67.0' } }));
 		const testObject = disposables.add(instantiationService.createInstance(ExtensionsScannerService));
 
 		const actual = await testObject.scanAllUserExtensions({ includeAllVersions: false, includeInvalid: true });
@@ -338,7 +338,7 @@ suite('NativeExtensionsScanerService Test', () => {
 	}
 
 	function anExtensionManifest(manifest: Partial<IScannedExtensionManifest>): Partial<IExtensionManifest> {
-		return { engines: { vscode: '^1.66.0' }, version: '1.0.0', main: 'main.js', activationEvents: ['*'], ...manifest };
+		return { engines: { proxCode: '^1.66.0' }, version: '1.0.0', main: 'main.js', activationEvents: ['*'], ...manifest };
 	}
 });
 

@@ -607,7 +607,7 @@ suite('ExtensionsProfileScannerService', () => {
 				name: 'name',
 				publisher: 'publisher',
 				version: '1.0.0',
-				engines: { vscode: '1.0.0' },
+				engines: { proxCode: '1.0.0' },
 				...manifest,
 			},
 			isValid: true,

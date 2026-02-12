@@ -62,7 +62,7 @@ suite('ExtHostTelemetry', function () {
 		name: 'test-extension',
 		publisher: 'vscode',
 		version: '1.0.0',
-		engines: { vscode: '*' },
+		engines: { proxCode: '*' },
 		extensionLocation: URI.parse('fake'),
 		enabledApiProposals: undefined,
 		preRelease: false,
