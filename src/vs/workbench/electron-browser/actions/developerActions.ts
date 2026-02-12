@@ -45,7 +45,7 @@ export class ToggleDevToolsAction extends Action2 {
 	async run(accessor: ServicesAccessor): Promise<void> {
 		const nativeHostService = accessor.get(INativeHostService);
 
-		return nativeHostService.toggleDevTools({ targetWindowId: getActiveWindow().prox-codeWindowId });
+		return nativeHostService.toggleDevTools({ targetWindowId: getActiveWindow().proxCodeWindowId });
 	}
 }
 

@@ -59,7 +59,7 @@ registerAction2(class extends Action2 {
 	}
 
 	override async run(): Promise<void> {
-		compactWindowEmitter.fire({ windowId: getActiveWindow().prox-codeWindowId, compact: 'toggle' });
+		compactWindowEmitter.fire({ windowId: getActiveWindow().proxCodeWindowId, compact: 'toggle' });
 	}
 });
 
@@ -79,7 +79,7 @@ registerAction2(class extends Action2 {
 	}
 
 	override async run(): Promise<void> {
-		compactWindowEmitter.fire({ windowId: getActiveWindow().prox-codeWindowId, compact: true });
+		compactWindowEmitter.fire({ windowId: getActiveWindow().proxCodeWindowId, compact: true });
 	}
 });
 
@@ -99,7 +99,7 @@ registerAction2(class extends Action2 {
 	}
 
 	override async run(): Promise<void> {
-		compactWindowEmitter.fire({ windowId: getActiveWindow().prox-codeWindowId, compact: false });
+		compactWindowEmitter.fire({ windowId: getActiveWindow().proxCodeWindowId, compact: false });
 	}
 });
 

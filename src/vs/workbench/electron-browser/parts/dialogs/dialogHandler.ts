@@ -34,7 +34,7 @@ export class NativeDialogHandler extends AbstractDialogHandler {
 			cancelId: prompt.cancelButton ? buttons.length - 1 : -1 /* Disabled */,
 			checkboxLabel: prompt.checkbox?.label,
 			checkboxChecked: prompt.checkbox?.checked,
-			targetWindowId: getActiveWindow().prox-codeWindowId
+			targetWindowId: getActiveWindow().proxCodeWindowId
 		});
 
 		return this.getPromptResult(prompt, response, checkboxChecked);
@@ -54,7 +54,7 @@ export class NativeDialogHandler extends AbstractDialogHandler {
 			cancelId: buttons.length - 1,
 			checkboxLabel: confirmation.checkbox?.label,
 			checkboxChecked: confirmation.checkbox?.checked,
-			targetWindowId: getActiveWindow().prox-codeWindowId
+			targetWindowId: getActiveWindow().proxCodeWindowId
 		});
 
 		return { confirmed: response === 0, checkboxChecked };
@@ -73,7 +73,7 @@ export class NativeDialogHandler extends AbstractDialogHandler {
 				localize({ key: 'copy', comment: ['&& denotes a mnemonic'] }, "&&Copy"),
 				localize('okButton', "OK")
 			],
-			targetWindowId: getActiveWindow().prox-codeWindowId
+			targetWindowId: getActiveWindow().proxCodeWindowId
 		});
 
 		if (response === 0) {
