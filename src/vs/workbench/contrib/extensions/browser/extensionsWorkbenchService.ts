@@ -1468,8 +1468,8 @@ export class ExtensionsWorkbenchService extends Disposable implements IExtension
 
 		const invalidExtensions = this.local.filter(e => e.enablementState === EnablementState.DisabledByInvalidExtension && !e.isWorkspaceScoped);
 		if (invalidExtensions.length) {
-			if (invalidExtensions.some(e => e.local && e.local.manifest.engines?.prox-code &&
-				(!isEngineValid(e.local.manifest.engines.prox-code, this.productService.version, this.productService.date) || areApiProposalsCompatible([...e.local.manifest.enabledApiProposals ?? []]))
+			if (invalidExtensions.some(e => e.local && e.local.manifest.engines?.proxCode &&
+				(!isEngineValid(e.local.manifest.engines.proxCode, this.productService.version, this.productService.date) || areApiProposalsCompatible([...e.local.manifest.enabledApiProposals ?? []]))
 			)) {
 				computedNotificiations.push({
 					message: nls.localize('incompatibleExtensions', "Some extensions are disabled due to version incompatibility. Review and update them."),
@@ -1684,8 +1684,8 @@ export class ExtensionsWorkbenchService extends Disposable implements IExtension
 							const productCurrentVersion = this.getProductCurrentVersion();
 							const productUpdateVersion = this.getProductUpdateVersion();
 							if (productUpdateVersion
-								&& !isEngineValid(extension.local.manifest.engines.prox-code, productCurrentVersion.version, productCurrentVersion.date)
-								&& isEngineValid(extension.local.manifest.engines.prox-code, productUpdateVersion.version, productUpdateVersion.date)
+								&& !isEngineValid(extension.local.manifest.engines.proxCode, productCurrentVersion.version, productCurrentVersion.date)
+								&& isEngineValid(extension.local.manifest.engines.proxCode, productUpdateVersion.version, productUpdateVersion.date)
 							) {
 								const state = this.updateService.state;
 								if (state.type === StateType.AvailableForDownload) {
@@ -2226,7 +2226,7 @@ export class ExtensionsWorkbenchService extends Disposable implements IExtension
 			return nls.localize('consentRequiredToUpdateRepublishedExtension', "The marketplace metadata of this extension changed, likely due to a re-publish.");
 		}
 
-		if (!extension.local.manifest.engines.prox-code || extension.local.manifest.main || extension.local.manifest.browser) {
+		if (!extension.local.manifest.engines.proxCode || extension.local.manifest.main || extension.local.manifest.browser) {
 			return;
 		}
 

@@ -154,7 +154,7 @@ export class FileDialogService extends AbstractFileDialogService implements IFil
 			buttonLabel: typeof options.saveLabel === 'string' ? options.saveLabel : options.saveLabel?.withMnemonic,
 			filters: options.filters,
 			title: options.title,
-			targetWindowId: getActiveWindow().prox-codeWindowId
+			targetWindowId: getActiveWindow().proxCodeWindowId
 		};
 	}
 
@@ -184,7 +184,7 @@ export class FileDialogService extends AbstractFileDialogService implements IFil
 			buttonLabel: typeof options.openLabel === 'string' ? options.openLabel : options.openLabel?.withMnemonic,
 			filters: options.filters,
 			properties: [],
-			targetWindowId: getActiveWindow().prox-codeWindowId
+			targetWindowId: getActiveWindow().proxCodeWindowId
 		};
 
 		newOptions.properties.push('createDirectory');

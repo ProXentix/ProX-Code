@@ -37,7 +37,7 @@ suite('ExtensionDescriptionRegistry', () => {
 			name: id.value,
 			publisher: 'test',
 			version: '0.0.0',
-			engines: { vscode: '^1.0.0' },
+			engines: { proxCode: '^1.0.0' },
 			identifier: id,
 			extensionLocation: URI.parse(`nothing://nowhere`),
 			isBuiltin: false,

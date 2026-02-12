@@ -111,24 +111,31 @@ Registry.as<IEditorPaneRegistry>(EditorExtensions.EditorPane).registerEditorPane
 		new SyncDescriptor(ExtensionsInput)
 	]);
 
-/*
 export const VIEW_CONTAINER = Registry.as<IViewContainersRegistry>(ViewContainerExtensions.ViewContainersRegistry).registerViewContainer(
 	{
 		id: VIEWLET_ID,
 		title: localize2('extensions', "Extensions"),
+		icon: extensionsViewIcon,
+		ctorDescriptor: new SyncDescriptor(ExtensionsViewletViewsContribution),
+		viewOrderDelegate: {
+			getOrder: (group: string) => {
+				if (group === 'installed') {
+					return 1;
+				}
+				if (group === 'recommended') {
+					return 2;
+				}
+				return undefined;
+			}
+		},
 		openCommandActionDescriptor: {
 			id: VIEWLET_ID,
-			mnemonicTitle: localize({ key: 'miViewExtensions', comment: ['&& denotes a mnemonic'] }, "E&&xtensions"),
+			title: localize2('extensions', "Extensions"),
 			keybindings: { primary: KeyMod.CtrlCmd | KeyMod.Shift | KeyCode.KeyX },
-			order: 4,
+			order: 4
 		},
-		ctorDescriptor: new SyncDescriptor(ExtensionsViewPaneContainer),
-		icon: extensionsViewIcon,
-		order: 4,
-		rejectAddedViews: true,
-		alwaysUseContainerInfo: true,
+		activeItemContextKey: ContextKeyExpr.equals('viewContainer', VIEWLET_ID),
 	}, ViewContainerLocation.Sidebar);
-*/
 
 Registry.as<IConfigurationRegistry>(ConfigurationExtensions.Configuration)
 	.registerConfiguration({
@@ -2028,7 +2035,7 @@ class ExtensionToolsContribution extends Disposable implements IWorkbenchContrib
 		super();
 		const searchExtensionsTool = instantiationService.createInstance(SearchExtensionsTool);
 		this._register(toolsService.registerTool(SearchExtensionsToolData, searchExtensionsTool));
-		this._register(toolsService.prox - codeToolSet.addTool(SearchExtensionsToolData));
+		this._register(toolsService.proxCodeToolSet.addTool(SearchExtensionsToolData));
 	}
 }
 

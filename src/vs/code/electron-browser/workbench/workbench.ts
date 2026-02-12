@@ -17,7 +17,7 @@
 	type IMainWindowSandboxGlobals = import('../../../base/parts/sandbox/electron-browser/globals.js').IMainWindowSandboxGlobals;
 	type IDesktopMain = import('../../../workbench/electron-browser/desktop.main.js').IDesktopMain;
 
-	const preloadGlobals = (window as unknown as { vscode: IMainWindowSandboxGlobals }).prox-code; // defined by preload.ts
+	const preloadGlobals = (window as unknown as { proxCode: IMainWindowSandboxGlobals }).proxCode; // defined by preload.ts
 	const safeProcess = preloadGlobals.process;
 
 	//#region Splash Screen Helpers

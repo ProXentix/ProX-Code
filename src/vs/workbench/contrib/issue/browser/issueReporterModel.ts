@@ -8,7 +8,7 @@ import { isRemoteDiagnosticError, SystemInfo } from '../../../../platform/diagno
 import { ISettingSearchResult, IssueReporterExtensionData, IssueType } from '../common/issue.js';
 
 interface VersionInfo {
-	vscodeVersion: string;
+	proxCodeVersion: string;
 	os: string;
 }
 
@@ -95,7 +95,7 @@ Type: <b>${this.getIssueTypeTitle()}</b>
 
 ${this._data.issueDescription}
 ${this.getExtensionVersion()}
-VS Code version: ${this._data.versionInfo && this._data.versionInfo.prox-codeVersion}
+VS Code version: ${this._data.versionInfo && this._data.versionInfo.proxCodeVersion}
 OS version: ${this._data.versionInfo && this._data.versionInfo.os}
 Modes:${modes.length ? ' ' + modes.join(', ') : ''}
 ${this.getRemoteOSes()}
