@@ -17,7 +17,7 @@ const manifest: IExtensionManifest = {
 	publisher: 'test',
 	version: '1.0.0',
 	engines: {
-		vscode: '*'
+		proxCode: '*'
 	},
 	contributes: {
 		commands: [
@@ -121,7 +121,7 @@ suite('Localize Manifest', () => {
 			publisher: 'test',
 			version: '1.0.0',
 			engines: {
-				vscode: '*'
+				proxCode: '*'
 			},
 			contributes: {
 				authentication: [
