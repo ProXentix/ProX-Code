@@ -301,6 +301,11 @@ export function fromGithub({ name, version, repo, sha256, metadata }: IExtension
 		checksumSha256: sha256
 	})
 		.pipe(buffer())
+		.pipe(es.map((f: File, cb: any) => {
+			console.log('File emitted from fetchGithub:', f.path, f.contents?.length);
+			f.path = 'extension.zip';
+			cb(null, f);
+		}))
 		.pipe(vzip.src())
 		.pipe(filter('extension/**'))
 		.pipe(rename(p => p.dirname = p.dirname!.replace(/^extension\/?/, '')))
