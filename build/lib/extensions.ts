@@ -88,7 +88,7 @@ function fromLocal(extensionPath: string, forWeb: boolean, disableMangle: boolea
 		});
 	}
 
-	return input;
+	return input.on('end', () => console.log('Finished processing local extension:', path.basename(extensionPath)));
 }
 
 
@@ -303,15 +303,10 @@ export function fromGithub({ name, version, repo, sha256, metadata }: IExtension
 	})
 		.pipe(buffer())
 		.pipe(es.map((f: File, cb: any) => {
-			console.log('File emitted from fetchGithub:', f.path, f.contents?.length);
 			f.path = 'extension.zip';
 			cb(null, f);
 		}))
 		.pipe(vzip.src())
-		.pipe(es.map((f: File, cb: any) => {
-			console.log('File emitted from vzip:', f.path);
-			cb(null, f);
-		}))
 		.pipe(filter('extension/**'))
 		.pipe(rename(p => p.dirname = p.dirname!.replace(/^extension\/?/, '')))
 		.pipe(packageJsonFilter)
@@ -463,7 +458,9 @@ function doPackageLocalExtensionsStream(forWeb: boolean, disableMangle: boolean,
 			localExtensionsStream,
 			gulp.src(dependenciesSrc, { base: '.' })
 				.pipe(util2.cleanNodeModules(path.join(root, 'build', '.moduleignore')))
-				.pipe(util2.cleanNodeModules(path.join(root, 'build', `.moduleignore.${process.platform}`))));
+				.pipe(util2.cleanNodeModules(path.join(root, 'build', `.moduleignore.${process.platform}`)))
+				.on('end', () => console.log('productionDependencies stream ended'))
+		);
 	}
 
 	return (
