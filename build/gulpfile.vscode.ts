@@ -4,6 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import gulp from 'gulp';
+import fancyLog from 'fancy-log';
 import * as fs from 'fs';
 import * as path from 'path';
 import es from 'event-stream';
@@ -36,8 +37,15 @@ import { createRequire } from 'node:module';
 
 const require = createRequire(import.meta.url);
 const globModule = require('glob');
-const glob = promisify(globModule.glob);
-const rcedit = promisify(rceditCallback);
+const glob = (...args: any[]) => {
+	const result = (globModule.glob || globModule)(...args);
+	return result && typeof result.then === 'function' ? result : promisify(globModule.glob || globModule)(...args);
+};
+
+const rcedit = (...args: any[]) => {
+	const result = rceditCallback(...args);
+	return result && typeof result.then === 'function' ? result : promisify(rceditCallback)(...args);
+};
 const root = path.dirname(import.meta.dirname);
 const commit = getVersion(root);
 const versionedResourcesFolder = (product as typeof product & { quality?: string })?.quality === 'insider' ? commit!.substring(0, 10) : '';
@@ -462,22 +470,29 @@ function patchWin32DependenciesTask(destinationFolderName: string) {
 		const product = JSON.parse(await fs.promises.readFile(path.join(cwd, versionedResourcesFolder, 'resources', 'app', 'product.json'), 'utf8'));
 		const baseVersion = packageJson.version.replace(/-.*$/, '');
 
+		fancyLog(`Patching ${deps.length} dependencies in ${cwd}...`);
+
 		await Promise.all(deps.map(async dep => {
 			const basename = path.basename(dep);
 
-			await rcedit(path.join(cwd, dep), {
-				'file-version': baseVersion,
-				'version-string': {
-					'CompanyName': 'Microsoft Corporation',
-					'FileDescription': product.nameLong,
-					'FileVersion': packageJson.version,
-					'InternalName': basename,
-					'LegalCopyright': 'Copyright (C) 2022 Microsoft. All rights reserved',
-					'OriginalFilename': basename,
-					'ProductName': product.nameLong,
-					'ProductVersion': packageJson.version,
-				}
-			});
+			try {
+				await rcedit(path.join(cwd, dep), {
+					'file-version': baseVersion,
+					'version-string': {
+						'CompanyName': 'Microsoft Corporation',
+						'FileDescription': product.nameLong,
+						'FileVersion': packageJson.version,
+						'InternalName': basename,
+						'LegalCopyright': 'Copyright (C) 2022 Microsoft. All rights reserved',
+						'OriginalFilename': basename,
+						'ProductName': product.nameLong,
+						'ProductVersion': packageJson.version,
+					}
+				});
+			} catch (err) {
+				fancyLog(`Failed to patch ${dep}: ${err}`);
+				throw err;
+			}
 		}));
 	};
 }
