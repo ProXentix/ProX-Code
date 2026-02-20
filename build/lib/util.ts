@@ -16,10 +16,45 @@ import sm from 'source-map';
 import { pathToFileURL } from 'url';
 import ternaryStream from 'ternary-stream';
 
+import minimatch from 'minimatch';
+
 const root = path.dirname(path.dirname(import.meta.dirname));
 
 export interface ICancellationToken {
 	isCancellationRequested(): boolean;
+}
+
+
+export function setExecutableBit(pattern?: string | string[]): NodeJS.ReadWriteStream {
+	if (!pattern) {
+		const setBit = es.mapSync<VinylFile, VinylFile>(f => {
+			if (!f.stat) {
+				const stat: Pick<fs.Stats, 'isFile' | 'mode'> = { isFile() { return true; }, mode: 0 };
+				f.stat = stat as fs.Stats;
+			}
+			f.stat!.mode = /* 100755 */ 33261;
+			return f;
+		});
+		return setBit;
+	}
+
+	return es.map((f: VinylFile, cb) => {
+		let matches = false;
+		if (Array.isArray(pattern)) {
+			matches = pattern.some(p => minimatch(f.relative, p));
+		} else if (typeof pattern === 'string') {
+			matches = minimatch(f.relative, pattern);
+		}
+
+		if (matches) {
+			if (!f.stat) {
+				const stat: Pick<fs.Stats, 'isFile' | 'mode'> = { isFile() { return true; }, mode: 0 };
+				f.stat = stat as fs.Stats;
+			}
+			f.stat!.mode = /* 100755 */ 33261;
+		}
+		cb(undefined, f);
+	});
 }
 
 const NoCancellationToken: ICancellationToken = { isCancellationRequested: () => false };
@@ -126,29 +161,7 @@ export function fixWin32DirectoryPermissions(): NodeJS.ReadWriteStream {
 	});
 }
 
-export function setExecutableBit(pattern?: string | string[]): NodeJS.ReadWriteStream {
-	const setBit = es.mapSync<VinylFile, VinylFile>(f => {
-		if (!f.stat) {
-			const stat: Pick<fs.Stats, 'isFile' | 'mode'> = { isFile() { return true; }, mode: 0 };
-			f.stat = stat as fs.Stats;
-		}
-		f.stat!.mode = /* 100755 */ 33261;
-		return f;
-	});
 
-	if (!pattern) {
-		return setBit;
-	}
-
-	const input = es.through();
-	const filter = _filter(pattern, { restore: true });
-	const output = input
-		.pipe(filter)
-		.pipe(setBit)
-		.pipe(filter.restore);
-
-	return es.duplex(input, output);
-}
 
 export function toFileUri(filePath: string): string {
 	const match = filePath.match(/^([a-z])\:(.*)$/i);

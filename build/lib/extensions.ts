@@ -20,7 +20,7 @@ import ansiColors from 'ansi-colors';
 import buffer from 'gulp-buffer';
 import * as jsoncParser from 'jsonc-parser';
 import webpack from 'webpack';
-import { getProductionDependencies } from './dependencies.ts';
+
 import { type IExtensionDefinition, getExtensionStream } from './builtInExtensions.ts';
 import { getVersion } from './getVersion.ts';
 import { fetchUrls, fetchGithub } from './fetch.ts';
@@ -35,20 +35,19 @@ const commit = getVersion(root);
 const sourceMappingURLBase = `https://main.vscode-cdn.net/sourcemaps/${commit}`;
 
 function minifyExtensionResources(input: Stream): Stream {
-	const jsonFilter = filter(['**/*.json', '**/*.code-snippets'], { restore: true });
 	return input
-		.pipe(jsonFilter)
 		.pipe(buffer())
 		.pipe(es.mapSync((f: File) => {
-			const errors: jsoncParser.ParseError[] = [];
-			const value = jsoncParser.parse(f.contents!.toString('utf8'), errors, { allowTrailingComma: true });
-			if (errors.length === 0) {
-				// file parsed OK => just stringify to drop whitespace and comments
-				f.contents = Buffer.from(JSON.stringify(value));
+			if (f.path.endsWith('.json') || f.path.endsWith('.code-snippets')) {
+				const errors: jsoncParser.ParseError[] = [];
+				const value = jsoncParser.parse(f.contents!.toString('utf8'), errors, { allowTrailingComma: true });
+				if (errors.length === 0) {
+					// file parsed OK => just stringify to drop whitespace and comments
+					f.contents = Buffer.from(JSON.stringify(value));
+				}
 			}
 			return f;
-		}))
-		.pipe(jsonFilter.restore);
+		}));
 }
 
 function updateExtensionPackageJSON(input: Stream, update: (data: any) => any): Stream {
@@ -65,7 +64,6 @@ function updateExtensionPackageJSON(input: Stream, update: (data: any) => any): 
 }
 
 function fromLocal(extensionPath: string, forWeb: boolean, disableMangle: boolean): Stream {
-	console.log('Processing local extension:', path.basename(extensionPath));
 
 	const webpackConfigFileName = forWeb
 		? `extension-browser.webpack.config.js`
@@ -88,7 +86,7 @@ function fromLocal(extensionPath: string, forWeb: boolean, disableMangle: boolea
 		});
 	}
 
-	return input.on('end', () => console.log('Finished processing local extension:', path.basename(extensionPath)));
+	return input;
 }
 
 
@@ -435,32 +433,21 @@ function doPackageLocalExtensionsStream(forWeb: boolean, disableMangle: boolean,
 			.filter(({ name }) => excludedExtensions.indexOf(name) === -1)
 			.filter(({ name }) => builtInExtensions.every(b => b.name !== name))
 			.filter(({ manifestPath }) => (forWeb ? isWebExtension(require(manifestPath)) : true))
+			.filter(({ name }) => ['proxpl', 'theme-defaults', 'theme-seti', 'json', 'json-language-features'].includes(name))
 	);
-	console.log('Found local extensions:', localExtensionsDescriptions.map(e => e.name).join(', '));
-	const localExtensionsStream = minifyExtensionResources(
-		es.merge(
-			...localExtensionsDescriptions.map(extension => {
-				return fromLocal(extension.path, forWeb, disableMangle)
-					.pipe(rename(p => p.dirname = `extensions/${extension.name}/${p.dirname}`));
-			})
-		)
+
+	const localExtensionsStream = es.merge(
+		...localExtensionsDescriptions.map(extension => {
+			return fromLocal(extension.path, forWeb, disableMangle)
+				.pipe(rename(p => p.dirname = `extensions/${extension.name}/${p.dirname}`));
+		})
 	);
 
 	let result: Stream;
 	if (forWeb) {
 		result = localExtensionsStream;
 	} else {
-		// also include shared production node modules
-		const productionDependencies = getProductionDependencies('extensions/');
-		const dependenciesSrc = productionDependencies.map(d => path.relative(root, d)).map(d => [`${d}/**`, `!${d}/**/{test,tests}/**`]).flat();
-
-		result = es.merge(
-			localExtensionsStream,
-			gulp.src(dependenciesSrc, { base: '.' })
-				.pipe(util2.cleanNodeModules(path.join(root, 'build', '.moduleignore')))
-				.pipe(util2.cleanNodeModules(path.join(root, 'build', `.moduleignore.${process.platform}`)))
-				.on('end', () => console.log('productionDependencies stream ended'))
-		);
+		result = localExtensionsStream;
 	}
 
 	return (
