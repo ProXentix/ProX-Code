@@ -65,6 +65,7 @@ function updateExtensionPackageJSON(input: Stream, update: (data: any) => any): 
 }
 
 function fromLocal(extensionPath: string, forWeb: boolean, disableMangle: boolean): Stream {
+	console.log('Processing local extension:', path.basename(extensionPath));
 
 	const webpackConfigFileName = forWeb
 		? `extension-browser.webpack.config.js`
@@ -307,6 +308,10 @@ export function fromGithub({ name, version, repo, sha256, metadata }: IExtension
 			cb(null, f);
 		}))
 		.pipe(vzip.src())
+		.pipe(es.map((f: File, cb: any) => {
+			console.log('File emitted from vzip:', f.path);
+			cb(null, f);
+		}))
 		.pipe(filter('extension/**'))
 		.pipe(rename(p => p.dirname = p.dirname!.replace(/^extension\/?/, '')))
 		.pipe(packageJsonFilter)
@@ -436,6 +441,7 @@ function doPackageLocalExtensionsStream(forWeb: boolean, disableMangle: boolean,
 			.filter(({ name }) => builtInExtensions.every(b => b.name !== name))
 			.filter(({ manifestPath }) => (forWeb ? isWebExtension(require(manifestPath)) : true))
 	);
+	console.log('Found local extensions:', localExtensionsDescriptions.map(e => e.name).join(', '));
 	const localExtensionsStream = minifyExtensionResources(
 		es.merge(
 			...localExtensionsDescriptions.map(extension => {

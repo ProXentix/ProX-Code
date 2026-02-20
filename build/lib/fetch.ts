@@ -133,17 +133,20 @@ export function fetchGithub(repo: string, options: IGitHubAssetOptions): Stream 
 		nodeFetchOptions: { headers: ghApiHeaders }
 	}).pipe(through2.obj(async function (file, _enc, callback) {
 		const assetFilter = typeof options.name === 'string' ? (name: string) => name === options.name : options.name;
-		const asset = JSON.parse(file.contents.toString()).assets.find((a: { name: string }) => assetFilter(a.name));
-		if (!asset) {
-			return callback(new Error(`Could not find asset in release of ${repo} @ ${options.version}`));
-		}
 		try {
-			callback(null, await fetchUrl(asset.url, {
+			const asset = JSON.parse(file.contents.toString()).assets.find((a: { name: string }) => assetFilter(a.name));
+			if (!asset) {
+				return callback(new Error(`Could not find asset in release of ${repo} @ ${options.version}`));
+			}
+			const result = await fetchUrl(asset.url, {
 				nodeFetchOptions: { headers: ghDownloadHeaders },
 				verbose: options.verbose,
 				checksumSha256: options.checksumSha256
-			}));
+			});
+			console.log('fetchGithub transform finished', asset.url);
+			callback(null, result);
 		} catch (error) {
+			console.log('Error in fetchGithub through2:', error);
 			callback(error);
 		}
 	}));
