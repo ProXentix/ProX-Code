@@ -1,5 +1,5 @@
 /*---------------------------------------------------------------------------------------------
- *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
@@ -101,7 +101,7 @@ export function nls(options: { preserveEnglish: boolean }): NodeJS.ReadWriteStre
 				}),
 				new File({
 					contents: Buffer.from(`/*---------------------------------------------------------
- * Copyright (C) Microsoft Corporation. All rights reserved.
+ * Copyright (C) ProXentix. All rights reserved.
  *--------------------------------------------------------*/
 globalThis._VSCODE_NLS_MESSAGES=${JSON.stringify(_nls.allNLSMessages)};`),
 					base,
