@@ -37,8 +37,8 @@ import { createRequire } from 'node:module';
 
 const require = createRequire(import.meta.url);
 const globModule = require('glob');
-const glob = promisify(globModule.glob || globModule);
-const rcedit = promisify(rceditCallback);
+const glob = (pattern: string, options: any): Promise<string[]> => new Promise((resolve, reject) => (globModule.glob || globModule)(pattern, options, (err: any, matches: string[]) => err ? reject(err) : resolve(matches)));
+const rcedit = (exe: string, options: any): Promise<void> => new Promise((resolve, reject) => rceditCallback(exe, options, (err: any) => err ? reject(err) : resolve()));
 const root = path.dirname(import.meta.dirname);
 const commit = getVersion(root);
 const versionedResourcesFolder = (product as typeof product & { quality?: string })?.quality === 'insider' ? commit!.substring(0, 10) : '';
