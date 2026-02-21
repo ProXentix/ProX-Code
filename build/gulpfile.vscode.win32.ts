@@ -146,7 +146,7 @@ function updateIcon(executablePath: string): task.CallbackTask {
 	return cb => {
 		const icon = path.join(repoPath, 'resources', 'win32', 'code.ico');
 		if (fs.existsSync(icon)) {
-			rcedit(executablePath, { icon }, (err) => cb ? cb(err) : undefined);
+			rcedit(executablePath, { icon }, (err: any) => cb ? cb(err) : undefined);
 		} else {
 			cb ? cb() : undefined;
 		}
