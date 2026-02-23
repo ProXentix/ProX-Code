@@ -1,3 +1,7 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) ProXentix. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 const environmentVariables: Fig.Generator = {
 	custom: async (_tokens, _executeCommand, generatorContext) => {
 		return Object.values(generatorContext.environmentVariables).map(

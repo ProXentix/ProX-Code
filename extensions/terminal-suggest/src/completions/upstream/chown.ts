@@ -1,3 +1,7 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) ProXentix. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 export const existingUsersandGroups: Fig.Generator = {
 	custom: async function (tokens, executeShellCommand) {
 		const colonAdded = tokens.find((token) => token.includes(":"));

@@ -1,3 +1,7 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) ProXentix. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 const completionSpec: Fig.Spec = {
 	name: "tree",
 	description: "Display directories as trees (with optional color/HTML output)",

@@ -1,3 +1,7 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) ProXentix. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 const completionSpec: Fig.Spec = {
 	name: "fold",
 	description: "Fold long lines for finite width output device",

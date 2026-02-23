@@ -1,3 +1,7 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) ProXentix. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 const sizeSuffixes: Fig.Suggestion[] = [
 	{ name: "Blocks", insertValue: "{cursor}b" },
 	{ name: "Bytes", insertValue: "{cursor}c" },

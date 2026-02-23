@@ -1,3 +1,7 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) ProXentix. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 const servicesGenerator = (action: string): Fig.Generator => ({
 	script: ["bash", "-c", "brew services list | sed -e 's/ .*//' | tail -n +2"],
 	postProcess: function (out) {

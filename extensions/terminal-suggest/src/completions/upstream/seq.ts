@@ -1,3 +1,7 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) ProXentix. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 const completionSpec: Fig.Spec = {
 	name: "seq",
 	description: "Print sequences of numbers. (Defaults to increments of 1)",

@@ -1,3 +1,7 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) ProXentix. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 import { knownHosts, configHosts } from "./ssh";
 
 const infoArgs: Fig.SingleOrArray<Fig.Arg> = [

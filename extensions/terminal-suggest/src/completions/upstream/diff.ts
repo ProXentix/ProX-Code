@@ -1,3 +1,7 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) ProXentix. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 // https://www.gnu.org/software/diffutils
 const groupFormatOptions = (names: string[]) =>
 	names.map<Fig.Option>((name) => ({

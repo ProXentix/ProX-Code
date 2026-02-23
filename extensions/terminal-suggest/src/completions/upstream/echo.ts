@@ -1,3 +1,7 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) ProXentix. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 const environmentVariableGenerator: Fig.Generator = {
 	custom: async (tokens, _, context) => {
 		if (tokens.length < 3 || tokens[tokens.length - 1].startsWith("$")) {

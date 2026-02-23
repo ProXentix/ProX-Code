@@ -1,3 +1,7 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) ProXentix. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 const gemfileGemsGenerator: Fig.Generator = {
 	script: ["bundle", "list", "--name-only"],
 	postProcess: (out) => {

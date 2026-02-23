@@ -1,3 +1,7 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) ProXentix. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 declare module "event-stream" {
 	import { Stream } from 'stream';
 	import { ThroughStream as _ThroughStream } from 'through';
