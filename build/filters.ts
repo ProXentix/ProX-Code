@@ -173,6 +173,8 @@ export const copyrightFilter = Object.freeze<string[]>([
 	'!**/*.code-workspace',
 	'!**/*.js.map',
 	'!**/*.wasm',
+	'!**/*.log',
+	'!replace_headers.py',
 	'!build/**/*.init',
 	'!build/linux/libcxx-fetcher.*',
 	'!build/npm/gyp/custom-headers/*.patch',
