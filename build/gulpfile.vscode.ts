@@ -36,8 +36,16 @@ import { createRequire } from 'node:module';
 
 const require = createRequire(import.meta.url);
 const globModule = require('glob');
-const glob = (pattern: string, options: any): Promise<string[]> => new Promise((resolve, reject) => (globModule.glob || globModule)(pattern, options, (err: any, matches: string[]) => err ? reject(err) : resolve(matches)));
-const rcedit = (exe: string, options: any): Promise<void> => new Promise((resolve, reject) => rceditCallback(exe, options, (err: any) => err ? reject(err) : resolve()));
+const { promisify } = require('util');
+const glob = (...args: any[]) => {
+	const result = (globModule.glob || globModule)(...args);
+	return result && typeof result.then === 'function' ? result : promisify(globModule.glob || globModule)(...args);
+};
+
+const rcedit = (...args: any[]) => {
+	const result = rceditCallback(...args);
+	return result && typeof result.then === 'function' ? result : promisify(rceditCallback)(...args);
+};
 const root = path.dirname(import.meta.dirname);
 const commit = getVersion(root);
 const versionedResourcesFolder = (product as typeof product & { quality?: string })?.quality === 'insider' ? commit!.substring(0, 10) : '';
@@ -464,8 +472,9 @@ function patchWin32DependenciesTask(destinationFolderName: string) {
 
 		fancyLog(`Patching ${deps.length} dependencies in ${cwd}...`);
 
-		await Promise.all(deps.map(async dep => {
+		return Promise.all(deps.map(async dep => {
 			const basename = path.basename(dep);
+			fancyLog(`Patching ${dep}...`);
 
 			try {
 				await rcedit(path.join(cwd, dep), {
