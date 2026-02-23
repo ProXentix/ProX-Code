@@ -87,6 +87,6 @@
 		}
 	} else {
 		// @ts-ignore
-		window.prox-code = globals;
+		window['prox-code'] = globals;
 	}
 }());
