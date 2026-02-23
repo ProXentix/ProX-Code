@@ -38,20 +38,59 @@ const require = createRequire(import.meta.url);
 const globModule = require('glob');
 const { promisify } = require('util');
 
-let glob: any;
-if (typeof globModule.glob === 'function' && globModule.glob.name === 'glob' && !globModule.glob.length) {
-	// Likely glob v10+ which is already async or returns a promise
-	glob = globModule.glob;
-} else {
-	glob = promisify(globModule.glob || globModule);
+/**
+ * Robustly promisifies a function, handling cases where it might already return a promise.
+ * This is particularly important for libraries like glob and rcedit which have changed
+ * their API in recent versions.
+ */
+function robustPromisify(fn: any, originalFn?: any): any {
+	if (typeof fn !== 'function') {
+		return fn;
+	}
+
+	// If it's already an AsyncFunction, return it
+	if (fn.constructor.name === 'AsyncFunction') {
+		return fn;
+	}
+
+	// Check for Node's custom promisify symbol
+	if (fn[promisify.custom]) {
+		return fn[promisify.custom];
+	}
+
+	// If it's glob, check for the .glob property which is usually the promise-based one in v10+
+	if (originalFn && originalFn.glob && typeof originalFn.glob === 'function') {
+		// In glob v10+, the main export might be the callback version, but .glob is static and returns a promise
+		// Actually in v10+ the main export IS async/promise-returning often, or it's a legacy wrapper.
+		// However, if we see a .glob function that looks like it doesn't take a callback (length < 2), it's likely the one.
+		if (originalFn.glob.length < 2) {
+			return originalFn.glob.bind(originalFn);
+		}
+	}
+
+	// If the function's length is 0 or 1, it might already return a promise and not take a callback
+	// (Most glob/rcedit functions take at least 2 or 3 args for the callback version)
+	if (fn.length < 2 && !fn.toString().includes('arguments')) {
+		return fn;
+	}
+
+	try {
+		return promisify(fn);
+	} catch (e) {
+		// If promisify fails (e.g. DEP0174 warning), it's likely already a promise-returning function
+		return fn;
+	}
 }
 
-let rcedit: any;
-if (typeof rceditCallback === 'function' && rceditCallback.constructor.name === 'AsyncFunction') {
-	rcedit = rceditCallback;
+let glob: any;
+if (typeof globModule.glob === 'function') {
+	glob = robustPromisify(globModule.glob, globModule);
 } else {
-	rcedit = promisify(rceditCallback);
+	glob = robustPromisify(globModule, globModule);
 }
+
+let rcedit: any = robustPromisify(rceditCallback);
+
 const root = path.dirname(import.meta.dirname);
 const commit = getVersion(root);
 const versionedResourcesFolder = (product as typeof product & { quality?: string })?.quality === 'insider' ? commit!.substring(0, 10) : '';

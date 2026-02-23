@@ -18,13 +18,26 @@ gulp.task(task.define('test-fix', async () => {
     console.log('[11:51:23] Testing glob...');
 
     let glob;
-    // Improved check for glob v11/v10
-    if (typeof globModule.glob === 'function' && (globModule.glob.toString().includes('async') || !globModule.glob.length)) {
-        console.log('Using native glob promise');
-        glob = globModule.glob;
+    // Improved robust check for glob promise-returning version
+    if (typeof globModule.glob === 'function') {
+        if (globModule.glob.constructor.name === 'AsyncFunction' || globModule.glob.length < 2) {
+            console.log('Using native glob promise');
+            glob = globModule.glob.bind(globModule);
+        } else {
+            console.log('Promisifying glob property');
+            glob = promisify(globModule.glob);
+        }
+    } else if (typeof globModule === 'function') {
+        if (globModule.constructor.name === 'AsyncFunction' || globModule.length < 2) {
+            console.log('Using native glob function promise');
+            glob = globModule;
+        } else {
+            console.log('Promisifying glob root');
+            glob = promisify(globModule);
+        }
     } else {
-        console.log('Promisifying glob');
-        glob = promisify(globModule.glob || globModule);
+        console.log('Promisifying glob fallback');
+        glob = promisify(globModule);
     }
 
     try {

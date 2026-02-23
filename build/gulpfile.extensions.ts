@@ -268,7 +268,25 @@ gulp.task(watchWebExtensionsTask);
 
 async function buildWebExtensions(isWatch: boolean) {
 	const extensionsPath = path.join(root, 'extensions');
-	const webpackConfigLocations = await nodeUtil.promisify(glob)(
+
+	let globPromise: any;
+	if (typeof glob.glob === 'function') {
+		if (glob.glob.constructor.name === 'AsyncFunction' || glob.glob.length < 2) {
+			globPromise = glob.glob.bind(glob);
+		} else {
+			globPromise = nodeUtil.promisify(glob.glob);
+		}
+	} else if (typeof glob === 'function') {
+		if (glob.constructor.name === 'AsyncFunction' || glob.length < 2) {
+			globPromise = glob;
+		} else {
+			globPromise = nodeUtil.promisify(glob);
+		}
+	} else {
+		globPromise = nodeUtil.promisify(glob);
+	}
+
+	const webpackConfigLocations = await globPromise(
 		path.join(extensionsPath, '**', 'extension-browser.webpack.config.js'),
 		{ ignore: ['**/node_modules'] }
 	);
