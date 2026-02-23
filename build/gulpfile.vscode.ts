@@ -37,15 +37,21 @@ import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
 const globModule = require('glob');
 const { promisify } = require('util');
-const glob = (...args: any[]) => {
-	const result = (globModule.glob || globModule)(...args);
-	return result && typeof result.then === 'function' ? result : promisify(globModule.glob || globModule)(...args);
-};
 
-const rcedit = (...args: any[]) => {
-	const result = rceditCallback(...args);
-	return result && typeof result.then === 'function' ? result : promisify(rceditCallback)(...args);
-};
+let glob: any;
+if (typeof globModule.glob === 'function' && globModule.glob.name === 'glob' && !globModule.glob.length) {
+	// Likely glob v10+ which is already async or returns a promise
+	glob = globModule.glob;
+} else {
+	glob = promisify(globModule.glob || globModule);
+}
+
+let rcedit: any;
+if (typeof rceditCallback === 'function' && rceditCallback.constructor.name === 'AsyncFunction') {
+	rcedit = rceditCallback;
+} else {
+	rcedit = promisify(rceditCallback);
+}
 const root = path.dirname(import.meta.dirname);
 const commit = getVersion(root);
 const versionedResourcesFolder = (product as typeof product & { quality?: string })?.quality === 'insider' ? commit!.substring(0, 10) : '';

@@ -50,16 +50,29 @@ async function _doExecute(task: Task): Promise<void> {
 	return new Promise((resolve, reject) => {
 		if (task.length === 1) {
 			// this is a callback task
-			task((err) => {
-				if (err) {
-					return reject(err);
+			try {
+				const result = task((err) => {
+					if (err) {
+						return reject(err);
+					}
+					resolve();
+				});
+				if (result && typeof (result as any).then === 'function') {
+					(result as any).then(resolve, reject);
 				}
-				resolve();
-			});
+			} catch (err) {
+				reject(err);
+			}
 			return;
 		}
 
-		const taskResult = task();
+		let taskResult: any;
+		try {
+			taskResult = task();
+		} catch (err) {
+			reject(err);
+			return;
+		}
 
 		if (typeof taskResult === 'undefined') {
 			// this is a sync task
@@ -74,8 +87,8 @@ async function _doExecute(task: Task): Promise<void> {
 		}
 
 		// this is a stream returning task
-		taskResult.on('end', _ => resolve());
-		taskResult.on('error', err => reject(err));
+		taskResult.on('end', () => resolve());
+		taskResult.on('error', (err: any) => reject(err));
 	});
 }
 
