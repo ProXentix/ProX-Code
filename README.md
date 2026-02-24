@@ -4,7 +4,7 @@
 
 ## The Repository
 
-This repository ("`ProX-Code`") is where we (ProXentix) develop the [ProX-Code](https://proxentix.in/proxpl) product together with the community. Not only do we work on code and issues here, we also publish our [roadmap](https://github.com/ProXentix/ProX-Code/wiki/Roadmap), [monthly iteration plans](https://github.com/ProXentix/ProX-Code/wiki/Iteration-Plans), and our [endgame plans](https://github.com/ProXentix/ProX-Code/wiki/Running-the-Endgame). This source code is available to everyone under the standard [MIT license](https://github.com/ProXentix/ProX-Code/blob/main/LICENSE.txt).
+This repository ("`ProX-Code`") is where we (ProXentix) develop the [ProX-Code](https://proxpl.in) product together with the community. Not only do we work on code and issues here, we also publish our [roadmap](https://github.com/ProXentix/ProX-Code/wiki/Roadmap), [monthly iteration plans](https://github.com/ProXentix/ProX-Code/wiki/Iteration-Plans), and our [endgame plans](https://github.com/ProXentix/ProX-Code/wiki/Running-the-Endgame). This source code is available to everyone under the standard [MIT license](https://github.com/ProXentix/ProX-Code/blob/main/LICENSE.txt).
 
 ## ProX-Code
 
@@ -12,11 +12,11 @@ This repository ("`ProX-Code`") is where we (ProXentix) develop the [ProX-Code](
   <img alt="VS Code in action" src="https://user-images.githubusercontent.com/35271042/118224532-3842c400-b438-11eb-923d-a5f66fa6785a.png">
 </p>
 
-[ProX-Code](https://proxentix.in/proxpl) is a distribution of the `ProX-Code` repository with ProXentix-specific customizations released under a traditional [ProXentix product license](https://proxentix.in/proxpl/License/).
+[ProX-Code](https://proxpl.in) is a distribution of the `ProX-Code` repository with ProXentix-specific customizations released under a traditional [ProXentix product license](https://proxpl.in/License/).
 
-[ProX-Code](https://proxentix.in/proxpl) combines the simplicity of a code editor with what developers need for their core edit-build-debug cycle. It provides comprehensive code editing, navigation, and understanding support along with lightweight debugging, a rich extensibility model, and lightweight integration with existing tools.
+[ProX-Code](https://proxpl.in) combines the simplicity of a code editor with what developers need for their core edit-build-debug cycle. It provides comprehensive code editing, navigation, and understanding support along with lightweight debugging, a rich extensibility model, and lightweight integration with existing tools.
 
-ProX-Code is updated monthly with new features and bug fixes. You can download it for Windows, macOS, and Linux on [ProX-Code's website](https://proxentix.in/proxpl/Download). To get the latest releases every day, install the [Insiders build](https://proxentix.in/proxpl/insiders).
+ProX-Code is updated monthly with new features and bug fixes. You can download it for Windows, macOS, and Linux on [ProX-Code's website](https://proxpl.in/Download). To get the latest releases every day, install the [Insiders build](https://proxpl.in/insiders).
 
 ## Contributing
 
@@ -34,7 +34,7 @@ please see the document [How to Contribute](https://github.com/ProXentix/ProX-Co
 * [Coding guidelines](https://github.com/ProXentix/ProX-Code/wiki/Coding-Guidelines)
 * [Submitting pull requests](https://github.com/ProXentix/ProX-Code/wiki/How-to-Contribute#pull-requests)
 * [Finding an issue to work on](https://github.com/ProXentix/ProX-Code/wiki/How-to-Contribute#where-to-contribute)
-* [Contributing to translations](https://proxentix.in/proxplloc)
+* [Contributing to translations](https://proxpl.in/proxplloc)
 
 ## Feedback
 
@@ -42,7 +42,7 @@ please see the document [How to Contribute](https://github.com/ProXentix/ProX-Co
 * [Request a new feature](CONTRIBUTING.md)
 * Upvote [popular feature requests](https://github.com/ProXentix/ProX-Code/issues?q=is%3Aopen+is%3Aissue+label%3Afeature-request+sort%3Areactions-%2B1-desc)
 * [File an issue](https://github.com/ProXentix/ProX-Code/issues)
-* Connect with the extension author community on [GitHub Discussions](https://github.com/ProXentix/ProX-Code-discussions/discussions) or [Slack](https://proxentix.in/proxpl-dev-community)
+* Connect with the extension author community on [GitHub Discussions](https://github.com/ProXentix/ProX-Code-discussions/discussions) or [Slack](https://proxpl.in/proxpl-dev-community)
 * Follow [@code](https://x.com/code) and let us know what you think!
 
 See our [wiki](https://github.com/ProXentix/ProX-Code/wiki/Feedback-Channels) for a description of each of these channels and information on some other available community-driven channels.
