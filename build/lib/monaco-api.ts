@@ -10,7 +10,7 @@ import ansiColors from 'ansi-colors';
 import { type IFileMap, TypeScriptLanguageServiceHost } from './typeScriptLanguageServiceHost.ts';
 import ts from 'typescript';
 
-import tsfmt from '../../tsfmt.json' with { type: 'json' };
+// import tsfmt from '../../tsfmt.json' with { type: 'json' };
 
 const dtsv = '3';
 
@@ -222,14 +222,7 @@ function format(ts: Typescript, text: string, endl: string): string {
 		return text;
 	}
 
-	// Parse the source text
-	const sourceFile = ts.createSourceFile('file.ts', text, ts.ScriptTarget.Latest, /*setParentPointers*/ true);
-
-	// Get the formatting edits on the input sources
-	const edits = ts.formatting.formatDocument(sourceFile, getRuleProvider(tsfmt), tsfmt);
-
-	// Apply the edits on the input code
-	return applyEdits(text, edits);
+	return text;
 
 	function countParensCurly(text: string): number {
 		let cnt = 0;
@@ -329,24 +322,6 @@ function format(ts: Typescript, text: string, endl: string): string {
 		return lines.join(endl);
 	}
 
-	function getRuleProvider(options: ts.FormatCodeSettings) {
-		// Share this between multiple formatters using the same options.
-		// This represents the bulk of the space the formatter uses.
-
-		return ts.formatting.getFormatContext(options);
-	}
-
-	function applyEdits(text: string, edits: ts.TextChange[]): string {
-		// Apply edits in reverse on the existing text
-		let result = text;
-		for (let i = edits.length - 1; i >= 0; i--) {
-			const change = edits[i];
-			const head = result.slice(0, change.span.start);
-			const tail = result.slice(change.span.start + change.span.length);
-			result = head + change.newText + tail;
-		}
-		return result;
-	}
 }
 
 function createReplacerFromDirectives(directives: [RegExp, string][]): (str: string) => string {
