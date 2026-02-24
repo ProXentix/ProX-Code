@@ -555,10 +555,10 @@ export function translatePackageJSON(packageJSON: string, packageNLSPath: string
 const extensionsPath = path.join(root, 'extensions');
 
 // Additional projects to run esbuild on. These typically build code for webviews
-const esbuildMediaScripts = [
-	'markdown-language-features/esbuild-notebook.mjs',
-	'markdown-language-features/esbuild-preview.mjs',
-	'markdown-math/esbuild.mjs',
+const esbuildMediaScripts: string[] = [
+	// 'markdown-language-features/esbuild-notebook.mjs',
+	// 'markdown-language-features/esbuild-preview.mjs',
+	// 'markdown-math/esbuild.mjs',
 ];
 
 export async function webpackExtensions(taskName: string, isWatch: boolean, webpackConfigLocations: { configPath: string; outputRoot?: string }[]) {
