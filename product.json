@@ -1,6 +1,6 @@
 {
-	"nameShort": "ProX-Code",
-	"nameLong": "ProX-Code",
+	"nameShort": "ProX Code",
+	"nameLong": "ProX Code",
 	"applicationName": "prox-code",
 	"dataFolderName": ".prox-code",
 	"win32MutexName": "proxcode",
@@ -13,15 +13,15 @@
 	"serverApplicationName": "code-server-oss",
 	"serverDataFolderName": ".prox-code-server-oss",
 	"tunnelApplicationName": "code-tunnel-oss",
-	"win32DirName": "ProXentix ProX-Code",
-	"win32NameVersion": "ProXentix ProX-Code",
+	"win32DirName": "ProXentix ProX Code",
+	"win32NameVersion": "ProXentix ProX Code",
 	"win32RegValueName": "ProXCode",
 	"win32x64AppId": "{{D77B7E06-80BA-4137-BCF4-654B95CCEBC5}",
 	"win32arm64AppId": "{{D1ACE434-89C5-48D1-88D3-E2991DF85475}",
 	"win32x64UserAppId": "{{CC6B787D-37A0-49E8-AE24-8559A032BE0C}",
 	"win32arm64UserAppId": "{{3AEBF0C8-F733-4AD4-BADE-FDB816D53D7B}",
 	"win32AppUserModelId": "ProXentix.ProXCode",
-	"win32ShellNameShort": "Pr&oX-Code",
+	"win32ShellNameShort": "Pr&oX Code",
 	"win32TunnelServiceMutex": "vscodeoss-tunnelservice",
 	"win32TunnelMutex": "vscodeoss-tunnel",
 	"darwinBundleIdentifier": "com.proxentix.prox-code",
@@ -33,7 +33,13 @@
 	"nodejsRepository": "https://nodejs.org",
 	"urlProtocol": "prox-code",
 	"webviewContentExternalBaseUrlTemplate": "https://{{uuid}}.prox-code-cdn.net/insider/ef65ac1ba57f57f2a3961bfe94aa20481caca4c6/out/vs/workbench/contrib/webview/browser/pre/",
-	"builtInExtensions": [],
+	"builtInExtensions": [
+		{
+			"name": "proxpl",
+			"path": "extensions/proxpl"
+		}
+	],
+	"extensionsGallery": null,
 	"defaultChatAgent": {
 		"extensionId": "GitHub.copilot",
 		"chatExtensionId": "GitHub.copilot-chat",

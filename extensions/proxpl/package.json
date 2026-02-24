@@ -1,14 +1,20 @@
 {
     "name": "proxpl",
-    "displayName": "ProXPL",
-    "description": "Language support for ProX Programming Language (ProXPL)",
-    "version": "0.0.1",
-    "publisher": "ProXentix",
+    "displayName": "ProXPL Support",
+    "description": "Built-in support for the ProX Programming Language (ProXPL).",
+    "version": "1.0.0",
+    "publisher": "proxentix",
+    "license": "MIT",
     "engines": {
         "vscode": "^1.90.0"
     },
+    "main": "./out/extension.js",
+    "browser": "./out/extension.js",
     "categories": [
         "Programming Languages"
+    ],
+    "activationEvents": [
+        "onLanguage:proxpl"
     ],
     "contributes": {
         "languages": [
@@ -19,43 +25,34 @@
                     "proxpl"
                 ],
                 "extensions": [
-                    ".prox",
-                    ".pxpl"
-                ],
-                "configuration": "./language-configuration.json",
-                "icon": {
-                    "light": "./icons/proxpl-light.svg",
-                    "dark": "./icons/proxpl-dark.svg"
-                }
-            },
-            {
-                "id": "prox-toml",
-                "aliases": [
-                    "ProX Config",
-                    "prox.toml"
-                ],
-                "filenames": [
-                    "prox.toml"
+                    ".prox"
                 ],
                 "configuration": "./language-configuration.json"
             }
         ],
-        "grammars": [
+        "commands": [
             {
-                "language": "proxpl",
-                "scopeName": "source.prox",
-                "path": "./syntaxes/proxpl.tmLanguage.json"
-            },
-            {
-                "language": "prox-toml",
-                "scopeName": "source.toml",
-                "path": "./syntaxes/toml.tmLanguage.json"
+                "command": "proxpl.createProject",
+                "title": "ProXPL: Create New Project",
+                "category": "ProXPL"
             }
         ],
-        "snippets": [
+        "walkthroughs": [
             {
-                "language": "proxpl",
-                "path": "./snippets/proxpl.code-snippets"
+                "id": "proxpl.welcome",
+                "title": "Welcome to ProX Code",
+                "description": "Get started with ProX Programming Language.",
+                "steps": [
+                    {
+                        "id": "welcome",
+                        "title": "Welcome to ProX Code",
+                        "description": "ProX Code is a lightweight, powerful IDE for ProXPL.\n[Create your first project](command:proxpl.createProject)",
+                        "media": {
+                            "path": "resources/welcome.svg",
+                            "altText": "Welcome to ProX Code"
+                        }
+                    }
+                ]
             }
         ]
     }
