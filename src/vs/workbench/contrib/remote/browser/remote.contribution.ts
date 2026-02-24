@@ -8,9 +8,8 @@ import { Registry } from '../../../../platform/registry/common/platform.js';
 import { ShowCandidateContribution } from './showCandidate.js';
 import { LifecyclePhase } from '../../../services/lifecycle/common/lifecycle.js';
 import { TunnelFactoryContribution } from './tunnelFactory.js';
-import { RemoteAgentConnectionStatusListener, RemoteMarkers } from './remote.js';
+import { RemoteMarkers } from './remote.js';
 import { RemoteStatusIndicator } from './remoteIndicator.js';
-import { AutomaticPortForwarding, ForwardedPortsView, PortRestore } from './remoteExplorer.js';
 import { InitialRemoteConnectionHealthContribution } from './remoteConnectionHealth.js';
 
 const workbenchContributionsRegistry = Registry.as<IWorkbenchContributionsRegistry>(WorkbenchExtensions.Workbench);
@@ -18,8 +17,5 @@ registerWorkbenchContribution2(ShowCandidateContribution.ID, ShowCandidateContri
 registerWorkbenchContribution2(TunnelFactoryContribution.ID, TunnelFactoryContribution, WorkbenchPhase.BlockRestore);
 workbenchContributionsRegistry.registerWorkbenchContribution(RemoteAgentConnectionStatusListener, LifecyclePhase.Eventually);
 registerWorkbenchContribution2(RemoteStatusIndicator.ID, RemoteStatusIndicator, WorkbenchPhase.BlockStartup);
-workbenchContributionsRegistry.registerWorkbenchContribution(ForwardedPortsView, LifecyclePhase.Restored);
-workbenchContributionsRegistry.registerWorkbenchContribution(PortRestore, LifecyclePhase.Eventually);
-workbenchContributionsRegistry.registerWorkbenchContribution(AutomaticPortForwarding, LifecyclePhase.Eventually);
 workbenchContributionsRegistry.registerWorkbenchContribution(RemoteMarkers, LifecyclePhase.Eventually);
-workbenchContributionsRegistry.registerWorkbenchContribution(InitialRemoteConnectionHealthContribution, LifecyclePhase.Restored);
+registerWorkbenchContribution2(InitialRemoteConnectionHealthContribution.ID, InitialRemoteConnectionHealthContribution, WorkbenchPhase.BlockRestore);
