@@ -47,7 +47,7 @@
 			<rect x="64" y="144" width="40" height="40" fill="url(#pattern0)" />
 		</g>
 	</a>
-	<a xlink:href="command:workbench.extensions.search?%22@id:ms-vscode.hexeditor%22">
+	<a xlink:href="command:workbench.extensions.search?%22@id:ms-prox-code.hexeditor%22">
 		<g filter="url(#filter1_d_703:9950)">
 			<rect x="236" y="316" width="48" height="48" rx="4" fill="white" />
 			<rect x="236" y="316" width="48" height="48" fill="url(#pattern1)" />
@@ -70,7 +70,7 @@
 				<rect x="278" y="230" width="44" height="44" fill="url(#pattern4)" />
 			</g>
 		</a>
-		<a xlink:href="command:workbench.extensions.search?%22@id:ms-vscode.prox-code-github-issue-notebooks%22">
+		<a xlink:href="command:workbench.extensions.search?%22@id:ms-prox-code.github-issue-notebooks%22">
 			<g filter="url(#filter5_d_703:9950)">
 				<rect x="60" y="320" width="48" height="48" rx="4" fill="white" />
 				<rect x="64" y="324" width="40" height="40" fill="url(#pattern5)" />
