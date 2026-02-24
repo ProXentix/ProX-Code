@@ -79,7 +79,8 @@ import './services/textresourceProperties/common/textResourcePropertiesService.j
 import './services/textfile/common/textEditorService.js';
 import './services/language/common/languageService.js';
 import './services/model/common/modelService.js';
-import './services/notebook/common/notebookDocumentService.js';
+// import './services/notebook/common/notebookDocumentService.js';
+
 import './services/commands/common/commandService.js';
 import './services/themes/browser/workbenchThemeService.js';
 import './services/label/common/labelService.js';
@@ -118,7 +119,8 @@ import './services/authentication/browser/authenticationQueryService.js';
 import '../platform/hover/browser/hoverService.js';
 import './services/assignment/common/assignmentService.js';
 import './services/outline/browser/outlineService.js';
-import './services/languageDetection/browser/languageDetectionWorkerServiceImpl.js';
+// import './services/languageDetection/browser/languageDetectionWorkerServiceImpl.js';
+
 import '../editor/common/services/languageFeaturesService.js';
 import '../editor/common/services/semanticTokensStylingService.js';
 import '../editor/common/services/treeViewsDndService.js';
@@ -200,7 +202,8 @@ import './contrib/preferences/browser/preferencesSearch.js';
 import './contrib/performance/browser/performance.contribution.js';
 
 // Notebook
-import './contrib/notebook/browser/notebook.contribution.js';
+// import './contrib/notebook/browser/notebook.contribution.js';
+
 
 // Speech
 import './contrib/speech/browser/speech.contribution.js';
@@ -213,7 +216,8 @@ import './contrib/chat/browser/chatSessions/chatSessions.contribution.js';
 import './contrib/chat/browser/contextContrib/chatContext.contribution.js';
 
 // Interactive
-import './contrib/interactive/browser/interactive.contribution.js';
+// import './contrib/interactive/browser/interactive.contribution.js';
+
 
 // repl
 import './contrib/replNotebook/browser/repl.contribution.js';
@@ -312,7 +316,8 @@ import './contrib/remote/common/remote.contribution.js';
 import './contrib/remote/browser/remote.contribution.js';
 
 // Emmet
-import './contrib/emmet/browser/emmet.contribution.js';
+// import './contrib/emmet/browser/emmet.contribution.js';
+
 
 // CodeEditor Contributions
 import './contrib/codeEditor/browser/codeEditor.contribution.js';
@@ -346,7 +351,8 @@ import './contrib/update/browser/update.contribution.js';
 
 // Surveys
 import './contrib/surveys/browser/nps.contribution.js';
-import './contrib/surveys/browser/languageSurveys.contribution.js';
+// import './contrib/surveys/browser/languageSurveys.contribution.js';
+
 
 // Welcome
 import './contrib/welcomeGettingStarted/browser/gettingStarted.contribution.js';
@@ -365,7 +371,8 @@ import './contrib/codeEditor/browser/outline/documentSymbolsOutline.js';
 import './contrib/outline/browser/outline.contribution.js';
 
 // Language Detection
-import './contrib/languageDetection/browser/languageDetection.contribution.js';
+// import './contrib/languageDetection/browser/languageDetection.contribution.js';
+
 
 // Language Status
 import './contrib/languageStatus/browser/languageStatus.contribution.js';

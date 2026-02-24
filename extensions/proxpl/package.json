@@ -20,7 +20,7 @@
                 ],
                 "extensions": [
                     ".prox",
-                    ".px"
+                    ".pxpl"
                 ],
                 "configuration": "./language-configuration.json",
                 "icon": {
