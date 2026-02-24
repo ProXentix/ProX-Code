@@ -2,10 +2,6 @@
 
 ProX-Code is a high-performance, professional-grade code editor built for efficiency and deep customization. Developed by ProXentix, it leverages the core of modern editor technology while providing a specialized, proprietary environment for advanced developers.
 
-## Proprietary Software Notice
-
-**IMPORTANT:** ProX-Code is proprietary software owned by ProXentix. This repository and its contents are **NOT OPEN SOURCE**. Unauthorized copying, modification, or distribution of this software is strictly prohibited. All rights reserved.
-
 ## Key Features
 
 - **ProXplore**: A revolutionary file exploration experience integrated directly into your workflow.
@@ -15,12 +11,6 @@ ProX-Code is a high-performance, professional-grade code editor built for effici
 - **Rich Extensibility**: Support for a vast ecosystem of tools and languages.
 
 ## Getting Started
-
-### Prerequisites
-
-- [Node.js](https://nodejs.org/) (Refer to `.nvmrc` for version)
-- [npm](https://www.npmjs.com/)
-- [Python 3](https://www.python.org/) (For build scripts)
 
 ### Setup
 
