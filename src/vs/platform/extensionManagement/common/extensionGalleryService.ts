@@ -614,7 +614,7 @@ export abstract class AbstractExtensionGalleryService implements IExtensionGalle
 	}
 
 	isEnabled(): boolean {
-		return this.extensionGalleryManifestService.extensionGalleryManifestStatus === ExtensionGalleryManifestStatus.Available;
+		return false;
 	}
 
 	getExtensions(extensionInfos: ReadonlyArray<IExtensionInfo>, token: CancellationToken): Promise<IGalleryExtension[]>;
