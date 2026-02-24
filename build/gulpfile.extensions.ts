@@ -143,7 +143,7 @@ const tasks = compilations.map(function (tsconfigFile) {
 
 	const cleanTask = task.define(`clean-extension-${name}`, util.rimraf(out));
 
-	const transpileTask = task.define(`transpile-extension:${name}`, task.series(cleanTask, () => {
+	const transpileTask = task.define(`transpile-extension:${name}`, () => {
 		const pipeline = createPipeline(false, true, true);
 		const nonts = gulp.src(src, srcOpts).pipe(filter(['**', '!**/*.ts']));
 		const input = es.merge(nonts, pipeline.tsProjectSrc());
@@ -151,9 +151,9 @@ const tasks = compilations.map(function (tsconfigFile) {
 		return input
 			.pipe(pipeline())
 			.pipe(gulp.dest(out));
-	}));
+	});
 
-	const compileTask = task.define(`compile-extension:${name}`, task.series(cleanTask, () => {
+	const compileTask = task.define(`compile-extension:${name}`, () => {
 		const pipeline = createPipeline(false, true);
 		const nonts = gulp.src(src, srcOpts).pipe(filter(['**', '!**/*.ts']));
 		const input = es.merge(nonts, pipeline.tsProjectSrc());
@@ -161,9 +161,9 @@ const tasks = compilations.map(function (tsconfigFile) {
 		return input
 			.pipe(pipeline())
 			.pipe(gulp.dest(out));
-	}));
+	});
 
-	const watchTask = task.define(`watch-extension:${name}`, task.series(cleanTask, () => {
+	const watchTask = task.define(`watch-extension:${name}`, () => {
 		const pipeline = createPipeline(false);
 		const nonts = gulp.src(src, srcOpts).pipe(filter(['**', '!**/*.ts']));
 		const input = es.merge(nonts, pipeline.tsProjectSrc());
@@ -172,9 +172,10 @@ const tasks = compilations.map(function (tsconfigFile) {
 		return watchInput
 			.pipe(util.incremental(pipeline, input))
 			.pipe(gulp.dest(out));
-	}));
+	});
 
 	// Tasks
+	gulp.task(cleanTask);
 	gulp.task(transpileTask);
 	gulp.task(compileTask);
 	gulp.task(watchTask);
