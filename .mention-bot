@@ -1,7 +1,0 @@
-{
-  "maxReviewers": 2,
-  "requiredOrgs": ["ProXentix"],
-  "skipAlreadyAssignedPR": true,
-  "skipAlreadyMentionedPR": true,
-  "skipCollaboratorPR": true
-}
