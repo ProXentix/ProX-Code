@@ -22,15 +22,11 @@ import { IExtensionService } from '../../extensions/common/extensions.js';
 import { CancellationToken } from '../../../../base/common/cancellation.js';
 import { isNumber, isObject, isString } from '../../../../base/common/types.js';
 import { deepClone } from '../../../../base/common/objects.js';
-import { IContextKeyService, RawContextKey } from '../../../../platform/contextkey/common/contextkey.js';
 
-const MISMATCH_LOCAL_PORT_COOLDOWN = 10 * 1000; // 10 seconds
 const TUNNELS_TO_RESTORE = 'remote.tunnels.toRestore';
 const TUNNELS_TO_RESTORE_EXPIRATION = 'remote.tunnels.toRestoreExpiration';
 const RESTORE_EXPIRATION_TIME = 1000 * 60 * 60 * 24 * 14; // 2 weeks
 export const ACTIVATION_EVENT = 'onTunnel';
-export const forwardedPortsFeaturesEnabled = new RawContextKey<boolean>('forwardedPortsViewEnabled', false, nls.localize('tunnel.forwardedPortsViewEnabled', "Whether the Ports view is enabled."));
-export const forwardedPortsViewEnabled = new RawContextKey<boolean>('forwardedPortsViewOnlyEnabled', false, nls.localize('tunnel.forwardedPortsViewEnabled', "Whether the Ports view is enabled."));
 
 export interface RestorableTunnel {
 	remoteHost: string;
@@ -437,7 +433,6 @@ export class TunnelModel extends Disposable {
 		@ILogService private readonly logService: ILogService,
 		@IDialogService private readonly dialogService: IDialogService,
 		@IExtensionService private readonly extensionService: IExtensionService,
-		@IContextKeyService private readonly contextKeyService: IContextKeyService
 	) {
 		super();
 		this.configPortsAttributes = new PortsAttributes(configurationService);
@@ -498,45 +493,11 @@ export class TunnelModel extends Disposable {
 				});
 			}
 			await this.storeForwarded();
-			this.checkExtensionActivationEvents(true);
 			this.remoteTunnels.set(key, tunnel);
 			this._onForwardPort.fire(this.forwarded.get(key)!);
 		}));
 		this._register(this.tunnelService.onTunnelClosed(address => {
 			return this.onTunnelClosed(address, TunnelCloseReason.Other);
-		}));
-		this.checkExtensionActivationEvents(false);
-	}
-
-	private extensionHasActivationEvent() {
-		if (this.extensionService.extensions.find(extension => extension.activationEvents?.includes(ACTIVATION_EVENT))) {
-			this.contextKeyService.createKey(forwardedPortsViewEnabled.key, true);
-			return true;
-		}
-		return false;
-	}
-
-	private hasCheckedExtensionsOnTunnelOpened = false;
-	private checkExtensionActivationEvents(tunnelOpened: boolean) {
-		if (this.hasCheckedExtensionsOnTunnelOpened) {
-			return;
-		}
-		if (tunnelOpened) {
-			this.hasCheckedExtensionsOnTunnelOpened = true;
-		}
-		const hasRemote = this.environmentService.remoteAuthority !== undefined;
-		if (hasRemote && !tunnelOpened) {
-			// We don't activate extensions on startup if there is a remote
-			return;
-		}
-		if (this.extensionHasActivationEvent()) {
-			return;
-		}
-
-		const activationDisposable = this._register(this.extensionService.onDidRegisterExtensions(() => {
-			if (this.extensionHasActivationEvent()) {
-				activationDisposable.dispose();
-			}
 		}));
 	}
 
@@ -676,25 +637,6 @@ export class TunnelModel extends Disposable {
 		}
 	}
 
-	private mismatchCooldown = new Date();
-	private async showPortMismatchModalIfNeeded(tunnel: RemoteTunnel, expectedLocal: number, attributes: Attributes | undefined) {
-		if (!tunnel.tunnelLocalPort || !attributes?.requireLocalPort) {
-			return;
-		}
-		if (tunnel.tunnelLocalPort === expectedLocal) {
-			return;
-		}
-
-		const newCooldown = new Date();
-		if ((this.mismatchCooldown.getTime() + MISMATCH_LOCAL_PORT_COOLDOWN) > newCooldown.getTime()) {
-			return;
-		}
-		this.mismatchCooldown = newCooldown;
-		const mismatchString = nls.localize('remote.localPortMismatch.single', "Local port {0} could not be used for forwarding to remote port {1}.\n\nThis usually happens when there is already another process using local port {0}.\n\nPort number {2} has been used instead.",
-			expectedLocal, tunnel.tunnelRemotePort, tunnel.tunnelLocalPort);
-		return this.dialogService.info(mismatchString);
-	}
-
 	async forward(tunnelProperties: TunnelProperties, attributes?: Attributes | null): Promise<RemoteTunnel | string | undefined> {
 		if (!this.restoreComplete && this.environmentService.remoteAuthority) {
 			await Event.toPromise(this.onRestoreComplete.event);
@@ -750,7 +692,6 @@ export class TunnelModel extends Disposable {
 				this.remoteTunnels.set(key, tunnel);
 				this.inProgress.delete(key);
 				await this.storeForwarded();
-				await this.showPortMismatchModalIfNeeded(tunnel, localPort, attributes);
 				this._onForwardPort.fire(newForward);
 				return tunnel;
 			}
