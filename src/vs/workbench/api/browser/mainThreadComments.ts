@@ -10,11 +10,11 @@ import { URI, UriComponents } from '../../../base/common/uri.js';
 import { IRange, Range } from '../../../editor/common/core/range.js';
 import * as languages from '../../../editor/common/languages.js';
 import { ExtensionIdentifier } from '../../../platform/extensions/common/extensions.js';
-import { ICommentController, ICommentService } from '../../services/comments/browser/commentService.js';
+import { ICommentController, ICommentService } from '../../contrib/comments/browser/commentService.js';
 import { extHostNamedCustomer, IExtHostContext } from '../../services/extensions/common/extHostCustomers.js';
 import { CommentProviderFeatures, ExtHostCommentsShape, ExtHostContext, MainContext, MainThreadCommentsShape, CommentThreadChanges } from '../common/extHost.protocol.js';
 import { COMMENTS_VIEW_ID, COMMENTS_VIEW_STORAGE_ID, COMMENTS_VIEW_TITLE } from '../../contrib/comments/browser/commentsTreeViewer.js';
-import { ViewContainer, IViewContainersRegistry, Extensions as ViewExtensions, ViewContainerLocation, IViewsRegistry, IViewDescriptorService } from '../../common/views.js';
+import { IViewContainersRegistry, Extensions as ViewExtensions, ViewContainerLocation, IViewsRegistry, IViewDescriptorService } from '../../common/views.js';
 import { SyncDescriptor } from '../../../platform/instantiation/common/descriptors.js';
 import { ViewPaneContainer } from '../../browser/parts/views/viewPaneContainer.js';
 import { Codicon } from '../../../base/common/codicons.js';
@@ -25,9 +25,9 @@ import { MarshalledId } from '../../../base/common/marshallingIds.js';
 import { Schemas } from '../../../base/common/network.js';
 import { IViewsService } from '../../services/views/common/viewsService.js';
 import { MarshalledCommentThread } from '../../common/comments.js';
-import { revealCommentThread } from '../../contrib/comments/browser/commentsController.js';
 import { IEditorService } from '../../services/editor/common/editorService.js';
 import { IUriIdentityService } from '../../../platform/uriIdentity/common/uriIdentity.js';
+import { Registry } from '../../../platform/registry/common/platform.js';
 
 export class MainThreadCommentThread<T> implements languages.CommentThread<T> {
 	private _input?: languages.CommentInput;
@@ -547,23 +547,16 @@ export class MainThreadComments extends Disposable implements MainThreadComments
 	private _activeEditingCommentThread?: MainThreadCommentThread<IRange | any>;
 	private readonly _activeEditingCommentThreadDisposables = this._register(new DisposableStore());
 
-	private readonly _openViewListener: MutableDisposable<IDisposable> = this._register(new MutableDisposable());
-	private readonly _onChangeContainerListener: MutableDisposable<IDisposable> = this._register(new MutableDisposable());
-	private readonly _onChangeContainerLocationListener: MutableDisposable<IDisposable> = this._register(new MutableDisposable());
-
 	constructor(
 		extHostContext: IExtHostContext,
 		@ICommentService private readonly _commentService: ICommentService,
-		@IViewsService private readonly _viewsService: IViewsService,
 		@IViewDescriptorService private readonly _viewDescriptorService: IViewDescriptorService,
-		@IUriIdentityService private readonly _uriIdentityService: IUriIdentityService,
-		@IEditorService private readonly _editorService: IEditorService
 	) {
 		super();
 		this._proxy = extHostContext.getProxy(ExtHostContext.ExtHostComments);
 		this._commentService.unregisterCommentController();
 
-		this._register(this._commentService.onDidChangeActiveEditingCommentThread(async thread => {
+		this._register(this._commentService.onDidChangeActiveEditingCommentThread(async (thread: unknown) => {
 			const handle = (thread as MainThreadCommentThread<IRange | any>).controllerHandle;
 			const controller = this._commentControllers.get(handle);
 
@@ -585,11 +578,11 @@ export class MainThreadComments extends Disposable implements MainThreadComments
 		this._commentService.registerCommentController(providerId, provider);
 		this._commentControllers.set(handle, provider);
 
-		this._register(this._commentService.onResourceHasCommentingRanges(e => {
+		this._register(this._commentService.onResourceHasCommentingRanges((e: any) => {
 			this.registerView();
 		}));
 
-		this._register(this._commentService.onDidUpdateCommentThreads(e => {
+		this._register(this._commentService.onDidUpdateCommentThreads((e: any) => {
 			this.registerView();
 		}));
 
@@ -657,6 +650,21 @@ export class MainThreadComments extends Disposable implements MainThreadComments
 		}
 
 		provider.deleteCommentThread(commentThreadHandle);
+	}
+
+	$updateCommentingRanges(handle: number, resourceHints?: languages.CommentingRangeResourceHint): void {
+		const provider = this._commentControllers.get(handle);
+		if (provider) {
+			provider.updateCommentingRanges(resourceHints);
+		}
+	}
+
+	async $revealCommentThread(handle: number, commentThreadHandle: number, commentUniqueIdInThread: number, options: languages.CommentThreadRevealOptions): Promise<void> {
+		// implement
+	}
+
+	$hideCommentThread(handle: number, commentThreadHandle: number): void {
+		// implement
 	}
 
 	private registerView() {
