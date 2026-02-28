@@ -19,7 +19,7 @@ import { CancellationToken } from '../../../base/common/cancellation.js';
 import { Registry } from '../../../platform/registry/common/platform.js';
 import { IConfigurationRegistry, Extensions as ConfigurationExtensions } from '../../../platform/configuration/common/configurationRegistry.js';
 import { IContextKeyService } from '../../../platform/contextkey/common/contextkey.js';
-import { CandidatePort, TunnelCloseReason, TunnelSource, forwardedPortsFeaturesEnabled, makeAddress } from '../../services/remote/common/tunnelModel.js';
+import { CandidatePort, TunnelCloseReason, TunnelSource, makeAddress } from '../../services/remote/common/tunnelModel.js';
 
 @extHostNamedCustomer(MainContext.MainThreadTunnelService)
 export class MainThreadTunnelService extends Disposable implements MainThreadTunnelServiceShape, PortAttributesProvider {
@@ -203,7 +203,7 @@ export class MainThreadTunnelService extends Disposable implements MainThreadTun
 		this.tunnelService.setTunnelProvider(tunnelProvider);
 		// At this point we clearly want the ports view/features since we have a tunnel factory
 		if (isResolver) {
-			this.contextKeyService.createKey(forwardedPortsFeaturesEnabled.key, true);
+			// this.contextKeyService.createKey(forwardedPortsFeaturesEnabled.key, true);
 		}
 	}
 
