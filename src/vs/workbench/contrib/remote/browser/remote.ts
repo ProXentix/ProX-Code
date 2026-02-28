@@ -5,13 +5,13 @@ import { ITelemetryService } from '../../../../platform/telemetry/common/telemet
 import { IProgress, IProgressStep, IProgressService, ProgressLocation } from '../../../../platform/progress/common/progress.js';
 import { IWorkbenchContribution } from '../../../common/contributions.js';
 import { IRemoteAgentService } from '../../../services/remote/common/remoteAgentService.js';
-import { IDialogService } from '../../../../platform/dialogs/common/dialogService.js';
+import { IDialogService } from '../../../../platform/dialogs/common/dialogs.js';
 import { ReconnectionWaitEvent, PersistentConnectionEventType } from '../../../../platform/remote/common/remoteAgentConnection.js';
 import Severity from '../../../../base/common/severity.js';
 import { ReloadWindowAction } from '../../../browser/actions/windowActions.js';
 import { Disposable, IDisposable, MutableDisposable } from '../../../../base/common/lifecycle.js';
 import { IWorkbenchEnvironmentService } from '../../../services/environment/common/environmentService.js';
-import { Event } from '../../../../base/common/event.js';
+// Event import removed - unused
 import { ILogService } from '../../../../platform/log/common/log.js';
 import { ITimerService } from '../../../services/timer/browser/timerService.js';
 import { getRemoteName } from '../../../../platform/remote/common/remoteHosts.js';
@@ -365,7 +365,7 @@ export class RemoteAgentConnectionStatusListener extends Disposable implements I
 								type: Severity.Error,
 								message: nls.localize('reconnectionPermanentFailure', "Cannot reconnect. Please reload the window."),
 								primaryButton: nls.localize({ key: 'reloadWindow.dialog', comment: ['&& denotes a mnemonic'] }, "&&Reload Window")
-							}).then(result => {
+							}).then((result: { confirmed: boolean }) => {
 								if (result.confirmed) {
 									commandService.executeCommand(ReloadWindowAction.ID);
 								}

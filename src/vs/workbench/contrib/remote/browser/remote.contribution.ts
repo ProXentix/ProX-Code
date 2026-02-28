@@ -6,7 +6,7 @@
 import { IWorkbenchContributionsRegistry, WorkbenchPhase, Extensions as WorkbenchExtensions, registerWorkbenchContribution2 } from '../../../common/contributions.js';
 import { Registry } from '../../../../platform/registry/common/platform.js';
 import { LifecyclePhase } from '../../../services/lifecycle/common/lifecycle.js';
-import { RemoteMarkers } from './remote.js';
+import { RemoteMarkers, RemoteAgentConnectionStatusListener } from './remote.js';
 import { RemoteStatusIndicator } from './remoteIndicator.js';
 import { InitialRemoteConnectionHealthContribution } from './remoteConnectionHealth.js';
 
