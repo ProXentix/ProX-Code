@@ -12,6 +12,7 @@ import { IWorkspaceEditDto, IWorkspaceFileEditDto, MainContext, MainThreadBulkEd
 
 import { IExtHostContext, extHostNamedCustomer } from '../../services/extensions/common/extHostCustomers.js';
 import { SerializableObjectWithBuffers } from '../../services/extensions/common/proxyIdentifier.js';
+import { VSBuffer, decodeBase64 } from '../../../base/common/buffer.js';
 
 
 @extHostNamedCustomer(MainContext.MainThreadBulkEdits)
