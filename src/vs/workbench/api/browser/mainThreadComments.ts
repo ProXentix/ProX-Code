@@ -692,8 +692,7 @@ export class MainThreadComments extends Disposable implements MainThreadComments
 			id: COMMENTS_VIEW_ID,
 			name: COMMENTS_VIEW_TITLE,
 			canMoveView: true,
-			containerQuery: { id: COMMENTS_VIEW_ID },
-			ctorDescriptor: new SyncDescriptor(SyncDescriptor as any)
+			ctorDescriptor: new SyncDescriptor(ViewPaneContainer as any, [COMMENTS_VIEW_ID, { mergeViewWithContainerWhenSingleView: true }])
 		}], container);
 	}
 }
