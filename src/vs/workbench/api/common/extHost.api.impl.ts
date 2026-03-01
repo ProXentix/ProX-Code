@@ -576,10 +576,8 @@ export function createApiFactoryAndRegisterActors(accessor: ServicesAccessor): I
 			},
 			match(selector: vscode.DocumentSelector, document: vscode.TextDocument): number {
 				const interalSelector = typeConverters.LanguageSelector.from(selector);
-				let notebook: vscode.NotebookDocument | undefined;
-				if (targetsNotebooks(interalSelector)) {
-					notebook = extHostNotebook.notebookDocuments.find(value => value.apiNotebook.getCells().find(c => c.document === document))?.apiNotebook;
-				}
+				// Notebook not supported in ProX-Code — notebook is always undefined
+				const notebook: vscode.NotebookDocument | undefined = undefined;
 				return score(interalSelector, document.uri, document.languageId, true, notebook?.uri, notebook?.notebookType);
 			},
 			registerCodeActionsProvider(selector: vscode.DocumentSelector, provider: vscode.CodeActionProvider, metadata?: vscode.CodeActionProviderMetadata): vscode.Disposable {
