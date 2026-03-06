@@ -172,9 +172,7 @@ export class SearchModelImpl extends Disposable implements ISearchModel {
 		};
 	}
 
-	get hasAIResults(): boolean {
-		return false;
-	}
+
 
 	get hasPlainResults(): boolean {
 		return !!(this.searchResult.getCachedSearchComplete(false)) || (!!this.currentCancelTokenSource && !this.currentCancelTokenSource.token.isCancellationRequested);
