@@ -9,6 +9,8 @@ import { IContextKeyService } from '../../../../platform/contextkey/common/conte
 import { IContextMenuService } from '../../../../platform/contextview/browser/contextView.js';
 import { ContextScopedFindInput } from '../../../../platform/history/browser/contextScopedHistoryWidget.js';
 import { IInstantiationService } from '../../../../platform/instantiation/common/instantiation.js';
+import { NotebookFindFilters } from '../../notebook/browser/contrib/find/findFilters.js';
+import { NotebookFindInputFilterButton } from '../../notebook/browser/contrib/find/notebookFindReplaceWidget.js';
 import * as nls from '../../../../nls.js';
 import { Emitter } from '../../../../base/common/event.js';
 

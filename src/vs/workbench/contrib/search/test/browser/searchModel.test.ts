@@ -35,6 +35,7 @@ import { createFileUriFromPathFromRoot, getRootName } from './searchTestCommon.j
 
 import { FindMatch, IReadonlyTextBuffer } from '../../../../../editor/common/model.js';
 import { ResourceMap, ResourceSet } from '../../../../../base/common/map.js';
+import { INotebookService } from '../../../notebook/common/notebookService.js';
 
 import { IContextKeyService } from '../../../../../platform/contextkey/common/contextkey.js';
 import { MockContextKeyService } from '../../../../../platform/keybinding/test/common/mockKeybindingService.js';
