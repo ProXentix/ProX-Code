@@ -20,9 +20,10 @@ import { MockLabelService } from '../../../../services/label/test/common/mockLab
 import { IFileMatch, ITextSearchMatch, OneLineRange, QueryType, SearchSortOrder } from '../../../../services/search/common/search.js';
 import { TestContextService } from '../../../../test/common/workbenchTestServices.js';
 
-import { createFileUriFromPathFromRoot, getRootName, stubModelService, stubNotebookEditorService } from './searchTestCommon.js';
+import { createFileUriFromPathFromRoot, getRootName, stubModelService } from './searchTestCommon.js';
 import { ensureNoDisposablesAreLeakedInTestSuite } from '../../../../../base/test/common/utils.js';
-import { ISearchTreeFolderMatch, ISearchResult, ITextSearchHeading, FILE_MATCH_PREFIX, MATCH_PREFIX } from '../../browser/searchTreeModel/searchTreeCommon.js';
+import { ISearchTreeFolderMatch, ISearchTreeFileMatch, ISearchResult, ITextSearchHeading, FILE_MATCH_PREFIX, MATCH_PREFIX } from '../../browser/searchTreeModel/searchTreeCommon.js';
+import { FileMatchImpl } from '../../browser/searchTreeModel/fileMatch.js';
 
 
 import { FolderMatchImpl } from '../../browser/searchTreeModel/folderMatch.js';
@@ -37,7 +38,7 @@ suite('Search - Viewlet', () => {
 		instantiation = new TestInstantiationService();
 		instantiation.stub(ILanguageConfigurationService, TestLanguageConfigurationService);
 		instantiation.stub(IModelService, stubModelService(instantiation, (e) => store.add(e)));
-		instantiation.stub(INotebookEditorService, stubNotebookEditorService(instantiation, (e) => store.add(e)));
+
 
 		instantiation.set(IWorkspaceContextService, new TestContextService(TestWorkspace));
 		const fileService = new FileService(new NullLogService());
@@ -181,12 +182,12 @@ suite('Search - Viewlet', () => {
 		assert(searchComparer(fileMatch3, lineMatch4, SearchSortOrder.Type) < 0);
 	});
 
-	function aFileMatch(path: string, parentFolder?: ISearchTreeFolderMatch, ...lineMatches: ITextSearchMatch[]): INotebookFileInstanceMatch {
+	function aFileMatch(path: string, parentFolder?: ISearchTreeFolderMatch, ...lineMatches: ITextSearchMatch[]): ISearchTreeFileMatch {
 		const rawMatch: IFileMatch = {
 			resource: URI.file('/' + path),
 			results: lineMatches
 		};
-		const fileMatch = instantiation.createInstance(NotebookCompatibleFileMatch, {
+		const fileMatch = instantiation.createInstance(FileMatchImpl, {
 			pattern: ''
 		}, undefined, undefined, parentFolder ?? aFolderMatch('', 0), rawMatch, null, '');
 		fileMatch.createMatches();
