@@ -90,23 +90,18 @@ export interface ISearchModel {
 	location: SearchModelLocation;
 	id(): string;
 
-	getAITextResultProviderName(): Promise<string>;
 	isReplaceActive(): boolean;
 	replaceActive: boolean;
 	replacePattern: ReplacePattern | null;
 	replaceString: string;
 	preserveCase: boolean;
 	searchResult: ISearchResult;
-	aiSearch(onResultReported: (result: ISearchProgressItem | undefined) => void): Promise<ISearchComplete>;
-	hasAIResults: boolean;
 	hasPlainResults: boolean;
 	search(query: ITextQuery, onProgress?: (result: ISearchProgressItem) => void, callerToken?: CancellationToken): {
 		asyncResults: Promise<ISearchComplete>;
 		syncResults: IFileMatch<URI>[];
 	};
 	cancelSearch(cancelledForNewSearch?: boolean): boolean;
-	cancelAISearch(cancelledForNewSearch?: boolean): boolean;
-	clearAiSearchResults(): void;
 	dispose(): void;
 }
 
