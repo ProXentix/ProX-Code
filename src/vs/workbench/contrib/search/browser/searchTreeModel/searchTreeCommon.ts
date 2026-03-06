@@ -11,7 +11,7 @@ import { ITextModel } from '../../../../../editor/common/model.js';
 import { IFileStatWithPartialMetadata, IFileService } from '../../../../../platform/files/common/files.js';
 import { IProgress, IProgressStep } from '../../../../../platform/progress/common/progress.js';
 import { ReplacePattern } from '../../../../services/search/common/replace.js';
-import { NotebookEditorWidget } from '../../../notebook/browser/notebookEditorWidget.js';
+
 import { RangeHighlightDecorations } from './rangeDecorations.js';
 import { Event } from '../../../../../base/common/event.js';
 
@@ -90,23 +90,17 @@ export interface ISearchModel {
 	location: SearchModelLocation;
 	id(): string;
 
-	getAITextResultProviderName(): Promise<string>;
 	isReplaceActive(): boolean;
 	replaceActive: boolean;
 	replacePattern: ReplacePattern | null;
 	replaceString: string;
 	preserveCase: boolean;
 	searchResult: ISearchResult;
-	aiSearch(onResultReported: (result: ISearchProgressItem | undefined) => void): Promise<ISearchComplete>;
-	hasAIResults: boolean;
-	hasPlainResults: boolean;
 	search(query: ITextQuery, onProgress?: (result: ISearchProgressItem) => void, callerToken?: CancellationToken): {
 		asyncResults: Promise<ISearchComplete>;
 		syncResults: IFileMatch<URI>[];
 	};
 	cancelSearch(cancelledForNewSearch?: boolean): boolean;
-	cancelAISearch(cancelledForNewSearch?: boolean): boolean;
-	clearAiSearchResults(): void;
 	dispose(): void;
 }
 
@@ -123,22 +117,21 @@ export interface ISearchResult {
 
 	batchReplace(elementsToReplace: RenderableMatch[]): Promise<void>;
 	batchRemove(elementsToRemove: RenderableMatch[]): void;
-	folderMatches(ai?: boolean): ISearchTreeFolderMatch[];
-	add(allRaw: IFileMatch[], searchInstanceID: string, ai: boolean, silent?: boolean): void;
+	folderMatches(): ISearchTreeFolderMatch[];
+	add(allRaw: IFileMatch[], searchInstanceID: string, silent?: boolean): void;
 	clear(): void;
-	remove(matches: ISearchTreeFileMatch | ISearchTreeFolderMatch | (ISearchTreeFileMatch | ISearchTreeFolderMatch)[], ai?: boolean): void;
+	remove(matches: ISearchTreeFileMatch | ISearchTreeFolderMatch | (ISearchTreeFileMatch | ISearchTreeFolderMatch)[]): void;
 	replace(match: ISearchTreeFileMatch): Promise<any>;
-	matches(ai?: boolean): ISearchTreeFileMatch[];
+	matches(): ISearchTreeFileMatch[];
 	isEmpty(): boolean;
-	fileCount(ignoreSemanticSearchResults?: boolean): number;
-	count(ignoreSemanticSearchResults?: boolean): number;
+	fileCount(): number;
+	count(): number;
 	id(): string;
-	setCachedSearchComplete(cachedSearchComplete: ISearchComplete | undefined, ai: boolean): void;
-	getCachedSearchComplete(ai: boolean): ISearchComplete | undefined;
-	toggleHighlights(value: boolean, ai?: boolean): void;
-	getRangeHighlightDecorations(ai?: boolean): RangeHighlightDecorations;
+	setCachedSearchComplete(cachedSearchComplete: ISearchComplete | undefined): void;
+	getCachedSearchComplete(): ISearchComplete | undefined;
+	toggleHighlights(value: boolean): void;
+	getRangeHighlightDecorations(): RangeHighlightDecorations;
 	replaceAll(progress: IProgress<IProgressStep>): Promise<any>;
-	setAIQueryUsingTextQuery(query?: ITextQuery | null): void;
 	dispose(): void;
 }
 
@@ -148,7 +141,7 @@ export interface ITextSearchHeading {
 	hidden: boolean;
 	cachedSearchComplete: ISearchComplete | undefined;
 	hide(): void;
-	readonly isAIContributed: boolean;
+
 	id(): string;
 	parent(): ISearchResult;
 	readonly hasChildren: boolean;
@@ -203,16 +196,14 @@ export interface ISearchTreeFolderMatch {
 	replaceAll(): Promise<any>;
 	recursiveFileCount(): number;
 	doRemoveFile(fileMatches: ISearchTreeFileMatch[], dispose?: boolean, trigger?: boolean, keepReadonly?: boolean): void;
-	unbindNotebookEditorWidget(editor: NotebookEditorWidget, resource: URI): void;
-	bindNotebookEditorWidget(editor: NotebookEditorWidget, resource: URI): Promise<void>;
-	unbindNotebookEditorWidget(editor: NotebookEditorWidget, resource: URI): void;
+
 	hasOnlyReadOnlyMatches(): boolean;
 	fileMatchesIterator(): IterableIterator<ISearchTreeFileMatch>;
 	folderMatchesIterator(): IterableIterator<ISearchTreeFolderMatchWithResource>;
 	recursiveFileCount(): number;
 	recursiveMatchCount(): number;
 	dispose(): void;
-	isAIContributed(): boolean;
+
 }
 
 export interface ISearchTreeFolderMatchWithResource extends ISearchTreeFolderMatch {

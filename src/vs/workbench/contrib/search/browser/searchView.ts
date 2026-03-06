@@ -69,8 +69,8 @@ import { createEditorFromSearchResult } from '../../searchEditor/browser/searchE
 import { ACTIVE_GROUP, IEditorService, SIDE_GROUP } from '../../../services/editor/common/editorService.js';
 import { IPreferencesService, ISettingsEditorOptions } from '../../../services/preferences/common/preferences.js';
 import { ITextQueryBuilderOptions, QueryBuilder } from '../../../services/search/common/queryBuilder.js';
-import { SemanticSearchBehavior, IPatternInfo, ISearchComplete, ISearchConfiguration, ISearchConfigurationProperties, ITextQuery, SearchCompletionExitCode, SearchSortOrder, TextSearchCompleteMessageType, ViewMode, isAIKeyword } from '../../../services/search/common/search.js';
-import { AISearchKeyword, TextSearchCompleteMessage } from '../../../services/search/common/searchExtTypes.js';
+import { IPatternInfo, ISearchComplete, ISearchConfiguration, ISearchConfigurationProperties, ITextQuery, SearchCompletionExitCode, SearchSortOrder, TextSearchCompleteMessageType, ViewMode } from '../../../services/search/common/search.js';
+import { TextSearchCompleteMessage } from '../../../services/search/common/searchExtTypes.js';
 import { ITextFileService } from '../../../services/textfile/common/textfiles.js';
 
 import { ILogService } from '../../../../platform/log/common/log.js';
@@ -1385,17 +1385,17 @@ export class SearchView extends ViewPane {
 
 	toggleCaseSensitive(): void {
 		this.searchWidget.searchInput?.setCaseSensitive(!this.searchWidget.searchInput.getCaseSensitive());
-		this.triggerQueryChange({ shouldKeepAIResults: true });
+		this.triggerQueryChange();
 	}
 
 	toggleWholeWords(): void {
 		this.searchWidget.searchInput?.setWholeWords(!this.searchWidget.searchInput.getWholeWords());
-		this.triggerQueryChange({ shouldKeepAIResults: true });
+		this.triggerQueryChange();
 	}
 
 	toggleRegex(): void {
 		this.searchWidget.searchInput?.setRegex(!this.searchWidget.searchInput.getRegex());
-		this.triggerQueryChange({ shouldKeepAIResults: true });
+		this.triggerQueryChange();
 	}
 
 	togglePreserveCase(): void {
@@ -1548,12 +1548,6 @@ export class SearchView extends ViewPane {
 			isRegExp: isRegex,
 			isCaseSensitive: isCaseSensitive,
 			isWordMatch: isWholeWords,
-			notebookInfo: {
-				isInNotebookMarkdownInput,
-				isInNotebookMarkdownPreview,
-				isInNotebookCellInput,
-				isInNotebookCellOutput
-			}
 		};
 
 		const excludePattern = [{ pattern: this.inputPatternExcludes.getValue() }];

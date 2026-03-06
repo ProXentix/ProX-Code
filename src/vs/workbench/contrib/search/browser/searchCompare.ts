@@ -8,7 +8,7 @@ import { compareFileExtensions, compareFileNames, comparePaths } from '../../../
 import { SearchSortOrder } from '../../../services/search/common/search.js';
 import { Range } from '../../../../editor/common/core/range.js';
 import { createParentList, isSearchTreeFileMatch, isSearchTreeFolderMatch, isSearchTreeMatch, RenderableMatch } from './searchTreeModel/searchTreeCommon.js';
-import { isSearchTreeAIFileMatch } from './AISearch/aiSearchModelBase.js';
+
 
 
 let elemAIndex: number = -1;
@@ -34,9 +34,6 @@ export function searchMatchComparer(elementA: RenderableMatch, elementB: Rendera
 			return elemAIndex - elemBIndex;
 		}
 
-		if (isSearchTreeAIFileMatch(elementA) && isSearchTreeAIFileMatch(elementB)) {
-			return elementA.rank - elementB.rank;
-		}
 		switch (sortOrder) {
 			case SearchSortOrder.CountDescending:
 				return elementB.count() - elementA.count();
@@ -79,9 +76,7 @@ export function searchMatchComparer(elementA: RenderableMatch, elementB: Rendera
 		}
 	}
 
-	if (isIMatchInNotebook(elementA) && isIMatchInNotebook(elementB)) {
-		return compareNotebookPos(elementA, elementB);
-	}
+
 
 	if (isSearchTreeMatch(elementA) && isSearchTreeMatch(elementB)) {
 		return Range.compareRangesUsingStarts(elementA.range(), elementB.range());
@@ -90,27 +85,7 @@ export function searchMatchComparer(elementA: RenderableMatch, elementB: Rendera
 	return 0;
 }
 
-function compareNotebookPos(match1: IMatchInNotebook, match2: IMatchInNotebook): number {
-	if (match1.cellIndex === match2.cellIndex) {
 
-		if (match1.webviewIndex !== undefined && match2.webviewIndex !== undefined) {
-			return match1.webviewIndex - match2.webviewIndex;
-		} else if (match1.webviewIndex === undefined && match2.webviewIndex === undefined) {
-			return Range.compareRangesUsingStarts(match1.range(), match2.range());
-		} else {
-			// webview matches should always be after content matches
-			if (match1.webviewIndex !== undefined) {
-				return 1;
-			} else {
-				return -1;
-			}
-		}
-	} else if (match1.cellIndex < match2.cellIndex) {
-		return -1;
-	} else {
-		return 1;
-	}
-}
 
 export function searchComparer(elementA: RenderableMatch, elementB: RenderableMatch, sortOrder: SearchSortOrder = SearchSortOrder.Default): number {
 	const elemAParents = createParentList(elementA);
