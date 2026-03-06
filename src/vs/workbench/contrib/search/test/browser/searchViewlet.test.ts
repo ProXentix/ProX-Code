@@ -19,12 +19,12 @@ import { SearchModelImpl } from '../../browser/searchTreeModel/searchModel.js';
 import { MockLabelService } from '../../../../services/label/test/common/mockLabelService.js';
 import { IFileMatch, ITextSearchMatch, OneLineRange, QueryType, SearchSortOrder } from '../../../../services/search/common/search.js';
 import { TestContextService } from '../../../../test/common/workbenchTestServices.js';
-import { INotebookEditorService } from '../../../notebook/browser/services/notebookEditorService.js';
+
 import { createFileUriFromPathFromRoot, getRootName, stubModelService, stubNotebookEditorService } from './searchTestCommon.js';
 import { ensureNoDisposablesAreLeakedInTestSuite } from '../../../../../base/test/common/utils.js';
 import { ISearchTreeFolderMatch, ISearchResult, ITextSearchHeading, FILE_MATCH_PREFIX, MATCH_PREFIX } from '../../browser/searchTreeModel/searchTreeCommon.js';
-import { NotebookCompatibleFileMatch } from '../../browser/notebookSearch/notebookSearchModel.js';
-import { INotebookFileInstanceMatch } from '../../browser/notebookSearch/notebookSearchModelBase.js';
+
+
 import { FolderMatchImpl } from '../../browser/searchTreeModel/folderMatch.js';
 import { searchComparer, searchMatchComparer } from '../../browser/searchCompare.js';
 import { MatchImpl } from '../../browser/searchTreeModel/match.js';

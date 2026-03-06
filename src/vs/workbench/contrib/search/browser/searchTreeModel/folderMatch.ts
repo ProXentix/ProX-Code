@@ -20,9 +20,9 @@ import { FileMatchImpl } from './fileMatch.js';
 import { IChangeEvent, ISearchTreeFileMatch, ISearchTreeFolderMatch, ISearchTreeFolderMatchWithResource, ISearchTreeFolderMatchNoRoot, ISearchTreeFolderMatchWorkspaceRoot, ISearchModel, ISearchResult, isSearchTreeFolderMatchWorkspaceRoot, ITextSearchHeading, isSearchTreeFolderMatchNoRoot, FOLDER_MATCH_PREFIX, getFileMatches } from './searchTreeCommon.js';
 import { NotebookEditorWidget } from '../../../notebook/browser/notebookEditorWidget.js';
 import { isINotebookFileMatchNoModel } from '../../common/searchNotebookHelpers.js';
-import { NotebookCompatibleFileMatch } from '../notebookSearch/notebookSearchModel.js';
-import { isINotebookFileMatchWithModel, getIDFromINotebookCellMatch } from '../notebookSearch/searchNotebookHelpers.js';
-import { isNotebookFileMatch } from '../notebookSearch/notebookSearchModelBase.js';
+
+
+
 import { textSearchResultToMatches } from './match.js';
 
 export class FolderMatchImpl extends Disposable implements ISearchTreeFolderMatch {

@@ -44,7 +44,7 @@ import { GroupModelChangeKind } from '../../../common/editor.js';
 import { SearchFindInput } from './searchFindInput.js';
 import { getDefaultHoverDelegate } from '../../../../base/browser/ui/hover/hoverDelegateFactory.js';
 import { IDisposable, MutableDisposable } from '../../../../base/common/lifecycle.js';
-import { NotebookFindScopeType } from '../../notebook/common/notebookCommon.js';
+
 
 /** Specified in searchview.css */
 const SingleLineInputHeight = 26;

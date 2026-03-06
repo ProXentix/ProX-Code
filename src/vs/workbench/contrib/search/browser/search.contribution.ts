@@ -19,7 +19,7 @@ import { Extensions as ViewExtensions, IViewContainersRegistry, IViewDescriptor,
 import { GotoSymbolQuickAccessProvider } from '../../codeEditor/browser/quickaccess/gotoSymbolQuickAccess.js';
 import { AnythingQuickAccessProvider } from './anythingQuickAccess.js';
 import { registerContributions as replaceContributions } from './replaceContributions.js';
-import { registerContributions as notebookSearchContributions } from './notebookSearch/notebookSearchContributions.js';
+
 import { searchViewIcon } from './searchIcons.js';
 import { SearchView } from './searchView.js';
 import { registerContributions as searchWidgetContributions } from './searchWidget.js';
@@ -49,7 +49,7 @@ registerSingleton(ISearchViewModelWorkbenchService, SearchViewModelWorkbenchServ
 registerSingleton(ISearchHistoryService, SearchHistoryService, InstantiationType.Delayed);
 
 replaceContributions();
-notebookSearchContributions();
+
 searchWidgetContributions();
 
 registerWorkbenchContribution2(SearchChatContextContribution.ID, SearchChatContextContribution, WorkbenchPhase.AfterRestored);

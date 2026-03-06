@@ -24,20 +24,20 @@ import { FileService } from '../../../../../platform/files/common/fileService.js
 import { ILogService, NullLogService } from '../../../../../platform/log/common/log.js';
 import { ILabelService } from '../../../../../platform/label/common/label.js';
 import { MockLabelService } from '../../../../services/label/test/common/mockLabelService.js';
-import { INotebookEditorService } from '../../../notebook/browser/services/notebookEditorService.js';
+
 import { IEditorGroupsService } from '../../../../services/editor/common/editorGroupsService.js';
 import { TestEditorGroupsService, TestEditorService } from '../../../../test/browser/workbenchTestServices.js';
-import { NotebookEditorWidgetService } from '../../../notebook/browser/services/notebookEditorServiceImpl.js';
-import { ICellViewModel } from '../../../notebook/browser/notebookBrowser.js';
-import { CellKind } from '../../../notebook/common/notebookCommon.js';
+
+
+
 import { addToSearchResult, createFileUriFromPathFromRoot, getRootName } from './searchTestCommon.js';
-import { INotebookCellMatchWithModel, INotebookFileMatchWithModel } from '../../browser/notebookSearch/searchNotebookHelpers.js';
+
 import { IContextKeyService } from '../../../../../platform/contextkey/common/contextkey.js';
 import { MockContextKeyService } from '../../../../../platform/keybinding/test/common/mockKeybindingService.js';
 import { IEditorService } from '../../../../services/editor/common/editorService.js';
 import { ensureNoDisposablesAreLeakedInTestSuite } from '../../../../../base/test/common/utils.js';
-import { CellMatch, NotebookCompatibleFileMatch } from '../../browser/notebookSearch/notebookSearchModel.js';
-import { INotebookFileInstanceMatch } from '../../browser/notebookSearch/notebookSearchModelBase.js';
+
+
 import { ISearchResult, ISearchTreeFolderMatch, isSearchTreeFolderMatchNoRoot, MATCH_PREFIX } from '../../browser/searchTreeModel/searchTreeCommon.js';
 import { FolderMatchImpl } from '../../browser/searchTreeModel/folderMatch.js';
 import { SearchResultImpl } from '../../browser/searchTreeModel/searchResult.js';

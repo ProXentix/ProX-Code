@@ -27,10 +27,10 @@ import { ILabelService } from '../../../../platform/label/common/label.js';
 import { dirname } from '../../../../base/common/resources.js';
 import { Promises } from '../../../../base/common/async.js';
 import { SaveSourceRegistry } from '../../../common/editor.js';
-import { CellUri, IResolvedNotebookEditorModel } from '../../notebook/common/notebookCommon.js';
+
 import { INotebookEditorModelResolverService } from '../../notebook/common/notebookEditorModelResolverService.js';
 import { ISearchTreeFileMatch, isSearchTreeFileMatch, ISearchTreeMatch, FileMatchOrMatch, isSearchTreeMatch } from './searchTreeModel/searchTreeCommon.js';
-import { isIMatchInNotebook } from './notebookSearch/notebookSearchModelBase.js';
+
 
 const REPLACE_PREVIEW = 'replacePreview';
 

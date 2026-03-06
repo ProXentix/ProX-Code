@@ -15,7 +15,7 @@ import { IConfigurationService } from '../../../../../platform/configuration/com
 import { IInstantiationService } from '../../../../../platform/instantiation/common/instantiation.js';
 import { ILogService } from '../../../../../platform/log/common/log.js';
 import { ITelemetryService } from '../../../../../platform/telemetry/common/telemetry.js';
-import { INotebookSearchService } from '../../common/notebookSearch.js';
+
 import { ReplacePattern } from '../../../../services/search/common/replace.js';
 import { IFileMatch, IPatternInfo, ISearchComplete, ISearchConfigurationProperties, ISearchProgressItem, ISearchService, ITextQuery, ITextSearchStats, QueryType, SearchCompletionExitCode } from '../../../../services/search/common/search.js';
 import { IChangeEvent, mergeSearchResultEvents, SearchModelLocation, ISearchModel, ISearchResult, SEARCH_MODEL_PREFIX } from './searchTreeCommon.js';
@@ -57,7 +57,7 @@ export class SearchModelImpl extends Disposable implements ISearchModel {
 		@IConfigurationService private readonly configurationService: IConfigurationService,
 		@IInstantiationService private readonly instantiationService: IInstantiationService,
 		@ILogService private readonly logService: ILogService,
-		@INotebookSearchService private readonly notebookSearchService: INotebookSearchService,
+
 	) {
 		super();
 		this._searchResult = this.instantiationService.createInstance(SearchResultImpl, this);
@@ -128,7 +128,7 @@ export class SearchModelImpl extends Disposable implements ISearchModel {
 		const tokenSource = new CancellationTokenSource();
 		this.currentAICancelTokenSource = tokenSource;
 		const start = Date.now();
-		const asyncAIResults = this.searchService.aiTextSearch(
+
 			{ ...this._searchQuery, contentPattern: this._searchQuery.contentPattern.pattern, type: QueryType.aiText },
 			tokenSource.token,
 			async (p: ISearchProgressItem) => {
@@ -169,7 +169,7 @@ export class SearchModelImpl extends Disposable implements ISearchModel {
 		};
 		const tokenSource = this.currentCancelTokenSource = new CancellationTokenSource(callerToken);
 
-		const notebookResult = this.notebookSearchService.notebookSearch(query, tokenSource.token, searchInstanceID, asyncGenerateOnProgress);
+
 		const textResult = this.searchService.textSearchSplitSyncAsync(
 			searchQuery,
 			tokenSource.token, asyncGenerateOnProgress,
@@ -397,7 +397,7 @@ export class SearchModelImpl extends Disposable implements ISearchModel {
 	clearAiSearchResults(): void {
 		this._aiResultQueue.length = 0;
 		// it's not clear all as we are only clearing the AI results
-		this._searchResult.aiTextSearchResult.clear(false);
+
 	}
 	override dispose(): void {
 		this.cancelSearch();

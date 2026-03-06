@@ -42,7 +42,7 @@ export enum SearchModelLocation {
 
 
 export const PLAIN_TEXT_SEARCH__RESULT_ID = 'plainTextSearch';
-export const AI_TEXT_SEARCH_RESULT_ID = 'aiTextSearch';
+
 
 export function createParentList(element: RenderableMatch): RenderableMatch[] {
 	const parentArray: RenderableMatch[] = [];
@@ -115,7 +115,7 @@ export interface ISearchResult {
 	readonly onChange: Event<IChangeEvent>;
 	readonly searchModel: ISearchModel;
 	readonly plainTextSearchResult: IPlainTextSearchHeading;
-	readonly aiTextSearchResult: ITextSearchHeading;
+
 	readonly children: ITextSearchHeading[];
 	readonly hasChildren: boolean;
 	readonly isDirty: boolean;

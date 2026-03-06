@@ -383,11 +383,11 @@ export class SearchView extends ViewPane {
 		if (!this.tree || !this.tree.hasNode(this.searchResult)) {
 			return;
 		}
-		if (shouldShowAI && !this.tree.hasNode(this.searchResult.aiTextSearchResult)) {
+
 			if (this.model.searchResult.getCachedSearchComplete(false)) {
 				return this.refreshAndUpdateCount();
 			}
-		} else if (!shouldShowAI && this.tree.hasNode(this.searchResult.aiTextSearchResult)) {
+
 			return this.refreshAndUpdateCount();
 		}
 	}
@@ -567,10 +567,10 @@ export class SearchView extends ViewPane {
 		// Subscribe to AI search result changes and update the tree when new AI results are reported
 		this._onAIResultChangedDisposable?.dispose();
 		this._onAIResultChangedDisposable = this._register(
-			this.viewModel.searchResult.aiTextSearchResult.onChange((e) => {
+
 				// Only refresh the AI node, not the whole tree
-				if (this.tree && this.tree.hasNode(this.searchResult.aiTextSearchResult) && !e.removed) {
-					this.tree.updateChildren(this.searchResult.aiTextSearchResult);
+
+
 				}
 			})
 		);
@@ -1635,8 +1635,8 @@ export class SearchView extends ViewPane {
 		}
 
 		this.validateQuery(query).then(() => {
-			if (!shouldKeepAIResults && shouldUpdateAISearch && this.tree.hasNode(this.searchResult.aiTextSearchResult)) {
-				this.tree.collapse(this.searchResult.aiTextSearchResult);
+
+
 			}
 
 			this.onQueryTriggered(query, options, excludePatternText, includePatternText, triggeredOnType, shouldKeepAIResults, shouldUpdateAISearch);
@@ -1760,8 +1760,8 @@ export class SearchView extends ViewPane {
 		Constants.SearchContext.AIResultsRequested.bindTo(this.contextKeyService).set(this.shouldShowAIResults() && !!aiResults);
 
 		// Expand AI results if the node is collapsed
-		if (completed && this.tree.hasNode(this.searchResult.aiTextSearchResult) && this.tree.isCollapsed(this.searchResult.aiTextSearchResult)) {
-			this.tree.expand(this.searchResult.aiTextSearchResult);
+
+
 			return;
 		}
 
@@ -1858,7 +1858,7 @@ export class SearchView extends ViewPane {
 	}
 
 	public clearAIResults() {
-		this.model.searchResult.aiTextSearchResult.hidden = true;
+
 		this.refreshTreeController.clearAllPending();
 		this._pendingSemanticSearchPromise = undefined;
 		this._cachedResults = undefined;
@@ -1872,9 +1872,9 @@ export class SearchView extends ViewPane {
 		if ((!this.cachedResults || this.cachedResults.results.length === 0) && !this._pendingSemanticSearchPromise) {
 			this.clearAIResults();
 		}
-		this.model.searchResult.aiTextSearchResult.hidden = false;
+
 		await this.queueRefreshTree();
-		await forcedExpandRecursively(this.getControl(), this.model.searchResult.aiTextSearchResult);
+
 	}
 
 	public async addAIResults() {
@@ -1917,9 +1917,9 @@ export class SearchView extends ViewPane {
 		this.searchWidget.searchInput?.clearMessage();
 		this.state = SearchUIState.Searching;
 		this.showEmptyStage();
-		if (this.model.searchResult.aiTextSearchResult.hidden && shouldUpdateAISearch) {
+
 			this.logService.info(`SearchView: Semantic search visible. Keep semantic results: ${shouldKeepAIResults}. Update semantic search: ${shouldUpdateAISearch}`);
-			this.model.searchResult.aiTextSearchResult.hidden = false;
+
 		}
 
 		const slowTimer = setTimeout(() => {
@@ -1951,7 +1951,7 @@ export class SearchView extends ViewPane {
 			const config = this.configurationService.getValue<ISearchConfigurationProperties>('search').searchView.semanticSearchBehavior;
 			if (complete.results.length === 0 && config === SemanticSearchBehavior.RunOnEmpty) {
 				this.logService.info(`SearchView: Requesting semantic results on empty search.`);
-				this.model.searchResult.aiTextSearchResult.hidden = false;
+
 			}
 			return this.onSearchComplete(progressComplete, excludePatternText, includePatternText, complete);
 		}, (e) => {
@@ -1994,8 +1994,8 @@ export class SearchView extends ViewPane {
 		if (this._cachedKeywords.length > 0) {
 			return;
 		}
-		const fileCount = this.viewModel.searchResult.fileCount(this.viewModel.searchResult.aiTextSearchResult.hidden);
-		const resultCount = this.viewModel.searchResult.count(this.viewModel.searchResult.aiTextSearchResult.hidden);
+
+
 		this.hasSearchResultsKey.set(fileCount > 0);
 
 		const msgWasHidden = this.messagesElement.style.display === 'none';
@@ -2506,13 +2506,13 @@ class SearchViewDataSource implements IAsyncDataSource<ISearchResult, Renderable
 
 		const ret: ITextSearchHeading[] = [];
 
-		if (this.searchView.shouldShowAIResults() && searchResult.searchModel.hasPlainResults && !searchResult.aiTextSearchResult.hidden) {
+
 			// as long as there is a query present, we can load AI results
-			ret.push(searchResult.aiTextSearchResult);
+
 		}
 
 		if (!searchResult.plainTextSearchResult.isEmpty()) {
-			if (!this.searchView.shouldShowAIResults() || searchResult.aiTextSearchResult.hidden) {
+
 				// only one root, so just return the children
 				return this.createTextSearchResultIterator(searchResult.plainTextSearchResult);
 			}

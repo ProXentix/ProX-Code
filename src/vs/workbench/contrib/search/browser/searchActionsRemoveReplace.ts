@@ -23,7 +23,7 @@ import { KeyCode, KeyMod } from '../../../../base/common/keyCodes.js';
 import { category, getElementsToOperateOn, getSearchView, shouldRefocus } from './searchActionsBase.js';
 import { equals } from '../../../../base/common/arrays.js';
 import { arrayContainsElementOrParent, RenderableMatch, ISearchResult, isSearchTreeFileMatch, isSearchTreeFolderMatch, isSearchTreeMatch, isSearchResult, isTextSearchHeading } from './searchTreeModel/searchTreeCommon.js';
-import { MatchInNotebook } from './notebookSearch/notebookSearchModel.js';
+
 import { AITextSearchHeadingImpl } from './AISearch/aiSearchModel.js';
 
 
