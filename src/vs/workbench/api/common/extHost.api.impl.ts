@@ -12,7 +12,7 @@ import { Schemas, matchesScheme } from '../../../base/common/network.js';
 import Severity from '../../../base/common/severity.js';
 import { URI } from '../../../base/common/uri.js';
 import { TextEditorCursorStyle } from '../../../editor/common/config/editorOptions.js';
-import { score, targetsNotebooks } from '../../../editor/common/languageSelector.js';
+import { score } from '../../../editor/common/languageSelector.js';
 import * as languageConfiguration from '../../../editor/common/languages/languageConfiguration.js';
 import { OverviewRulerLane } from '../../../editor/common/model.js';
 import { ExtensionError, ExtensionIdentifierSet, IExtensionDescription } from '../../../platform/extensions/common/extensions.js';
@@ -23,23 +23,18 @@ import { getRemoteName } from '../../../platform/remote/common/remoteHosts.js';
 import { TelemetryTrustedValue } from '../../../platform/telemetry/common/telemetryUtils.js';
 import { EditSessionIdentityMatch } from '../../../platform/workspace/common/editSessions.js';
 import { DebugConfigurationProviderTriggerKind } from '../../contrib/debug/common/debug.js';
-import { PromptsType } from '../../contrib/chat/common/promptSyntax/promptTypes.js';
+
 import { ExtensionDescriptionRegistry } from '../../services/extensions/common/extensionDescriptionRegistry.js';
 import { UIKind } from '../../services/extensions/common/extensionHostProtocol.js';
 import { checkProposedApiEnabled, isProposedApiEnabled } from '../../services/extensions/common/extensions.js';
 import { ProxyIdentifier } from '../../services/extensions/common/proxyIdentifier.js';
 import { AISearchKeyword, ExcludeSettingOptions, TextSearchCompleteMessageType, TextSearchContext2, TextSearchMatch2 } from '../../services/search/common/searchExtTypes.js';
 import { CandidatePortSource, ExtHostContext, ExtHostLogLevelServiceShape, MainContext } from './extHost.protocol.js';
-import { ExtHostRelatedInformation } from './extHostAiRelatedInformation.js';
-import { ExtHostAiSettingsSearch } from './extHostAiSettingsSearch.js';
+
 import { ExtHostApiCommands } from './extHostApiCommands.js';
 import { IExtHostApiDeprecationService } from './extHostApiDeprecationService.js';
 import { IExtHostAuthentication } from './extHostAuthentication.js';
 import { ExtHostBulkEdits } from './extHostBulkEdits.js';
-import { ExtHostChatAgents2 } from './extHostChatAgents2.js';
-import { ExtHostChatOutputRenderer } from './extHostChatOutputRenderer.js';
-import { ExtHostChatSessions } from './extHostChatSessions.js';
-import { ExtHostChatStatus } from './extHostChatStatus.js';
 import { ExtHostClipboard } from './extHostClipboard.js';
 import { ExtHostEditorInsets } from './extHostCodeInsets.js';
 import { ExtHostCodeMapper } from './extHostCodeMapper.js';
@@ -57,8 +52,6 @@ import { ExtHostDocumentSaveParticipant } from './extHostDocumentSaveParticipant
 import { ExtHostDocuments } from './extHostDocuments.js';
 import { IExtHostDocumentsAndEditors } from './extHostDocumentsAndEditors.js';
 import { IExtHostEditorTabs } from './extHostEditorTabs.js';
-import { ExtHostEmbeddings } from './extHostEmbedding.js';
-import { ExtHostAiEmbeddingVector } from './extHostEmbeddingVector.js';
 import { Extension, IExtHostExtensionService } from './extHostExtensionService.js';
 import { ExtHostFileSystem } from './extHostFileSystem.js';
 import { IExtHostConsumerFileSystem } from './extHostFileSystemConsumer.js';
@@ -69,7 +62,6 @@ import { ExtHostInteractive } from './extHostInteractive.js';
 import { ExtHostLabelService } from './extHostLabelService.js';
 import { ExtHostLanguageFeatures } from './extHostLanguageFeatures.js';
 import { ExtHostLanguageModelTools } from './extHostLanguageModelTools.js';
-import { IExtHostLanguageModels } from './extHostLanguageModels.js';
 import { ExtHostLanguages } from './extHostLanguages.js';
 import { IExtHostLocalizationService } from './extHostLocalizationService.js';
 import { IExtHostManagedSockets } from './extHostManagedSockets.js';
@@ -92,7 +84,6 @@ import { ExtHostSCM } from './extHostSCM.js';
 import { IExtHostSearch } from './extHostSearch.js';
 import { IExtHostSecretState } from './extHostSecretState.js';
 import { ExtHostShare } from './extHostShare.js';
-import { ExtHostSpeech } from './extHostSpeech.js';
 import { ExtHostStatusBar } from './extHostStatusBar.js';
 import { IExtHostStorage } from './extHostStorage.js';
 import { IExtensionStoragePaths } from './extHostStoragePaths.js';
@@ -116,7 +107,6 @@ import { ExtHostWebviewPanels } from './extHostWebviewPanels.js';
 import { ExtHostWebviewViews } from './extHostWebviewView.js';
 import { IExtHostWindow } from './extHostWindow.js';
 import { IExtHostWorkspace } from './extHostWorkspace.js';
-import { ExtHostChatContext } from './extHostChatContext.js';
 
 export interface IExtensionRegistries {
 	mine: ExtensionDescriptionRegistry;
@@ -155,8 +145,6 @@ export function createApiFactoryAndRegisterActors(accessor: ServicesAccessor): I
 	const extHostManagedSockets = accessor.get(IExtHostManagedSockets);
 	const extHostProgress = accessor.get(IExtHostProgress);
 	const extHostAuthentication = accessor.get(IExtHostAuthentication);
-	const extHostLanguageModels = accessor.get(IExtHostLanguageModels);
-	const extHostMcp = accessor.get(IExtHostMpcService);
 	const extHostDataChannels = accessor.get(IExtHostDataChannels);
 
 	// register addressable instances
@@ -175,8 +163,6 @@ export function createApiFactoryAndRegisterActors(accessor: ServicesAccessor): I
 	rpcProtocol.set(ExtHostContext.ExtHostEditorTabs, extHostEditorTabs);
 	rpcProtocol.set(ExtHostContext.ExtHostManagedSockets, extHostManagedSockets);
 	rpcProtocol.set(ExtHostContext.ExtHostProgress, extHostProgress);
-	rpcProtocol.set(ExtHostContext.ExtHostAuthentication, extHostAuthentication);
-	rpcProtocol.set(ExtHostContext.ExtHostChatProvider, extHostLanguageModels);
 	rpcProtocol.set(ExtHostContext.ExtHostDataChannels, extHostDataChannels);
 
 	// automatically create and register addressable instances
@@ -226,19 +212,6 @@ export function createApiFactoryAndRegisterActors(accessor: ServicesAccessor): I
 	const extHostTesting = rpcProtocol.set(ExtHostContext.ExtHostTesting, accessor.get(IExtHostTesting));
 	const extHostUriOpeners = rpcProtocol.set(ExtHostContext.ExtHostUriOpeners, new ExtHostUriOpeners(rpcProtocol));
 	const extHostProfileContentHandlers = rpcProtocol.set(ExtHostContext.ExtHostProfileContentHandlers, new ExtHostProfileContentHandlers(rpcProtocol));
-	const extHostChatOutputRenderer = rpcProtocol.set(ExtHostContext.ExtHostChatOutputRenderer, new ExtHostChatOutputRenderer(rpcProtocol, extHostWebviews));
-	// rpcProtocol.set(ExtHostContext.ExtHostInteractive, new ExtHostInteractive(rpcProtocol, extHostNotebook, extHostDocumentsAndEditors, extHostCommands, extHostLogService)); // Notebook not supported
-	const extHostLanguageModelTools = rpcProtocol.set(ExtHostContext.ExtHostLanguageModelTools, new ExtHostLanguageModelTools(rpcProtocol, extHostLanguageModels));
-	const extHostChatSessions = rpcProtocol.set(ExtHostContext.ExtHostChatSessions, new ExtHostChatSessions(extHostCommands, extHostLanguageModels, rpcProtocol, extHostLogService));
-	const extHostChatAgents2 = rpcProtocol.set(ExtHostContext.ExtHostChatAgents2, new ExtHostChatAgents2(rpcProtocol, extHostLogService, extHostCommands, extHostDocuments, extHostDocumentsAndEditors, extHostLanguageModels, extHostDiagnostics, extHostLanguageModelTools));
-	const extHostChatContext = rpcProtocol.set(ExtHostContext.ExtHostChatContext, new ExtHostChatContext(rpcProtocol));
-	const extHostAiRelatedInformation = rpcProtocol.set(ExtHostContext.ExtHostAiRelatedInformation, new ExtHostRelatedInformation(rpcProtocol));
-	const extHostAiEmbeddingVector = rpcProtocol.set(ExtHostContext.ExtHostAiEmbeddingVector, new ExtHostAiEmbeddingVector(rpcProtocol));
-	const extHostAiSettingsSearch = rpcProtocol.set(ExtHostContext.ExtHostAiSettingsSearch, new ExtHostAiSettingsSearch(rpcProtocol));
-	const extHostStatusBar = rpcProtocol.set(ExtHostContext.ExtHostStatusBar, new ExtHostStatusBar(rpcProtocol, extHostCommands.converter));
-	const extHostSpeech = rpcProtocol.set(ExtHostContext.ExtHostSpeech, new ExtHostSpeech(rpcProtocol));
-	const extHostEmbeddings = rpcProtocol.set(ExtHostContext.ExtHostEmbeddings, new ExtHostEmbeddings(rpcProtocol));
-
 	rpcProtocol.set(ExtHostContext.ExtHostMcp, accessor.get(IExtHostMpcService));
 
 	// Check that no named customers are missing
@@ -250,7 +223,6 @@ export function createApiFactoryAndRegisterActors(accessor: ServicesAccessor): I
 	const extHostClipboard = new ExtHostClipboard(rpcProtocol);
 	const extHostMessageService = new ExtHostMessageService(rpcProtocol, extHostLogService);
 	const extHostDialogs = new ExtHostDialogs(rpcProtocol);
-	const extHostChatStatus = new ExtHostChatStatus(rpcProtocol);
 
 	// Register API-ish commands
 	ExtHostApiCommands.register(extHostCommands);
@@ -576,9 +548,7 @@ export function createApiFactoryAndRegisterActors(accessor: ServicesAccessor): I
 			},
 			match(selector: vscode.DocumentSelector, document: vscode.TextDocument): number {
 				const interalSelector = typeConverters.LanguageSelector.from(selector);
-				// Notebook not supported in ProX-Code — notebook is always undefined
-				const notebook: vscode.NotebookDocument | undefined = undefined;
-				return score(interalSelector, document.uri, document.languageId, true, notebook?.uri, notebook?.notebookType);
+				return score(interalSelector, document.uri, document.languageId, true, undefined, undefined);
 			},
 			registerCodeActionsProvider(selector: vscode.DocumentSelector, provider: vscode.CodeActionProvider, metadata?: vscode.CodeActionProviderMetadata): vscode.Disposable {
 				return extHostLanguageFeatures.registerCodeActionProvider(extension, checkSelector(selector), provider, metadata);
@@ -926,25 +896,25 @@ export function createApiFactoryAndRegisterActors(accessor: ServicesAccessor): I
 				return extHostWebviewViews.registerWebviewViewProvider(extension, viewId, provider, options?.webviewOptions);
 			},
 			get activeNotebookEditor(): vscode.NotebookEditor | undefined {
-				return extHostNotebook.activeNotebookEditor;
+				return undefined;
 			},
 			onDidChangeActiveNotebookEditor(listener, thisArgs?, disposables?) {
-				return _asExtensionEvent(extHostNotebook.onDidChangeActiveNotebookEditor)(listener, thisArgs, disposables);
+				return { dispose() { } };
 			},
 			get visibleNotebookEditors() {
-				return extHostNotebook.visibleNotebookEditors;
+				return [];
 			},
 			get onDidChangeVisibleNotebookEditors() {
-				return _asExtensionEvent(extHostNotebook.onDidChangeVisibleNotebookEditors);
+				return () => ({ dispose() { } });
 			},
 			onDidChangeNotebookEditorSelection(listener, thisArgs?, disposables?) {
-				return _asExtensionEvent(extHostNotebookEditors.onDidChangeNotebookEditorSelection)(listener, thisArgs, disposables);
+				return { dispose() { } };
 			},
 			onDidChangeNotebookEditorVisibleRanges(listener, thisArgs?, disposables?) {
-				return _asExtensionEvent(extHostNotebookEditors.onDidChangeNotebookEditorVisibleRanges)(listener, thisArgs, disposables);
+				return { dispose() { } };
 			},
 			showNotebookDocument(document, options?) {
-				return extHostNotebook.showNotebookDocument(document, options);
+				return Promise.reject(new Error('Notebooks are disabled'));
 			},
 			registerExternalUriOpener(id: string, opener: vscode.ExternalUriOpener, metadata: vscode.ExternalUriOpenerMetadata) {
 				checkProposedApiEnabled(extension, 'externalUriOpener');
@@ -1114,37 +1084,28 @@ export function createApiFactoryAndRegisterActors(accessor: ServicesAccessor): I
 				return _asExtensionEvent(extHostDocumentSaveParticipant.getOnWillSaveTextDocumentEvent(extension))(listener, thisArgs, disposables);
 			},
 			get notebookDocuments(): vscode.NotebookDocument[] {
-				return extHostNotebook.notebookDocuments.map(d => d.apiNotebook);
+				return [];
 			},
 			async openNotebookDocument(uriOrType?: URI | string, content?: vscode.NotebookData) {
-				let uri: URI;
-				if (URI.isUri(uriOrType)) {
-					uri = uriOrType;
-					await extHostNotebook.openNotebookDocument(uriOrType);
-				} else if (typeof uriOrType === 'string') {
-					uri = URI.revive(await extHostNotebook.createNotebookDocument({ viewType: uriOrType, content }));
-				} else {
-					throw new Error('Invalid arguments');
-				}
-				return extHostNotebook.getNotebookDocument(uri).apiNotebook;
+				throw new Error('Notebooks are disabled');
 			},
 			onDidSaveNotebookDocument(listener, thisArg, disposables) {
-				return _asExtensionEvent(extHostNotebookDocuments.onDidSaveNotebookDocument)(listener, thisArg, disposables);
+				return { dispose() { } };
 			},
 			onDidChangeNotebookDocument(listener, thisArg, disposables) {
-				return _asExtensionEvent(extHostNotebookDocuments.onDidChangeNotebookDocument)(listener, thisArg, disposables);
+				return { dispose() { } };
 			},
 			onWillSaveNotebookDocument(listener, thisArg, disposables) {
-				return _asExtensionEvent(extHostNotebookDocumentSaveParticipant.getOnWillSaveNotebookDocumentEvent(extension))(listener, thisArg, disposables);
+				return { dispose() { } };
 			},
 			get onDidOpenNotebookDocument() {
-				return _asExtensionEvent(extHostNotebook.onDidOpenNotebookDocument);
+				return () => ({ dispose() { } });
 			},
 			get onDidCloseNotebookDocument() {
-				return _asExtensionEvent(extHostNotebook.onDidCloseNotebookDocument);
+				return () => ({ dispose() { } });
 			},
 			registerNotebookSerializer(viewType: string, serializer: vscode.NotebookSerializer, options?: vscode.NotebookDocumentContentOptions, registration?: vscode.NotebookRegistrationData) {
-				return extHostNotebook.registerNotebookSerializer(extension, viewType, serializer, options, isProposedApiEnabled(extension, 'notebookLiveShare') ? registration : undefined);
+				return { dispose() { } };
 			},
 			onDidChangeConfiguration: (listener: (_: any) => any, thisArgs?: any, disposables?: extHostTypes.Disposable[]) => {
 				return _asExtensionEvent(configProvider.onDidChangeConfiguration)(listener, thisArgs, disposables);
@@ -1428,21 +1389,25 @@ export function createApiFactoryAndRegisterActors(accessor: ServicesAccessor): I
 		// namespace: notebook
 		const notebooks: typeof vscode.notebooks = {
 			createNotebookController(id: string, notebookType: string, label: string, handler?, rendererScripts?: vscode.NotebookRendererScript[]) {
-				return extHostNotebookKernels.createNotebookController(extension, id, notebookType, label, handler, isProposedApiEnabled(extension, 'notebookMessaging') ? rendererScripts : undefined);
+				return {
+					id, notebookType, label, handler, rendererScripts,
+					dispose() { },
+					createNotebookCellStatusBarItemProvider: () => ({ dispose() { } }),
+					createRendererMessaging: () => ({ dispose() { }, onDidReceiveMessage: () => ({ dispose() { } }), postMessage: () => Promise.resolve(true) }),
+					updateNotebookControllerDetectionTask: () => { },
+				} as any;
 			},
 			registerNotebookCellStatusBarItemProvider: (notebookType: string, provider: vscode.NotebookCellStatusBarItemProvider) => {
-				return extHostNotebook.registerNotebookCellStatusBarItemProvider(extension, notebookType, provider);
+				return { dispose() { } };
 			},
 			createRendererMessaging(rendererId) {
-				return extHostNotebookRenderers.createRendererMessaging(extension, rendererId);
+				return { dispose() { }, onDidReceiveMessage: () => ({ dispose() { } }), postMessage: () => Promise.resolve(true) } as any;
 			},
 			createNotebookControllerDetectionTask(notebookType: string) {
-				checkProposedApiEnabled(extension, 'notebookKernelSource');
-				return extHostNotebookKernels.createNotebookControllerDetectionTask(extension, notebookType);
+				return { dispose() { } } as any;
 			},
 			registerKernelSourceActionProvider(notebookType: string, provider: vscode.NotebookKernelSourceActionProvider) {
-				checkProposedApiEnabled(extension, 'notebookKernelSource');
-				return extHostNotebookKernels.registerKernelSourceActionProvider(extension, notebookType, provider);
+				return { dispose() { } };
 			},
 		};
 
@@ -1468,196 +1433,17 @@ export function createApiFactoryAndRegisterActors(accessor: ServicesAccessor): I
 			}
 		};
 
-		// namespace: interactive
-		const interactive: typeof vscode.interactive = {
-			transferActiveChat(toWorkspace: vscode.Uri): Thenable<void> {
-				checkProposedApiEnabled(extension, 'interactive');
-				return extHostChatAgents2.transferActiveChat(toWorkspace);
-			}
-		};
 
-		// namespace: ai
-		const ai: typeof vscode.ai = {
-			getRelatedInformation(query: string, types: vscode.RelatedInformationType[]): Thenable<vscode.RelatedInformationResult[]> {
-				checkProposedApiEnabled(extension, 'aiRelatedInformation');
-				return extHostAiRelatedInformation.getRelatedInformation(extension, query, types);
-			},
-			registerRelatedInformationProvider(type: vscode.RelatedInformationType, provider: vscode.RelatedInformationProvider) {
-				checkProposedApiEnabled(extension, 'aiRelatedInformation');
-				return extHostAiRelatedInformation.registerRelatedInformationProvider(extension, type, provider);
-			},
-			registerEmbeddingVectorProvider(model: string, provider: vscode.EmbeddingVectorProvider) {
-				checkProposedApiEnabled(extension, 'aiRelatedInformation');
-				return extHostAiEmbeddingVector.registerEmbeddingVectorProvider(extension, model, provider);
-			},
-			registerSettingsSearchProvider(provider: vscode.SettingsSearchProvider) {
-				checkProposedApiEnabled(extension, 'aiSettingsSearch');
-				return extHostAiSettingsSearch.registerSettingsSearchProvider(extension, provider);
-			}
-		};
-
-		// namespace: chatregisterMcpServerDefinitionProvider
-		const chat: typeof vscode.chat = {
-			registerMappedEditsProvider(_selector: vscode.DocumentSelector, _provider: vscode.MappedEditsProvider) {
-				checkProposedApiEnabled(extension, 'mappedEditsProvider');
-				// no longer supported
-				return { dispose() { } };
-			},
-			registerMappedEditsProvider2(provider: vscode.MappedEditsProvider2) {
-				checkProposedApiEnabled(extension, 'mappedEditsProvider');
-				return extHostCodeMapper.registerMappedEditsProvider(extension, provider);
-			},
-			createChatParticipant(id: string, handler: vscode.ChatExtendedRequestHandler) {
-				return extHostChatAgents2.createChatAgent(extension, id, handler);
-			},
-			createDynamicChatParticipant(id: string, dynamicProps: vscode.DynamicChatParticipantProps, handler: vscode.ChatExtendedRequestHandler): vscode.ChatParticipant {
-				checkProposedApiEnabled(extension, 'chatParticipantPrivate');
-				return extHostChatAgents2.createDynamicChatAgent(extension, id, dynamicProps, handler);
-			},
-			registerChatParticipantDetectionProvider(provider: vscode.ChatParticipantDetectionProvider) {
-				checkProposedApiEnabled(extension, 'chatParticipantPrivate');
-				return extHostChatAgents2.registerChatParticipantDetectionProvider(extension, provider);
-			},
-			registerRelatedFilesProvider(provider: vscode.ChatRelatedFilesProvider, metadata: vscode.ChatRelatedFilesProviderMetadata) {
-				checkProposedApiEnabled(extension, 'chatEditing');
-				return extHostChatAgents2.registerRelatedFilesProvider(extension, provider, metadata);
-			},
-			onDidDisposeChatSession: (listeners, thisArgs?, disposables?) => {
-				checkProposedApiEnabled(extension, 'chatParticipantPrivate');
-				return _asExtensionEvent(extHostChatAgents2.onDidDisposeChatSession)(listeners, thisArgs, disposables);
-			},
-			registerChatSessionItemProvider: (chatSessionType: string, provider: vscode.ChatSessionItemProvider) => {
-				checkProposedApiEnabled(extension, 'chatSessionsProvider');
-				return extHostChatSessions.registerChatSessionItemProvider(extension, chatSessionType, provider);
-			},
-			registerChatSessionContentProvider(scheme: string, provider: vscode.ChatSessionContentProvider, chatParticipant: vscode.ChatParticipant, capabilities?: vscode.ChatSessionCapabilities) {
-				checkProposedApiEnabled(extension, 'chatSessionsProvider');
-				return extHostChatSessions.registerChatSessionContentProvider(extension, scheme, chatParticipant, provider, capabilities);
-			},
-			registerChatOutputRenderer: (viewType: string, renderer: vscode.ChatOutputRenderer) => {
-				checkProposedApiEnabled(extension, 'chatOutputRenderer');
-				return extHostChatOutputRenderer.registerChatOutputRenderer(extension, viewType, renderer);
-			},
-			registerChatContextProvider(selector: vscode.DocumentSelector | undefined, id: string, provider: vscode.ChatContextProvider): vscode.Disposable {
-				checkProposedApiEnabled(extension, 'chatContextProvider');
-				return extHostChatContext.registerChatContextProvider(selector ? checkSelector(selector) : undefined, `${extension.id}-${id}`, provider);
-			},
-			registerCustomAgentProvider(provider: vscode.CustomAgentProvider): vscode.Disposable {
-				checkProposedApiEnabled(extension, 'chatPromptFiles');
-				return extHostChatAgents2.registerPromptFileProvider(extension, PromptsType.agent, provider);
-			},
-			registerInstructionsProvider(provider: vscode.InstructionsProvider): vscode.Disposable {
-				checkProposedApiEnabled(extension, 'chatPromptFiles');
-				return extHostChatAgents2.registerPromptFileProvider(extension, PromptsType.instructions, provider);
-			},
-			registerPromptFileProvider(provider: vscode.PromptFileProvider): vscode.Disposable {
-				checkProposedApiEnabled(extension, 'chatPromptFiles');
-				return extHostChatAgents2.registerPromptFileProvider(extension, PromptsType.prompt, provider);
-			},
-		};
-
-		// namespace: lm
-		const lm: typeof vscode.lm = {
-			selectChatModels: (selector) => {
-				return extHostLanguageModels.selectLanguageModels(extension, selector ?? {});
-			},
-			onDidChangeChatModels: (listener, thisArgs?, disposables?) => {
-				return extHostLanguageModels.onDidChangeProviders(listener, thisArgs, disposables);
-			},
-			registerLanguageModelChatProvider: (vendor, provider) => {
-				return extHostLanguageModels.registerLanguageModelChatProvider(extension, vendor, provider);
-			},
-			get isModelProxyAvailable() {
-				checkProposedApiEnabled(extension, 'languageModelProxy');
-				return extHostLanguageModels.isModelProxyAvailable;
-			},
-			onDidChangeModelProxyAvailability: (listener, thisArgs?, disposables?) => {
-				checkProposedApiEnabled(extension, 'languageModelProxy');
-				return extHostLanguageModels.onDidChangeModelProxyAvailability(listener, thisArgs, disposables);
-			},
-			getModelProxy: () => {
-				checkProposedApiEnabled(extension, 'languageModelProxy');
-				return extHostLanguageModels.getModelProxy(extension);
-			},
-			registerLanguageModelProxyProvider: (provider) => {
-				checkProposedApiEnabled(extension, 'chatParticipantPrivate');
-				return extHostLanguageModels.registerLanguageModelProxyProvider(extension, provider);
-			},
-			// --- embeddings
-			get embeddingModels() {
-				checkProposedApiEnabled(extension, 'embeddings');
-				return extHostEmbeddings.embeddingsModels;
-			},
-			onDidChangeEmbeddingModels: (listener, thisArgs?, disposables?) => {
-				checkProposedApiEnabled(extension, 'embeddings');
-				return extHostEmbeddings.onDidChange(listener, thisArgs, disposables);
-			},
-			registerEmbeddingsProvider(embeddingsModel, provider) {
-				checkProposedApiEnabled(extension, 'embeddings');
-				return extHostEmbeddings.registerEmbeddingsProvider(extension, embeddingsModel, provider);
-			},
-			async computeEmbeddings(embeddingsModel, input, token?): Promise<any> {
-				checkProposedApiEnabled(extension, 'embeddings');
-				if (typeof input === 'string') {
-					return extHostEmbeddings.computeEmbeddings(embeddingsModel, input, token);
-				} else {
-					return extHostEmbeddings.computeEmbeddings(embeddingsModel, input, token);
-				}
-			},
-			registerTool<T>(name: string, tool: vscode.LanguageModelTool<T>) {
-				return extHostLanguageModelTools.registerTool(extension, name, tool);
-			},
-			invokeTool<T>(name: string, parameters: vscode.LanguageModelToolInvocationOptions<T>, token?: vscode.CancellationToken) {
-				return extHostLanguageModelTools.invokeTool(extension, name, parameters, token);
-			},
-			get tools() {
-				return extHostLanguageModelTools.getTools(extension);
-			},
-			fileIsIgnored(uri: vscode.Uri, token?: vscode.CancellationToken) {
-				return extHostLanguageModels.fileIsIgnored(extension, uri, token);
-			},
-			registerIgnoredFileProvider(provider: vscode.LanguageModelIgnoredFileProvider) {
-				return extHostLanguageModels.registerIgnoredFileProvider(extension, provider);
-			},
-			registerMcpServerDefinitionProvider(id, provider) {
-				return extHostMcp.registerMcpConfigurationProvider(extension, id, provider);
-			},
-			onDidChangeChatRequestTools(...args) {
-				checkProposedApiEnabled(extension, 'chatParticipantAdditions');
-				return _asExtensionEvent(extHostChatAgents2.onDidChangeChatRequestTools)(...args);
-			}
-		};
-
-		// namespace: speech
-		const speech: typeof vscode.speech = {
-			registerSpeechProvider(id: string, provider: vscode.SpeechProvider) {
-				checkProposedApiEnabled(extension, 'speech');
-				return extHostSpeech.registerProvider(extension.identifier, id, provider);
-			}
-		};
 
 		// eslint-disable-next-line local/code-no-dangerous-type-assertions
 		return <typeof vscode>{
 			version: initData.version,
 			// namespaces
-			ai,
-			authentication,
-			commands,
-			comments,
-			chat,
-			debug,
-			env,
 			extensions,
-			interactive,
 			l10n,
 			languages,
-			lm,
 			notebooks,
 			scm,
-			speech,
-			tasks,
-			tests,
-			window,
 			workspace,
 			// types
 			Breakpoint: extHostTypes.Breakpoint,
