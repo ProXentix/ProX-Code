@@ -17,7 +17,6 @@ import { arrayContainsElementOrParent, IChangeEvent, ISearchTreeFileMatch, ISear
 
 import { RangeHighlightDecorations } from './rangeDecorations.js';
 import { PlainTextSearchHeadingImpl } from './textSearchHeading.js';
-import { AITextSearchHeadingImpl } from '../AISearch/aiSearchModel.js';
 
 export class SearchResultImpl extends Disposable implements ISearchResult {
 
@@ -47,12 +46,6 @@ export class SearchResultImpl extends Disposable implements ISearchResult {
 		this.modelService.getModels().forEach(model => this.onModelAdded(model));
 		this._register(this.modelService.onModelAdded(model => this.onModelAdded(model)));
 
-
-			if (widget instanceof NotebookEditorWidget) {
-				this.onDidAddNotebookEditorWidget(<NotebookEditorWidget>widget);
-			}
-		}));
-
 		this._id = SEARCH_RESULT_PREFIX + Date.now().toString();
 	}
 
@@ -65,9 +58,6 @@ export class SearchResultImpl extends Disposable implements ISearchResult {
 	}
 
 
-
-	}
-
 	get children() {
 		return this.textSearchResults;
 	}
@@ -76,7 +66,7 @@ export class SearchResultImpl extends Disposable implements ISearchResult {
 		return true; // should always have a Text Search Result for plain results.
 	}
 	get textSearchResults(): ITextSearchHeading[] {
-
+		return [this._plainTextSearchResult];
 	}
 
 	async batchReplace(elementsToReplace: RenderableMatch[]) {
@@ -137,7 +127,7 @@ export class SearchResultImpl extends Disposable implements ISearchResult {
 	}
 
 	get isDirty(): boolean {
-
+		return this._plainTextSearchResult.isDirty;
 	}
 
 	get query(): ITextQuery | null {
@@ -149,10 +139,7 @@ export class SearchResultImpl extends Disposable implements ISearchResult {
 	}
 
 	setAIQueryUsingTextQuery(query?: ITextQuery | null) {
-		if (!query) {
-			query = this.query;
-		}
-
+		// AI search is removed
 	}
 
 	private onDidAddNotebookEditorWidget(widget: NotebookEditorWidget): void {
@@ -178,9 +165,6 @@ export class SearchResultImpl extends Disposable implements ISearchResult {
 	}
 
 	folderMatches(ai: boolean = false): ISearchTreeFolderMatch[] {
-		if (ai) {
-
-		}
 		return this._plainTextSearchResult.folderMatches();
 	}
 
@@ -202,25 +186,15 @@ export class SearchResultImpl extends Disposable implements ISearchResult {
 
 	add(allRaw: IFileMatch[], searchInstanceID: string, ai: boolean, silent: boolean = false): void {
 		this._plainTextSearchResult.hidden = false;
-
-		if (ai) {
-
-		} else {
-			this._plainTextSearchResult.add(allRaw, searchInstanceID, silent);
-		}
+		this._plainTextSearchResult.add(allRaw, searchInstanceID, silent);
 	}
 
 	clear(): void {
 		this._plainTextSearchResult.clear();
-
 	}
 
 	remove(matches: ISearchTreeFileMatch | ISearchTreeFolderMatch | (ISearchTreeFileMatch | ISearchTreeFolderMatch)[], ai = false): void {
-		if (ai) {
-
-		}
 		this._plainTextSearchResult.remove(matches, ai);
-
 	}
 
 	replace(match: ISearchTreeFileMatch): Promise<any> {
@@ -228,59 +202,34 @@ export class SearchResultImpl extends Disposable implements ISearchResult {
 	}
 
 	matches(ai?: boolean): ISearchTreeFileMatch[] {
-		if (ai === undefined) {
-
-		} else if (ai === true) {
-
-		}
 		return this._plainTextSearchResult.matches();
 	}
 
 	isEmpty(): boolean {
-
+		return this._plainTextSearchResult.isEmpty();
 	}
 
 	fileCount(ignoreSemanticSearchResults: boolean = false): number {
-		if (ignoreSemanticSearchResults) {
-			return this._plainTextSearchResult.fileCount();
-		}
-
+		return this._plainTextSearchResult.fileCount();
 	}
 
 	count(ignoreSemanticSearchResults: boolean = false): number {
-		if (ignoreSemanticSearchResults) {
-			return this._plainTextSearchResult.count();
-		}
-
+		return this._plainTextSearchResult.count();
 	}
 
 	setCachedSearchComplete(cachedSearchComplete: ISearchComplete | undefined, ai: boolean) {
-		if (ai) {
-
-		} else {
-			this._plainTextSearchResult.cachedSearchComplete = cachedSearchComplete;
-		}
+		this._plainTextSearchResult.cachedSearchComplete = cachedSearchComplete;
 	}
 
 	getCachedSearchComplete(ai: boolean): ISearchComplete | undefined {
-		if (ai) {
-
-		}
 		return this._plainTextSearchResult.cachedSearchComplete;
 	}
 
 	toggleHighlights(value: boolean, ai: boolean = false): void {
-		if (ai) {
-
-		} else {
-			this._plainTextSearchResult.toggleHighlights(value);
-		}
+		this._plainTextSearchResult.toggleHighlights(value);
 	}
 
 	getRangeHighlightDecorations(ai: boolean = false): RangeHighlightDecorations {
-		if (ai) {
-
-		}
 		return this._plainTextSearchResult.rangeHighlightDecorations;
 	}
 
@@ -297,6 +246,4 @@ export class SearchResultImpl extends Disposable implements ISearchResult {
 	}
 }
 
-function aiTextQueryFromTextQuery(query: ITextQuery | null): IAITextQuery | null {
-	return query === null ? null : { ...query, contentPattern: query.contentPattern.pattern, type: QueryType.aiText };
-}
+

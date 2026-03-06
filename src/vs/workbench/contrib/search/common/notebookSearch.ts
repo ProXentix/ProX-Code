@@ -11,10 +11,8 @@ import { ITextQuery, ISearchProgressItem, ISearchComplete } from '../../../servi
 
 
 export interface INotebookSearchService {
-
 	readonly _serviceBrand: undefined;
-
-
+	notebookSearch(query: ITextQuery, token?: CancellationToken, onProgress?: (result: ISearchProgressItem) => void): {
 		openFilesToScan: ResourceSet;
 		completeData: Promise<ISearchComplete>;
 		allScannedFiles: Promise<ResourceSet>;

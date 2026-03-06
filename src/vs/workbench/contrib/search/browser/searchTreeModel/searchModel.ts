@@ -21,6 +21,7 @@ import { IFileMatch, IPatternInfo, ISearchComplete, ISearchConfigurationProperti
 import { IChangeEvent, mergeSearchResultEvents, SearchModelLocation, ISearchModel, ISearchResult, SEARCH_MODEL_PREFIX } from './searchTreeCommon.js';
 import { SearchResultImpl } from './searchResult.js';
 import { ISearchViewModelWorkbenchService } from './searchViewModelWorkbenchService.js';
+import { INotebookSearchService } from '../../common/notebookSearch.js';
 
 export class SearchModelImpl extends Disposable implements ISearchModel {
 
@@ -57,6 +58,7 @@ export class SearchModelImpl extends Disposable implements ISearchModel {
 		@IConfigurationService private readonly configurationService: IConfigurationService,
 		@IInstantiationService private readonly instantiationService: IInstantiationService,
 		@ILogService private readonly logService: ILogService,
+		@INotebookSearchService private readonly notebookSearchService: INotebookSearchService,
 
 	) {
 		super();
@@ -115,42 +117,7 @@ export class SearchModelImpl extends Disposable implements ISearchModel {
 		return this._searchResult;
 	}
 
-	aiSearch(onResult: (result: ISearchProgressItem | undefined) => void): Promise<ISearchComplete> {
-		if (this.hasAIResults) {
-			// already has matches or pending matches
-			throw Error('AI results already exist');
-		}
-		if (!this._searchQuery) {
-			throw Error('No search query');
-		}
 
-		const searchInstanceID = Date.now().toString();
-		const tokenSource = new CancellationTokenSource();
-		this.currentAICancelTokenSource = tokenSource;
-		const start = Date.now();
-
-			{ ...this._searchQuery, contentPattern: this._searchQuery.contentPattern.pattern, type: QueryType.aiText },
-			tokenSource.token,
-			async (p: ISearchProgressItem) => {
-				onResult(p);
-				this.onSearchProgress(p, searchInstanceID, false, true);
-			}).finally(() => {
-				tokenSource.dispose(true);
-			}).then(
-				value => {
-					if (value.results.length === 0) {
-						// alert of no results since onProgress won't be called
-						onResult(undefined);
-					}
-					this.onSearchCompleted(value, Date.now() - start, searchInstanceID, true);
-					return value;
-				},
-				e => {
-					this.onSearchError(e, Date.now() - start, true);
-					throw e;
-				});
-		return asyncAIResults;
-	}
 
 	private doSearch(query: ITextQuery, progressEmitter: Emitter<void>, searchQuery: ITextQuery, searchInstanceID: string, onProgress?: (result: ISearchProgressItem) => void, callerToken?: CancellationToken): {
 		asyncResults: Promise<ISearchComplete>;
@@ -169,6 +136,7 @@ export class SearchModelImpl extends Disposable implements ISearchModel {
 		};
 		const tokenSource = this.currentCancelTokenSource = new CancellationTokenSource(callerToken);
 
+		const notebookResult = this.notebookSearchService.notebookSearch(searchQuery, tokenSource.token, asyncGenerateOnProgress);
 
 		const textResult = this.searchService.textSearchSplitSyncAsync(
 			searchQuery,
@@ -205,7 +173,7 @@ export class SearchModelImpl extends Disposable implements ISearchModel {
 	}
 
 	get hasAIResults(): boolean {
-		return !!(this.searchResult.getCachedSearchComplete(true)) || (!!this.currentAICancelTokenSource && !this.currentAICancelTokenSource.token.isCancellationRequested);
+		return false;
 	}
 
 	get hasPlainResults(): boolean {
