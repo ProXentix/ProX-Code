@@ -115,7 +115,42 @@ export class SearchModelImpl extends Disposable implements ISearchModel {
 		return this._searchResult;
 	}
 
-	
+	aiSearch(onResult: (result: ISearchProgressItem | undefined) => void): Promise<ISearchComplete> {
+		if (this.hasAIResults) {
+			// already has matches or pending matches
+			throw Error('AI results already exist');
+		}
+		if (!this._searchQuery) {
+			throw Error('No search query');
+		}
+
+		const searchInstanceID = Date.now().toString();
+		const tokenSource = new CancellationTokenSource();
+		this.currentAICancelTokenSource = tokenSource;
+		const start = Date.now();
+
+			{ ...this._searchQuery, contentPattern: this._searchQuery.contentPattern.pattern, type: QueryType.aiText },
+			tokenSource.token,
+			async (p: ISearchProgressItem) => {
+				onResult(p);
+				this.onSearchProgress(p, searchInstanceID, false, true);
+			}).finally(() => {
+				tokenSource.dispose(true);
+			}).then(
+				value => {
+					if (value.results.length === 0) {
+						// alert of no results since onProgress won't be called
+						onResult(undefined);
+					}
+					this.onSearchCompleted(value, Date.now() - start, searchInstanceID, true);
+					return value;
+				},
+				e => {
+					this.onSearchError(e, Date.now() - start, true);
+					throw e;
+				});
+		return asyncAIResults;
+	}
 
 	private doSearch(query: ITextQuery, progressEmitter: Emitter<void>, searchQuery: ITextQuery, searchInstanceID: string, onProgress?: (result: ISearchProgressItem) => void, callerToken?: CancellationToken): {
 		asyncResults: Promise<ISearchComplete>;
@@ -150,12 +185,12 @@ export class SearchModelImpl extends Disposable implements ISearchModel {
 
 			// resolve async parts of search
 			const allClosedEditorResults = await textResult.asyncResults;
-			
+			const resolvedNotebookResults = await notebookResult.completeData;
 			const searchLength = Date.now() - searchStart;
 			const resolvedResult: ISearchComplete = {
-				results: [...allClosedEditorResults.results],
-				messages: [...allClosedEditorResults.messages],
-				limitHit: allClosedEditorResults.limitHit,
+				results: [...allClosedEditorResults.results, ...resolvedNotebookResults.results],
+				messages: [...allClosedEditorResults.messages, ...resolvedNotebookResults.messages],
+				limitHit: allClosedEditorResults.limitHit || resolvedNotebookResults.limitHit,
 				exit: allClosedEditorResults.exit,
 				stats: allClosedEditorResults.stats,
 			};
