@@ -123,14 +123,6 @@ suite('SearchModel', () => {
 
 				});
 			},
-
-				return new Promise(resolve => {
-					queueMicrotask(() => {
-						results.forEach(onProgress!);
-						resolve(complete!);
-					});
-				});
-			},
 			textSearchSplitSyncAsync(query: ITextQuery, token?: CancellationToken | undefined, onProgress?: ((result: ISearchProgressItem) => void) | undefined): { syncResults: ISearchComplete; asyncResults: Promise<ISearchComplete> } {
 				return {
 					syncResults: {
@@ -160,11 +152,6 @@ suite('SearchModel', () => {
 					queueMicrotask(() => {
 						reject(error);
 					});
-				});
-			},
-
-				return new Promise((resolve, reject) => {
-					reject(error);
 				});
 			},
 			textSearchSplitSyncAsync(query: ITextQuery, token?: CancellationToken | undefined, onProgress?: ((result: ISearchProgressItem) => void) | undefined): { syncResults: ISearchComplete; asyncResults: Promise<ISearchComplete> } {
@@ -201,17 +188,6 @@ suite('SearchModel', () => {
 						// eslint-disable-next-line local/code-no-any-casts
 						resolve(<any>{});
 					});
-				});
-			},
-
-				const disposable = token?.onCancellationRequested(() => tokenSource.cancel());
-				if (disposable) {
-					store.add(disposable);
-				}
-
-				return Promise.resolve({
-					results: [],
-					messages: []
 				});
 			},
 			textSearchSplitSyncAsync(query: ITextQuery, token?: CancellationToken | undefined, onProgress?: ((result: ISearchProgressItem) => void) | undefined): { syncResults: ISearchComplete; asyncResults: Promise<ISearchComplete> } {
@@ -254,9 +230,10 @@ suite('SearchModel', () => {
 
 
 
-		return <INotebookSearchService>{
+	function stubNotebookSearchService(results: any[], tokenSource?: any, onProgress?: any): any {
+		return <any>{
 			_serviceBrand: undefined,
-
+			notebookSearch(_query: any, token: any, _searchInstanceID: any, onProgress?: any): {
 				openFilesToScan: ResourceSet;
 				completeData: Promise<ISearchComplete>;
 				allScannedFiles: Promise<ResourceSet>;
