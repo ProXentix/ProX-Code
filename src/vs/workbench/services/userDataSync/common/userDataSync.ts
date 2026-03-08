@@ -53,20 +53,6 @@ export interface IUserDataSyncWorkbenchService {
 	downloadSyncActivity(): Promise<URI | undefined>;
 }
 
-export function getSyncAreaLabel(source: SyncResource): string {
-	switch (source) {
-		case SyncResource.Settings: return localize('settings', "Settings");
-		case SyncResource.Keybindings: return localize('keybindings', "Keyboard Shortcuts");
-		case SyncResource.Snippets: return localize('snippets', "Snippets");
-		case SyncResource.Prompts: return localize('prompts', "Prompts and Instructions");
-		case SyncResource.Tasks: return localize('tasks', "Tasks");
-		case SyncResource.Mcp: return localize('mcp', "MCP Servers");
-		case SyncResource.Extensions: return localize('extensions', "Extensions");
-		case SyncResource.GlobalState: return localize('ui state label', "UI State");
-		case SyncResource.Profiles: return localize('profiles', "Profiles");
-		case SyncResource.WorkspaceState: return localize('workspace state label', "Workspace State");
-	}
-}
 
 export const enum AccountStatus {
 	Uninitialized = 'uninitialized',

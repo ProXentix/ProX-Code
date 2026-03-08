@@ -260,11 +260,6 @@ export const tocData: ITOCEntry<string> = {
 					settings: ['mergeEditor.*']
 				},
 				{
-					id: 'features/chat',
-					label: localize('chat', 'Chat'),
-					settings: ['chat.*', 'inlineChat.*', 'mcp']
-				},
-				{
 					id: 'features/issueReporter',
 					label: localize('issueReporter', 'Issue Reporter'),
 					settings: ['issueReporter.*'],
