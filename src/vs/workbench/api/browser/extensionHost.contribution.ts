@@ -17,11 +17,11 @@ import { StatusBarItemsExtensionPoint } from './statusBarExtensionPoint.js';
 // --- mainThread participants
 import './mainThreadLocalization.js';
 import './mainThreadBulkEdits.js';
-import './mainThreadLanguageModels.js';
-import './mainThreadChatAgents2.js';
-import './mainThreadChatCodeMapper.js';
-import './mainThreadLanguageModelTools.js';
-import './mainThreadEmbeddings.js';
+// import './mainThreadLanguageModels.js'; // Not available in this build
+// import './mainThreadChatAgents2.js'; // Not available in this build
+// import './mainThreadChatCodeMapper.js'; // Not available in this build
+// import './mainThreadLanguageModelTools.js'; // Not available in this build
+// import './mainThreadEmbeddings.js'; // Not available in this build
 import './mainThreadCodeInsets.js';
 import './mainThreadCLICommands.js';
 import './mainThreadClipboard.js';
@@ -53,7 +53,7 @@ import './mainThreadQuickDiff.js';
 import './mainThreadQuickOpen.js';
 import './mainThreadRemoteConnectionData.js';
 import './mainThreadSaveParticipant.js';
-import './mainThreadSpeech.js';
+// import './mainThreadSpeech.js'; // Not available in this build
 import './mainThreadEditSessionIdentityParticipant.js';
 import './mainThreadSCM.js';
 import './mainThreadSearch.js';
@@ -86,14 +86,14 @@ import './mainThreadTesting.js';
 import './mainThreadSecretState.js';
 import './mainThreadShare.js';
 import './mainThreadProfileContentHandlers.js';
-import './mainThreadAiRelatedInformation.js';
-import './mainThreadAiEmbeddingVector.js';
-import './mainThreadAiSettingsSearch.js';
+// import './mainThreadAiRelatedInformation.js'; // Not available in this build
+// import './mainThreadAiEmbeddingVector.js'; // Not available in this build
+// import './mainThreadAiSettingsSearch.js'; // Not available in this build
 import './mainThreadMcp.js';
-import './mainThreadChatContext.js';
-import './mainThreadChatStatus.js';
-import './mainThreadChatOutputRenderer.js';
-import './mainThreadChatSessions.js';
+// import './mainThreadChatContext.js'; // Not available in this build
+// import './mainThreadChatStatus.js'; // Not available in this build
+// import './mainThreadChatOutputRenderer.js'; // Not available in this build
+// import './mainThreadChatSessions.js'; // Not available in this build
 import './mainThreadDataChannels.js';
 
 export class ExtensionPoints implements IWorkbenchContribution {

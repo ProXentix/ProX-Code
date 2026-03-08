@@ -76,7 +76,12 @@ import { ISCMHistoryOptions } from '../../contrib/scm/common/history.js';
 import { InputValidationType } from '../../contrib/scm/common/scm.js';
 import { IWorkspaceSymbol, NotebookPriorityInfo } from '../../contrib/search/common/search.js';
 import { IRawClosedNotebookFileMatch } from '../../contrib/search/common/searchNotebookHelpers.js';
-import { IKeywordRecognitionEvent, ISpeechProviderMetadata, ISpeechToTextEvent, ITextToSpeechEvent } from '../../contrib/speech/common/speechService.js';
+// Speech types (contrib/speech not available in this build)
+export type ISpeechToTextEvent = { status: number; text?: string };
+export type ITextToSpeechEvent = { status: number };
+export type IKeywordRecognitionEvent = { status: number; text?: string };
+export type ISpeechProviderMetadata = { extension: import('../../../platform/extensions/common/extensions.js').IExtensionDescription; metadata: { extension: import('../../../platform/extensions/common/extensions.js').IExtensionDescription; displayName: string }[] };
+
 import { CoverageDetails, ExtensionRunTestsRequest, ICallProfileRunHandler, IFileCoverage, ISerializedTestResults, IStartControllerTests, ITestItem, ITestMessage, ITestRunProfile, ITestRunTask, ResolvedTestRunRequest, TestControllerCapability, TestMessageFollowupRequest, TestMessageFollowupResponse, TestResultState, TestsDiffOp } from '../../contrib/testing/common/testTypes.js';
 import { Timeline, TimelineChangeEvent, TimelineOptions, TimelineProviderDescriptor } from '../../contrib/timeline/common/timeline.js';
 import { TypeHierarchyItem } from '../../contrib/typeHierarchy/common/typeHierarchy.js';
