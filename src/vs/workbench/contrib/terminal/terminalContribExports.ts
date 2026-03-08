@@ -7,7 +7,7 @@ import type { IConfigurationNode } from '../../../platform/configuration/common/
 import { TerminalAccessibilityCommandId, defaultTerminalAccessibilityCommandsToSkipShell } from '../terminalContrib/accessibility/common/terminal.accessibility.js';
 import { terminalAccessibilityConfiguration } from '../terminalContrib/accessibility/common/terminalAccessibilityConfiguration.js';
 import { terminalAutoRepliesConfiguration } from '../terminalContrib/autoReplies/common/terminalAutoRepliesConfiguration.js';
-import { TerminalChatCommandId, TerminalChatContextKeyStrings } from '../terminalContrib/chat/browser/terminalChat.js';
+// [REMOVED - chat module not available] import { any, any } from '../terminalContrib/chat/browser/terminalChat.js';
 import { terminalInitialHintConfiguration } from '../terminalContrib/inlineHint/common/terminalInitialHintConfiguration.js';
 import { terminalChatAgentToolsConfiguration, TerminalChatAgentToolsSettingId } from '../terminalContrib/chatAgentTools/common/terminalChatAgentToolsConfiguration.js';
 import { terminalCommandGuideConfiguration } from '../terminalContrib/commandGuide/common/terminalCommandGuideConfiguration.js';
@@ -26,12 +26,12 @@ import { terminalZoomConfiguration } from '../terminalContrib/zoom/common/termin
 export const enum TerminalContribCommandId {
 	A11yFocusAccessibleBuffer = TerminalAccessibilityCommandId.FocusAccessibleBuffer,
 	DeveloperRestartPtyHost = TerminalDeveloperCommandId.RestartPtyHost,
-	OpenTerminalSettingsLink = TerminalChatCommandId.OpenTerminalSettingsLink,
-	DisableSessionAutoApproval = TerminalChatCommandId.DisableSessionAutoApproval,
-	FocusMostRecentChatTerminalOutput = TerminalChatCommandId.FocusMostRecentChatTerminalOutput,
-	FocusMostRecentChatTerminal = TerminalChatCommandId.FocusMostRecentChatTerminal,
-	ToggleChatTerminalOutput = TerminalChatCommandId.ToggleChatTerminalOutput,
-	FocusChatInstanceAction = TerminalChatCommandId.FocusChatInstanceAction,
+	OpenTerminalSettingsLink = any.OpenTerminalSettingsLink,
+	DisableSessionAutoApproval = any.DisableSessionAutoApproval,
+	FocusMostRecentChatTerminalOutput = any.FocusMostRecentChatTerminalOutput,
+	FocusMostRecentChatTerminal = any.FocusMostRecentChatTerminal,
+	ToggleChatTerminalOutput = any.ToggleChatTerminalOutput,
+	FocusChatInstanceAction = any.FocusChatInstanceAction,
 }
 
 // HACK: Export some settings from `terminalContrib/` that are depended upon elsewhere. These are
@@ -51,8 +51,8 @@ export const enum TerminalContribSettingId {
 // difficulties in removing the dependency. These are explicitly defined here to avoid an eslint
 // line override.
 export const enum TerminalContribContextKeyStrings {
-	ChatHasTerminals = TerminalChatContextKeyStrings.ChatHasTerminals,
-	ChatHasHiddenTerminals = TerminalChatContextKeyStrings.ChatHasHiddenTerminals,
+	ChatHasTerminals = any.ChatHasTerminals,
+	ChatHasHiddenTerminals = any.ChatHasHiddenTerminals,
 }
 
 // Export configuration schemes from terminalContrib - this is an exception to the eslint rule since

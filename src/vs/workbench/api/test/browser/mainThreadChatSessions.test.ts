@@ -16,12 +16,12 @@ import { IContextKeyService } from '../../../../platform/contextkey/common/conte
 import { IDialogService } from '../../../../platform/dialogs/common/dialogs.js';
 import { TestInstantiationService } from '../../../../platform/instantiation/test/common/instantiationServiceMock.js';
 import { ILogService, NullLogService } from '../../../../platform/log/common/log.js';
-import { ChatSessionsService } from '../../../contrib/chat/browser/chatSessions/chatSessions.contribution.js';
-import { IChatAgentRequest } from '../../../contrib/chat/common/participants/chatAgents.js';
-import { IChatProgress, IChatProgressMessage, IChatService } from '../../../contrib/chat/common/chatService/chatService.js';
-import { IChatSessionProviderOptionGroup, IChatSessionsService } from '../../../contrib/chat/common/chatSessionsService.js';
-import { LocalChatSessionUri } from '../../../contrib/chat/common/model/chatUri.js';
-import { ChatAgentLocation } from '../../../contrib/chat/common/constants.js';
+// [REMOVED - chat module not available] import { ChatSessionsService } from '../../../contrib/chat/browser/chatSessions/chatSessions.contribution.js';
+// [REMOVED - chat module not available] import { IChatAgentRequest } from '../../../contrib/chat/common/participants/chatAgents.js';
+// [REMOVED - chat module not available] import { IChatProgress, IChatProgressMessage, IChatService } from '../../../contrib/chat/common/chatService/chatService.js';
+// [REMOVED - chat module not available] import { IChatSessionProviderOptionGroup, IChatSessionsService } from '../../../contrib/chat/common/chatSessionsService.js';
+// [REMOVED - chat module not available] import { LocalChatSessionUri } from '../../../contrib/chat/common/model/chatUri.js';
+// [REMOVED - chat module not available] import { ChatAgentLocation } from '../../../contrib/chat/common/constants.js';
 import { IEditorService } from '../../../services/editor/common/editorService.js';
 import { IExtHostContext } from '../../../services/extensions/common/extHostCustomers.js';
 import { ExtensionHostKind } from '../../../services/extensions/common/extensionHostKind.js';
@@ -31,7 +31,7 @@ import { mock, TestExtensionService } from '../../../test/common/workbenchTestSe
 import { MainThreadChatSessions, ObservableChatSession } from '../../browser/mainThreadChatSessions.js';
 import { ExtHostChatSessionsShape, IChatProgressDto, IChatSessionProviderOptions } from '../../common/extHost.protocol.js';
 import { ILabelService } from '../../../../platform/label/common/label.js';
-import { MockChatService } from '../../../contrib/chat/test/common/chatService/mockChatService.js';
+// [REMOVED - chat module not available] import { MockChatService } from '../../../contrib/chat/test/common/chatService/mockChatService.js';
 
 suite('ObservableChatSession', function () {
 	let disposables: DisposableStore;

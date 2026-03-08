@@ -6,12 +6,12 @@
 import type * as vscode from 'vscode';
 import { CancellationToken } from '../../../base/common/cancellation.js';
 import { IExtensionDescription } from '../../../platform/extensions/common/extensions.js';
-import { ICodeMapperResult } from '../../contrib/chat/common/editing/chatCodeMapperService.js';
+// [REMOVED - chat module not available] import { ICodeMapperResult } from '../../contrib/chat/common/editing/chatCodeMapperService.js';
 import * as extHostProtocol from './extHost.protocol.js';
 import { NotebookEdit, TextEdit } from './extHostTypeConverters.js';
 import { URI } from '../../../base/common/uri.js';
 import { asArray } from '../../../base/common/arrays.js';
-import { LocalChatSessionUri } from '../../contrib/chat/common/model/chatUri.js';
+// [REMOVED - chat module not available] import { LocalChatSessionUri } from '../../contrib/chat/common/model/chatUri.js';
 
 export class ExtHostCodeMapper implements extHostProtocol.ExtHostCodeMapperShape {
 
@@ -54,7 +54,7 @@ export class ExtHostCodeMapper implements extHostProtocol.ExtHostCodeMapperShape
 			location: internalRequest.location,
 			chatRequestId: internalRequest.chatRequestId,
 			chatRequestModel: internalRequest.chatRequestModel,
-			chatSessionId: internalRequest.chatSessionResource ? LocalChatSessionUri.parseLocalSessionId(URI.revive(internalRequest.chatSessionResource)) : undefined,
+			chatSessionId: undefined, // [Removed] LocalChatSessionUri.parseLocalSessionId not available
 			codeBlocks: internalRequest.codeBlocks.map(block => {
 				return {
 					code: block.code,

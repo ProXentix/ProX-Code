@@ -209,18 +209,18 @@ import './contrib/performance/browser/performance.contribution.js';
 import './contrib/speech/browser/speech.contribution.js';
 
 // Chat
-import './contrib/chat/browser/chat.contribution.js';
+// [REMOVED - module not available] import './contrib/chat/browser/chat.contribution.js';
 import './contrib/inlineChat/browser/inlineChat.contribution.js';
 import './contrib/mcp/browser/mcp.contribution.js';
-import './contrib/chat/browser/chatSessions/chatSessions.contribution.js';
-import './contrib/chat/browser/contextContrib/chatContext.contribution.js';
+// [REMOVED - module not available] import './contrib/chat/browser/chatSessions/chatSessions.contribution.js';
+// [REMOVED - module not available] import './contrib/chat/browser/contextContrib/chatContext.contribution.js';
 
 // Interactive
 // import './contrib/interactive/browser/interactive.contribution.js';
 
 
 // repl
-import './contrib/replNotebook/browser/repl.contribution.js';
+// [REMOVED - module not available] import './contrib/replNotebook/browser/repl.contribution.js';
 
 // Testing
 import './contrib/testing/browser/testing.contribution.js';
@@ -390,7 +390,7 @@ import './contrib/userDataProfile/browser/userDataProfile.contribution.js';
 import './contrib/editSessions/browser/editSessions.contribution.js';
 
 // Remote Coding Agents
-import './contrib/remoteCodingAgents/browser/remoteCodingAgents.contribution.js';
+// [REMOVED - module not available] import './contrib/remoteCodingAgents/browser/remoteCodingAgents.contribution.js';
 
 // Code Actions
 import './contrib/codeActions/browser/codeActions.contribution.js';
