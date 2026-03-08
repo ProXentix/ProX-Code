@@ -54,7 +54,7 @@ import './browser/parts/statusbar/statusbarPart.js';
 
 import '../platform/actions/common/actions.contribution.js';
 import '../platform/undoRedo/common/undoRedoService.js';
-import '../platform/mcp/common/mcpResourceScannerService.js';
+// [REMOVED - AI/MCP feature] import '../platform/mcp/common/mcpResourceScannerService.js';
 import './services/workspaces/common/editSessionIdentityService.js';
 import './services/workspaces/common/canonicalUriService.js';
 import './services/extensions/browser/extensionUrlHandler.js';
@@ -68,9 +68,9 @@ import './services/configuration/common/jsonEditingService.js';
 import './services/textmodelResolver/common/textModelResolverService.js';
 import './services/editor/browser/editorService.js';
 import './services/editor/browser/editorResolverService.js';
-import './services/aiEmbeddingVector/common/aiEmbeddingVectorService.js';
-import './services/aiRelatedInformation/common/aiRelatedInformationService.js';
-import './services/aiSettingsSearch/common/aiSettingsSearchService.js';
+// [REMOVED - AI feature] import './services/aiEmbeddingVector/common/aiEmbeddingVectorService.js';
+// [REMOVED - AI feature] import './services/aiRelatedInformation/common/aiRelatedInformationService.js';
+// [REMOVED - AI feature] import './services/aiSettingsSearch/common/aiSettingsSearchService.js';
 import './services/history/browser/historyService.js';
 import './services/activity/browser/activityService.js';
 import './services/keybinding/browser/keybindingService.js';
@@ -111,9 +111,9 @@ import './services/authentication/browser/authenticationService.js';
 import './services/authentication/browser/authenticationExtensionsService.js';
 import './services/authentication/browser/authenticationUsageService.js';
 import './services/authentication/browser/authenticationAccessService.js';
-import './services/authentication/browser/authenticationMcpUsageService.js';
-import './services/authentication/browser/authenticationMcpAccessService.js';
-import './services/authentication/browser/authenticationMcpService.js';
+// [REMOVED - AI/MCP feature] import './services/authentication/browser/authenticationMcpUsageService.js';
+// [REMOVED - AI/MCP feature] import './services/authentication/browser/authenticationMcpAccessService.js';
+// [REMOVED - AI/MCP feature] import './services/authentication/browser/authenticationMcpService.js';
 import './services/authentication/browser/dynamicAuthenticationProviderStorageService.js';
 import './services/authentication/browser/authenticationQueryService.js';
 import '../platform/hover/browser/hoverService.js';
@@ -133,7 +133,7 @@ import './services/editor/browser/editorPaneService.js';
 import './services/editor/common/customEditorLabelService.js';
 import './services/dataChannel/browser/dataChannelService.js';
 import './services/inlineCompletions/common/inlineCompletionsUnification.js';
-import './services/chat/common/chatEntitlementService.js';
+// [REMOVED - AI feature] import './services/chat/common/chatEntitlementService.js';
 import './services/log/common/defaultLogLevels.js';
 
 import { InstantiationType, registerSingleton } from '../platform/instantiation/common/extensions.js';
@@ -159,9 +159,9 @@ import { ExtensionStorageService, IExtensionStorageService } from '../platform/e
 import { IUserDataSyncLogService } from '../platform/userDataSync/common/userDataSync.js';
 import { UserDataSyncLogService } from '../platform/userDataSync/common/userDataSyncLog.js';
 import { AllowedExtensionsService } from '../platform/extensionManagement/common/allowedExtensionsService.js';
-import { IAllowedMcpServersService, IMcpGalleryService } from '../platform/mcp/common/mcpManagement.js';
-import { McpGalleryService } from '../platform/mcp/common/mcpGalleryService.js';
-import { AllowedMcpServersService } from '../platform/mcp/common/allowedMcpServersService.js';
+// [REMOVED - AI/MCP feature] import { IAllowedMcpServersService, IMcpGalleryService } from '../platform/mcp/common/mcpManagement.js';
+// [REMOVED - AI/MCP feature] import { McpGalleryService } from '../platform/mcp/common/mcpGalleryService.js';
+// [REMOVED - AI/MCP feature] import { AllowedMcpServersService } from '../platform/mcp/common/allowedMcpServersService.js';
 import { IWebWorkerService } from '../platform/webWorker/browser/webWorkerService.js';
 import { WebWorkerService } from '../platform/webWorker/browser/webWorkerServiceImpl.js';
 
@@ -179,8 +179,8 @@ registerSingleton(ITextResourceConfigurationService, TextResourceConfigurationSe
 registerSingleton(IDownloadService, DownloadService, InstantiationType.Delayed);
 registerSingleton(IOpenerService, OpenerService, InstantiationType.Delayed);
 registerSingleton(IWebWorkerService, WebWorkerService, InstantiationType.Delayed);
-registerSingleton(IMcpGalleryService, McpGalleryService, InstantiationType.Delayed);
-registerSingleton(IAllowedMcpServersService, AllowedMcpServersService, InstantiationType.Delayed);
+// [REMOVED - AI/MCP feature] registerSingleton(IMcpGalleryService, McpGalleryService, InstantiationType.Delayed);
+// [REMOVED - AI/MCP feature] registerSingleton(IAllowedMcpServersService, AllowedMcpServersService, InstantiationType.Delayed);
 
 //#endregion
 
@@ -206,12 +206,12 @@ import './contrib/performance/browser/performance.contribution.js';
 
 
 // Speech
-import './contrib/speech/browser/speech.contribution.js';
+// [REMOVED - AI feature] import './contrib/speech/browser/speech.contribution.js';
 
 // Chat
 // [REMOVED - module not available] import './contrib/chat/browser/chat.contribution.js';
-import './contrib/inlineChat/browser/inlineChat.contribution.js';
-import './contrib/mcp/browser/mcp.contribution.js';
+// [REMOVED - AI feature] import './contrib/inlineChat/browser/inlineChat.contribution.js';
+// [REMOVED - AI/MCP feature] import './contrib/mcp/browser/mcp.contribution.js';
 // [REMOVED - module not available] import './contrib/chat/browser/chatSessions/chatSessions.contribution.js';
 // [REMOVED - module not available] import './contrib/chat/browser/contextContrib/chatContext.contribution.js';
 
