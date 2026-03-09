@@ -7,6 +7,11 @@ import { distinct } from '../../../../base/common/arrays.js';
 import { CancellationToken } from '../../../../base/common/cancellation.js';
 import { IStringDictionary } from '../../../../base/common/collections.js';
 import { IMatch, matchesBaseContiguousSubString, matchesContiguousSubString, matchesSubString, matchesWords } from '../../../../base/common/filters.js';
+
+import { distinct } from '../../../../base/common/arrays.js';
+import { CancellationToken } from '../../../../base/common/cancellation.js';
+import { IStringDictionary } from '../../../../base/common/collections.js';
+import { IMatch, matchesBaseContiguousSubString, matchesContiguousSubString, matchesSubString, matchesWords } from '../../../../base/common/filters.js';
 import { Disposable } from '../../../../base/common/lifecycle.js';
 import * as strings from '../../../../base/common/strings.js';
 import { TfIdfCalculator, TfIdfDocument } from '../../../../base/common/tfIdf.js';
@@ -28,7 +33,6 @@ export class PreferencesSearchService extends Disposable implements IPreferences
 	declare readonly _serviceBrand: undefined;
 
 	private _remoteSearchProvider: IRemoteSearchProvider | undefined;
-	private _aiSearchProvider: IAiSearchProvider | undefined;
 
 	constructor(
 		@IInstantiationService private readonly instantiationService: IInstantiationService,
@@ -57,13 +61,7 @@ export class PreferencesSearchService extends Disposable implements IPreferences
 	}
 
 	getAiSearchProvider(filter: string): IAiSearchProvider | undefined {
-		if (!this.remoteSearchAllowed) {
-			return undefined;
-		}
-
-		this._aiSearchProvider ??= this.instantiationService.createInstance(AiSearchProvider);
-		this._aiSearchProvider.setFilter(filter);
-		return this._aiSearchProvider;
+		return undefined;
 	}
 }
 
@@ -386,62 +384,6 @@ class SettingsRecordProvider {
 	}
 }
 
-class EmbeddingsSearchProvider implements IRemoteSearchProvider {
-	private static readonly EMBEDDINGS_SETTINGS_SEARCH_MAX_PICKS = 10;
-
-	private readonly _recordProvider: SettingsRecordProvider;
-	private _filter: string = '';
-
-	constructor(
-		private readonly _aiSettingsSearchService: IAiSettingsSearchService
-	) {
-		this._recordProvider = new SettingsRecordProvider();
-	}
-
-	setFilter(filter: string) {
-		this._filter = cleanFilter(filter);
-	}
-
-	async searchModel(preferencesModel: ISettingsEditorModel, token: CancellationToken): Promise<ISearchResult | null> {
-		if (!this._filter || !this._aiSettingsSearchService.isEnabled()) {
-			return null;
-		}
-
-		this._recordProvider.updateModel(preferencesModel);
-		this._aiSettingsSearchService.startSearch(this._filter, token);
-
-		return {
-			filterMatches: await this.getEmbeddingsItems(token),
-			exactMatch: false
-		};
-	}
-
-	private async getEmbeddingsItems(token: CancellationToken): Promise<ISettingMatch[]> {
-		const settingsRecord = this._recordProvider.getSettingsRecord();
-		const filterMatches: ISettingMatch[] = [];
-		const settings = await this._aiSettingsSearchService.getEmbeddingsResults(this._filter, token);
-		if (!settings) {
-			return [];
-		}
-
-		const providerName = EMBEDDINGS_SEARCH_PROVIDER_NAME;
-		for (const settingKey of settings) {
-			if (filterMatches.length === EmbeddingsSearchProvider.EMBEDDINGS_SETTINGS_SEARCH_MAX_PICKS) {
-				break;
-			}
-			filterMatches.push({
-				setting: settingsRecord[settingKey],
-				matches: [settingsRecord[settingKey].range],
-				matchType: SettingMatchType.RemoteMatch,
-				keyMatchScore: 0,
-				score: 0, // the results are sorted upstream.
-				providerName
-			});
-		}
-
-		return filterMatches;
-	}
-}
 
 class TfIdfSearchProvider implements IRemoteSearchProvider {
 	private static readonly TF_IDF_PRE_NORMALIZE_THRESHOLD = 50;
@@ -561,72 +503,6 @@ class RemoteSearchProvider implements IRemoteSearchProvider {
 
 		const results = await this._tfIdfSearchProvider.searchModel(preferencesModel, token);
 		return results;
-	}
-}
-
-class AiSearchProvider implements IAiSearchProvider {
-	private readonly _embeddingsSearchProvider: EmbeddingsSearchProvider;
-	private readonly _recordProvider: SettingsRecordProvider;
-	private _filter: string = '';
-
-	constructor(
-		@IAiSettingsSearchService private readonly aiSettingsSearchService: IAiSettingsSearchService
-	) {
-		this._embeddingsSearchProvider = new EmbeddingsSearchProvider(this.aiSettingsSearchService);
-		this._recordProvider = new SettingsRecordProvider();
-	}
-
-	setFilter(filter: string): void {
-		this._filter = filter;
-		this._embeddingsSearchProvider.setFilter(filter);
-	}
-
-	async searchModel(preferencesModel: ISettingsEditorModel, token: CancellationToken): Promise<ISearchResult | null> {
-		if (!this._filter || !this.aiSettingsSearchService.isEnabled()) {
-			return null;
-		}
-
-		this._recordProvider.updateModel(preferencesModel);
-		const results = await this._embeddingsSearchProvider.searchModel(preferencesModel, token);
-		return results;
-	}
-
-	async getLLMRankedResults(token: CancellationToken): Promise<ISearchResult | null> {
-		if (!this._filter || !this.aiSettingsSearchService.isEnabled()) {
-			return null;
-		}
-
-		const items = await this.getLLMRankedItems(token);
-		return {
-			filterMatches: items,
-			exactMatch: false
-		};
-	}
-
-	private async getLLMRankedItems(token: CancellationToken): Promise<ISettingMatch[]> {
-		const settingsRecord = this._recordProvider.getSettingsRecord();
-		const filterMatches: ISettingMatch[] = [];
-		const settings = await this.aiSettingsSearchService.getLLMRankedResults(this._filter, token);
-		if (!settings) {
-			return [];
-		}
-
-		for (const settingKey of settings) {
-			if (!settingsRecord[settingKey]) {
-				// Non-existent setting.
-				continue;
-			}
-			filterMatches.push({
-				setting: settingsRecord[settingKey],
-				matches: [settingsRecord[settingKey].range],
-				matchType: SettingMatchType.RemoteMatch,
-				keyMatchScore: 0,
-				score: 0, // the results are sorted upstream.
-				providerName: LLM_RANKED_SEARCH_PROVIDER_NAME
-			});
-		}
-
-		return filterMatches;
 	}
 }
 
