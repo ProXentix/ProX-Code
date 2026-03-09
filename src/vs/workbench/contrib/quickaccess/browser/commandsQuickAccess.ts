@@ -4,7 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import { isFirefox } from '../../../../base/browser/browser.js';
-import { raceTimeout, timeout } from '../../../../base/common/async.js';
+import { raceTimeout } from '../../../../base/common/async.js';
 import { CancellationToken } from '../../../../base/common/cancellation.js';
 import { Codicon } from '../../../../base/common/codicons.js';
 import { stripIcons } from '../../../../base/common/iconLabels.js';
@@ -29,72 +29,155 @@ import { DefaultQuickAccessFilterValue } from '../../../../platform/quickinput/c
 import { IQuickInputService, IQuickPickSeparator } from '../../../../platform/quickinput/common/quickInput.js';
 import { IStorageService } from '../../../../platform/storage/common/storage.js';
 import { ITelemetryService } from '../../../../platform/telemetry/common/telemetry.js';
-[RelatedInformationType.CommandInformation],
-	token
-		) as CommandInformationResult[];
+import { IWorkbenchQuickAccessConfiguration } from '../../../browser/quickaccess.js';
+import { IEditorGroupsService } from '../../../services/editor/common/editorGroupsService.js';
+import { IEditorService } from '../../../services/editor/common/editorService.js';
+import { IExtensionService } from '../../../services/extensions/common/extensions.js';
+import { createKeybindingCommandQuery } from '../../../services/preferences/browser/keybindingsEditorModel.js';
+import { IPreferencesService } from '../../../services/preferences/common/preferences.js';
 
-// Sort by weight descending to get the most relevant results first
-relatedInformation.sort((a, b) => b.weight - a.weight);
+export class CommandsQuickAccessProvider extends AbstractEditorCommandsQuickAccessProvider {
 
-const setOfPicksSoFar = new Set(picksSoFar.map(p => p.commandId));
-const additionalPicks = new Array<ICommandQuickPick | IQuickPickSeparator>();
+	// If extensions are not yet registered, we wait for a little moment to give them
+	// a chance to register so that the complete set of commands shows up as result
+	// We do not want to delay functionality beyond that time though to keep the commands
+	// functional.
+	private readonly extensionRegistrationRace: Promise<boolean | undefined>;
 
-for (const info of relatedInformation) {
-	if (additionalPicks.length === CommandsQuickAccessProvider.AI_RELATED_INFORMATION_MAX_PICKS) {
-		break;
+	protected get activeTextEditorControl(): IEditor | undefined { return this.editorService.activeTextEditorControl; }
+
+	get defaultFilterValue(): DefaultQuickAccessFilterValue | undefined {
+		if (this.configuration.preserveInput) {
+			return DefaultQuickAccessFilterValue.LAST;
+		}
+
+		return undefined;
 	}
-	const pick = allPicks.find(p => p.commandId === info.command && !setOfPicksSoFar.has(p.commandId));
-	if (pick) {
-		additionalPicks.push(pick);
-	}
-}
 
-return additionalPicks;
+	constructor(
+		@IEditorService private readonly editorService: IEditorService,
+		@IMenuService private readonly menuService: IMenuService,
+		@IExtensionService extensionService: IExtensionService,
+		@IInstantiationService instantiationService: IInstantiationService,
+		@IKeybindingService keybindingService: IKeybindingService,
+		@ICommandService commandService: ICommandService,
+		@ITelemetryService telemetryService: ITelemetryService,
+		@IDialogService dialogService: IDialogService,
+		@IConfigurationService private readonly configurationService: IConfigurationService,
+		@IEditorGroupsService private readonly editorGroupService: IEditorGroupsService,
+		@IPreferencesService private readonly preferencesService: IPreferencesService,
+		@IProductService private readonly productService: IProductService,
+	) {
+		super({
+			showAlias: !Language.isDefaultVariant(),
+			noResultsPick: () => ({
+				label: localize('noCommandResults', "No matching commands"),
+				commandId: ''
+			}),
+		}, instantiationService, keybindingService, commandService, telemetryService, dialogService);
+
+		this.extensionRegistrationRace = raceTimeout(extensionService.whenInstalledExtensionsRegistered(), 800);
+		this._register(configurationService.onDidChangeConfiguration((e) => this.updateOptions(e)));
+		this.updateOptions();
+	}
+
+	private get configuration() {
+		const commandPaletteConfig = this.configurationService.getValue<IWorkbenchQuickAccessConfiguration>().workbench.commandPalette;
+
+		return {
+			preserveInput: commandPaletteConfig.preserveInput,
+			experimental: commandPaletteConfig.experimental
+		};
+	}
+
+	private updateOptions(e?: IConfigurationChangeEvent): void {
+		if (e && !e.affectsConfiguration('workbench.commandPalette.experimental')) {
+			return;
+		}
+
+		const config = this.configuration;
+		const suggestedCommandIds = config.experimental?.suggestCommands && this.productService.commandPaletteSuggestedCommandIds?.length
+			? new Set(this.productService.commandPaletteSuggestedCommandIds)
+			: undefined;
+		this.options.suggestedCommandIds = suggestedCommandIds;
+	}
+
+	protected async getCommandPicks(token: CancellationToken): Promise<Array<ICommandQuickPick>> {
+
+		// wait for extensions registration or 800ms once
+		await this.extensionRegistrationRace;
+
+		if (token.isCancellationRequested) {
+			return [];
+		}
+
+		return [
+			...this.getCodeEditorCommandPicks(),
+			...this.getGlobalCommandPicks()
+		].map(picks => ({
+			...picks,
+			buttons: [{
+				iconClass: ThemeIcon.asClassName(Codicon.gear),
+				tooltip: localize('configure keybinding', "Configure Keybinding"),
+			}],
+			trigger: (): TriggerAction => {
+				this.preferencesService.openGlobalKeybindingSettings(false, { query: createKeybindingCommandQuery(picks.commandId, picks.commandWhen) });
+				return TriggerAction.CLOSE_PICKER;
+			},
+		}));
+	}
+
+	protected hasAdditionalCommandPicks(filter: string, token: CancellationToken): boolean {
+		return false;
+	}
+
+	protected async getAdditionalCommandPicks(allPicks: ICommandQuickPick[], picksSoFar: ICommandQuickPick[], filter: string, token: CancellationToken): Promise<Array<ICommandQuickPick | IQuickPickSeparator>> {
+		return [];
 	}
 
 	private getGlobalCommandPicks(): ICommandQuickPick[] {
-	const globalCommandPicks: ICommandQuickPick[] = [];
-	const scopedContextKeyService = this.editorService.activeEditorPane?.scopedContextKeyService || this.editorGroupService.activeGroup.scopedContextKeyService;
-	const globalCommandsMenu = this.menuService.getMenuActions(MenuId.CommandPalette, scopedContextKeyService);
-	const globalCommandsMenuActions = globalCommandsMenu
-		.reduce((r, [, actions]) => [...r, ...actions], <Array<MenuItemAction | SubmenuItemAction | string>>[])
-		.filter(action => action instanceof MenuItemAction && action.enabled) as MenuItemAction[];
+		const globalCommandPicks: ICommandQuickPick[] = [];
+		const scopedContextKeyService = this.editorService.activeEditorPane?.scopedContextKeyService || this.editorGroupService.activeGroup.scopedContextKeyService;
+		const globalCommandsMenu = this.menuService.getMenuActions(MenuId.CommandPalette, scopedContextKeyService);
+		const globalCommandsMenuActions = globalCommandsMenu
+			.reduce((r, [, actions]) => [...r, ...actions], <Array<MenuItemAction | SubmenuItemAction | string>>[])
+			.filter(action => action instanceof MenuItemAction && action.enabled) as MenuItemAction[];
 
-	for (const action of globalCommandsMenuActions) {
+		for (const action of globalCommandsMenuActions) {
 
-		// Label
-		let label = (typeof action.item.title === 'string' ? action.item.title : action.item.title.value) || action.item.id;
+			// Label
+			let label = (typeof action.item.title === 'string' ? action.item.title : action.item.title.value) || action.item.id;
 
-		// Category
-		const category = typeof action.item.category === 'string' ? action.item.category : action.item.category?.value;
-		if (category) {
-			label = localize('commandWithCategory', "{0}: {1}", category, label);
+			// Category
+			const category = typeof action.item.category === 'string' ? action.item.category : action.item.category?.value;
+			if (category) {
+				label = localize('commandWithCategory', "{0}: {1}", category, label);
+			}
+
+			// Alias
+			const aliasLabel = typeof action.item.title !== 'string' ? action.item.title.original : undefined;
+			const aliasCategory = (category && action.item.category && typeof action.item.category !== 'string') ? action.item.category.original : undefined;
+			const commandAlias = (aliasLabel && category) ?
+				aliasCategory ? `${aliasCategory}: ${aliasLabel}` : `${category}: ${aliasLabel}` :
+				aliasLabel;
+
+			const metadataDescription = action.item.metadata?.description;
+			const commandDescription = metadataDescription === undefined || isLocalizedString(metadataDescription)
+				? metadataDescription
+				// TODO: this type will eventually not be a string and when that happens, this should simplified.
+				: { value: metadataDescription, original: metadataDescription };
+			globalCommandPicks.push({
+				commandId: action.item.id,
+				commandWhen: action.item.precondition?.serialize(),
+				commandAlias,
+				label: stripIcons(label),
+				commandDescription,
+				commandCategory: category,
+			});
 		}
 
-		// Alias
-		const aliasLabel = typeof action.item.title !== 'string' ? action.item.title.original : undefined;
-		const aliasCategory = (category && action.item.category && typeof action.item.category !== 'string') ? action.item.category.original : undefined;
-		const commandAlias = (aliasLabel && category) ?
-			aliasCategory ? `${aliasCategory}: ${aliasLabel}` : `${category}: ${aliasLabel}` :
-			aliasLabel;
-
-		const metadataDescription = action.item.metadata?.description;
-		const commandDescription = metadataDescription === undefined || isLocalizedString(metadataDescription)
-			? metadataDescription
-			// TODO: this type will eventually not be a string and when that happens, this should simplified.
-			: { value: metadataDescription, original: metadataDescription };
-		globalCommandPicks.push({
-			commandId: action.item.id,
-			commandWhen: action.item.precondition?.serialize(),
-			commandAlias,
-			label: stripIcons(label),
-			commandDescription,
-			commandCategory: category,
-		});
+		return globalCommandPicks;
 	}
-
-	return globalCommandPicks;
-}
 }
 
 //#region Actions
