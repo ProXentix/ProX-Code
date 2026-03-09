@@ -27,6 +27,25 @@ import { IWebWorkerService } from '../../../../platform/webWorker/browser/webWor
 import { WorkerTextModelSyncClient } from '../../../../editor/common/services/textModelSync/textModelSync.impl.js';
 import { ILanguageDetectionWorker, LanguageDetectionWorkerHost } from './languageDetectionWorker.protocol.js';
 
+const ALLOWED_DETECTABLE_LANGUAGES = new Set([
+	'json',
+	'proxpl',
+	'xml',
+	'git',
+	'diff',
+	'log',
+	'bat',
+	'powershell',
+	'bash',
+	'shellscript',
+	'dockerfile',
+	'dockercompose',
+	'docker-compose',
+	'yaml',
+	'yml',
+	'plaintext'
+]);
+
 const TOP_LANG_COUNTS = 12;
 
 const regexpModuleLocation: AppResourcePath = `${nodeModulesPath}/vscode-regexp-languagedetection`;
@@ -280,7 +299,12 @@ export class LanguageDetectionWorkerClient extends Disposable {
 		const { workerClient, workerTextModelSyncClient } = this._getOrCreateLanguageDetectionWorker();
 		workerTextModelSyncClient.ensureSyncedResources([resource]);
 		const modelId = await workerClient.proxy.$detectLanguage(resource.toString(), langBiases, preferHistory, supportedLangs);
-		const languageId = this.getLanguageId(modelId);
+		let languageId = this.getLanguageId(modelId);
+
+		// Restrict output to allowed languages
+		if (languageId && !ALLOWED_DETECTABLE_LANGUAGES.has(languageId)) {
+			languageId = undefined;
+		}
 
 		const LanguageDetectionStatsId = 'automaticlanguagedetection.perf';
 
