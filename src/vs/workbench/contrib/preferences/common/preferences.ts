@@ -5,43 +5,65 @@
 
 import { raceTimeout } from '../../../../base/common/async.js';
 import { CancellationToken } from '../../../../base/common/cancellation.js';
-Object.keys(productService.extensionRecommendations).forEach(extensionId => {
-	const extensionInfo = productService.extensionRecommendations![extensionId];
-	if (extensionInfo.onSettingsEditorOpen) {
-		settingsEditorRecommendedExtensions[extensionId] = extensionInfo;
-	}
-});
+import { IStringDictionary } from '../../../../base/common/collections.js';
+import { localize } from '../../../../nls.js';
+import { IChatEntitlementService } from '../../../services/chat/common/chatEntitlementService.js';
+import { IExtensionGalleryService, IGalleryExtension } from '../../../../platform/extensionManagement/common/extensionManagement.js';
+import { IProductService } from '../../../../platform/product/common/productService.js';
 
-const recommendedExtensionsGalleryInfo: IStringDictionary<IGalleryExtension> = {};
-for (const key in settingsEditorRecommendedExtensions) {
-	const extensionId = key;
-	// Recommend prerelease if not on Stable.
-	const isStable = productService.quality === 'stable';
-	try {
-		const extensions = await raceTimeout(
-			extensionGalleryService.getExtensions([{ id: extensionId, preRelease: !isStable }], CancellationToken.None),
-			EXTENSION_FETCH_TIMEOUT_MS);
-		if (extensions?.length === 1) {
-			recommendedExtensionsGalleryInfo[key] = extensions[0];
-		} else {
-			// same as network connection fail. we do not want a blank settings page: https://github.com/ProXentix/ProX-Code/issues/195722
-			// so instead of returning partial data we return undefined here
-			return undefined;
-		}
-	} catch (e) {
-		// Network connection fail. Return nothing rather than partial data.
-		return undefined;
-	}
+export const EXTENSION_FETCH_TIMEOUT_MS = 5000;
+
+export interface IRecommendationInfo {
+	onSettingsEditorOpen?: {
+		descriptionOverride?: string;
+	};
 }
 
-cachedExtensionToggleData = {
-	settingsEditorRecommendedExtensions,
-	recommendedExtensionsGalleryInfo,
-	commonlyUsed: productService.commonlyUsedSettings
-};
-return cachedExtensionToggleData;
+export interface IExtensionToggleData {
+	settingsEditorRecommendedExtensions: IStringDictionary<IRecommendationInfo>;
+	recommendedExtensionsGalleryInfo: IStringDictionary<IGalleryExtension>;
+	commonlyUsed: string[] | undefined;
+}
+
+export async function getExperimentalExtensionToggleData(chatEntitlementService: IChatEntitlementService, extensionGalleryService: IExtensionGalleryService, productService: IProductService): Promise<IExtensionToggleData | undefined> {
+	const settingsEditorRecommendedExtensions: IStringDictionary<IRecommendationInfo> = {};
+	let cachedExtensionToggleData: IExtensionToggleData | undefined;
+
+	Object.keys(productService.extensionRecommendations ?? {}).forEach(extensionId => {
+		const extensionInfo = productService.extensionRecommendations![extensionId] as IRecommendationInfo;
+		if (extensionInfo.onSettingsEditorOpen) {
+			settingsEditorRecommendedExtensions[extensionId] = extensionInfo;
+		}
+	});
+
+	const recommendedExtensionsGalleryInfo: IStringDictionary<IGalleryExtension> = {};
+	for (const key in settingsEditorRecommendedExtensions) {
+		const extensionId = key;
+		// Recommend prerelease if not on Stable.
+		const isStable = productService.quality === 'stable';
+		try {
+			const extensions = await raceTimeout(
+				extensionGalleryService.getExtensions([{ id: extensionId, preRelease: !isStable }], CancellationToken.None),
+				EXTENSION_FETCH_TIMEOUT_MS);
+			if (extensions?.length === 1) {
+				recommendedExtensionsGalleryInfo[key] = extensions[0];
+			} else {
+				// same as network connection fail. we do not want a blank settings page: https://github.com/ProXentix/ProX-Code/issues/195722
+				// so instead of returning partial data we return undefined here
+				return undefined;
+			}
+		} catch (e) {
+			// Network connection fail. Return nothing rather than partial data.
+			return undefined;
+		}
 	}
-return undefined;
+
+	cachedExtensionToggleData = {
+		settingsEditorRecommendedExtensions,
+		recommendedExtensionsGalleryInfo,
+		commonlyUsed: productService.commonlyUsedSettings
+	};
+	return cachedExtensionToggleData;
 }
 
 /**
