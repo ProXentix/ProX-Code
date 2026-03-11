@@ -45,8 +45,6 @@ import { IOpenerService } from '../../../../platform/opener/common/opener.js';
 import { IQuickInputService, IQuickPick, IQuickPickItem } from '../../../../platform/quickinput/common/quickInput.js';
 import { IStorageService, StorageScope, StorageTarget } from '../../../../platform/storage/common/storage.js';
 import { FloatingEditorClickMenu } from '../../../browser/codeeditor.js';
-import { IChatCodeBlockContextProviderService } from '../../chat/browser/chat.js';
-import { ICodeBlockActionContext } from '../../chat/browser/widget/chatContentParts/codeBlockPart.js';
 import { getSimpleEditorOptions } from '../../codeEditor/browser/simpleEditorOptions.js';
 import { AccessibilityCommandId } from '../common/accessibilityCommands.js';
 import { AccessibilityVerbositySettingId, AccessibilityWorkbenchSettingId, accessibilityHelpIsShown, accessibleViewContainsCodeBlocks, accessibleViewCurrentProviderId, accessibleViewGoToSymbolSupported, accessibleViewHasAssignedKeybindings, accessibleViewHasUnassignedKeybindings, accessibleViewInCodeBlock, accessibleViewIsShown, accessibleViewOnLastLine, accessibleViewSupportsNavigation, accessibleViewVerbosityEnabled } from './accessibilityConfiguration.js';
@@ -63,7 +61,6 @@ interface ICodeBlock {
 	endLine: number;
 	code: string;
 	languageId?: string;
-	chatSessionResource: URI | undefined;
 }
 
 export class AccessibleView extends Disposable implements ITextModelContentProvider {
@@ -109,7 +106,6 @@ export class AccessibleView extends Disposable implements ITextModelContentProvi
 		@ILayoutService private readonly _layoutService: ILayoutService,
 		@IMenuService private readonly _menuService: IMenuService,
 		@ICommandService private readonly _commandService: ICommandService,
-		@IChatCodeBlockContextProviderService private readonly _codeBlockContextProviderService: IChatCodeBlockContextProviderService,
 		@IStorageService private readonly _storageService: IStorageService,
 		@ITextModelService private readonly textModelResolverService: ITextModelService,
 		@IQuickInputService private readonly _quickInputService: IQuickInputService,
@@ -251,18 +247,7 @@ export class AccessibleView extends Disposable implements ITextModelContentProvi
 		}
 	}
 
-	getCodeBlockContext(): ICodeBlockActionContext | undefined {
-		const position = this._editorWidget.getPosition();
-		if (!this._codeBlocks?.length || !position) {
-			return;
-		}
-		const codeBlockIndex = this._codeBlocks?.findIndex(c => c.startLine <= position?.lineNumber && c.endLine >= position?.lineNumber);
-		const codeBlock = codeBlockIndex !== undefined && codeBlockIndex > -1 ? this._codeBlocks[codeBlockIndex] : undefined;
-		if (!codeBlock || codeBlockIndex === undefined) {
-			return;
-		}
-		return { code: codeBlock.code, languageId: codeBlock.languageId, codeBlockIndex, element: undefined, chatSessionResource: codeBlock.chatSessionResource };
-	}
+
 
 	navigateToCodeBlock(type: 'next' | 'previous'): void {
 		const position = this._editorWidget.getPosition();
@@ -335,9 +320,7 @@ export class AccessibleView extends Disposable implements ITextModelContentProvi
 			// only cache a provider with an ID so that it will eventually be cleared.
 			this._lastProvider = provider;
 		}
-		if (provider.id === AccessibleViewProviderId.PanelChat || provider.id === AccessibleViewProviderId.QuickChat) {
-			this._register(this._codeBlockContextProviderService.registerProvider({ getCodeBlockContext: () => this.getCodeBlockContext() }, 'accessibleView'));
-		}
+
 		if (provider instanceof ExtensionContentProvider) {
 			this._storageService.store(`${ACCESSIBLE_VIEW_SHOWN_STORAGE_PREFIX}${provider.id}`, true, StorageScope.APPLICATION, StorageTarget.USER);
 		}
@@ -383,9 +366,7 @@ export class AccessibleView extends Disposable implements ITextModelContentProvi
 		if (!markdown) {
 			return;
 		}
-		if (this._currentProvider?.id !== AccessibleViewProviderId.PanelChat && this._currentProvider?.id !== AccessibleViewProviderId.QuickChat) {
-			return;
-		}
+
 		if (this._currentProvider.options.language && this._currentProvider.options.language !== 'markdown') {
 			// Symbols haven't been provided and we cannot parse this language
 			return;
@@ -405,7 +386,7 @@ export class AccessibleView extends Disposable implements ITextModelContentProvi
 				inBlock = false;
 				const endLine = i;
 				const code = lines.slice(startLine, endLine).join('\n');
-				this._codeBlocks?.push({ startLine, endLine, code, languageId, chatSessionResource: undefined });
+				this._codeBlocks?.push({ startLine, endLine, code, languageId });
 			}
 		});
 		this._accessibleViewContainsCodeBlocks.set(this._codeBlocks.length > 0);
