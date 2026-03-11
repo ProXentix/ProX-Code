@@ -204,7 +204,7 @@ class TerminalInitialHintWidget extends Disposable {
 		@IConfigurationService private readonly _configurationService: IConfigurationService,
 		@IContextMenuService private readonly _contextMenuService: IContextMenuService,
 		@IKeybindingService private readonly _keybindingService: IKeybindingService,
-		@ITelemetryService private readonly _telemetryService: ITelemetryService,
+		@ITelemetryService private readonly __telemetryService: ITelemetryService,
 	) {
 		super();
 		this._toDispose.add(_instance.onDidFocus(() => {

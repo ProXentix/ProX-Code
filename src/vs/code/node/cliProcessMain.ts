@@ -239,12 +239,6 @@ class CliMain extends Disposable {
 		// Localizations
 		services.set(ILanguagePackService, new SyncDescriptor(NativeLanguagePackService, undefined, false));
 
-		// MCP
-		
-		
-		
-		
-		
 
 		// Telemetry
 		const appenders: ITelemetryAppender[] = [];
@@ -337,10 +331,7 @@ class CliMain extends Disposable {
 			return instantiationService.createInstance(ExtensionManagementCLI, new ConsoleLogger(LogLevel.Info, false)).locateExtension(this.argv['locate-extension']);
 		}
 
-		// Install MCP server
 
-
-		}
 
 		// Telemetry
 		else if (this.argv['telemetry']) {

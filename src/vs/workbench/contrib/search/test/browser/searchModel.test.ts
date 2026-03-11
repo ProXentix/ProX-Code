@@ -14,7 +14,7 @@ import { ModelService } from '../../../../../editor/common/services/modelService
 import { IConfigurationService } from '../../../../../platform/configuration/common/configuration.js';
 import { TestConfigurationService } from '../../../../../platform/configuration/test/common/testConfigurationService.js';
 import { TestInstantiationService } from '../../../../../platform/instantiation/test/common/instantiationServiceMock.js';
-import { IAITextQuery, IFileMatch, IFileQuery, IFileSearchStats, IFolderQuery, ISearchComplete, ISearchProgressItem, ISearchQuery, ISearchService, ITextQuery, ITextSearchMatch, OneLineRange, QueryType, TextSearchMatch } from '../../../../services/search/common/search.js';
+import {  IFileMatch, IFileQuery, IFileSearchStats, IFolderQuery, ISearchComplete, ISearchProgressItem, ISearchQuery, ISearchService, ITextQuery, ITextSearchMatch, OneLineRange, QueryType, TextSearchMatch } from '../../../../services/search/common/search.js';
 import { ITelemetryService } from '../../../../../platform/telemetry/common/telemetry.js';
 import { NullTelemetryService } from '../../../../../platform/telemetry/common/telemetryUtils.js';
 import { SearchModelImpl } from '../../browser/searchTreeModel/searchModel.js';
@@ -358,14 +358,14 @@ suite('SearchModel', () => {
 			}
 		}
 		];
-		const cellMatchMd: INotebookCellMatchWithModel = {
+		const _cellMatchMd: INotebookCellMatchWithModel = {
 			cell: mdInputCell,
 			index: 0,
 			contentResults: contentMatchesToTextSearchMatches(findMatchMds, mdInputCell),
 			webviewResults: []
 		};
 
-		const cellMatchCode: INotebookCellMatchWithModel = {
+		const _cellMatchCode: INotebookCellMatchWithModel = {
 			cell: codeCell,
 			index: 1,
 			contentResults: contentMatchesToTextSearchMatches(findMatchCodeCells, codeCell),

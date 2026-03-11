@@ -89,7 +89,7 @@ import './mainThreadProfileContentHandlers.js';
 // import './mainThreadAiRelatedInformation.js'; // Not available in this build
 // import './mainThreadAiEmbeddingVector.js'; // Not available in this build
 // import './mainThreadAiSettingsSearch.js'; // Not available in this build
-import './mainThreadMcp.js';
+// import './mainThreadMcp.js';
 // import './mainThreadChatContext.js'; // Not available in this build
 // import './mainThreadChatStatus.js'; // Not available in this build
 // import './mainThreadChatOutputRenderer.js'; // Not available in this build

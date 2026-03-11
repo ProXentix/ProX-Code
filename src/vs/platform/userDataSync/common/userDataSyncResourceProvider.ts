@@ -19,7 +19,7 @@ import { parseSettingsSyncContent } from './settingsSync.js';
 import { getKeybindingsContentFromSyncContent } from './keybindingsSync.js';
 import { IConfigurationService } from '../../configuration/common/configuration.js';
 import { getTasksContentFromSyncContent } from './tasksSync.js';
-import { getMcpContentFromSyncContent } from './mcpSync.js';
+// import { getMcpContentFromSyncContent } from './mcpSync.js';
 import { LocalExtensionsProvider, parseExtensions, stringify as stringifyExtensions } from './extensionsSync.js';
 import { LocalGlobalStateProvider, stringify as stringifyGlobalState } from './globalStateSync.js';
 import { IInstantiationService } from '../../instantiation/common/instantiation.js';

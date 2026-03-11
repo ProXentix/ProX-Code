@@ -51,7 +51,7 @@ export class SearchModelImpl extends Disposable implements ISearchModel {
 		@ITelemetryService private readonly telemetryService: ITelemetryService,
 		@IConfigurationService private readonly configurationService: IConfigurationService,
 		@IInstantiationService private readonly instantiationService: IInstantiationService,
-		@ILogService private readonly logService: ILogService,
+		@ILogService private readonly _logService: ILogService,
 	) {
 		super();
 		this._searchResult = this.instantiationService.createInstance(SearchResultImpl, this);

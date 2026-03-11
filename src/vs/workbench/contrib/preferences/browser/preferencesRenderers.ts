@@ -46,8 +46,8 @@ import { IPreferencesEditorModel, IPreferencesService, ISetting, ISettingsEditor
 import { DefaultSettingsEditorModel, SettingsEditorModel, WorkspaceConfigurationEditorModel } from '../../../services/preferences/common/preferencesModels.js';
 import { IUserDataProfileService } from '../../../services/userDataProfile/common/userDataProfile.js';
 import { EXPERIMENTAL_INDICATOR_DESCRIPTION, PREVIEW_INDICATOR_DESCRIPTION } from '../common/preferences.js';
-import { mcpConfigurationSection } from '../../mcp/common/mcpConfiguration.js';
-import { McpCommandIds } from '../../mcp/common/mcpCommandIds.js';
+// import { mcpConfigurationSection } from '../../mcp/common/mcpConfiguration.js';
+// import { McpCommandIds } from '../../mcp/common/mcpCommandIds.js';
 
 export interface IPreferencesRenderer extends IDisposable {
 	render(): void;

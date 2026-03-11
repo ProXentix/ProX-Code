@@ -35,7 +35,7 @@ export class MainThreadTunnelService extends Disposable implements MainThreadTun
 		@IConfigurationService private readonly configurationService: IConfigurationService,
 		@ILogService private readonly logService: ILogService,
 		@IRemoteAgentService private readonly remoteAgentService: IRemoteAgentService,
-		@IContextKeyService private readonly contextKeyService: IContextKeyService
+		@IContextKeyService private readonly _contextKeyService: IContextKeyService
 	) {
 		super();
 		this._proxy = extHostContext.getProxy(ExtHostContext.ExtHostTunnelService);

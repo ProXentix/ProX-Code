@@ -5,7 +5,7 @@
 
 import { CancellationToken } from '../../../base/common/cancellation.js';
 import { Emitter, Event } from '../../../base/common/event.js';
-import { Disposable, DisposableMap, DisposableStore, IDisposable, MutableDisposable } from '../../../base/common/lifecycle.js';
+import { Disposable, DisposableMap, DisposableStore,  } from '../../../base/common/lifecycle.js';
 import { URI, UriComponents } from '../../../base/common/uri.js';
 import { IRange, Range } from '../../../editor/common/core/range.js';
 import * as languages from '../../../editor/common/languages.js';
@@ -23,10 +23,10 @@ import { localize } from '../../../nls.js';
 import { MarshalledId } from '../../../base/common/marshallingIds.js';
 // import { ICellRange } from '../../contrib/notebook/common/notebookRange.js';
 import { Schemas } from '../../../base/common/network.js';
-import { IViewsService } from '../../services/views/common/viewsService.js';
+// import { } from '../../services/views/common/viewsService.js';
 import { MarshalledCommentThread } from '../../common/comments.js';
-import { IEditorService } from '../../services/editor/common/editorService.js';
-import { IUriIdentityService } from '../../../platform/uriIdentity/common/uriIdentity.js';
+// import { } from '../../services/editor/common/editorService.js';
+// import { } from '../../../platform/uriIdentity/common/uriIdentity.js';
 import { Registry } from '../../../platform/registry/common/platform.js';
 
 export class MainThreadCommentThread<T> implements languages.CommentThread<T> {

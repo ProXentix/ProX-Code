@@ -8,7 +8,7 @@
 import type * as vscode from 'vscode';
 import { asArray } from '../../../base/common/arrays.js';
 import { VSBuffer } from '../../../base/common/buffer.js';
-import { illegalArgument, SerializedError } from '../../../base/common/errors.js';
+import { illegalArgument, } from '../../../base/common/errors.js';
 import { IRelativePattern } from '../../../base/common/glob.js';
 import { MarshalledId } from '../../../base/common/marshallingIds.js';
 import { Mimes } from '../../../base/common/mime.js';

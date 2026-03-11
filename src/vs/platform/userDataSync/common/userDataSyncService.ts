@@ -27,7 +27,7 @@ import { PromptsSynchronizer } from './promptsSync/promptsSync.js';
 import { SettingsSynchroniser } from './settingsSync.js';
 import { SnippetsSynchroniser } from './snippetsSync.js';
 import { TasksSynchroniser } from './tasksSync.js';
-import { McpSynchroniser } from './mcpSync.js';
+// import { McpSynchroniser } from './mcpSync.js';
 import { UserDataProfilesManifestSynchroniser } from './userDataProfilesManifestSync.js';
 import {
 	ALL_SYNC_RESOURCES, createSyncHeaders, IUserDataManualSyncTask, IUserDataSyncResourceConflicts, IUserDataSyncResourceError,

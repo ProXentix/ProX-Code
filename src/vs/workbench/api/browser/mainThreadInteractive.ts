@@ -11,7 +11,7 @@ import { extHostNamedCustomer, IExtHostContext } from '../../services/extensions
 
 @extHostNamedCustomer(MainContext.MainThreadInteractive)
 export class MainThreadInteractive implements MainThreadInteractiveShape {
-	private readonly _proxy: ExtHostInteractiveShape;
+	private readonly __proxy: ExtHostInteractiveShape;
 
 	private readonly _disposables = new DisposableStore();
 

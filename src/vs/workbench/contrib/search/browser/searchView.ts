@@ -16,7 +16,7 @@ import { KeyCode, KeyMod } from '../../../../base/common/keyCodes.js';
 import { Disposable, DisposableStore, IDisposable, MutableDisposable } from '../../../../base/common/lifecycle.js';
 import * as strings from '../../../../base/common/strings.js';
 import { URI } from '../../../../base/common/uri.js';
-import * as network from '../../../../base/common/network.js';
+import * as from '../../../../base/common/.js';
 import './media/searchview.css';
 import { getCodeEditor, isCodeEditor, isDiffEditor } from '../../../../editor/browser/editorBrowser.js';
 import { ICodeEditorService } from '../../../../editor/browser/services/codeEditorService.js';
@@ -82,7 +82,7 @@ import { ISearchTreeMatch, isSearchTreeMatch, RenderableMatch, SearchModelLocati
 
 import { searchMatchComparer } from './searchCompare.js';
 import { ITelemetryService } from '../../../../platform/telemetry/common/telemetry.js';
-import { forcedExpandRecursively } from './searchActionsTopBar.js';
+// import { } from './searchActionsTopBar.js';
 
 const $ = dom.$;
 
@@ -227,7 +227,7 @@ export class SearchView extends ViewPane {
 
 		@ILogService private readonly logService: ILogService,
 		@IAccessibilitySignalService private readonly accessibilitySignalService: IAccessibilitySignalService,
-		@ITelemetryService private readonly telemetryService: ITelemetryService,
+		@ITelemetryService private readonly _telemetryService: ITelemetryService,
 	) {
 
 		super(options, keybindingService, contextMenuService, configurationService, contextKeyService, viewDescriptorService, instantiationService, openerService, themeService, hoverService);

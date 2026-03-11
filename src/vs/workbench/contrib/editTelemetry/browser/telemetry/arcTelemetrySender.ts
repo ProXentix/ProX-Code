@@ -10,7 +10,7 @@ import { AnnotatedStringEdit } from '../../../../../editor/common/core/edits/str
 import { EditDeltaInfo, EditSuggestionId, ITextModelEditSourceMetadata } from '../../../../../editor/common/textModelEditSource.js';
 import { IInstantiationService } from '../../../../../platform/instantiation/common/instantiation.js';
 import { EditSourceData, IDocumentWithAnnotatedEdits, createDocWithJustReason } from '../helpers/documentWithAnnotatedEdits.js';
-import { IAiEditTelemetryService } from './aiEditTelemetry/aiEditTelemetryService.js';
+// import { IAiEditTelemetryService } from './aiEditTelemetry/aiEditTelemetryService.js';
 import type { ScmRepoAdapter } from './scmAdapter.js';
 import { forwardToChannelIf, isCopilotLikeExtension } from '../../../../../platform/dataChannel/browser/forwardingTelemetryService.js';
 import { ProviderId } from '../../../../../editor/common/languages.js';

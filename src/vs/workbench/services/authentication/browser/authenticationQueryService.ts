@@ -26,10 +26,10 @@ import {
 	IBaseQuery
 } from '../common/authenticationQuery.js';
 import { IAuthenticationUsageService } from './authenticationUsageService.js';
-import { IAuthenticationMcpUsageService } from './authenticationMcpUsageService.js';
+// import { IAuthenticationMcpUsageService } from './authenticationMcpUsageService.js';
 import { IAuthenticationAccessService } from './authenticationAccessService.js';
-import { IAuthenticationMcpAccessService } from './authenticationMcpAccessService.js';
-import { IAuthenticationMcpService } from './authenticationMcpService.js';
+// import { IAuthenticationMcpAccessService } from './authenticationMcpAccessService.js';
+// import { IAuthenticationMcpService } from './authenticationMcpService.js';
 import { ExtensionIdentifier } from '../../../../platform/extensions/common/extensions.js';
 
 /**
