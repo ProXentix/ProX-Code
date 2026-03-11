@@ -28,7 +28,7 @@ import { ExtensionDescriptionRegistry } from '../../services/extensions/common/e
 import { UIKind } from '../../services/extensions/common/extensionHostProtocol.js';
 import { checkProposedApiEnabled, isProposedApiEnabled } from '../../services/extensions/common/extensions.js';
 import { ProxyIdentifier } from '../../services/extensions/common/proxyIdentifier.js';
-import { AISearchKeyword, ExcludeSettingOptions, TextSearchCompleteMessageType, TextSearchContext2, TextSearchMatch2 } from '../../services/search/common/searchExtTypes.js';
+import { ExcludeSettingOptions, TextSearchCompleteMessageType, TextSearchContext2, TextSearchMatch2 } from '../../services/search/common/searchExtTypes.js';
 import { CandidatePortSource, ExtHostContext, ExtHostLogLevelServiceShape, MainContext } from './extHost.protocol.js';
 
 import { ExtHostApiCommands } from './extHostApiCommands.js';
@@ -61,7 +61,6 @@ import { IExtHostInitDataService } from './extHostInitDataService.js';
 import { ExtHostInteractive } from './extHostInteractive.js';
 import { ExtHostLabelService } from './extHostLabelService.js';
 import { ExtHostLanguageFeatures } from './extHostLanguageFeatures.js';
-import { ExtHostLanguageModelTools } from './extHostLanguageModelTools.js';
 import { ExtHostLanguages } from './extHostLanguages.js';
 import { IExtHostLocalizationService } from './extHostLocalizationService.js';
 import { IExtHostManagedSockets } from './extHostManagedSockets.js';
@@ -194,7 +193,6 @@ export function createApiFactoryAndRegisterActors(accessor: ServicesAccessor): I
 	const extHostDiagnostics = rpcProtocol.set(ExtHostContext.ExtHostDiagnostics, new ExtHostDiagnostics(rpcProtocol, extHostLogService, extHostFileSystemInfo, extHostDocumentsAndEditors));
 	const extHostLanguages = rpcProtocol.set(ExtHostContext.ExtHostLanguages, new ExtHostLanguages(rpcProtocol, extHostDocuments, extHostCommands.converter, uriTransformer));
 	const extHostLanguageFeatures = rpcProtocol.set(ExtHostContext.ExtHostLanguageFeatures, new ExtHostLanguageFeatures(rpcProtocol, uriTransformer, extHostDocuments, extHostCommands, extHostDiagnostics, extHostLogService, extHostApiDeprecation, extHostTelemetry));
-	const extHostCodeMapper = rpcProtocol.set(ExtHostContext.ExtHostCodeMapper, new ExtHostCodeMapper(rpcProtocol));
 	const extHostFileSystem = rpcProtocol.set(ExtHostContext.ExtHostFileSystem, new ExtHostFileSystem(rpcProtocol, extHostLanguageFeatures));
 	const extHostFileSystemEvent = rpcProtocol.set(ExtHostContext.ExtHostFileSystemEventService, new ExtHostFileSystemEventService(rpcProtocol, extHostLogService, extHostDocumentsAndEditors));
 	const extHostQuickOpen = rpcProtocol.set(ExtHostContext.ExtHostQuickOpen, createExtHostQuickOpen(rpcProtocol, extHostWorkspace, extHostCommands));
@@ -221,6 +219,7 @@ export function createApiFactoryAndRegisterActors(accessor: ServicesAccessor): I
 	// Other instances
 	const extHostBulkEdits = new ExtHostBulkEdits(rpcProtocol, extHostDocumentsAndEditors);
 	const extHostClipboard = new ExtHostClipboard(rpcProtocol);
+	const extHostStatusBar = new ExtHostStatusBar(rpcProtocol, extHostCommands.converter);
 	const extHostMessageService = new ExtHostMessageService(rpcProtocol, extHostLogService);
 	const extHostDialogs = new ExtHostDialogs(rpcProtocol);
 
@@ -938,11 +937,7 @@ export function createApiFactoryAndRegisterActors(accessor: ServicesAccessor): I
 			get nativeHandle(): Uint8Array | undefined {
 				checkProposedApiEnabled(extension, 'nativeWindowHandle');
 				return extHostWindow.nativeHandle;
-			},
-			createChatStatusItem: (id: string) => {
-				checkProposedApiEnabled(extension, 'chatStatusItem');
-				return extHostChatStatus.createChatStatusItem(extension, id);
-			},
+			}
 		};
 
 		// namespace: workspace
@@ -1439,11 +1434,18 @@ export function createApiFactoryAndRegisterActors(accessor: ServicesAccessor): I
 		return <typeof vscode>{
 			version: initData.version,
 			// namespaces
+			authentication,
+			commands,
+			comments,
+			debug,
 			extensions,
 			l10n,
 			languages,
 			notebooks,
 			scm,
+			tasks,
+			tests,
+			window,
 			workspace,
 			// types
 			Breakpoint: extHostTypes.Breakpoint,
