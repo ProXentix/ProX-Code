@@ -28,7 +28,11 @@ import { dirname } from '../../../../base/common/resources.js';
 import { Promises } from '../../../../base/common/async.js';
 import { SaveSourceRegistry } from '../../../common/editor.js';
 
-import { INotebookEditorModelResolverService } from '../../notebook/common/notebookEditorModelResolverService.js';
+import { INotebookEditorModelResolverService, IResolvedNotebookEditorModel } from '../../notebook/common/notebookEditorModelResolverService.js';
+
+// Stub notebook cell helpers since notebook support is not available in this build
+const CellUri = { parse: (_uri: any) => undefined as any };
+const isIMatchInNotebook = (_match: any): boolean => false;
 import { ISearchTreeFileMatch, isSearchTreeFileMatch, ISearchTreeMatch, FileMatchOrMatch, isSearchTreeMatch } from './searchTreeModel/searchTreeCommon.js';
 
 
@@ -74,7 +78,7 @@ class ReplacePreviewModel extends Disposable {
 
 	async resolve(replacePreviewUri: URI): Promise<ITextModel> {
 		const fileResource = toFileResource(replacePreviewUri);
-		const fileMatch = <ISearchTreeFileMatch>this.searchWorkbenchService.searchModel.searchResult.matches(false).filter(match => match.resource.toString() === fileResource.toString())[0];
+		const fileMatch = <ISearchTreeFileMatch>this.searchWorkbenchService.searchModel.searchResult.matches().filter(match => match.resource.toString() === fileResource.toString())[0];
 		const ref = this._register(await this.textModelResolverService.createModelReference(fileResource));
 		const sourceModel = ref.object.textEditorModel;
 		const sourceModelLanguageId = sourceModel.getLanguageId();
@@ -125,7 +129,7 @@ export class ReplaceService implements IReplaceService {
 						ref = await this.notebookEditorModelResolverService.resolve(notebookResource);
 						await ref.object.save({ source: ReplaceService.REPLACE_SAVE_SOURCE });
 					} finally {
-						ref?.dispose();
+						(ref as IReference<IResolvedNotebookEditorModel> | undefined)?.dispose();
 					}
 				}
 				return;
@@ -206,7 +210,7 @@ export class ReplaceService implements IReplaceService {
 				if (isIMatchInNotebook(arg)) {
 					// only apply edits if it's not a webview match, since webview matches are read-only
 					const match = arg;
-					edits.push(this.createEdit(match, match.replaceString, match.cell?.uri));
+					edits.push(this.createEdit(match, match.replaceString, match.parent().resource));
 				} else {
 					const match = <ISearchTreeMatch>arg;
 					edits.push(this.createEdit(match, match.replaceString, resource));

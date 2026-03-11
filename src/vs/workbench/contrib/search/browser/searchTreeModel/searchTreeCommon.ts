@@ -117,7 +117,7 @@ export interface ISearchResult {
 
 	batchReplace(elementsToReplace: RenderableMatch[]): Promise<void>;
 	batchRemove(elementsToRemove: RenderableMatch[]): void;
-	folderMatches(): ISearchTreeFolderMatch[];
+	folderMatches(ai?: boolean): ISearchTreeFolderMatch[];
 	add(allRaw: IFileMatch[], searchInstanceID: string, silent?: boolean): void;
 	clear(): void;
 	remove(matches: ISearchTreeFileMatch | ISearchTreeFolderMatch | (ISearchTreeFileMatch | ISearchTreeFolderMatch)[]): void;
@@ -163,6 +163,8 @@ export interface ITextSearchHeading {
 	count(): number;
 	clear(clearAll: boolean): void;
 	dispose(): void;
+	/** Whether this is an AI-contributed result heading. */
+	readonly isAIContributed: boolean;
 }
 
 export interface IPlainTextSearchHeading extends ITextSearchHeading {
@@ -203,7 +205,8 @@ export interface ISearchTreeFolderMatch {
 	recursiveFileCount(): number;
 	recursiveMatchCount(): number;
 	dispose(): void;
-
+	/** Whether this folder match is from an AI search result. */
+	isAIContributed(): boolean;
 }
 
 export interface ISearchTreeFolderMatchWithResource extends ISearchTreeFolderMatch {

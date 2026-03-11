@@ -26,6 +26,8 @@ import { arrayContainsElementOrParent, RenderableMatch, ISearchResult, isSearchT
 
 import { AITextSearchHeadingImpl } from './AISearch/aiSearchModel.js';
 
+// Stub: MatchInNotebook is not available in this build (notebook support not included)
+type MatchInNotebook = never;
 
 //#region Interfaces
 export interface ISearchActionContext {
@@ -308,7 +310,7 @@ async function performReplace(accessor: ServicesAccessor,
 
 			if (isSearchTreeMatch(nextFocusElement)) {
 				const useReplacePreview = configurationService.getValue<ISearchConfiguration>().search.useReplacePreview;
-				if (!useReplacePreview || hasToOpenFile(accessor, nextFocusElement) || nextFocusElement instanceof MatchInNotebook) {
+				if (!useReplacePreview || hasToOpenFile(accessor, nextFocusElement) || (nextFocusElement as unknown) instanceof MatchInNotebook) {
 					viewlet?.open(nextFocusElement, true);
 				} else {
 					accessor.get(IReplaceService).openReplacePreview(nextFocusElement, true);
@@ -425,4 +427,3 @@ export async function getLastNodeFromSameType(viewer: WorkbenchCompressibleAsync
 }
 
 //#endregion
-

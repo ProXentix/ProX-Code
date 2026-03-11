@@ -8,10 +8,6 @@ import { CancellationToken } from '../../../../base/common/cancellation.js';
 import { IStringDictionary } from '../../../../base/common/collections.js';
 import { IMatch, matchesBaseContiguousSubString, matchesContiguousSubString, matchesSubString, matchesWords } from '../../../../base/common/filters.js';
 
-import { distinct } from '../../../../base/common/arrays.js';
-import { CancellationToken } from '../../../../base/common/cancellation.js';
-import { IStringDictionary } from '../../../../base/common/collections.js';
-import { IMatch, matchesBaseContiguousSubString, matchesContiguousSubString, matchesSubString, matchesWords } from '../../../../base/common/filters.js';
 import { Disposable } from '../../../../base/common/lifecycle.js';
 import * as strings from '../../../../base/common/strings.js';
 import { TfIdfCalculator, TfIdfDocument } from '../../../../base/common/tfIdf.js';

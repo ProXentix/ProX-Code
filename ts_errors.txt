@@ -1,5 +1,0 @@
-﻿
-> prox-code@1.0.0 compile-check-ts-native
-> tsgo --project ./src/tsconfig.json --noEmit --skipLibCheck
-
-src/vs/workbench/contrib/search/browser/searchView.ts(19,18): error TS1005: 'from' expected.

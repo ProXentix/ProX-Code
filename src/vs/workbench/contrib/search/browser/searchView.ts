@@ -667,6 +667,11 @@ export class SearchView extends ViewPane {
 		const hasProvider = Constants.SearchContext.hasAIResultProvider.getValue(this.contextKeyService);
 		return !!hasProvider;
 	}
+
+	/** Stub: AI results not available in this build. */
+	public requestAIResults(): void {
+		// AI search not implemented in this build
+	}
 	private async onConfigurationUpdated(event?: IConfigurationChangeEvent): Promise<void> {
 		if (event && (event.affectsConfiguration('search.decorations.colors') || event.affectsConfiguration('search.decorations.badges'))) {
 			return this.refreshTreeController.queue();

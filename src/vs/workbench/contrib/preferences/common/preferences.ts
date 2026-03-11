@@ -10,8 +10,117 @@ import { localize } from '../../../../nls.js';
 import { IChatEntitlementService } from '../../../services/chat/common/chatEntitlementService.js';
 import { IExtensionGalleryService, IGalleryExtension } from '../../../../platform/extensionManagement/common/extensionManagement.js';
 import { IProductService } from '../../../../platform/product/common/productService.js';
+import { RawContextKey } from '../../../../platform/contextkey/common/contextkey.js';
+import { ISearchResult, ISettingMatch, ISettingsEditorModel } from '../../../services/preferences/common/preferences.js';
+import { createDecorator } from '../../../../platform/instantiation/common/instantiation.js';
 
 export const EXTENSION_FETCH_TIMEOUT_MS = 5000;
+
+// ---- Setting Tags ----
+export const MODIFIED_SETTING_TAG = 'modified';
+export const POLICY_SETTING_TAG = 'hasPolicy';
+export const REQUIRE_TRUSTED_WORKSPACE_SETTING_TAG = 'requireTrustedWorkspace';
+export const WORKSPACE_TRUST_SETTING_TAG = 'workspaceTrust';
+export const LANGUAGE_SETTING_TAG = 'languageOverride';
+export const EXTENSION_SETTING_TAG = 'ext';
+export const FEATURE_SETTING_TAG = 'feature';
+export const GENERAL_TAG_SETTING_TAG = 'general';
+export const ID_SETTING_TAG = 'id';
+export const ADVANCED_SETTING_TAG = 'advanced';
+
+// ---- Feature Flags ----
+export const ENABLE_LANGUAGE_FILTER = true;
+export const ENABLE_EXTENSION_TOGGLE_SETTINGS = true;
+
+// ---- Context Keys ----
+export const CONTEXT_SETTINGS_EDITOR = new RawContextKey<boolean>('inSettingsEditor', false);
+export const CONTEXT_SETTINGS_JSON_EDITOR = new RawContextKey<boolean>('inSettingsJSONEditor', false);
+export const CONTEXT_SETTINGS_SEARCH_FOCUS = new RawContextKey<boolean>('inSettingsSearch', false);
+export const CONTEXT_SETTINGS_ROW_FOCUS = new RawContextKey<boolean>('settingRowFocus', false);
+export const CONTEXT_TOC_ROW_FOCUS = new RawContextKey<boolean>('settingsTocRowFocus', false);
+export const CONTEXT_AI_SETTING_RESULTS_AVAILABLE = new RawContextKey<boolean>('aiSettingResultsAvailable', false);
+export const CONTEXT_KEYBINDINGS_EDITOR = new RawContextKey<boolean>('inKeybindings', false);
+export const CONTEXT_KEYBINDINGS_SEARCH_FOCUS = new RawContextKey<boolean>('inKeybindingsSearch', false);
+export const CONTEXT_KEYBINDINGS_SEARCH_HAS_VALUE = new RawContextKey<boolean>('keybindingsSearchHasValue', false);
+export const CONTEXT_KEYBINDING_FOCUS = new RawContextKey<boolean>('keybindingFocus', false);
+export const CONTEXT_WHEN_FOCUS = new RawContextKey<boolean>('whenFocus', false);
+export const CONTEXT_PREFERENCES_SEARCH_FOCUS = new RawContextKey<boolean>('inPreferencesSearch', false);
+
+// ---- Settings Editor Commands ----
+export const SETTINGS_EDITOR_COMMAND_CLEAR_SEARCH_RESULTS = 'settings.action.clearSearchResults';
+export const SETTINGS_EDITOR_COMMAND_SHOW_CONTEXT_MENU = 'settings.action.showContextMenu';
+export const SETTINGS_EDITOR_COMMAND_TOGGLE_AI_SEARCH = 'settings.action.toggleAiSearch';
+export const SETTINGS_EDITOR_COMMAND_SHOW_AI_RESULTS = 'settings.action.showAiResults';
+export const SETTINGS_EDITOR_COMMAND_SUGGEST_FILTERS = 'settings.action.suggestFilters';
+
+// ---- Keybindings Editor Commands ----
+export const KEYBINDINGS_EDITOR_COMMAND_SEARCH = 'keybindings.editor.searchKeybindings';
+export const KEYBINDINGS_EDITOR_COMMAND_CLEAR_SEARCH_RESULTS = 'keybindings.editor.clearSearchResults';
+export const KEYBINDINGS_EDITOR_COMMAND_CLEAR_SEARCH_HISTORY = 'keybindings.editor.clearSearchHistory';
+export const KEYBINDINGS_EDITOR_COMMAND_RECORD_SEARCH_KEYS = 'keybindings.editor.recordSearchKeys';
+export const KEYBINDINGS_EDITOR_COMMAND_SORTBY_PRECEDENCE = 'keybindings.editor.toggleSortByPrecedence';
+export const KEYBINDINGS_EDITOR_COMMAND_DEFINE = 'keybindings.editor.defineKeybinding';
+export const KEYBINDINGS_EDITOR_COMMAND_REMOVE = 'keybindings.editor.removeKeybinding';
+export const KEYBINDINGS_EDITOR_COMMAND_RESET = 'keybindings.editor.resetKeybinding';
+export const KEYBINDINGS_EDITOR_COMMAND_COPY = 'keybindings.editor.copyKeybindingEntry';
+export const KEYBINDINGS_EDITOR_COMMAND_COPY_COMMAND = 'keybindings.editor.copyCommandKeybindingEntry';
+export const KEYBINDINGS_EDITOR_COMMAND_COPY_COMMAND_TITLE = 'keybindings.editor.copyCommandTitle';
+export const KEYBINDINGS_EDITOR_COMMAND_DEFINE_WHEN = 'keybindings.editor.defineWhenExpression';
+export const KEYBINDINGS_EDITOR_COMMAND_SHOW_SIMILAR = 'keybindings.editor.showConflicts';
+export const KEYBINDINGS_EDITOR_COMMAND_ADD = 'keybindings.editor.addKeybinding';
+export const KEYBINDINGS_EDITOR_COMMAND_ACCEPT_WHEN = 'keybindings.editor.acceptWhenExpression';
+export const KEYBINDINGS_EDITOR_COMMAND_REJECT_WHEN = 'keybindings.editor.rejectWhenExpression';
+export const KEYBINDINGS_EDITOR_COMMAND_FOCUS_KEYBINDINGS = 'keybindings.editor.focusKeybindings';
+export const KEYBINDINGS_EDITOR_SHOW_DEFAULT_KEYBINDINGS = 'keybindings.editor.showDefaultKeybindings';
+export const KEYBINDINGS_EDITOR_SHOW_EXTENSION_KEYBINDINGS = 'keybindings.editor.showExtensionKeybindings';
+export const KEYBINDINGS_EDITOR_SHOW_USER_KEYBINDINGS = 'keybindings.editor.showUserKeybindings';
+export const KEYBOARD_LAYOUT_OPEN_PICKER = 'workbench.action.openKeyboardLayoutPicker';
+
+// ---- Search Provider Names ----
+export const STRING_MATCH_SEARCH_PROVIDER_NAME = 'stringMatch';
+export const TF_IDF_SEARCH_PROVIDER_NAME = 'tfIdf';
+export const LLM_RANKED_SEARCH_PROVIDER_NAME = 'llmRanked';
+export const EMBEDDINGS_SEARCH_PROVIDER_NAME = 'embeddings';
+export const FILTER_MODEL_SEARCH_PROVIDER_NAME = 'filterModel';
+
+// ---- Search Provider Interfaces ----
+export interface ISearchProvider {
+	searchModel(preferencesModel: ISettingsEditorModel, token: CancellationToken): Promise<ISearchResult | null>;
+}
+
+export interface IRemoteSearchProvider extends ISearchProvider {
+	setFilter(filter: string): void;
+}
+
+export interface IAiSearchProvider extends ISearchProvider {
+}
+
+export interface IPreferencesSearchService {
+	readonly _serviceBrand: undefined;
+	getLocalSearchProvider(filter: string): ISearchProvider;
+	getRemoteSearchProvider(filter: string): IRemoteSearchProvider | undefined;
+	getAiSearchProvider(filter: string): IAiSearchProvider | undefined;
+}
+
+export const IPreferencesSearchService = createDecorator<IPreferencesSearchService>('preferencesSearchService');
+
+// ---- Settings Configuration ----
+export interface IWorkbenchSettingsConfiguration {
+	workbench: {
+		settings: {
+			enableNaturalLanguageSearch: boolean;
+			naturalLanguageSearchEndpoint: string;
+			naturalLanguageSearchKey: string;
+			naturalLanguageSearchMaxResults: number;
+			naturalLanguageSearchFeedback: boolean;
+			openAdditionalDefaultSettings: boolean;
+		};
+	};
+}
+
+export interface WorkbenchSettingsEditorSettings {
+	focusedSettingId?: string;
+}
 
 export interface IRecommendationInfo {
 	onSettingsEditorOpen?: {
