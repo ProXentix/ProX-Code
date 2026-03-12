@@ -10,7 +10,6 @@ import { ExtensionIdentifier } from '../../../../platform/extensions/common/exte
 import { ILogService } from '../../../../platform/log/common/log.js';
 import { Emitter } from '../../../../base/common/event.js';
 import { IStorageService, StorageScope, StorageTarget } from '../../../../platform/storage/common/storage.js';
-import { IChatEntitlementService } from '../../chat/common/chatEntitlementService.js';
 
 export enum ExtensionsFilter {
 
@@ -64,8 +63,7 @@ export class CopilotAssignmentFilterProvider extends Disposable implements IExpe
 		@IExtensionService private readonly _extensionService: IExtensionService,
 		@ILogService private readonly _logService: ILogService,
 		@IStorageService private readonly _storageService: IStorageService,
-		@IChatEntitlementService private readonly _chatEntitlementService: IChatEntitlementService,
-	) {
+			) {
 		super();
 
 		this.copilotExtensionVersion = this._storageService.get(StorageVersionKeys.CopilotExtensionVersion, StorageScope.PROFILE);
@@ -80,13 +78,10 @@ export class CopilotAssignmentFilterProvider extends Disposable implements IExpe
 			}
 		}));
 
-		this._register(this._chatEntitlementService.onDidChangeEntitlement(() => {
-			this.updateCopilotEntitlementInfo();
-		}));
+							}));
 
 		this.updateExtensionVersions();
-		this.updateCopilotEntitlementInfo();
-	}
+			}
 
 	private async updateExtensionVersions() {
 		let copilotExtensionVersion;
@@ -124,16 +119,7 @@ export class CopilotAssignmentFilterProvider extends Disposable implements IExpe
 		this._onDidChangeFilters.fire();
 	}
 
-	private updateCopilotEntitlementInfo() {
-		const newSku = this._chatEntitlementService.sku;
-		const newIsGitHubInternal = this._chatEntitlementService.organisations?.includes('github');
-		const newIsProXentixInternal = this._chatEntitlementService.organisations?.includes('microsoft') || this._chatEntitlementService.organisations?.includes('ms-copilot') || this._chatEntitlementService.organisations?.includes('ProXentixCopilot');
-		const newInternalOrg = newIsGitHubInternal ? 'github' : newIsProXentixInternal ? 'microsoft' : undefined;
-
-		if (this.copilotSku === newSku && this.copilotInternalOrg === newInternalOrg) {
-			return;
-		}
-
+	
 		this.copilotSku = newSku;
 		this.copilotInternalOrg = newInternalOrg;
 

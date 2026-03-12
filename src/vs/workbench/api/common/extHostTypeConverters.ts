@@ -39,16 +39,6 @@ import { IMarkerData, IRelatedInformation, MarkerSeverity, MarkerTag } from '../
 import { ProgressLocation as MainProgressLocation } from '../../../platform/progress/common/progress.js';
 import { DEFAULT_EDITOR_ASSOCIATION, SaveReason } from '../../common/editor.js';
 import { IViewBadge } from '../../common/views.js';
-// [REMOVED - chat module not available] import { any, any } from '../../contrib/chat/common/participants/chatAgents.js';
-// [REMOVED - chat module not available] import { any } from '../../contrib/chat/common/editing/chatEditingService.js';
-// [REMOVED - chat module not available] import { any } from '../../contrib/chat/common/model/chatModel.js';
-// [REMOVED - chat module not available] import { any, any, any, any, any, any, IChatExtensionsContent, IChatFollowup, IChatMarkdownContent, IChatMoveMessage, IChatMultiDiffDataSerialized, IChatPrepareToolInvocationPart, IChatProgressMessage, IChatPullRequestContent, IChatResponseCodeblockUriPart, IChatTaskDto, IChatTaskResult, IChatTextEdit, IChatThinkingPart, IChatToolInvocationSerialized, IChatTreeData, IChatUserActionEvent, IChatWarningMessage } from '../../contrib/chat/common/chatService/chatService.js';
-// [REMOVED - chat module not available] import { any } from '../../contrib/chat/common/model/chatUri.js';
-// [REMOVED - chat module not available] import { any, any, any, any, any } from '../../contrib/chat/common/attachments/chatVariableEntries.js';
-// [REMOVED - chat module not available] import { any } from '../../contrib/chat/common/constants.js';
-// [REMOVED - chat module not available] import { any, any, any, any, any, any } from '../../contrib/chat/common/tools/languageModelToolsService.js';
-// [REMOVED - chat module not available] import * as chatProvider from '../../contrib/chat/common/languageModels.js';
-// [REMOVED - chat module not available] import { any, any, any, any } from '../../contrib/chat/common/languageModels.js';
 import { DebugTreeItemCollapsibleState, IDebugVisualizationTreeItem } from '../../contrib/debug/common/debug.js';
 import * as notebooks from '../../contrib/notebook/common/notebookCommon.js';
 // import { } from '../../contrib/notebook/common/notebookCommon.js';
@@ -65,7 +55,7 @@ import * as extHostProtocol from './extHost.protocol.js';
 import { CommandsConverter } from './extHostCommands.js';
 import { getPrivateApiFor } from './extHostTestingPrivateApi.js';
 import * as types from './extHostTypes.js';
-import { LanguageModelDataPart, LanguageModelPromptTsxPart, LanguageModelTextPart } from './extHostTypes.js';
+
 
 export namespace Command {
 

@@ -63,11 +63,6 @@ import { ISCMHistoryOptions } from '../../contrib/scm/common/history.js';
 import { InputValidationType } from '../../contrib/scm/common/scm.js';
 import { IWorkspaceSymbol, NotebookPriorityInfo } from '../../contrib/search/common/search.js';
 import { IRawClosedNotebookFileMatch } from '../../contrib/search/common/searchNotebookHelpers.js';
-// Speech types (contrib/speech not available in this build)
-export type ISpeechToTextEvent = { status: number; text?: string };
-export type ITextToSpeechEvent = { status: number };
-export type IKeywordRecognitionEvent = { status: number; text?: string };
-export type ISpeechProviderMetadata = { extension: import('../../../platform/extensions/common/extensions.js').IExtensionDescription; metadata: { extension: import('../../../platform/extensions/common/extensions.js').IExtensionDescription; displayName: string }[] };
 
 import { CoverageDetails, ExtensionRunTestsRequest, ICallProfileRunHandler, IFileCoverage, ISerializedTestResults, IStartControllerTests, ITestItem, ITestMessage, ITestRunProfile, ITestRunTask, ResolvedTestRunRequest, TestControllerCapability, TestMessageFollowupRequest, TestMessageFollowupResponse, TestResultState, TestsDiffOp } from '../../contrib/testing/common/testTypes.js';
 import { Timeline, TimelineChangeEvent, TimelineOptions, TimelineProviderDescriptor } from '../../contrib/timeline/common/timeline.js';
@@ -84,12 +79,11 @@ import { OutputChannelUpdateMode } from '../../services/output/common/output.js'
 import { CandidatePort } from '../../services/remote/common/tunnelModel.js';
 import { IFileQueryBuilderOptions, ITextQueryBuilderOptions } from '../../services/search/common/queryBuilder.js';
 import * as search from '../../services/search/common/search.js';
-import { AISearchKeyword, TextSearchCompleteMessage } from '../../services/search/common/searchExtTypes.js';
+import { TextSearchCompleteMessage } from '../../services/search/common/searchExtTypes.js';
 import { ISaveProfileResult } from '../../services/userDataProfile/common/userDataProfile.js';
 import { IExtHostDocumentSaveDelegate } from './extHostDocumentData.js';
 import { TerminalShellExecutionCommandLineConfidence } from './extHostTypes.js';
 import * as tasks from './shared/tasks.js';
-// [REMOVED - chat module not available] import { any } from '../../contrib/chat/common/promptSyntax/promptTypes.js';
 
 export type IconPathDto =
 	| UriComponents
@@ -425,36 +419,11 @@ export interface IShareableItemDto {
 	selection?: IRange;
 }
 
-export interface IDocumentContextItemDto {
-	readonly uri: UriComponents;
-	readonly version: number;
-	readonly ranges: IRange[];
-}
 
-export interface IConversationItemDto {
-	readonly type: 'request' | 'response';
-	readonly message: string;
-	readonly references?: IDocumentContextItemDto[];
-}
 
-export interface IMappedEditsContextDto {
-	documents: IDocumentContextItemDto[][];
-	conversation?: IConversationItemDto[];
-}
 
-export interface ICodeBlockDto {
-	code: string;
-	resource: UriComponents;
-}
 
-export interface IMappedEditsRequestDto {
-	readonly codeBlocks: ICodeBlockDto[];
-	readonly conversation?: IConversationItemDto[];
-}
 
-export interface IMappedEditsResultDto {
-	readonly errorMessage?: string;
-}
 
 export interface ISignatureHelpProviderMetadataDto {
 	readonly triggerCharacters: readonly string[];
@@ -1295,26 +1264,7 @@ export interface MainThreadNotebookRenderersShape extends IDisposable {
 export interface MainThreadInteractiveShape extends IDisposable {
 }
 
-export interface MainThreadSpeechShape extends IDisposable {
-	$registerProvider(handle: number, identifier: string, metadata: ISpeechProviderMetadata): void;
-	$unregisterProvider(handle: number): void;
 
-	$emitSpeechToTextEvent(session: number, event: ISpeechToTextEvent): void;
-	$emitTextToSpeechEvent(session: number, event: ITextToSpeechEvent): void;
-	$emitKeywordRecognitionEvent(session: number, event: IKeywordRecognitionEvent): void;
-}
-
-export interface ExtHostSpeechShape {
-	$createSpeechToTextSession(handle: number, session: number, language?: string): Promise<void>;
-	$cancelSpeechToTextSession(session: number): Promise<void>;
-
-	$createTextToSpeechSession(handle: number, session: number, language?: string): Promise<void>;
-	$synthesizeSpeech(session: number, text: string): Promise<void>;
-	$cancelTextToSpeechSession(session: number): Promise<void>;
-
-	$createKeywordRecognitionSession(handle: number, session: number): Promise<void>;
-	$cancelKeywordRecognitionSession(session: number): Promise<void>;
-}
 
 export interface MainThreadLanguageModelsShape extends IDisposable {
 	$registerLanguageModelProvider(vendor: string): void;
@@ -1408,11 +1358,6 @@ export interface ICodeMapperNotebookEditDto {
 
 export type ICodeMapperProgressDto = Dto<ICodeMapperTextEdit> | Dto<ICodeMapperNotebookEditDto>;
 
-export interface MainThreadCodeMapperShape extends IDisposable {
-	$registerCodeMapperProvider(handle: number, displayName: string): void;
-	$unregisterCodeMapperProvider(handle: number): void;
-	$handleProgress(requestId: string, data: ICodeMapperProgressDto): Promise<void>;
-}
 
 export interface IChatAgentCompletionItem {
 	id: string;
@@ -1490,13 +1435,6 @@ export interface MainThreadLanguageModelToolsShape extends IDisposable {
 
 export type IChatRequestVariableValueDto = Dto<any>;
 
-export interface ExtHostLanguageModelToolsShape {
-	$onDidChangeTools(tools: IToolDataDto[]): void;
-	$invokeTool(dto: Dto<any>, token: CancellationToken): Promise<Dto<any> | SerializableObjectWithBuffers<Dto<any>>>;
-	$countTokensForInvocation(callId: string, input: string, token: CancellationToken): Promise<number>;
-
-	$prepareToolInvocation(toolId: string, context: any, token: CancellationToken): Promise<any | undefined>;
-}
 
 export interface MainThreadUrlsShape extends IDisposable {
 	$registerUriHandler(handle: number, extensionId: ExtensionIdentifier, extensionDisplayName: string): Promise<void>;
@@ -1910,9 +1848,6 @@ export interface ICodeMapperRequestDto extends Dto<any> {
 	requestId: string;
 }
 
-export interface ExtHostCodeMapperShape {
-	$mapCode(handle: number, request: ICodeMapperRequestDto, token: CancellationToken): Promise<any | null | undefined>;
-}
 
 export interface ExtHostCommandsShape {
 	$executeContributedCommand(id: string, ...args: any[]): Promise<unknown>;
@@ -3306,42 +3241,14 @@ export interface IChatSessionProviderOptions {
 	optionGroups?: any[];
 }
 
-export interface MainThreadChatSessionsShape extends IDisposable {
-	$registerChatSessionItemProvider(handle: number, chatSessionType: string): void;
-	$unregisterChatSessionItemProvider(handle: number): void;
-	$onDidChangeChatSessionItems(handle: number): void;
-	$onDidCommitChatSessionItem(handle: number, original: UriComponents, modified: UriComponents): void;
-	$registerChatSessionContentProvider(handle: number, chatSessionScheme: string): void;
-	$unregisterChatSessionContentProvider(handle: number): void;
-	$onDidChangeChatSessionOptions(handle: number, sessionResource: UriComponents, updates: ReadonlyArray<ChatSessionOptionUpdateDto2>): void;
-	$onDidChangeChatSessionProviderOptions(handle: number): void;
 
-	$handleProgressChunk(handle: number, sessionResource: UriComponents, requestId: string, chunks: (IChatProgressDto | [IChatProgressDto, number])[]): Promise<void>;
-	$handleAnchorResolve(handle: number, sessionResource: UriComponents, requestId: string, requestHandle: string, anchor: Dto<any>): void;
-	$handleProgressComplete(handle: number, sessionResource: UriComponents, requestId: string): void;
-}
-
-export interface ExtHostChatSessionsShape {
-	$provideChatSessionItems(providerHandle: number, token: CancellationToken): Promise<Dto<any>[]>;
-
-	$provideChatSessionContent(providerHandle: number, sessionResource: UriComponents, token: CancellationToken): Promise<ChatSessionDto>;
-	$interruptChatSessionActiveResponse(providerHandle: number, sessionResource: UriComponents, requestId: string): Promise<void>;
-	$disposeChatSessionContent(providerHandle: number, sessionResource: UriComponents): Promise<void>;
-	$invokeChatSessionRequestHandler(providerHandle: number, sessionResource: UriComponents, request: any, history: any[], token: CancellationToken): Promise<any>;
-	$provideChatSessionProviderOptions(providerHandle: number, token: CancellationToken): Promise<IChatSessionProviderOptions | undefined>;
-	$provideHandleOptionsChange(providerHandle: number, sessionResource: UriComponents, updates: ReadonlyArray<ChatSessionOptionUpdateDto>, token: CancellationToken): Promise<void>;
-}
 
 // --- proxy identifiers
 
 export const MainContext = {
 	MainThreadAuthentication: createProxyIdentifier<MainThreadAuthenticationShape>('MainThreadAuthentication'),
-	MainThreadBulkEdits: createProxyIdentifier<MainThreadBulkEditsShape>('MainThreadBulkEdits'),
-	MainThreadLanguageModels: createProxyIdentifier<MainThreadLanguageModelsShape>('MainThreadLanguageModels'),
-	MainThreadEmbeddings: createProxyIdentifier<MainThreadEmbeddingsShape>('MainThreadEmbeddings'),
-	MainThreadChatAgents2: createProxyIdentifier<MainThreadChatAgentsShape2>('MainThreadChatAgents2'),
-	MainThreadCodeMapper: createProxyIdentifier<MainThreadCodeMapperShape>('MainThreadCodeMapper'),
-	MainThreadLanguageModelTools: createProxyIdentifier<MainThreadLanguageModelToolsShape>('MainThreadChatSkills'),
+	MainThreadBulkEdits: createProxyIdentifier<MainThreadBulkEditsShape>('MainThreadBulkEdits'),	MainThreadEmbeddings: createProxyIdentifier<MainThreadEmbeddingsShape>('MainThreadEmbeddings'),
+	MainThreadChatAgents2: createProxyIdentifier<MainThreadChatAgentsShape2>('MainThreadChatAgents2'),	MainThreadLanguageModelTools: createProxyIdentifier<MainThreadLanguageModelToolsShape>('MainThreadChatSkills'),
 	MainThreadClipboard: createProxyIdentifier<MainThreadClipboardShape>('MainThreadClipboard'),
 	MainThreadCommands: createProxyIdentifier<MainThreadCommandsShape>('MainThreadCommands'),
 	MainThreadComments: createProxyIdentifier<MainThreadCommentsShape>('MainThreadComments'),
@@ -3369,9 +3276,7 @@ export const MainContext = {
 	MainThreadQuickOpen: createProxyIdentifier<MainThreadQuickOpenShape>('MainThreadQuickOpen'),
 	MainThreadStatusBar: createProxyIdentifier<MainThreadStatusBarShape>('MainThreadStatusBar'),
 	MainThreadSecretState: createProxyIdentifier<MainThreadSecretStateShape>('MainThreadSecretState'),
-	MainThreadStorage: createProxyIdentifier<MainThreadStorageShape>('MainThreadStorage'),
-	MainThreadSpeech: createProxyIdentifier<MainThreadSpeechShape>('MainThreadSpeechProvider'),
-	MainThreadTelemetry: createProxyIdentifier<MainThreadTelemetryShape>('MainThreadTelemetry'),
+	MainThreadStorage: createProxyIdentifier<MainThreadStorageShape>('MainThreadStorage'),	MainThreadTelemetry: createProxyIdentifier<MainThreadTelemetryShape>('MainThreadTelemetry'),
 	MainThreadTerminalService: createProxyIdentifier<MainThreadTerminalServiceShape>('MainThreadTerminalService'),
 	MainThreadTerminalShellIntegration: createProxyIdentifier<MainThreadTerminalShellIntegrationShape>('MainThreadTerminalShellIntegration'),
 	MainThreadWebviews: createProxyIdentifier<MainThreadWebviewsShape>('MainThreadWebviews'),
@@ -3408,15 +3313,9 @@ export const MainContext = {
 	MainThreadAiEmbeddingVector: createProxyIdentifier<MainThreadAiEmbeddingVectorShape>('MainThreadAiEmbeddingVector'),
 	MainThreadChatStatus: createProxyIdentifier<MainThreadChatStatusShape>('MainThreadChatStatus'),
 	MainThreadAiSettingsSearch: createProxyIdentifier<MainThreadAiSettingsSearchShape>('MainThreadAiSettingsSearch'),
-	MainThreadDataChannels: createProxyIdentifier<MainThreadDataChannelsShape>('MainThreadDataChannels'),
-	MainThreadChatSessions: createProxyIdentifier<MainThreadChatSessionsShape>('MainThreadChatSessions'),
-	MainThreadChatOutputRenderer: createProxyIdentifier<MainThreadChatOutputRendererShape>('MainThreadChatOutputRenderer'),
-	MainThreadChatContext: createProxyIdentifier<MainThreadChatContextShape>('MainThreadChatContext'),
-};
+	MainThreadDataChannels: createProxyIdentifier<MainThreadDataChannelsShape>('MainThreadDataChannels'),	MainThreadChatOutputRenderer: createProxyIdentifier<MainThreadChatOutputRendererShape>('MainThreadChatOutputRenderer'),};
 
-export const ExtHostContext = {
-	ExtHostCodeMapper: createProxyIdentifier<ExtHostCodeMapperShape>('ExtHostCodeMapper'),
-	ExtHostCommands: createProxyIdentifier<ExtHostCommandsShape>('ExtHostCommands'),
+export const ExtHostContext = {	ExtHostCommands: createProxyIdentifier<ExtHostCommandsShape>('ExtHostCommands'),
 	ExtHostConfiguration: createProxyIdentifier<ExtHostConfigurationShape>('ExtHostConfiguration'),
 	ExtHostDiagnostics: createProxyIdentifier<ExtHostDiagnosticsShape>('ExtHostDiagnostics'),
 	ExtHostDebugService: createProxyIdentifier<ExtHostDebugServiceShape>('ExtHostDebugService'),
@@ -3468,12 +3367,7 @@ export const ExtHostContext = {
 	ExtHostNotebookRenderers: createProxyIdentifier<ExtHostNotebookRenderersShape>('ExtHostNotebookRenderers'),
 	ExtHostNotebookDocumentSaveParticipant: createProxyIdentifier<ExtHostNotebookDocumentSaveParticipantShape>('ExtHostNotebookDocumentSaveParticipant'),
 	ExtHostInteractive: createProxyIdentifier<ExtHostInteractiveShape>('ExtHostInteractive'),
-	ExtHostChatAgents2: createProxyIdentifier<ExtHostChatAgentsShape2>('ExtHostChatAgents'),
-	ExtHostLanguageModelTools: createProxyIdentifier<ExtHostLanguageModelToolsShape>('ExtHostChatSkills'),
-	ExtHostChatProvider: createProxyIdentifier<ExtHostLanguageModelsShape>('ExtHostChatProvider'),
-	ExtHostChatContext: createProxyIdentifier<ExtHostChatContextShape>('ExtHostChatContext'),
-	ExtHostSpeech: createProxyIdentifier<ExtHostSpeechShape>('ExtHostSpeech'),
-	ExtHostEmbeddings: createProxyIdentifier<ExtHostEmbeddingsShape>('ExtHostEmbeddings'),
+	ExtHostChatAgents2: createProxyIdentifier<ExtHostChatAgentsShape2>('ExtHostChatAgents'),	ExtHostChatProvider: createProxyIdentifier<ExtHostLanguageModelsShape>('ExtHostChatProvider'),	ExtHostEmbeddings: createProxyIdentifier<ExtHostEmbeddingsShape>('ExtHostEmbeddings'),
 	ExtHostAiRelatedInformation: createProxyIdentifier<ExtHostAiRelatedInformationShape>('ExtHostAiRelatedInformation'),
 	ExtHostAiEmbeddingVector: createProxyIdentifier<ExtHostAiEmbeddingVectorShape>('ExtHostAiEmbeddingVector'),
 	ExtHostAiSettingsSearch: createProxyIdentifier<ExtHostAiSettingsSearchShape>('ExtHostAiSettingsSearch'),
@@ -3486,6 +3380,4 @@ export const ExtHostContext = {
 	ExtHostTelemetry: createProxyIdentifier<ExtHostTelemetryShape>('ExtHostTelemetry'),
 	ExtHostLocalization: createProxyIdentifier<ExtHostLocalizationShape>('ExtHostLocalization'),
 	ExtHostMcp: createProxyIdentifier<ExtHostMcpShape>('ExtHostMcp'),
-	ExtHostDataChannels: createProxyIdentifier<ExtHostDataChannelsShape>('ExtHostDataChannels'),
-	ExtHostChatSessions: createProxyIdentifier<ExtHostChatSessionsShape>('ExtHostChatSessions'),
-};
+	ExtHostDataChannels: createProxyIdentifier<ExtHostDataChannelsShape>('ExtHostDataChannels'),};
