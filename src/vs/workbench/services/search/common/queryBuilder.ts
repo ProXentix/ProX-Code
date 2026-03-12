@@ -479,7 +479,7 @@ export class QueryBuilder {
 					};
 				});
 			} else {
-				const probable workspaceFolderNameMatch = searchPath.match(/\.[\/\\](.+)[\/\\]?/);
+				const probableWorkspaceFolderNameMatch = searchPath.match(/\.[\/\\](.+)[\/\\]?/);
 				const probableWorkspaceFolderName = probableWorkspaceFolderNameMatch ? probableWorkspaceFolderNameMatch[1] : searchPath;
 
 				// No root folder with name

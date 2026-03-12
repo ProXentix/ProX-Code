@@ -36,7 +36,6 @@ import { IExtensionRecommendationsService } from '../../../services/extensionRec
 // import { } from '../../../services/lifecycle/common/lifecycle.js';
 // import { } from '../../../services/preferences/common/preferences.js';
 
-import { ILanguageModelToolsService } from '../../chat/common/tools/languageModelToolsService.js';
 // import { } from '../../webview/browser/webview.js';
 import {  AutoUpdateConfigurationKey, CONTEXT_EXTENSIONS_GALLERY_STATUS, CONTEXT_HAS_GALLERY,     IExtensionsWorkbenchService,  VIEWLET_ID, } from '../common/extensions.js';
 import { ExtensionsConfigurationSchema, ExtensionsConfigurationSchemaId } from '../common/extensionsFileTemplate.js';
@@ -251,20 +250,6 @@ class TrustedPublishersInitializer implements IWorkbenchContribution {
 	}
 }
 
-class ExtensionToolsContribution extends Disposable implements IWorkbenchContribution {
-
-	static readonly ID = 'extensions.chat.toolsContribution';
-
-	constructor(
-		@ILanguageModelToolsService toolsService: ILanguageModelToolsService,
-		@IInstantiationService instantiationService: IInstantiationService,
-	) {
-		super();
-		const searchExtensionsTool = instantiationService.createInstance(SearchExtensionsTool);
-		this._register(toolsService.registerTool(SearchExtensionsToolData, searchExtensionsTool));
-		this._register(toolsService.proxCodeToolSet.addTool(SearchExtensionsToolData));
-	}
-}
 
 const workbenchRegistry = Registry.as<IWorkbenchContributionsRegistry>(WorkbenchExtensions.Workbench);
 /*
@@ -285,7 +270,6 @@ if (isWeb) {
 }
 */
 
-registerWorkbenchContribution2(ExtensionToolsContribution.ID, ExtensionToolsContribution, WorkbenchPhase.AfterRestored);
 
 
 // Running Extensions
