@@ -7,8 +7,7 @@ import { Emitter } from '../../../../base/common/event.js';
 import { Disposable } from '../../../../base/common/lifecycle.js';
 import { IProductService } from '../../../../platform/product/common/productService.js';
 import { AuthenticationSession, IAuthenticationService } from '../../authentication/common/authentication.js';
-import { asJson, IRequestService } from '../../../../platform/request/common/request.js';
-import { CancellationToken } from '../../../../base/common/cancellation.js';
+import { IRequestService } from '../../../../platform/request/common/request.js';
 import { IExtensionService } from '../../extensions/common/extensions.js';
 import { ILogService } from '../../../../platform/log/common/log.js';
 import { IContextKey, IContextKeyService, RawContextKey } from '../../../../platform/contextkey/common/contextkey.js';
@@ -34,44 +33,6 @@ const enum DefaultAccountStatus {
 }
 
 const CONTEXT_DEFAULT_ACCOUNT_STATE = new RawContextKey<string>('defaultAccountStatus', DefaultAccountStatus.Uninitialized);
-
-interface IChatEntitlementsResponse {
-	readonly access_type_sku: string;
-	readonly copilot_plan: string;
-	readonly assigned_date: string;
-	readonly can_signup_for_limited: boolean;
-	readonly chat_enabled: boolean;
-	readonly analytics_tracking_id: string;
-	readonly limited_user_quotas?: {
-		readonly chat: number;
-		readonly completions: number;
-	};
-	readonly monthly_quotas?: {
-		readonly chat: number;
-		readonly completions: number;
-	};
-	readonly limited_user_reset_date: string;
-}
-
-interface ITokenEntitlementsResponse {
-	token: string;
-}
-
-interface IMcpRegistryProvider {
-	readonly url: string;
-	readonly registry_access: 'allow_all' | 'registry_only';
-	readonly owner: {
-		readonly login: string;
-		readonly id: number;
-		readonly type: string;
-		readonly parent_login: string | null;
-		readonly priority: number;
-	};
-}
-
-interface IMcpRegistryResponse {
-	readonly mcp_registries: ReadonlyArray<IMcpRegistryProvider>;
-}
 
 export class DefaultAccountService extends Disposable implements IDefaultAccountService {
 	declare _serviceBrand: undefined;
@@ -205,42 +166,19 @@ export class DefaultAccountManagementContribution extends Disposable implements 
 		}
 	}
 
-	private extractFromToken(token: string): Map<string, string> {
-		const result = new Map<string, string>();
-		const firstPart = token?.split(':')[0];
-		const fields = firstPart?.split(';');
-		for (const field of fields) {
-			const [key, value] = field.split('=');
-			result.set(key, value);
-		}
-		this.logService.debug(`[DefaultAccount] extractFromToken: ${JSON.stringify(Object.fromEntries(result))}`);
-		return result;
-	}
-
-	private async getDefaultAccountFromAuthenticatedSessions(authProviderId: string, scopes: string[][]): Promise<IDefaultAccount | null> {
+	private async getDefaultAccountFromAuthenticatedSessions(authProviderId: string, allScopes: string[][]): Promise<IDefaultAccount | null> {
 		try {
 			this.logService.debug('[DefaultAccount] Getting Default Account from authenticated sessions for provider:', authProviderId);
-			const session = await this.findMatchingProviderSession(authProviderId, scopes);
+			const session = await this.findMatchingProviderSession(authProviderId, allScopes);
 
 			if (!session) {
 				this.logService.debug('[DefaultAccount] No matching session found for provider:', authProviderId);
 				return null;
 			}
 
-			const [chatEntitlements, tokenEntitlements] = await Promise.all([
-				this.getChatEntitlements(session.accessToken),
-				this.getTokenEntitlements(session.accessToken),
-			]);
-
-			const mcpRegistryProvider = tokenEntitlements.mcp ? await this.getMcpRegistryProvider(session.accessToken) : undefined;
-
-			const account = {
+			const account: IDefaultAccount = {
 				sessionId: session.id,
 				enterprise: this.isEnterpriseAuthenticationProvider(authProviderId) || session.account.label.includes('_'),
-				...chatEntitlements,
-				...tokenEntitlements,
-				mcpRegistryUrl: mcpRegistryProvider?.url,
-				mcpAccess: mcpRegistryProvider?.registry_access,
 			};
 			this.logService.debug('[DefaultAccount] Successfully created default account for provider:', authProviderId);
 			return account;
@@ -282,161 +220,6 @@ export class DefaultAccountManagementContribution extends Disposable implements 
 		return expectedScopes.every(scope => scopes.includes(scope));
 	}
 
-	private async getTokenEntitlements(accessToken: string): Promise<Partial<IDefaultAccount>> {
-		const tokenEntitlementsUrl = this.getTokenEntitlementUrl();
-		if (!tokenEntitlementsUrl) {
-			this.logService.debug('[DefaultAccount] No token entitlements URL found');
-			return {};
-		}
-
-		this.logService.debug('[DefaultAccount] Fetching token entitlements from:', tokenEntitlementsUrl);
-		try {
-			const chatContext = await this.requestService.request({
-				type: 'GET',
-				url: tokenEntitlementsUrl,
-				disableCache: true,
-				headers: {
-					'Authorization': `Bearer ${accessToken}`
-				}
-			}, CancellationToken.None);
-
-			const chatData = await asJson<ITokenEntitlementsResponse>(chatContext);
-			if (chatData) {
-				const tokenMap = this.extractFromToken(chatData.token);
-				return {
-					// Editor preview features are disabled if the flag is present and set to 0
-					chat_preview_features_enabled: tokenMap.get('editor_preview_features') !== '0',
-					chat_agent_enabled: tokenMap.get('agent_mode') !== '0',
-					// MCP is disabled if the flag is present and set to 0
-					mcp: tokenMap.get('mcp') !== '0',
-				};
-			}
-			this.logService.error('Failed to fetch token entitlements', 'No data returned');
-		} catch (error) {
-			this.logService.error('Failed to fetch token entitlements', getErrorMessage(error));
-		}
-
-		return {};
-	}
-
-	private async getChatEntitlements(accessToken: string): Promise<Partial<IChatEntitlementsResponse>> {
-		const chatEntitlementsUrl = this.getChatEntitlementUrl();
-		if (!chatEntitlementsUrl) {
-			this.logService.debug('[DefaultAccount] No chat entitlements URL found');
-			return {};
-		}
-
-		this.logService.debug('[DefaultAccount] Fetching chat entitlements from:', chatEntitlementsUrl);
-		try {
-			const context = await this.requestService.request({
-				type: 'GET',
-				url: chatEntitlementsUrl,
-				disableCache: true,
-				headers: {
-					'Authorization': `Bearer ${accessToken}`
-				}
-			}, CancellationToken.None);
-
-			const data = await asJson<IChatEntitlementsResponse>(context);
-			if (data) {
-				return data;
-			}
-			this.logService.error('Failed to fetch entitlements', 'No data returned');
-		} catch (error) {
-			this.logService.error('Failed to fetch entitlements', getErrorMessage(error));
-		}
-		return {};
-	}
-
-	private async getMcpRegistryProvider(accessToken: string): Promise<IMcpRegistryProvider | undefined> {
-		const mcpRegistryDataUrl = this.getMcpRegistryDataUrl();
-		if (!mcpRegistryDataUrl) {
-			this.logService.debug('[DefaultAccount] No MCP registry data URL found');
-			return undefined;
-		}
-
-		try {
-			const context = await this.requestService.request({
-				type: 'GET',
-				url: mcpRegistryDataUrl,
-				disableCache: true,
-				headers: {
-					'Authorization': `Bearer ${accessToken}`
-				}
-			}, CancellationToken.None);
-
-			const data = await asJson<IMcpRegistryResponse>(context);
-			if (data) {
-				this.logService.debug('Fetched MCP registry providers', data.mcp_registries);
-				return data.mcp_registries[0];
-			}
-			this.logService.debug('Failed to fetch MCP registry providers', 'No data returned');
-		} catch (error) {
-			this.logService.error('Failed to fetch MCP registry providers', getErrorMessage(error));
-		}
-		return undefined;
-	}
-
-	private getChatEntitlementUrl(): string | undefined {
-		if (!this.productService.defaultAccount) {
-			return undefined;
-		}
-
-		if (this.isEnterpriseAuthenticationProvider(this.getDefaultAccountProviderId())) {
-			try {
-				const enterpriseUrl = this.getEnterpriseUrl();
-				if (!enterpriseUrl) {
-					return undefined;
-				}
-				return `${enterpriseUrl.protocol}//api.${enterpriseUrl.hostname}${enterpriseUrl.port ? ':' + enterpriseUrl.port : ''}/copilot_internal/user`;
-			} catch (error) {
-				this.logService.error(error);
-			}
-		}
-
-		return this.productService.defaultAccount?.chatEntitlementUrl;
-	}
-
-	private getTokenEntitlementUrl(): string | undefined {
-		if (!this.productService.defaultAccount) {
-			return undefined;
-		}
-
-		if (this.isEnterpriseAuthenticationProvider(this.getDefaultAccountProviderId())) {
-			try {
-				const enterpriseUrl = this.getEnterpriseUrl();
-				if (!enterpriseUrl) {
-					return undefined;
-				}
-				return `${enterpriseUrl.protocol}//api.${enterpriseUrl.hostname}${enterpriseUrl.port ? ':' + enterpriseUrl.port : ''}/copilot_internal/v2/token`;
-			} catch (error) {
-				this.logService.error(error);
-			}
-		}
-
-		return this.productService.defaultAccount?.tokenEntitlementUrl;
-	}
-
-	private getMcpRegistryDataUrl(): string | undefined {
-		if (!this.productService.defaultAccount) {
-			return undefined;
-		}
-
-		if (this.isEnterpriseAuthenticationProvider(this.getDefaultAccountProviderId())) {
-			try {
-				const enterpriseUrl = this.getEnterpriseUrl();
-				if (!enterpriseUrl) {
-					return undefined;
-				}
-				return `${enterpriseUrl.protocol}//api.${enterpriseUrl.hostname}${enterpriseUrl.port ? ':' + enterpriseUrl.port : ''}/copilot/mcp_registry`;
-			} catch (error) {
-				this.logService.error(error);
-			}
-		}
-
-		return this.productService.defaultAccount?.mcpRegistryDataUrl;
-	}
-
 	private getDefaultAccountProviderId(): string | undefined {
 		if (this.productService.defaultAccount && this.configurationService.getValue<string | undefined>(this.productService.defaultAccount.authenticationProvider.enterpriseProviderConfig) === this.productService.defaultAccount?.authenticationProvider.enterpriseProviderId) {
 			return this.productService.defaultAccount?.authenticationProvider.enterpriseProviderId;
@@ -450,17 +233,6 @@ export class DefaultAccountManagementContribution extends Disposable implements 
 		}
 
 		return providerId === this.productService.defaultAccount?.authenticationProvider.enterpriseProviderId;
-	}
-
-	private getEnterpriseUrl(): URL | undefined {
-		if (!this.productService.defaultAccount) {
-			return undefined;
-		}
-		const value = this.configurationService.getValue(this.productService.defaultAccount.authenticationProvider.enterpriseProviderUriSetting);
-		if (!isString(value)) {
-			return undefined;
-		}
-		return new URL(value);
 	}
 
 	private registerSignInAction(authProviderId: string, scopes: string[]): void {
