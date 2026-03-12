@@ -9,9 +9,6 @@ import { Registry } from '../../../../platform/registry/common/platform.js';
 import { RawContextKey } from '../../../../platform/contextkey/common/contextkey.js';
 import { workbenchConfigurationNodeBase, Extensions as WorkbenchExtensions, IConfigurationMigrationRegistry, ConfigurationKeyValuePairs, ConfigurationMigration } from '../../../common/configuration.js';
 import { AccessibilitySignal } from '../../../../platform/accessibilitySignal/browser/accessibilitySignalService.js';
-import { Disposable } from '../../../../base/common/lifecycle.js';
-import { IWorkbenchContribution } from '../../../common/contributions.js';
-import { Event } from '../../../../base/common/event.js';
 import { isDefined } from '../../../../base/common/types.js';
 
 export const accessibilityHelpIsShown = new RawContextKey<boolean>('accessibilityHelpIsShown', false, true);
@@ -566,30 +563,6 @@ const configuration: IConfigurationNode = {
 				},
 			},
 		},
-		'accessibility.signals.chatRequestSent': {
-			...signalFeatureBase,
-			'description': localize('accessibility.signals.chatRequestSent', "Plays a signal - sound (audio cue) and/or announcement (alert) - when a chat request is made."),
-			'properties': {
-				'sound': {
-					'description': localize('accessibility.signals.chatRequestSent.sound', "Plays a sound when a chat request is made."),
-					...soundFeatureBase
-				},
-				'announcement': {
-					'description': localize('accessibility.signals.chatRequestSent.announcement', "Announces when a chat request is made."),
-					...announcementFeatureBase
-				},
-			}
-		},
-		'accessibility.signals.chatResponseReceived': {
-			...defaultNoAnnouncement,
-			'description': localize('accessibility.signals.chatResponseReceived', "Plays a sound / audio cue when the response has been received."),
-			'properties': {
-				'sound': {
-					'description': localize('accessibility.signals.chatResponseReceived.sound', "Plays a sound on when the response has been received."),
-					...soundFeatureBase
-				},
-			}
-		},
 		'accessibility.signals.codeActionTriggered': {
 			...defaultNoAnnouncement,
 			'description': localize('accessibility.signals.codeActionTriggered', "Plays a sound / audio cue - when a code action has been triggered."),
@@ -607,30 +580,6 @@ const configuration: IConfigurationNode = {
 				'sound': {
 					'description': localize('accessibility.signals.codeActionApplied.sound', "Plays a sound when the code action has been applied."),
 					...soundFeatureBase
-				},
-			}
-		},
-		'accessibility.signals.voiceRecordingStarted': {
-			...defaultNoAnnouncement,
-			'description': localize('accessibility.signals.voiceRecordingStarted', "Plays a sound / audio cue when the voice recording has started."),
-			'properties': {
-				'sound': {
-					'description': localize('accessibility.signals.voiceRecordingStarted.sound', "Plays a sound when the voice recording has started."),
-					...soundFeatureBase,
-				},
-			},
-			'default': {
-				'sound': 'on'
-			}
-		},
-		'accessibility.signals.voiceRecordingStopped': {
-			...defaultNoAnnouncement,
-			'description': localize('accessibility.signals.voiceRecordingStopped', "Plays a sound / audio cue when the voice recording has stopped."),
-			'properties': {
-				'sound': {
-					'description': localize('accessibility.signals.voiceRecordingStopped.sound', "Plays a sound when the voice recording has stopped."),
-					...soundFeatureBase,
-					default: 'off'
 				},
 			}
 		},
@@ -744,31 +693,6 @@ const configuration: IConfigurationNode = {
 				'announcement': 'never'
 			}
 		},
-		'accessibility.signals.chatUserActionRequired': {
-			...signalFeatureBase,
-			'markdownDescription': localize('accessibility.signals.chatUserActionRequired', "Plays a signal - sound (audio cue) and/or announcement (alert) - when user action is required in the chat."),
-			'properties': {
-				'sound': {
-					'description': localize('accessibility.signals.chatUserActionRequired.sound', "Plays a sound when user action is required in the chat."),
-					'type': 'string',
-					'enum': ['auto', 'on', 'off'],
-					'enumDescriptions': [
-						localize('sound.enabled.autoWindow', "Enable sound when a screen reader is attached."),
-						localize('sound.enabled.on', "Enable sound."),
-						localize('sound.enabled.off', "Disable sound.")
-					],
-				},
-				'announcement': {
-					'description': localize('accessibility.signals.chatUserActionRequired.announcement', "Announces when a user action is required in the chat - including information about the action and how to take it."),
-					...announcementFeatureBase
-				},
-			},
-			default: {
-				'sound': 'auto',
-				'announcement': 'auto'
-			},
-			tags: ['accessibility']
-		},
 		'accessibility.underlineLinks': {
 			'type': 'boolean',
 			'description': localize('accessibility.underlineLinks', "Controls whether links should be underlined in the workbench."),
@@ -794,16 +718,6 @@ const configuration: IConfigurationNode = {
 			'type': 'boolean',
 			'default': true,
 			'markdownDescription': localize('accessibility.windowTitleOptimized', "Controls whether the {0} should be optimized for screen readers when in screen reader mode. When enabled, the window title will have {1} appended to the end.", '`#window.title#`', '`activeEditorState`')
-		},
-		'accessibility.openChatEditedFiles': {
-			'type': 'boolean',
-			'default': false,
-			'markdownDescription': localize('accessibility.openChatEditedFiles', "Controls whether files should be opened when the chat agent has applied edits to them.")
-		},
-		'accessibility.verboseChatProgressUpdates': {
-			'type': 'boolean',
-			'default': true,
-			'markdownDescription': localize('accessibility.verboseChatProgressUpdates', "Controls whether verbose progress announcements should be made when a chat request is in progress, including information like searched text for <search term> with X results, created file <file_name>, or read file <file path>.")
 		}
 	}
 };
@@ -842,82 +756,7 @@ export function registerAccessibilityConfiguration() {
 	});
 }
 
-export { AccessibilityVoiceSettingId };
-
 export const SpeechTimeoutDefault = 0;
-
-export class DynamicSpeechAccessibilityConfiguration extends Disposable implements IWorkbenchContribution {
-
-	static readonly ID = 'workbench.contrib.dynamicSpeechAccessibilityConfiguration';
-
-	constructor(
-		@ISpeechService private readonly speechService: ISpeechService
-	) {
-		super();
-
-		this._register(Event.runAndSubscribe(speechService.onDidChangeHasSpeechProvider, () => this.updateConfiguration()));
-	}
-
-	private updateConfiguration(): void {
-		if (!this.speechService.hasSpeechProvider) {
-			return; // these settings require a speech provider
-		}
-
-		const languages = this.getLanguages();
-		const languagesSorted = Object.keys(languages).sort((langA, langB) => {
-			return languages[langA].name.localeCompare(languages[langB].name);
-		});
-
-		const registry = Registry.as<IConfigurationRegistry>(Extensions.Configuration);
-		registry.registerConfiguration({
-			...accessibilityConfigurationNodeBase,
-			properties: {
-				[AccessibilityVoiceSettingId.SpeechTimeout]: {
-					'markdownDescription': localize('voice.speechTimeout', "The duration in milliseconds that voice speech recognition remains active after you stop speaking. For example in a chat session, the transcribed text is submitted automatically after the timeout is met. Set to `0` to disable this feature."),
-					'type': 'number',
-					'default': SpeechTimeoutDefault,
-					'minimum': 0,
-					'tags': ['accessibility']
-				},
-				[AccessibilityVoiceSettingId.IgnoreCodeBlocks]: {
-					'markdownDescription': localize('voice.ignoreCodeBlocks', "Whether to ignore code snippets in text-to-speech synthesis."),
-					'type': 'boolean',
-					'default': false,
-					'tags': ['accessibility']
-				},
-				[AccessibilityVoiceSettingId.SpeechLanguage]: {
-					'markdownDescription': localize('voice.speechLanguage', "The language that text-to-speech and speech-to-text should use. Select `auto` to use the configured display language if possible. Note that not all display languages maybe supported by speech recognition and synthesizers."),
-					'type': 'string',
-					'enum': languagesSorted,
-					'default': 'auto',
-					'tags': ['accessibility'],
-					'enumDescriptions': languagesSorted.map(key => languages[key].name),
-					'enumItemLabels': languagesSorted.map(key => languages[key].name)
-				},
-				[AccessibilityVoiceSettingId.AutoSynthesize]: {
-					'type': 'string',
-					'enum': ['on', 'off'],
-					'enumDescriptions': [
-						localize('accessibility.voice.autoSynthesize.on', "Enable the feature. When a screen reader is enabled, note that this will disable aria updates."),
-						localize('accessibility.voice.autoSynthesize.off', "Disable the feature."),
-					],
-					'markdownDescription': localize('autoSynthesize', "Whether a textual response should automatically be read out aloud when speech was used as input. For example in a chat session, a response is automatically synthesized when voice was used as chat request."),
-					'default': 'off',
-					'tags': ['accessibility']
-				}
-			}
-		});
-	}
-
-	private getLanguages(): { [locale: string]: { name: string } } {
-		return {
-			['auto']: {
-				name: localize('speechLanguage.auto', "Auto (Use Display Language)")
-			},
-			...SPEECH_LANGUAGES
-		};
-	}
-}
 
 Registry.as<IConfigurationMigrationRegistry>(WorkbenchExtensions.ConfigurationMigration)
 	.registerConfigurationMigrations([{
@@ -1006,34 +845,9 @@ function getDebouncePositionChangesFromConfig(accessor: (key: string) => any): n
 	return accessor('accessibility.signalOptions.debouncePositionChanges') || accessor('accessibility.signalOptions')?.debouncePositionChanges || accessor('accessibility.signals.debouncePositionChanges') || accessor('audioCues.debouncePositionChanges');
 }
 
-Registry.as<IConfigurationMigrationRegistry>(WorkbenchExtensions.ConfigurationMigration)
-	.registerConfigurationMigrations([{
-		key: AccessibilityVoiceSettingId.AutoSynthesize,
-		migrateFn: (value: boolean) => {
-			let newValue: string | undefined;
-			if (value === true) {
-				newValue = 'on';
-			} else if (value === false) {
-				newValue = 'off';
-			} else {
-				return [];
-			}
-			return [
-				[AccessibilityVoiceSettingId.AutoSynthesize, { value: newValue }],
-			];
-		}
-	}]);
 
-Registry.as<IConfigurationMigrationRegistry>(WorkbenchExtensions.ConfigurationMigration)
-	.registerConfigurationMigrations([{
-		key: 'accessibility.signals.chatResponsePending',
-		migrateFn: (value, accessor) => {
-			return [
-				['accessibility.signals.progress', { value }],
-				['accessibility.signals.chatResponsePending', { value: undefined }],
-			];
-		}
-	}]);
+
+
 
 Registry.as<IConfigurationMigrationRegistry>(WorkbenchExtensions.ConfigurationMigration)
 	.registerConfigurationMigrations(AccessibilitySignal.allAccessibilitySignals.map<ConfigurationMigration | undefined>(item => item.legacySoundSettingsKey ? ({

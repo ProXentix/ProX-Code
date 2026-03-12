@@ -7,7 +7,6 @@ import { raceTimeout } from '../../../../base/common/async.js';
 import { CancellationToken } from '../../../../base/common/cancellation.js';
 import { IStringDictionary } from '../../../../base/common/collections.js';
 import { localize } from '../../../../nls.js';
-import { IChatEntitlementService } from '../../../services/chat/common/chatEntitlementService.js';
 import { IExtensionGalleryService, IGalleryExtension } from '../../../../platform/extensionManagement/common/extensionManagement.js';
 import { IProductService } from '../../../../platform/product/common/productService.js';
 import { RawContextKey } from '../../../../platform/contextkey/common/contextkey.js';
@@ -38,7 +37,6 @@ export const CONTEXT_SETTINGS_JSON_EDITOR = new RawContextKey<boolean>('inSettin
 export const CONTEXT_SETTINGS_SEARCH_FOCUS = new RawContextKey<boolean>('inSettingsSearch', false);
 export const CONTEXT_SETTINGS_ROW_FOCUS = new RawContextKey<boolean>('settingRowFocus', false);
 export const CONTEXT_TOC_ROW_FOCUS = new RawContextKey<boolean>('settingsTocRowFocus', false);
-export const CONTEXT_AI_SETTING_RESULTS_AVAILABLE = new RawContextKey<boolean>('aiSettingResultsAvailable', false);
 export const CONTEXT_KEYBINDINGS_EDITOR = new RawContextKey<boolean>('inKeybindings', false);
 export const CONTEXT_KEYBINDINGS_SEARCH_FOCUS = new RawContextKey<boolean>('inKeybindingsSearch', false);
 export const CONTEXT_KEYBINDINGS_SEARCH_HAS_VALUE = new RawContextKey<boolean>('keybindingsSearchHasValue', false);
@@ -49,8 +47,6 @@ export const CONTEXT_PREFERENCES_SEARCH_FOCUS = new RawContextKey<boolean>('inPr
 // ---- Settings Editor Commands ----
 export const SETTINGS_EDITOR_COMMAND_CLEAR_SEARCH_RESULTS = 'settings.action.clearSearchResults';
 export const SETTINGS_EDITOR_COMMAND_SHOW_CONTEXT_MENU = 'settings.action.showContextMenu';
-export const SETTINGS_EDITOR_COMMAND_TOGGLE_AI_SEARCH = 'settings.action.toggleAiSearch';
-export const SETTINGS_EDITOR_COMMAND_SHOW_AI_RESULTS = 'settings.action.showAiResults';
 export const SETTINGS_EDITOR_COMMAND_SUGGEST_FILTERS = 'settings.action.suggestFilters';
 
 // ---- Keybindings Editor Commands ----
@@ -79,8 +75,6 @@ export const KEYBOARD_LAYOUT_OPEN_PICKER = 'workbench.action.openKeyboardLayoutP
 // ---- Search Provider Names ----
 export const STRING_MATCH_SEARCH_PROVIDER_NAME = 'stringMatch';
 export const TF_IDF_SEARCH_PROVIDER_NAME = 'tfIdf';
-export const LLM_RANKED_SEARCH_PROVIDER_NAME = 'llmRanked';
-export const EMBEDDINGS_SEARCH_PROVIDER_NAME = 'embeddings';
 export const FILTER_MODEL_SEARCH_PROVIDER_NAME = 'filterModel';
 
 // ---- Search Provider Interfaces ----
@@ -92,14 +86,11 @@ export interface IRemoteSearchProvider extends ISearchProvider {
 	setFilter(filter: string): void;
 }
 
-export interface IAiSearchProvider extends ISearchProvider {
-}
 
 export interface IPreferencesSearchService {
 	readonly _serviceBrand: undefined;
 	getLocalSearchProvider(filter: string): ISearchProvider;
 	getRemoteSearchProvider(filter: string): IRemoteSearchProvider | undefined;
-	getAiSearchProvider(filter: string): IAiSearchProvider | undefined;
 }
 
 export const IPreferencesSearchService = createDecorator<IPreferencesSearchService>('preferencesSearchService');
@@ -108,11 +99,6 @@ export const IPreferencesSearchService = createDecorator<IPreferencesSearchServi
 export interface IWorkbenchSettingsConfiguration {
 	workbench: {
 		settings: {
-			enableNaturalLanguageSearch: boolean;
-			naturalLanguageSearchEndpoint: string;
-			naturalLanguageSearchKey: string;
-			naturalLanguageSearchMaxResults: number;
-			naturalLanguageSearchFeedback: boolean;
 			openAdditionalDefaultSettings: boolean;
 		};
 	};
@@ -134,7 +120,7 @@ export interface IExtensionToggleData {
 	commonlyUsed: string[] | undefined;
 }
 
-export async function getExperimentalExtensionToggleData(chatEntitlementService: IChatEntitlementService, extensionGalleryService: IExtensionGalleryService, productService: IProductService): Promise<IExtensionToggleData | undefined> {
+export async function getExperimentalExtensionToggleData(extensionGalleryService: IExtensionGalleryService, productService: IProductService): Promise<IExtensionToggleData | undefined> {
 	const settingsEditorRecommendedExtensions: IStringDictionary<IRecommendationInfo> = {};
 	let cachedExtensionToggleData: IExtensionToggleData | undefined;
 

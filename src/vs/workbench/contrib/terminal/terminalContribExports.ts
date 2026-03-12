@@ -7,9 +7,7 @@ import type { IConfigurationNode } from '../../../platform/configuration/common/
 import { TerminalAccessibilityCommandId, defaultTerminalAccessibilityCommandsToSkipShell } from '../terminalContrib/accessibility/common/terminal.accessibility.js';
 import { terminalAccessibilityConfiguration } from '../terminalContrib/accessibility/common/terminalAccessibilityConfiguration.js';
 import { terminalAutoRepliesConfiguration } from '../terminalContrib/autoReplies/common/terminalAutoRepliesConfiguration.js';
-// [REMOVED - chat module not available] import { any, any } from '../terminalContrib/chat/browser/terminalChat.js';
 import { terminalInitialHintConfiguration } from '../terminalContrib/inlineHint/common/terminalInitialHintConfiguration.js';
-import { terminalChatAgentToolsConfiguration, TerminalChatAgentToolsSettingId } from '../terminalContrib/chatAgentTools/common/terminalChatAgentToolsConfiguration.js';
 import { terminalCommandGuideConfiguration } from '../terminalContrib/commandGuide/common/terminalCommandGuideConfiguration.js';
 import { TerminalDeveloperCommandId } from '../terminalContrib/developer/common/terminal.developer.js';
 import { defaultTerminalFindCommandToSkipShell } from '../terminalContrib/find/common/terminal.find.js';
@@ -26,12 +24,6 @@ import { terminalZoomConfiguration } from '../terminalContrib/zoom/common/termin
 export const enum TerminalContribCommandId {
 	A11yFocusAccessibleBuffer = TerminalAccessibilityCommandId.FocusAccessibleBuffer,
 	DeveloperRestartPtyHost = TerminalDeveloperCommandId.RestartPtyHost,
-	OpenTerminalSettingsLink = any.OpenTerminalSettingsLink,
-	DisableSessionAutoApproval = any.DisableSessionAutoApproval,
-	FocusMostRecentChatTerminalOutput = any.FocusMostRecentChatTerminalOutput,
-	FocusMostRecentChatTerminal = any.FocusMostRecentChatTerminal,
-	ToggleChatTerminalOutput = any.ToggleChatTerminalOutput,
-	FocusChatInstanceAction = any.FocusChatInstanceAction,
 }
 
 // HACK: Export some settings from `terminalContrib/` that are depended upon elsewhere. These are
@@ -40,10 +32,6 @@ export const enum TerminalContribCommandId {
 export const enum TerminalContribSettingId {
 	StickyScrollEnabled = TerminalStickyScrollSettingId.Enabled,
 	SuggestEnabled = TerminalSuggestSettingId.Enabled,
-	AutoApprove = TerminalChatAgentToolsSettingId.AutoApprove,
-	EnableAutoApprove = TerminalChatAgentToolsSettingId.EnableAutoApprove,
-	ShellIntegrationTimeout = TerminalChatAgentToolsSettingId.ShellIntegrationTimeout,
-	OutputLocation = TerminalChatAgentToolsSettingId.OutputLocation
 }
 
 // HACK: Export some context key strings from `terminalContrib/` that are depended upon elsewhere.
@@ -51,8 +39,6 @@ export const enum TerminalContribSettingId {
 // difficulties in removing the dependency. These are explicitly defined here to avoid an eslint
 // line override.
 export const enum TerminalContribContextKeyStrings {
-	ChatHasTerminals = any.ChatHasTerminals,
-	ChatHasHiddenTerminals = any.ChatHasHiddenTerminals,
 }
 
 // Export configuration schemes from terminalContrib - this is an exception to the eslint rule since
@@ -60,7 +46,6 @@ export const enum TerminalContribContextKeyStrings {
 export const terminalContribConfiguration: IConfigurationNode['properties'] = {
 	...terminalAccessibilityConfiguration,
 	...terminalAutoRepliesConfiguration,
-	...terminalChatAgentToolsConfiguration,
 	...terminalInitialHintConfiguration,
 	...terminalCommandGuideConfiguration,
 	...terminalHistoryConfiguration,

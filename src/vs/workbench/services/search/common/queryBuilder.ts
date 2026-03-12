@@ -22,7 +22,7 @@ import { IUriIdentityService } from '../../../../platform/uriIdentity/common/uri
 import { IWorkspaceContextService, IWorkspaceFolderData, toWorkspaceFolder, WorkbenchState } from '../../../../platform/workspace/common/workspace.js';
 import { IEditorGroupsService } from '../../editor/common/editorGroupsService.js';
 import { IPathService } from '../../path/common/pathService.js';
-import { ExcludeGlobPattern, getExcludes, IAITextQuery, ICommonQueryProps, IFileQuery, IFolderQuery, IPatternInfo, ISearchConfiguration, ITextQuery, ITextSearchPreviewOptions, pathIncludedInQuery, QueryType } from './search.js';
+import { ExcludeGlobPattern, getExcludes, ICommonQueryProps, IFileQuery, IFolderQuery, IPatternInfo, ISearchConfiguration, ITextQuery, ITextSearchPreviewOptions, pathIncludedInQuery, QueryType } from './search.js';
 import { GlobPattern } from './searchExtTypes.js';
 
 /**
@@ -108,12 +108,6 @@ export interface ITextQueryBuilderOptions<U extends UriComponents = URI> extends
 	fileEncoding?: string;
 	surroundingContext?: number;
 	isSmartCase?: boolean;
-	notebookSearchConfig?: {
-		includeMarkupInput: boolean;
-		includeMarkupPreview: boolean;
-		includeCodeInput: boolean;
-		includeOutput: boolean;
-	};
 }
 
 export class QueryBuilder {
@@ -126,15 +120,6 @@ export class QueryBuilder {
 		@IPathService private readonly pathService: IPathService,
 		@IUriIdentityService private readonly uriIdentityService: IUriIdentityService
 	) {
-	}
-
-	aiText(contentPattern: string, folderResources?: uri[], options: ITextQueryBuilderOptions = {}): IAITextQuery {
-		const commonQuery = this.commonQuery(folderResources?.map(toWorkspaceFolder), options);
-		return {
-			...commonQuery,
-			type: QueryType.aiText,
-			contentPattern,
-		};
 	}
 
 	text(contentPattern: IPatternInfo, folderResources?: uri[], options: ITextQueryBuilderOptions = {}): ITextQuery {
@@ -181,34 +166,6 @@ export class QueryBuilder {
 
 		if (this.isMultiline(inputPattern)) {
 			newPattern.isMultiline = true;
-		}
-
-		if (options.notebookSearchConfig?.includeMarkupInput) {
-			if (!newPattern.notebookInfo) {
-				newPattern.notebookInfo = {};
-			}
-			newPattern.notebookInfo.isInNotebookMarkdownInput = options.notebookSearchConfig.includeMarkupInput;
-		}
-
-		if (options.notebookSearchConfig?.includeMarkupPreview) {
-			if (!newPattern.notebookInfo) {
-				newPattern.notebookInfo = {};
-			}
-			newPattern.notebookInfo.isInNotebookMarkdownPreview = options.notebookSearchConfig.includeMarkupPreview;
-		}
-
-		if (options.notebookSearchConfig?.includeCodeInput) {
-			if (!newPattern.notebookInfo) {
-				newPattern.notebookInfo = {};
-			}
-			newPattern.notebookInfo.isInNotebookCellInput = options.notebookSearchConfig.includeCodeInput;
-		}
-
-		if (options.notebookSearchConfig?.includeOutput) {
-			if (!newPattern.notebookInfo) {
-				newPattern.notebookInfo = {};
-			}
-			newPattern.notebookInfo.isInNotebookCellOutput = options.notebookSearchConfig.includeOutput;
 		}
 
 		return newPattern;
@@ -522,7 +479,7 @@ export class QueryBuilder {
 					};
 				});
 			} else {
-				const probableWorkspaceFolderNameMatch = searchPath.match(/\.[\/\\](.+)[\/\\]?/);
+				const probable workspaceFolderNameMatch = searchPath.match(/\.[\/\\](.+)[\/\\]?/);
 				const probableWorkspaceFolderName = probableWorkspaceFolderNameMatch ? probableWorkspaceFolderNameMatch[1] : searchPath;
 
 				// No root folder with name
