@@ -16,11 +16,11 @@ export enum ExtensionsFilter {
 }
 
 enum StorageVersionKeys {
-	CopilotInternalOrg = 'extensionsAssignmentFilterProvider.copilotInternalOrg',
+	ProXentixInternalOrg = 'extensionsAssignmentFilterProvider.proxentixInternalOrg',
 }
 
-export class CopilotAssignmentFilterProvider extends Disposable implements IExperimentationFilterProvider {
-	private copilotInternalOrg: string | undefined;
+export class ProXentixAssignmentFilterProvider extends Disposable implements IExperimentationFilterProvider {
+	private proxentixInternalOrg: string | undefined;
 
 	private readonly _onDidChangeFilters = this._register(new Emitter<void>());
 	readonly onDidChangeFilters = this._onDidChangeFilters.event;
@@ -29,13 +29,13 @@ export class CopilotAssignmentFilterProvider extends Disposable implements IExpe
 		@IStorageService private readonly _storageService: IStorageService,
 	) {
 		super();
-		this.copilotInternalOrg = this._storageService.get(StorageVersionKeys.CopilotInternalOrg, StorageScope.PROFILE);
+		this.proxentixInternalOrg = this._storageService.get(StorageVersionKeys.ProXentixInternalOrg, StorageScope.PROFILE);
 	}
 
 	getFilterValue(filter: string): string | null {
 		switch (filter) {
 			case ExtensionsFilter.ProXentixInternalOrg:
-				return this.copilotInternalOrg ?? null;
+				return this.proxentixInternalOrg ?? null;
 			default:
 				return null;
 		}
@@ -51,3 +51,4 @@ export class CopilotAssignmentFilterProvider extends Disposable implements IExpe
 		return filters;
 	}
 }
+

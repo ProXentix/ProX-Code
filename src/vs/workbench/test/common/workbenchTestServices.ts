@@ -32,7 +32,7 @@ import { TestWorkspace } from '../../../platform/workspace/test/common/testWorks
 import { GroupIdentifier, IRevertOptions, ISaveOptions, SaveReason } from '../../common/editor.js';
 import { EditorInput } from '../../common/editor/editorInput.js';
 import { IActivity, IActivityService } from '../../services/activity/common/activity.js';
-import { ChatEntitlement, IChatEntitlementService } from '../../services/chat/common/chatEntitlementService.js';
+
 import { NullExtensionService } from '../../services/extensions/common/extensions.js';
 import { IAutoSaveConfiguration, IAutoSaveMode, IFilesConfigurationService } from '../../services/filesConfiguration/common/filesConfigurationService.js';
 import { IHistoryService } from '../../services/history/common/history.js';
@@ -766,7 +766,7 @@ export class InMemoryTestFileService extends TestFileService {
 	}
 }
 
-export class TestChatEntitlementService implements IChatEntitlementService {
+
 
 	_serviceBrand: undefined;
 
