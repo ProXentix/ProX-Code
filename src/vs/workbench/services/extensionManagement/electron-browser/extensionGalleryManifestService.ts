@@ -159,8 +159,8 @@ export class WorkbenchExtensionGalleryManifestService extends ExtensionGalleryMa
 
 	private async requestRestart(): Promise<void> {
 		const confirmation = await this.dialogService.confirm({
-			message: localize('extensionGalleryManifestService.accountChange', \"{0} is now configured to a different Marketplace. Please restart to apply the changes.\", this.productService.nameLong),
-			primaryButton: localize({ key: 'restart', comment: ['&& denotes a mnemonic'] }, \"&&Restart\")
+			message: localize('extensionGalleryManifestService.accountChange', "{0} is now configured to a different Marketplace. Please restart to apply the changes.", this.productService.nameLong),
+			primaryButton: localize({ key: 'restart', comment: ['&& denotes a mnemonic'] }, "&&Restart")
 		});
 		if (confirmation.confirmed) {
 			return this.hostService.restart();

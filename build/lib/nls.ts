@@ -436,7 +436,12 @@ const _nls = (() => {
 		// in its evalulated form
 		// we want to return either the string or the object
 		// eslint-disable-next-line no-eval
-		return eval(`(${sourceExpression})`);
+		try {
+			return eval(`(${sourceExpression})`);
+		} catch (err) {
+			console.error(`\n\nERROR PARSING NLS EVAL: ${sourceExpression}\n\n`);
+			throw err;
+		}
 	}
 
 	function patch(ts: typeof import('typescript'), typescript: string, javascript: string, sourcemap: sm.RawSourceMap, options: { preserveEnglish: boolean }): INlsPatchResult {
