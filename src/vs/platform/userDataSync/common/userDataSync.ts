@@ -270,7 +270,6 @@ export interface IUserDataSyncStoreService {
 	deleteCollection(collection?: string, headers?: IHeaders): Promise<void>;
 
 	getLatestData(headers?: IHeaders): Promise<IUserDataSyncLatestData | null>;
-	redirectToStore(headers?: IHeaders): Promise<void>;
 	getActivityData(): Promise<VSBufferReadableStream>;
 
 	clear(): Promise<void>;
