@@ -18,8 +18,6 @@ import { IFileMatch, IPatternInfo, ITextQuery, ITextSearchPreviewOptions, result
 
 import { FileMatchImpl } from './fileMatch.js';
 import { IChangeEvent, ISearchTreeFileMatch, ISearchTreeFolderMatch, ISearchTreeFolderMatchWithResource, ISearchTreeFolderMatchNoRoot, ISearchTreeFolderMatchWorkspaceRoot, ISearchModel, ISearchResult, isSearchTreeFolderMatchWorkspaceRoot, ITextSearchHeading, isSearchTreeFolderMatchNoRoot, FOLDER_MATCH_PREFIX, getFileMatches } from './searchTreeCommon.js';
-import { NotebookEditorWidget } from '../../../notebook/browser/notebookEditorWidget.js';
-import { isINotebookFileMatchNoModel } from '../../common/searchNotebookHelpers.js';
 
 
 
@@ -330,20 +328,6 @@ export class FolderMatchImpl extends Disposable implements ISearchTreeFolderMatc
 		}
 	}
 
-	async bindNotebookEditorWidget(editor: NotebookEditorWidget, resource: URI) {
-		const fileMatch = this._fileMatches.get(resource);
-		if (isNotebookFileMatch(fileMatch)) {
-			if (fileMatch) {
-				fileMatch.bindNotebookEditorWidget(editor);
-				await fileMatch.updateMatchesForEditorWidget();
-			} else {
-				const folderMatches = this.folderMatchesIterator();
-				for (const elem of folderMatches) {
-					await elem.bindNotebookEditorWidget(editor, resource);
-				}
-			}
-		}
-	}
 
 	addFileMatch(raw: IFileMatch[], silent: boolean, searchInstanceID: string): void {
 		// when adding a fileMatch that has intermediate directories
@@ -362,21 +346,6 @@ export class FolderMatchImpl extends Disposable implements ISearchTreeFolderMatc
 							textSearchResultToMatches(m, existingFileMatch, false)
 								.forEach(m => existingFileMatch.add(m));
 						});
-				}
-
-				// add cell matches
-				if (isINotebookFileMatchWithModel(rawFileMatch) || isINotebookFileMatchNoModel(rawFileMatch)) {
-					rawFileMatch.cellResults?.forEach(rawCellMatch => {
-						if (isNotebookFileMatch(existingFileMatch)) {
-							const existingCellMatch = existingFileMatch.getCellMatch(getIDFromINotebookCellMatch(rawCellMatch));
-							if (existingCellMatch) {
-								existingCellMatch.addContentMatches(rawCellMatch.contentResults);
-								existingCellMatch.addWebviewMatches(rawCellMatch.webviewResults);
-							} else {
-								existingFileMatch.addCellMatch(rawCellMatch);
-							}
-						}
-					});
 				}
 
 				updated.push(existingFileMatch);
@@ -398,21 +367,6 @@ export class FolderMatchImpl extends Disposable implements ISearchTreeFolderMatc
 		}
 	}
 
-	unbindNotebookEditorWidget(editor: NotebookEditorWidget, resource: URI) {
-		const fileMatch = this._fileMatches.get(resource);
-
-		if (isNotebookFileMatch(fileMatch)) {
-			if (fileMatch) {
-				fileMatch.unbindNotebookEditorWidget(editor);
-			} else {
-				const folderMatches = this.folderMatchesIterator();
-				for (const elem of folderMatches) {
-					elem.unbindNotebookEditorWidget(editor, resource);
-				}
-			}
-		}
-
-	}
 
 	disposeMatches(): void {
 		[...this._fileMatches.values()].forEach((fileMatch: ISearchTreeFileMatch) => fileMatch.dispose());
@@ -487,14 +441,13 @@ export class FolderMatchWorkspaceRootImpl extends FolderMatchWithResourceImpl im
 		// TODO: can probably just create FileMatchImpl if we don't expect cell results from the file.
 		const fileMatch =
 			this.instantiationService.createInstance(
-				NotebookCompatibleFileMatch,
+				FileMatchImpl,
 				query,
 				previewOptions,
 				maxResults,
 				parent,
 				rawFileMatch,
 				closestRoot,
-				searchInstanceID,
 			);
 		fileMatch.createMatches();
 		parent.doAddFile(fileMatch);
@@ -551,13 +504,12 @@ export class FolderMatchNoRootImpl extends FolderMatchImpl implements ISearchTre
 		const contentPatternToUse = typeof (this._query.contentPattern) === 'string' ? { pattern: this._query.contentPattern } : this._query.contentPattern;
 		// TODO: can probably just create FileMatchImpl if we don't expect cell results from the file.
 		const fileMatch = this._register(this.instantiationService.createInstance(
-			NotebookCompatibleFileMatch,
+			FileMatchImpl,
 			contentPatternToUse,
 			this._query.previewOptions,
 			this._query.maxResults,
 			this, rawFileMatch,
 			null,
-			searchInstanceID,
 		));
 		fileMatch.createMatches();
 		this.doAddFile(fileMatch);

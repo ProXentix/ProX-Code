@@ -684,7 +684,6 @@ export class MainThreadComments extends Disposable implements MainThreadComments
 			ctorDescriptor: new SyncDescriptor(ViewPaneContainer, [COMMENTS_VIEW_ID, { mergeViewWithContainerWhenSingleView: true }]),
 			storageId: COMMENTS_VIEW_STORAGE_ID,
 			icon: commentsViewIcon,
-			alwaysVisible: true,
 			order: 10
 		}, ViewContainerLocation.Panel);
 

@@ -148,8 +148,8 @@ export class WorkbenchExtensionGalleryManifestService extends ExtensionGalleryMa
 	}
 
 	private checkAccess(account: IDefaultAccount): boolean {
-		this.logService.debug('[Marketplace] Checking Account SKU access for configured gallery', account.access_type_sku);
-		if (account.access_type_sku && this.productService.extensionsGallery?.accessSKUs?.includes(account.access_type_sku)) {
+		this.logService.debug('[Marketplace] Checking Account SKU access for configured gallery', account.entitlementsData?.access_type_sku);
+		if (account.entitlementsData?.access_type_sku && this.productService.extensionsGallery?.accessSKUs?.includes(account.entitlementsData.access_type_sku)) {
 			this.logService.debug('[Marketplace] Account has access to configured gallery');
 			return true;
 		}
@@ -159,8 +159,8 @@ export class WorkbenchExtensionGalleryManifestService extends ExtensionGalleryMa
 
 	private async requestRestart(): Promise<void> {
 		const confirmation = await this.dialogService.confirm({
-			message: localize('extensionGalleryManifestService.accountChange', "{0} is now configured to a different Marketplace. Please restart to apply the changes.", this.productService.nameLong),
-			primaryButton: localize({ key: 'restart', comment: ['&& denotes a mnemonic'] }, "&&Restart")
+			message: localize('extensionGalleryManifestService.accountChange', \"{0} is now configured to a different Marketplace. Please restart to apply the changes.\", this.productService.nameLong),
+			primaryButton: localize({ key: 'restart', comment: ['&& denotes a mnemonic'] }, \"&&Restart\")
 		});
 		if (confirmation.confirmed) {
 			return this.hostService.restart();

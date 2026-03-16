@@ -107,22 +107,18 @@ export class SearchModelImpl extends Disposable implements ISearchModel {
 		this.currentCancelTokenSource = new CancellationTokenSource(callerToken);
 		this.searchCancelledForNewSearch = false;
 
-		const asyncGenerateOnProgress = (p: ISearchProgressItem) => {
-			this.onSearchProgress(p, searchInstanceID, false);
-			onProgress?.(p);
-		};
-
-		const syncGenerateOnProgress = (p: ISearchProgressItem) => {
-			this.onSearchProgress(p, searchInstanceID, true);
-			onProgress?.(p);
-		};
 
 		const start = Date.now();
-		const syncResults = this.searchService.searchSync(query, syncGenerateOnProgress);
+		const { syncResults: syncComplete, asyncResults: asyncCompletePromise } = this.searchService.textSearchSplitSyncAsync(query, this.currentCancelTokenSource?.token, (p) => {
+			this.onSearchProgress(p, searchInstanceID, false);
+			onProgress?.(p);
+		});
+
+		const syncResults = syncComplete.results;
 		this._resultQueue.push(...syncResults);
 
 		const getAsyncResults = (): Promise<ISearchComplete> => {
-			return this.searchService.search(query, asyncGenerateOnProgress, this.currentCancelTokenSource?.token)
+			return asyncCompletePromise
 				.then((complete) => {
 					this.currentCancelTokenSource = null;
 					return this.onSearchCompleted(complete, Date.now() - start, searchInstanceID);

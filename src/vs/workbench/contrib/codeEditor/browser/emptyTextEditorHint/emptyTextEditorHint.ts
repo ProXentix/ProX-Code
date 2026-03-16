@@ -39,7 +39,8 @@ export class EmptyTextEditorHintContribution extends Disposable implements IEdit
 
 	constructor(
 		protected readonly editor: ICodeEditor,
-		@IInstantiationService private readonly instantiationService: IInstantiationService
+		@IInstantiationService private readonly instantiationService: IInstantiationService,
+		@IConfigurationService private readonly configurationService: IConfigurationService,
 	) {
 		super();
 

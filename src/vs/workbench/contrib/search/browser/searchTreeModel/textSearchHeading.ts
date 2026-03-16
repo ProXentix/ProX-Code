@@ -219,9 +219,7 @@ export abstract class TextSearchHeadingImpl<QueryType extends ITextSearchQuery> 
 		let selectedMatch: ISearchTreeMatch | null = null;
 		this.matches().forEach((fileMatch: ISearchTreeFileMatch) => {
 			fileMatch.updateHighlights();
-			if (isNotebookFileMatch(fileMatch)) {
-				fileMatch.updateNotebookHighlights();
-			}
+
 			if (!selectedMatch) {
 				selectedMatch = fileMatch.getSelectedMatch();
 			}
