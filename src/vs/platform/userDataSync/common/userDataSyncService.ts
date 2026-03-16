@@ -740,7 +740,6 @@ class ProfileSynchronizer extends Disposable {
 			case SyncResource.Snippets: return this.instantiationService.createInstance(SnippetsSynchroniser, this.profile, this.collection);
 			case SyncResource.Prompts: return this.instantiationService.createInstance(PromptsSynchronizer, this.profile, this.collection);
 			case SyncResource.Tasks: return this.instantiationService.createInstance(TasksSynchroniser, this.profile, this.collection);
-			case SyncResource.Mcp: return this.instantiationService.createInstance(TasksSynchroniser, this.profile, this.collection);
 			case SyncResource.GlobalState: return this.instantiationService.createInstance(GlobalStateSynchroniser, this.profile, this.collection);
 			case SyncResource.Extensions: return this.instantiationService.createInstance(ExtensionsSynchroniser, this.profile, this.collection);
 			case SyncResource.Profiles: return this.instantiationService.createInstance(UserDataProfilesManifestSynchroniser, this.profile, this.collection);
@@ -893,8 +892,7 @@ class ProfileSynchronizer extends Disposable {
 			case SyncResource.Keybindings: return 1;
 			case SyncResource.Snippets: return 2;
 			case SyncResource.Tasks: return 3;
-			case SyncResource.Mcp: return 4;
-			case SyncResource.GlobalState: return 5;
+			case SyncResource.GlobalState: return 4;
 			case SyncResource.Extensions: return 6;
 			case SyncResource.Prompts: return 7;
 			case SyncResource.Profiles: return 8;

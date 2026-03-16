@@ -582,7 +582,7 @@ suite('AuthenticationQueryService Integration Tests', () => {
 			accountQuery.extension('ext2').addUsage(['read'], 'Extension Two');
 
 			const entitiesQuery = accountQuery.entities();
-			const visitedEntities: Array<{ id: string; type: 'extension' | 'mcpServer' }> = [];
+			const visitedEntities: Array<{ id: string; type: 'extension' }> = [];
 
 			entitiesQuery.forEach((entityId, entityType) => {
 				visitedEntities.push({ id: entityId, type: entityType });
