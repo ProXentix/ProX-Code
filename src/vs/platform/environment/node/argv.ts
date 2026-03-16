@@ -14,8 +14,7 @@ import { NativeParsedArgs } from '../common/argv.js';
 const helpCategories = {
 	o: localize('optionsUpperCase', "Options"),
 	e: localize('extensionsManagement', "Extensions Management"),
-	t: localize('troubleshooting', "Troubleshooting"),
-	m: localize('mcp', "Model Context Protocol")
+	t: localize('troubleshooting', "Troubleshooting")
 };
 
 export interface Option<OptionType> {
@@ -48,20 +47,6 @@ export type OptionDescriptions<T> = {
 export const NATIVE_CLI_COMMANDS = ['tunnel', 'serve-web'] as const;
 
 export const OPTIONS: OptionDescriptions<Required<NativeParsedArgs>> = {
-	'chat': {
-		type: 'subcommand',
-		description: 'Pass in a prompt to run in a chat session in the current working directory.',
-		options: {
-			'_': { type: 'string[]', description: localize('prompt', "The prompt to use as chat.") },
-			'mode': { type: 'string', cat: 'o', alias: 'm', args: 'mode', description: localize('chatMode', "The mode to use for the chat session. Available options: 'ask', 'edit', 'agent', or the identifier of a custom mode. Defaults to 'agent'.") },
-			'add-file': { type: 'string[]', cat: 'o', alias: 'a', args: 'path', description: localize('addFile', "Add files as context to the chat session.") },
-			'maximize': { type: 'boolean', cat: 'o', description: localize('chatMaximize', "Maximize the chat session view.") },
-			'reuse-window': { type: 'boolean', cat: 'o', alias: 'r', description: localize('reuseWindowForChat', "Force to use the last active window for the chat session.") },
-			'new-window': { type: 'boolean', cat: 'o', alias: 'n', description: localize('newWindowForChat', "Force to open an empty window for the chat session.") },
-			'profile': { type: 'string', 'cat': 'o', args: 'profileName', description: localize('profileName', "Opens the provided folder or workspace with the given profile and associates the profile with the workspace. If the profile does not exist, a new empty one is created.") },
-			'help': { type: 'boolean', alias: 'h', description: localize('help', "Print usage.") }
-		}
-	},
 	'serve-web': {
 		type: 'subcommand',
 		description: 'Run a server that displays the editor UI in browsers.',
@@ -117,8 +102,6 @@ export const OPTIONS: OptionDescriptions<Required<NativeParsedArgs>> = {
 	'uninstall-extension': { type: 'string[]', cat: 'e', args: 'ext-id', description: localize('uninstallExtension', "Uninstalls an extension.") },
 	'update-extensions': { type: 'boolean', cat: 'e', description: localize('updateExtensions', "Update the installed extensions.") },
 	'enable-proposed-api': { type: 'string[]', allowEmptyValue: true, cat: 'e', args: 'ext-id', description: localize('experimentalApis', "Enables proposed API features for extensions. Can receive one or more extension IDs to enable individually.") },
-
-	'add-mcp': { type: 'string[]', cat: 'm', args: 'json', description: localize('addMcp', "Adds a Model Context Protocol server definition to the user profile. Accepts JSON input in the form '{\"name\":\"server-name\",\"command\":...}'") },
 
 	'version': { type: 'boolean', cat: 't', alias: 'v', description: localize('version', "Print version.") },
 	'verbose': { type: 'boolean', cat: 't', global: true, description: localize('verbose', "Print verbose output (implies --wait).") },
@@ -190,6 +173,21 @@ export const OPTIONS: OptionDescriptions<Required<NativeParsedArgs>> = {
 	'trace-category-filter': { type: 'string' },
 	'trace-options': { type: 'string' },
 	'preserve-env': { type: 'boolean' },
+	'force-device-scale-factor': { type: 'string' },
+	'force-renderer-accessibility': { type: 'boolean' },
+	'ignore-certificate-errors': { type: 'boolean' },
+	'allow-insecure-localhost': { type: 'boolean' },
+	'log-net-log': { type: 'string' },
+	'vmodule': { type: 'string' },
+	'_urls': { type: 'string[]' },
+	'disable-dev-shm-usage': { type: 'boolean' },
+	'profile-temp': { type: 'boolean' },
+	'ozone-platform': { type: 'string' },
+	'enable-tracing': { type: 'string' },
+	'trace-startup-format': { type: 'string' },
+	'trace-startup-file': { type: 'string' },
+	'trace-startup-duration': { type: 'string' },
+	'xdg-portal-required-version': { type: 'string' },
 	'force-user-env': { type: 'boolean' },
 	'force-disable-user-env': { type: 'boolean' },
 	'open-devtools': { type: 'boolean' },
@@ -220,21 +218,6 @@ export const OPTIONS: OptionDescriptions<Required<NativeParsedArgs>> = {
 	'inspect': { type: 'string', allowEmptyValue: true },
 	'inspect-brk': { type: 'string', allowEmptyValue: true },
 	'nolazy': { type: 'boolean' }, // node inspect
-	'force-device-scale-factor': { type: 'string' },
-	'force-renderer-accessibility': { type: 'boolean' },
-	'ignore-certificate-errors': { type: 'boolean' },
-	'allow-insecure-localhost': { type: 'boolean' },
-	'log-net-log': { type: 'string' },
-	'vmodule': { type: 'string' },
-	'_urls': { type: 'string[]' },
-	'disable-dev-shm-usage': { type: 'boolean' },
-	'profile-temp': { type: 'boolean' },
-	'ozone-platform': { type: 'string' },
-	'enable-tracing': { type: 'string' },
-	'trace-startup-format': { type: 'string' },
-	'trace-startup-file': { type: 'string' },
-	'trace-startup-duration': { type: 'string' },
-	'xdg-portal-required-version': { type: 'string' },
 
 	_: { type: 'string[]' } // main arguments
 };
