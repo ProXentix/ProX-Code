@@ -1032,10 +1032,8 @@ export class SearchView extends ViewPane {
 		const viewer = this.getControl();
 		const navigator = viewer.navigate();
 		let node = navigator.first();
-		const shouldShowAI = this.shouldShowAIResults();
 		do {
-			if (node && !viewer.isCollapsed(node) && (!shouldShowAI || !(isTextSearchHeading(node)))) {
-				// ignore the ai text search result id
+			if (node && !viewer.isCollapsed(node)) {
 				return true;
 			}
 		} while (node = navigator.next());
@@ -1336,7 +1334,6 @@ export class SearchView extends ViewPane {
 			this.searchWidget.clear();
 		}
 		this.viewModel.cancelSearch();
-		this.viewModel.cancelAISearch();
 		this.tree.ariaLabel = nls.localize('emptySearch', "Empty Search");
 
 		this.accessibilitySignalService.playSignal(AccessibilitySignal.clear);
@@ -1349,7 +1346,7 @@ export class SearchView extends ViewPane {
 	}
 
 	cancelSearch(focus: boolean = true): boolean {
-		if (this.viewModel.cancelSearch() && this.viewModel.cancelAISearch()) {
+		if (this.viewModel.cancelSearch()) {
 			if (focus) { this.searchWidget.focus(); }
 			return true;
 		}

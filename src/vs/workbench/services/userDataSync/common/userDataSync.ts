@@ -104,7 +104,6 @@ export function getSyncAreaLabel(syncResource: SyncResource): string {
 		case SyncResource.WorkspaceState: return localize('workspace state', "Workspace State");
 		case SyncResource.Prompts: return localize('prompts', "Prompts");
 		case SyncResource.Mcp: return localize('mcp', "MCP");
+		default: return syncResource;
 	}
-
-	return syncResource;
 }

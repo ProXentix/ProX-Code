@@ -50,8 +50,7 @@ export class SearchModelImpl extends Disposable implements ISearchModel {
 		@ISearchService private readonly searchService: ISearchService,
 		@ITelemetryService private readonly telemetryService: ITelemetryService,
 		@IConfigurationService private readonly configurationService: IConfigurationService,
-		@IInstantiationService private readonly instantiationService: IInstantiationService,
-		@ILogService private readonly _logService: ILogService,
+		@IInstantiationService private readonly instantiationService: IInstantiationService
 	) {
 		super();
 		this._searchResult = this.instantiationService.createInstance(SearchResultImpl, this);
@@ -155,7 +154,7 @@ export class SearchModelImpl extends Disposable implements ISearchModel {
 		return this.doSearch(query, progressEmitter, this._searchQuery, this.id(), onProgress, callerToken);
 	}
 
-	private onSearchCompleted(completed: ISearchComplete | undefined, duration: number, searchInstanceID: string): ISearchComplete | undefined {
+	private onSearchCompleted(completed: ISearchComplete | undefined, duration: number, searchInstanceID: string): ISearchComplete {
 		if (!this._searchQuery) {
 			throw new Error('onSearchCompleted must be called after a search is started');
 		}
@@ -186,7 +185,7 @@ export class SearchModelImpl extends Disposable implements ISearchModel {
 			scheme,
 			searchOnTypeEnabled: this.searchConfig.searchOnType
 		});
-		return completed;
+		return completed || { results: [], messages: [] };
 	}
 
 	private onSearchError(e: any, duration: number): void {
