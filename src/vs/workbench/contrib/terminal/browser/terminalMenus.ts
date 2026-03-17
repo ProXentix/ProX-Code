@@ -800,7 +800,7 @@ export function getTerminalActionBarArgs(location: ITerminalLocationOptions, pro
 			...splitLocation,
 			newTerminalInNewWindow: true
 		}
-	})));
+	}))));
 	dropdownActions.push(disposableStore.add(new Action(TerminalCommandId.Split, terminalStrings.split.value, undefined, true, () => terminalService.createAndFocusTerminal({
 		location: splitLocation
 	}))));
