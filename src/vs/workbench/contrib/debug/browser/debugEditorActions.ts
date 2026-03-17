@@ -307,8 +307,7 @@ export class RunToCursorAction extends EditorAction {
 			precondition: ContextKeyExpr.and(
 				CONTEXT_DEBUGGERS_AVAILABLE,
 				PanelFocusContext.toNegated(),
-				ContextKeyExpr.or(EditorContextKeys.editorTextFocus, CONTEXT_DISASSEMBLY_VIEW_FOCUS),
-				ChatContextKeys.inChatSession.negate()
+				ContextKeyExpr.or(EditorContextKeys.editorTextFocus, CONTEXT_DISASSEMBLY_VIEW_FOCUS)
 			),
 			contextMenuOpts: {
 				group: 'debug',
@@ -353,7 +352,7 @@ export class SelectionToReplAction extends EditorAction {
 			precondition: ContextKeyExpr.and(
 				CONTEXT_IN_DEBUG_MODE,
 				EditorContextKeys.editorTextFocus,
-				ChatContextKeys.inChatSession.negate()),
+				),
 			contextMenuOpts: {
 				group: 'debug',
 				order: 0
@@ -396,7 +395,7 @@ export class SelectionToWatchExpressionsAction extends EditorAction {
 			precondition: ContextKeyExpr.and(
 				CONTEXT_IN_DEBUG_MODE,
 				EditorContextKeys.editorTextFocus,
-				ChatContextKeys.inChatSession.negate()),
+				),
 			contextMenuOpts: {
 				group: 'debug',
 				order: 1

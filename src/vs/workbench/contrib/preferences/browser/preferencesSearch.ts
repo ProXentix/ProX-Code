@@ -18,7 +18,7 @@ import { IInstantiationService } from '../../../../platform/instantiation/common
 // import { } from '../../../services/aiSettingsSearch/common/aiSettingsSearch.js';
 import { IGroupFilter, ISearchResult, ISetting, ISettingMatch, ISettingMatcher, ISettingsEditorModel, ISettingsGroup, SettingKeyMatchTypes, SettingMatchType } from '../../../services/preferences/common/preferences.js';
 import { nullRange } from '../../../services/preferences/common/preferencesModels.js';
-import {  IAiSearchProvider, IPreferencesSearchService, IRemoteSearchProvider, ISearchProvider, IWorkbenchSettingsConfiguration,  STRING_MATCH_SEARCH_PROVIDER_NAME, TF_IDF_SEARCH_PROVIDER_NAME } from '../common/preferences.js';
+import {   IPreferencesSearchService, IRemoteSearchProvider, ISearchProvider, IWorkbenchSettingsConfiguration,  STRING_MATCH_SEARCH_PROVIDER_NAME, TF_IDF_SEARCH_PROVIDER_NAME } from '../common/preferences.js';
 
 export interface IEndpointDetails {
 	urlBase?: string;
@@ -54,10 +54,6 @@ export class PreferencesSearchService extends Disposable implements IPreferences
 		this._remoteSearchProvider ??= this.instantiationService.createInstance(RemoteSearchProvider);
 		this._remoteSearchProvider.setFilter(filter);
 		return this._remoteSearchProvider;
-	}
-
-	getAiSearchProvider(filter: string): IAiSearchProvider | undefined {
-		return undefined;
 	}
 }
 

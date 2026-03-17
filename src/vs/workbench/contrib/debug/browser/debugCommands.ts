@@ -1051,8 +1051,7 @@ MenuRegistry.appendMenuItem(MenuId.EditorContext, {
 	when: ContextKeyExpr.and(
 		CONTEXT_IN_DEBUG_MODE,
 		PanelFocusContext.toNegated(),
-		EditorContextKeys.editorTextFocus,
-		ChatContextKeys.inChatSession.toNegated()),
+		EditorContextKeys.editorTextFocus),
 	group: 'debug',
 	order: 1
 });

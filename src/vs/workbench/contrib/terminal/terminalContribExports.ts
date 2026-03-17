@@ -29,9 +29,10 @@ export const enum TerminalContribCommandId {
 // HACK: Export some settings from `terminalContrib/` that are depended upon elsewhere. These are
 // soft layer breakers between `terminal/` and `terminalContrib/` but there are difficulties in
 // removing the dependency. These are explicitly defined here to avoid an eslint line override.
-export const enum TerminalContribSettingId {
+export enum TerminalContribSettingId {
 	StickyScrollEnabled = TerminalStickyScrollSettingId.Enabled,
 	SuggestEnabled = TerminalSuggestSettingId.Enabled,
+	OutputLocation = 'terminal.integrated.outputLocation',
 }
 
 // HACK: Export some context key strings from `terminalContrib/` that are depended upon elsewhere.

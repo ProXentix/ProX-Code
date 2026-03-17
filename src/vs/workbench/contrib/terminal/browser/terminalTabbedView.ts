@@ -27,7 +27,7 @@ import { TerminalTabsChatEntry } from './terminalTabsChatEntry.js';
 import { containsDragType } from '../../../../platform/dnd/browser/dnd.js';
 import { getTerminalResourcesFromDragEvent, parseTerminalUri } from './terminalUri.js';
 import type { IProcessDetails } from '../../../../platform/terminal/common/terminalProcess.js';
-import { TerminalContribContextKeyStrings } from '../terminalContribExports.js';
+
 
 const $ = dom.$;
 
@@ -104,8 +104,7 @@ export class TerminalTabbedView extends Disposable {
 		this._tabList = this._register(this._instantiationService.createInstance(TerminalTabList, this._tabListElement));
 		this._tabListDomElement = this._tabList.getHTMLElement();
 		this._chatEntry = this._register(this._instantiationService.createInstance(TerminalTabsChatEntry, tabListContainer, this._tabContainer));
-
-		const terminalOuterContainer = $('.terminal-outer-container');
+		const terminalOuterContainer = $('.terminal-outer-container');
 		this._terminalContainer = $('.terminal-groups-container');
 		terminalOuterContainer.appendChild(this._terminalContainer);
 
@@ -138,17 +137,6 @@ export class TerminalTabbedView extends Disposable {
 			this._updateChatTerminalsEntry();
 		}));
 
-		this._register(Event.any(this._terminalChatService.onDidRegisterTerminalInstanceWithToolSession, this._terminalService.onDidChangeInstances)(() => {
-			this._refreshShowTabs();
-			this._updateChatTerminalsEntry();
-		}));
-
-		this._register(contextKeyService.onDidChangeContext(e => {
-			if (e.affectsSome(new Set([TerminalContribContextKeyStrings.ChatHasHiddenTerminals]))) {
-				this._refreshShowTabs();
-				this._updateChatTerminalsEntry();
-			}
-		}));
 		this._attachEventListeners(parentElement, this._terminalContainer);
 
 		this._register(this._terminalGroupService.onDidChangePanelOrientation((orientation) => {
