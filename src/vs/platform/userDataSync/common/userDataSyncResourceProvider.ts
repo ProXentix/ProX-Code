@@ -151,6 +151,7 @@ export class UserDataSyncResourceProviderService implements IUserDataSyncResourc
 			case SyncResource.GlobalState: return this.getGlobalStateAssociatedResources(uri, profile);
 			case SyncResource.Extensions: return this.getExtensionsAssociatedResources(uri, profile);
 			case SyncResource.Profiles: return this.getProfilesAssociatedResources(uri, profile);
+			case SyncResource.Mcp: return [];
 			case SyncResource.WorkspaceState: return [];
 		}
 	}
@@ -229,6 +230,7 @@ export class UserDataSyncResourceProviderService implements IUserDataSyncResourc
 			case SyncResource.GlobalState: return this.resolveGlobalStateNodeContent(syncData, node);
 			case SyncResource.Extensions: return this.resolveExtensionsNodeContent(syncData, node);
 			case SyncResource.Profiles: return this.resolveProfileNodeContent(syncData, node);
+			case SyncResource.Mcp: return null;
 			case SyncResource.WorkspaceState: return null;
 		}
 	}
@@ -242,6 +244,7 @@ export class UserDataSyncResourceProviderService implements IUserDataSyncResourc
 			case SyncResource.GlobalState: return this.resolveLatestGlobalStateContent(profile);
 			case SyncResource.Extensions: return this.resolveLatestExtensionsContent(profile);
 			case SyncResource.Profiles: return this.resolveLatestProfilesContent(profile);
+			case SyncResource.Mcp: return null;
 			case SyncResource.Settings: return null;
 			case SyncResource.Keybindings: return null;
 			case SyncResource.Tasks: return null;
