@@ -4,7 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import { createDecorator } from '../../../../platform/instantiation/common/instantiation.js';
-import { IAuthenticationProvider, SyncStatus,  IUserDataSyncResource, IResourcePreview } from '../../../../platform/userDataSync/common/userDataSync.js';
+import { IAuthenticationProvider, SyncStatus, SyncResource, IUserDataSyncResource, IResourcePreview } from '../../../../platform/userDataSync/common/userDataSync.js';
 import { Event } from '../../../../base/common/event.js';
 import { ContextKeyExpr, RawContextKey } from '../../../../platform/contextkey/common/contextkey.js';
 import { localize, localize2 } from '../../../../nls.js';
@@ -91,3 +91,18 @@ export const DOWNLOAD_ACTIVITY_ACTION_DESCRIPTOR: Readonly<IAction2Options> = {
 	f1: true,
 	precondition: ContextKeyExpr.and(CONTEXT_ACCOUNT_STATE.isEqualTo(AccountStatus.Available), CONTEXT_SYNC_STATE.notEqualsTo(SyncStatus.Uninitialized))
 };
+
+export function getSyncAreaLabel(syncResource: SyncResource): string {
+	switch (syncResource) {
+		case SyncResource.Settings: return localize('settings', "Settings");
+		case SyncResource.Keybindings: return localize('keybindings', "Keyboard Shortcuts");
+		case SyncResource.Snippets: return localize('snippets', "Snippets");
+		case SyncResource.Tasks: return localize('tasks', "Tasks");
+		case SyncResource.Extensions: return localize('extensions', "Extensions");
+		case SyncResource.GlobalState: return localize('ui state', "UI State");
+		case SyncResource.Profiles: return localize('profiles', "Profiles");
+		case SyncResource.WorkspaceState: return localize('workspace state', "Workspace State");
+		case SyncResource.Prompts: return localize('prompts', "Prompts");
+	}
+	return syncResource;
+}

@@ -8,7 +8,6 @@ import { IContentActionHandler, renderFormattedText } from '../../../../../base/
 import { StandardMouseEvent } from '../../../../../base/browser/mouseEvent.js';
 import { status } from '../../../../../base/browser/ui/aria/aria.js';
 import { KeybindingLabel } from '../../../../../base/browser/ui/keybindingLabel/keybindingLabel.js';
-import { WorkbenchActionExecutedClassification, WorkbenchActionExecutedEvent } from '../../../../../base/common/actions.js';
 import { Emitter, Event } from '../../../../../base/common/event.js';
 import { Disposable, DisposableStore, MutableDisposable } from '../../../../../base/common/lifecycle.js';
 import { OS } from '../../../../../base/common/platform.js';
@@ -203,12 +202,11 @@ class TerminalInitialHintWidget extends Disposable {
 		@ICommandService private readonly _commandService: ICommandService,
 		@IConfigurationService private readonly _configurationService: IConfigurationService,
 		@IContextMenuService private readonly _contextMenuService: IContextMenuService,
-		@IKeybindingService private readonly _keybindingService: IKeybindingService,
-		@ITelemetryService private readonly __telemetryService: ITelemetryService,
+		@IKeybindingService private readonly _keybindingService: IKeybindingService
 	) {
 		super();
 		this._toDispose.add(_instance.onDidFocus(() => {
-			if (this._instance.hasFocus && this._isVisible && this._ariaLabel && this._configurationService.getValue(AccessibilityVerbositySettingId.TerminalInlineChat)) {
+			if (this._instance.hasFocus && this._isVisible && this._ariaLabel && this._configurationService.getValue(AccessibilityVerbositySettingId.Terminal)) {
 				status(this._ariaLabel);
 			}
 		}));
@@ -320,7 +318,7 @@ class TerminalInitialHintWidget extends Disposable {
 			this._domNode!.style.paddingLeft = '4px';
 
 			this._domNode.append(hintElement);
-			this._ariaLabel = ariaLabel.concat(localize('disableHint', ' Toggle {0} in settings to disable this hint.', AccessibilityVerbositySettingId.TerminalInlineChat));
+			this._ariaLabel = ariaLabel.concat(localize('disableHint', ' Toggle {0} in settings to disable this hint.', AccessibilityVerbositySettingId.Terminal));
 
 			this._toDispose.add(dom.addDisposableListener(this._domNode, 'click', () => {
 				this._domNode?.remove();
