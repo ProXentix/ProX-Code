@@ -253,7 +253,8 @@ export abstract class AbstractUserDataProfileElement extends Disposable {
 				ProfileResourceType.Keybindings,
 				ProfileResourceType.Tasks,
 				ProfileResourceType.Snippets,
-				ProfileResourceType.Extensions
+				ProfileResourceType.Extensions,
+				ProfileResourceType.Mcp
 			];
 			return Promise.all(resourceTypes.map<Promise<IProfileResourceTypeElement>>(async r => {
 				const children = (r === ProfileResourceType.Settings
@@ -299,6 +300,9 @@ export abstract class AbstractUserDataProfileElement extends Disposable {
 				break;
 			case ProfileResourceType.Extensions:
 				children = await this.instantiationService.createInstance(ExtensionsResourceExportTreeItem, profile).getChildren();
+				break;
+			case ProfileResourceType.Mcp:
+				// children = await this.instantiationService.createInstance(McpResourceTreeItem, profile).getChildren();
 				break;
 		}
 		return children.map<IProfileResourceTypeChildElement>(child => this.toUserDataProfileResourceChildElement(child));
@@ -659,6 +663,7 @@ export class NewProfileElement extends AbstractUserDataProfileElement {
 			snippets: true,
 			tasks: true,
 			extensions: true,
+			mcp: true,
 		} : undefined;
 	}
 
@@ -680,6 +685,7 @@ export class NewProfileElement extends AbstractUserDataProfileElement {
 					this.setCopyFlag(ProfileResourceType.Tasks, !!this.template.tasks);
 					this.setCopyFlag(ProfileResourceType.Snippets, !!this.template.snippets);
 					this.setCopyFlag(ProfileResourceType.Extensions, !!this.template.extensions);
+					this.setCopyFlag(ProfileResourceType.Mcp, !!this.template.mcp);
 
 					this._onDidChange.fire({ copyFromInfo: true });
 				}
@@ -714,6 +720,7 @@ export class NewProfileElement extends AbstractUserDataProfileElement {
 			this.setCopyFlag(ProfileResourceType.Tasks, false);
 			this.setCopyFlag(ProfileResourceType.Snippets, false);
 			this.setCopyFlag(ProfileResourceType.Extensions, false);
+			this.setCopyFlag(ProfileResourceType.Mcp, false);
 
 			this._onDidChange.fire({ copyFromInfo: true });
 		} finally {
@@ -759,6 +766,8 @@ export class NewProfileElement extends AbstractUserDataProfileElement {
 					return !!this.template.tasks;
 				case ProfileResourceType.Extensions:
 					return !!this.template.extensions;
+				case ProfileResourceType.Mcp:
+					return !!this.template.mcp;
 			}
 		}
 		return true;

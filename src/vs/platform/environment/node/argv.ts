@@ -77,6 +77,20 @@ export const OPTIONS: OptionDescriptions<Required<NativeParsedArgs>> = {
 			}
 		}
 	},
+	'chat': {
+		type: 'subcommand',
+		description: localize('chatDescription', "Launch the AI chat."),
+		options: {
+			_: { type: 'string[]' },
+			'add-file': { type: 'string[]', args: 'path', description: localize('addFile', "Add a file to the chat.") },
+			mode: { type: 'string' },
+			maximize: { type: 'boolean' },
+			'reuse-window': { type: 'boolean' },
+			'new-window': { type: 'boolean' },
+			profile: { type: 'string' },
+			help: { type: 'boolean' }
+		}
+	},
 	'diff': { type: 'boolean', cat: 'o', alias: 'd', args: ['file', 'file'], description: localize('diff', "Compare two files with each other.") },
 	'merge': { type: 'boolean', cat: 'o', alias: 'm', args: ['path1', 'path2', 'base', 'result'], description: localize('merge', "Perform a three-way merge by providing paths for two modified versions of a file, the common origin of both modified versions and the output file to save merge results.") },
 	'add': { type: 'boolean', cat: 'o', alias: 'a', args: 'folder', description: localize('add', "Add folder(s) to the last active window.") },
@@ -147,6 +161,7 @@ export const OPTIONS: OptionDescriptions<Required<NativeParsedArgs>> = {
 	'export-default-configuration': { type: 'string' },
 	'export-policy-data': { type: 'string', allowEmptyValue: true },
 	'install-source': { type: 'string' },
+	'add-mcp': { type: 'string[]' },
 	'enable-smoke-test-driver': { type: 'boolean' },
 	'logExtensionHostCommunication': { type: 'boolean' },
 	'skip-release-notes': { type: 'boolean' },

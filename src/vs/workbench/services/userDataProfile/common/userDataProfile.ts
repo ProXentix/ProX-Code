@@ -59,6 +59,7 @@ export interface IUserDataProfileTemplate {
 	readonly snippets?: string;
 	readonly globalState?: string;
 	readonly extensions?: string;
+	readonly mcp?: string;
 }
 
 export function isUserDataProfileTemplate(thing: unknown): thing is IUserDataProfileTemplate {

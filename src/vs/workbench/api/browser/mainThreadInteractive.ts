@@ -19,7 +19,8 @@ export class MainThreadInteractive implements MainThreadInteractiveShape {
 		extHostContext: IExtHostContext,
 		// @IInteractiveDocumentService interactiveDocumentService: IInteractiveDocumentService
 	) {
-		this._proxy = extHostContext.getProxy(ExtHostContext.ExtHostInteractive);
+		this.__proxy = extHostContext.getProxy(ExtHostContext.ExtHostInteractive);
+
 
 		/*
 				this._disposables.add(interactiveDocumentService.onWillAddInteractiveDocument((e) => {

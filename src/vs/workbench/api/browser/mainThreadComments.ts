@@ -668,10 +668,11 @@ export class MainThreadComments extends Disposable implements MainThreadComments
 	}
 
 	private registerView() {
-		if (this._commentService.hasActivity) {
+		if (this._commentService.commentsModel.hasCommentThreads()) {
 			this.doRegisterView();
 		}
 	}
+
 
 	private doRegisterView() {
 		if (this._viewDescriptorService.getViewContainerById(COMMENTS_VIEW_ID)) {

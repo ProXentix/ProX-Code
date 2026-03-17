@@ -29,6 +29,7 @@ export const enum ProfileResourceType {
 	Tasks = 'tasks',
 	Extensions = 'extensions',
 	GlobalState = 'globalState',
+	Mcp = 'mcp',
 }
 
 /**
@@ -49,6 +50,7 @@ export interface IUserDataProfile {
 	readonly tasksResource: URI;
 	readonly snippetsHome: URI;
 	readonly promptsHome: URI;
+	readonly mcpResource: URI;
 	readonly extensionsResource: URI;
 	readonly cacheHome: URI;
 	readonly useDefaultFlags?: UseDefaultProfileFlags;
@@ -136,6 +138,7 @@ export function reviveProfile(profile: UriDto<IUserDataProfile>, scheme: string)
 		tasksResource: URI.revive(profile.tasksResource).with({ scheme }),
 		snippetsHome: URI.revive(profile.snippetsHome).with({ scheme }),
 		promptsHome: URI.revive(profile.promptsHome).with({ scheme }),
+		mcpResource: URI.revive(profile.mcpResource).with({ scheme }),
 		extensionsResource: URI.revive(profile.extensionsResource).with({ scheme }),
 		cacheHome: URI.revive(profile.cacheHome).with({ scheme }),
 		useDefaultFlags: profile.useDefaultFlags,
@@ -157,6 +160,7 @@ export function toUserDataProfile(id: string, name: string, location: URI, profi
 		tasksResource: defaultProfile && options?.useDefaultFlags?.tasks ? defaultProfile.tasksResource : joinPath(location, 'tasks.json'),
 		snippetsHome: defaultProfile && options?.useDefaultFlags?.snippets ? defaultProfile.snippetsHome : joinPath(location, 'snippets'),
 		promptsHome: defaultProfile && options?.useDefaultFlags?.prompts ? defaultProfile.promptsHome : joinPath(location, 'prompts'),
+		mcpResource: defaultProfile && options?.useDefaultFlags?.mcp ? defaultProfile.mcpResource : joinPath(location, 'mcp.json'),
 		extensionsResource: defaultProfile && options?.useDefaultFlags?.extensions ? defaultProfile.extensionsResource : joinPath(location, 'extensions.json'),
 		cacheHome: joinPath(profilesCacheHome, id),
 		useDefaultFlags: options?.useDefaultFlags,
