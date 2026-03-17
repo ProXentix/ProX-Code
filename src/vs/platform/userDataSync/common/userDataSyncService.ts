@@ -743,6 +743,7 @@ class ProfileSynchronizer extends Disposable {
 			case SyncResource.GlobalState: return this.instantiationService.createInstance(GlobalStateSynchroniser, this.profile, this.collection);
 			case SyncResource.Extensions: return this.instantiationService.createInstance(ExtensionsSynchroniser, this.profile, this.collection);
 			case SyncResource.Profiles: return this.instantiationService.createInstance(UserDataProfilesManifestSynchroniser, this.profile, this.collection);
+			case SyncResource.Mcp: throw new Error('Mcp synchronizer is not implemented');
 		}
 	}
 
@@ -896,7 +897,8 @@ class ProfileSynchronizer extends Disposable {
 			case SyncResource.Extensions: return 6;
 			case SyncResource.Prompts: return 7;
 			case SyncResource.Profiles: return 8;
-			case SyncResource.WorkspaceState: return 9;
+			case SyncResource.Mcp: return 9;
+			case SyncResource.WorkspaceState: return 10;
 		}
 	}
 }
