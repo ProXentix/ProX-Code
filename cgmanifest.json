@@ -1,0 +1,15 @@
+{
+	"registrations": [
+		{
+			"component": {
+				"type": "git",
+				"git": {
+					"name": "chromium",
+					"repositoryUrl": "https://chromium.googlesource.com/chromium/src.git"
+				}
+			},
+			"version": "142.0.7444.235"
+		}
+	],
+	"version": 1
+}
