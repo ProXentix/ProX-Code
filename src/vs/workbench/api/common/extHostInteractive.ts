@@ -8,13 +8,16 @@ import { ILogService } from '../../../platform/log/common/log.js';
 import { ExtHostInteractiveShape, IMainContext } from './extHost.protocol.js';
 import { ApiCommand, ApiCommandArgument, ApiCommandResult, ExtHostCommands } from './extHostCommands.js';
 import { ExtHostDocumentsAndEditors } from './extHostDocumentsAndEditors.js';
-import { ExtHostNotebookController } from './extHostNotebook.js';
+// [REMOVED - module not available] import { ExtHostNotebookController } from './extHostNotebook.js';
+
 import { NotebookEditor } from 'vscode';
 
 export class ExtHostInteractive implements ExtHostInteractiveShape {
 	constructor(
 		mainContext: IMainContext,
-		private _extHostNotebooks: ExtHostNotebookController,
+		// [REMOVED - module not available] private _extHostNotebooks: ExtHostNotebookController,
+		private _extHostNotebooks: any,
+
 		private _textDocumentsAndEditors: ExtHostDocumentsAndEditors,
 		private _commands: ExtHostCommands,
 		_logService: ILogService
@@ -32,7 +35,9 @@ export class ExtHostInteractive implements ExtHostInteractiveShape {
 			new ApiCommandResult<{ notebookUri: UriComponents; inputUri: UriComponents; notebookEditorId?: string }, { notebookUri: URI; inputUri: URI; notebookEditor?: NotebookEditor }>('Notebook and input URI', (v: { notebookUri: UriComponents; inputUri: UriComponents; notebookEditorId?: string }) => {
 				_logService.debug('[ExtHostInteractive] open iw with notebook editor id', v.notebookEditorId);
 				if (v.notebookEditorId !== undefined) {
-					const editor = this._extHostNotebooks.getEditorById(v.notebookEditorId);
+					// [REMOVED - module not available] const editor = this._extHostNotebooks.getEditorById(v.notebookEditorId);
+					const editor = (this._extHostNotebooks as any).getEditorById(v.notebookEditorId);
+
 					_logService.debug('[ExtHostInteractive] notebook editor found', editor.id);
 					return { notebookUri: URI.revive(v.notebookUri), inputUri: URI.revive(v.inputUri), notebookEditor: editor.apiEditor };
 				}

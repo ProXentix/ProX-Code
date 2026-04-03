@@ -36,7 +36,8 @@ import { IActivityService, NumberBadge } from '../../../services/activity/common
 import { viewFilterSubmenu } from '../../../browser/parts/views/viewFilter.js';
 import { IConfigurationService } from '../../../../platform/configuration/common/configuration.js';
 import { problemsConfigurationNodeBase } from '../../../common/configuration.js';
-import { MarkerChatContextContribution } from './markersChatContext.js';
+// [REMOVED - module not available] import { MarkerChatContextContribution } from './markersChatContext.js';
+
 
 KeybindingsRegistry.registerCommandAndKeybindingRule({
 	id: Markers.MARKER_OPEN_ACTION_ID,
@@ -687,7 +688,8 @@ class MarkersStatusBarContributions extends Disposable implements IWorkbenchCont
 
 workbenchRegistry.registerWorkbenchContribution(MarkersStatusBarContributions, LifecyclePhase.Restored);
 
-registerWorkbenchContribution2(MarkerChatContextContribution.ID, MarkerChatContextContribution, WorkbenchPhase.AfterRestored);
+// [REMOVED - module not available] registerWorkbenchContribution2(MarkerChatContextContribution.ID, MarkerChatContextContribution, WorkbenchPhase.AfterRestored);
+
 
 class ActivityUpdater extends Disposable implements IWorkbenchContribution {
 

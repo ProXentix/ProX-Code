@@ -12,7 +12,8 @@ import { IWorkbenchContribution } from '../../../common/contributions.js';
 import { EditorInput } from '../../../common/editor/editorInput.js';
 import { CustomEditorInput } from './customEditorInput.js';
 import { ICustomEditorService } from '../common/customEditor.js';
-import { NotebookEditorInput } from '../../notebook/common/notebookEditorInput.js';
+// [REMOVED - module not available] import { NotebookEditorInput } from '../../notebook/common/notebookEditorInput.js';
+
 import { IWebviewService, WebviewContentOptions, WebviewContentPurpose, WebviewExtensionDescription, WebviewOptions } from '../../webview/browser/webview.js';
 import { DeserializedWebview, restoreWebviewContentOptions, restoreWebviewOptions, reviveWebviewExtensionDescription, reviveWebviewIconPath, SerializedWebview, SerializedWebviewOptions, WebviewEditorInputSerializer } from '../../webviewPanel/browser/webviewEditorInputSerializer.js';
 import { IWebviewWorkbenchService } from '../../webviewPanel/browser/webviewWorkbenchService.js';
@@ -152,6 +153,7 @@ export class ComplexCustomWorkingCopyEditorHandler extends Disposable implements
 			return false;
 		}
 
+		/* [REMOVED - module not available]
 		if (workingCopy.resource.authority === 'jupyter-notebook-ipynb' && editor instanceof NotebookEditorInput) {
 			try {
 				const data = JSON.parse(workingCopy.resource.query);
@@ -161,6 +163,8 @@ export class ComplexCustomWorkingCopyEditorHandler extends Disposable implements
 				return false;
 			}
 		}
+		*/
+
 
 		if (!(editor instanceof CustomEditorInput)) {
 			return false;

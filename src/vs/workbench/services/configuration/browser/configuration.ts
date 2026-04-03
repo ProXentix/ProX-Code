@@ -24,7 +24,8 @@ import { IStringDictionary } from '../../../../base/common/collections.js';
 import { joinPath } from '../../../../base/common/resources.js';
 import { Registry } from '../../../../platform/registry/common/platform.js';
 import { IBrowserWorkbenchEnvironmentService } from '../../environment/browser/environmentService.js';
-import { isEmptyObject, isObject } from '../../../../base/common/types.isEmptyObject.js';
+import { isEmptyObject, isObject } from '../../../../base/common/types.js';
+
 import { DefaultConfiguration as BaseDefaultConfiguration } from '../../../../platform/configuration/common/configurations.js';
 import { IJSONEditingService } from '../common/jsonEditing.js';
 import { IUserDataProfilesService } from '../../../../platform/userDataProfile/common/userDataProfile.js';

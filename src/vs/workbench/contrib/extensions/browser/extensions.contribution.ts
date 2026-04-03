@@ -40,7 +40,8 @@ import { IExtensionRecommendationsService } from '../../../services/extensionRec
 import {  AutoUpdateConfigurationKey, CONTEXT_EXTENSIONS_GALLERY_STATUS, CONTEXT_HAS_GALLERY,     IExtensionsWorkbenchService,  VIEWLET_ID, } from '../common/extensions.js';
 import { ExtensionsConfigurationSchema, ExtensionsConfigurationSchemaId } from '../common/extensionsFileTemplate.js';
 import { ExtensionsInput } from '../common/extensionsInput.js';
-import { SearchExtensionsTool, SearchExtensionsToolData } from '../common/searchExtensionsTool.js';
+// [REMOVED - module not available] import { SearchExtensionsTool, SearchExtensionsToolData } from '../common/searchExtensionsTool.js';
+
 import { ShowRuntimeExtensionsAction } from './abstractRuntimeExtensionsEditor.js';
 import { ExtensionEditor } from './extensionEditor.js';
 // import { } from './extensionEnablementWorkspaceTrustTransitionParticipant.js';

@@ -48,7 +48,8 @@ import { IModelService } from '../../../../editor/common/services/model.js';
 import { EditorExtensionsRegistry } from '../../../../editor/browser/editorExtensions.js';
 import { MenuPreventer } from '../../codeEditor/browser/menuPreventer.js';
 import { SelectionClipboardContributionID } from '../../codeEditor/browser/selectionClipboard.js';
-import { EditorDictation } from '../../codeEditor/browser/dictation/editorDictation.js';
+// [REMOVED - module not available] import { EditorDictation } from '../../codeEditor/browser/dictation/editorDictation.js';
+
 import { ContextMenuController } from '../../../../editor/contrib/contextmenu/browser/contextmenu.js';
 import * as platform from '../../../../base/common/platform.js';
 import { compare, format } from '../../../../base/common/strings.js';
@@ -1923,7 +1924,8 @@ class SCMInputWidget {
 				CopyPasteController.ID,
 				DragAndDropController.ID,
 				DropIntoEditorController.ID,
-				EditorDictation.ID,
+				// [REMOVED - module not available] EditorDictation.ID,
+
 				FormatOnType.ID,
 				ContentHoverController.ID,
 				GlyphHoverController.ID,

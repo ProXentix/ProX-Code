@@ -35,7 +35,8 @@ import { createFileUriFromPathFromRoot, getRootName } from './searchTestCommon.j
 
 import { FindMatch, IReadonlyTextBuffer } from '../../../../../editor/common/model.js';
 import { ResourceMap, ResourceSet } from '../../../../../base/common/map.js';
-import { INotebookService } from '../../../notebook/common/notebookService.js';
+// [REMOVED - module not available] import { INotebookService } from '../../../notebook/common/notebookService.js';
+
 
 import { IContextKeyService } from '../../../../../platform/contextkey/common/contextkey.js';
 import { MockContextKeyService } from '../../../../../platform/keybinding/test/common/mockKeybindingService.js';
@@ -90,9 +91,10 @@ suite('SearchModel', () => {
 		instantiationService = new TestInstantiationService();
 		instantiationService.stub(ITelemetryService, NullTelemetryService);
 		instantiationService.stub(ILabelService, { getUriBasenameLabel: (uri: URI) => '' });
-		instantiationService.stub(INotebookService, { getNotebookTextModels: () => [] });
+		// [REMOVED - module not available] instantiationService.stub(INotebookService, { getNotebookTextModels: () => [] });
 		instantiationService.stub(IModelService, stubModelService(instantiationService));
-		instantiationService.stub(INotebookEditorService, stubNotebookEditorService(instantiationService));
+		// [REMOVED - module not available] instantiationService.stub(INotebookEditorService, stubNotebookEditorService(instantiationService));
+
 		instantiationService.stub(ISearchService, {});
 		instantiationService.stub(ISearchService, 'textSearch', Promise.resolve({ results: [] }));
 		const fileService = new FileService(new NullLogService());
@@ -230,39 +232,12 @@ suite('SearchModel', () => {
 
 
 
+/* [REMOVED - module not available]
 	function stubNotebookSearchService(results: any[], tokenSource?: any, onProgress?: any): any {
-		return <any>{
-			_serviceBrand: undefined,
-			notebookSearch(_query: any, token: any, _searchInstanceID: any, onProgress?: any): {
-				openFilesToScan: ResourceSet;
-				completeData: Promise<ISearchComplete>;
-				allScannedFiles: Promise<ResourceSet>;
-			} {
-				const disposable = token?.onCancellationRequested(() => tokenSource?.cancel());
-				if (disposable) {
-					store.add(disposable);
-				}
-				const localResults = new ResourceMap<INotebookFileMatchWithModel | null>(uri => uri.path);
-
-				results.forEach(r => {
-					localResults.set(r.resource, r);
-				});
-
-				if (onProgress) {
-					arrays.coalesce([...localResults.values()]).forEach(onProgress);
-				}
-				return {
-					openFilesToScan: new ResourceSet([...localResults.keys()]),
-					completeData: Promise.resolve({
-						messages: [],
-						results: arrays.coalesce([...localResults.values()]),
-						limitHit: false
-					}),
-					allScannedFiles: Promise.resolve(new ResourceSet()),
-				};
-			}
-		};
+...
 	}
+*/
+
 
 	test('Search Model: Search adds to results', async () => {
 		const results = [
@@ -296,124 +271,12 @@ suite('SearchModel', () => {
 	});
 
 
+/* [REMOVED - module not available]
 	test('Search Model: Search can return notebook results', async () => {
-		const results = [
-			aRawMatch('/2',
-				new TextSearchMatch('test', new OneLineRange(1, 1, 5)),
-				new TextSearchMatch('this is a test', new OneLineRange(1, 11, 15))),
-			aRawMatch('/3', new TextSearchMatch('test', lineOneRange))];
-		instantiationService.stub(ISearchService, searchServiceWithResults(results, { limitHit: false, messages: [], results }));
-		sinon.stub(CellMatch.prototype, 'addContext');
-
-		const mdInputCell = {
-			cellKind: CellKind.Markup, textBuffer: <IReadonlyTextBuffer>{
-				getLineContent(lineNumber: number): string {
-					if (lineNumber === 1) {
-						return '# Test';
-					} else {
-						return '';
-					}
-				}
-			},
-			id: 'mdInputCell'
-		} as ICellViewModel;
-
-		const findMatchMds = [new FindMatch(new Range(1, 3, 1, 7), ['Test'])];
-
-		const codeCell = {
-			cellKind: CellKind.Code, textBuffer: <IReadonlyTextBuffer>{
-				getLineContent(lineNumber: number): string {
-					if (lineNumber === 1) {
-						return 'print("test! testing!!")';
-					} else {
-						return '';
-					}
-				}
-			},
-			id: 'codeCell'
-		} as ICellViewModel;
-
-		const findMatchCodeCells =
-			[new FindMatch(new Range(1, 8, 1, 12), ['test']),
-			new FindMatch(new Range(1, 14, 1, 18), ['test']),
-			];
-		const webviewMatches = [{
-			index: 0,
-			searchPreviewInfo: {
-				line: 'test! testing!!',
-				range: {
-					start: 1,
-					end: 5
-				}
-			}
-		},
-		{
-			index: 1,
-			searchPreviewInfo: {
-				line: 'test! testing!!',
-				range: {
-					start: 7,
-					end: 11
-				}
-			}
-		}
-		];
-		const _cellMatchMd: INotebookCellMatchWithModel = {
-			cell: mdInputCell,
-			index: 0,
-			contentResults: contentMatchesToTextSearchMatches(findMatchMds, mdInputCell),
-			webviewResults: []
-		};
-
-		const _cellMatchCode: INotebookCellMatchWithModel = {
-			cell: codeCell,
-			index: 1,
-			contentResults: contentMatchesToTextSearchMatches(findMatchCodeCells, codeCell),
-			webviewResults: webviewMatchesToTextSearchMatches(webviewMatches),
-		};
-
-
-
-		const model: SearchModelImpl = instantiationService.createInstance(SearchModelImpl);
-		store.add(model);
-		await model.search({ contentPattern: { pattern: 'test' }, type: QueryType.Text, folderQueries }).asyncResults;
-		const actual = model.searchResult.matches();
-
-
-
-		assert.strictEqual(3, actual.length);
-		assert.strictEqual(URI.file(`${getRootName()}/1`).toString(), actual[0].resource.toString());
-		const notebookFileMatches = actual[0].matches();
-
-		assert.ok(notebookFileMatches[0].range().equalsRange(new Range(1, 3, 1, 7)));
-		assert.ok(notebookFileMatches[1].range().equalsRange(new Range(1, 8, 1, 12)));
-		assert.ok(notebookFileMatches[2].range().equalsRange(new Range(1, 14, 1, 18)));
-		assert.ok(notebookFileMatches[3].range().equalsRange(new Range(1, 2, 1, 6)));
-		assert.ok(notebookFileMatches[4].range().equalsRange(new Range(1, 8, 1, 12)));
-
-		notebookFileMatches.forEach(match => match instanceof MatchInNotebook);
-		assert((notebookFileMatches[0] as MatchInNotebook).cell?.id === 'mdInputCell');
-		assert((notebookFileMatches[1] as MatchInNotebook).cell?.id === 'codeCell');
-		assert((notebookFileMatches[2] as MatchInNotebook).cell?.id === 'codeCell');
-		assert((notebookFileMatches[3] as MatchInNotebook).cell?.id === 'codeCell');
-		assert((notebookFileMatches[4] as MatchInNotebook).cell?.id === 'codeCell');
-
-		const mdCellMatchProcessed = (notebookFileMatches[0] as MatchInNotebook).cellParent;
-		const codeCellMatchProcessed = (notebookFileMatches[1] as MatchInNotebook).cellParent;
-
-		assert(mdCellMatchProcessed.contentMatches.length === 1);
-		assert(codeCellMatchProcessed.contentMatches.length === 2);
-		assert(codeCellMatchProcessed.webviewMatches.length === 2);
-
-		assert(mdCellMatchProcessed.contentMatches[0] === notebookFileMatches[0]);
-		assert(codeCellMatchProcessed.contentMatches[0] === notebookFileMatches[1]);
-		assert(codeCellMatchProcessed.contentMatches[1] === notebookFileMatches[2]);
-		assert(codeCellMatchProcessed.webviewMatches[0] === notebookFileMatches[3]);
-		assert(codeCellMatchProcessed.webviewMatches[1] === notebookFileMatches[4]);
-
-		assert.strictEqual(URI.file(`${getRootName()}/2`).toString(), actual[1].resource.toString());
-		assert.strictEqual(URI.file(`${getRootName()}/3`).toString(), actual[2].resource.toString());
+...
 	});
+*/
+
 
 	test('Search Model: Search reports telemetry on search completed', async () => {
 		const target = instantiationService.spy(ITelemetryService, 'publicLog');
