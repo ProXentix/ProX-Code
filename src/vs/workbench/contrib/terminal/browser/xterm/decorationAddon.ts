@@ -28,7 +28,7 @@ import { ILifecycleService } from '../../../../services/lifecycle/common/lifecyc
 import { IHoverService } from '../../../../../platform/hover/browser/hover.js';
 import { MarkdownString } from '../../../../../base/common/htmlContent.js';
 import { IInstantiationService } from '../../../../../platform/instantiation/common/instantiation.js';
-import { getTerminalUri, parseTerminalUri } from '../terminalUri.js';
+
 import { URI } from '../../../../../base/common/uri.js';
 import { isString } from '../../../../../base/common/types.js';
 
@@ -49,7 +49,7 @@ export class DecorationAddon extends Disposable implements ITerminalAddon, IDeco
 	readonly onDidRequestCopyAsHtml = this._onDidRequestCopyAsHtml.event;
 
 	constructor(
-		private readonly _resource: URI | undefined,
+		_resource: URI | undefined,
 		private readonly _capabilities: ITerminalCapabilityStore,
 		@IClipboardService private readonly _clipboardService: IClipboardService,
 		@IContextMenuService private readonly _contextMenuService: IContextMenuService,
@@ -62,7 +62,7 @@ export class DecorationAddon extends Disposable implements ITerminalAddon, IDeco
 		@IAccessibilitySignalService private readonly _accessibilitySignalService: IAccessibilitySignalService,
 		@INotificationService private readonly _notificationService: INotificationService,
 		@IHoverService private readonly _hoverService: IHoverService,
-		@IInstantiationService private readonly _instantiationService: IInstantiationService
+		@IInstantiationService _instantiationService: IInstantiationService
 	) {
 		super();
 		this._register(toDisposable(() => this._dispose()));

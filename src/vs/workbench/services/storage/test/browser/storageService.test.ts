@@ -44,6 +44,7 @@ async function createStorageService(): Promise<[DisposableStore, BrowserStorageS
 		tasksResource: joinPath(inMemoryExtraProfileRoot, 'tasksResource'),
 		snippetsHome: joinPath(inMemoryExtraProfileRoot, 'snippetsHome'),
 		promptsHome: joinPath(inMemoryExtraProfileRoot, 'promptsHome'),
+		mcpResource: joinPath(inMemoryExtraProfileRoot, 'mcpResource'),
 		extensionsResource: joinPath(inMemoryExtraProfileRoot, 'extensionsResource'),
 		cacheHome: joinPath(inMemoryExtraProfileRoot, 'cache')
 	};

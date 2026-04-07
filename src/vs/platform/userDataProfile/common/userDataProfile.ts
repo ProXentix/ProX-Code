@@ -50,7 +50,7 @@ export interface IUserDataProfile {
 	readonly tasksResource: URI;
 	readonly snippetsHome: URI;
 	readonly promptsHome: URI;
-	readonly mcpResource: URI;
+	readonly mcpResource?: URI;
 	readonly extensionsResource: URI;
 	readonly cacheHome: URI;
 	readonly useDefaultFlags?: UseDefaultProfileFlags;
@@ -138,7 +138,7 @@ export function reviveProfile(profile: UriDto<IUserDataProfile>, scheme: string)
 		tasksResource: URI.revive(profile.tasksResource).with({ scheme }),
 		snippetsHome: URI.revive(profile.snippetsHome).with({ scheme }),
 		promptsHome: URI.revive(profile.promptsHome).with({ scheme }),
-		mcpResource: URI.revive(profile.mcpResource).with({ scheme }),
+		mcpResource: profile.mcpResource ? URI.revive(profile.mcpResource).with({ scheme }) : undefined,
 		extensionsResource: URI.revive(profile.extensionsResource).with({ scheme }),
 		cacheHome: URI.revive(profile.cacheHome).with({ scheme }),
 		useDefaultFlags: profile.useDefaultFlags,

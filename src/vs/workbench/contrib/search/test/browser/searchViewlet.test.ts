@@ -22,7 +22,7 @@ import { TestContextService } from '../../../../test/common/workbenchTestService
 
 import { createFileUriFromPathFromRoot, getRootName, stubModelService } from './searchTestCommon.js';
 import { ensureNoDisposablesAreLeakedInTestSuite } from '../../../../../base/test/common/utils.js';
-import { ISearchTreeFolderMatch, ISearchResult, ITextSearchHeading, FILE_MATCH_PREFIX, MATCH_PREFIX } from '../../browser/searchTreeModel/searchTreeCommon.js';
+import { ISearchTreeFolderMatch, ISearchResult, ITextSearchHeading, FILE_MATCH_PREFIX, MATCH_PREFIX, ISearchTreeFileMatch } from '../../browser/searchTreeModel/searchTreeCommon.js';
 
 
 import { FolderMatchImpl } from '../../browser/searchTreeModel/folderMatch.js';
@@ -181,14 +181,14 @@ suite('Search - Viewlet', () => {
 		assert(searchComparer(fileMatch3, lineMatch4, SearchSortOrder.Type) < 0);
 	});
 
-	function aFileMatch(path: string, parentFolder?: ISearchTreeFolderMatch, ...lineMatches: ITextSearchMatch[]): IFileMatch {
+	function aFileMatch(path: string, parentFolder?: ISearchTreeFolderMatch, ...lineMatches: ITextSearchMatch[]): ISearchTreeFileMatch {
 		const rawMatch: IFileMatch = {
 			resource: URI.file('/' + path),
 			results: lineMatches
 		};
 		const fileMatch = instantiation.createInstance(FileMatchImpl, {
 			pattern: ''
-		}, undefined, undefined, parentFolder ?? aFolderMatch('', 0), rawMatch, null, '');
+		}, undefined, undefined, parentFolder ?? aFolderMatch('', 0), rawMatch, null);
 		fileMatch.createMatches();
 		store.add(fileMatch);
 		return fileMatch;

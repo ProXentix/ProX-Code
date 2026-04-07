@@ -22,6 +22,30 @@ import { IEditorService } from '../../../../services/editor/common/editorService
 import { IFileMatch } from '../../../../services/search/common/search.js';
 import { TestEditorGroupsService, TestEditorService } from '../../../../test/browser/workbenchTestServices.js';
 import { ISearchResult } from '../../browser/searchTreeModel/searchTreeCommon.js';
+import { FileMatchImpl } from '../../browser/searchTreeModel/fileMatch.js';
+
+export interface INotebookEditorService { }
+export class NotebookEditorWidgetService { }
+export enum CellKind { Markup = 1, Code = 2 }
+export interface ICellViewModel { cellKind: CellKind }
+export class CellMatch {
+	static readonly prototype: any = { addContext: () => { } };
+}
+export interface INotebookFileMatchWithModel { resource: URI; cellResults: any[] }
+export interface INotebookFileInstanceMatch {
+	resource: URI;
+	matches(): any[];
+	setSelectedMatch(match: any): void;
+	getSelectedMatch(): any;
+	isMatchSelected(match: any): boolean;
+	id(): string;
+	name(): string;
+	count(): number;
+	dispose(): void;
+	createMatches(): void;
+}
+export class NotebookCompatibleFileMatch extends FileMatchImpl { }
+export interface INotebookCellMatchWithModel { }
 
 export function createFileUriFromPathFromRoot(path?: string): URI {
 	const rootName = getRootName();

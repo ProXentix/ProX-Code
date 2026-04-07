@@ -30,7 +30,7 @@ import { TestEditorGroupsService, TestEditorService } from '../../../../test/bro
 
 
 
-import { addToSearchResult, createFileUriFromPathFromRoot, getRootName } from './searchTestCommon.js';
+import { addToSearchResult, createFileUriFromPathFromRoot, getRootName, stubModelService } from './searchTestCommon.js';
 
 import { IContextKeyService } from '../../../../../platform/contextkey/common/contextkey.js';
 import { MockContextKeyService } from '../../../../../platform/keybinding/test/common/mockKeybindingService.js';
@@ -42,6 +42,7 @@ import { ISearchResult, ISearchTreeFolderMatch, isSearchTreeFolderMatchNoRoot, M
 import { FolderMatchImpl } from '../../browser/searchTreeModel/folderMatch.js';
 import { SearchResultImpl } from '../../browser/searchTreeModel/searchResult.js';
 import { MatchImpl } from '../../browser/searchTreeModel/match.js';
+import { INotebookEditorService, NotebookEditorWidgetService, CellKind, ICellViewModel, CellMatch, INotebookFileMatchWithModel, INotebookFileInstanceMatch, NotebookCompatibleFileMatch, INotebookCellMatchWithModel, stubNotebookEditorService } from './searchTestCommon.js';
 
 const lineOneRange = new OneLineRange(1, 0, 1);
 
