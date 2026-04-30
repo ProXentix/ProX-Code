@@ -52,4 +52,4 @@ registerSingleton(IExtHostTask, ExtHostTask, InstantiationType.Eager);
 registerSingleton(IExtHostTerminalService, ExtHostTerminalService, InstantiationType.Eager);
 registerSingleton(IExtHostTunnelService, NodeExtHostTunnelService, InstantiationType.Eager);
 registerSingleton(IExtHostVariableResolverProvider, NodeExtHostVariableResolverProviderService, InstantiationType.Eager);
-registerSingleton(IExtHostMpcService, NodeExtHostMpcService, InstantiationType.Eager);
+// registerSingleton(IExtHostMpcService, NodeExtHostMpcService, InstantiationType.Eager);

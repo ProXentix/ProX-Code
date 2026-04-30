@@ -1312,7 +1312,7 @@ class ExtensionBackedInlineCompletionsProvider extends Disposable implements lan
 		private readonly _selector: IDocumentFilterDto[],
 		private readonly _proxy: ExtHostLanguageFeaturesShape,
 		@ILanguageFeaturesService private readonly _languageFeaturesService: ILanguageFeaturesService,
-		@IAiEditTelemetryService private readonly _aiEditTelemetryService: IAiEditTelemetryService,
+		// @IAiEditTelemetryService private readonly _aiEditTelemetryService: IAiEditTelemetryService,
 		@IInstantiationService private readonly _instantiationService: IInstantiationService,
 	) {
 		super();

@@ -540,8 +540,10 @@ export class SearchService extends Disposable implements ISearchService {
 	}
 
 	async clearCache(cacheKey: string): Promise<void> {
-		const clearPs = Array.from(this.fileSearchProviders.values())
-			.map(provider => provider && provider.clearCache(cacheKey));
+		const clearPs = [
+			...Array.from(this.fileSearchProviders.values()),
+			...Array.from(this.textSearchProviders.values())
+		].map(provider => provider && provider.clearCache(cacheKey));
 		await Promise.all(clearPs);
 	}
 }

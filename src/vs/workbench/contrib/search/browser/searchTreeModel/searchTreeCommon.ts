@@ -117,7 +117,7 @@ export interface ISearchResult {
 
 	batchReplace(elementsToReplace: RenderableMatch[]): Promise<void>;
 	batchRemove(elementsToRemove: RenderableMatch[]): void;
-	folderMatches(ai?: boolean): ISearchTreeFolderMatch[];
+	folderMatches(): ISearchTreeFolderMatch[];
 	add(allRaw: IFileMatch[], searchInstanceID: string, silent?: boolean): void;
 	clear(): void;
 	remove(matches: ISearchTreeFileMatch | ISearchTreeFolderMatch | (ISearchTreeFileMatch | ISearchTreeFolderMatch)[]): void;
@@ -148,8 +148,8 @@ export interface ITextSearchHeading {
 	name(): string;
 	readonly isDirty: boolean;
 	getFolderMatch(resource: URI): ISearchTreeFolderMatch | undefined;
-	add(allRaw: IFileMatch[], searchInstanceID: string, ai: boolean, silent?: boolean): void;
-	remove(matches: ISearchTreeFileMatch | ISearchTreeFolderMatch | (ISearchTreeFileMatch | ISearchTreeFolderMatch)[], ai?: boolean): void;
+	add(allRaw: IFileMatch[], searchInstanceID: string, silent?: boolean): void;
+	remove(matches: ISearchTreeFileMatch | ISearchTreeFolderMatch | (ISearchTreeFileMatch | ISearchTreeFolderMatch)[]): void;
 	groupFilesByFolder(fileMatches: ISearchTreeFileMatch[]): { byFolder: Map<URI, ISearchTreeFileMatch[]>; other: ISearchTreeFileMatch[] };
 	isEmpty(): boolean;
 	findFolderSubstr(resource: URI): ISearchTreeFolderMatch | undefined;
@@ -163,8 +163,7 @@ export interface ITextSearchHeading {
 	count(): number;
 	clear(clearAll: boolean): void;
 	dispose(): void;
-	/** Whether this is an AI-contributed result heading. */
-	readonly isAIContributed: boolean;
+	dispose(): void;
 }
 
 export interface IPlainTextSearchHeading extends ITextSearchHeading {
@@ -205,8 +204,7 @@ export interface ISearchTreeFolderMatch {
 	recursiveFileCount(): number;
 	recursiveMatchCount(): number;
 	dispose(): void;
-	/** Whether this folder match is from an AI search result. */
-	isAIContributed(): boolean;
+	dispose(): void;
 }
 
 export interface ISearchTreeFolderMatchWithResource extends ISearchTreeFolderMatch {

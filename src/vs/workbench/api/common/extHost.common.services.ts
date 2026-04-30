@@ -62,5 +62,5 @@ registerSingleton(IExtHostWorkspace, ExtHostWorkspace, InstantiationType.Eager);
 registerSingleton(IExtHostSecretState, ExtHostSecretState, InstantiationType.Eager);
 registerSingleton(IExtHostEditorTabs, ExtHostEditorTabs, InstantiationType.Eager);
 registerSingleton(IExtHostVariableResolverProvider, ExtHostVariableResolverProviderService, InstantiationType.Eager);
-registerSingleton(IExtHostMpcService, ExtHostMcpService, InstantiationType.Eager);
+// registerSingleton(IExtHostMpcService, ExtHostMcpService, InstantiationType.Eager);
 registerSingleton(IExtHostDataChannels, ExtHostDataChannels, InstantiationType.Eager);

@@ -663,15 +663,7 @@ export class SearchView extends ViewPane {
 		this.trackInputBox(this.searchWidget.replaceInputFocusTracker);
 	}
 
-	public shouldShowAIResults(): boolean {
-		const hasProvider = Constants.SearchContext.hasAIResultProvider.getValue(this.contextKeyService);
-		return !!hasProvider;
-	}
 
-	/** Stub: AI results not available in this build. */
-	public requestAIResults(): void {
-		// AI search not implemented in this build
-	}
 	private async onConfigurationUpdated(event?: IConfigurationChangeEvent): Promise<void> {
 		if (event && (event.affectsConfiguration('search.decorations.colors') || event.affectsConfiguration('search.decorations.badges'))) {
 			return this.refreshTreeController.queue();
@@ -914,8 +906,7 @@ export class SearchView extends ViewPane {
 				paddingBottom: SearchDelegate.ITEM_HEIGHT,
 				collapseByDefault: (e: RenderableMatch) => {
 					if (isTextSearchHeading(e)) {
-						// always collapse the ai text search result, but always expand the text result
-						return e.isAIContributed;
+						return false;
 					}
 
 					// always expand compressed nodes
