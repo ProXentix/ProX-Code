@@ -526,6 +526,8 @@ export interface ICreateTerminalOptions {
 	 * when the workbench is not yet loaded.
 	 */
 	skipContributedProfileCheck?: boolean;
+
+	newTerminalInNewWindow?: boolean;
 }
 
 export interface TerminalEditorLocation {

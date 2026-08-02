@@ -266,7 +266,7 @@ function cancelSearch(accessor: ServicesAccessor) {
 function refreshSearch(accessor: ServicesAccessor) {
 	const viewsService = accessor.get(IViewsService);
 	const searchView = getSearchView(viewsService);
-	searchView?.refreshTree();
+	searchView?.triggerSearch();
 }
 
 function collapseDeepestExpandedLevel(accessor: ServicesAccessor) {
