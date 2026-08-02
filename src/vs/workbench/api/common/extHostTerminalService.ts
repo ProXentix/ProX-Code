@@ -23,7 +23,7 @@ import { TerminalDataBufferer } from '../../../platform/terminal/common/terminal
 import { ThemeColor } from '../../../base/common/themables.js';
 import { Promises } from '../../../base/common/async.js';
 import { EditorGroupColumn } from '../../services/editor/common/editorGroupColumn.js';
-import { TerminalCompletionList, TerminalQuickFix, ViewColumn } from './extHostTypeConverters.js';
+import { ViewColumn } from './extHostTypeConverters.js';
 import { IExtHostCommands } from './extHostCommands.js';
 import { MarshalledId } from '../../../base/common/marshallingIds.js';
 import { ISerializedTerminalInstanceContext } from '../../contrib/terminal/common/terminal.js';

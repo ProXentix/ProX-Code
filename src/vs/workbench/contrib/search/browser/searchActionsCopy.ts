@@ -117,11 +117,7 @@ registerAction2(class GetSearchResultsAction extends Action2 {
 		if (searchView) {
 			const root = searchView.searchResult;
 			const textSearchResult = allFolderMatchesToString(root.folderMatches(), labelService);
-			const aiSearchResult = allFolderMatchesToString(root.folderMatches(true), labelService);
-
-			const text = `${textSearchResult}${lineDelimiter}${lineDelimiter}${aiSearchResult}`;
-
-			return text;
+			return textSearchResult;
 		}
 
 		return undefined;
@@ -185,13 +181,11 @@ async function copyAllCommand(accessor: ServicesAccessor, match: RenderableMatch
 	const searchView = getSearchView(viewsService);
 	if (searchView) {
 		const root = searchView.searchResult;
-		const isAISearchElement = isAISearchResult(match);
-
 		if (!match) {
 			match = getSelectedRow(accessor);
 		}
 
-		const text = allFolderMatchesToString(root.folderMatches(isAISearchElement), labelService);
+		const text = allFolderMatchesToString(root.folderMatches(), labelService);
 		await clipboardService.writeText(text);
 	}
 }

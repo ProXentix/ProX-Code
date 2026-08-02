@@ -26,7 +26,6 @@ import { IFileMatch, IFileQuery, IPatternInfo, IRawFileMatch2, ISearchCompleteSt
 import { TextSearchManager } from '../../../services/search/common/textSearchManager.js';
 import { NativeTextSearchManager } from '../../../services/search/node/textSearchManager.js';
 import type * as vscode from 'vscode';
-import { AISearchKeyword } from '../../../services/search/common/searchExtTypes.js';
 
 let rpcProtocol: TestRPCProtocol;
 let extHostSearch: NativeExtHostSearch;

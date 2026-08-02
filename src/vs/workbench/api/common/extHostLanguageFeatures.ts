@@ -539,7 +539,6 @@ class CodeActionAdapter {
 					edit: toConvert.edit && typeConvert.WorkspaceEdit.from(toConvert.edit, undefined),
 					kind: toConvert.kind && toConvert.kind.value,
 					isPreferred: toConvert.isPreferred,
-					isAI: toConvert.isAI,
 					ranges: isProposedApiEnabled(this._extension, 'codeActionRanges') ? coalesce(range.map(typeConvert.Range.from)) : undefined,
 					disabled: toConvert.disabled?.reason
 				});
@@ -1411,7 +1410,7 @@ class InlineCompletionAdapter {
 					hint: (item.displayLocation && this._isAdditionsProposedApiEnabled) ? {
 						range: typeConvert.Range.from(item.displayLocation.range),
 						content: item.displayLocation.label,
-						style: item.displayLocation.kind ? typeConvert.InlineCompletionHintStyle.from(item.displayLocation.kind) : languages.InlineCompletionHintStyle.Code,
+						style: languages.InlineCompletionHintStyle.Code,
 					} : undefined,
 					warning: (item.warning && this._isAdditionsProposedApiEnabled) ? {
 						message: typeConvert.MarkdownString.from(item.warning.message),
@@ -1477,19 +1476,11 @@ class InlineCompletionAdapter {
 		if (completionItem) {
 			if (this._provider.handleDidPartiallyAcceptCompletionItem && this._isAdditionsProposedApiEnabled) {
 				this._provider.handleDidPartiallyAcceptCompletionItem(completionItem, acceptedCharacters);
-				this._provider.handleDidPartiallyAcceptCompletionItem(completionItem, typeConvert.PartialAcceptInfo.to(info));
 			}
 		}
 	}
 
 	handleEndOfLifetime(pid: number, idx: number, reason: languages.InlineCompletionEndOfLifeReason<{ pid: number; idx: number }>): void {
-		const completionItem = this._references.get(pid)?.items[idx];
-		if (completionItem) {
-			if (this._provider.handleEndOfLifetime && this._isAdditionsProposedApiEnabled) {
-				const r = typeConvert.InlineCompletionEndOfLifeReason.to(reason, ref => this._references.get(ref.pid)?.items[ref.idx]);
-				this._provider.handleEndOfLifetime(completionItem, r);
-			}
-		}
 	}
 
 	handleRejection(pid: number, idx: number): void {
