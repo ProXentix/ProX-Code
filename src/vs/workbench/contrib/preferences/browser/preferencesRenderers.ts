@@ -46,8 +46,6 @@ import { IPreferencesEditorModel, IPreferencesService, ISetting, ISettingsEditor
 import { DefaultSettingsEditorModel, SettingsEditorModel, WorkspaceConfigurationEditorModel } from '../../../services/preferences/common/preferencesModels.js';
 import { IUserDataProfileService } from '../../../services/userDataProfile/common/userDataProfile.js';
 import { EXPERIMENTAL_INDICATOR_DESCRIPTION, PREVIEW_INDICATOR_DESCRIPTION } from '../common/preferences.js';
-// import { mcpConfigurationSection } from '../../mcp/common/mcpConfiguration.js';
-// import { McpCommandIds } from '../../mcp/common/mcpCommandIds.js';
 
 export interface IPreferencesRenderer extends IDisposable {
 	render(): void;
@@ -839,57 +837,7 @@ class McpSettingsRenderer extends Disposable implements languages.CodeActionProv
 	private generateMarkerData(): IMarkerData[] {
 		const markerData: IMarkerData[] = [];
 
-		// Only check for MCP configuration in user local and user remote settings
-		if (this.settingsEditorModel.configurationTarget !== ConfigurationTarget.USER_LOCAL &&
-			this.settingsEditorModel.configurationTarget !== ConfigurationTarget.USER_REMOTE) {
-			return markerData;
-		}
-
-		for (const settingsGroup of this.settingsEditorModel.settingsGroups) {
-			for (const section of settingsGroup.sections) {
-				for (const setting of section.settings) {
-					if (setting.key === mcpConfigurationSection) {
-						const marker = this.generateMcpConfigurationMarker(setting);
-						markerData.push(marker);
-						const codeActions = this.generateMcpConfigurationCodeActions([marker]);
-						this.addCodeActions(setting.range, codeActions);
-					}
-				}
-			}
-		}
 		return markerData;
-	}
-
-	private generateMcpConfigurationMarker(setting: ISetting): IMarkerData {
-		const isRemote = this.settingsEditorModel.configurationTarget === ConfigurationTarget.USER_REMOTE;
-		const message = isRemote
-			? nls.localize('mcp.renderer.remoteConfigFound', 'MCP servers should not be configured in remote user settings. Use the dedicated MCP configuration instead.')
-			: nls.localize('mcp.renderer.userConfigFound', 'MCP servers should not be configured in user settings. Use the dedicated MCP configuration instead.');
-
-		return {
-			severity: MarkerSeverity.Warning,
-			...setting.range,
-			message
-		};
-	}
-
-	private generateMcpConfigurationCodeActions(diagnostics: IMarkerData[]): languages.CodeAction[] {
-		const isRemote = this.settingsEditorModel.configurationTarget === ConfigurationTarget.USER_REMOTE;
-		const openConfigLabel = isRemote
-			? nls.localize('mcp.renderer.openRemoteConfig', 'Open Remote User MCP Configuration')
-			: nls.localize('mcp.renderer.openUserConfig', 'Open User MCP Configuration');
-
-		const commandId = isRemote ? McpCommandIds.OpenRemoteUserMcp : McpCommandIds.OpenUserMcp;
-
-		return [{
-			title: openConfigLabel,
-			command: {
-				id: commandId,
-				title: openConfigLabel
-			},
-			diagnostics,
-			kind: CodeActionKind.QuickFix.value
-		}];
 	}
 
 	private addCodeActions(range: IRange, codeActions: languages.CodeAction[]): void {

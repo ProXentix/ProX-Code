@@ -8,7 +8,7 @@ import { DeferredPromise, raceCancellationError } from '../../../../base/common/
 import { CancellationToken } from '../../../../base/common/cancellation.js';
 import { CancellationError } from '../../../../base/common/errors.js';
 import { Disposable, IDisposable, toDisposable } from '../../../../base/common/lifecycle.js';
-import { ResourceMap, ResourceSet } from '../../../../base/common/map.js';
+import { ResourceMap } from '../../../../base/common/map.js';
 import { Schemas } from '../../../../base/common/network.js';
 import { randomChance } from '../../../../base/common/numbers.js';
 import { StopWatch } from '../../../../base/common/stopwatch.js';

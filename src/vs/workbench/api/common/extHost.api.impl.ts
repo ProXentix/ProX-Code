@@ -37,7 +37,6 @@ import { IExtHostAuthentication } from './extHostAuthentication.js';
 import { ExtHostBulkEdits } from './extHostBulkEdits.js';
 import { ExtHostClipboard } from './extHostClipboard.js';
 import { ExtHostEditorInsets } from './extHostCodeInsets.js';
-// import { } from './extHostCodeMapper.js';
 import { IExtHostCommands } from './extHostCommands.js';
 import { createExtHostComments } from './extHostComments.js';
 import { ExtHostConfigProvider, IExtHostConfiguration } from './extHostConfiguration.js';
@@ -1641,8 +1640,6 @@ export function createApiFactoryAndRegisterActors(accessor: ServicesAccessor): I
 			TabInputNotebookDiff: extHostTypes.NotebookDiffEditorTabInput,
 			TabInputWebview: extHostTypes.WebviewEditorTabInput,
 			TabInputTerminal: extHostTypes.TerminalEditorTabInput,
-			TabInputInteractiveWindow: extHostTypes.InteractiveWindowInput,
-			TabInputChat: extHostTypes.ChatEditorTabInput,
 			TabInputTextMultiDiff: extHostTypes.TextMultiDiffTabInput,
 			TelemetryTrustedValue: TelemetryTrustedValue,
 			LogLevel: LogLevel,
@@ -1652,13 +1649,6 @@ export function createApiFactoryAndRegisterActors(accessor: ServicesAccessor): I
 			TextSearchContext2: TextSearchContext2,
 			TextSearchMatch2: TextSearchMatch2,
 			TextSearchCompleteMessageTypeNew: TextSearchCompleteMessageType,
-			ChatErrorLevel: extHostTypes.ChatErrorLevel,
-			McpHttpServerDefinition: extHostTypes.McpHttpServerDefinition,
-			McpHttpServerDefinition2: extHostTypes.McpHttpServerDefinition,
-			McpStdioServerDefinition: extHostTypes.McpStdioServerDefinition,
-			McpStdioServerDefinition2: extHostTypes.McpStdioServerDefinition,
-			McpToolAvailability: extHostTypes.McpToolAvailability,
-			SettingsSearchResultKind: extHostTypes.SettingsSearchResultKind,
 		};
 	};
 }

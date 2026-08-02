@@ -1384,7 +1384,7 @@ export class SettingsEditor2 extends EditorPane {
 
 		const additionalGroups: ISettingsGroup[] = [];
 		let setAdditionalGroups = false;
-		const toggleData = await getExperimentalExtensionToggleData(this.chatEntitlementService, this.extensionGalleryService, this.productService);
+		const toggleData = await getExperimentalExtensionToggleData(this.extensionGalleryService, this.productService);
 		if (toggleData && groups.filter(g => g.extensionInfo).length) {
 			for (const key in toggleData.settingsEditorRecommendedExtensions) {
 				const extension: IGalleryExtension = toggleData.recommendedExtensionsGalleryInfo[key];
@@ -1588,7 +1588,7 @@ export class SettingsEditor2 extends EditorPane {
 			}
 		}
 
-		this.renderResultCountMessages(false);
+		this.renderResultCountMessages();
 
 		if (key) {
 			// eslint-disable-next-line no-restricted-syntax
@@ -1734,14 +1734,14 @@ export class SettingsEditor2 extends EditorPane {
 					this.tocTree.expandAll();
 				}
 				this.refreshTOCTree();
-				this.renderResultCountMessages(false);
+				this.renderResultCountMessages();
 				this.refreshTree();
 				this.toggleTocBySearchBehaviorType();
 			} else if (!this.tocTreeDisposed) {
 				// Leaving search mode
 				this.tocTree.collapseAll();
 				this.refreshTOCTree();
-				this.renderResultCountMessages(false);
+				this.renderResultCountMessages();
 				this.refreshTree();
 				this.layoutSplitView(this.dimension);
 			}
@@ -1793,12 +1793,10 @@ export class SettingsEditor2 extends EditorPane {
 			if (searchInProgress.token.isCancellationRequested) {
 				return;
 			}
-			this.disableAiSearchToggle();
 			const localResults = await this.doLocalSearch(query, searchInProgress.token);
 			if (!this.searchResultModel || searchInProgress.token.isCancellationRequested) {
 				return;
 			}
-			this.searchResultModel.showAiResults = false;
 
 			if (localResults && localResults.filterMatches.length > 0) {
 				// The remote results might take a while and
@@ -1812,29 +1810,6 @@ export class SettingsEditor2 extends EditorPane {
 			}
 			if (searchInProgress.token.isCancellationRequested) {
 				return;
-			}
-
-			if (this.aiSearchPromise) {
-				this.aiSearchPromise.cancel();
-			}
-
-			// Kick off an AI search in the background if the toggle is shown.
-			// We purposely do not await it.
-			if (this.searchInputActionBar && this.showAiResultsAction && this.searchInputActionBar.hasAction(this.showAiResultsAction)) {
-				this.aiSearchPromise = createCancelablePromise(token => {
-					return this.doAiSearch(query, token).then((results) => {
-						if (results && this.showAiResultsAction) {
-							this.showAiResultsAction.enabled = true;
-							this.aiResultsAvailable.set(true);
-							this.showAiResultsAction.label = SHOW_AI_RESULTS_ENABLED_LABEL;
-							this.renderResultCountMessages();
-						}
-					}).catch(e => {
-						if (!isCancellationError(e)) {
-							this.logService.trace('Error during AI settings search:', e);
-						}
-					});
-				});
 			}
 
 			this.onDidFinishSearch(expandResults, progressRunner);
@@ -1865,52 +1840,6 @@ export class SettingsEditor2 extends EditorPane {
 			return Promise.resolve(null);
 		}
 		return this.searchWithProvider(SearchResultIdx.Remote, remoteSearchProvider, TF_IDF_SEARCH_PROVIDER_NAME, token);
-	}
-
-	private async doAiSearch(query: string, token: CancellationToken): Promise<ISearchResult | null> {
-		const aiSearchProvider = this.preferencesSearchService.getAiSearchProvider(query);
-		if (!aiSearchProvider) {
-			return null;
-		}
-
-		const embeddingsResults = await this.searchWithProvider(SearchResultIdx.Embeddings, aiSearchProvider, EMBEDDINGS_SEARCH_PROVIDER_NAME, token);
-		if (!embeddingsResults || token.isCancellationRequested) {
-			return null;
-		}
-
-		const llmResults = await this.getLLMRankedResults(query, token);
-		if (token.isCancellationRequested) {
-			return null;
-		}
-
-		return {
-			filterMatches: embeddingsResults.filterMatches.concat(llmResults?.filterMatches ?? []),
-			exactMatch: false
-		};
-	}
-
-	private async getLLMRankedResults(query: string, token: CancellationToken): Promise<ISearchResult | null> {
-		const aiSearchProvider = this.preferencesSearchService.getAiSearchProvider(query);
-		if (!aiSearchProvider) {
-			return null;
-		}
-
-		this.stopWatch.reset();
-		const result = await aiSearchProvider.getLLMRankedResults(token);
-		this.stopWatch.stop();
-
-		if (token.isCancellationRequested) {
-			return null;
-		}
-
-		// Only log the elapsed time if there are actual results.
-		if (result && result.filterMatches.length > 0) {
-			const elapsed = this.stopWatch.elapsed();
-			this.logSearchPerformance(LLM_RANKED_SEARCH_PROVIDER_NAME, elapsed);
-		}
-
-		this.searchResultModel!.setResult(SearchResultIdx.AiSelected, result);
-		return result;
 	}
 
 	private async searchWithProvider(type: SearchResultIdx, searchProvider: ISearchProvider, providerName: string, token: CancellationToken): Promise<ISearchResult | null> {

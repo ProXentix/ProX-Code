@@ -19,7 +19,6 @@ import * as paths from '../../../../base/common/path.js';
 import { isCancellationError } from '../../../../base/common/errors.js';
 import { GlobPattern, TextSearchCompleteMessageType } from './searchExtTypes.js';
 import { isThenable } from '../../../../base/common/async.js';
-import { ResourceSet } from '../../../../base/common/map.js';
 
 export { TextSearchCompleteMessageType };
 

@@ -17,7 +17,6 @@ import { nativeHoverDelegate } from '../../../../../platform/hover/browser/hover
 import { ITelemetryService } from '../../../../../platform/telemetry/common/telemetry.js';
 import { IStatusbarService, StatusbarAlignment } from '../../../../services/statusbar/browser/statusbar.js';
 import { AI_STATS_SETTING_ID } from '../settingIds.js';
-// [REMOVED - module not available] import type { AiStatsFeature } from './aiStatsFeature.js';
 type AiStatsFeature = any;
 import './media.css';
 

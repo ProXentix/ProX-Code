@@ -226,7 +226,7 @@ export class SearchView extends ViewPane {
 
 		@ILogService private readonly logService: ILogService,
 		@IAccessibilitySignalService private readonly accessibilitySignalService: IAccessibilitySignalService,
-		@ITelemetryService private readonly _telemetryService: ITelemetryService,
+		@ITelemetryService _telemetryService: ITelemetryService,
 	) {
 
 		super(options, keybindingService, contextMenuService, configurationService, contextKeyService, viewDescriptorService, instantiationService, openerService, themeService, hoverService);
@@ -1938,7 +1938,6 @@ export class SearchView extends ViewPane {
 
 	async open(element: FileMatchOrMatch, preserveFocus?: boolean, sideBySide?: boolean, pinned?: boolean, resourceInput?: URI): Promise<void> {
 		const selection = getEditorSelectionFromMatch(element, this.viewModel);
-		const oldParentMatches = isSearchTreeMatch(element) ? element.parent().matches() : [];
 		const resource = resourceInput ?? (isSearchTreeMatch(element) ? element.parent().resource : (<ISearchTreeFileMatch>element).resource);
 		let editor: IEditorPane | undefined;
 
@@ -2015,7 +2014,7 @@ export class SearchView extends ViewPane {
 				this.viewModel.searchResult.remove(matches[i]);
 			}
 		}
-		matches = this.viewModel.searchResult.matches(true);
+		matches = this.viewModel.searchResult.matches();
 		for (let i = 0, len = matches.length; i < len; i++) {
 			if (resource.toString() === matches[i].resource.toString()) {
 				this.viewModel.searchResult.remove(matches[i]);
@@ -2144,7 +2143,7 @@ export class SearchView extends ViewPane {
 		for (const fileMatch of this.searchResult.matches()) {
 			fileMatch.fileStat = undefined;
 		}
-		for (const fileMatch of this.searchResult.matches(true)) {
+		for (const fileMatch of this.searchResult.matches()) {
 			fileMatch.fileStat = undefined;
 		}
 	}

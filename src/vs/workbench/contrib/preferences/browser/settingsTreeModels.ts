@@ -944,9 +944,7 @@ function settingTypeEnumRenderable(_type: string | string[]) {
 export const enum SearchResultIdx {
 	Local = 0,
 	Remote = 1,
-	NewExtensions = 2,
-	Embeddings = 3,
-	AiSelected = 4
+	NewExtensions = 2
 }
 
 export class SearchResultModel extends SettingsTreeModel {
@@ -975,10 +973,6 @@ export class SearchResultModel extends SettingsTreeModel {
 		this.update({ id: 'searchResultModel', label: '' });
 	}
 
-	set showAiResults(show: boolean) {
-		this.aiFilterEnabled = show;
-		this.updateChildren();
-	}
 
 	private sortResults(filterMatches: ISettingMatch[]): ISettingMatch[] {
 		if (this.settingsOrderByTocIndex) {
@@ -1030,27 +1024,6 @@ export class SearchResultModel extends SettingsTreeModel {
 		}
 
 		let combinedFilterMatches: ISettingMatch[] = [];
-
-		if (this.aiFilterEnabled) {
-			const aiSelectedKeys = new Set<string>();
-			const aiSelectedResult = this.rawSearchResults[SearchResultIdx.AiSelected];
-			if (aiSelectedResult) {
-				aiSelectedResult.filterMatches.forEach(m => aiSelectedKeys.add(m.setting.key));
-				combinedFilterMatches = aiSelectedResult.filterMatches;
-			}
-
-			const embeddingsResult = this.rawSearchResults[SearchResultIdx.Embeddings];
-			if (embeddingsResult) {
-				embeddingsResult.filterMatches = embeddingsResult.filterMatches.filter(m => !aiSelectedKeys.has(m.setting.key));
-				combinedFilterMatches = combinedFilterMatches.concat(embeddingsResult.filterMatches);
-			}
-			const result = {
-				filterMatches: combinedFilterMatches,
-				exactMatch: false
-			};
-			this.cachedUniqueSearchResults.set(true, result);
-			return result;
-		}
 
 		const localMatchKeys = new Set<string>();
 		const localResult = this.rawSearchResults[SearchResultIdx.Local];

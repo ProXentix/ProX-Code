@@ -1,4 +1,4 @@
-﻿/*---------------------------------------------------------------------------------------------
+/*---------------------------------------------------------------------------------------------
  *  Copyright (c) ProXentix. All rights reserved.
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
@@ -11,7 +11,6 @@ import { Iterable } from '../../../base/common/iterator.js';
 import { Disposable, IDisposable, toDisposable } from '../../../base/common/lifecycle.js';
 import { ResourceMap } from '../../../base/common/map.js';
 import { Schemas } from '../../../base/common/network.js';
-import { observableValue } from '../../../base/common/observable.js';
 import { join } from '../../../base/common/path.js';
 import { isLinux, isMacintosh } from '../../../base/common/platform.js';
 import { basename, isEqual, isEqualOrParent } from '../../../base/common/resources.js';

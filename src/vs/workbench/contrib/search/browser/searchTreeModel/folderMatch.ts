@@ -341,7 +341,7 @@ export class FolderMatchImpl extends Disposable implements ISearchTreeFolderMatc
 						.results
 						.filter(resultIsMatch)
 						.forEach(m => {
-							textSearchResultToMatches(m, existingFileMatch, false)
+							textSearchResultToMatches(m, existingFileMatch)
 								.forEach(m => existingFileMatch.add(m));
 						});
 				}

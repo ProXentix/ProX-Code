@@ -80,7 +80,6 @@ import './mainThreadTesting.js';
 import './mainThreadSecretState.js';
 import './mainThreadShare.js';
 import './mainThreadProfileContentHandlers.js';
-// import './mainThreadMcp.js';
 import './mainThreadDataChannels.js';
 
 export class ExtensionPoints implements IWorkbenchContribution {

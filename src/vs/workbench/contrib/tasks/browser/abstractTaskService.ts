@@ -495,6 +495,13 @@ export abstract class AbstractTaskService extends Disposable implements ITaskSer
 		});
 	}
 
+	protected _disposeTaskSystemListeners(): void {
+		if (this._taskSystemListeners) {
+			dispose(this._taskSystemListeners);
+			this._taskSystemListeners = undefined;
+		}
+	}
+
 	private async _handleLongRunningTaskCompletion(event: ITaskProcessEndedEvent | ITaskInactiveEvent, durationMs: number): Promise<void> {
 		const notificationThreshold = this._configurationService.getValue<number>(TaskSettingId.NotifyWindowOnTaskCompletion);
 		// If threshold is -1, notifications are disabled

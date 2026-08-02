@@ -466,41 +466,7 @@ const apiMenus: IAPIMenu[] = [
 		id: MenuId.SearchActionMenu,
 		description: localize('searchPanel.aiResultsCommands', "The commands that will contribute to the menu rendered as buttons next to the AI search title"),
 	},
-	{
-		key: 'editor/context/chat',
-		id: MenuId.ChatTextEditorMenu,
-		description: localize('menus.chatTextEditor', "The Chat submenu in the text editor context menu."),
-		supportsSubmenus: false,
-		proposed: 'chatParticipantPrivate'
-	},
-	{
-		key: 'chat/input/editing/sessionToolbar',
-		id: MenuId.ChatEditingSessionChangesToolbar,
-		description: localize('menus.chatEditingSessionChangesToolbar', "The Chat Editing widget toolbar menu for session changes."),
-		proposed: 'chatSessionsProvider'
-	},
-	{
-		// TODO: rename this to something like: `chatSessions/item/inline`
-		key: 'chat/chatSessions',
-		id: MenuId.AgentSessionsContext,
-		description: localize('menus.chatSessions', "The Chat Sessions menu."),
-		supportsSubmenus: false,
-		proposed: 'chatSessionsProvider'
-	},
-	{
-		key: 'chatSessions/newSession',
-		id: MenuId.AgentSessionsCreateSubMenu,
-		description: localize('menus.chatSessionsNewSession', "Menu for new chat sessions."),
-		supportsSubmenus: false,
-		proposed: 'chatSessionsProvider'
-	},
-	{
-		key: 'chat/multiDiff/context',
-		id: MenuId.ChatMultiDiffContext,
-		description: localize('menus.chatMultiDiffContext', "The Chat Multi-Diff context menu."),
-		supportsSubmenus: false,
-		proposed: 'chatSessionsProvider',
-	},
+
 ];
 
 namespace schema {

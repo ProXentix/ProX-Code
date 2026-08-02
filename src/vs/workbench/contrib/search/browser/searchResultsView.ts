@@ -135,7 +135,6 @@ export class TextSearchResultRenderer extends Disposable implements ICompressibl
 
 	async renderElement(node: ITreeNode<ITextSearchHeading, any>, index: number, templateData: IFolderMatchTemplate): Promise<void> {
 		templateData.label.setLabel(nls.localize('searchFolderMatch.plainText.label', "Text Results"));
-		SearchContext.AIResultsTitle.bindTo(templateData.contextKeyService).set(false);
 		SearchContext.MatchFocusKey.bindTo(templateData.contextKeyService).set(false);
 		SearchContext.FileFocusKey.bindTo(templateData.contextKeyService).set(false);
 		SearchContext.FolderFocusKey.bindTo(templateData.contextKeyService).set(false);
@@ -197,7 +196,6 @@ export class FolderMatchRenderer extends Disposable implements ICompressibleTree
 		disposables.add(elementDisposables);
 
 		const contextKeyServiceMain = disposables.add(this.contextKeyService.createScoped(container));
-		SearchContext.AIResultsTitle.bindTo(contextKeyServiceMain).set(false);
 		SearchContext.MatchFocusKey.bindTo(contextKeyServiceMain).set(false);
 		SearchContext.FileFocusKey.bindTo(contextKeyServiceMain).set(false);
 		SearchContext.FolderFocusKey.bindTo(contextKeyServiceMain).set(true);
@@ -298,7 +296,6 @@ export class FileMatchRenderer extends Disposable implements ICompressibleTreeRe
 		const actionBarContainer = DOM.append(fileMatchElement, DOM.$('.actionBarContainer'));
 
 		const contextKeyServiceMain = disposables.add(this.contextKeyService.createScoped(container));
-		SearchContext.AIResultsTitle.bindTo(contextKeyServiceMain).set(false);
 		SearchContext.MatchFocusKey.bindTo(contextKeyServiceMain).set(false);
 		SearchContext.FileFocusKey.bindTo(contextKeyServiceMain).set(true);
 		SearchContext.FolderFocusKey.bindTo(contextKeyServiceMain).set(false);
@@ -392,7 +389,6 @@ export class MatchRenderer extends Disposable implements ICompressibleTreeRender
 		const disposables = new DisposableStore();
 
 		const contextKeyServiceMain = disposables.add(this.contextKeyService.createScoped(container));
-		SearchContext.AIResultsTitle.bindTo(contextKeyServiceMain).set(false);
 		SearchContext.MatchFocusKey.bindTo(contextKeyServiceMain).set(true);
 		SearchContext.FileFocusKey.bindTo(contextKeyServiceMain).set(false);
 		SearchContext.FolderFocusKey.bindTo(contextKeyServiceMain).set(false);

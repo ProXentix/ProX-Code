@@ -14,7 +14,7 @@ import { KeyCode, KeyMod } from '../../../../base/common/keyCodes.js';
 import { category, getSearchView } from './searchActionsBase.js';
 import { isWindows } from '../../../../base/common/platform.js';
 import { searchMatchComparer } from './searchCompare.js';
-import { RenderableMatch, ISearchTreeMatch, isSearchTreeMatch, ISearchTreeFileMatch, ISearchTreeFolderMatch, ISearchTreeFolderMatchWithResource, isSearchTreeFileMatch, isSearchTreeFolderMatch, isSearchTreeFolderMatchWithResource, isTextSearchHeading } from './searchTreeModel/searchTreeCommon.js';
+import { RenderableMatch, ISearchTreeMatch, isSearchTreeMatch, ISearchTreeFileMatch, ISearchTreeFolderMatch, ISearchTreeFolderMatchWithResource, isSearchTreeFileMatch, isSearchTreeFolderMatch, isSearchTreeFolderMatchWithResource } from './searchTreeModel/searchTreeCommon.js';
 
 //#region Actions
 registerAction2(class CopyMatchCommandAction extends Action2 {
@@ -282,22 +282,6 @@ function getSelectedRow(accessor: ServicesAccessor): RenderableMatch | undefined
 function isAISearchResult(element: RenderableMatch | undefined | null): boolean {
 	if (!element) {
 		return false;
-	}
-
-	if (isSearchTreeMatch(element)) {
-		return element.parent().parent().isAIContributed();
-	}
-
-	if (isSearchTreeFileMatch(element)) {
-		return element.parent().isAIContributed();
-	}
-
-	if (isSearchTreeFolderMatch(element)) {
-		return element.isAIContributed();
-	}
-
-	if (isTextSearchHeading(element)) {
-		return element.isAIContributed;
 	}
 
 	return false;

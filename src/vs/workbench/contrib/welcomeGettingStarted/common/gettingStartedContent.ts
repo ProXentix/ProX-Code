@@ -599,7 +599,7 @@ export const walkthroughs: GettingStartedWalkthroughContent = [
 		description: '',
 		icon: setupIcon,
 		isFeatured: false,
-		when: `config.${NotebookSetting.openGettingStarted} && userHasOpenedNotebook`,
+		when: 'config.notebook.experimental.openGettingStarted && userHasOpenedNotebook',
 		walkthroughPageTitle: localize('gettingStarted.notebook.walkthroughPageTitle', 'Notebooks'),
 		content: {
 			type: 'steps',

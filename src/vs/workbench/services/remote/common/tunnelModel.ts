@@ -431,7 +431,7 @@ export class TunnelModel extends Disposable {
 		@IRemoteAuthorityResolverService private readonly remoteAuthorityResolverService: IRemoteAuthorityResolverService,
 		@IWorkspaceContextService private readonly workspaceContextService: IWorkspaceContextService,
 		@ILogService private readonly logService: ILogService,
-		@IDialogService private readonly _dialogService: IDialogService,
+		@IDialogService _dialogService: IDialogService,
 		@IExtensionService private readonly extensionService: IExtensionService,
 	) {
 		super();

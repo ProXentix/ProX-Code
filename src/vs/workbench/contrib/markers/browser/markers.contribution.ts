@@ -36,7 +36,6 @@ import { IActivityService, NumberBadge } from '../../../services/activity/common
 import { viewFilterSubmenu } from '../../../browser/parts/views/viewFilter.js';
 import { IConfigurationService } from '../../../../platform/configuration/common/configuration.js';
 import { problemsConfigurationNodeBase } from '../../../common/configuration.js';
-// [REMOVED - module not available] import { MarkerChatContextContribution } from './markersChatContext.js';
 
 
 KeybindingsRegistry.registerCommandAndKeybindingRule({
