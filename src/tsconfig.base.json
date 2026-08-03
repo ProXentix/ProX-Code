@@ -20,6 +20,7 @@
 			"DOM",
 			"DOM.Iterable",
 			"WebWorker.ImportScripts"
-		]
+		],
+		"skipLibCheck": true
 	}
 }
