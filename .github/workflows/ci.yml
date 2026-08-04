@@ -108,7 +108,7 @@ jobs:
         run: npm ci
         env:
           npm_config_arch: x64
-          VSCMD_VER: "18.0.0"
+          VSCMD_VER: "17.0.0"
           ELECTRON_SKIP_BINARY_DOWNLOAD: 1
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
