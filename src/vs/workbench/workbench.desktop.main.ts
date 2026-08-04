@@ -118,7 +118,7 @@ import './contrib/codeEditor/electron-browser/codeEditor.contribution.js';
 import './contrib/debug/electron-browser/extensionHostDebugService.js';
 
 // Extensions Management
-import './contrib/extensions/electron-browser/extensions.contribution.js';
+// [Removed for ProX-Code] import './contrib/extensions/electron-browser/extensions.contribution.js';
 
 // Issues
 import './contrib/issue/electron-browser/issue.contribution.js';

@@ -23,11 +23,11 @@ import { Extensions, IQuickAccessRegistry } from '../../../../platform/quickinpu
 import { Registry } from '../../../../platform/registry/common/platform.js';
 import { IStorageService, StorageScope, StorageTarget } from '../../../../platform/storage/common/storage.js';
 import { IUserDataProfilesService } from '../../../../platform/userDataProfile/common/userDataProfile.js';
-import { EditorPaneDescriptor, IEditorPaneRegistry } from '../../../browser/editor.js';
+// import { EditorPaneDescriptor, IEditorPaneRegistry } from '../../../browser/editor.js';
 import { Extensions as ConfigurationMigrationExtensions, IConfigurationMigrationRegistry } from '../../../common/configuration.js';
 import { IWorkbenchContribution, IWorkbenchContributionsRegistry, registerWorkbenchContribution2, Extensions as WorkbenchExtensions, WorkbenchPhase } from '../../../common/contributions.js';
-import { EditorExtensions } from '../../../common/editor.js';
-import { IViewContainersRegistry, Extensions as ViewContainerExtensions, ViewContainerLocation, ViewContainer } from '../../../common/views.js';
+// import { EditorExtensions } from '../../../common/editor.js';
+import { ViewContainer } from '../../../common/views.js';
 // import { } from '../../../services/editor/common/editorService.js';
 import { IPublisherInfo, IWorkbenchExtensionManagementService } from '../../../services/extensionManagement/common/extensionManagement.js';
 import {  IExtensionManagementServerService } from '../../../services/extensionManagement/common/extensionManagement.js';
@@ -37,13 +37,13 @@ import { IExtensionRecommendationsService } from '../../../services/extensionRec
 // import { } from '../../../services/preferences/common/preferences.js';
 
 // import { } from '../../webview/browser/webview.js';
-import {  AutoUpdateConfigurationKey, CONTEXT_EXTENSIONS_GALLERY_STATUS, CONTEXT_HAS_GALLERY,     IExtensionsWorkbenchService,  VIEWLET_ID, } from '../common/extensions.js';
+import {  AutoUpdateConfigurationKey, CONTEXT_EXTENSIONS_GALLERY_STATUS, CONTEXT_HAS_GALLERY,     IExtensionsWorkbenchService, } from '../common/extensions.js';
 import { ExtensionsConfigurationSchema, ExtensionsConfigurationSchemaId } from '../common/extensionsFileTemplate.js';
-import { ExtensionsInput } from '../common/extensionsInput.js';
+// import { ExtensionsInput } from '../common/extensionsInput.js';
 // [REMOVED - module not available] import { SearchExtensionsTool, SearchExtensionsToolData } from '../common/searchExtensionsTool.js';
 
-import { ShowRuntimeExtensionsAction } from './abstractRuntimeExtensionsEditor.js';
-import { ExtensionEditor } from './extensionEditor.js';
+// import { ShowRuntimeExtensionsAction } from './abstractRuntimeExtensionsEditor.js';
+// import { ExtensionEditor } from './extensionEditor.js';
 // import { } from './extensionEnablementWorkspaceTrustTransitionParticipant.js';
 import { ExtensionRecommendationNotificationService } from './extensionRecommendationNotificationService.js';
 import { ExtensionRecommendationsService } from './extensionRecommendationsService.js';
@@ -64,40 +64,15 @@ registerSingleton(IExtensionRecommendationsService, ExtensionRecommendationsServ
 
 // Quick Access Disabled
 
-// Editor
-Registry.as<IEditorPaneRegistry>(EditorExtensions.EditorPane).registerEditorPane(
-	EditorPaneDescriptor.create(
-		ExtensionEditor,
-		ExtensionEditor.ID,
-		localize('extension', "Extension")
-	),
-	[
-		new SyncDescriptor(ExtensionsInput)
-	]);
+// Editor disabled for ProX-Code
 
 // Contexts
 export const CONTEXT_HAS_LOCAL_SERVER = new RawContextKey<boolean>('hasLocalServer', false);
 export const CONTEXT_HAS_REMOTE_SERVER = new RawContextKey<boolean>('hasRemoteServer', false);
 export const CONTEXT_HAS_WEB_SERVER = new RawContextKey<boolean>('hasWebServer', false);
 
-// Extensions View Container - exported for use by MCP and other contrib
-export let VIEW_CONTAINER: ViewContainer;
-{
-	{
-		const viewContainerRegistry = Registry.as<IViewContainersRegistry>(ViewContainerExtensions.ViewContainersRegistry);
-		const existing = viewContainerRegistry.get(VIEWLET_ID);
-		if (existing) {
-			VIEW_CONTAINER = existing;
-		} else {
-			VIEW_CONTAINER = viewContainerRegistry.registerViewContainer({
-				id: VIEWLET_ID,
-				title: { value: 'Extensions', original: 'Extensions' },
-				ctorDescriptor: new SyncDescriptor(Object as any),
-				hideIfEmpty: true,
-			}, ViewContainerLocation.Sidebar);
-		}
-	}
-}
+// Extensions View Container - Disabled for ProX-Code (removed from Sidebar)
+export let VIEW_CONTAINER: ViewContainer = {} as any;
 
 type IExtensionActionOptions = IAction2Options & {
 	menuTitles?: { [id: string]: string };
@@ -273,8 +248,8 @@ if (isWeb) {
 
 
 
-// Running Extensions
-registerAction2(ShowRuntimeExtensionsAction);
+// Running Extensions disabled for ProX-Code
+// registerAction2(ShowRuntimeExtensionsAction);
 
 
 

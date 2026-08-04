@@ -143,7 +143,7 @@ import './contrib/welcomeBanner/browser/welcomeBanner.contribution.js';
 import './contrib/webview/browser/webview.web.contribution.js';
 
 // Extensions Management
-import './contrib/extensions/browser/extensions.web.contribution.js';
+// [Removed for ProX-Code] import './contrib/extensions/browser/extensions.web.contribution.js';
 
 // Terminal
 import './contrib/terminal/browser/terminal.web.contribution.js';
