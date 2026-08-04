@@ -49,16 +49,20 @@ jobs:
         shell: pwsh
         run: 7z.exe x .build/node_modules_cache/cache.7z -aoa
 
+      - name: Setup MSVC Developer Environment
+        uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x64
+
       - name: Install dependencies
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
         shell: pwsh
         run: |
-          . build/azure-pipelines/win32/exec.ps1
           $ErrorActionPreference = "Stop"
 
           for ($i = 1; $i -le 5; $i++) {
             try {
-              exec { npm ci }
+              npm ci
               break
             }
             catch {
