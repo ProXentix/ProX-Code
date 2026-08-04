@@ -108,8 +108,6 @@ jobs:
         run: npm ci
         env:
           npm_config_arch: x64
-          npm_config_msvs_version: "2022"
-          GYP_MSVS_VERSION: "2022"
           ELECTRON_SKIP_BINARY_DOWNLOAD: 1
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
 
