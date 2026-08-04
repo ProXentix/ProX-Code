@@ -3,5 +3,16 @@
   <PropertyGroup>
     <!-- Disable Spectre mitigations when compiling native C/C++ node modules on CI runners where Spectre libraries are not installed by default -->
     <SpectreMitigation>false</SpectreMitigation>
+    <!-- Ensure MSBuild inherits the active LIB and INCLUDE environment variables set by msvc-dev-cmd so toolchain libraries like DelayImp.lib are found regardless of toolset version differences -->
+    <LibraryPath>$(LibraryPath);$(LIB)</LibraryPath>
+    <IncludePath>$(IncludePath);$(INCLUDE)</IncludePath>
   </PropertyGroup>
+  <ItemDefinitionGroup>
+    <Link>
+      <AdditionalLibraryDirectories>$(LIB);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(INCLUDE);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
 </Project>
