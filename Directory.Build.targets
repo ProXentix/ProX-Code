@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <PropertyGroup>
+    <!-- Disable Spectre mitigations when compiling native C/C++ node modules on CI runners where Spectre libraries are not installed by default -->
+    <SpectreMitigation>false</SpectreMitigation>
+  </PropertyGroup>
+</Project>
