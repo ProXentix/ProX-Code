@@ -7,7 +7,7 @@ import { onUnexpectedError } from '../../../../../base/common/errors.js';
 import { Disposable } from '../../../../../base/common/lifecycle.js';
 import { IObservable, runOnChange } from '../../../../../base/common/observable.js';
 import { AnnotatedStringEdit } from '../../../../../editor/common/core/edits/stringEdit.js';
-import { EditDeltaInfo, ITextModelEditSourceMetadata } from '../../../../../editor/common/textModelEditSource.js';
+import { ITextModelEditSourceMetadata } from '../../../../../editor/common/textModelEditSource.js';
 import { IInstantiationService } from '../../../../../platform/instantiation/common/instantiation.js';
 import { EditSourceData, IDocumentWithAnnotatedEdits, createDocWithJustReason } from '../helpers/documentWithAnnotatedEdits.js';
 import type { ScmRepoAdapter } from './scmAdapter.js';
@@ -207,5 +207,11 @@ export class EditTelemetryReportEditArcForChatOrInlineChatSender extends Disposa
 				this._store.deleteAndLeak(reporter);
 			}));
 		}));
+	}
+}
+
+export class CreateSuggestionIdForChatOrInlineChatCaller extends Disposable {
+	constructor(...args: any[]) {
+		super();
 	}
 }

@@ -163,7 +163,7 @@ import './contrib/issue/browser/issue.contribution.js';
 import './contrib/splash/browser/splash.contribution.js';
 
 // Remote Start Entry for the Web
-import './contrib/remote/browser/remoteStartEntry.contribution.js';
+// [Removed for ProX-Code] import './contrib/remote/browser/remoteStartEntry.contribution.js';
 
 // Process Explorer
 import './contrib/processExplorer/browser/processExplorer.web.contribution.js';

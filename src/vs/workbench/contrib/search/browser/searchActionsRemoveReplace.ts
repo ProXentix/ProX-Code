@@ -27,7 +27,7 @@ import { arrayContainsElementOrParent, RenderableMatch, ISearchResult, isSearchT
 
 
 // Stub: MatchInNotebook is not available in this build (notebook support not included)
-type MatchInNotebook = never;
+class MatchInNotebook {}
 
 //#region Interfaces
 export interface ISearchActionContext {

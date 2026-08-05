@@ -184,7 +184,7 @@ registerSingleton(IWebWorkerService, WebWorkerService, InstantiationType.Delayed
 import './services/accounts/common/defaultAccount.js';
 
 // Telemetry
-import './contrib/telemetry/browser/telemetry.contribution.js';
+// [Removed for ProX-Code] import './contrib/telemetry/browser/telemetry.contribution.js';
 
 // Preferences
 import './contrib/preferences/browser/preferences.contribution.js';
@@ -296,8 +296,8 @@ import './contrib/relauncher/browser/relauncher.contribution.js';
 import './contrib/tasks/browser/task.contribution.js';
 
 // Remote
-import './contrib/remote/common/remote.contribution.js';
-import './contrib/remote/browser/remote.contribution.js';
+// [Removed for ProX-Code] import './contrib/remote/common/remote.contribution.js';
+// [Removed for ProX-Code] import './contrib/remote/browser/remote.contribution.js';
 
 // Emmet
 // import './contrib/emmet/browser/emmet.contribution.js';
@@ -398,7 +398,7 @@ import './contrib/list/browser/list.contribution.js';
 import './contrib/accessibilitySignals/browser/accessibilitySignal.contribution.js';
 
 // Bracket Pair Colorizer 2 Telemetry
-import './contrib/bracketPairColorizer2Telemetry/browser/bracketPairColorizer2Telemetry.contribution.js';
+// [Removed for ProX-Code] import './contrib/bracketPairColorizer2Telemetry/browser/bracketPairColorizer2Telemetry.contribution.js';
 
 // Accessibility
 import './contrib/accessibility/browser/accessibility.contribution.js';
@@ -416,7 +416,7 @@ import './contrib/inlineCompletions/browser/inlineCompletions.contribution.js';
 import './contrib/dropOrPasteInto/browser/dropOrPasteInto.contribution.js';
 
 // Edit Telemetry
-import './contrib/editTelemetry/browser/editTelemetry.contribution.js';
+// [Removed for ProX-Code] import './contrib/editTelemetry/browser/editTelemetry.contribution.js';
 
 // Opener
 import './contrib/opener/browser/opener.contribution.js';

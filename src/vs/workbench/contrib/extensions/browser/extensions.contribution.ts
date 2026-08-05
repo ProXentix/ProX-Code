@@ -58,9 +58,9 @@ import './media/extensionManagement.css';
 // import { } from './unsupportedExtensionsMigrationContribution.js';
 
 // Singletons
-registerSingleton(IExtensionsWorkbenchService, ExtensionsWorkbenchService, InstantiationType.Eager /* Auto updates extensions */);
+registerSingleton(IExtensionsWorkbenchService, ExtensionsWorkbenchService, InstantiationType.Delayed /* Disabled auto updates for ProXPL */);
 registerSingleton(IExtensionRecommendationNotificationService, ExtensionRecommendationNotificationService, InstantiationType.Delayed);
-registerSingleton(IExtensionRecommendationsService, ExtensionRecommendationsService, InstantiationType.Eager /* Prompts recommendations in the background */);
+registerSingleton(IExtensionRecommendationsService, ExtensionRecommendationsService, InstantiationType.Delayed /* Disabled recommendations for ProXPL */);
 
 // Quick Access Disabled
 

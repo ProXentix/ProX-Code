@@ -127,7 +127,7 @@ import './contrib/issue/electron-browser/issue.contribution.js';
 import './contrib/processExplorer/electron-browser/processExplorer.contribution.js';
 
 // Remote
-import './contrib/remote/electron-browser/remote.contribution.js';
+// [Removed for ProX-Code] import './contrib/remote/electron-browser/remote.contribution.js';
 
 // Terminal
 import './contrib/terminal/electron-browser/terminal.contribution.js';
@@ -169,7 +169,7 @@ import './contrib/mergeEditor/electron-browser/mergeEditor.contribution.js';
 import './contrib/multiDiffEditor/browser/multiDiffEditor.contribution.js';
 
 // Remote Tunnel
-import './contrib/remoteTunnel/electron-browser/remoteTunnel.contribution.js';
+// [Removed for ProX-Code] import './contrib/remoteTunnel/electron-browser/remoteTunnel.contribution.js';
 
 // Chat
 // Encryption

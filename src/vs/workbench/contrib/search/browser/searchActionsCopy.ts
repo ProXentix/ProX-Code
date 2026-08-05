@@ -273,12 +273,4 @@ function getSelectedRow(accessor: ServicesAccessor): RenderableMatch | undefined
 	return searchView?.getControl().getSelection()[0];
 }
 
-function isAISearchResult(element: RenderableMatch | undefined | null): boolean {
-	if (!element) {
-		return false;
-	}
-
-	return false;
-}
-
 //#endregion

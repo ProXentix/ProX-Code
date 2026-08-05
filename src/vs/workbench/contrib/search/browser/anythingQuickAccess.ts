@@ -136,7 +136,8 @@ export class AnythingQuickAccessProvider extends PickerQuickAccessProvider<IAnyt
 		@IQuickInputService private readonly quickInputService: IQuickInputService,
 		@IKeybindingService private readonly keybindingService: IKeybindingService,
 		@ILogService private readonly logService: ILogService,
-		@ICustomEditorLabelService private readonly customEditorLabelService: ICustomEditorLabelService
+		@ICustomEditorLabelService private readonly customEditorLabelService: ICustomEditorLabelService,
+		@IContextKeyService private readonly contextKeyService: IContextKeyService
 	) {
 		super(AnythingQuickAccessProvider.PREFIX, {
 			canAcceptInBackground: true,

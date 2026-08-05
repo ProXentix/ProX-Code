@@ -111,7 +111,7 @@ export class AiStatsStatusBar extends Disposable {
 					}, [
 						n.div({
 							style: {
-								width: this._aiStatsFeature.aiRate.map(v => `${v * 100}%`),
+								width: this._aiStatsFeature.aiRate.map((v: any) => `${v * 100}%`),
 								backgroundColor: 'currentColor',
 							}
 						})
@@ -122,7 +122,7 @@ export class AiStatsStatusBar extends Disposable {
 	}
 
 	private _createStatusBarHover() {
-		const aiRatePercent = this._aiStatsFeature.aiRate.map(r => `${Math.round(r * 100)}%`);
+		const aiRatePercent = this._aiStatsFeature.aiRate.map((r: any) => `${Math.round(r * 100)}%`);
 
 		return n.div({
 			class: 'ai-stats-status-bar',
