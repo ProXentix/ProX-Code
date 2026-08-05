@@ -10,7 +10,7 @@ import { localize } from '../../../../nls.js';
 import { IExtensionGalleryService, IGalleryExtension } from '../../../../platform/extensionManagement/common/extensionManagement.js';
 import { IProductService } from '../../../../platform/product/common/productService.js';
 import { RawContextKey } from '../../../../platform/contextkey/common/contextkey.js';
-import { ISearchResult, ISettingMatch, ISettingsEditorModel } from '../../../services/preferences/common/preferences.js';
+import { ISearchResult, ISettingsEditorModel } from '../../../services/preferences/common/preferences.js';
 import { createDecorator } from '../../../../platform/instantiation/common/instantiation.js';
 
 export const EXTENSION_FETCH_TIMEOUT_MS = 5000;

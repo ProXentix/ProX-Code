@@ -98,12 +98,25 @@ export function createCompile(src: string, { build, emitError, transpileOnly, pr
 	return pipeline;
 }
 
+function getSrcGlobs(dir: string): string | string[] {
+	if (dir === 'src') {
+		return [
+			`${dir}/**`,
+			`!${dir}/vs/workbench/contrib/webview/browser/pre/service-worker.js`,
+			`!${dir}/vs/workbench/contrib/search/test/**`,
+			`!${dir}/vs/platform/telemetry/test/**`,
+			`!${dir}/vs/workbench/api/test/node/extHostSearch.test.ts`
+		];
+	}
+	return `${dir}/**`;
+}
+
 export function transpileTask(src: string, out: string, esbuild?: boolean): task.StreamTask {
 
 	const task = () => {
 
 		const transpile = createCompile(src, { build: false, emitError: true, transpileOnly: { esbuild: !!esbuild }, preserveEnglish: false });
-		const srcPipe = gulp.src(`${src}/**`, { base: `${src}` });
+		const srcPipe = gulp.src(getSrcGlobs(src), { base: `${src}` });
 
 		return srcPipe
 			.pipe(transpile())
@@ -123,7 +136,7 @@ export function compileTask(src: string, out: string, build: boolean, options: {
 		}
 
 		const compile = createCompile(src, { build, emitError: true, transpileOnly: false, preserveEnglish: !!options.preserveEnglish });
-		const srcPipe = gulp.src(`${src}/**`, { base: `${src}` });
+		const srcPipe = gulp.src(getSrcGlobs(src), { base: `${src}` });
 		const generator = new MonacoGenerator(false);
 		if (src === 'src') {
 			generator.execute();
@@ -168,8 +181,8 @@ export function watchTask(out: string, build: boolean, srcPath: string = 'src'):
 	const task = () => {
 		const compile = createCompile(srcPath, { build, emitError: false, transpileOnly: false, preserveEnglish: false });
 
-		const src = gulp.src(`${srcPath}/**`, { base: srcPath });
-		const watchSrc = watch(`${srcPath}/**`, { base: srcPath, readDelay: 200 });
+		const src = gulp.src(getSrcGlobs(srcPath), { base: srcPath });
+		const watchSrc = watch(getSrcGlobs(srcPath), { base: srcPath, readDelay: 200 });
 
 		const generator = new MonacoGenerator(true);
 		generator.execute();

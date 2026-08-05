@@ -9,7 +9,7 @@ import { IWorkbenchContributionsRegistry, registerWorkbenchContribution2, Extens
 import { QuickDiffWorkbenchController } from './quickDiffDecorator.js';
 import { VIEWLET_ID, ISCMService, VIEW_PANE_ID, ISCMProvider, ISCMViewService, REPOSITORIES_VIEW_PANE_ID, HISTORY_VIEW_PANE_ID } from '../common/scm.js';
 import { KeyMod, KeyCode } from '../../../../base/common/keyCodes.js';
-import { MenuRegistry, MenuId, registerAction2, Action2 } from '../../../../platform/actions/common/actions.js';
+import { MenuRegistry, MenuId } from '../../../../platform/actions/common/actions.js';
 import { SCMActiveResourceContextKeyController, SCMActiveRepositoryController } from './activity.js';
 import { LifecyclePhase } from '../../../services/lifecycle/common/lifecycle.js';
 import { IConfigurationRegistry, Extensions as ConfigurationExtensions, ConfigurationScope } from '../../../../platform/configuration/common/configurationRegistry.js';
@@ -42,11 +42,11 @@ import { SCMHistoryViewPane } from './scmHistoryViewPane.js';
 import { QuickDiffModelService, IQuickDiffModelService } from './quickDiffModel.js';
 import { QuickDiffEditorController } from './quickDiffWidget.js';
 import { EditorContributionInstantiation, registerEditorContribution } from '../../../../editor/browser/editorExtensions.js';
-import { RemoteNameContext, ResourceContextKey } from '../../../common/contextkeys.js';
+import { RemoteNameContext } from '../../../common/contextkeys.js';
 import { AccessibleViewRegistry } from '../../../../platform/accessibility/browser/accessibleViewRegistry.js';
 import { SCMAccessibilityHelp } from './scmAccessibilityHelp.js';
 import { EditorContextKeys } from '../../../../editor/common/editorContextKeys.js';
-import product from '../../../../platform/product/common/product.js';
+// import product from '../../../../platform/product/common/product.js';
 
 ModesRegistry.registerLanguage({
 	id: 'scminput',

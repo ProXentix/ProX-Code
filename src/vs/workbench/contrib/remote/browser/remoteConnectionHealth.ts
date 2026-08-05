@@ -24,6 +24,7 @@ const REMOTE_UNSUPPORTED_CONNECTION_CHOICE_KEY = 'remote.unsupportedConnectionCh
 const BANNER_REMOTE_UNSUPPORTED_CONNECTION_DISMISSED_KEY = 'workbench.banner.remote.unsupportedConnection.dismissed';
 
 export class InitialRemoteConnectionHealthContribution implements IWorkbenchContribution {
+	static readonly ID = 'workbench.contrib.initialRemoteConnectionHealth';
 
 	constructor(
 		@IRemoteAgentService private readonly _remoteAgentService: IRemoteAgentService,
