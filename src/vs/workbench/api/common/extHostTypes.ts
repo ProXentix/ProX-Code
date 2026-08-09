@@ -7,11 +7,9 @@
 
 import type * as vscode from 'vscode';
 import { asArray } from '../../../base/common/arrays.js';
-import { VSBuffer } from '../../../base/common/buffer.js';
+
 import { illegalArgument, } from '../../../base/common/errors.js';
 import { IRelativePattern } from '../../../base/common/glob.js';
-import { MarshalledId } from '../../../base/common/marshallingIds.js';
-import { Mimes } from '../../../base/common/mime.js';
 import { nextCharLength } from '../../../base/common/strings.js';
 import { isNumber, isObject, isString, isStringArray } from '../../../base/common/types.js';
 import { URI } from '../../../base/common/uri.js';
@@ -2160,9 +2158,11 @@ export enum NewSymbolNameTriggerKind {
 	Automatic = 1,
 }
 
-export class NewSymbolName implements vscode.NewSymbolName {
+export type NewSymbolNameTag = number;
+
+export class NewSymbolName {
 	readonly newSymbolName: string;
-	readonly tags?: readonly vscode.NewSymbolNameTag[] | undefined;
+	readonly tags?: readonly NewSymbolNameTag[] | undefined;
 
 	constructor(
 		newSymbolName: string,

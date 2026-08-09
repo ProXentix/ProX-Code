@@ -335,44 +335,6 @@ export class SettingMatches {
 	}
 }
 
-class SettingsRecordProvider {
-	private _settingsRecord: IStringDictionary<ISetting> = {};
-	private _currentPreferencesModel: ISettingsEditorModel | undefined;
-
-	constructor() { }
-
-	updateModel(preferencesModel: ISettingsEditorModel) {
-		if (preferencesModel === this._currentPreferencesModel) {
-			return;
-		}
-
-		this._currentPreferencesModel = preferencesModel;
-		this.refresh();
-	}
-
-	private refresh() {
-		this._settingsRecord = {};
-
-		if (!this._currentPreferencesModel) {
-			return;
-		}
-
-		for (const group of this._currentPreferencesModel.settingsGroups) {
-			if (group.id === 'mostCommonlyUsed') {
-				continue;
-			}
-			for (const section of group.sections) {
-				for (const setting of section.settings) {
-					this._settingsRecord[setting.key] = setting;
-				}
-			}
-		}
-	}
-
-	getSettingsRecord(): IStringDictionary<ISetting> {
-		return this._settingsRecord;
-	}
-}
 
 
 class TfIdfSearchProvider implements IRemoteSearchProvider {

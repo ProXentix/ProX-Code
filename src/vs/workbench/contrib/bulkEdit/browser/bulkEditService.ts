@@ -45,7 +45,8 @@ function liftEdits(edits: ResourceEdit[]): ResourceEdit[] {
 		}
 
 		if (ResourceAttachmentEdit.is(edit)) {
-			return ResourceAttachmentEdit.lift(edit);
+			// eslint-disable-next-line local/code-no-any-casts
+			return (ResourceAttachmentEdit as any).lift(edit);
 		}
 
 		throw new Error('Unsupported edit');

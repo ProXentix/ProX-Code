@@ -73,6 +73,7 @@ import { IHoverService } from '../../../../platform/hover/browser/hover.js';
 
 export const ExtensionsSortByContext = new RawContextKey<string>('extensionsSortByValue', '');
 export const SearchMarketplaceExtensionsContext = new RawContextKey<boolean>('searchMarketplaceExtensions', false);
+export const SearchMcpServersContext = new RawContextKey<boolean>('searchMcpServers', false);
 export const SearchHasTextContext = new RawContextKey<boolean>('extensionSearchHasText', false);
 const InstalledExtensionsContext = new RawContextKey<boolean>('installedExtensions', false);
 const SearchInstalledExtensionsContext = new RawContextKey<boolean>('searchInstalledExtensions', false);

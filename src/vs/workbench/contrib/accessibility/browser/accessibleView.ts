@@ -27,7 +27,7 @@ import { AccessibilityHelpNLS } from '../../../../editor/common/standaloneString
 import { CodeActionController } from '../../../../editor/contrib/codeAction/browser/codeActionController.js';
 import { FloatingEditorToolbar } from '../../../../editor/contrib/floatingMenu/browser/floatingMenu.js';
 import { localize } from '../../../../nls.js';
-import { AccessibleContentProvider, AccessibleViewProviderId, AccessibleViewType, ExtensionContentProvider, IAccessibleViewService, IAccessibleViewSymbol, isIAccessibleViewContentProvider } from '../../../../platform/accessibility/browser/accessibleView.js';
+import { AccessibleContentProvider, AccessibleViewProviderId, AccessibleViewType, ExtensionContentProvider, IAccessibleViewService, IAccessibleViewSymbol, ICodeBlockActionContext, isIAccessibleViewContentProvider } from '../../../../platform/accessibility/browser/accessibleView.js';
 import { ACCESSIBLE_VIEW_SHOWN_STORAGE_PREFIX, IAccessibilityService } from '../../../../platform/accessibility/common/accessibility.js';
 import { AccessibilitySignal, IAccessibilitySignalService } from '../../../../platform/accessibilitySignal/browser/accessibilitySignalService.js';
 import { getFlatActionBarActions } from '../../../../platform/actions/browser/menuEntryActionViewItem.js';
@@ -367,7 +367,7 @@ export class AccessibleView extends Disposable implements ITextModelContentProvi
 			return;
 		}
 
-		if (this._currentProvider.options.language && this._currentProvider.options.language !== 'markdown') {
+		if (!this._currentProvider || (this._currentProvider.options.language && this._currentProvider.options.language !== 'markdown')) {
 			// Symbols haven't been provided and we cannot parse this language
 			return;
 		}
@@ -865,6 +865,27 @@ export class AccessibleView extends Disposable implements ITextModelContentProvi
 
 	private _readMoreHint(provider: AccesibleViewContentProvider): string {
 		return provider.options.readMoreUrl ? localize("openDoc", "\nOpen a browser window with more information related to accessibility{0}.", `<keybinding:${AccessibilityCommandId.AccessibilityHelpOpenHelpLink}>`) : '';
+	}
+
+	getCodeBlockContext(): ICodeBlockActionContext | undefined {
+		if (!this._codeBlocks || !this._currentProvider) {
+			return undefined;
+		}
+		const currentLine = this._editorWidget.getPosition()?.lineNumber;
+		if (currentLine === undefined) {
+			return undefined;
+		}
+		for (const block of this._codeBlocks) {
+			if (currentLine >= block.startLine && currentLine <= block.endLine) {
+				return {
+					code: block.code,
+					languageId: block.languageId,
+					codeBlockIndex: this._codeBlocks.indexOf(block),
+					element: undefined
+				};
+			}
+		}
+		return undefined;
 	}
 }
 

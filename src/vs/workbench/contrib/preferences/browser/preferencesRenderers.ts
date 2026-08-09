@@ -818,7 +818,7 @@ class McpSettingsRenderer extends Disposable implements languages.CodeActionProv
 		}
 	}
 
-	async provideCodeActions(model: ITextModel, range: Range | Selection, context: languages.CodeActionContext, token: CancellationToken): Promise<languages.CodeActionList> {
+	async provideCodeActions(model: ITextModel, range: Range | Selection, _context: languages.CodeActionContext, _token: CancellationToken): Promise<languages.CodeActionList> {
 		const actions: languages.CodeAction[] = [];
 		const codeActionsByRange = this.codeActions.get(model.uri);
 		if (codeActionsByRange) {

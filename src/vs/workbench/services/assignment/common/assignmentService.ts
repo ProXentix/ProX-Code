@@ -233,13 +233,15 @@ export class WorkbenchAssignmentService extends Disposable implements IAssignmen
 		// If it is complete, return a cached value for the treatment
 		// If not, use the async call with `checkCache: true`. This will allow the module to return a cached value if it is present.
 		// Otherwise it will await the initial fetch to return the most up to date value.
+		// eslint-disable-next-line local/code-no-any-casts
+		const typedClient = client as any;
 		if (this.networkInitialized) {
-			result = client.getTreatmentVariable<T>('vscode', name);
+			result = typedClient.getTreatmentVariable<T>('vscode', name);
 		} else {
-			result = await client.getTreatmentVariableAsync<T>('vscode', name, true);
+			result = await typedClient.getTreatmentVariableAsync<T>('vscode', name, true);
 		}
 
-		result = client.getTreatmentVariable<T>('vscode', name);
+		result = typedClient.getTreatmentVariable<T>('vscode', name);
 		return result;
 	}
 

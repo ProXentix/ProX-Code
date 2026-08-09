@@ -55,6 +55,7 @@ export type NotebookDocumentMetadata = Record<string, unknown>;
 export type NotebookCellMetadata = Record<string, unknown>;
 export type NotebookCellInternalMetadata = {
     executionId?: string;
+    executionOrder?: number;
     runStartTime?: number;
     runStartTimeAdjustment?: number;
     runEndTime?: number;
@@ -180,6 +181,7 @@ export interface TransientOptions {
     readonly transientOutputs: boolean;
     readonly transientCellMetadata: NotebookTransientCellMetadata;
     readonly transientDocumentMetadata: NotebookTransientDocumentMetadata;
+    readonly cellContentMetadata?: NotebookTransientCellMetadata;
 }
 
 export type NotebookTransientCellMetadata = { readonly [K in keyof NotebookCellMetadata]?: boolean };
@@ -200,6 +202,7 @@ export interface INotebookKernelSourceAction {
     readonly description?: string;
     readonly detail?: string;
     readonly command?: string | any;
+    readonly documentation?: string | any;
 }
 
 // ---- Notebook Settings ----
@@ -278,4 +281,18 @@ export interface ICellRange {
 export interface NotebookOutputItem {
     readonly mime: string;
     readonly data: any;
+}
+
+// ---- CellUri stub (ProX-Code does not support full notebook URIs) ----
+
+export const CellUri = {
+    generate(_notebook: any, _handle: number): any { return undefined; },
+    parse(_cell: any): { notebook: any; handle: number } | undefined { return undefined; },
+};
+
+// ---- Cell Statusbar Alignment ----
+
+export const enum CellStatusbarAlignment {
+    Left = 1,
+    Right = 2,
 }
