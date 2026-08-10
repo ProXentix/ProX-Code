@@ -48,8 +48,6 @@ import * as search from '../../contrib/search/common/search.js';
 import { TestId } from '../../contrib/testing/common/testId.js';
 import { CoverageDetails, DetailType, ICoverageCount, IFileCoverage, ISerializedTestResults, ITestErrorMessage, ITestItem, ITestRunProfileReference, ITestTag, TestMessageType, TestResultItem, TestRunProfileBitset, denamespaceTestTag, namespaceTestTag } from '../../contrib/testing/common/testTypes.js';
 import { EditorGroupColumn } from '../../services/editor/common/editorGroupColumn.js';
-import { ACTIVE_GROUP, SIDE_GROUP } from '../../services/editor/common/editorService.js';
-import { checkProposedApiEnabled, isProposedApiEnabled } from '../../services/extensions/common/extensions.js';
 import { Dto, } from '../../services/extensions/common/proxyIdentifier.js';
 import * as extHostProtocol from './extHost.protocol.js';
 import { CommandsConverter } from './extHostCommands.js';
@@ -671,7 +669,7 @@ export namespace WorkspaceEdit {
 						resource: entry.uri,
 						cellEdit: entry.edit,
 						notebookVersionId: versionInfo?.getNotebookDocumentVersion(entry.uri)
-					});
+					} as any);
 
 				} else if (entry._type === types.FileEditType.CellReplace) {
 					// cell replace
@@ -685,7 +683,7 @@ export namespace WorkspaceEdit {
 							count: entry.count,
 							cells: entry.cells.map(NotebookCellData.from)
 						}
-					});
+					} as any);
 				}
 			}
 		}
@@ -2333,5 +2331,31 @@ export namespace SourceControlInputBoxValidationType {
 			default:
 				throw new Error('Unknown SourceControlInputBoxValidationType');
 		}
+	}
+}
+
+export namespace DebugTreeItem {
+	export function from(item: vscode.DebugTreeItem, handle: number): IDebugVisualizationTreeItem {
+		return {
+			handle,
+			label: typeof item.label === 'string' ? item.label : item.label?.label ?? '',
+			description: item.description,
+			collapsibleState: item.collapsibleState ?? DebugTreeItemCollapsibleState.None,
+			contextValue: item.contextValue,
+			canSpecifyValue: item.canSpecifyValue,
+		};
+	}
+}
+
+export namespace TerminalQuickFix {
+	export function from(quickFix: vscode.TerminalQuickFixOpener | vscode.TerminalQuickFixCommand | vscode.Command, converter: CommandsConverter, store: DisposableStore): extHostProtocol.ITerminalQuickFixTerminalCommandDto | extHostProtocol.ITerminalQuickFixOpenerDto | extHostProtocol.ICommandDto | undefined {
+		if (quickFix instanceof types.TerminalQuickFixOpener) {
+			return { uri: quickFix.uri };
+		} else if (quickFix instanceof types.TerminalQuickFixCommand) {
+			return { terminalCommand: quickFix.terminalCommand };
+		} else if (quickFix && typeof quickFix === 'object' && 'command' in quickFix) {
+			return converter.toInternal(quickFix, store);
+		}
+		return undefined;
 	}
 }

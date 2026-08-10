@@ -10,7 +10,7 @@ import { createDecorator } from '../../../platform/instantiation/common/instanti
 import { URI } from '../../../base/common/uri.js';
 import { IExtHostRpcService } from './extHostRpcService.js';
 import { IDisposable, DisposableStore, Disposable, MutableDisposable } from '../../../base/common/lifecycle.js';
-import { Disposable as VSCodeDisposable, EnvironmentVariableMutatorType, TerminalExitReason, TerminalCompletionItem } from './extHostTypes.js';
+import { Disposable as VSCodeDisposable, EnvironmentVariableMutatorType, TerminalExitReason, TerminalCompletionItem, TerminalCompletionList } from './extHostTypes.js';
 import { IExtensionDescription } from '../../../platform/extensions/common/extensions.js';
 import { localize } from '../../../nls.js';
 import { NotSupportedError } from '../../../base/common/errors.js';
@@ -23,7 +23,7 @@ import { TerminalDataBufferer } from '../../../platform/terminal/common/terminal
 import { ThemeColor } from '../../../base/common/themables.js';
 import { Promises } from '../../../base/common/async.js';
 import { EditorGroupColumn } from '../../services/editor/common/editorGroupColumn.js';
-import { ViewColumn } from './extHostTypeConverters.js';
+import { ViewColumn, TerminalQuickFix } from './extHostTypeConverters.js';
 import { IExtHostCommands } from './extHostCommands.js';
 import { MarshalledId } from '../../../base/common/marshallingIds.js';
 import { ISerializedTerminalInstanceContext } from '../../contrib/terminal/common/terminal.js';

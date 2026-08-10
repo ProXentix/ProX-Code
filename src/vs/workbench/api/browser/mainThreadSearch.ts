@@ -12,7 +12,6 @@ import { extHostNamedCustomer, IExtHostContext } from '../../services/extensions
 import { IFileMatch, IFileQuery, IRawFileMatch2, ISearchComplete, ISearchCompleteStats, ISearchProgressItem, ISearchQuery, ISearchResultProvider, ISearchService, ITextQuery, QueryType, SearchProviderType } from '../../services/search/common/search.js';
 import { ExtHostContext, ExtHostSearchShape, MainContext, MainThreadSearchShape } from '../common/extHost.protocol.js';
 import { revive } from '../../../base/common/marshalling.js';
-import * as Constants from '../../contrib/search/common/constants.js';
 import { IContextKeyService } from '../../../platform/contextkey/common/contextkey.js';
 
 @extHostNamedCustomer(MainContext.MainThreadSearch)

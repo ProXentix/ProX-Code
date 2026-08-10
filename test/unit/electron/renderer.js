@@ -419,10 +419,10 @@ const setTimeout0 = (() => {
 		const pending = [];
 
 		$globalThis.addEventListener('message', (e) => {
-			if (e.data && e.data.prox-codeScheduleAsyncWork) {
+			if (e.data && e.data.proxCodeScheduleAsyncWork) {
 				for (let i = 0, len = pending.length; i < len; i++) {
 					const candidate = pending[i];
-					if (candidate.id === e.data.prox-codeScheduleAsyncWork) {
+					if (candidate.id === e.data.proxCodeScheduleAsyncWork) {
 						pending.splice(i, 1);
 						candidate.callback();
 						return;
@@ -437,7 +437,7 @@ const setTimeout0 = (() => {
 				id: myId,
 				callback: callback
 			});
-			$globalThis.postMessage({ vscodeScheduleAsyncWork: myId }, '*');
+			$globalThis.postMessage({ proxCodeScheduleAsyncWork: myId }, '*');
 		};
 	}
 	return (callback) => setTimeout(callback);

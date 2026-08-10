@@ -28,7 +28,7 @@ async function getClient(instrumentationKey: string, addInternalFlag?: boolean, 
 	// eslint-disable-next-line local/code-amd-node-module
 	const postPlugin = isWeb ? await importAMDNodeModule<typeof import('@microsoft/1ds-post-js')>('@microsoft/1ds-post-js', 'bundle/ms.post.min.js') : await import('@microsoft/1ds-post-js');
 
-	const appInsightsCore = new oneDs.AppInsightsCore();
+	const appInsightsCore = new (oneDs as any).AppInsightsCore();
 	const collectorChannelPlugin: PostChannel = new postPlugin.PostChannel();
 	// Configure the app insights core to send to collector++ and disable logging of debug info
 	const coreConfig: IExtendedConfiguration = {
@@ -57,7 +57,7 @@ async function getClient(instrumentationKey: string, addInternalFlag?: boolean, 
 
 	appInsightsCore.initialize(coreConfig, []);
 
-	appInsightsCore.addTelemetryInitializer((envelope) => {
+	appInsightsCore.addTelemetryInitializer((envelope: any) => {
 		// Opt the user out of 1DS data sharing
 		envelope['ext'] = envelope['ext'] ?? {};
 		envelope['ext']['web'] = envelope['ext']['web'] ?? {};

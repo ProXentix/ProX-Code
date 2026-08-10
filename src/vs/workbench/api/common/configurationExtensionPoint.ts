@@ -405,7 +405,7 @@ jsonRegistry.registerSchema('prox-code://schemas/workspaceConfig', {
 				}
 			},
 			description: nls.localize('workspaceConfig.mcp.description', "Model Context Protocol server configurations"),
-			$ref: mcpSchemaId
+			$ref: 'prox-code://schemas/mcp'
 		},
 		'extensions': {
 			type: 'object',

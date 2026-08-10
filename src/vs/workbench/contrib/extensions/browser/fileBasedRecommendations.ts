@@ -22,7 +22,7 @@ import { ILanguageService } from '../../../../editor/common/languages/language.j
 import { IExtensionRecommendationNotificationService, RecommendationsNotificationResult, RecommendationSource } from '../../../../platform/extensionRecommendations/common/extensionRecommendations.js';
 import { distinct } from '../../../../base/common/arrays.js';
 import { DisposableStore } from '../../../../base/common/lifecycle.js';
-// CellUri removed - not available in ProX-Code notebook stub
+import { CellUri } from '../../notebook/common/notebookCommon.js';
 import { disposableTimeout } from '../../../../base/common/async.js';
 import { IWorkspaceContextService } from '../../../../platform/workspace/common/workspace.js';
 import { areSameExtensions } from '../../../../platform/extensionManagement/common/extensionManagementUtil.js';

@@ -41,7 +41,8 @@ function liftEdits(edits: ResourceEdit[]): ResourceEdit[] {
 			return ResourceFileEdit.lift(edit);
 		}
 		if (ResourceNotebookCellEdit.is(edit)) {
-			return ResourceNotebookCellEdit.lift(edit);
+			// eslint-disable-next-line local/code-no-any-casts
+			return (ResourceNotebookCellEdit as any).lift(edit);
 		}
 
 		if (ResourceAttachmentEdit.is(edit)) {

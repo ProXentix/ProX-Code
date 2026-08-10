@@ -2,11 +2,9 @@
  * ProX-Code Extensions Contribution
  */
 
-import { localize, } from '../../../../nls.js';
 import { RawContextKey } from '../../../../platform/contextkey/common/contextkey.js';
 import { IExtensionRecommendationNotificationService } from '../../../../platform/extensionRecommendations/common/extensionRecommendations.js';
 import { InstantiationType, registerSingleton } from '../../../../platform/instantiation/common/extensions.js';
-import { Extensions, IQuickAccessRegistry } from '../../../../platform/quickinput/common/quickAccess.js';
 import { Registry } from '../../../../platform/registry/common/platform.js';
 import { Extensions as ConfigurationMigrationExtensions, IConfigurationMigrationRegistry } from '../../../common/configuration.js';
 import { ViewContainer } from '../../../common/views.js';
@@ -15,7 +13,6 @@ import { IExtensionRecommendationsService } from '../../../services/extensionRec
 import { AutoUpdateConfigurationKey, IExtensionsWorkbenchService } from '../common/extensions.js';
 import { ExtensionRecommendationNotificationService } from './extensionRecommendationNotificationService.js';
 import { ExtensionRecommendationsService } from './extensionRecommendationsService.js';
-import { InstallExtensionQuickAccessProvider, } from './extensionsQuickAccess.js';
 import { ExtensionsWorkbenchService } from './extensionsWorkbenchService.js';
 import './media/extensionManagement.css';
 

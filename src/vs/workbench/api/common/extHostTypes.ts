@@ -2158,8 +2158,6 @@ export enum NewSymbolNameTriggerKind {
 	Automatic = 1,
 }
 
-export type NewSymbolNameTag = number;
-
 export class NewSymbolName {
 	readonly newSymbolName: string;
 	readonly tags?: readonly NewSymbolNameTag[] | undefined;

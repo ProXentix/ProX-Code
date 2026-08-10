@@ -840,7 +840,7 @@ class McpSettingsRenderer extends Disposable implements languages.CodeActionProv
 		return markerData;
 	}
 
-	private addCodeActions(range: IRange, codeActions: languages.CodeAction[]): void {
+	private _addCodeActions(range: IRange, codeActions: languages.CodeAction[]): void {
 		let actions = this.codeActions.get(this.settingsEditorModel.uri);
 		if (!actions) {
 			actions = [];

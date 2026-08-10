@@ -11,7 +11,6 @@ import { extHostNamedCustomer, IExtHostContext } from '../../services/extensions
 
 @extHostNamedCustomer(MainContext.MainThreadInteractive)
 export class MainThreadInteractive implements MainThreadInteractiveShape {
-	private readonly __proxy: ExtHostInteractiveShape;
 
 	private readonly _disposables = new DisposableStore();
 
@@ -19,7 +18,6 @@ export class MainThreadInteractive implements MainThreadInteractiveShape {
 		extHostContext: IExtHostContext,
 		// @IInteractiveDocumentService interactiveDocumentService: IInteractiveDocumentService
 	) {
-		this.__proxy = extHostContext.getProxy(ExtHostContext.ExtHostInteractive);
 
 
 		/*

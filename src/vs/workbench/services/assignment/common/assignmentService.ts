@@ -236,12 +236,12 @@ export class WorkbenchAssignmentService extends Disposable implements IAssignmen
 		// eslint-disable-next-line local/code-no-any-casts
 		const typedClient = client as any;
 		if (this.networkInitialized) {
-			result = typedClient.getTreatmentVariable<T>('vscode', name);
+			result = typedClient.getTreatmentVariable('vscode', name) as T | undefined;
 		} else {
-			result = await typedClient.getTreatmentVariableAsync<T>('vscode', name, true);
+			result = await typedClient.getTreatmentVariableAsync('vscode', name, true) as T | undefined;
 		}
 
-		result = typedClient.getTreatmentVariable<T>('vscode', name);
+		result = typedClient.getTreatmentVariable('vscode', name) as T | undefined;
 		return result;
 	}
 
