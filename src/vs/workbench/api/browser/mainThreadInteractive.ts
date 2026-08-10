@@ -5,7 +5,7 @@
 
 import { DisposableStore } from '../../../base/common/lifecycle.js';
 // import { PLAINTEXT_LANGUAGE_ID } from '../../../editor/common/languages/modesRegistry.js';
-import { ExtHostContext, ExtHostInteractiveShape, MainContext, MainThreadInteractiveShape } from '../common/extHost.protocol.js';
+import { MainContext, MainThreadInteractiveShape } from '../common/extHost.protocol.js';
 import { extHostNamedCustomer, IExtHostContext } from '../../services/extensions/common/extHostCustomers.js';
 // import { IInteractiveDocumentService } from '../../contrib/interactive/browser/interactiveDocumentService.js';
 
