@@ -24,16 +24,21 @@ import { TestEditorGroupsService, TestEditorService } from '../../../../test/bro
 import { ISearchResult } from '../../browser/searchTreeModel/searchTreeCommon.js';
 import { FileMatchImpl } from '../../browser/searchTreeModel/fileMatch.js';
 
+import { createDecorator } from '../../../../../platform/instantiation/common/instantiation.js';
+import { ISearchTreeFileMatch } from '../../browser/searchTreeModel/searchTreeCommon.js';
+
 export interface INotebookEditorService { }
-export class NotebookEditorWidgetService { }
+export const INotebookEditorService = createDecorator<INotebookEditorService>('notebookEditorService');
+export class NotebookEditorWidgetService { dispose(): void { } }
 export enum CellKind { Markup = 1, Code = 2 }
 export interface ICellViewModel { cellKind: CellKind }
 export class CellMatch {
-	static readonly prototype: any = { addContext: () => { } };
+	addContext(): void { }
 }
 export interface INotebookFileMatchWithModel { resource: URI; cellResults: any[] }
-export interface INotebookFileInstanceMatch {
+export interface INotebookFileInstanceMatch extends Partial<ISearchTreeFileMatch> {
 	resource: URI;
+	parent?: any;
 	matches(): any[];
 	setSelectedMatch(match: any): void;
 	getSelectedMatch(): any;
@@ -43,8 +48,11 @@ export interface INotebookFileInstanceMatch {
 	count(): number;
 	dispose(): void;
 	createMatches(): void;
+	remove?(match?: any): void;
 }
-export class NotebookCompatibleFileMatch extends FileMatchImpl { }
+export class NotebookCompatibleFileMatch extends FileMatchImpl {
+	override parent(): any { return (this as any)._parent; }
+}
 export interface INotebookCellMatchWithModel { }
 
 export function createFileUriFromPathFromRoot(path?: string): URI {

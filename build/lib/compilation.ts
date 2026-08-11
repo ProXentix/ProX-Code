@@ -102,7 +102,10 @@ function getSrcGlobs(dir: string): string | string[] {
 	if (dir === 'src') {
 		return [
 			`${dir}/**`,
-			`!${dir}/vs/workbench/contrib/webview/browser/pre/service-worker.js`
+			`!${dir}/vs/workbench/contrib/webview/browser/pre/service-worker.js`,
+			`!${dir}/vs/workbench/contrib/search/test/**`,
+			`!${dir}/vs/platform/telemetry/test/**`,
+			`!${dir}/vs/workbench/api/test/node/extHostSearch.test.ts`
 		];
 	}
 	return `${dir}/**`;

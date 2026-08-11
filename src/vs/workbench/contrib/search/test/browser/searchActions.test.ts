@@ -17,7 +17,7 @@ import { SearchModelImpl } from '../../browser/searchTreeModel/searchModel.js';
 import { MockObjectTree } from './mockSearchTree.js';
 import { ILabelService } from '../../../../../platform/label/common/label.js';
 
-import { createFileUriFromPathFromRoot, stubModelService, stubNotebookEditorService } from './searchTestCommon.js';
+import { createFileUriFromPathFromRoot, stubModelService, stubNotebookEditorService, INotebookEditorService, INotebookFileInstanceMatch, NotebookCompatibleFileMatch } from './searchTestCommon.js';
 import { ensureNoDisposablesAreLeakedInTestSuite } from '../../../../../base/test/common/utils.js';
 import { FolderMatchImpl } from '../../browser/searchTreeModel/folderMatch.js';
 import { ISearchTreeFileMatch, ISearchTreeMatch, FileMatchOrMatch } from '../../browser/searchTreeModel/searchTreeCommon.js';

@@ -36,7 +36,7 @@ class MockMainThreadSearch implements MainThreadSearchShape {
 
 	results: Array<UriComponents | IRawFileMatch2> = [];
 
-	keywords: Array<AISearchKeyword> = [];
+	keywords: Array<vscode.AISearchKeyword> = [];
 
 	$registerFileSearchProvider(handle: number, scheme: string): void {
 		this.lastHandle = handle;
@@ -61,7 +61,7 @@ class MockMainThreadSearch implements MainThreadSearchShape {
 		this.results.push(...data);
 	}
 
-	$handleKeywordResult(handle: number, session: number, data: AISearchKeyword): void {
+	$handleKeywordResult(handle: number, session: number, data: vscode.AISearchKeyword): void {
 		this.keywords.push(data);
 	}
 

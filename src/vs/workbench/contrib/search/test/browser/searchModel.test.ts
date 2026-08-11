@@ -4,37 +4,9 @@
  *--------------------------------------------------------------------------------------------*/
 import assert from 'assert';
 import * as sinon from 'sinon';
-import * as arrays from '../../../../../base/common/arrays.js';
-import { DeferredPromise, timeout } from '../../../../../base/common/async.js';
-import { CancellationToken, CancellationTokenSource } from '../../../../../base/common/cancellation.js';
-import { URI } from '../../../../../base/common/uri.js';
-import { Range } from '../../../../../editor/common/core/range.js';
-import { IModelService } from '../../../../../editor/common/services/model.js';
-import { ModelService } from '../../../../../editor/common/services/modelService.js';
-import { IConfigurationService } from '../../../../../platform/configuration/common/configuration.js';
-import { TestConfigurationService } from '../../../../../platform/configuration/test/common/testConfigurationService.js';
-import { TestInstantiationService } from '../../../../../platform/instantiation/test/common/instantiationServiceMock.js';
-import {  IFileMatch, IFileQuery, IFileSearchStats, IFolderQuery, ISearchComplete, ISearchProgressItem, ISearchQuery, ISearchService, ITextQuery, ITextSearchMatch, OneLineRange, QueryType, TextSearchMatch } from '../../../../services/search/common/search.js';
-import { ITelemetryService } from '../../../../../platform/telemetry/common/telemetry.js';
-import { NullTelemetryService } from '../../../../../platform/telemetry/common/telemetryUtils.js';
-import { SearchModelImpl } from '../../browser/searchTreeModel/searchModel.js';
-import { IThemeService } from '../../../../../platform/theme/common/themeService.js';
-import { TestThemeService } from '../../../../../platform/theme/test/common/testThemeService.js';
-import { FileService } from '../../../../../platform/files/common/fileService.js';
-import { ILogService, NullLogService } from '../../../../../platform/log/common/log.js';
-import { IUriIdentityService } from '../../../../../platform/uriIdentity/common/uriIdentity.js';
-import { UriIdentityService } from '../../../../../platform/uriIdentity/common/uriIdentityService.js';
-import { ILabelService } from '../../../../../platform/label/common/label.js';
+import { createFileUriFromPathFromRoot, getRootName, INotebookCellMatchWithModel, INotebookEditorService, NotebookEditorWidgetService } from './searchTestCommon.js';
 
-import { IEditorGroupsService } from '../../../../services/editor/common/editorGroupsService.js';
-import { TestEditorGroupsService, TestEditorService } from '../../../../test/browser/workbenchTestServices.js';
-
-import { createFileUriFromPathFromRoot, getRootName } from './searchTestCommon.js';
-
-
-
-import { FindMatch, IReadonlyTextBuffer } from '../../../../../editor/common/model.js';
-import { ResourceMap, ResourceSet } from '../../../../../base/common/map.js';
+import { ResourceMap } from '../../../../../base/common/map.js';
 // [REMOVED - module not available] import { INotebookService } from '../../../notebook/common/notebookService.js';
 
 
@@ -464,7 +436,7 @@ suite('SearchModel', () => {
 		return { resource: createFileUriFromPathFromRoot(resource), results };
 	}
 
-	function aRawMatchWithCells(resource: string, ...cells: INotebookCellMatchWithModel[]) {
+	export function aRawMatchWithCells(resource: string, ...cells: INotebookCellMatchWithModel[]) {
 		return { resource: createFileUriFromPathFromRoot(resource), cellResults: cells };
 	}
 
@@ -478,7 +450,7 @@ suite('SearchModel', () => {
 		return modelService;
 	}
 
-	function stubNotebookEditorService(instantiationService: TestInstantiationService): INotebookEditorService {
+	export function stubNotebookEditorService(instantiationService: TestInstantiationService): INotebookEditorService {
 		instantiationService.stub(IEditorGroupsService, new TestEditorGroupsService());
 		instantiationService.stub(IContextKeyService, new MockContextKeyService());
 		instantiationService.stub(IEditorService, store.add(new TestEditorService()));

@@ -579,10 +579,10 @@ suite('SearchResult', () => {
 		const root = searchResult?.folderMatches()[0];
 		const fileMatch = instantiationService.createInstance(NotebookCompatibleFileMatch, {
 			pattern: ''
-		}, undefined, undefined, root, rawMatch, null, '');
+		}, undefined, undefined, root, rawMatch, null) as unknown as INotebookFileInstanceMatch;
 		fileMatch.createMatches();
 
-		store.add(fileMatch);
+		store.add(fileMatch as any);
 		return fileMatch;
 	}
 
