@@ -33,9 +33,6 @@
 		"./vscode-dts/vscode.d.ts"
 	],
 	"exclude": [
-		"vs/workbench/contrib/webview/browser/pre/service-worker.js",
-		"vs/workbench/contrib/search/test/**",
-		"vs/platform/telemetry/test/**",
-		"vs/workbench/api/test/node/extHostSearch.test.ts"
+		"vs/workbench/contrib/webview/browser/pre/service-worker.js"
 	]
 }
