@@ -232,6 +232,10 @@ export class CodeApplication extends Disposable {
 		};
 
 		const isAllowedVsCodeFileRequest = (details: Electron.OnBeforeRequestListenerDetails) => {
+			if (details.resourceType === 'mainFrame') {
+				return true;
+			}
+
 			const frame = details.frame;
 			if (!frame || !this.windowsMainService) {
 				return false;
@@ -249,6 +253,10 @@ export class CodeApplication extends Disposable {
 		};
 
 		const isAllowedWebviewRequest = (uri: URI, details: Electron.OnBeforeRequestListenerDetails): boolean => {
+			if (details.resourceType === 'mainFrame') {
+				return true;
+			}
+
 			if (uri.path !== '/index.html') {
 				return true; // Only restrict top level page of webviews: index.html
 			}
