@@ -74,7 +74,6 @@ const vscodeWebResources = [
 const vscodeWebEntryPoints = [
 	buildfile.workerEditor,
 	buildfile.workerExtensionHost,
-	buildfile.workerNotebook,
 	buildfile.workerLanguageDetection,
 	buildfile.workerLocalFileSearch,
 	buildfile.workerOutputLinks,

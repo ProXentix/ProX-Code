@@ -99,7 +99,6 @@ const versionedResourcesFolder = (product as typeof product & { quality?: string
 const vscodeEntryPoints = [
 	buildfile.workerEditor,
 	buildfile.workerExtensionHost,
-	buildfile.workerNotebook,
 	buildfile.workerLanguageDetection,
 	buildfile.workerLocalFileSearch,
 	buildfile.workerProfileAnalysis,

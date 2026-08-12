@@ -29,11 +29,8 @@ const glob = require('glob');
 const root = path.dirname(import.meta.dirname);
 const commit = getVersion(root);
 
-// To save 250ms for each gulp startup, we are caching the result here
-// const compilations = glob.sync('**/tsconfig.json', {
-// 	cwd: extensionsPath,
-// 	ignore: ['**/out/**', '**/node_modules/**']
-// });
+import fs from 'fs';
+
 const compilations = [
 	'extensions/configuration-editing/tsconfig.json',
 	'extensions/css-language-features/client/tsconfig.json',
@@ -78,7 +75,7 @@ const compilations = [
 
 	'.vscode/extensions/vscode-selfhost-test-provider/tsconfig.json',
 	'.vscode/extensions/vscode-selfhost-import-aid/tsconfig.json',
-];
+].filter(tsconfigFile => fs.existsSync(path.join(root, tsconfigFile)));
 
 const getBaseUrl = (out: string) => `https://main.vscode-cdn.net/sourcemaps/${commit}/${out}`;
 
