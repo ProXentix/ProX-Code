@@ -401,11 +401,11 @@ export class TestContext {
 
 		switch (this.quality) {
 			case 'stable':
-				return path.join(parentDir, 'ProXentix VS Code');
+				return path.join(parentDir, 'ProXentix ProX Code');
 			case 'insider':
-				return path.join(parentDir, 'ProXentix VS Code Insiders');
+				return path.join(parentDir, 'ProXentix ProX Code Insiders');
 			case 'exploration':
-				return path.join(parentDir, 'ProXentix VS Code Exploration');
+				return path.join(parentDir, 'ProXentix ProX Code Exploration');
 		}
 	}
 
