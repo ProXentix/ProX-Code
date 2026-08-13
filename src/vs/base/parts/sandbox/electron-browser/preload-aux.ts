@@ -50,6 +50,7 @@
 	};
 
 	try {
+		contextBridge.exposeInMainWorld('proxCode', globals);
 		contextBridge.exposeInMainWorld('vscode', globals);
 	} catch (error) {
 		console.error(error);

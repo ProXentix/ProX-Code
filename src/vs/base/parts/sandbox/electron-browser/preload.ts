@@ -247,7 +247,8 @@
 	};
 
 	try {
-		// Use `contextBridge` APIs to expose globals to VSCode
+		// Use `contextBridge` APIs to expose globals to ProX Code
+		contextBridge.exposeInMainWorld('proxCode', globals);
 		contextBridge.exposeInMainWorld('vscode', globals);
 	} catch (error) {
 		console.error(error);
