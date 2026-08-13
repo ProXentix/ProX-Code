@@ -53,7 +53,7 @@ jobs:
 
   build-windows:
     name: Build Windows x64
-    runs-on: windows-latest
+    runs-on: windows-2022
     steps:
       - name: Checkout ProX-Code
         uses: actions/checkout@v4
