@@ -115,7 +115,7 @@ import './services/authentication/browser/authenticationQueryService.js';
 import '../platform/hover/browser/hoverService.js';
 import './services/assignment/common/assignmentService.js';
 import './services/outline/browser/outlineService.js';
-// import './services/languageDetection/browser/languageDetectionWorkerServiceImpl.js';
+import './services/languageDetection/browser/languageDetectionWorkerServiceImpl.js';
 
 import '../editor/common/services/languageFeaturesService.js';
 import '../editor/common/services/semanticTokensStylingService.js';
@@ -355,7 +355,7 @@ import './contrib/codeEditor/browser/outline/documentSymbolsOutline.js';
 import './contrib/outline/browser/outline.contribution.js';
 
 // Language Detection
-// import './contrib/languageDetection/browser/languageDetection.contribution.js';
+import './contrib/languageDetection/browser/languageDetection.contribution.js';
 
 
 // Language Status

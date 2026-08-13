@@ -25,7 +25,8 @@
                     "proxpl"
                 ],
                 "extensions": [
-                    ".prox"
+                    ".prox",
+                    ".pxpl"
                 ],
                 "configuration": "./language-configuration.json"
             }

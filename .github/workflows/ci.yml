@@ -1,4 +1,4 @@
-name: Unified CI
+name: CI Build & Compile
 
 on:
   push:
@@ -20,81 +20,45 @@ env:
   VSCODE_QUALITY: 'oss'
 
 jobs:
-  # Job from pr.yml (Compile & Hygiene)
   compile:
     name: Compile & Hygiene
-    runs-on: [ self-hosted, 1ES.Pool=1es-vsprox-code-ubuntu-22.04-x64 ]
-    steps:
-      - name: Checkout ProXentix/ProX-Code
-        uses: actions/checkout@v6
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version-file: .nvmrc
-
-      - name: Prepare node_modules cache key
-        run: mkdir -p .build && node build/azure-pipelines/common/computeNodeModulesCacheKey.ts compile $(node -p process.arch) > .build/packagelockhash
-
-      - name: Restore node_modules cache
-        id: cache-node-modules
-        uses: actions/cache/restore@v5
-        with:
-          path: .build/node_modules_cache
-          key: "node_modules-compile-${{ hashFiles('.build/packagelockhash') }}"
-
-      - name: Extract node_modules cache
-        if: steps.cache-node-modules.outputs.cache-hit == 'true'
-        run: tar -xzf .build/node_modules_cache/cache.tgz
-
-      - name: Install build tools
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: sudo apt update -y && sudo apt install -y build-essential pkg-config libx11-dev libx11-xcb-dev libxkbfile-dev libnotify-bin libkrb5-dev
-
-      - name: Install dependencies
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: |
-          set -e
-          for i in {1..5}; do
-            npm ci && break
-            if [ $i -eq 5 ]; then
-              echo "Npm install failed too many times" >&2
-              exit 1
-            fi
-            echo "Npm install failed $i, trying again..."
-          done
-        env:
-          ELECTRON_SKIP_BINARY_DOWNLOAD: 1
-          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Create node_modules archive
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: |
-          set -e
-          node build/azure-pipelines/common/listNodeModules.ts .build/node_modules_list.txt
-          mkdir -p .build/node_modules_cache
-          tar -czf .build/node_modules_cache/cache.tgz --files-from .build/node_modules_list.txt
-
-      - name: Type check /build/ scripts
-        run: npm run typecheck
-        working-directory: build
-
-      - name: Compile & Hygiene
-        run: npm exec -- npm-run-all2 -lp core-ci extensions-ci hygiene eslint valid-layers-check define-class-fields-check vscode-dts-compile-check tsec-compile-check test-build-scripts
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  # Job from build-win32.yml
-  build-windows:
-    name: Build Windows x64
-    runs-on: windows-2022
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout ProX-Code
         uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: 'npm'
+
+      - name: Install system dependencies
+        run: |
+          sudo apt update -y
+          sudo apt install -y build-essential pkg-config libx11-dev libx11-xcb-dev libxkbfile-dev libnotify-bin libkrb5-dev
+
+      - name: Install dependencies
+        run: npm ci
+        env:
+          ELECTRON_SKIP_BINARY_DOWNLOAD: 1
+          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Compile
+        run: npm run compile
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  build-windows:
+    name: Build Windows x64
+    runs-on: windows-latest
+    steps:
+      - name: Checkout ProX-Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
           cache: 'npm'
@@ -124,112 +88,7 @@ jobs:
         run: npm run gulp "vscode-win32-x64-user-setup"
 
       - name: Upload Installer
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v4
         with:
           name: ProX-Code-Windows-x64-Setup
           path: .build/win32-x64/user-setup/ProXCodeSetup.exe
-
-  # Job from monaco-editor.yml
-  monaco-checks:
-    name: Monaco Editor checks
-    runs-on: ubuntu-latest
-    timeout-minutes: 40
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    steps:
-      - uses: actions/checkout@v6
-        with:
-          persist-credentials: false
-      - uses: actions/setup-node@v6
-        with:
-          node-version-file: .nvmrc
-      - name: Install system dependencies
-        run: |
-          sudo apt update -y
-          sudo apt install -y build-essential pkg-config libx11-dev libx11-xcb-dev libxkbfile-dev libkrb5-dev libxss1
-      - name: Execute npm
-        run: npm ci
-        env:
-          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
-          ELECTRON_SKIP_BINARY_DOWNLOAD: 1
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Download Playwright
-        run: npm run playwright-install
-      - name: Run Monaco Editor Checks
-        run: npm run monaco-compile-check
-      - name: Editor Distro & ESM
-        run: npm run gulp editor-distro
-      - name: Editor ESM sources check
-        working-directory: ./test/monaco
-        run: npm run esm-check
-      - name: Typings validation
-        run: |
-          mkdir -p typings-test
-          cd typings-test
-          npm init -yp
-          ../node_modules/.bin/tsc --init
-          echo "import '../out-monaco-editor-core';" > a.ts
-          ../node_modules/.bin/tsc --noEmit
-      - name: Install Monaco test dependencies
-        working-directory: ./test/monaco
-        run: npm install
-      - name: Package Editor with Webpack
-        working-directory: ./test/monaco
-        run: npm run bundle-webpack
-      - name: Compile Editor Tests
-        working-directory: ./test/monaco
-        run: npm run compile
-      - name: Run Editor Tests
-        timeout-minutes: 5
-        working-directory: ./test/monaco
-        run: npm run test
-
-  # Jobs from pr.yml calling reusable workflows
-  linux-cli-tests:
-    name: Linux CLI
-    uses: ./.github/workflows/pr-linux-cli-test.yml
-    with:
-      job_name: CLI
-      rustup_toolchain: 1.85
-
-  linux-electron-tests:
-    name: Linux Electron
-    uses: ./.github/workflows/pr-linux-test.yml
-    with:
-      job_name: Electron
-      electron_tests: true
-
-  linux-browser-tests:
-    name: Linux Browser
-    uses: ./.github/workflows/pr-linux-test.yml
-    with:
-      job_name: Browser
-      browser_tests: true
-
-  linux-remote-tests:
-    name: Linux Remote
-    uses: ./.github/workflows/pr-linux-test.yml
-    with:
-      job_name: Remote
-      remote_tests: true
-
-  windows-electron-tests:
-    name: Windows Electron
-    uses: ./.github/workflows/pr-win32-test.yml
-    with:
-      job_name: Electron
-      electron_tests: true
-
-  windows-browser-tests:
-    name: Windows Browser
-    uses: ./.github/workflows/pr-win32-test.yml
-    with:
-      job_name: Browser
-      browser_tests: true
-
-  windows-remote-tests:
-    name: Windows Remote
-    uses: ./.github/workflows/pr-win32-test.yml
-    with:
-      job_name: Remote
-      remote_tests: true
