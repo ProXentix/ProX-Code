@@ -1,60 +1,60 @@
 {
-    "name": "proxpl",
-    "displayName": "ProXPL Support",
-    "description": "Built-in support for the ProX Programming Language (ProXPL).",
-    "version": "1.0.0",
-    "publisher": "proxentix",
-    "license": "MIT",
-    "engines": {
-        "vscode": "^1.90.0"
-    },
-    "main": "./out/extension.js",
-    "browser": "./out/extension.js",
-    "categories": [
-        "Programming Languages"
-    ],
-    "activationEvents": [
-        "onLanguage:proxpl"
-    ],
-    "contributes": {
-        "languages": [
-            {
-                "id": "proxpl",
-                "aliases": [
-                    "ProXPL",
-                    "proxpl"
-                ],
-                "extensions": [
-                    ".prox",
-                    ".pxpl"
-                ],
-                "configuration": "./language-configuration.json"
-            }
-        ],
-        "commands": [
-            {
-                "command": "proxpl.createProject",
-                "title": "ProXPL: Create New Project",
-                "category": "ProXPL"
-            }
-        ],
-        "walkthroughs": [
-            {
-                "id": "proxpl.welcome",
-                "title": "Welcome to ProX Code",
-                "description": "Get started with ProX Programming Language.",
-                "steps": [
-                    {
-                        "id": "welcome",
-                        "title": "Welcome to ProX Code",
-                        "description": "ProX Code is a lightweight, powerful IDE for ProXPL.\n[Create your first project](command:proxpl.createProject)",
-                        "media": {
-                            "path": "resources/welcome.svg",
-                            "altText": "Welcome to ProX Code"
-                        }
-                    }
-                ]
-            }
-        ]
-    }
+	"name": "proxpl",
+	"displayName": "ProXPL Support",
+	"description": "Built-in support for the ProX Programming Language (ProXPL).",
+	"version": "1.0.0",
+	"publisher": "proxentix",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.90.0"
+	},
+	"main": "./out/extension.js",
+	"browser": "./out/extension.js",
+	"categories": [
+		"Programming Languages"
+	],
+	"activationEvents": [
+		"onLanguage:proxpl"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "proxpl",
+				"aliases": [
+					"ProXPL",
+					"proxpl"
+				],
+				"extensions": [
+					".prox",
+					".pxpl"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"commands": [
+			{
+				"command": "proxpl.createProject",
+				"title": "ProXPL: Create New Project",
+				"category": "ProXPL"
+			}
+		],
+		"walkthroughs": [
+			{
+				"id": "proxpl.welcome",
+				"title": "Welcome to ProX Code",
+				"description": "Get started with ProX Programming Language.",
+				"steps": [
+					{
+						"id": "welcome",
+						"title": "Welcome to ProX Code",
+						"description": "ProX Code is a lightweight, powerful IDE for ProXPL.\n[Create your first project](command:proxpl.createProject)",
+						"media": {
+							"path": "resources/welcome.svg",
+							"altText": "Welcome to ProX Code"
+						}
+					}
+				]
+			}
+		]
+	}
 }

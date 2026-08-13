@@ -1,21 +1,21 @@
 {
-    "extends": "../tsconfig.base.json",
-    "compilerOptions": {
-        "outDir": "./out",
-        "lib": [
-            "ES2024"
-        ],
-        "module": "commonjs",
-        "types": [
-            "node"
-        ],
-        "typeRoots": [
-            "../node_modules/@types",
-            "../../node_modules/@types"
-        ]
-    },
-    "include": [
-        "src/**/*",
-        "../../src/vscode-dts/vscode.d.ts"
-    ]
+	"extends": "../tsconfig.base.json",
+	"compilerOptions": {
+		"outDir": "./out",
+		"lib": [
+			"ES2024"
+		],
+		"module": "commonjs",
+		"types": [
+			"node"
+		],
+		"typeRoots": [
+			"../node_modules/@types",
+			"../../node_modules/@types"
+		]
+	},
+	"include": [
+		"src/**/*",
+		"../../src/vscode-dts/vscode.d.ts"
+	]
 }

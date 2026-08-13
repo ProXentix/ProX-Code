@@ -59,7 +59,10 @@ const defaults: ts.FormatCodeSettings = {
 const getOverrides = (() => {
 	let value: ts.FormatCodeSettings | undefined;
 	return () => {
-		value ??= JSON.parse(fs.readFileSync(path.join(import.meta.dirname, '..', '..', 'tsfmt.json'), 'utf8'));
+		if (value === undefined) {
+			const tsfmtPath = path.join(import.meta.dirname, '..', '..', 'tsfmt.json');
+			value = fs.existsSync(tsfmtPath) ? JSON.parse(fs.readFileSync(tsfmtPath, 'utf8')) : {};
+		}
 		return value;
 	};
 })();
