@@ -77,7 +77,6 @@ jobs:
         env:
           npm_config_arch: ${{ env.NPM_ARCH }}
           npm_config_foreground_scripts: "true"
-          VSCMD_VER: "17.0.0"
           VSCODE_ARCH: ${{ env.VSCODE_ARCH }}
           ELECTRON_SKIP_BINARY_DOWNLOAD: 1
           PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1

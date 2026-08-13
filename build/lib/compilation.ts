@@ -343,7 +343,7 @@ function generateApiProposalNames() {
 			this.emit('data', new File({
 				path: 'vs/platform/extensions/common/extensionsApiProposals.ts',
 				contents: Buffer.from(contents),
-				stat: { isFile() { return true; }, isDirectory() { return false; }, isBlockDevice() { return false; }, isCharacterDevice() { return false; }, isSymbolicLink() { return false; }, isFIFO() { return false; }, isSocket() { return false; }, mode: 0 } as any
+				stat: { isFile() { return true; }, isDirectory() { return false; }, isBlockDevice() { return false; }, isCharacterDevice() { return false; }, isSymbolicLink() { return false; }, isFIFO() { return false; }, isSocket() { return false; }, mode: 0o666 } as any
 			}));
 			this.emit('end');
 		}));
