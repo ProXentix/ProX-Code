@@ -51,10 +51,10 @@ export class WorkbenchHoverDelegate extends Disposable implements IHoverDelegate
 	) {
 		super();
 
-		this._delay = this.configurationService.getValue<number>('workbench.hover.delay') ?? 500;
+		this._delay = this.configurationService.getValue<number>('workbench.hover.delay');
 		this._register(this.configurationService.onDidChangeConfiguration(e => {
 			if (e.affectsConfiguration('workbench.hover.delay')) {
-				this._delay = this.configurationService.getValue<number>('workbench.hover.delay') ?? 500;
+				this._delay = this.configurationService.getValue<number>('workbench.hover.delay');
 			}
 		}));
 	}

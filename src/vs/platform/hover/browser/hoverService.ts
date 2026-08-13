@@ -124,7 +124,7 @@ export class HoverService extends Disposable implements IHoverService {
 		this._currentDelayedHoverWasShown = false;
 		this._currentDelayedHoverGroupId = lifecycleOptions?.groupId;
 
-		timeout(this._configurationService.getValue<number>('workbench.hover.delay') ?? 500).then(() => {
+		timeout(this._configurationService.getValue<number>('workbench.hover.delay')).then(() => {
 			if (hover && !hover.isDisposed) {
 				this._currentDelayedHoverWasShown = true;
 				this._showHover(hover, options);
