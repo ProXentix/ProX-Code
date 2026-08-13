@@ -62,7 +62,7 @@ export function asCSSUrl(uri: URI | null | undefined): CssFragment {
 	if (!uri) {
 		return asFragment(`url('')`);
 	}
-	return inline`url('${asFragment(CSS.escape(FileAccess.uriToBrowserUri(uri).toString(true)))}')`;
+	return inline`url('${asFragment(FileAccess.uriToBrowserUri(uri).toString(true).replace(/\\/g, '/').replace(/'/g, '%27'))}')`;
 }
 
 export function className(value: string, escapingExpected = false): CssFragment {

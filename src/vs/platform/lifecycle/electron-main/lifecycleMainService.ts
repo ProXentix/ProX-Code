@@ -583,11 +583,17 @@ export class LifecycleMainService extends Disposable implements ILifecycleMainSe
 			const okChannel = `vscode:ok${oneTimeEventToken}`;
 			const cancelChannel = `vscode:cancel${oneTimeEventToken}`;
 
+			const handle = setTimeout(() => {
+				resolve(false); // timeout safety: proceed with unload if renderer is unresponsive
+			}, 5000);
+
 			validatedIpcMain.once(okChannel, () => {
+				clearTimeout(handle);
 				resolve(false); // no veto
 			});
 
 			validatedIpcMain.once(cancelChannel, () => {
+				clearTimeout(handle);
 				resolve(true); // veto
 			});
 
@@ -600,7 +606,14 @@ export class LifecycleMainService extends Disposable implements ILifecycleMainSe
 			const oneTimeEventToken = this.oneTimeListenerTokenGenerator++;
 			const replyChannel = `vscode:reply${oneTimeEventToken}`;
 
-			validatedIpcMain.once(replyChannel, () => resolve());
+			const handle = setTimeout(() => {
+				resolve(); // timeout safety: proceed with unload if renderer is unresponsive
+			}, 5000);
+
+			validatedIpcMain.once(replyChannel, () => {
+				clearTimeout(handle);
+				resolve();
+			});
 
 			window.send('vscode:onWillUnload', { replyChannel, reason });
 		});

@@ -134,7 +134,7 @@ class ValidatedIpcMain implements Event.NodeEventEmitter {
 			}
 		}
 
-		if (host !== VSCODE_AUTHORITY) {
+		if (host !== VSCODE_AUTHORITY && host !== 'vscode-app' && host !== '') {
 			onUnexpectedError(`Refused to handle ipcMain event for channel '${channel}' because of a bad origin of '${host}'.`);
 			return false; // unexpected sender
 		}

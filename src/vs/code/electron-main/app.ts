@@ -167,7 +167,7 @@ export class CodeApplication extends Disposable {
 		// !!! DO NOT CHANGE without consulting the documentation !!!
 		//
 
-		const isUrlFromWindow = (requestingUrl?: string | undefined) => requestingUrl?.startsWith(`${Schemas.proxCodeFileResource}://${VSCODE_AUTHORITY}`);
+		const isUrlFromWindow = (requestingUrl?: string | undefined) => requestingUrl?.startsWith(`${Schemas.proxCodeFileResource}://${VSCODE_AUTHORITY}`) || requestingUrl?.startsWith(`${Schemas.proxCodeFileResource}://vscode-app`) || requestingUrl?.startsWith(`vscode-file://`);
 		const isUrlFromWebview = (requestingUrl: string | undefined) => requestingUrl?.startsWith(`${Schemas.proxCodeWebview}://`);
 
 		const alwaysAllowedPermissions = new Set(['pointerLock', 'notifications']);
@@ -215,7 +215,7 @@ export class CodeApplication extends Disposable {
 		//#region Request filtering
 
 		// Block all SVG requests from unsupported origins
-		const supportedSvgSchemes = new Set([Schemas.file, Schemas.proxCodeFileResource, Schemas.proxCodeRemoteResource, Schemas.proxCodeManagedRemoteResource, 'devtools']);
+		const supportedSvgSchemes = new Set([Schemas.file, Schemas.proxCodeFileResource, 'vscode-file', Schemas.proxCodeRemoteResource, Schemas.proxCodeManagedRemoteResource, 'devtools']);
 
 		// But allow them if they are made from inside an webview
 		const isSafeFrame = (requestFrame: WebFrameMain | null | undefined): boolean => {
