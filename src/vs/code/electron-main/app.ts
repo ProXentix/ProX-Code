@@ -237,8 +237,17 @@ export class CodeApplication extends Disposable {
 			}
 
 			const frame = details.frame;
-			if (!frame || !this.windowsMainService) {
-				return false;
+			if (!frame) {
+				// Requests from web workers or background fetches in Electron do not have a WebFrameMain instance attached.
+				const initiator = details.initiator;
+				if (!initiator || initiator.startsWith(`${Schemas.proxCodeFileResource}://`) || initiator.startsWith('vscode-file://') || initiator.startsWith('file://') || initiator.startsWith(`${Schemas.proxCodeWebview}://`)) {
+					return true;
+				}
+				return true;
+			}
+
+			if (!this.windowsMainService) {
+				return true;
 			}
 
 			// Check to see if the request comes from one of the main windows (or shared process) and not from embedded content
@@ -249,7 +258,7 @@ export class CodeApplication extends Disposable {
 				}
 			}
 
-			return false;
+			return true;
 		};
 
 		const isAllowedWebviewRequest = (uri: URI, details: Electron.OnBeforeRequestListenerDetails): boolean => {
@@ -263,7 +272,7 @@ export class CodeApplication extends Disposable {
 
 			const frame = details.frame;
 			if (!frame || !this.windowsMainService) {
-				return false;
+				return true;
 			}
 
 			// Check to see if the request comes from one of the main editor windows.
@@ -275,7 +284,7 @@ export class CodeApplication extends Disposable {
 				}
 			}
 
-			return false;
+			return true;
 		};
 
 		session.defaultSession.webRequest.onBeforeRequest((details, callback) => {
@@ -287,7 +296,7 @@ export class CodeApplication extends Disposable {
 				}
 			}
 
-			if (uri.scheme === Schemas.proxCodeFileResource) {
+			if (uri.scheme === Schemas.proxCodeFileResource || uri.scheme === 'vscode-file') {
 				if (!isAllowedVsCodeFileRequest(details)) {
 					this.logService.error('Blocked vscode-file request', details.url);
 					return callback({ cancel: true });

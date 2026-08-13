@@ -78,7 +78,7 @@ class AMDModuleImporter {
 					if (value.startsWith(window.location.origin)) {
 						return value;
 					}
-					if (value.startsWith(`${Schemas.proxCodeFileResource}://${VSCODE_AUTHORITY}`)) {
+					if (value.startsWith(`${Schemas.proxCodeFileResource}://${VSCODE_AUTHORITY}`) || value.startsWith('vscode-file://')) {
 						return value;
 					}
 					throw new Error(`[trusted_script_src] Invalid script url: ${value}`);

@@ -49,8 +49,11 @@ export class ProtocolMainService extends Disposable implements IProtocolMainServ
 	private handleProtocols(): void {
 		const { defaultSession } = session;
 
-		// Register vscode-file:// handler
+		// Register vscode-file:// and prox-code-file:// handlers
 		defaultSession.protocol.registerFileProtocol(Schemas.proxCodeFileResource, (request, callback) => this.handleResourceRequest(request, callback));
+		if (Schemas.proxCodeFileResource !== 'vscode-file') {
+			defaultSession.protocol.registerFileProtocol('vscode-file', (request, callback) => this.handleResourceRequest(request, callback));
+		}
 
 		// Block any file:// access
 		defaultSession.protocol.interceptFileProtocol(Schemas.file, (request, callback) => this.handleFileRequest(request, callback));
@@ -58,6 +61,9 @@ export class ProtocolMainService extends Disposable implements IProtocolMainServ
 		// Cleanup
 		this._register(toDisposable(() => {
 			defaultSession.protocol.unregisterProtocol(Schemas.proxCodeFileResource);
+			if (Schemas.proxCodeFileResource !== 'vscode-file') {
+				defaultSession.protocol.unregisterProtocol('vscode-file');
+			}
 			defaultSession.protocol.uninterceptProtocol(Schemas.file);
 		}));
 	}

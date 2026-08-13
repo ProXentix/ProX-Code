@@ -339,14 +339,14 @@ class FileAccessImpl {
 	 * is responsible for loading.
 	 */
 	uriToFileUri(uri: URI): URI {
-		// Only convert the URI if it is `vscode-file:` scheme
-		if (uri.scheme === Schemas.proxCodeFileResource) {
+		// Only convert the URI if it is `vscode-file:` or `prox-code-file:` scheme
+		if (uri.scheme === Schemas.proxCodeFileResource || uri.scheme === 'vscode-file') {
 			return uri.with({
 				scheme: Schemas.file,
 				// Only preserve the `authority` if it is different from
 				// our fallback authority. This ensures we properly preserve
 				// Windows UNC paths that come with their own authority.
-				authority: uri.authority !== FileAccessImpl.FALLBACK_AUTHORITY ? uri.authority : null,
+				authority: (uri.authority !== FileAccessImpl.FALLBACK_AUTHORITY && uri.authority !== 'vscode-app') ? uri.authority : null,
 				query: null,
 				fragment: null
 			});
