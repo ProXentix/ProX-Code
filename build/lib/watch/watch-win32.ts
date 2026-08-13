@@ -11,7 +11,7 @@ import es from 'event-stream';
 import filter from 'gulp-filter';
 import { Stream } from 'stream';
 
-const watcherPath = path.join(import.meta.dirname, 'watcher.exe');
+const watcherPath = path.join(import.meta.dirname, 'watcher.cjs');
 
 function toChangeType(type: '0' | '1' | '2'): 'change' | 'add' | 'unlink' {
 	switch (type) {
@@ -23,7 +23,7 @@ function toChangeType(type: '0' | '1' | '2'): 'change' | 'add' | 'unlink' {
 
 function watch(root: string): Stream {
 	const result = es.through();
-	let child: cp.ChildProcess | null = cp.spawn(watcherPath, [root]);
+	let child: cp.ChildProcess | null = cp.spawn('node', [watcherPath, root]);
 
 	child.stdout!.on('data', function (data) {
 		const lines: string[] = data.toString('utf8').split('\n');
