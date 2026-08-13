@@ -239,7 +239,7 @@ export class CodeApplication extends Disposable {
 			const frame = details.frame;
 			if (!frame) {
 				// Requests from web workers or background fetches in Electron do not have a WebFrameMain instance attached.
-				const initiator = details.initiator;
+				const initiator = (details as { initiator?: string }).initiator;
 				if (!initiator || initiator.startsWith(`${Schemas.proxCodeFileResource}://`) || initiator.startsWith('vscode-file://') || initiator.startsWith('file://') || initiator.startsWith(`${Schemas.proxCodeWebview}://`)) {
 					return true;
 				}
