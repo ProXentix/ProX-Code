@@ -25,6 +25,16 @@ import { KeyCode } from '../../../base/common/keyCodes.js';
 import { ACTIVITY_BAR_BADGE_BACKGROUND, ACTIVITY_BAR_BADGE_FOREGROUND } from '../../common/theme.js';
 import { IBaseActionViewItemOptions } from '../../../base/browser/ui/actionbar/actionViewItems.js';
 
+import { Action, IAction, toAction } from '../../../base/common/actions.js';
+import { ICompositeBarColors, ICompositeBarActionViewItemOptions, CompositeBarActionViewItem, CompositeBarAction, IActivityHoverOptions } from './compositeBarActions.js';
+import { $, append, clearNode, hide, show, addDisposableListener, EventType, EventHelper, getWindow } from '../../../base/browser/dom.js';
+import { MenuId, IMenuService, IMenu } from '../../../platform/actions/common/actions.js';
+import { StandardMouseEvent } from '../../../base/browser/mouseEvent.js';
+import { StandardKeyboardEvent } from '../../../base/browser/keyboardEvent.js';
+import { EventType as TouchEventType, GestureEvent } from '../../../base/browser/touch.js';
+import { ThemeIcon } from '../../../base/common/themables.js';
+import { IStorageService } from '../../../platform/storage/common/storage.js';
+
 export class GlobalCompositeBar extends Disposable {
 
 	public readonly element: HTMLElement;
