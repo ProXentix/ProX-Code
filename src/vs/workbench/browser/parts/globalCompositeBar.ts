@@ -5,48 +5,29 @@
 
 import { localize } from '../../../nls.js';
 import { ActionBar, ActionsOrientation } from '../../../base/browser/ui/actionbar/actionbar.js';
-import { ACCOUNTS_ACTIVITY_ID, GLOBAL_ACTIVITY_ID } from '../../common/activity.js';
+import { GLOBAL_ACTIVITY_ID } from '../../common/activity.js';
 import { IActivityService } from '../../services/activity/common/activity.js';
 import { IInstantiationService } from '../../../platform/instantiation/common/instantiation.js';
 import { DisposableStore, Disposable } from '../../../base/common/lifecycle.js';
 import { IColorTheme, IThemeService } from '../../../platform/theme/common/themeService.js';
-import { IStorageService, StorageScope, StorageTarget } from '../../../platform/storage/common/storage.js';
-import { IExtensionService } from '../../services/extensions/common/extensions.js';
-import { CompositeBarActionViewItem, CompositeBarAction, IActivityHoverOptions, ICompositeBarActionViewItemOptions, ICompositeBarColors } from './compositeBarActions.js';
-import { Codicon } from '../../../base/common/codicons.js';
-import { ThemeIcon } from '../../../base/common/themables.js';
-import { registerIcon } from '../../../platform/theme/common/iconRegistry.js';
-import { Action, IAction, Separator, SubmenuAction, toAction } from '../../../base/common/actions.js';
-import { IMenu, IMenuService, MenuId } from '../../../platform/actions/common/actions.js';
-import { addDisposableListener, EventType, append, clearNode, hide, show, EventHelper, $, runWhenWindowIdle, getWindow } from '../../../base/browser/dom.js';
-import { StandardKeyboardEvent } from '../../../base/browser/keyboardEvent.js';
-import { StandardMouseEvent } from '../../../base/browser/mouseEvent.js';
-import { EventType as TouchEventType, GestureEvent } from '../../../base/browser/touch.js';
 import { AnchorAlignment, AnchorAxisAlignment } from '../../../base/browser/ui/contextview/contextview.js';
-import { Lazy } from '../../../base/common/lazy.js';
 import { getActionBarActions } from '../../../platform/actions/browser/menuEntryActionViewItem.js';
 import { IConfigurationService } from '../../../platform/configuration/common/configuration.js';
 import { IContextKeyService } from '../../../platform/contextkey/common/contextkey.js';
 import { IContextMenuService } from '../../../platform/contextview/browser/contextView.js';
 import { IKeybindingService } from '../../../platform/keybinding/common/keybinding.js';
-import { ILogService } from '../../../platform/log/common/log.js';
-import { IProductService } from '../../../platform/product/common/productService.js';
-import { ISecretStorageService } from '../../../platform/secrets/common/secrets.js';
-import { AuthenticationSessionInfo, getCurrentAuthenticationSessionInfo } from '../../services/authentication/browser/authenticationService.js';
-import { AuthenticationSessionAccount, IAuthenticationService, INTERNAL_AUTH_PROVIDER_PREFIX } from '../../services/authentication/common/authentication.js';
 import { IWorkbenchEnvironmentService } from '../../services/environment/common/environmentService.js';
 import { IHoverService } from '../../../platform/hover/browser/hover.js';
-import { ILifecycleService, LifecyclePhase } from '../../services/lifecycle/common/lifecycle.js';
 import { IUserDataProfileService } from '../../services/userDataProfile/common/userDataProfile.js';
 import { DEFAULT_ICON } from '../../services/userDataProfile/common/userDataProfileIcons.js';
 import { isString } from '../../../base/common/types.js';
 import { KeyCode } from '../../../base/common/keyCodes.js';
 import { ACTIVITY_BAR_BADGE_BACKGROUND, ACTIVITY_BAR_BADGE_FOREGROUND } from '../../common/theme.js';
 import { IBaseActionViewItemOptions } from '../../../base/browser/ui/actionbar/actionViewItems.js';
-import { ICommandService } from '../../../platform/commands/common/commands.js';
 
 export class GlobalCompositeBar extends Disposable {
 
+	public readonly element: HTMLElement;
 	private readonly globalActivityAction = this._register(new Action(GLOBAL_ACTIVITY_ID));
 	private readonly globalActivityActionBar: ActionBar;
 
@@ -55,9 +36,7 @@ export class GlobalCompositeBar extends Disposable {
 		private readonly colors: (theme: IColorTheme) => ICompositeBarColors,
 		private readonly activityHoverOptions: IActivityHoverOptions,
 		@IConfigurationService configurationService: IConfigurationService,
-		@IInstantiationService private readonly instantiationService: IInstantiationService,
-		@IStorageService private readonly storageService: IStorageService,
-		@IExtensionService private readonly extensionService: IExtensionService,
+		@IInstantiationService private readonly instantiationService: IInstantiationService
 	) {
 		super();
 
@@ -80,6 +59,18 @@ export class GlobalCompositeBar extends Disposable {
 		}));
 
 		this.globalActivityActionBar.push(this.globalActivityAction);
+	}
+
+	create(parent: HTMLElement): void {
+		append(parent, this.element);
+	}
+
+	focus(): void {
+		this.globalActivityActionBar.focus(true);
+	}
+
+	size(): number {
+		return 1;
 	}
 
 	getContextMenuActions(): IAction[] {
