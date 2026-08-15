@@ -23,6 +23,8 @@ export const dirs = [
 	'extensions/references-view',
 	'extensions/search-result',
 	'extensions/terminal-suggest',
+	'extensions/proxpl',
+	'extensions/proxpl/server',
 	'remote',
 	'remote/web',
 	'test/automation',
