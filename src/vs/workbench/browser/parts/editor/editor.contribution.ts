@@ -460,47 +460,9 @@ function appendEditorToolItem(primary: ICommandAction, when: ContextKeyExpressio
 const SPLIT_ORDER = 100000;  // towards the end
 const CLOSE_ORDER = 1000000; // towards the far end
 
-// Editor Title Menu: Split Editor
-appendEditorToolItem(
-	{
-		id: SPLIT_EDITOR,
-		title: localize('splitEditorRight', "Split Editor Right"),
-		icon: Codicon.splitHorizontal
-	},
-	SplitEditorsVertically.negate(),
-	SPLIT_ORDER,
-	{
-		id: SPLIT_EDITOR_DOWN,
-		title: localize('splitEditorDown', "Split Editor Down"),
-		icon: Codicon.splitVertical
-	}
-);
+// Editor Title Menu: Split Editor removed
 
-appendEditorToolItem(
-	{
-		id: SPLIT_EDITOR,
-		title: localize('splitEditorDown', "Split Editor Down"),
-		icon: Codicon.splitVertical
-	},
-	SplitEditorsVertically,
-	SPLIT_ORDER,
-	{
-		id: SPLIT_EDITOR_RIGHT,
-		title: localize('splitEditorRight', "Split Editor Right"),
-		icon: Codicon.splitHorizontal
-	}
-);
 
-// Side by side: layout
-appendEditorToolItem(
-	{
-		id: TOGGLE_SPLIT_EDITOR_IN_GROUP_LAYOUT,
-		title: localize('toggleSplitEditorInGroupLayout', "Toggle Layout"),
-		icon: Codicon.editorLayout
-	},
-	SideBySideEditorActiveContext,
-	SPLIT_ORDER - 1, // left to split actions
-);
 
 // Editor Title Menu: Close (tabs disabled, normal editor)
 appendEditorToolItem(

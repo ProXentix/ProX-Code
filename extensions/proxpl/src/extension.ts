@@ -1,44 +1,276 @@
-/*---------------------------------------------------------------------------------------------
- *  Copyright (c) ProXentix. All rights reserved.
- *  Licensed under the MIT License. See License.txt in the project root for license information.
- *--------------------------------------------------------------------------------------------*/
-
 import * as vscode from 'vscode';
-import * as fs from 'fs';
+import * as cp from 'child_process';
 import * as path from 'path';
+import {
+    LanguageClient,
+    LanguageClientOptions,
+    ServerOptions,
+    TransportKind
+} from 'vscode-languageclient/node';
+
+let client: LanguageClient;
 
 export function activate(context: vscode.ExtensionContext) {
-	const disposable = vscode.commands.registerCommand("proxpl.createProject", async () => {
-		const options: vscode.OpenDialogOptions = {
-			canSelectFiles: false,
-			canSelectFolders: true,
-			canSelectMany: false,
-			openLabel: "Select Project Folder"
-		};
+    const diagnosticCollection = vscode.languages.createDiagnosticCollection('proxpl');
+    context.subscriptions.push(diagnosticCollection);
 
-		const folderUri = await vscode.window.showOpenDialog(options);
-		if (folderUri && folderUri[0]) {
-			const projectPath = folderUri[0].fsPath;
+    vscode.window.showInformationMessage('ProX Studio Alpha started.');
 
-			// Define file contents
-			const mainProxContent = "// Hello World in ProXPL\nprint(\"Hello, ProX Code!\");\n";
-			const proxConfigContent = JSON.stringify({
-				"projectName": path.basename(projectPath),
-				"version": "1.0.0",
-				"main": "main.prox"
-			}, null, "\t");
+    // --- LSP Client Setup ---
+    const serverModule = context.asAbsolutePath(
+        path.join('server', 'out', 'server.js')
+    );
+    // If the extension is launched in debug mode then the debug server options are used
+    // Otherwise the run options are used
+    const debugOptions = { execArgv: ['--nolazy', '--inspect=6009'] };
 
-			// Write files
-			fs.writeFileSync(path.join(projectPath, "main.prox"), mainProxContent);
-			fs.writeFileSync(path.join(projectPath, "prox.config.json"), proxConfigContent);
+    const serverOptions: ServerOptions = {
+        run: { module: serverModule, transport: TransportKind.ipc },
+        debug: {
+            module: serverModule,
+            transport: TransportKind.ipc,
+            options: debugOptions
+        }
+    };
 
-			// Open the folder
-			vscode.commands.executeCommand("vscode.openFolder", folderUri[0]);
-		}
-	});
+    const clientOptions: LanguageClientOptions = {
+        documentSelector: [{ scheme: 'file', language: 'proxpl' }],
+        synchronize: {
+            fileEvents: vscode.workspace.createFileSystemWatcher('**/.clientrc')
+        }
+    };
 
-	context.subscriptions.push(disposable);
+    client = new LanguageClient(
+        'proxplLanguageServer',
+        'ProXPL Language Server',
+        serverOptions,
+        clientOptions
+    );
+
+    client.start();
+
+
+    // 1. Code Runner Command
+    const runCommand = vscode.commands.registerCommand('proxpl.run', () => {
+        const editor = vscode.window.activeTextEditor;
+        if (!editor) {
+            vscode.window.showErrorMessage('No active editor found.');
+            return;
+        }
+
+        const fileName = editor.document.fileName;
+        if (!fileName.endsWith('.prox') && !fileName.endsWith('.pxpl')) {
+            vscode.window.showErrorMessage('Not a ProXPL (.prox or .pxpl) file.');
+            return;
+        }
+
+        // Check if prm is in PATH
+        cp.exec('prm --version', (err: Error | null) => {
+            if (err) {
+                vscode.window.showInformationMessage(
+                    'PRM (ProX Resource Manager) not found in PATH. Please install it to run scripts.',
+                    'View Installation Docs'
+                ).then((selection: string | undefined) => {
+                    if (selection === 'View Installation Docs') {
+                        vscode.env.openExternal(vscode.Uri.parse('https://github.com/ProgrammerKR/ProXPL#installation'));
+                    }
+                });
+                return;
+            }
+
+            // Save file before running
+            editor.document.save().then(() => {
+                let terminal = vscode.window.terminals.find(t => t.name === 'ProXPL');
+                if (!terminal) {
+                    terminal = vscode.window.createTerminal('ProXPL');
+                }
+                terminal.show();
+                terminal.sendText(`prm run "${fileName}"`);
+            });
+        });
+    });
+
+    context.subscriptions.push(runCommand);
+
+    // ... (intermediate code skipped) ...
+
+    // 4. Hover Support
+    const hoverProvider = vscode.languages.registerHoverProvider('proxpl', {
+        provideHover(document: vscode.TextDocument, position: vscode.Position) {
+            const range = document.getWordRangeAtPosition(position);
+            if (!range) return null;
+            const word = document.getText(range);
+
+            const descriptions: { [key: string]: string } = {
+                'func': 'Defines a new function in ProXPL. Syntax: `func name(params) { ... }`',
+                'var': 'Declares a new variable.',
+                'let': 'Declares a mutable variable.',
+                'const': 'Declares an immutable constant.',
+                'if': 'Conditional statement.',
+                'else': 'Defines an alternative block for an `if` statement.',
+                'while': 'Loop that continues as long as a condition is true.',
+                'for': 'Loop with initializer, condition, and increment.',
+                'return': 'Exits a function and optionally returns a value.',
+                'print': 'Output values to the terminal.',
+                'use': 'Incorporates external modules.',
+                'from': 'Specifies the source module for an import.',
+                'as': 'Aliases an imported member or type casts.',
+                'class': 'Defines a new class.',
+                'interface': 'Defines an interface contract.',
+                'implements': 'Declares that a class implements an interface.',
+                'extends': 'Declares that a class inherits from another class.',
+                'public': 'Access modifier: Member is accessible from anywhere.',
+                'private': 'Access modifier: Member is accessible only within the class.',
+                'protected': 'Access modifier: Member is accessible within class and subclasses.',
+                'static': 'Defines a static member belonging to the class itself.',
+                'abstract': 'Defines a method signature without implementation.',
+                'this': 'Refers to the current instance.',
+                'super': 'Refers to the superclass.',
+                'async': 'Defines an asynchronous function.',
+                'await': 'Pauses execution until a promise resolves.',
+                'true': 'Boolean true literal.',
+                'false': 'Boolean false literal.',
+                'null': 'Represents the absence of value.',
+                'len': 'Returns the length of a string or list.',
+                'type': 'Returns the type of a value.',
+                'try': 'Starts a block of code to test for errors.',
+                'catch': 'Handles errors thrown in the try block.',
+                'throw': 'Throws an error/exception.',
+                'context': 'Groups behavioral layers.',
+                'layer': 'Defines a behavioral layer within a context.',
+                'activate': 'Enables a context for the duration of a block.',
+                'App': 'Defines a UI Application component.',
+                'State': 'Declares reactive state inside a UI App.',
+                'Action': 'Declares a state-mutating action inside a UI App.',
+                'defer': 'Defers the execution of a statement until the surrounding function returns.',
+                'tensor': 'Declarator for multi-dimensional array types.',
+                'intent': 'Defines an Intent-Oriented goal.',
+                'resolver': 'Fulfills a declared intent.',
+                'model': 'Declares an AI/ML model structure.',
+                'train': 'Initiates training sequence for a model.',
+                'predict': 'Executes inference on a trained model.',
+                'resilient': 'Marks a block or function as fault-tolerant.',
+                'recovery': 'Defines fallback logic for resilient blocks.',
+                'verify': 'Validates system state or cryptographic identities.',
+                'identity': 'Represents an authenticated entity context.',
+                'to_int': 'Type conversion to integer.',
+                'to_float': 'Type conversion to floating-point number.',
+                'to_string': 'Type conversion to string.',
+                'to_bool': 'Type conversion to boolean.',
+                'to_hex': 'Integer to Hexadecimal string string conversion.',
+                'to_bin': 'Integer to Binary string conversion.',
+                'char_at': 'Retrieves the character at a specific index from a string.',
+                'std.core': 'Standard module: Core Utilities (assert, typeOf, id, hash).',
+                'std.math': 'Standard module: Mathematics (abs, min, pow, random, sin).',
+                'std.string': 'Standard module: String Manipulation (upper, split, replace).',
+                'std.io': 'Standard module: Input/Output (read_file, write_file).',
+                'std.sys': 'Standard module: System Interface (exit, env, exec).'
+            };
+
+            if (descriptions[word]) {
+                return new vscode.Hover(new vscode.MarkdownString(descriptions[word]));
+            }
+            return null;
+        }
+    });
+    context.subscriptions.push(hoverProvider);
+
+    // 5. Definition Provider (Basic "Go to Definition")
+    const definitionProvider = vscode.languages.registerDefinitionProvider('proxpl', {
+        provideDefinition(document: vscode.TextDocument, position: vscode.Position) {
+            const range = document.getWordRangeAtPosition(position);
+            if (!range) return null;
+            const word = document.getText(range);
+
+            const text = document.getText();
+            // Regex to find 'func word' or 'class word'
+            const funcRegex = new RegExp(`func\\s+${word}\\s*\\(`, 'g');
+            const classRegex = new RegExp(`class\\s+${word}\\s*\\{`, 'g');
+
+            const results: vscode.Location[] = [];
+
+            let match;
+            while ((match = funcRegex.exec(text)) !== null) {
+                const pos = document.positionAt(match.index);
+                results.push(new vscode.Location(document.uri, new vscode.Range(pos, pos)));
+            }
+            while ((match = classRegex.exec(text)) !== null) {
+                const pos = document.positionAt(match.index);
+                results.push(new vscode.Location(document.uri, new vscode.Range(pos, pos)));
+            }
+
+            return results;
+        }
+    });
+    context.subscriptions.push(definitionProvider);
+
+    // 6. Completion Item Provider (DEPRECATED: Now handled by LSP)
+    /*
+    const completionProvider = vscode.languages.registerCompletionItemProvider('proxpl', {
+        provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
+            // ... (old logic) ...
+            return [];
+        }
+    });
+    context.subscriptions.push(completionProvider);
+    */
+
+    // --- DAP Setup ---
+    context.subscriptions.push(vscode.debug.registerDebugAdapterDescriptorFactory('proxpl', new ProXDebugAdapterDescriptorFactory()));
 }
 
-export function deactivate() { }
+class ProXDebugAdapterDescriptorFactory implements vscode.DebugAdapterDescriptorFactory {
+    createDebugAdapterDescriptor(_session: vscode.DebugSession): vscode.ProviderResult<vscode.DebugAdapterDescriptor> {
+        // For now, use a simple inline implementation or rely on an executable
+        // This is a placeholder for the future DAP implementation
+        // return new vscode.DebugAdapterExecutable('proxpl', ['--debug-adapter']);
+        return new vscode.DebugAdapterInlineImplementation(new ProXDebugAdapter());
+    }
+}
 
+class ProXDebugAdapter implements vscode.DebugAdapter {
+    private _sendMessage = new vscode.EventEmitter<vscode.DebugProtocolMessage>();
+    readonly onDidSendMessage: vscode.Event<vscode.DebugProtocolMessage> = this._sendMessage.event;
+
+    handleMessage(message: vscode.DebugProtocolMessage): void {
+        // Minimal Mock Handler
+        const msg = message as any;
+        if (msg.type === 'request') {
+            const request = msg;
+            if (request.command === 'initialize') {
+                this._sendMessage.fire({
+                    type: 'response',
+                    request_seq: request.seq,
+                    success: true,
+                    command: request.command,
+                    body: {
+                        supportsConfigurationDoneRequest: true
+                    }
+                } as any);
+            } else {
+                this._sendMessage.fire({
+                    type: 'response',
+                    request_seq: request.seq,
+                    success: true,
+                    command: request.command
+                } as any);
+            }
+        }
+    }
+
+    dispose() {
+
+    }
+}
+
+function mapLineNumber(lineStr: string): number {
+    const num = parseInt(lineStr);
+    return isNaN(num) ? 0 : num - 1;
+}
+
+export function deactivate(): Thenable<void> | undefined {
+    if (!client) {
+        return undefined;
+    }
+    return client.stop();
+}

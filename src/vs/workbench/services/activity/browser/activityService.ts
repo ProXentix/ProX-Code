@@ -7,7 +7,7 @@ import { IActivityService, IActivity } from '../common/activity.js';
 import { IDisposable, Disposable, toDisposable } from '../../../../base/common/lifecycle.js';
 import { InstantiationType, registerSingleton } from '../../../../platform/instantiation/common/extensions.js';
 import { IViewDescriptorService, ViewContainer } from '../../../common/views.js';
-import { GLOBAL_ACTIVITY_ID, ACCOUNTS_ACTIVITY_ID } from '../../../common/activity.js';
+import { GLOBAL_ACTIVITY_ID } from '../../../common/activity.js';
 import { Emitter, Event } from '../../../../base/common/event.js';
 import { IInstantiationService } from '../../../../platform/instantiation/common/instantiation.js';
 
@@ -132,10 +132,6 @@ export class ActivityService extends Disposable implements IActivityService {
 				this.viewActivities.delete(viewId);
 			}
 		});
-	}
-
-	showAccountsActivity(activity: IActivity): IDisposable {
-		return this.showActivity(ACCOUNTS_ACTIVITY_ID, activity);
 	}
 
 	showGlobalActivity(activity: IActivity): IDisposable {

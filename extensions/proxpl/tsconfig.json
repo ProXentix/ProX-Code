@@ -1,21 +1,22 @@
 {
-	"extends": "../tsconfig.base.json",
-	"compilerOptions": {
-		"outDir": "./out",
-		"lib": [
-			"ES2024"
-		],
-		"module": "commonjs",
-		"types": [
-			"node"
-		],
-		"typeRoots": [
-			"../node_modules/@types",
-			"../../node_modules/@types"
-		]
-	},
-	"include": [
-		"src/**/*",
-		"../../src/vscode-dts/vscode.d.ts"
-	]
+    "compilerOptions": {
+        "module": "Node16",
+        "target": "es2022",
+        "moduleResolution": "node16",
+        "outDir": "out",
+        "lib": [
+            "es2022"
+        ],
+        "sourceMap": true,
+        "rootDir": "src",
+        "strict": true,
+        "noImplicitAny": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true
+    },
+    "exclude": [
+        "node_modules",
+        ".vscode-test",
+        "server"
+    ]
 }

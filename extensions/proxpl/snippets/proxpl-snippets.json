@@ -1,0 +1,169 @@
+{
+    "Main Function": {
+        "prefix": "main",
+        "body": [
+            "func main() {",
+            "\t${1:// main code}",
+            "}",
+            "",
+            "main();"
+        ],
+        "description": "Main function entry point"
+    },
+    "If-Else block": {
+        "prefix": "ifelse",
+        "body": [
+            "if (${1:condition}) {",
+            "\t${2:// code}",
+            "} else {",
+            "\t${3:// code}",
+            "}"
+        ],
+        "description": "If-else block"
+    },
+    "If block": {
+        "prefix": "if",
+        "body": [
+            "if (${1:condition}) {",
+            "\t${2:// code}",
+            "}"
+        ],
+        "description": "If block"
+    },
+    "For Loop": {
+        "prefix": "for",
+        "body": [
+            "for (let ${1:i} = 0; ${1:i} < ${2:count}; ${1:i} = ${1:i} + 1) {",
+            "\t${3:// code}",
+            "}"
+        ],
+        "description": "For loop"
+    },
+    "While Loop": {
+        "prefix": "while",
+        "body": [
+            "while (${1:condition}) {",
+            "\t${2:// code}",
+            "}"
+        ],
+        "description": "While loop"
+    },
+    "Function": {
+        "prefix": "func",
+        "body": [
+            "func ${1:name}(${2:params}) {",
+            "\t${3:// code}",
+            "}"
+        ],
+        "description": "Function declaration"
+    },
+    "Class": {
+        "prefix": "class",
+        "body": [
+            "class ${1:Name} {",
+            "\tfunc ${1:Name}(${2:params}) {",
+            "\t\t${3:// constructor}",
+            "\t}",
+            "}"
+        ],
+        "description": "Class declaration"
+    },
+    "Print": {
+        "prefix": "print",
+        "body": [
+            "print(${1:value});"
+        ],
+        "description": "Print statement"
+    },
+    "Try-Catch": {
+        "prefix": "try",
+        "body": [
+            "try {",
+            "\t${1:// try code}",
+            "} catch (err) {",
+            "\t${2:// handle error}",
+            "}"
+        ],
+        "description": "Try-Catch block"
+    },
+    "Use Module": {
+        "prefix": "use",
+        "body": [
+            "use ${1:module_name};"
+        ],
+        "description": "Import/Use an external module"
+    },
+    "UI App": {
+        "prefix": "app",
+        "body": [
+            "App ${1:Name} {",
+            "\tState ${2:stateName} = ${3:initialValue};",
+            "",
+            "\tMain(style: ${4:STYLE}) {",
+            "\t\t${5:// UI Components}",
+            "\t}",
+            "}"
+        ],
+        "description": "Create a new ProXPL UI Application"
+    },
+    "File IO": {
+        "prefix": "read_file",
+        "body": [
+            "try {",
+            "\tlet ${1:content} = read_file(${2:\"data.txt\"});",
+            "} catch (e) {",
+            "\tprint(\"Error: \" + e);",
+            "}"
+        ],
+        "description": "Read file contents with error handling"
+    },
+    "Intent Resolver Pattern": {
+        "prefix": "intent",
+        "body": [
+            "intent ${1:MyGoal} {",
+            "\t${2:// Define requirements}",
+            "}",
+            "",
+            "resolver ${1:MyGoal} {",
+            "\t${3:// Fulfill intent}",
+            "}"
+        ],
+        "description": "Create an Intent-Oriented abstraction"
+    },
+    "AI Tensor Operations": {
+        "prefix": "tensor",
+        "body": [
+            "let ${1:matrix} = [[1, 2], [3, 4]];",
+            "let ${2:result} = ${1:matrix} @ [[0, 1], [1, 0]];",
+            "print(${2:result});"
+        ],
+        "description": "Standard Tensor Math operations"
+    },
+    "Type Alias": {
+        "prefix": "type",
+        "body": [
+            "type ${1:AliasName} = ${2:OriginalType};"
+        ],
+        "description": "Create a type alias"
+    },
+    "Result Match": {
+        "prefix": "matchresult",
+        "body": [
+            "match (${1:result}) {",
+            "\tcase Result.Ok(val) => ${2:print(val)};",
+            "\tcase Result.Err(err) => ${3:print(err)};",
+            "}"
+        ],
+        "description": "Match a Result enum"
+    },
+    "Option Match": {
+        "prefix": "matchoption",
+        "body": [
+            "match (${1:option}) {",
+            "\tcase Option.Some(val) => ${2:print(val)};",
+            "\tcase Option.None => ${3:print(\"none\")};",
+            "}"
+        ],
+        "description": "Match an Option enum"
+    }
+}
