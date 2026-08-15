@@ -270,11 +270,9 @@ export class BrowserTitlebarPart extends Part implements ITitlebarPart {
 	private actionToolBarElement!: HTMLElement;
 
 	private globalToolbarMenu: IMenu | undefined;
-	private layoutToolbarMenu: IMenu | undefined;
 
 	private readonly globalToolbarMenuDisposables = this._register(new DisposableStore());
 	private readonly editorToolbarMenuDisposables = this._register(new DisposableStore());
-	private readonly layoutToolbarMenuDisposables = this._register(new DisposableStore());
 	private readonly activityToolbarDisposables = this._register(new DisposableStore());
 
 	private readonly hoverDelegate: IHoverDelegate;
@@ -370,11 +368,10 @@ export class BrowserTitlebarPart extends Part implements ITitlebarPart {
 
 		// Actions
 		if (hasCustomTitlebar(this.configurationService, this.titleBarStyle) && this.actionToolBar) {
-			const affectsLayoutControl = event.affectsConfiguration(LayoutSettings.LAYOUT_ACTIONS);
 			const affectsActivityControl = event.affectsConfiguration(LayoutSettings.ACTIVITY_BAR_LOCATION);
 
-			if (affectsLayoutControl || affectsActivityControl) {
-				this.createActionToolBarMenus({ layoutActions: affectsLayoutControl, activityActions: affectsActivityControl });
+			if (affectsActivityControl) {
+				this.createActionToolBarMenus({ activityActions: affectsActivityControl });
 
 				this._onDidChange.fire(undefined);
 			}
@@ -667,15 +664,6 @@ export class BrowserTitlebarPart extends Part implements ITitlebarPart {
 				);
 			}
 
-			// --- Layout Actions
-			if (this.layoutToolbarMenu) {
-				fillInActionBarActions(
-					this.layoutToolbarMenu.getActions(),
-					actions,
-					() => !this.editorActionsEnabled || this.isCompact // layout actions move to "..." if editor actions are enabled unless compact
-				);
-			}
-
 			// --- Activity Actions (always at the end)
 			if (this.activityActionsEnabled) {
 				actions.primary.push(GLOBAL_ACTIVITY_TITLE_ACTION);
@@ -702,18 +690,7 @@ export class BrowserTitlebarPart extends Part implements ITitlebarPart {
 			}
 		}
 
-		if (update.layoutActions) {
-			this.layoutToolbarMenuDisposables.clear();
 
-			if (this.layoutControlEnabled) {
-				this.layoutToolbarMenu = this.menuService.createMenu(MenuId.LayoutControlMenu, this.contextKeyService);
-
-				this.layoutToolbarMenuDisposables.add(this.layoutToolbarMenu);
-				this.layoutToolbarMenuDisposables.add(this.layoutToolbarMenu.onDidChange(() => updateToolBarActions()));
-			} else {
-				this.layoutToolbarMenu = undefined;
-			}
-		}
 
 		if (update.globalActions) {
 			this.globalToolbarMenuDisposables.clear();
@@ -793,10 +770,6 @@ export class BrowserTitlebarPart extends Part implements ITitlebarPart {
 		return getMenuBarVisibility(this.configurationService);
 	}
 
-	private get layoutControlEnabled(): boolean {
-		return this.configurationService.getValue<boolean>(LayoutSettings.LAYOUT_ACTIONS) !== false;
-	}
-
 	protected get isCommandCenterVisible() {
 		return !this.isCompact && this.configurationService.getValue<boolean>(LayoutSettings.COMMAND_CENTER) !== false;
 	}
@@ -821,7 +794,7 @@ export class BrowserTitlebarPart extends Part implements ITitlebarPart {
 	get hasZoomableElements(): boolean {
 		const hasMenubar = !(this.currentMenubarVisibility === 'hidden' || this.currentMenubarVisibility === 'compact' || (!isWeb && isMacintosh));
 		const hasCommandCenter = this.isCommandCenterVisible;
-		const hasToolBarActions = this.globalActionsEnabled || this.layoutControlEnabled || this.editorActionsEnabled || this.activityActionsEnabled;
+		const hasToolBarActions = this.globalActionsEnabled || this.editorActionsEnabled || this.activityActionsEnabled;
 		return hasMenubar || hasCommandCenter || hasToolBarActions;
 	}
 

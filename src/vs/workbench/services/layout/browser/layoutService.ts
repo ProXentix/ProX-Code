@@ -44,8 +44,7 @@ export const enum LayoutSettings {
 	ACTIVITY_BAR_LOCATION = 'workbench.activityBar.location',
 	EDITOR_TABS_MODE = 'workbench.editor.showTabs',
 	EDITOR_ACTIONS_LOCATION = 'workbench.editor.editorActionsLocation',
-	COMMAND_CENTER = 'window.commandCenter',
-	LAYOUT_ACTIONS = 'workbench.layoutControl.enabled'
+	COMMAND_CENTER = 'window.commandCenter'
 }
 
 export const enum ActivityBarPosition {
@@ -428,11 +427,6 @@ function isTitleBarEmpty(configurationService: IConfigurationService): boolean {
 	const editorActionsLocation = configurationService.getValue<EditorActionsLocation>(LayoutSettings.EDITOR_ACTIONS_LOCATION);
 	const editorTabsMode = configurationService.getValue<EditorTabsMode>(LayoutSettings.EDITOR_TABS_MODE);
 	if (editorActionsLocation === EditorActionsLocation.TITLEBAR || editorActionsLocation === EditorActionsLocation.DEFAULT && editorTabsMode === EditorTabsMode.NONE) {
-		return false;
-	}
-
-	// with the layout actions on top, we should always show
-	if (configurationService.getValue<boolean>(LayoutSettings.LAYOUT_ACTIONS)) {
 		return false;
 	}
 

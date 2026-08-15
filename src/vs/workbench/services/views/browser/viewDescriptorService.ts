@@ -787,21 +787,24 @@ export class ViewDescriptorService extends Disposable implements IViewDescriptor
 							metadata: {
 								description: localize2('toggleVisibilityDescription', 'Toggles the visibility of the {0} view if the view container it is located in is visible', viewDescriptor.name.value)
 							},
-							menu: [{
-								id: ViewsSubMenu,
-								when: ContextKeyExpr.equals('viewContainer', viewContainerModel.viewContainer.id),
-								order: index,
-							}, {
-								id: MenuId.ViewContainerTitleContext,
-								when: ContextKeyExpr.equals('viewContainer', viewContainerModel.viewContainer.id),
-								order: index,
-								group: '1_toggleVisibility'
-							}, {
-								id: MenuId.ViewTitleContext,
-								when: ContextKeyExpr.or(...viewContainerModel.visibleViewDescriptors.map(v => ContextKeyExpr.equals('view', v.id))),
-								order: index,
-								group: '2_toggleVisibility'
-							}]
+							menu: [
+								...(viewContainerModel.viewContainer.id !== 'workbench.view.debug' ? [{
+									id: ViewsSubMenu,
+									when: ContextKeyExpr.equals('viewContainer', viewContainerModel.viewContainer.id),
+									order: index,
+								}] : []),
+								{
+									id: MenuId.ViewContainerTitleContext,
+									when: ContextKeyExpr.equals('viewContainer', viewContainerModel.viewContainer.id),
+									order: index,
+									group: '1_toggleVisibility'
+								}, {
+									id: MenuId.ViewTitleContext,
+									when: ContextKeyExpr.or(...viewContainerModel.visibleViewDescriptors.map(v => ContextKeyExpr.equals('view', v.id))),
+									order: index,
+									group: '2_toggleVisibility'
+								}
+							]
 						});
 					}
 					async runInViewPaneContainer(serviceAccessor: ServicesAccessor, viewPaneContainer: ViewPaneContainer): Promise<void> {

@@ -10,6 +10,7 @@ import './media/debugViewlet.css';
 import * as nls from '../../../../nls.js';
 import { createActionViewItem } from '../../../../platform/actions/browser/menuEntryActionViewItem.js';
 import { Action2, MenuId, MenuItemAction, MenuRegistry, registerAction2 } from '../../../../platform/actions/common/actions.js';
+import { ICommandService } from '../../../../platform/commands/common/commands.js';
 import { IConfigurationService } from '../../../../platform/configuration/common/configuration.js';
 import { ContextKeyExpr, IContextKeyService } from '../../../../platform/contextkey/common/contextkey.js';
 import { IContextMenuService, IContextViewService } from '../../../../platform/contextview/browser/contextView.js';
@@ -25,7 +26,7 @@ import { ViewPaneContainer, ViewsSubMenu } from '../../../browser/parts/views/vi
 import { WorkbenchStateContext } from '../../../common/contextkeys.js';
 import { IViewDescriptorService } from '../../../common/views.js';
 import { IViewsService } from '../../../services/views/common/viewsService.js';
-import { FocusSessionActionViewItem, StartDebugActionViewItem } from './debugActionViewItems.js';
+import { FocusSessionActionViewItem } from './debugActionViewItems.js';
 import { DEBUG_CONFIGURE_COMMAND_ID, DEBUG_CONFIGURE_LABEL, DEBUG_START_COMMAND_ID, DEBUG_START_LABEL, DISCONNECT_ID, FOCUS_SESSION_ID, SELECT_AND_START_ID, STOP_ID } from './debugCommands.js';
 import { debugConfigure } from './debugIcons.js';
 import { createDisconnectMenuItemAction } from './debugToolBar.js';
@@ -39,7 +40,6 @@ import { ILogService } from '../../../../platform/log/common/log.js';
 
 export class DebugViewPaneContainer extends ViewPaneContainer {
 
-	private startDebugActionViewItem: StartDebugActionViewItem | undefined;
 	private progressResolve: (() => void) | undefined;
 	private breakpointView: ViewPane | undefined;
 	private paneListeners = new Map<string, IDisposable>();
@@ -89,19 +89,10 @@ export class DebugViewPaneContainer extends ViewPaneContainer {
 
 	override focus(): void {
 		super.focus();
-
-		if (this.startDebugActionViewItem) {
-			this.startDebugActionViewItem.focus();
-		} else {
-			this.focusView(WelcomeView.ID);
-		}
+		this.focusView(WelcomeView.ID);
 	}
 
 	override getActionViewItem(action: IAction, options: IBaseActionViewItemOptions): IActionViewItem | undefined {
-		if (action.id === DEBUG_START_COMMAND_ID) {
-			this.startDebugActionViewItem = this.instantiationService.createInstance(StartDebugActionViewItem, null, action, options);
-			return this.startDebugActionViewItem;
-		}
 		if (action.id === FOCUS_SESSION_ID) {
 			return new FocusSessionActionViewItem(action, undefined, this.debugService, this.contextViewService, this.configurationService);
 		}
@@ -207,17 +198,6 @@ registerAction2(class extends Action2 {
 			icon: debugConfigure,
 			precondition: CONTEXT_DEBUG_UX.notEqualsTo('simple'),
 			menu: [{
-				id: MenuId.ViewContainerTitle,
-				group: 'navigation',
-				order: 20,
-				when: ContextKeyExpr.and(ContextKeyExpr.equals('viewContainer', VIEWLET_ID), CONTEXT_DEBUG_UX.notEqualsTo('simple'), WorkbenchStateContext.notEqualsTo('empty'),
-					ContextKeyExpr.or(CONTEXT_DEBUG_STATE.isEqualTo('inactive'), ContextKeyExpr.notEquals('config.debug.toolBarLocation', 'docked')))
-			}, {
-				id: MenuId.ViewContainerTitle,
-				order: 20,
-				// Show in debug viewlet secondary actions when debugging and debug toolbar is docked
-				when: ContextKeyExpr.and(ContextKeyExpr.equals('viewContainer', VIEWLET_ID), CONTEXT_DEBUG_STATE.notEqualsTo('inactive'), ContextKeyExpr.equals('config.debug.toolBarLocation', 'docked'))
-			}, {
 				id: MenuId.MenubarDebugMenu,
 				group: '2_configuration',
 				order: 1,
@@ -270,8 +250,8 @@ registerAction2(class extends Action2 {
 			toggled: ContextKeyExpr.has(`view.${REPL_VIEW_ID}.visible`),
 			menu: [{
 				id: ViewsSubMenu,
-				group: '3_toggleRepl',
-				order: 30,
+				group: '1_debugConsole',
+				order: 10,
 				when: ContextKeyExpr.and(ContextKeyExpr.equals('viewContainer', VIEWLET_ID))
 			}]
 		});
@@ -287,6 +267,26 @@ registerAction2(class extends Action2 {
 	}
 });
 
+registerAction2(class extends Action2 {
+	constructor() {
+		super({
+			id: 'workbench.action.debug.runFromMenu',
+			title: nls.localize('run', "Run"),
+			menu: [{
+				id: ViewsSubMenu,
+				group: '2_run',
+				order: 20,
+				when: ContextKeyExpr.and(ContextKeyExpr.equals('viewContainer', VIEWLET_ID))
+			}]
+		});
+	}
+
+	async run(accessor: ServicesAccessor): Promise<void> {
+		const commandService = accessor.get(ICommandService);
+		await commandService.executeCommand(DEBUG_START_COMMAND_ID);
+	}
+});
+
 MenuRegistry.appendMenuItem(MenuId.ViewContainerTitle, {
 	when: ContextKeyExpr.and(
 		ContextKeyExpr.equals('viewContainer', VIEWLET_ID),
@@ -297,6 +297,7 @@ MenuRegistry.appendMenuItem(MenuId.ViewContainerTitle, {
 		)
 	),
 	order: 10,
+	group: 'navigation',
 	command: {
 		id: SELECT_AND_START_ID,
 		title: nls.localize('startAdditionalSession', "Start Additional Session"),

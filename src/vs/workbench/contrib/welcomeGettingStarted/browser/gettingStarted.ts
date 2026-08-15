@@ -1082,10 +1082,6 @@ export class GettingStartedPage extends EditorPane {
 				title: localize('recent', "Recent"),
 				klass: 'recently-opened',
 				limit: 5,
-				empty: $('.empty-recent', {},
-					localize('noRecents', "You have no recent folders,"),
-					$('button.button-link', { 'x-dispatch': 'openFolder' }, localize('openFolder', "open a folder")),
-					localize('toStart', "to start.")),
 
 				more: $('.more', {},
 					$('button.button-link',
@@ -1103,6 +1099,11 @@ export class GettingStartedPage extends EditorPane {
 
 			const updateEntries = () => {
 				recentlyOpenedList.setEntries(workspacesWithID);
+				if (workspacesWithID.length === 0) {
+					recentlyOpenedList.getDomElement().style.display = 'none';
+				} else {
+					recentlyOpenedList.getDomElement().style.display = '';
+				}
 			};
 
 			updateEntries();
@@ -1126,6 +1127,13 @@ export class GettingStartedPage extends EditorPane {
 		this.recentlyOpened.then(({ workspaces }) => {
 			const workspacesWithID = this.filterRecentlyOpened(workspaces);
 			this.recentlyOpenedList?.setEntries(workspacesWithID);
+			if (this.recentlyOpenedList) {
+				if (workspacesWithID.length === 0) {
+					this.recentlyOpenedList.getDomElement().style.display = 'none';
+				} else {
+					this.recentlyOpenedList.getDomElement().style.display = '';
+				}
+			}
 		}).catch(onUnexpectedError);
 	}
 
