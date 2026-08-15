@@ -64,18 +64,21 @@
         "path": "./snippets/proxpl-snippets.json"
       }
     ],
-    "iconThemes": [
-      {
-        "id": "proxpl-icons",
-        "label": "ProXPL Icons",
-        "path": "./icons/icon-theme.json"
-      }
-    ],
     "commands": [
       {
         "command": "proxpl.run",
         "title": "ProXPL: Run File",
         "icon": "$(play)"
+      },
+      {
+        "command": "proxpl.build",
+        "title": "ProXPL: Build",
+        "icon": "$(package)"
+      },
+      {
+        "command": "proxpl.debug",
+        "title": "ProXPL: Debug",
+        "icon": "$(bug)"
       },
       {
         "command": "proxpl.startWatchMode",
@@ -89,21 +92,53 @@
         "key": "ctrl+f5",
         "mac": "cmd+f5",
         "when": "editorTextFocus && resourceLangId == proxpl"
+      },
+      {
+        "command": "proxpl.build",
+        "key": "ctrl+shift+b",
+        "mac": "cmd+shift+b",
+        "when": "editorTextFocus && resourceLangId == proxpl"
+      },
+      {
+        "command": "proxpl.debug",
+        "key": "f5",
+        "mac": "f5",
+        "when": "editorTextFocus && resourceLangId == proxpl"
       }
     ],
     "menus": {
       "editor/title": [
         {
-          "when": "resourceExtname == .prox",
+          "when": "resourceExtname == .prox || resourceExtname == .pxpl",
           "command": "proxpl.run",
-          "group": "navigation"
+          "group": "navigation@1"
+        },
+        {
+          "when": "resourceExtname == .prox || resourceExtname == .pxpl",
+          "command": "proxpl.build",
+          "group": "navigation@2"
+        },
+        {
+          "when": "resourceExtname == .prox || resourceExtname == .pxpl",
+          "command": "proxpl.debug",
+          "group": "navigation@3"
         }
       ],
       "explorer/context": [
         {
-          "when": "resourceExtname == .prox",
+          "when": "resourceExtname == .prox || resourceExtname == .pxpl",
           "command": "proxpl.run",
-          "group": "navigation"
+          "group": "navigation@1"
+        },
+        {
+          "when": "resourceExtname == .prox || resourceExtname == .pxpl",
+          "command": "proxpl.build",
+          "group": "navigation@2"
+        },
+        {
+          "when": "resourceExtname == .prox || resourceExtname == .pxpl",
+          "command": "proxpl.debug",
+          "group": "navigation@3"
         }
       ]
     },

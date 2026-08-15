@@ -50,49 +50,199 @@ export function activate(context: vscode.ExtensionContext) {
     client.start();
 
 
-    // 1. Code Runner Command
-    const runCommand = vscode.commands.registerCommand('proxpl.run', () => {
+    // 1. Code Runner Command — proxpl.run
+    //    Priority:
+    //      a) If a prox.toml exists in the workspace root or active file's ancestor directories → prm run (project mode)
+    //      b) If an active .prox / .pxpl file is open → prm run "<path>" (file mode)
+    //      c) Otherwise → clear user-facing error
+    const runCommand = vscode.commands.registerCommand('proxpl.run', async () => {
         const editor = vscode.window.activeTextEditor;
-        if (!editor) {
-            vscode.window.showErrorMessage('No active editor found.');
-            return;
+        const workspaceFolders = vscode.workspace.workspaceFolders;
+
+        // --- Locate prox.toml (project-level run) ---
+        let projecTomlPath: string | undefined;
+        let projectDir: string | undefined;
+
+        // Check workspace root(s) first
+        if (workspaceFolders) {
+            for (const folder of workspaceFolders) {
+                const candidate = path.join(folder.uri.fsPath, 'prox.toml');
+                if (require('fs').existsSync(candidate)) {
+                    projecTomlPath = candidate;
+                    projectDir = folder.uri.fsPath;
+                    break;
+                }
+            }
         }
 
-        const fileName = editor.document.fileName;
-        if (!fileName.endsWith('.prox') && !fileName.endsWith('.pxpl')) {
-            vscode.window.showErrorMessage('Not a ProXPL (.prox or .pxpl) file.');
-            return;
+        // If no workspace prox.toml, check ancestor dirs of active file
+        if (!projecTomlPath && editor) {
+            let dir = path.dirname(editor.document.fileName);
+            for (let i = 0; i < 10; i++) {
+                const candidate = path.join(dir, 'prox.toml');
+                if (require('fs').existsSync(candidate)) {
+                    projecTomlPath = candidate;
+                    projectDir = dir;
+                    break;
+                }
+                const parent = path.dirname(dir);
+                if (parent === dir) { break; }
+                dir = parent;
+            }
         }
 
-        // Check if prm is in PATH
-        cp.exec('prm --version', (err: Error | null) => {
+        // --- Determine run mode ---
+        const isProjectRun = !!projecTomlPath;
+        let fileToRun: string | undefined;
+
+        if (!isProjectRun) {
+            if (!editor) {
+                vscode.window.showErrorMessage(
+                    'No active ProXPL file to run. Open a .prox file and try again.'
+                );
+                return;
+            }
+            const fileName = editor.document.fileName;
+            if (!fileName.endsWith('.prox') && !fileName.endsWith('.pxpl')) {
+                vscode.window.showErrorMessage(
+                    'Not a ProXPL file. Open a .prox or .pxpl file and try again.'
+                );
+                return;
+            }
+            fileToRun = fileName;
+        }
+
+        // --- Check if prm is in PATH ---
+        cp.exec('prm --version', async (err: Error | null) => {
             if (err) {
-                vscode.window.showInformationMessage(
-                    'PRM (ProX Resource Manager) not found in PATH. Please install it to run scripts.',
+                const selection = await vscode.window.showInformationMessage(
+                    'PRM (ProX Resource Manager) not found in PATH. Please install it to run ProXPL scripts.',
                     'View Installation Docs'
-                ).then((selection: string | undefined) => {
-                    if (selection === 'View Installation Docs') {
-                        vscode.env.openExternal(vscode.Uri.parse('https://github.com/ProgrammerKR/ProXPL#installation'));
-                    }
-                });
+                );
+                if (selection === 'View Installation Docs') {
+                    vscode.env.openExternal(vscode.Uri.parse('https://github.com/ProgrammerKR/ProXPL#installation'));
+                }
                 return;
             }
 
-            // Save file before running
-            editor.document.save().then(() => {
-                let terminal = vscode.window.terminals.find(t => t.name === 'ProXPL');
-                if (!terminal) {
-                    terminal = vscode.window.createTerminal('ProXPL');
-                }
-                terminal.show();
-                terminal.sendText(`prm run "${fileName}"`);
-            });
+            // Save active file before running
+            if (editor) {
+                await editor.document.save();
+            }
+
+            let terminal = vscode.window.terminals.find(t => t.name === 'ProXPL');
+            if (!terminal) {
+                terminal = vscode.window.createTerminal({
+                    name: 'ProXPL',
+                    cwd: projectDir || (fileToRun ? path.dirname(fileToRun) : undefined),
+                });
+            }
+            terminal.show();
+
+            if (isProjectRun) {
+                // Project mode: cd to project dir, then prm run
+                terminal.sendText(`cd "${projectDir}" && prm run`);
+            } else {
+                // File mode
+                terminal.sendText(`prm run "${fileToRun}"`);
+            }
         });
     });
 
     context.subscriptions.push(runCommand);
 
-    // ... (intermediate code skipped) ...
+    // 1b. Build Command — proxpl.build
+    const buildCommand = vscode.commands.registerCommand('proxpl.build', async () => {
+        const editor = vscode.window.activeTextEditor;
+        const workspaceFolders = vscode.workspace.workspaceFolders;
+
+        let projectDir: string | undefined;
+        if (workspaceFolders) {
+            for (const folder of workspaceFolders) {
+                const candidate = path.join(folder.uri.fsPath, 'prox.toml');
+                if (require('fs').existsSync(candidate)) {
+                    projectDir = folder.uri.fsPath;
+                    break;
+                }
+            }
+        }
+        if (!projectDir && editor) {
+            let dir = path.dirname(editor.document.fileName);
+            for (let i = 0; i < 10; i++) {
+                if (require('fs').existsSync(path.join(dir, 'prox.toml'))) {
+                    projectDir = dir;
+                    break;
+                }
+                const parent = path.dirname(dir);
+                if (parent === dir) { break; }
+                dir = parent;
+            }
+        }
+
+        if (!editor && !projectDir) {
+            vscode.window.showErrorMessage('No active ProXPL file or project to build.');
+            return;
+        }
+
+        if (!projectDir && editor) {
+            const fileName = editor.document.fileName;
+            if (!fileName.endsWith('.prox') && !fileName.endsWith('.pxpl')) {
+                vscode.window.showErrorMessage('Not a ProXPL file. Open a .prox or .pxpl file and try again.');
+                return;
+            }
+        }
+
+        cp.exec('prm --version', async (err: Error | null) => {
+            if (err) {
+                vscode.window.showInformationMessage(
+                    'PRM (ProX Resource Manager) not found in PATH. Please install it.',
+                    'View Installation Docs'
+                ).then((sel: string | undefined) => {
+                    if (sel === 'View Installation Docs') {
+                        vscode.env.openExternal(vscode.Uri.parse('https://github.com/ProgrammerKR/ProXPL#installation'));
+                    }
+                });
+                return;
+            }
+            if (editor) { await editor.document.save(); }
+            let terminal = vscode.window.terminals.find(t => t.name === 'ProXPL');
+            if (!terminal) {
+                terminal = vscode.window.createTerminal({ name: 'ProXPL', cwd: projectDir });
+            }
+            terminal.show();
+            if (projectDir) {
+                terminal.sendText(`cd "${projectDir}" && prm build`);
+            } else if (editor) {
+                terminal.sendText(`prm build "${editor.document.fileName}"`);
+            }
+        });
+    });
+
+    context.subscriptions.push(buildCommand);
+
+    // 1c. Debug Command — proxpl.debug
+    //     Starts a ProXPL debug session using the existing DAP integration.
+    const debugCommand = vscode.commands.registerCommand('proxpl.debug', async () => {
+        const editor = vscode.window.activeTextEditor;
+        if (!editor) {
+            vscode.window.showErrorMessage('No active ProXPL file to debug. Open a .prox file and try again.');
+            return;
+        }
+        const fileName = editor.document.fileName;
+        if (!fileName.endsWith('.prox') && !fileName.endsWith('.pxpl')) {
+            vscode.window.showErrorMessage('Not a ProXPL file. Open a .prox or .pxpl file and try again.');
+            return;
+        }
+        await editor.document.save();
+        vscode.debug.startDebugging(undefined, {
+            type: 'proxpl',
+            request: 'launch',
+            name: 'ProXPL Debug',
+            program: fileName,
+        });
+    });
+
+    context.subscriptions.push(debugCommand);
 
     // 4. Hover Support
     const hoverProvider = vscode.languages.registerHoverProvider('proxpl', {

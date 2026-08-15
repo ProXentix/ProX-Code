@@ -149,19 +149,13 @@ export class MenuBar extends Disposable {
 		}));
 
 		const window = DOM.getWindow(this.container);
-		this._register(DOM.addDisposableListener(window, DOM.EventType.MOUSE_DOWN, (e) => {
+		this._register(DOM.addDisposableListener(window, DOM.EventType.MOUSE_DOWN, () => {
 			// This mouse event is outside the menubar so it counts as a focus out
-			if (this.isFocused && !DOM.isAncestor(e.target as HTMLElement, this.container)) {
+			if (this.isFocused) {
 				this.setUnfocusedState();
 			}
-		}, true));
+		}));
 
-		this._register(DOM.addDisposableListener(window, DOM.EventType.POINTER_DOWN, (e) => {
-			// This mouse event is outside the menubar so it counts as a focus out
-			if (this.isFocused && !DOM.isAncestor(e.target as HTMLElement, this.container)) {
-				this.setUnfocusedState();
-			}
-		}, true));
 
 		this._register(DOM.addDisposableListener(this.container, DOM.EventType.FOCUS_IN, (e) => {
 			const event = e;

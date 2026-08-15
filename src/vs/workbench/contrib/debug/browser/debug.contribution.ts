@@ -451,20 +451,18 @@ Registry.as<IViewsRegistry>(ViewExtensions.ViewsRegistry).registerViews([{
 }], VIEW_CONTAINER);
 
 
+// Run and Debug view container is intentionally removed from the Activity Bar sidebar.
+// The full debug infrastructure (views, services, DAP, sessions) remains active.
+// ProXPL Run occupies order 3 in the Activity Bar instead.
 const viewContainer = Registry.as<IViewContainersRegistry>(ViewExtensions.ViewContainersRegistry).registerViewContainer({
 	id: VIEWLET_ID,
 	title: nls.localize2('run and debug', "Run and Debug"),
-	openCommandActionDescriptor: {
-		id: VIEWLET_ID,
-		mnemonicTitle: nls.localize({ key: 'miViewRun', comment: ['&& denotes a mnemonic'] }, "&&Run"),
-		keybindings: { primary: KeyMod.CtrlCmd | KeyMod.Shift | KeyCode.KeyD },
-		order: 3
-	},
 	ctorDescriptor: new SyncDescriptor(DebugViewPaneContainer),
 	icon: icons.runViewIcon,
 	alwaysUseContainerInfo: true,
 	order: 3,
-}, ViewContainerLocation.Sidebar);
+	hideIfEmpty: true,
+}, ViewContainerLocation.AuxiliaryBar, { doNotRegisterOpenCommand: true });
 
 // Register default debug views
 const viewsRegistry = Registry.as<IViewsRegistry>(ViewExtensions.ViewsRegistry);

@@ -245,6 +245,9 @@ import './contrib/debug/browser/callStackEditorContribution.js';
 import './contrib/debug/browser/repl.js';
 import './contrib/debug/browser/debugViewlet.js';
 
+// ProXPL Run — Activity Bar entry (replaces Run & Debug slot)
+import './contrib/proxpl/browser/proxpl.contribution.js';
+
 // Markers
 import './contrib/markers/browser/markers.contribution.js';
 
