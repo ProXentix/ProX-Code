@@ -10,12 +10,12 @@ import { IPager, singlePagePager } from '../../../../base/common/paging.js';
 import { URI } from '../../../../base/common/uri.js';
 import { CancellationToken } from '../../../../base/common/cancellation.js';
 import { IConfigurationService } from '../../../../platform/configuration/common/configuration.js';
-import { IExtensionGalleryService, IExtensionIdentifier, IExtensionInfo, IExtensionManagementService, IExtensionQueryOptions, IGalleryExtension, ILocalExtension, IQueryOptions, InstallExtensionResult, InstallOptions } from '../../../../platform/extensionManagement/common/extensionManagement.js';
-import { areSameExtensions } from '../../../../platform/extensionManagement/common/extensionManagementUtil.js';
+import { IExtensionIdentifier, IExtensionInfo, IExtensionManagementService, IGalleryExtension, ILocalExtension, InstallExtensionResult, InstallOptions } from '../../../../platform/extensionManagement/common/extensionManagement.js';
 import { ExtensionType, IExtensionManifest } from '../../../../platform/extensions/common/extensions.js';
 import { ProgressLocation } from '../../../../platform/progress/common/progress.js';
 import { EnablementState, IExtensionManagementServer, IWorkbenchExtensionEnablementService } from '../../../services/extensionManagement/common/extensionManagement.js';
 import { AutoUpdateConfigurationKey, AutoUpdateConfigurationValue, ExtensionRuntimeState, ExtensionState, IExtension, IExtensionsNotification, IExtensionsWorkbenchService, InstallExtensionOptions } from '../common/extensions.js';
+import { IExtensionsStatus as IExtensionRuntimeStatus } from '../../services/extensions/common/extensions.js';
 
 export class Extension implements IExtension {
 	readonly type: ExtensionType = ExtensionType.User;
@@ -64,13 +64,15 @@ export class Extension implements IExtension {
 		state: () => ExtensionState,
 		_isBuiltin: (() => boolean | undefined) | undefined,
 		localOrPublisher?: ILocalExtension | string,
-		gallery?: IGalleryExtension,
+		gallery?: IGalleryExtension | ILocalExtension,
 		resourceExtension?: any,
 		..._rest: any[]
 	) {
 		this.state = state();
-		this.local = typeof localOrPublisher === 'string' ? undefined : localOrPublisher;
-		this.gallery = gallery;
+		const local = typeof localOrPublisher === 'string' ? undefined : localOrPublisher;
+		const galleryCandidate = gallery && 'manifest' in gallery ? gallery as ILocalExtension : gallery as IGalleryExtension | undefined;
+		this.local = local ?? (galleryCandidate && 'manifest' in galleryCandidate ? galleryCandidate as ILocalExtension : undefined);
+		this.gallery = !this.local ? (gallery as IGalleryExtension | undefined) : undefined;
 		this.resourceExtension = resourceExtension;
 		this.name = this.local?.manifest.name ?? this.gallery?.name ?? 'extension';
 		this.displayName = this.local?.manifest.displayName ?? this.gallery?.displayName ?? this.name;
@@ -297,4 +299,12 @@ export class ExtensionsWorkbenchService extends Disposable implements IExtension
 	}
 
 	async togglePinExtension(_extension: IExtension): Promise<void> { }
+
+	isExtensionIgnoredToSync(_extension: IExtension): boolean {
+		return false;
+	}
+
+	async toggleExtensionIgnoredToSync(_extension: IExtension): Promise<void> { }
+
+	async toggleApplyExtensionToAllProfiles(_extension: IExtension): Promise<void> { }
 }
