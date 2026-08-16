@@ -47,9 +47,9 @@ suite('Actionbar', () => {
 
 		const dropdown = new ActionWidgetDropdown(container, {
 			actions: [new Action('action', 'Action')]
-		}, service, {
+		}, service as any, {
 			lookupKeybinding: () => undefined
-		});
+		} as any);
 
 		dropdown.show();
 		assert.strictEqual(dropdown.isVisible(), true, 'show() should mark the dropdown visible');

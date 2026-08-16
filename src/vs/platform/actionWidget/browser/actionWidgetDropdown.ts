@@ -62,8 +62,9 @@ export class ActionWidgetDropdown extends BaseDropdown {
 			return;
 		}
 
-
-
+		const actions = this._options.actionProvider ? this._options.actionProvider.getActions() : this._options.actions ?? [];
+		const actionWidgetItems: IActionListItem<IActionWidgetDropdownAction>[] = [];
+		const actionBarActions = this._options.actionBarActions ?? (this._options.actionBarActionProvider ? this._options.actionBarActionProvider.getActions() : []);
 		const actionsByCategory = new Map<string, IActionWidgetDropdownAction[]>();
 		for (const action of actions) {
 			let category = action.category;
@@ -143,7 +144,7 @@ export class ActionWidgetDropdown extends BaseDropdown {
 			}
 		};
 
-		actionBarActions = actionBarActions.map(action => ({
+		const actionBarItems = actionBarActions.map(action => ({
 			...action,
 			run: async (...args: unknown[]) => {
 				this.actionWidgetService.hide();
@@ -175,7 +176,7 @@ export class ActionWidgetDropdown extends BaseDropdown {
 			actionWidgetDelegate,
 			this.element,
 			undefined,
-			actionBarActions,
+			actionBarItems,
 			accessibilityProvider
 		);
 	}
