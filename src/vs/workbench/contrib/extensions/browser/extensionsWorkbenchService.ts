@@ -15,7 +15,7 @@ import { ExtensionType, IExtensionManifest } from '../../../../platform/extensio
 import { ProgressLocation } from '../../../../platform/progress/common/progress.js';
 import { EnablementState, IExtensionManagementServer, IWorkbenchExtensionEnablementService } from '../../../services/extensionManagement/common/extensionManagement.js';
 import { AutoUpdateConfigurationKey, AutoUpdateConfigurationValue, ExtensionRuntimeState, ExtensionState, IExtension, IExtensionsNotification, IExtensionsWorkbenchService, InstallExtensionOptions } from '../common/extensions.js';
-import { IExtensionsStatus as IExtensionRuntimeStatus } from '../../services/extensions/common/extensions.js';
+import { IExtensionsStatus as IExtensionRuntimeStatus } from '../../../services/extensions/common/extensions.js';
 
 export class Extension implements IExtension {
 	readonly type: ExtensionType = ExtensionType.User;
