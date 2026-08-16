@@ -9,6 +9,7 @@ import { Action, Separator } from '../../common/actions.js';
 import { ensureNoDisposablesAreLeakedInTestSuite } from '../common/utils.js';
 import { createToggleActionViewItemProvider, ToggleActionViewItem, unthemedToggleStyles } from '../../browser/ui/toggle/toggle.js';
 import { ActionViewItem } from '../../browser/ui/actionbar/actionViewItems.js';
+import { ActionWidgetDropdown } from '../../../platform/actionWidget/browser/actionWidgetDropdown.js';
 
 suite('Actionbar', () => {
 
@@ -28,6 +29,33 @@ suite('Actionbar', () => {
 		assert(actions[0] === a3);
 		assert(actions[1] === a5);
 		assert(actions[2] === a6);
+	});
+
+	test('ActionWidgetDropdown tracks open/close visibility', function () {
+		const container = document.createElement('div');
+		const service = {
+			_serviceBrand: undefined,
+			show: (...args: unknown[]) => {
+				const delegate = (args[3] as { onHide?: () => void }) ?? undefined;
+				(service as any).__delegate = delegate;
+			},
+			hide: () => {
+				(service as any).__hidden = true;
+			},
+			isVisible: false,
+		} as any;
+
+		const dropdown = new ActionWidgetDropdown(container, {
+			actions: [new Action('action', 'Action')]
+		}, service, {
+			lookupKeybinding: () => undefined
+		});
+
+		dropdown.show();
+		assert.strictEqual(dropdown.isVisible(), true, 'show() should mark the dropdown visible');
+
+		service.__delegate?.onHide?.();
+		assert.strictEqual(dropdown.isVisible(), false, 'onHide should close the dropdown');
 	});
 
 	test('hasAction()', function () {

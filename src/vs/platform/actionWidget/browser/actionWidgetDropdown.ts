@@ -52,10 +52,17 @@ export class ActionWidgetDropdown extends BaseDropdown {
 		super(container, _options);
 	}
 
+	override hide(): void {
+		super.hide();
+		this.actionWidgetService.hide(true);
+	}
+
 	override show(): void {
 		if (!this.enabled) {
 			return;
 		}
+
+		super.show();
 
 		let actionBarActions = this._options.actionBarActions ?? this._options.actionBarActionProvider?.getActions() ?? [];
 		const actions = this._options.actions ?? this._options.actionProvider?.getActions() ?? [];
@@ -133,6 +140,7 @@ export class ActionWidgetDropdown extends BaseDropdown {
 				action.run();
 			},
 			onHide: () => {
+				super.hide();
 				if (isHTMLElement(previouslyFocusedElement)) {
 					previouslyFocusedElement.focus();
 				}
