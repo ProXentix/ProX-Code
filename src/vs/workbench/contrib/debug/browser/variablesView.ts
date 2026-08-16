@@ -32,7 +32,6 @@ import { IKeybindingService } from '../../../../platform/keybinding/common/keybi
 import { WorkbenchAsyncDataTree } from '../../../../platform/list/browser/listService.js';
 import { INotificationService } from '../../../../platform/notification/common/notification.js';
 import { IOpenerService } from '../../../../platform/opener/common/opener.js';
-import { ProgressLocation } from '../../../../platform/progress/common/progress.js';
 import { ITelemetryService } from '../../../../platform/telemetry/common/telemetry.js';
 import { IThemeService } from '../../../../platform/theme/common/themeService.js';
 import { ViewAction, ViewPane } from '../../../browser/parts/views/viewPane.js';

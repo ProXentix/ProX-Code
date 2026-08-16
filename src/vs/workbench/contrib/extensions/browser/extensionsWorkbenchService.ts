@@ -9,12 +9,101 @@ import { Disposable } from '../../../../base/common/lifecycle.js';
 import { IPager, singlePagePager } from '../../../../base/common/paging.js';
 import { URI } from '../../../../base/common/uri.js';
 import { CancellationToken } from '../../../../base/common/cancellation.js';
-import { IExtensionGalleryService, IExtensionIdentifier, IExtensionInfo, IExtensionManagementService, IExtensionQueryOptions, IGalleryExtension, ILocalExtension, IQueryOptions, InstallOptions } from '../../../../platform/extensionManagement/common/extensionManagement.js';
+import { IConfigurationService } from '../../../../platform/configuration/common/configuration.js';
+import { IExtensionGalleryService, IExtensionIdentifier, IExtensionInfo, IExtensionManagementService, IExtensionQueryOptions, IGalleryExtension, ILocalExtension, IQueryOptions, InstallExtensionResult, InstallOptions } from '../../../../platform/extensionManagement/common/extensionManagement.js';
 import { areSameExtensions } from '../../../../platform/extensionManagement/common/extensionManagementUtil.js';
 import { ExtensionType, IExtensionManifest } from '../../../../platform/extensions/common/extensions.js';
 import { ProgressLocation } from '../../../../platform/progress/common/progress.js';
 import { EnablementState, IExtensionManagementServer, IWorkbenchExtensionEnablementService } from '../../../services/extensionManagement/common/extensionManagement.js';
-import { ExtensionRuntimeState, ExtensionState, IExtension, IExtensionsWorkbenchService, InstallExtensionOptions } from '../common/extensions.js';
+import { AutoUpdateConfigurationKey, AutoUpdateConfigurationValue, ExtensionRuntimeState, ExtensionState, IExtension, IExtensionsWorkbenchService, InstallExtensionOptions } from '../common/extensions.js';
+
+export class Extension implements IExtension {
+	readonly type: ExtensionType = ExtensionType.User;
+	readonly isBuiltin: boolean = false;
+	readonly isWorkspaceScoped: boolean = false;
+	readonly state: ExtensionState;
+	readonly name: string;
+	readonly displayName: string;
+	readonly identifier: IExtensionIdentifier;
+	readonly publisher: string;
+	readonly publisherDisplayName: string;
+	readonly version: string;
+	readonly private: boolean = false;
+	readonly latestVersion: string;
+	readonly preRelease: boolean = false;
+	readonly isPreReleaseVersion: boolean = false;
+	readonly hasPreReleaseVersion: boolean = false;
+	readonly hasReleaseVersion: boolean = true;
+	readonly description: string;
+	readonly installCount?: number;
+	readonly rating?: number;
+	readonly ratingCount?: number;
+	readonly outdated: boolean;
+	readonly outdatedTargetPlatform: boolean = false;
+	readonly runtimeState: ExtensionRuntimeState | undefined = undefined;
+	readonly enablementState: EnablementState = EnablementState.EnabledGlobally;
+	readonly tags: readonly string[] = [];
+	readonly categories: readonly string[] = [];
+	readonly dependencies: string[] = [];
+	readonly extensionPack: string[] = [];
+	readonly telemetryData: any = undefined;
+	readonly preview: boolean = false;
+	readonly pinned: boolean = false;
+	readonly iconUrl?: string;
+	readonly iconUrlFallback?: string;
+	readonly isMalicious: boolean | undefined = undefined;
+	readonly maliciousInfoLink: string | undefined = undefined;
+	readonly missingFromGallery?: boolean = false;
+	readonly local?: ILocalExtension;
+	gallery?: IGalleryExtension;
+	readonly resourceExtension?: any;
+	readonly deprecationInfo?: undefined;
+	readonly server?: undefined;
+
+	constructor(
+		state: () => ExtensionState,
+		_isBuiltin: (() => boolean) | undefined,
+		localOrPublisher?: ILocalExtension | string,
+		gallery?: IGalleryExtension,
+		resourceExtension?: any,
+		..._rest: any[]
+	) {
+		this.state = state();
+		this.local = typeof localOrPublisher === 'string' ? undefined : localOrPublisher;
+		this.gallery = gallery;
+		this.resourceExtension = resourceExtension;
+		this.name = this.local?.manifest.name ?? this.gallery?.name ?? 'extension';
+		this.displayName = this.local?.manifest.displayName ?? this.gallery?.displayName ?? this.name;
+		this.identifier = this.local?.identifier ?? { id: this.gallery?.identifier?.id ?? this.name, uuid: this.gallery?.identifier?.uuid ?? '00000000-0000-0000-0000-000000000000' };
+		this.publisher = this.local?.manifest.publisher ?? this.gallery?.publisher ?? 'pub';
+		this.publisherDisplayName = this.local?.publisherDisplayName ?? this.gallery?.publisherDisplayName ?? this.publisher;
+		this.version = this.local?.manifest.version ?? this.gallery?.version ?? '0.0.0';
+		this.latestVersion = this.version;
+		this.description = this.local?.manifest.description ?? this.gallery?.description ?? '';
+		this.outdated = !!(this.local && this.gallery && this.compareVersions(this.local.manifest.version, this.gallery.version) < 0);
+	}
+
+	private compareVersions(a: string, b: string): number {
+		const [pa, pb] = [a.split('.').map(Number), b.split('.').map(Number)];
+		const len = Math.max(pa.length, pb.length);
+		for (let i = 0; i < len; i++) {
+			const va = pa[i] ?? 0;
+			const vb = pb[i] ?? 0;
+			if (va !== vb) {
+				return va < vb ? -1 : 1;
+			}
+		}
+		return 0;
+	}
+
+	async getManifest(_token: CancellationToken): Promise<IExtensionManifest | null> {
+		return this.local?.manifest ?? null;
+	}
+	hasReadme(): boolean { return false; }
+	async getReadme(_token: CancellationToken): Promise<string> { return ''; }
+	hasChangelog(): boolean { return false; }
+	async getChangelog(_token: CancellationToken): Promise<string> { return ''; }
+}
 
 class BuiltinExtensionWrapper implements IExtension {
 	readonly type: ExtensionType = ExtensionType.System;
@@ -84,6 +173,7 @@ export class ExtensionsWorkbenchService extends Disposable implements IExtension
 	constructor(
 		@IExtensionManagementService private readonly extensionManagementService: IExtensionManagementService,
 		@IWorkbenchExtensionEnablementService private readonly extensionEnablementService: IWorkbenchExtensionEnablementService,
+		@IConfigurationService private readonly configurationService: IConfigurationService,
 	) {
 		super();
 
@@ -165,7 +255,26 @@ export class ExtensionsWorkbenchService extends Disposable implements IExtension
 
 	async checkForUpdates(): Promise<void> { }
 
-	async updateAll(): Promise<void> { }
+	async updateAll(): Promise<InstallExtensionResult[]> { return []; }
+
+	getEnabledAutoUpdateExtensions(): string[] { return []; }
+	getDisabledAutoUpdateExtensions(): string[] { return []; }
+
+	getAutoUpdateValue(): AutoUpdateConfigurationValue {
+		return this.configurationService.getValue<AutoUpdateConfigurationValue>(AutoUpdateConfigurationKey) ?? true;
+	}
+
+	isAutoUpdateEnabledFor(_extensionOrPublisher: IExtension | string): boolean {
+		return true;
+	}
+
+	async updateAutoUpdateEnablementFor(_extensionOrPublisher: IExtension | string, _enable: boolean): Promise<void> { }
+
+	async shouldRequireConsentToUpdate(_extension: IExtension): Promise<string | undefined> { return undefined; }
+
+	async updateAutoUpdateForAllExtensions(_value: boolean): Promise<void> { }
+
+	async togglePreRelease(_extension: IExtension): Promise<void> { }
 
 	isExtensionPinned(_extension: IExtension): boolean {
 		return false;

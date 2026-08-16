@@ -40,9 +40,10 @@ import { ThemeIcon } from '../../../../base/common/themables.js';
 import { IWorkspaceTrustManagementService } from '../../../../platform/workspace/common/workspaceTrust.js';
 import { EditorPane } from '../../../browser/parts/editor/editorPane.js';
 import { IEditorOpenContext } from '../../../common/editor.js';
-import { LIST_WORKSPACE_UNSUPPORTED_EXTENSIONS_COMMAND_ID } from '../../extensions/common/extensions.js';
+import { IExtensionsWorkbenchService, LIST_WORKSPACE_UNSUPPORTED_EXTENSIONS_COMMAND_ID } from '../../extensions/common/extensions.js';
 import { APPLICATION_SCOPES, IWorkbenchConfigurationService } from '../../../services/configuration/common/configuration.js';
 import { IExtensionManifestPropertiesService } from '../../../services/extensions/common/extensionManifestPropertiesService.js';
+import { debugIconStartForeground } from '../../debug/browser/debugColors.js';
 import { IUriIdentityService } from '../../../../platform/uriIdentity/common/uriIdentity.js';
 import { WorkspaceTrustEditorInput } from '../../../services/workspaces/browser/workspaceTrustEditorInput.js';
 import { IEditorOptions } from '../../../../platform/editor/common/editor.js';
@@ -698,6 +699,7 @@ export class WorkspaceTrustEditor extends EditorPane {
 		@IWorkspaceTrustManagementService private readonly workspaceTrustManagementService: IWorkspaceTrustManagementService,
 		@IWorkbenchConfigurationService private readonly configurationService: IWorkbenchConfigurationService,
 		@IWorkbenchExtensionEnablementService private readonly extensionEnablementService: IWorkbenchExtensionEnablementService,
+		@IExtensionsWorkbenchService private readonly extensionWorkbenchService: IExtensionsWorkbenchService,
 		@IProductService private readonly productService: IProductService,
 		@IKeybindingService private readonly keybindingService: IKeybindingService,
 	) { super(WorkspaceTrustEditor.ID, group, telemetryService, themeService, storageService); }

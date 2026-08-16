@@ -31,6 +31,7 @@ import { ILogService } from '../../../../platform/log/common/log.js';
 import { ReloadWindowAction } from '../../../browser/actions/windowActions.js';
 import { EXTENSION_INSTALL_SKIP_WALKTHROUGH_CONTEXT, IExtensionGalleryService, IExtensionManagementService } from '../../../../platform/extensionManagement/common/extensionManagement.js';
 import { IExtensionsWorkbenchService, LIST_WORKSPACE_UNSUPPORTED_EXTENSIONS_COMMAND_ID } from '../../extensions/common/extensions.js';
+import { infoIcon } from '../../extensions/browser/extensionsIcons.js';
 import { ServicesAccessor } from '../../../../platform/instantiation/common/instantiation.js';
 import { IMarkdownString, MarkdownString } from '../../../../base/common/htmlContent.js';
 import { RemoteNameContext, VirtualWorkspaceContext } from '../../../common/contextkeys.js';
