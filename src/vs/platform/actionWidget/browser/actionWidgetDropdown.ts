@@ -62,6 +62,7 @@ export class ActionWidgetDropdown extends BaseDropdown {
 			return;
 		}
 
+		this.actionWidgetService.hide(true);
 		super.show();
 
 		let actionBarActions = this._options.actionBarActions ?? this._options.actionBarActionProvider?.getActions() ?? [];
@@ -186,5 +187,9 @@ export class ActionWidgetDropdown extends BaseDropdown {
 
 	setEnabled(enabled: boolean): void {
 		this.enabled = enabled;
+		if (!enabled) {
+			this.actionWidgetService.hide(true);
+			super.hide();
+		}
 	}
 }
