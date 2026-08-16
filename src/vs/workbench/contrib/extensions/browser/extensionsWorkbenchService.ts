@@ -15,7 +15,7 @@ import { areSameExtensions } from '../../../../platform/extensionManagement/comm
 import { ExtensionType, IExtensionManifest } from '../../../../platform/extensions/common/extensions.js';
 import { ProgressLocation } from '../../../../platform/progress/common/progress.js';
 import { EnablementState, IExtensionManagementServer, IWorkbenchExtensionEnablementService } from '../../../services/extensionManagement/common/extensionManagement.js';
-import { AutoUpdateConfigurationKey, AutoUpdateConfigurationValue, ExtensionRuntimeState, ExtensionState, IExtension, IExtensionsWorkbenchService, InstallExtensionOptions } from '../common/extensions.js';
+import { AutoUpdateConfigurationKey, AutoUpdateConfigurationValue, ExtensionRuntimeState, ExtensionState, IExtension, IExtensionsNotification, IExtensionsWorkbenchService, InstallExtensionOptions } from '../common/extensions.js';
 
 export class Extension implements IExtension {
 	readonly type: ExtensionType = ExtensionType.User;
@@ -62,7 +62,7 @@ export class Extension implements IExtension {
 
 	constructor(
 		state: () => ExtensionState,
-		_isBuiltin: (() => boolean) | undefined,
+		_isBuiltin: (() => boolean | undefined) | undefined,
 		localOrPublisher?: ILocalExtension | string,
 		gallery?: IGalleryExtension,
 		resourceExtension?: any,
@@ -163,6 +163,10 @@ export class ExtensionsWorkbenchService extends Disposable implements IExtension
 	private readonly _onReset = this._register(new Emitter<void>());
 	readonly onReset: Event<void> = this._onReset.event;
 
+	private readonly _onDidChangeExtensionsNotification = this._register(new Emitter<IExtensionsNotification | undefined>());
+	readonly onDidChangeExtensionsNotification: Event<IExtensionsNotification | undefined> = this._onDidChangeExtensionsNotification.event;
+
+	private _extensionsNotification: IExtensionsNotification | undefined;
 	private _local: IExtension[] = [];
 	get local(): IExtension[] { return this._local; }
 	get installed(): IExtension[] { return this._local; }
@@ -193,6 +197,18 @@ export class ExtensionsWorkbenchService extends Disposable implements IExtension
 
 	async queryGallery(_options?: any, _token?: CancellationToken): Promise<IPager<IExtension>> {
 		return singlePagePager([]);
+	}
+
+	getExtensionRuntimeStatus(_extension: IExtension): IExtensionRuntimeStatus | undefined {
+		return undefined;
+	}
+
+	async updateRunningExtensions(_message?: string): Promise<void> {
+		return;
+	}
+
+	getExtensionsNotification(): IExtensionsNotification | undefined {
+		return this._extensionsNotification;
 	}
 
 	async getExtensions(_extensionInfos: IExtensionInfo[], _options?: any, _token?: CancellationToken): Promise<IExtension[]> {
@@ -249,7 +265,7 @@ export class ExtensionsWorkbenchService extends Disposable implements IExtension
 		return undefined;
 	}
 
-	async openSearch(_query: string): Promise<void> {
+	async openSearch(_query: string, _focus?: boolean): Promise<void> {
 		// Extensions sidebar search disabled in ProX-Code
 	}
 
