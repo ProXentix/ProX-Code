@@ -137,7 +137,7 @@ export function layout(viewportSize: number, viewSize: number, anchor: ILayoutAn
 export class ContextView extends Disposable {
 
 	private static readonly BUBBLE_UP_EVENTS = ['click', 'keydown', 'focus', 'blur'];
-	private static readonly BUBBLE_DOWN_EVENTS = ['click'];
+	private static readonly BUBBLE_DOWN_EVENTS = ['click', 'mousedown', 'pointerdown'];
 
 	private container: HTMLElement | null = null;
 	private view: HTMLElement;

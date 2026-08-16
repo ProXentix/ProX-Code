@@ -119,7 +119,7 @@ export const startEntries: GettingStartedStartEntryContent = [
 	},
 	{
 		id: 'welcome.createNewProject',
-		title: localize('gettingStarted.newProject.title', "Create New Project..."),
+		title: localize('gettingStarted.newProject.title', "Create Project"),
 		description: localize('gettingStarted.newProject.description', "Create a new project workspace with templates and configurations."),
 		icon: Codicon.newFolder,
 		content: {
