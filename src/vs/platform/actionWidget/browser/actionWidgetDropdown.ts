@@ -62,12 +62,7 @@ export class ActionWidgetDropdown extends BaseDropdown {
 			return;
 		}
 
-		this.actionWidgetService.hide(true);
-		super.show();
 
-		let actionBarActions = this._options.actionBarActions ?? this._options.actionBarActionProvider?.getActions() ?? [];
-		const actions = this._options.actions ?? this._options.actionProvider?.getActions() ?? [];
-		const actionWidgetItems: IActionListItem<IActionWidgetDropdownAction>[] = [];
 
 		const actionsByCategory = new Map<string, IActionWidgetDropdownAction[]>();
 		for (const action of actions) {
@@ -187,9 +182,5 @@ export class ActionWidgetDropdown extends BaseDropdown {
 
 	setEnabled(enabled: boolean): void {
 		this.enabled = enabled;
-		if (!enabled) {
-			this.actionWidgetService.hide(true);
-			super.hide();
-		}
 	}
 }
