@@ -60,9 +60,11 @@ registerAction2(class ToggleNavigationControl extends ToggleTitleBarConfigAction
 	constructor() {
 		super('workbench.navigationControl.enabled', localize('toggle.navigation', 'Navigation Controls'), localize('toggle.navigationDescription', "Toggle visibility of the Navigation Controls in title bar"), 2, ContextKeyExpr.and(IsCompactTitleBarContext.toNegated(), ContextKeyExpr.has('config.window.commandCenter')));
 	}
+});registerAction2(class ToggleLayoutControl extends ToggleTitleBarConfigAction {
+	constructor() {
+		super(LayoutSettings.LAYOUT_ACTIONS, localize('toggle.layout', 'Layout Controls'), localize('toggle.layoutDescription', "Toggle visibility of the Layout Controls in title bar"), 4);
+	}
 });
-
-
 
 registerAction2(class ToggleCustomTitleBar extends Action2 {
 	constructor() {
@@ -115,6 +117,7 @@ class ToggleCustomTitleBar extends Action2 {
 						ContextKeyExpr.and(
 							ContextKeyExpr.equals(TitleBarStyleContext.key, TitlebarStyle.NATIVE),
 							ContextKeyExpr.and(
+								ContextKeyExpr.equals('config.workbench.layoutControl.enabled', false),
 								ContextKeyExpr.equals('config.window.commandCenter', false),
 								ContextKeyExpr.notEquals('config.workbench.editor.editorActionsLocation', 'titleBar'),
 								ContextKeyExpr.notEquals('config.workbench.activityBar.location', 'top'),

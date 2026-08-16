@@ -433,7 +433,7 @@ function doPackageLocalExtensionsStream(forWeb: boolean, disableMangle: boolean,
 			.filter(({ name }) => excludedExtensions.indexOf(name) === -1)
 			.filter(({ name }) => builtInExtensions.every(b => b.name !== name))
 			.filter(({ manifestPath }) => (forWeb ? isWebExtension(require(manifestPath)) : true))
-			.filter(({ name }) => ['proxpl', 'theme-defaults', 'prox-icons', 'json', 'json-language-features'].includes(name))
+			.filter(({ name }) => ['proxpl', 'theme-defaults', 'prox-icons', 'json', 'json-language-features', 'git', 'git-base'].includes(name))
 	);
 
 	const localExtensionsStream = es.merge(

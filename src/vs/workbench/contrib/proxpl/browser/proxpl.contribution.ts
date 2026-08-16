@@ -13,6 +13,7 @@ import { registerIcon } from '../../../../platform/theme/common/iconRegistry.js'
 import { Registry } from '../../../../platform/registry/common/platform.js';
 import { ViewPaneContainer } from '../../../browser/parts/views/viewPaneContainer.js';
 import { IViewContainersRegistry, Extensions as ViewContainerExtensions, ViewContainerLocation } from '../../../common/views.js';
+import { ContextKeyExpr } from '../../../../platform/contextkey/common/contextkey.js';
 
 // ---------------------------------------------------------------------------
 // 1. Icon — Codicon.run renders as a filled play triangle (▶)
@@ -127,21 +128,21 @@ registerAction2(class ProxplDebugAction extends Action2 {
 
 MenuRegistry.appendMenuItem(MenuId.ViewContainerTitleContext, {
 	command: { id: 'proxpl.runFile', title: localize('proxplRunMenu', 'Run ProXPL') },
-	when: `viewContainer == ${PROXPL_RUN_VIEWLET_ID}`,
+	when: ContextKeyExpr.equals('viewContainer', PROXPL_RUN_VIEWLET_ID),
 	group: '1_proxpl',
 	order: 1,
 });
 
 MenuRegistry.appendMenuItem(MenuId.ViewContainerTitleContext, {
 	command: { id: 'proxpl.buildFile', title: localize('proxplBuildMenu', 'Build ProXPL') },
-	when: `viewContainer == ${PROXPL_RUN_VIEWLET_ID}`,
+	when: ContextKeyExpr.equals('viewContainer', PROXPL_RUN_VIEWLET_ID),
 	group: '1_proxpl',
 	order: 2,
 });
 
 MenuRegistry.appendMenuItem(MenuId.ViewContainerTitleContext, {
 	command: { id: 'proxpl.debugFile', title: localize('proxplDebugMenu', 'Debug ProXPL') },
-	when: `viewContainer == ${PROXPL_RUN_VIEWLET_ID}`,
+	when: ContextKeyExpr.equals('viewContainer', PROXPL_RUN_VIEWLET_ID),
 	group: '1_proxpl',
 	order: 3,
 });

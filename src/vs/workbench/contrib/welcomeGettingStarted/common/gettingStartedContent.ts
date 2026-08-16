@@ -118,6 +118,16 @@ export const startEntries: GettingStartedStartEntryContent = [
 		}
 	},
 	{
+		id: 'welcome.createNewProject',
+		title: localize('gettingStarted.newProject.title', "Create New Project..."),
+		description: localize('gettingStarted.newProject.description', "Create a new project workspace with templates and configurations."),
+		icon: Codicon.newFolder,
+		content: {
+			type: 'startEntry',
+			command: 'command:welcome.createNewProject',
+		}
+	},
+	{
 		id: 'topLevelOpenMac',
 		title: localize('gettingStarted.openMac.title', "Open..."),
 		description: localize('gettingStarted.openMac.description', "Open a file or folder to start working"),

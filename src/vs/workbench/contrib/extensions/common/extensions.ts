@@ -16,13 +16,20 @@ import { URI } from '../../../../base/common/uri.js';
 import { IView, IViewPaneContainer } from '../../../common/views.js';
 import { RawContextKey } from '../../../../platform/contextkey/common/contextkey.js';
 import { IExtensionsStatus as IExtensionRuntimeStatus } from '../../../services/extensions/common/extensions.js';
-import { IExtensionEditorOptions } from './extensionsInput.js';
+import { IEditorOptions } from '../../../../platform/editor/common/editor.js';
 import { MenuId } from '../../../../platform/actions/common/actions.js';
 import { ProgressLocation } from '../../../../platform/progress/common/progress.js';
 import { Severity } from '../../../../platform/notification/common/notification.js';
 import { IMarkdownString } from '../../../../base/common/htmlContent.js';
 import { localize2 } from '../../../../nls.js';
 import { ExtensionGalleryManifestStatus } from '../../../../platform/extensionManagement/common/extensionGalleryManifest.js';
+
+export interface IExtensionEditorOptions extends IEditorOptions {
+	showPreReleaseVersion?: boolean;
+	tab?: ExtensionEditorTab;
+	feature?: string;
+	sideByside?: boolean;
+}
 
 export const VIEWLET_ID = 'workbench.view.extensions';
 export const EXTENSIONS_CATEGORY = localize2('extensions', "Extensions");

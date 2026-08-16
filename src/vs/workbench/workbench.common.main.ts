@@ -86,8 +86,6 @@ import './services/extensions/common/extensionManifestPropertiesService.js';
 import './services/extensionManagement/common/extensionGalleryService.js';
 import './services/extensionManagement/browser/extensionEnablementService.js';
 import './services/extensionManagement/browser/builtinExtensionsScannerService.js';
-import './services/extensionRecommendations/common/extensionIgnoredRecommendationsService.js';
-import './services/extensionRecommendations/common/workspaceExtensionsConfig.js';
 import './services/extensionManagement/common/extensionFeaturesManagemetService.js';
 import './services/notification/common/notificationService.js';
 import './services/userDataSync/common/userDataSyncUtil.js';
@@ -280,7 +278,6 @@ import './contrib/externalUriOpener/common/externalUriOpener.contribution.js';
 
 // Extensions Management
 import './contrib/extensions/browser/extensions.contribution.js';
-// [Removed for ProX-Code] import './contrib/extensions/browser/extensionsViewlet.js';
 
 // Output View
 import './contrib/output/browser/output.contribution.js';
@@ -346,6 +343,7 @@ import './contrib/welcomeGettingStarted/browser/gettingStarted.contribution.js';
 import './contrib/welcomeWalkthrough/browser/walkThrough.contribution.js';
 import './contrib/welcomeViews/common/viewsWelcome.contribution.js';
 import './contrib/welcomeViews/common/newFile.contribution.js';
+import './contrib/welcomeViews/common/newProject.contribution.js';
 
 // Call Hierarchy
 import './contrib/callHierarchy/browser/callHierarchy.contribution.js';
@@ -399,9 +397,6 @@ import './contrib/list/browser/list.contribution.js';
 
 // Accessibility Signals
 import './contrib/accessibilitySignals/browser/accessibilitySignal.contribution.js';
-
-// Bracket Pair Colorizer 2 Telemetry
-// [Removed for ProX-Code] import './contrib/bracketPairColorizer2Telemetry/browser/bracketPairColorizer2Telemetry.contribution.js';
 
 // Accessibility
 import './contrib/accessibility/browser/accessibility.contribution.js';

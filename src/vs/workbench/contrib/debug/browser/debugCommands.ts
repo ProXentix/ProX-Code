@@ -32,9 +32,6 @@ import { ActiveEditorContext, PanelFocusContext, ResourceContextKey } from '../.
 import { ViewContainerLocation } from '../../../common/views.js';
 import { IEditorService } from '../../../services/editor/common/editorService.js';
 import { IPaneCompositePartService } from '../../../services/panecomposite/browser/panecomposite.js';
-import { IViewsService } from '../../../services/views/common/viewsService.js';
-
-import { IExtensionsWorkbenchService } from '../../extensions/common/extensions.js';
 import { TEXT_FILE_EDITOR_ID } from '../../files/common/files.js';
 import { CONTEXT_BREAKPOINT_INPUT_FOCUSED, CONTEXT_BREAKPOINTS_FOCUSED, CONTEXT_DEBUG_STATE, CONTEXT_DEBUGGERS_AVAILABLE, CONTEXT_DISASSEMBLY_VIEW_FOCUS, CONTEXT_EXPRESSION_SELECTED, CONTEXT_FOCUSED_SESSION_IS_ATTACH, CONTEXT_IN_DEBUG_MODE, CONTEXT_IN_DEBUG_REPL, CONTEXT_JUMP_TO_CURSOR_SUPPORTED, CONTEXT_STEP_INTO_TARGETS_SUPPORTED, CONTEXT_VARIABLES_FOCUSED, CONTEXT_WATCH_EXPRESSIONS_FOCUSED, DataBreakpointSetType, EDITOR_CONTRIBUTION_ID, getStateLabel, IConfig, IDataBreakpointInfoResponse, IDebugConfiguration, IDebugEditorContribution, IDebugService, IDebugSession, IEnablement, IExceptionBreakpoint, isFrameDeemphasized, IStackFrame, IThread, REPL_VIEW_ID, State, VIEWLET_ID } from '../common/debug.js';
 import { Breakpoint, DataBreakpoint, Expression, FunctionBreakpoint, Thread, Variable } from '../common/debugModel.js';
@@ -966,21 +963,6 @@ KeybindingsRegistry.registerCommandAndKeybindingRule({
 				debugService.removeDataBreakpoints(element.getId());
 			}
 		}
-	}
-});
-
-KeybindingsRegistry.registerCommandAndKeybindingRule({
-	id: 'debug.installAdditionalDebuggers',
-	weight: KeybindingWeight.WorkbenchContrib,
-	when: undefined,
-	primary: undefined,
-	handler: async (accessor, query: string) => {
-		const extensionsWorkbenchService = accessor.get(IExtensionsWorkbenchService);
-		let searchFor = `@category:debuggers`;
-		if (typeof query === 'string') {
-			searchFor += ` ${query}`;
-		}
-		return extensionsWorkbenchService.openSearch(searchFor);
 	}
 });
 

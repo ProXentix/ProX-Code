@@ -583,25 +583,32 @@ class ExtensionsScanner extends Disposable {
 	}
 
 	private async scanExtensionsFromLocation(input: ExtensionScannerInput): Promise<IRelaxedScannedExtension[]> {
-		const stat = await this.fileService.resolve(input.location);
-		if (!stat.children?.length) {
+		try {
+			const stat = await this.fileService.resolve(input.location);
+			if (!stat.children?.length) {
+				return [];
+			}
+			const extensions = await Promise.all<IRelaxedScannedExtension | null>(
+				stat.children.map(async c => {
+					if (!c.isDirectory) {
+						return null;
+					}
+					// Do not consider user extension folder starting with `.`
+					if (input.type === ExtensionType.User && basename(c.resource).indexOf('.') === 0) {
+						return null;
+					}
+					const extensionScannerInput = new ExtensionScannerInput(c.resource, input.mtime, input.applicationExtensionslocation, input.applicationExtensionslocationMtime, input.profile, input.profileScanOptions, input.type, input.validate, input.productVersion, input.productDate, input.productCommit, input.devMode, input.language, input.translations);
+					return this.scanExtension(extensionScannerInput);
+				}));
+			return coalesce(extensions)
+				// Sort: Make sure extensions are in the same order always. Helps cache invalidation even if the order changes.
+				.sort((a, b) => a.location.path < b.location.path ? -1 : 1);
+		} catch (error) {
+			if (toFileOperationResult(error) !== FileOperationResult.FILE_NOT_FOUND) {
+				this.logService.warn(`Error scanning extensions from location ${input.location.toString()}: ${getErrorMessage(error)}`);
+			}
 			return [];
 		}
-		const extensions = await Promise.all<IRelaxedScannedExtension | null>(
-			stat.children.map(async c => {
-				if (!c.isDirectory) {
-					return null;
-				}
-				// Do not consider user extension folder starting with `.`
-				if (input.type === ExtensionType.User && basename(c.resource).indexOf('.') === 0) {
-					return null;
-				}
-				const extensionScannerInput = new ExtensionScannerInput(c.resource, input.mtime, input.applicationExtensionslocation, input.applicationExtensionslocationMtime, input.profile, input.profileScanOptions, input.type, input.validate, input.productVersion, input.productDate, input.productCommit, input.devMode, input.language, input.translations);
-				return this.scanExtension(extensionScannerInput);
-			}));
-		return coalesce(extensions)
-			// Sort: Make sure extensions are in the same order always. Helps cache invalidation even if the order changes.
-			.sort((a, b) => a.location.path < b.location.path ? -1 : 1);
 	}
 
 	private async scanExtensionsFromProfile(input: ExtensionScannerInput): Promise<IRelaxedScannedExtension[]> {

@@ -65,7 +65,6 @@ import './services/localization/electron-browser/localeService.js';
 import './services/extensions/electron-browser/extensionsScannerService.js';
 import './services/extensionManagement/electron-browser/extensionManagementServerService.js';
 import './services/extensionManagement/electron-browser/extensionGalleryManifestService.js';
-import './services/extensionManagement/electron-browser/extensionTipsService.js';
 import './services/userDataSync/electron-browser/userDataSyncService.js';
 import './services/userDataSync/electron-browser/userDataAutoSyncService.js';
 import './services/timer/electron-browser/timerService.js';
@@ -116,9 +115,6 @@ import './contrib/codeEditor/electron-browser/codeEditor.contribution.js';
 
 // Debug
 import './contrib/debug/electron-browser/extensionHostDebugService.js';
-
-// Extensions Management
-// [Removed for ProX-Code] import './contrib/extensions/electron-browser/extensions.contribution.js';
 
 // Issues
 import './contrib/issue/electron-browser/issue.contribution.js';

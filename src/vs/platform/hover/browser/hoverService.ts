@@ -423,14 +423,9 @@ export class HoverService extends Disposable implements IHoverService {
 		store.add(addDisposableListener(targetElement, EventType.MOUSE_UP, () => {
 			isMouseDown = false;
 		}, true));
-		store.add(addDisposableListener(targetElement, EventType.MOUSE_LEAVE, (e: MouseEvent) => {
+		store.add(addDisposableListener(targetElement, EventType.MOUSE_LEAVE, () => {
 			isMouseDown = false;
-			// HACK: `fromElement` is a non-standard property. Not sure what to replace it with,
-			// `relatedTarget` is NOT equivalent.
-			interface MouseEventWithFrom extends MouseEvent {
-				fromElement: Element | null;
-			}
-			hideHover(false, (e as MouseEventWithFrom).fromElement === targetElement);
+			hideHover(false, true);
 		}, true));
 		store.add(addDisposableListener(targetElement, EventType.MOUSE_OVER, (e: MouseEvent) => {
 			if (hoverPreparation) {
@@ -608,12 +603,13 @@ function eventIsRelatedToTarget(event: UIEvent, target: HTMLElement): boolean {
 	return isHTMLElement(event.target) && getHoverTargetElement(event.target, target) === target;
 }
 
-function getHoverTargetElement(element: HTMLElement, stopElement?: HTMLElement): HTMLElement {
+function getHoverTargetElement(element: HTMLElement, stopElement?: HTMLElement): HTMLElement | null {
 	stopElement = stopElement ?? getWindow(element).document.body;
-	while (!element.hasAttribute('custom-hover') && element !== stopElement) {
-		element = element.parentElement!;
+	let current: HTMLElement | null = element;
+	while (current && !current.hasAttribute('custom-hover') && current !== stopElement) {
+		current = current.parentElement;
 	}
-	return element;
+	return current;
 }
 
 function resolveMouseStyleHoverTarget(target: HTMLElement, e: MouseEvent): IHoverTarget {

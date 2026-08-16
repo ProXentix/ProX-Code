@@ -42,7 +42,6 @@ import { IProductService } from '../../../../platform/product/common/productServ
 import { DomEmitter } from '../../../../base/browser/event.js';
 import { ExtensionIdentifier } from '../../../../platform/extensions/common/extensions.js';
 import { ThemeIcon } from '../../../../base/common/themables.js';
-import { infoIcon } from '../../extensions/browser/extensionsIcons.js';
 import { IOpenerService } from '../../../../platform/opener/common/opener.js';
 import { URI } from '../../../../base/common/uri.js';
 import { mainWindow } from '../../../../base/browser/window.js';

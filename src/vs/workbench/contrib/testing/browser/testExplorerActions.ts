@@ -38,7 +38,6 @@ import { widgetClose } from '../../../../platform/theme/common/iconRegistry.js';
 import { IUriIdentityService } from '../../../../platform/uriIdentity/common/uriIdentity.js';
 import { ViewAction } from '../../../browser/parts/views/viewPane.js';
 import { FocusedViewContext } from '../../../common/contextkeys.js';
-import { IExtensionsWorkbenchService } from '../../extensions/common/extensions.js';
 import { TestExplorerTreeElement, TestItemTreeElement } from './explorerProjections/index.js';
 import * as icons from './icons.js';
 import { TestingExplorerView } from './testingExplorerView.js';
@@ -1670,8 +1669,8 @@ export class SearchForTestExtension extends Action2 {
 		});
 	}
 
-	public async run(accessor: ServicesAccessor) {
-		accessor.get(IExtensionsWorkbenchService).openSearch('@category:"testing"');
+	public async run(_accessor: ServicesAccessor) {
+		// Marketplace searching is disabled in ProX-Code
 	}
 }
 

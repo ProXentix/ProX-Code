@@ -1152,7 +1152,7 @@ export class GettingStartedPage extends EditorPane {
 
 		const startList = this.startList = new GettingStartedIndexList(
 			{
-				title: localize('start', "Start"),
+				title: localize('start', "Let's get started with ProX Code"),
 				klass: 'start-container',
 				limit: 10,
 				renderElement: renderStartEntry,
