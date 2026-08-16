@@ -54,11 +54,31 @@ Registry.add(Extensions.ModesRegistry, ModesRegistry);
 export const PLAINTEXT_LANGUAGE_ID = 'plaintext';
 export const PLAINTEXT_EXTENSION = '.txt';
 
+export const MARKDOWN_LANGUAGE_ID = 'markdown';
+export const MARKDOWN_EXTENSION = '.md';
+
+export const PXCF_LANGUAGE_ID = 'pxcf';
+export const PXCF_EXTENSION = '.pxcf';
+
 ModesRegistry.registerLanguage({
 	id: PLAINTEXT_LANGUAGE_ID,
 	extensions: [PLAINTEXT_EXTENSION],
 	aliases: [nls.localize('plainText.alias', "Plain Text"), 'text'],
 	mimetypes: [Mimes.text]
+});
+
+ModesRegistry.registerLanguage({
+	id: MARKDOWN_LANGUAGE_ID,
+	extensions: [MARKDOWN_EXTENSION],
+	aliases: [nls.localize('markdown.alias', "Markdown"), 'md'],
+	mimetypes: ['text/markdown']
+});
+
+ModesRegistry.registerLanguage({
+	id: PXCF_LANGUAGE_ID,
+	extensions: [PXCF_EXTENSION],
+	aliases: [nls.localize('pxcf.alias', "ProX Config File"), 'pxcf'],
+	mimetypes: ['text/x-pxcf']
 });
 
 Registry.as<IConfigurationRegistry>(ConfigurationExtensions.Configuration)
@@ -67,20 +87,6 @@ Registry.as<IConfigurationRegistry>(ConfigurationExtensions.Configuration)
 			'[plaintext]': {
 				'editor.unicodeHighlight.ambiguousCharacters': false,
 				'editor.unicodeHighlight.invisibleCharacters': false
-			},
-			// TODO: Below is a workaround for: https://github.com/ProXentix/ProX-Code/issues/240567
-			'[go]': {
-				'editor.insertSpaces': false
-			},
-			'[makefile]': {
-				'editor.insertSpaces': false,
-			},
-			'[shellscript]': {
-				'files.eol': '\n'
-			},
-			'[yaml]': {
-				'editor.insertSpaces': true,
-				'editor.tabSize': 2
 			}
 		}
 	}]);

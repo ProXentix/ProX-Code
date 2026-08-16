@@ -37,7 +37,9 @@ export class ConfigureLanguageBasedSettingsAction extends Action {
 	}
 
 	override async run(): Promise<void> {
-		const languages = this.languageService.getSortedRegisteredLanguageNames();
+		const ALLOWED_PICKER_LANGUAGE_IDS = new Set(['proxpl', 'pxcf', 'markdown', 'plaintext']);
+		const languages = this.languageService.getSortedRegisteredLanguageNames()
+			.filter(({ languageId }) => ALLOWED_PICKER_LANGUAGE_IDS.has(languageId));
 		const picks: IQuickPickItem[] = languages.map(({ languageName, languageId }): IQuickPickItem => {
 			const description: string = nls.localize('languageDescriptionConfigured', "({0})", languageId);
 			// construct a fake resource to be able to show nice icons if any

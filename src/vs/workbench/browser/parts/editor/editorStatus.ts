@@ -1185,8 +1185,10 @@ export class ChangeLanguageAction extends Action2 {
 			hasLanguageSupport = false; // no configuration for untitled resources (e.g. "Untitled-1")
 		}
 
-		// All languages are valid picks
-		const languages = languageService.getSortedRegisteredLanguageNames();
+		// Only show ProX-relevant languages in the picker
+		const ALLOWED_PICKER_LANGUAGE_IDS = new Set(['proxpl', 'pxcf', 'markdown', 'plaintext']);
+		const languages = languageService.getSortedRegisteredLanguageNames()
+			.filter(({ languageId }) => ALLOWED_PICKER_LANGUAGE_IDS.has(languageId));
 		const picks: QuickPickInput[] = languages
 			.map(({ languageName, languageId }) => {
 				const extensions = languageService.getExtensions(languageId).join(' ');
@@ -1350,7 +1352,9 @@ export class ChangeLanguageAction extends Action2 {
 		const base = basename(resource);
 		const currentAssociation = languageService.guessLanguageIdByFilepathOrFirstLine(URI.file(base));
 
-		const languages = languageService.getSortedRegisteredLanguageNames();
+		const ALLOWED_PICKER_LANGUAGE_IDS = new Set(['proxpl', 'pxcf', 'markdown', 'plaintext']);
+		const languages = languageService.getSortedRegisteredLanguageNames()
+			.filter(({ languageId }) => ALLOWED_PICKER_LANGUAGE_IDS.has(languageId));
 		const picks: IQuickPickItem[] = languages.map(({ languageName, languageId }) => {
 			return {
 				id: languageId,

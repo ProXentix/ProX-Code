@@ -16,10 +16,7 @@
     "languages": [
       {
         "id": "diff",
-        "aliases": [
-          "Diff",
-          "diff"
-        ],
+        "aliases": [],
         "extensions": [
           ".diff",
           ".patch",

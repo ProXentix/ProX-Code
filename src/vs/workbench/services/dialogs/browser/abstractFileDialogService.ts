@@ -343,7 +343,9 @@ export abstract class AbstractFileDialogService implements IFileDialogService {
 		const ext: string | undefined = defaultUri ? resources.extname(defaultUri) : undefined;
 		let matchingFilter: IFilter | undefined;
 
-		const registeredLanguageNames = this.languageService.getSortedRegisteredLanguageNames();
+		const ALLOWED_DIALOG_LANGUAGE_IDS = new Set(['proxpl', 'pxcf', 'markdown', 'plaintext']);
+		const registeredLanguageNames = this.languageService.getSortedRegisteredLanguageNames()
+			.filter(({ languageId }) => ALLOWED_DIALOG_LANGUAGE_IDS.has(languageId));
 		const registeredLanguageFilters: IFilter[] = coalesce(registeredLanguageNames.map(({ languageName, languageId }) => {
 			const extensions = this.languageService.getExtensions(languageId);
 			if (!extensions.length) {
