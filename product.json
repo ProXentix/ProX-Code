@@ -33,38 +33,7 @@
 	"nodejsRepository": "https://nodejs.org",
 	"urlProtocol": "prox-code",
 	"webviewContentExternalBaseUrlTemplate": "https://{{uuid}}.prox-code-cdn.net/insider/ef65ac1ba57f57f2a3961bfe94aa20481caca4c6/out/vs/workbench/contrib/webview/browser/pre/",
-	"builtInExtensions": [
-		{
-			"name": "git-base",
-			"version": "1.0.0",
-			"repo": "https://github.com/ProXentix/ProX-Code",
-			"metadata": {
-				"id": "vscode.git-base",
-				"publisherId": {
-					"publisherId": "vscode",
-					"publisherName": "vscode",
-					"displayName": "Visual Studio Code",
-					"flags": ""
-				},
-				"publisherDisplayName": "Visual Studio Code"
-			}
-		},
-		{
-			"name": "git",
-			"version": "1.0.0",
-			"repo": "https://github.com/ProXentix/ProX-Code",
-			"metadata": {
-				"id": "vscode.git",
-				"publisherId": {
-					"publisherId": "vscode",
-					"publisherName": "vscode",
-					"displayName": "Visual Studio Code",
-					"flags": ""
-				},
-				"publisherDisplayName": "Visual Studio Code"
-			}
-		}
-	],
+	"builtInExtensions": [],
 	"extensionsGallery": null,
 	"providerUriSetting": "github-enterprise.uri",
 	"providerScopes": [

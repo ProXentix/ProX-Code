@@ -71,9 +71,13 @@ function isUpToDate(extension: IExtensionDefinition): boolean {
 
 function getExtensionDownloadStream(extension: IExtensionDefinition) {
 	let input: Stream;
+	const localExtensionPath = path.join(root, 'extensions', extension.name);
 
 	if (extension.vsix) {
 		input = ext.fromVsix(path.join(root, extension.vsix), extension);
+	} else if (fs.existsSync(path.join(localExtensionPath, 'package.json'))) {
+		log('[extensions]', `${extension.name}@${extension.version} using local extension source`, ansiColors.yellow('↩'));
+		input = vfs.src(['**'], { cwd: localExtensionPath, dot: true });
 	} else if (productjson.extensionsGallery?.serviceUrl) {
 		input = ext.fromMarketplace(productjson.extensionsGallery.serviceUrl, extension);
 	} else {
