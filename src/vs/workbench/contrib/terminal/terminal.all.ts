@@ -7,11 +7,6 @@
 import './browser/terminal.contribution.js';
 
 // Misc extensions to the workbench contribution
-
-// Primary workbench contribution
-import './browser/terminal.contribution.js';
-
-// Misc extensions to the workbench contribution
 import './common/environmentVariable.contribution.js';
 import './common/terminalExtensionPoints.contribution.js';
 import './browser/terminalView.js';
@@ -31,6 +26,7 @@ import '../terminalContrib/zoom/browser/terminal.zoom.contribution.js';
 import '../terminalContrib/stickyScroll/browser/terminal.stickyScroll.contribution.js';
 import '../terminalContrib/quickAccess/browser/terminal.quickAccess.contribution.js';
 import '../terminalContrib/quickFix/browser/terminal.quickFix.contribution.js';
+import '../terminalContrib/suggest/browser/terminal.suggest.contribution.js';
 import '../terminalContrib/typeAhead/browser/terminal.typeAhead.contribution.js';
 import '../terminalContrib/resizeDimensionsOverlay/browser/terminal.resizeDimensionsOverlay.contribution.js';
 import '../terminalContrib/sendSequence/browser/terminal.sendSequence.contribution.js';

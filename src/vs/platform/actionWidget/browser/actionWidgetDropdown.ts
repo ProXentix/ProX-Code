@@ -62,6 +62,8 @@ export class ActionWidgetDropdown extends BaseDropdown {
 			return;
 		}
 
+		super.show();
+
 		const actions = this._options.actionProvider ? this._options.actionProvider.getActions() : this._options.actions ?? [];
 		const actionWidgetItems: IActionListItem<IActionWidgetDropdownAction>[] = [];
 		const actionBarActions = this._options.actionBarActions ?? (this._options.actionBarActionProvider ? this._options.actionBarActionProvider.getActions() : []);
@@ -132,9 +134,9 @@ export class ActionWidgetDropdown extends BaseDropdown {
 
 
 		const actionWidgetDelegate: IActionListDelegate<IActionWidgetDropdownAction> = {
-			onSelect: (action, preview) => {
+			onSelect: async (action, _preview) => {
 				this.actionWidgetService.hide();
-				action.run();
+				await action.run();
 			},
 			onHide: () => {
 				super.hide();
@@ -183,5 +185,8 @@ export class ActionWidgetDropdown extends BaseDropdown {
 
 	setEnabled(enabled: boolean): void {
 		this.enabled = enabled;
+		if (!enabled) {
+			this.hide();
+		}
 	}
 }
