@@ -4,78 +4,28 @@
  *--------------------------------------------------------------------------------------------*/
 
 import * as vscode from 'vscode';
-import TelemetryReporter from '@vscode/extension-telemetry';
-import { getExperimentationService, IExperimentationService, IExperimentationTelemetry, TargetPopulation } from 'vscode-tas-client';
 
-export class ExperimentationTelemetry implements IExperimentationTelemetry {
+export class ExperimentationTelemetry {
 	private sharedProperties: Record<string, string> = {};
-	private experimentationServicePromise: Promise<IExperimentationService> | undefined;
 
-	constructor(private readonly context: vscode.ExtensionContext, private baseReporter: TelemetryReporter) { }
+	constructor(_context?: vscode.ExtensionContext) { }
 
-	private async createExperimentationService(): Promise<IExperimentationService> {
-		let targetPopulation: TargetPopulation;
-		switch (vscode.env.uriScheme) {
-			case 'vscode':
-				targetPopulation = TargetPopulation.Public;
-				break;
-			case 'vscode-insiders':
-				targetPopulation = TargetPopulation.Insiders;
-				break;
-			case 'vscode-exploration':
-				targetPopulation = TargetPopulation.Internal;
-				break;
-			case 'prox-code':
-				targetPopulation = TargetPopulation.Team;
-				break;
-			default:
-				targetPopulation = TargetPopulation.Public;
-				break;
-		}
-
-		const id = this.context.extension.id;
-		const version = this.context.extension.packageJSON.version;
-		const experimentationService = getExperimentationService(id, version, targetPopulation, this, this.context.globalState);
-		await experimentationService.initialFetch;
-		return experimentationService;
+	/**
+	 * Sends telemetry event safely without requiring external Microsoft telemetry packages.
+	 */
+	sendTelemetryEvent(_eventName: string, _properties?: Record<string, string>, _measurements?: Record<string, number>): void {
+		// In ProX-Code, telemetry is handled locally or disabled
 	}
 
 	/**
-	 * @returns A promise that you shouldn't need to await because this is just telemetry.
+	 * Sends telemetry error event.
 	 */
-	async sendTelemetryEvent(eventName: string, properties?: Record<string, string>, measurements?: Record<string, number>) {
-		if (!this.experimentationServicePromise) {
-			this.experimentationServicePromise = this.createExperimentationService();
-		}
-		await this.experimentationServicePromise;
-
-		this.baseReporter.sendTelemetryEvent(
-			eventName,
-			{
-				...this.sharedProperties,
-				...properties,
-			},
-			measurements,
-		);
-	}
-
-	/**
-	 * @returns A promise that you shouldn't need to await because this is just telemetry.
-	 */
-	async sendTelemetryErrorEvent(
-		eventName: string,
-		properties?: Record<string, string>,
+	sendTelemetryErrorEvent(
+		_eventName: string,
+		_properties?: Record<string, string>,
 		_measurements?: Record<string, number>
-	) {
-		if (!this.experimentationServicePromise) {
-			this.experimentationServicePromise = this.createExperimentationService();
-		}
-		await this.experimentationServicePromise;
-
-		this.baseReporter.sendTelemetryErrorEvent(eventName, {
-			...this.sharedProperties,
-			...properties,
-		});
+	): void {
+		// In ProX-Code, telemetry is handled locally or disabled
 	}
 
 	setSharedProperty(name: string, value: string): void {
@@ -90,7 +40,7 @@ export class ExperimentationTelemetry implements IExperimentationTelemetry {
 		this.sendTelemetryEvent(eventName, event);
 	}
 
-	dispose(): Promise<any> {
-		return this.baseReporter.dispose();
+	dispose(): void {
+		// No-op cleanup
 	}
 }

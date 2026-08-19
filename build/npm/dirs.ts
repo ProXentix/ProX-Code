@@ -16,6 +16,7 @@ export const dirs = [
 	'extensions/configuration-editing',
 	'extensions/git',
 	'extensions/git-base',
+	'extensions/github-authentication',
 	'extensions/json-language-features',
 	'extensions/json-language-features/server',
 	'extensions/markdown-language-features',
