@@ -257,7 +257,7 @@ registerAction2(class ToggleEditorActions extends Action2 {
 
 // --- Toolbar actions --- //
 
-export const ACCOUNTS_ACTIVITY_TILE_ACTION: IAction = {
+export const ACCOUNTS_ACTIVITY_TITLE_ACTION: IAction = {
 	id: ACCOUNTS_ACTIVITY_ID,
 	label: localize('accounts', "Accounts"),
 	tooltip: localize('accounts', "Accounts"),
