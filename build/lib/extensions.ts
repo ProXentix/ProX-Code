@@ -317,8 +317,7 @@ export function fromGithub({ name, version, repo, sha256, metadata }: IExtension
  * All extensions that are known to have some native component and thus must be built on the
  * platform that is being built.
  */
-const nativeExtensions = [
-	'microsoft-authentication',
+const nativeExtensions: string[] = [
 ];
 
 const excludedExtensions = [
@@ -433,7 +432,7 @@ function doPackageLocalExtensionsStream(forWeb: boolean, disableMangle: boolean,
 			.filter(({ name }) => excludedExtensions.indexOf(name) === -1)
 			.filter(({ name }) => builtInExtensions.every(b => b.name !== name))
 			.filter(({ manifestPath }) => (forWeb ? isWebExtension(require(manifestPath)) : true))
-			.filter(({ name }) => ['proxpl', 'theme-defaults', 'prox-icons', 'json', 'json-language-features', 'git', 'git-base'].includes(name))
+			.filter(({ name }) => ['proxpl', 'theme-defaults', 'prox-icons', 'json', 'json-language-features', 'git', 'git-base', 'github-authentication'].includes(name))
 	);
 
 	const localExtensionsStream = es.merge(

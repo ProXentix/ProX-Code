@@ -377,46 +377,6 @@ MenuRegistry.appendMenuItem(MenuId.MenubarFileMenu, {
 });
 
 MenuRegistry.appendMenuItem(MenuId.MenubarFileMenu, {
-	group: '2_open',
-	command: {
-		id: OpenWorkspaceAction.ID,
-		title: localize({ key: 'miOpenWorkspace', comment: ['&& denotes a mnemonic'] }, "Open Wor&&kspace from File...")
-	},
-	order: 3,
-	when: EnterMultiRootWorkspaceSupportContext
-});
-
-MenuRegistry.appendMenuItem(MenuId.MenubarFileMenu, {
-	group: '3_workspace',
-	command: {
-		id: ADD_ROOT_FOLDER_COMMAND_ID,
-		title: localize({ key: 'miAddFolderToWorkspace', comment: ['&& denotes a mnemonic'] }, "A&&dd Folder to Workspace...")
-	},
-	when: ContextKeyExpr.or(EnterMultiRootWorkspaceSupportContext, WorkbenchStateContext.isEqualTo('workspace')),
-	order: 1
-});
-
-MenuRegistry.appendMenuItem(MenuId.MenubarFileMenu, {
-	group: '3_workspace',
-	command: {
-		id: SaveWorkspaceAsAction.ID,
-		title: localize('miSaveWorkspaceAs', "Save Workspace As...")
-	},
-	order: 2,
-	when: EnterMultiRootWorkspaceSupportContext
-});
-
-MenuRegistry.appendMenuItem(MenuId.MenubarFileMenu, {
-	group: '3_workspace',
-	command: {
-		id: DuplicateWorkspaceInNewWindowAction.ID,
-		title: localize('duplicateWorkspace', "Duplicate Workspace")
-	},
-	order: 3,
-	when: EnterMultiRootWorkspaceSupportContext
-});
-
-MenuRegistry.appendMenuItem(MenuId.MenubarFileMenu, {
 	group: '6_close',
 	command: {
 		id: CloseWorkspaceAction.ID,

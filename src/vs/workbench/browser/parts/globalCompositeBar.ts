@@ -44,6 +44,7 @@ import { KeyCode } from '../../../base/common/keyCodes.js';
 import { ACTIVITY_BAR_BADGE_BACKGROUND, ACTIVITY_BAR_BADGE_FOREGROUND } from '../../common/theme.js';
 import { IBaseActionViewItemOptions } from '../../../base/browser/ui/actionbar/actionViewItems.js';
 import { ICommandService } from '../../../platform/commands/common/commands.js';
+import { IDialogService } from '../../../platform/dialogs/common/dialogs.js';
 
 export class GlobalCompositeBar extends Disposable {
 
@@ -285,7 +286,8 @@ export class AccountsActivityActionViewItem extends AbstractGlobalActivityAction
 		@ILogService private readonly logService: ILogService,
 		@IActivityService activityService: IActivityService,
 		@IInstantiationService instantiationService: IInstantiationService,
-		@ICommandService private readonly commandService: ICommandService
+		@ICommandService private readonly commandService: ICommandService,
+		@IDialogService private readonly dialogService: IDialogService
 	) {
 		const action = instantiationService.createInstance(CompositeBarAction, {
 			id: ACCOUNTS_ACTIVITY_ID,
@@ -481,6 +483,40 @@ export class AccountsActivityActionViewItem extends AbstractGlobalActivityAction
 					const providerSubMenu = new SubmenuAction('activitybar.submenu', `${account.label} (${provider.label})`, providerSubMenuActions);
 					menus.push(providerSubMenu);
 				}
+			}
+
+			const signInGitHubAction = toAction({
+				id: 'signInWithGitHub',
+				label: localize('signInWithGitHub', "Sign in with GitHub..."),
+				enabled: true,
+				run: async () => {
+					try {
+						await this.authenticationService.createSession('github', ['read:user', 'user:email']);
+					} catch (e) {
+						this.logService.error(e);
+					}
+				}
+			});
+
+			const signInProXIdAction = toAction({
+				id: 'signInWithProXId',
+				label: localize('signInWithProXId', "Login with ProX-ID"),
+				enabled: true,
+				run: async () => {
+					await this.dialogService.info(
+						localize('proxIdDialogTitle', "ProX-ID Authentication"),
+						localize('proxIdDialogDetail', "Ye service abhi active nahi hai (Coming Soon...)\n\nProX-ID authentication is currently under development and will be available soon.")
+					);
+				}
+			});
+
+			if (menus.length === 0) {
+				menus.push(signInGitHubAction);
+				menus.push(signInProXIdAction);
+			} else {
+				menus.push(new Separator());
+				menus.push(signInGitHubAction);
+				menus.push(signInProXIdAction);
 			}
 		}
 
@@ -680,7 +716,8 @@ export class SimpleAccountActivityActionViewItem extends AccountsActivityActionV
 		@ILogService logService: ILogService,
 		@IActivityService activityService: IActivityService,
 		@IInstantiationService instantiationService: IInstantiationService,
-		@ICommandService commandService: ICommandService
+		@ICommandService commandService: ICommandService,
+		@IDialogService dialogService: IDialogService
 	) {
 		super(() => simpleActivityContextMenuActions(storageService, true),
 			{
@@ -691,7 +728,7 @@ export class SimpleAccountActivityActionViewItem extends AccountsActivityActionV
 				}),
 				hoverOptions,
 				compact: true,
-			}, () => undefined, actions => actions, themeService, lifecycleService, hoverService, contextMenuService, menuService, contextKeyService, authenticationService, environmentService, productService, configurationService, keybindingService, secretStorageService, logService, activityService, instantiationService, commandService);
+			}, () => undefined, actions => actions, themeService, lifecycleService, hoverService, contextMenuService, menuService, contextKeyService, authenticationService, environmentService, productService, configurationService, keybindingService, secretStorageService, logService, activityService, instantiationService, commandService, dialogService);
 	}
 }
 
