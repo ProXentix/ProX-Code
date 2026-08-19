@@ -16,6 +16,10 @@ if not exist "%NODE%" (
 	call npm run gulp node
 )
 
+if not exist "%NODE%" (
+	SET NODE=node
+)
+
 :: Launch Server
 call "%NODE%" scripts\code-web.js %*
 

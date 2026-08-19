@@ -16,6 +16,7 @@ export interface IFetchOptions {
 	nodeFetchOptions?: RequestInit;
 	verbose?: boolean;
 	checksumSha256?: string;
+	timeout?: number;
 }
 
 export function fetchUrls(urls: string[] | string, options: IFetchOptions): es.ThroughStream {
@@ -50,7 +51,8 @@ export async function fetchUrl(url: string, options: IFetchOptions, retries = 10
 			startTime = new Date().getTime();
 		}
 		const controller = new AbortController();
-		const timeout = setTimeout(() => controller.abort(), 30 * 1000);
+		const timeoutDuration = options.timeout ?? (300 * 1000);
+		const timeout = setTimeout(() => controller.abort(), timeoutDuration);
 		try {
 			const response = await fetch(url, {
 				...options.nodeFetchOptions,

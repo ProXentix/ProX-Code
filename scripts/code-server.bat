@@ -24,10 +24,14 @@ if not exist "%NODE%" (
 	call npm run gulp node
 )
 
+if not exist "%NODE%" (
+	SET NODE=node
+)
+
 popd
 
 :: Launch Server
-call "%NODE%" %ROOT_DIR%\scripts\code-server.js %*
+call "%NODE%" "%ROOT_DIR%\scripts\code-server.js" %*
 
 
 endlocal

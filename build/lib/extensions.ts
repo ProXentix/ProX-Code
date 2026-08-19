@@ -562,6 +562,10 @@ const esbuildMediaScripts: string[] = [
 ];
 
 export async function webpackExtensions(taskName: string, isWatch: boolean, webpackConfigLocations: { configPath: string; outputRoot?: string }[]) {
+	if (webpackConfigLocations.length === 0) {
+		return;
+	}
+
 	const webpack = require('webpack') as typeof import('webpack');
 
 	const webpackConfigs: webpack.Configuration[] = [];

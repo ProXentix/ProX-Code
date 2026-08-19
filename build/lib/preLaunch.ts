@@ -42,10 +42,17 @@ async function ensureCompiled() {
 	}
 }
 
+async function ensureExtensionsCompiled() {
+	if (!(await exists('extensions/git/out')) || !(await exists('extensions/git-base/out'))) {
+		await runProcess(npm, ['run', 'gulp', 'compile-extensions']);
+	}
+}
+
 async function main() {
 	await ensureNodeModules();
 	await getElectron();
 	await ensureCompiled();
+	await ensureExtensionsCompiled();
 
 	// Can't require this until after dependencies are installed
 	const { getBuiltInExtensions } = await import('./builtInExtensions.ts');
