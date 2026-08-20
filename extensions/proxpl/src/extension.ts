@@ -7,6 +7,9 @@ import {
     ServerOptions,
     TransportKind
 } from 'vscode-languageclient/node';
+import { ProjectService } from './services/projectService';
+import { ExecutionService } from './services/executionService';
+import { RunPanelProvider } from './ui/RunPanelProvider';
 
 let client: LanguageClient;
 
@@ -49,6 +52,15 @@ export function activate(context: vscode.ExtensionContext) {
 
     client.start();
 
+    // --- PROXPL RUN Panel ---
+    const projectService = new ProjectService(context);
+    const executionService = new ExecutionService();
+    projectService.initialize();
+
+    const runPanelProvider = new RunPanelProvider(context.extensionUri, projectService, executionService);
+    context.subscriptions.push(
+        vscode.window.registerWebviewViewProvider(RunPanelProvider.viewType, runPanelProvider)
+    );
 
     // 1. Code Runner Command — proxpl.run
     //    Priority:

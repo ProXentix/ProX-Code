@@ -76,7 +76,10 @@ export class ContextMenuHandler {
 					this.block.style.zIndex = '-1';
 
 					this.blockDisposable?.dispose();
-					this.blockDisposable = addDisposableListener(this.block, EventType.MOUSE_DOWN, e => e.stopPropagation());
+					this.blockDisposable = addDisposableListener(this.block, EventType.MOUSE_DOWN, e => {
+						e.stopPropagation();
+						this.contextViewService.hideContextView(true);
+					});
 				}
 
 				const menuDisposables = new DisposableStore();
@@ -119,7 +122,7 @@ export class ContextMenuHandler {
 					}
 
 					this.contextViewService.hideContextView(true);
-				}));
+				}, true));
 
 				return combinedDisposable(menuDisposables, menu);
 			},

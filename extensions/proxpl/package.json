@@ -37,6 +37,15 @@
     "vscode-languageclient": "^10.1.0"
   },
   "contributes": {
+    "views": {
+      "workbench.view.proxpl.run": [
+        {
+          "type": "webview",
+          "id": "proxpl.runView.main",
+          "name": "Project Settings"
+        }
+      ]
+    },
     "languages": [
       {
         "id": "proxpl",

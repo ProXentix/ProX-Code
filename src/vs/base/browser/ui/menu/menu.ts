@@ -3,7 +3,6 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import { isFirefox } from '../../browser.js';
 import { EventType as TouchEventType, Gesture } from '../../touch.js';
 import { $, addDisposableListener, append, clearNode, Dimension, EventHelper, EventLike, EventType, getActiveElement, getWindow, IDomNodePagePosition, isAncestor, isInShadowDOM } from '../../dom.js';
 import { createStyleSheet } from '../../domStylesheets.js';
@@ -459,7 +458,7 @@ class BaseMenuActionViewItem extends BaseActionViewItem {
 			icon: options.icon !== undefined ? options.icon : false,
 			label: options.label !== undefined ? options.label : true,
 		};
-		super(action, action, options);
+		super(ctx, action, options);
 
 		this.options = options;
 		this.cssClass = '';
@@ -482,45 +481,31 @@ class BaseMenuActionViewItem extends BaseActionViewItem {
 			}
 
 			this._register(addDisposableListener(this.element, EventType.MOUSE_UP, e => {
-				// removed default prevention as it conflicts
-				// with BaseActionViewItem #101537
-				// add back if issues arise and link new issue
 				EventHelper.stop(e, true);
 
-				// See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Interact_with_the_clipboard
-				// > Writing to the clipboard
-				// > You can use the "cut" and "copy" commands without any special
-				// permission if you are using them in a short-lived event handler
-				// for a user action (for example, a click handler).
-
-				// => to get the Copy and Paste context menu actions working on Firefox,
-				// there should be no timeout here
-				if (isFirefox) {
-					const mouseEvent = new StandardMouseEvent(getWindow(this.element), e);
-
-					// Allowing right click to trigger the event causes the issue described below,
-					// but since the solution below does not work in FF, we must disable right click
-					if (mouseEvent.rightButton) {
-						return;
-					}
-
-					this.onClick(e);
+				const mouseEvent = new StandardMouseEvent(getWindow(this.element!), e);
+				if (mouseEvent.rightButton) {
+					return;
 				}
 
-				// In all other cases, set timeout to allow context menu cancellation to trigger
-				// otherwise the action will destroy the menu and a second context menu
-				// will still trigger for right click.
-				else {
-					setTimeout(() => {
-						this.onClick(e);
-					}, 0);
+				this.onClick(e);
+			}));
+
+			this._register(addDisposableListener(this.element, EventType.CLICK, e => {
+				EventHelper.stop(e, true);
+
+				const mouseEvent = new StandardMouseEvent(getWindow(this.element!), e);
+				if (mouseEvent.rightButton) {
+					return;
 				}
+
+				this.onClick(e);
 			}));
 
 			this._register(addDisposableListener(this.element, EventType.CONTEXT_MENU, e => {
 				EventHelper.stop(e, true);
 			}));
-		}, 100);
+		}, 50);
 
 		this._register(this.runOnceToEnableMouseUp);
 	}
@@ -739,7 +724,7 @@ class SubmenuMenuActionViewItem extends BaseMenuActionViewItem {
 		private submenuOptions: IMenuOptions,
 		menuStyles: IMenuStyles
 	) {
-		super(action, action, submenuOptions, menuStyles);
+		super(submenuOptions.context, action, submenuOptions, menuStyles);
 
 		this.expandDirection = submenuOptions && submenuOptions.expandDirection !== undefined ? submenuOptions.expandDirection : { horizontal: HorizontalDirection.Right, vertical: VerticalDirection.Below };
 

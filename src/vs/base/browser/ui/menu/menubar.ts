@@ -166,7 +166,7 @@ export class MenuBar extends Disposable {
 				}
 				this.setUnfocusedState();
 			}
-		}));
+		}, true));
 
 		this._register(DOM.addDisposableListener(this.container, DOM.EventType.FOCUS_IN, (e) => {
 			const event = e;

@@ -158,6 +158,8 @@ export class GlobalCompositeBar extends Disposable {
 
 abstract class AbstractGlobalActivityActionViewItem extends CompositeBarActionViewItem {
 
+	private lastMenuHideTime = 0;
+
 	constructor(
 		private readonly menuId: MenuId,
 		action: CompositeBarAction,
@@ -235,6 +237,10 @@ abstract class AbstractGlobalActivityActionViewItem extends CompositeBarActionVi
 	}
 
 	private async run(): Promise<void> {
+		if (Date.now() - this.lastMenuHideTime < 50) {
+			return;
+		}
+
 		const disposables = new DisposableStore();
 		const menu = disposables.add(this.menuService.createMenu(this.menuId, this.contextKeyService));
 		const actions = await this.resolveMainMenuActions(menu, disposables);
@@ -245,7 +251,10 @@ abstract class AbstractGlobalActivityActionViewItem extends CompositeBarActionVi
 			anchorAlignment,
 			anchorAxisAlignment,
 			getActions: () => actions,
-			onHide: () => disposables.dispose(),
+			onHide: () => {
+				this.lastMenuHideTime = Date.now();
+				disposables.dispose();
+			},
 			menuActionOptions: { renderShortTitle: true },
 		});
 
