@@ -109,6 +109,7 @@ export interface QuickInputUI {
 	inputContainer: HTMLElement;
 	filterContainer: HTMLElement;
 	inputBox: QuickInputBox;
+	closeButtonContainer: HTMLElement;
 	visibleCountContainer: HTMLElement;
 	visibleCount: CountBadge;
 	countContainer: HTMLElement;

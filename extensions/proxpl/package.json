@@ -36,6 +36,14 @@
   "dependencies": {
     "vscode-languageclient": "^10.1.0"
   },
+  "activationEvents": [
+    "onLanguage:proxpl",
+    "onView:proxpl.runView.main",
+    "onCommand:proxpl.run",
+    "onCommand:proxpl.build",
+    "onCommand:proxpl.debug",
+    "workspaceContains:project.pxcf"
+  ],
   "contributes": {
     "views": {
       "workbench.view.proxpl.run": [

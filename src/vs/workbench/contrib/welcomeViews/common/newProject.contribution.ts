@@ -212,7 +212,7 @@ export class NewProjectManager extends Disposable {
 			cancelBtn.textContent = localize('cancel', "Cancel");
 
 			const finishBtn = dom.append(footer, $('button.new-project-btn.new-project-btn-finish')) as HTMLButtonElement;
-			finishBtn.textContent = localize('finish', "Finish");
+			finishBtn.textContent = localize('create', "Create");
 
 			const closeModal = (result: boolean) => {
 				this.isModalOpen = false;
@@ -314,7 +314,7 @@ export class NewProjectManager extends Disposable {
 								});
 								if (!confirmation.confirmed) {
 									finishBtn.disabled = false;
-									finishBtn.textContent = localize('finish', "Finish");
+									finishBtn.textContent = localize('create', "Create");
 									return;
 								}
 							}
@@ -372,7 +372,7 @@ export class NewProjectManager extends Disposable {
 
 				} catch (err) {
 					finishBtn.disabled = false;
-					finishBtn.textContent = localize('finish', "Finish");
+					finishBtn.textContent = localize('create', "Create");
 					this.notificationService.error(
 						localize('createProjectFailed', "Could not create project: {0}", (err as Error)?.message || String(err))
 					);

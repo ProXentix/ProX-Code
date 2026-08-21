@@ -16,6 +16,8 @@ import Severity from '../../../base/common/severity.js';
 import { isString } from '../../../base/common/types.js';
 import { isModifierKey } from '../../../base/common/keyCodes.js';
 import { localize } from '../../../nls.js';
+import { Codicon } from '../../../base/common/codicons.js';
+import { ThemeIcon } from '../../../base/common/themables.js';
 import { IInputBox, IInputOptions, IKeyMods, IPickOptions, IQuickInput, IQuickInputButton, IQuickNavigateConfiguration, IQuickPick, IQuickPickItem, IQuickWidget, QuickInputHideReason, QuickPickInput, QuickPickFocus, QuickInputType, IQuickTree, IQuickTreeItem } from '../common/quickInput.js';
 import { QuickInputBox } from './quickInputBox.js';
 import { QuickInputUI, Writeable, IQuickInputStyles, IQuickInputOptions, QuickPick, backButton, InputBox, Visibilities, QuickWidget, InQuickInputContextKey, QuickInputTypeContextKey, EndOfQuickInputBoxContextKey, QuickInputAlignmentContextKey } from './quickInput.js';
@@ -185,6 +187,19 @@ export class QuickInputController extends Disposable {
 
 		const inputBox = this._register(new QuickInputBox(filterContainer, this.styles.inputBox, this.styles.toggle));
 		inputBox.setAttribute('aria-describedby', `${this.idPrefix}message`);
+
+		const closeButtonContainer = dom.append(headerContainer, $('.quick-input-close'));
+		closeButtonContainer.style.display = 'flex';
+		closeButtonContainer.style.alignItems = 'center';
+		closeButtonContainer.style.justifyContent = 'center';
+		closeButtonContainer.style.padding = '0 8px';
+		closeButtonContainer.style.cursor = 'pointer';
+		closeButtonContainer.title = localize('quickInput.close', "Close");
+		const closeIcon = dom.append(closeButtonContainer, $('span'));
+		closeIcon.classList.add(...ThemeIcon.asClassNameArray(Codicon.close));
+		this._register(dom.addDisposableListener(closeButtonContainer, dom.EventType.CLICK, () => {
+			this.hide();
+		}));
 
 		const visibleCountContainer = dom.append(filterContainer, $('.quick-input-visible-count'));
 		visibleCountContainer.setAttribute('aria-live', 'polite');
@@ -407,6 +422,7 @@ export class QuickInputController extends Disposable {
 			inputContainer,
 			filterContainer,
 			inputBox,
+			closeButtonContainer,
 			visibleCountContainer,
 			visibleCount,
 			countContainer,
@@ -720,6 +736,7 @@ export class QuickInputController extends Disposable {
 		ui.description2.style.display = visibilities.description && !(visibilities.inputBox || visibilities.checkAll) ? '' : 'none';
 		ui.checkAll.domNode.style.display = visibilities.checkAll ? '' : 'none';
 		ui.inputContainer.style.display = visibilities.inputBox ? '' : 'none';
+		ui.closeButtonContainer.style.display = visibilities.inputBox ? 'flex' : 'none';
 		ui.filterContainer.style.display = visibilities.inputBox ? '' : 'none';
 		ui.visibleCountContainer.style.display = visibilities.visibleCount ? '' : 'none';
 		ui.countContainer.style.display = visibilities.count ? '' : 'none';

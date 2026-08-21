@@ -64,36 +64,36 @@ export function activate(context: vscode.ExtensionContext) {
 
     // 1. Code Runner Command — proxpl.run
     //    Priority:
-    //      a) If a prox.toml exists in the workspace root or active file's ancestor directories → prm run (project mode)
+    //      a) If a project.pxcf exists in the workspace root or active file's ancestor directories → prm run (project mode)
     //      b) If an active .prox / .pxpl file is open → prm run "<path>" (file mode)
     //      c) Otherwise → clear user-facing error
     const runCommand = vscode.commands.registerCommand('proxpl.run', async () => {
         const editor = vscode.window.activeTextEditor;
         const workspaceFolders = vscode.workspace.workspaceFolders;
 
-        // --- Locate prox.toml (project-level run) ---
-        let projecTomlPath: string | undefined;
+        // --- Locate project.pxcf (project-level run) ---
+        let projectConfigPath: string | undefined;
         let projectDir: string | undefined;
 
         // Check workspace root(s) first
         if (workspaceFolders) {
             for (const folder of workspaceFolders) {
-                const candidate = path.join(folder.uri.fsPath, 'prox.toml');
+                const candidate = path.join(folder.uri.fsPath, 'project.pxcf');
                 if (require('fs').existsSync(candidate)) {
-                    projecTomlPath = candidate;
+                    projectConfigPath = candidate;
                     projectDir = folder.uri.fsPath;
                     break;
                 }
             }
         }
 
-        // If no workspace prox.toml, check ancestor dirs of active file
-        if (!projecTomlPath && editor) {
+        // If no workspace project.pxcf, check ancestor dirs of active file
+        if (!projectConfigPath && editor) {
             let dir = path.dirname(editor.document.fileName);
             for (let i = 0; i < 10; i++) {
-                const candidate = path.join(dir, 'prox.toml');
+                const candidate = path.join(dir, 'project.pxcf');
                 if (require('fs').existsSync(candidate)) {
-                    projecTomlPath = candidate;
+                    projectConfigPath = candidate;
                     projectDir = dir;
                     break;
                 }
@@ -104,7 +104,7 @@ export function activate(context: vscode.ExtensionContext) {
         }
 
         // --- Determine run mode ---
-        const isProjectRun = !!projecTomlPath;
+        const isProjectRun = !!projectConfigPath;
         let fileToRun: string | undefined;
 
         if (!isProjectRun) {
@@ -171,7 +171,7 @@ export function activate(context: vscode.ExtensionContext) {
         let projectDir: string | undefined;
         if (workspaceFolders) {
             for (const folder of workspaceFolders) {
-                const candidate = path.join(folder.uri.fsPath, 'prox.toml');
+                const candidate = path.join(folder.uri.fsPath, 'project.pxcf');
                 if (require('fs').existsSync(candidate)) {
                     projectDir = folder.uri.fsPath;
                     break;
@@ -181,7 +181,7 @@ export function activate(context: vscode.ExtensionContext) {
         if (!projectDir && editor) {
             let dir = path.dirname(editor.document.fileName);
             for (let i = 0; i < 10; i++) {
-                if (require('fs').existsSync(path.join(dir, 'prox.toml'))) {
+                if (require('fs').existsSync(path.join(dir, 'project.pxcf'))) {
                     projectDir = dir;
                     break;
                 }
