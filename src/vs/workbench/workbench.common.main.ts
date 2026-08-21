@@ -86,6 +86,8 @@ import './services/extensions/common/extensionManifestPropertiesService.js';
 import './services/extensionManagement/common/extensionGalleryService.js';
 import './services/extensionManagement/browser/extensionEnablementService.js';
 import './services/extensionManagement/browser/builtinExtensionsScannerService.js';
+import './services/extensionRecommendations/common/extensionIgnoredRecommendationsService.js';
+import './services/extensionRecommendations/common/workspaceExtensionsConfig.js';
 import './services/extensionManagement/common/extensionFeaturesManagemetService.js';
 import './services/notification/common/notificationService.js';
 import './services/userDataSync/common/userDataSyncUtil.js';
@@ -113,7 +115,7 @@ import './services/authentication/browser/authenticationQueryService.js';
 import '../platform/hover/browser/hoverService.js';
 import './services/assignment/common/assignmentService.js';
 import './services/outline/browser/outlineService.js';
-import './services/languageDetection/browser/languageDetectionWorkerServiceImpl.js';
+// import './services/languageDetection/browser/languageDetectionWorkerServiceImpl.js';
 
 import '../editor/common/services/languageFeaturesService.js';
 import '../editor/common/services/semanticTokensStylingService.js';
@@ -182,7 +184,7 @@ registerSingleton(IWebWorkerService, WebWorkerService, InstantiationType.Delayed
 import './services/accounts/common/defaultAccount.js';
 
 // Telemetry
-// [Removed for ProX-Code] import './contrib/telemetry/browser/telemetry.contribution.js';
+import './contrib/telemetry/browser/telemetry.contribution.js';
 
 // Preferences
 import './contrib/preferences/browser/preferences.contribution.js';
@@ -243,9 +245,6 @@ import './contrib/debug/browser/callStackEditorContribution.js';
 import './contrib/debug/browser/repl.js';
 import './contrib/debug/browser/debugViewlet.js';
 
-// ProXPL Run — Activity Bar entry (replaces Run & Debug slot)
-import './contrib/proxpl/browser/proxpl.contribution.js';
-
 // Markers
 import './contrib/markers/browser/markers.contribution.js';
 
@@ -278,6 +277,7 @@ import './contrib/externalUriOpener/common/externalUriOpener.contribution.js';
 
 // Extensions Management
 import './contrib/extensions/browser/extensions.contribution.js';
+import './contrib/extensions/browser/extensionsViewlet.js';
 
 // Output View
 import './contrib/output/browser/output.contribution.js';
@@ -296,8 +296,8 @@ import './contrib/relauncher/browser/relauncher.contribution.js';
 import './contrib/tasks/browser/task.contribution.js';
 
 // Remote
-// [Removed for ProX-Code] import './contrib/remote/common/remote.contribution.js';
-// [Removed for ProX-Code] import './contrib/remote/browser/remote.contribution.js';
+import './contrib/remote/common/remote.contribution.js';
+import './contrib/remote/browser/remote.contribution.js';
 
 // Emmet
 // import './contrib/emmet/browser/emmet.contribution.js';
@@ -343,7 +343,6 @@ import './contrib/welcomeGettingStarted/browser/gettingStarted.contribution.js';
 import './contrib/welcomeWalkthrough/browser/walkThrough.contribution.js';
 import './contrib/welcomeViews/common/viewsWelcome.contribution.js';
 import './contrib/welcomeViews/common/newFile.contribution.js';
-import './contrib/welcomeViews/common/newProject.contribution.js';
 
 // Call Hierarchy
 import './contrib/callHierarchy/browser/callHierarchy.contribution.js';
@@ -356,7 +355,7 @@ import './contrib/codeEditor/browser/outline/documentSymbolsOutline.js';
 import './contrib/outline/browser/outline.contribution.js';
 
 // Language Detection
-import './contrib/languageDetection/browser/languageDetection.contribution.js';
+// import './contrib/languageDetection/browser/languageDetection.contribution.js';
 
 
 // Language Status
@@ -398,6 +397,9 @@ import './contrib/list/browser/list.contribution.js';
 // Accessibility Signals
 import './contrib/accessibilitySignals/browser/accessibilitySignal.contribution.js';
 
+// Bracket Pair Colorizer 2 Telemetry
+import './contrib/bracketPairColorizer2Telemetry/browser/bracketPairColorizer2Telemetry.contribution.js';
+
 // Accessibility
 import './contrib/accessibility/browser/accessibility.contribution.js';
 
@@ -414,7 +416,7 @@ import './contrib/inlineCompletions/browser/inlineCompletions.contribution.js';
 import './contrib/dropOrPasteInto/browser/dropOrPasteInto.contribution.js';
 
 // Edit Telemetry
-// [Removed for ProX-Code] import './contrib/editTelemetry/browser/editTelemetry.contribution.js';
+import './contrib/editTelemetry/browser/editTelemetry.contribution.js';
 
 // Opener
 import './contrib/opener/browser/opener.contribution.js';

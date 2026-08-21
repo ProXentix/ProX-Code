@@ -143,7 +143,7 @@ import './contrib/welcomeBanner/browser/welcomeBanner.contribution.js';
 import './contrib/webview/browser/webview.web.contribution.js';
 
 // Extensions Management
-// [Removed for ProX-Code] import './contrib/extensions/browser/extensions.web.contribution.js';
+import './contrib/extensions/browser/extensions.web.contribution.js';
 
 // Terminal
 import './contrib/terminal/browser/terminal.web.contribution.js';
@@ -163,7 +163,7 @@ import './contrib/issue/browser/issue.contribution.js';
 import './contrib/splash/browser/splash.contribution.js';
 
 // Remote Start Entry for the Web
-// [Removed for ProX-Code] import './contrib/remote/browser/remoteStartEntry.contribution.js';
+import './contrib/remote/browser/remoteStartEntry.contribution.js';
 
 // Process Explorer
 import './contrib/processExplorer/browser/processExplorer.web.contribution.js';

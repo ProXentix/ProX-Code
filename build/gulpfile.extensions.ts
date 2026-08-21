@@ -55,6 +55,8 @@ const compilations = [
 	// 'extensions/markdown-math/tsconfig.json',
 	'extensions/media-preview/tsconfig.json',
 	'extensions/merge-conflict/tsconfig.json',
+	'extensions/json-language-features/client/tsconfig.json',
+	'extensions/json-language-features/server/tsconfig.json',
 	'extensions/mermaid-chat-features/tsconfig.json',
 	'extensions/terminal-suggest/tsconfig.json',
 	'extensions/proxpl/tsconfig.json',
