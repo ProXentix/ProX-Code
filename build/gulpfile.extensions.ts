@@ -222,7 +222,7 @@ const bundleMarketplaceExtensionsBuildTask = task.define('bundle-marketplace-ext
  */
 export const compileNonNativeExtensionsBuildTask = task.define('compile-non-native-extensions-build', task.series(
 	bundleMarketplaceExtensionsBuildTask,
-	task.define('bundle-non-native-extensions-build', () => ext.packageNonNativeLocalExtensionsStream(false, false).pipe((es as any).wait(() => console.log('bundle-non-native extensions processed (writing skipped)'))))
+	task.define('bundle-non-native-extensions-build', () => ext.packageNonNativeLocalExtensionsStream(false, false).pipe(gulp.dest('.build')))
 ));
 gulp.task(compileNonNativeExtensionsBuildTask);
 
