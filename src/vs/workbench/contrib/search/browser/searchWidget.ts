@@ -556,7 +556,7 @@ export class SearchWidget extends Widget {
 		this.searchInput?.clearMessage();
 		this.setReplaceAllActionState(false);
 
-		if (this.searchConfiguration.searchOnType) {
+		if (true /* bypass configuration check: this.searchConfiguration.searchOnType */) {
 			if (this.searchInput?.getRegex()) {
 				try {
 					const regex = new RegExp(this.searchInput.getValue(), 'ug');
@@ -575,13 +575,13 @@ export class SearchWidget extends Widget {
 							matchienessHeuristic < 100 ? 5 : // expressions like `.` or `\w`
 								10; // only things matching empty string
 
-
-					this.submitSearch(true, this.searchConfiguration.searchOnTypeDebouncePeriod * delayMultiplier);
+					const delay = (this.searchConfiguration.searchOnTypeDebouncePeriod || 300) * delayMultiplier;
+					this.submitSearch(true, delay);
 				} catch {
 					// pass
 				}
 			} else {
-				this.submitSearch(true, this.searchConfiguration.searchOnTypeDebouncePeriod);
+				this.submitSearch(true, this.searchConfiguration.searchOnTypeDebouncePeriod || 300);
 			}
 		}
 	}

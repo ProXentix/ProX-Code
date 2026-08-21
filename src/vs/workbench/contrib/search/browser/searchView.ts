@@ -1494,7 +1494,8 @@ export class SearchView extends ViewPane {
 	triggerQueryChange(_options?: { preserveFocus?: boolean; triggeredOnType?: boolean; delay?: number }): void {
 		const options = { preserveFocus: true, triggeredOnType: false, delay: 0, ..._options };
 
-		if (options.triggeredOnType && !this.searchConfig.searchOnType) { return; }
+		// Bypass configuration check
+		// if (options.triggeredOnType && !this.searchConfig.searchOnType) { return; }
 
 		if (!this.pauseSearching) {
 

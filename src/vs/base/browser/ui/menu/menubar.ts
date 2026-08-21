@@ -149,21 +149,16 @@ export class MenuBar extends Disposable {
 		}));
 
 		const window = DOM.getWindow(this.container);
-		this._register(DOM.addDisposableListener(window, DOM.EventType.MOUSE_DOWN, (e: MouseEvent) => {
+		this._register(DOM.addDisposableListener(window, DOM.EventType.MOUSE_DOWN, (e) => {
 			// This mouse event is outside the menubar so it counts as a focus out
-			if (this.isFocused) {
-				const target = e.target as HTMLElement | null;
-				if (target) {
-					if (this.container.contains(target)) {
-						return;
-					}
-					if (this.focusedMenu?.holder && this.focusedMenu.holder.contains(target)) {
-						return;
-					}
-					if (target.closest && target.closest('.monaco-menu, .context-view, .menubar-menu-items-holder')) {
-						return;
-					}
-				}
+			if (this.isFocused && !DOM.isAncestor(e.target as HTMLElement, this.container)) {
+				this.setUnfocusedState();
+			}
+		}, true));
+
+		this._register(DOM.addDisposableListener(window, DOM.EventType.POINTER_DOWN, (e) => {
+			// This mouse event is outside the menubar so it counts as a focus out
+			if (this.isFocused && !DOM.isAncestor(e.target as HTMLElement, this.container)) {
 				this.setUnfocusedState();
 			}
 		}, true));
