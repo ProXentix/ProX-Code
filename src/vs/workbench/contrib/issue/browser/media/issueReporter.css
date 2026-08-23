@@ -126,43 +126,43 @@
 /* Font Families (with CJK support) */
 
 .issue-reporter-body .mac.web {
-	font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+	font-family: var(--monaco-monospace-font, -apple-system, BlinkMacSystemFont, sans-serif);
 }
 
 .issue-reporter-body .mac.web:lang(zh-Hans) {
-	font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", sans-serif;
+	font-family: var(--monaco-monospace-font, -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", sans-serif);
 }
 
 .issue-reporter-body .mac.web:lang(zh-Hant) {
-	font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", sans-serif;
+	font-family: var(--monaco-monospace-font, -apple-system, BlinkMacSystemFont, "PingFang TC", sans-serif);
 }
 
 .issue-reporter-body .mac.web:lang(ja) {
-	font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic Pro", sans-serif;
+	font-family: var(--monaco-monospace-font, -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic Pro", sans-serif);
 }
 
 .issue-reporter-body .mac.web:lang(ko) {
-	font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Nanum Gothic", "AppleGothic", sans-serif;
+	font-family: var(--monaco-monospace-font, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Nanum Gothic", "AppleGothic", sans-serif);
 }
 
 .issue-reporter-body .windows.web {
-	font-family: "Segoe WPC", "Segoe UI", sans-serif;
+	font-family: var(--monaco-monospace-font, "Segoe WPC", "Segoe UI", sans-serif);
 }
 
 .issue-reporter-body .windows.web:lang(zh-Hans) {
-	font-family: "Segoe WPC", "Segoe UI", "ProXentix YaHei", sans-serif;
+	font-family: var(--monaco-monospace-font, "Segoe WPC", "Segoe UI", "ProXentix YaHei", sans-serif);
 }
 
 .issue-reporter-body .windows.web:lang(zh-Hant) {
-	font-family: "Segoe WPC", "Segoe UI", "ProXentix Jhenghei", sans-serif;
+	font-family: var(--monaco-monospace-font, "Segoe WPC", "Segoe UI", "ProXentix Jhenghei", sans-serif);
 }
 
 .issue-reporter-body .windows.web:lang(ja) {
-	font-family: "Segoe WPC", "Segoe UI", "Yu Gothic UI", "Meiryo UI", sans-serif;
+	font-family: var(--monaco-monospace-font, "Segoe WPC", "Segoe UI", "Yu Gothic UI", "Meiryo UI", sans-serif);
 }
 
 .issue-reporter-body .windows.web:lang(ko) {
-	font-family: "Segoe WPC", "Segoe UI", "Malgun Gothic", "Dotom", sans-serif;
+	font-family: var(--monaco-monospace-font, "Segoe WPC", "Segoe UI", "Malgun Gothic", "Dotom", sans-serif);
 }
 
 

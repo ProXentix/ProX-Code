@@ -115,7 +115,7 @@ import './services/authentication/browser/authenticationQueryService.js';
 import '../platform/hover/browser/hoverService.js';
 import './services/assignment/common/assignmentService.js';
 import './services/outline/browser/outlineService.js';
-// import './services/languageDetection/browser/languageDetectionWorkerServiceImpl.js';
+import './services/languageDetection/browser/languageDetectionWorkerServiceImpl.js';
 
 import '../editor/common/services/languageFeaturesService.js';
 import '../editor/common/services/semanticTokensStylingService.js';

@@ -1684,8 +1684,8 @@ export class ExtensionsWorkbenchService extends Disposable implements IExtension
 							const productCurrentVersion = this.getProductCurrentVersion();
 							const productUpdateVersion = this.getProductUpdateVersion();
 							if (productUpdateVersion
-								&& !isEngineValid(extension.local.manifest.engines.proxCode, productCurrentVersion.version, productCurrentVersion.date)
-								&& isEngineValid(extension.local.manifest.engines.proxCode, productUpdateVersion.version, productUpdateVersion.date)
+								&& !isEngineValid(extension.local.manifest.engines.proxCode!, productCurrentVersion.version, productCurrentVersion.date)
+								&& isEngineValid(extension.local.manifest.engines.proxCode!, productUpdateVersion.version, productUpdateVersion.date)
 							) {
 								const state = this.updateService.state;
 								if (state.type === StateType.AvailableForDownload) {

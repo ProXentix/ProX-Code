@@ -253,7 +253,7 @@ export interface IRelaxedExtensionManifest {
 	displayName?: string;
 	publisher: string;
 	version: string;
-	engines: { readonly proxCode: string };
+	engines: { readonly vscode?: string; readonly 'prox-code'?: string; readonly proxCode?: string };
 	description?: string;
 	main?: string;
 	type?: string;

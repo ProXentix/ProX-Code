@@ -482,45 +482,20 @@ class BaseMenuActionViewItem extends BaseActionViewItem {
 			}
 
 			this._register(addDisposableListener(this.element, EventType.MOUSE_UP, e => {
-				// removed default prevention as it conflicts
-				// with BaseActionViewItem #101537
-				// add back if issues arise and link new issue
 				EventHelper.stop(e, true);
 
-				// See https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Interact_with_the_clipboard
-				// > Writing to the clipboard
-				// > You can use the "cut" and "copy" commands without any special
-				// permission if you are using them in a short-lived event handler
-				// for a user action (for example, a click handler).
-
-				// => to get the Copy and Paste context menu actions working on Firefox,
-				// there should be no timeout here
-				if (isFirefox) {
-					const mouseEvent = new StandardMouseEvent(getWindow(this.element), e);
-
-					// Allowing right click to trigger the event causes the issue described below,
-					// but since the solution below does not work in FF, we must disable right click
-					if (mouseEvent.rightButton) {
-						return;
-					}
-
-					this.onClick(e);
+				const mouseEvent = new StandardMouseEvent(getWindow(this.element!), e);
+				if (mouseEvent.rightButton) {
+					return;
 				}
 
-				// In all other cases, set timeout to allow context menu cancellation to trigger
-				// otherwise the action will destroy the menu and a second context menu
-				// will still trigger for right click.
-				else {
-					setTimeout(() => {
-						this.onClick(e);
-					}, 0);
-				}
+				this.onClick(e);
 			}));
 
 			this._register(addDisposableListener(this.element, EventType.CONTEXT_MENU, e => {
 				EventHelper.stop(e, true);
 			}));
-		}, 100);
+		}, 50);
 
 		this._register(this.runOnceToEnableMouseUp);
 	}

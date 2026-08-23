@@ -171,7 +171,7 @@ export class ExtHostWebview implements vscode.Webview {
 
 export function shouldSerializeBuffersForPostMessage(extension: IExtensionDescription): boolean {
 	try {
-		const version = normalizeVersion(parseVersion(extension.engines.proxCode));
+		const version = normalizeVersion(parseVersion(extension.engines.proxCode!));
 		return !!version && version.majorBase >= 1 && version.minorBase >= 57;
 	} catch {
 		return false;
@@ -180,7 +180,7 @@ export function shouldSerializeBuffersForPostMessage(extension: IExtensionDescri
 
 function shouldTryRewritingOldResourceUris(extension: IExtensionDescription): boolean {
 	try {
-		const version = normalizeVersion(parseVersion(extension.engines.proxCode));
+		const version = normalizeVersion(parseVersion(extension.engines.proxCode!));
 		if (!version) {
 			return false;
 		}

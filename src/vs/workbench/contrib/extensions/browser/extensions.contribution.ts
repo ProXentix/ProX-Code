@@ -4,7 +4,7 @@
 
 // import { } from '../../../../base/common/errors.js';
 import { Disposable, DisposableStore, IDisposable } from '../../../../base/common/lifecycle.js';
-// import { } from '../../../../base/common/platform.js';
+import { isWeb } from '../../../../base/common/platform.js';
 import { localize, } from '../../../../nls.js';
 import { Action2, IAction2Options, IMenuItem, MenuId, MenuRegistry, registerAction2 } from '../../../../platform/actions/common/actions.js';
 
@@ -25,7 +25,7 @@ import { IStorageService, StorageScope, StorageTarget } from '../../../../platfo
 import { IUserDataProfilesService } from '../../../../platform/userDataProfile/common/userDataProfile.js';
 import { EditorPaneDescriptor, IEditorPaneRegistry } from '../../../browser/editor.js';
 import { Extensions as ConfigurationMigrationExtensions, IConfigurationMigrationRegistry } from '../../../common/configuration.js';
-import { IWorkbenchContribution, IWorkbenchContributionsRegistry, registerWorkbenchContribution2, Extensions as WorkbenchExtensions, WorkbenchPhase } from '../../../common/contributions.js';
+import { IWorkbenchContribution, IWorkbenchContributionsRegistry, Extensions as WorkbenchExtensions } from '../../../common/contributions.js';
 import { EditorExtensions } from '../../../common/editor.js';
 import { IViewContainersRegistry, Extensions as ViewContainerExtensions, ViewContainerLocation, ViewContainer } from '../../../common/views.js';
 // import { } from '../../../services/editor/common/editorService.js';
@@ -33,7 +33,7 @@ import { IPublisherInfo, IWorkbenchExtensionManagementService } from '../../../s
 import {  IExtensionManagementServerService } from '../../../services/extensionManagement/common/extensionManagement.js';
 import { IExtensionRecommendationsService } from '../../../services/extensionRecommendations/common/extensionRecommendations.js';
 // import { } from '../../../services/host/browser/host.js';
-// import { } from '../../../services/lifecycle/common/lifecycle.js';
+import { LifecyclePhase } from '../../../services/lifecycle/common/lifecycle.js';
 // import { } from '../../../services/preferences/common/preferences.js';
 
 // import { } from '../../webview/browser/webview.js';
@@ -44,18 +44,19 @@ import { ExtensionsInput } from '../common/extensionsInput.js';
 
 import { ShowRuntimeExtensionsAction } from './abstractRuntimeExtensionsEditor.js';
 import { ExtensionEditor } from './extensionEditor.js';
-// import { } from './extensionEnablementWorkspaceTrustTransitionParticipant.js';
+import { ExtensionEnablementWorkspaceTrustTransitionParticipant } from './extensionEnablementWorkspaceTrustTransitionParticipant.js';
 import { ExtensionRecommendationNotificationService } from './extensionRecommendationNotificationService.js';
 import { ExtensionRecommendationsService } from './extensionRecommendationsService.js';
-// import { } from './extensionsActivationProgress.js';
-// import { } from './extensionsCompletionItemsProvider.js';
-// import { } from './extensionsDependencyChecker.js';
+import { ExtensionActivationProgress } from './extensionsActivationProgress.js';
+import { ExtensionsCompletionItemsProvider } from './extensionsCompletionItemsProvider.js';
+import { ExtensionDependencyChecker } from './extensionsDependencyChecker.js';
 import { clearSearchResultsIcon, configureRecommendedIcon, extensionsViewIcon, filterIcon, installWorkspaceRecommendedIcon, refreshIcon } from './extensionsIcons.js';
 import { InstallExtensionQuickAccessProvider, } from './extensionsQuickAccess.js';
-import { BuiltInExtensionsContext, ExtensionMarketplaceStatusUpdater, ExtensionsSearchValueContext, ExtensionsSortByContext, ExtensionsViewletViewsContribution, MaliciousExtensionChecker, RecommendedExtensionsContext, SearchHasTextContext, SearchMarketplaceExtensionsContext, StatusUpdater } from './extensionsViewlet.js';
+import { ExtensionMarketplaceStatusUpdater, ExtensionsViewletViewsContribution, MaliciousExtensionChecker, StatusUpdater } from './extensionsViewlet.js';
 import { ExtensionsWorkbenchService } from './extensionsWorkbenchService.js';
 import './media/extensionManagement.css';
-// import { } from './unsupportedExtensionsMigrationContribution.js';
+import { UnsupportedExtensionsMigrationContrib } from './unsupportedExtensionsMigrationContribution.js';
+import { IExtensionRecommendationNotificationService } from '../../../../platform/extensionRecommendations/common/extensionRecommendations.js';
 
 // Singletons
 registerSingleton(IExtensionsWorkbenchService, ExtensionsWorkbenchService, InstantiationType.Eager /* Auto updates extensions */);
@@ -253,7 +254,6 @@ class TrustedPublishersInitializer implements IWorkbenchContribution {
 
 
 const workbenchRegistry = Registry.as<IWorkbenchContributionsRegistry>(WorkbenchExtensions.Workbench);
-/*
 workbenchRegistry.registerWorkbenchContribution(ExtensionsContributions, LifecyclePhase.Restored);
 workbenchRegistry.registerWorkbenchContribution(StatusUpdater, LifecyclePhase.Eventually);
 workbenchRegistry.registerWorkbenchContribution(MaliciousExtensionChecker, LifecyclePhase.Eventually);
@@ -269,7 +269,6 @@ workbenchRegistry.registerWorkbenchContribution(ExtensionMarketplaceStatusUpdate
 if (isWeb) {
 	workbenchRegistry.registerWorkbenchContribution(ExtensionStorageCleaner, LifecyclePhase.Eventually);
 }
-*/
 
 
 

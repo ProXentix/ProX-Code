@@ -256,6 +256,25 @@ export function activate(context: vscode.ExtensionContext) {
 
     context.subscriptions.push(debugCommand);
 
+    // --- Add Context Menu Stub Commands ---
+    const menuCommands = [
+        { id: 'proxpl.format', msg: 'Format ProXPL' },
+        { id: 'proxpl.checkSyntax', msg: 'Check Syntax' },
+        { id: 'proxpl.analyzeCode', msg: 'Analyze Code' },
+        { id: 'proxpl.compile', msg: 'Compile Current File' },
+        { id: 'proxpl.generateBytecode', msg: 'Generate Bytecode' },
+        { id: 'proxpl.inspectAST', msg: 'Inspect AST' },
+        { id: 'proxpl.inspectBytecode', msg: 'Inspect Bytecode' },
+        { id: 'proxpl.generateDoc', msg: 'Generate Documentation' },
+        { id: 'proxpl.langServerStatus', msg: 'Language Server Status' }
+    ];
+
+    for (const cmd of menuCommands) {
+        context.subscriptions.push(vscode.commands.registerCommand(cmd.id, () => {
+            vscode.window.showInformationMessage(`ProXPL: ${cmd.msg} functionality will be available in future releases.`);
+        }));
+    }
+
     // 4. Hover Support
     const hoverProvider = vscode.languages.registerHoverProvider('proxpl', {
         provideHover(document: vscode.TextDocument, position: vscode.Position) {

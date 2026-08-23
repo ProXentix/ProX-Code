@@ -173,8 +173,8 @@
 	border-top-right-radius: 6px;
 	border-bottom-right-radius: 6px;
 	height: 22px;
-	width: 38vw;
-	max-width: 600px;
+	width: 25vw;
+	max-width: 420px;
 }
 
 .monaco-workbench .part.titlebar > .titlebar-container > .titlebar-center > .window-title > .command-center .action-item.command-center-center .action-item.command-center-quick-pick {

@@ -6,11 +6,11 @@
   "publisher": "ProXentix",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ProgrammerKR/ProXPL.git"
+    "url": "git+https://github.com/ProXentix/ProX-Code.git"
   },
   "main": "./out/extension.js",
   "engines": {
-    "vscode": "^1.110.0"
+    "proxCode": "^1.0.0"
   },
   "icon": "logo.png",
   "scripts": {
@@ -101,6 +101,48 @@
         "command": "proxpl.startWatchMode",
         "title": "ProXPL: Toggle Watch Mode",
         "icon": "$(eye)"
+      },
+      {
+        "command": "proxpl.format",
+        "title": "Format ProXPL"
+      },
+      {
+        "command": "proxpl.checkSyntax",
+        "title": "Check Syntax"
+      },
+      {
+        "command": "proxpl.analyzeCode",
+        "title": "Analyze Code"
+      },
+      {
+        "command": "proxpl.compile",
+        "title": "Compile Current File"
+      },
+      {
+        "command": "proxpl.generateBytecode",
+        "title": "Generate Bytecode"
+      },
+      {
+        "command": "proxpl.inspectAST",
+        "title": "Inspect AST"
+      },
+      {
+        "command": "proxpl.inspectBytecode",
+        "title": "Inspect Bytecode"
+      },
+      {
+        "command": "proxpl.generateDoc",
+        "title": "Generate Documentation"
+      },
+      {
+        "command": "proxpl.langServerStatus",
+        "title": "Language Server Status"
+      }
+    ],
+    "submenus": [
+      {
+        "id": "proxpl.submenu",
+        "label": "ProXPL"
       }
     ],
     "keybindings": [
@@ -156,6 +198,51 @@
           "when": "resourceExtname == .prox || resourceExtname == .pxpl",
           "command": "proxpl.debug",
           "group": "navigation@3"
+        }
+      ],
+      "editor/context": [
+        {
+          "submenu": "proxpl.submenu",
+          "group": "z_proxpl",
+          "when": "resourceExtname == .prox || resourceExtname == .pxpl"
+        }
+      ],
+      "proxpl.submenu": [
+        {
+          "command": "proxpl.format",
+          "group": "1_edit"
+        },
+        {
+          "command": "proxpl.checkSyntax",
+          "group": "2_analyze"
+        },
+        {
+          "command": "proxpl.analyzeCode",
+          "group": "2_analyze"
+        },
+        {
+          "command": "proxpl.compile",
+          "group": "3_build"
+        },
+        {
+          "command": "proxpl.generateBytecode",
+          "group": "3_build"
+        },
+        {
+          "command": "proxpl.inspectAST",
+          "group": "4_inspect"
+        },
+        {
+          "command": "proxpl.inspectBytecode",
+          "group": "4_inspect"
+        },
+        {
+          "command": "proxpl.generateDoc",
+          "group": "5_doc"
+        },
+        {
+          "command": "proxpl.langServerStatus",
+          "group": "6_status"
         }
       ]
     },

@@ -258,7 +258,8 @@ export function validateExtensionManifest(productVersion: string, productDate: P
 		validations.push([Severity.Error, nls.localize('extensionDescription.engines', "property `{0}` is mandatory and must be of type `object`", 'engines')]);
 		return validations;
 	}
-	if (typeof extensionManifest.engines.proxCode !== 'string') {
+	const engine = extensionManifest.engines['prox-code'] ?? extensionManifest.engines.proxCode ?? extensionManifest.engines.vscode;
+	if (typeof engine !== 'string') {
 		validations.push([Severity.Error, nls.localize('extensionDescription.engines.prox-code', "property `{0}` is mandatory and must be of type `string`", 'engines.prox-code')]);
 		return validations;
 	}
@@ -340,8 +341,8 @@ export function isValidExtensionVersion(productVersion: string, productDate: Pro
 		// No version check for builtin or declarative extensions
 		return true;
 	}
-
-	return isVersionValid(productVersion, productDate, extensionManifest.engines.proxCode, notices);
+	const engine = extensionManifest.engines['prox-code'] ?? extensionManifest.engines.proxCode ?? extensionManifest.engines.vscode ?? '';
+	return isVersionValid(productVersion, productDate, engine, notices);
 }
 
 export function isEngineValid(engine: string, version: string, date: ProductDate): boolean {

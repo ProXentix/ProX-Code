@@ -993,7 +993,7 @@ export abstract class AbstractExtensionGalleryService implements IExtensionGalle
 			}
 		}
 
-		return isEngineValid(engine, productVersion.version, productVersion.date);
+		return isEngineValid(engine!, productVersion.version, productVersion.date);
 	}
 
 	async query(options: IQueryOptions, token: CancellationToken): Promise<IPager<IGalleryExtension>> {
