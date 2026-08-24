@@ -18,6 +18,8 @@ export const dirs = [
 	'extensions/git-base',
 	'extensions/github',
 	'extensions/github-authentication',
+	'extensions/json-language-features',
+	'extensions/json-language-features/server',
 	'extensions/log',
 	'extensions/prox-icons',
 	'extensions/proxpl',
