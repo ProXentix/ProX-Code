@@ -1,14 +1,15 @@
-/**
- * ProX-Code Extensions Contribution
- */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) ProXentix. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
 
 // import { } from '../../../../base/common/errors.js';
+
 import { Disposable, DisposableStore, IDisposable } from '../../../../base/common/lifecycle.js';
 import { isWeb } from '../../../../base/common/platform.js';
-import { localize, } from '../../../../nls.js';
+import { localize } from '../../../../nls.js';
 import { Action2, IAction2Options, IMenuItem, MenuId, MenuRegistry, registerAction2 } from '../../../../platform/actions/common/actions.js';
 
-import { Extensions as ConfigurationExtensions, IConfigurationRegistry } from '../../../../platform/configuration/common/configurationRegistry.js';
 import { IContextKeyService, RawContextKey } from '../../../../platform/contextkey/common/contextkey.js';
 
 import { ExtensionGalleryManifestStatus, IExtensionGalleryManifest, IExtensionGalleryManifestService } from '../../../../platform/extensionManagement/common/extensionGalleryManifest.js';
@@ -29,8 +30,7 @@ import { IWorkbenchContribution, IWorkbenchContributionsRegistry, Extensions as 
 import { EditorExtensions } from '../../../common/editor.js';
 import { IViewContainersRegistry, Extensions as ViewContainerExtensions, ViewContainerLocation, ViewContainer } from '../../../common/views.js';
 // import { } from '../../../services/editor/common/editorService.js';
-import { IPublisherInfo, IWorkbenchExtensionManagementService } from '../../../services/extensionManagement/common/extensionManagement.js';
-import {  IExtensionManagementServerService } from '../../../services/extensionManagement/common/extensionManagement.js';
+import { IPublisherInfo, IWorkbenchExtensionManagementService, IExtensionManagementServerService } from '../../../services/extensionManagement/common/extensionManagement.js';
 import { IExtensionRecommendationsService } from '../../../services/extensionRecommendations/common/extensionRecommendations.js';
 // import { } from '../../../services/host/browser/host.js';
 import { LifecyclePhase } from '../../../services/lifecycle/common/lifecycle.js';
@@ -38,9 +38,9 @@ import { LifecyclePhase } from '../../../services/lifecycle/common/lifecycle.js'
 
 // import { } from '../../webview/browser/webview.js';
 import {  AutoUpdateConfigurationKey, CONTEXT_EXTENSIONS_GALLERY_STATUS, CONTEXT_HAS_GALLERY,     IExtensionsWorkbenchService,  VIEWLET_ID, } from '../common/extensions.js';
-import { ExtensionsConfigurationSchema, ExtensionsConfigurationSchemaId } from '../common/extensionsFileTemplate.js';
 import { ExtensionsInput } from '../common/extensionsInput.js';
 // [REMOVED - module not available] import { SearchExtensionsTool, SearchExtensionsToolData } from '../common/searchExtensionsTool.js';
+import { KeymapExtensions } from '../common/extensionsUtils.js';
 
 import { ShowRuntimeExtensionsAction } from './abstractRuntimeExtensionsEditor.js';
 import { ExtensionEditor } from './extensionEditor.js';
@@ -50,7 +50,6 @@ import { ExtensionRecommendationsService } from './extensionRecommendationsServi
 import { ExtensionActivationProgress } from './extensionsActivationProgress.js';
 import { ExtensionsCompletionItemsProvider } from './extensionsCompletionItemsProvider.js';
 import { ExtensionDependencyChecker } from './extensionsDependencyChecker.js';
-import { clearSearchResultsIcon, configureRecommendedIcon, extensionsViewIcon, filterIcon, installWorkspaceRecommendedIcon, refreshIcon } from './extensionsIcons.js';
 import { InstallExtensionQuickAccessProvider, } from './extensionsQuickAccess.js';
 import { ExtensionMarketplaceStatusUpdater, ExtensionsViewletViewsContribution, MaliciousExtensionChecker, StatusUpdater } from './extensionsViewlet.js';
 import { ExtensionsWorkbenchService } from './extensionsWorkbenchService.js';
@@ -93,28 +92,21 @@ export let VIEW_CONTAINER: ViewContainer;
 			VIEW_CONTAINER = viewContainerRegistry.registerViewContainer({
 				id: VIEWLET_ID,
 				title: { value: 'Extensions', original: 'Extensions' },
-				ctorDescriptor: new SyncDescriptor(Object as any),
+				ctorDescriptor: new SyncDescriptor(Object as unknown),
 				hideIfEmpty: true,
 			}, ViewContainerLocation.Sidebar);
 		}
 	}
 }
 
-type IExtensionActionOptions = IAction2Options & {
-	menuTitles?: { [id: string]: string };
-	run(accessor: ServicesAccessor, ...args: unknown[]): Promise<any>;
-};
+
 
 class ExtensionsContributions extends Disposable implements IWorkbenchContribution {
 
 	constructor(
-		@IExtensionManagementService private readonly _extensionManagementService: IExtensionManagementService,
 		@IExtensionManagementServerService private readonly extensionManagementServerService: IExtensionManagementServerService,
 		@IExtensionGalleryManifestService private readonly extensionGalleryManifestService: IExtensionGalleryManifestService,
 		@IContextKeyService private readonly contextKeyService: IContextKeyService,
-		@IExtensionsWorkbenchService private readonly _extensionsWorkbenchService: IExtensionsWorkbenchService,
-		@IInstantiationService private readonly _instantiationService: IInstantiationService,
-		@IProductService private readonly _productService: IProductService,
 	) {
 		super();
 		const hasLocalServerContext = CONTEXT_HAS_LOCAL_SERVER.bindTo(contextKeyService);
@@ -171,40 +163,7 @@ class ExtensionsContributions extends Disposable implements IWorkbenchContributi
 		// Disabled for ProX-Code
 	}
 
-	private registerExtensionAction(extensionActionOptions: IExtensionActionOptions): IDisposable {
-		const menus = extensionActionOptions.menu ? Array.isArray(extensionActionOptions.menu) ? extensionActionOptions.menu : [extensionActionOptions.menu] : [];
-		let menusWithOutTitles: ({ id: MenuId } & Omit<IMenuItem, 'command'>)[] = [];
-		const menusWithTitles: { id: MenuId; item: IMenuItem }[] = [];
-		if (extensionActionOptions.menuTitles) {
-			for (let index = 0; index < menus.length; index++) {
-				const menu = menus[index];
-				const menuTitle = extensionActionOptions.menuTitles[menu.id.id];
-				if (menuTitle) {
-					menusWithTitles.push({ id: menu.id, item: { ...menu, command: { id: extensionActionOptions.id, title: menuTitle } } });
-				} else {
-					menusWithOutTitles.push(menu);
-				}
-			}
-		} else {
-			menusWithOutTitles = menus;
-		}
-		const disposables = new DisposableStore();
-		disposables.add(registerAction2(class extends Action2 {
-			constructor() {
-				super({
-					...extensionActionOptions,
-					menu: menusWithOutTitles
-				});
-			}
-			run(accessor: ServicesAccessor, ...args: unknown[]): Promise<any> {
-				return extensionActionOptions.run(accessor, ...args);
-			}
-		}));
-		if (menusWithTitles.length) {
-			disposables.add(MenuRegistry.appendMenuItems(menusWithTitles));
-		}
-		return disposables;
-	}
+
 
 }
 

@@ -3,7 +3,6 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
-import { isFirefox } from '../../browser.js';
 import { EventType as TouchEventType, Gesture } from '../../touch.js';
 import { $, addDisposableListener, append, clearNode, Dimension, EventHelper, EventLike, EventType, getActiveElement, getWindow, IDomNodePagePosition, isAncestor, isInShadowDOM } from '../../dom.js';
 import { createStyleSheet } from '../../domStylesheets.js';
