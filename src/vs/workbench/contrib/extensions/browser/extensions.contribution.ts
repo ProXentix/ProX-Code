@@ -5,10 +5,10 @@
 
 // import { } from '../../../../base/common/errors.js';
 
-import { Disposable, DisposableStore, IDisposable } from '../../../../base/common/lifecycle.js';
+import { Disposable } from '../../../../base/common/lifecycle.js';
 import { isWeb } from '../../../../base/common/platform.js';
 import { localize } from '../../../../nls.js';
-import { Action2, IAction2Options, IMenuItem, MenuId, MenuRegistry, registerAction2 } from '../../../../platform/actions/common/actions.js';
+import { registerAction2 } from '../../../../platform/actions/common/actions.js';
 
 import { IContextKeyService, RawContextKey } from '../../../../platform/contextkey/common/contextkey.js';
 
@@ -18,7 +18,7 @@ import { ExtensionStorageService } from '../../../../platform/extensionManagemen
 import { ExtensionType } from '../../../../platform/extensions/common/extensions.js';
 import { SyncDescriptor } from '../../../../platform/instantiation/common/descriptors.js';
 import { InstantiationType, registerSingleton } from '../../../../platform/instantiation/common/extensions.js';
-import { IInstantiationService, ServicesAccessor } from '../../../../platform/instantiation/common/instantiation.js';
+
 import { IProductService } from '../../../../platform/product/common/productService.js';
 import { Extensions, IQuickAccessRegistry } from '../../../../platform/quickinput/common/quickAccess.js';
 import { Registry } from '../../../../platform/registry/common/platform.js';
@@ -92,7 +92,7 @@ export let VIEW_CONTAINER: ViewContainer;
 			VIEW_CONTAINER = viewContainerRegistry.registerViewContainer({
 				id: VIEWLET_ID,
 				title: { value: 'Extensions', original: 'Extensions' },
-				ctorDescriptor: new SyncDescriptor(Object as unknown),
+				ctorDescriptor: new SyncDescriptor(Object as any),
 				hideIfEmpty: true,
 			}, ViewContainerLocation.Sidebar);
 		}
