@@ -1,0 +1,35 @@
+{
+	"name": "pxcf",
+	"displayName": "PXCF Language Support",
+	"description": "Syntax highlighting and language configuration for ProX Configuration Files (.pxcf)",
+	"version": "1.0.0",
+	"publisher": "ProXentix",
+	"engines": {
+		"vscode": "^1.60.0"
+	},
+	"categories": [
+		"Programming Languages"
+	],
+	"contributes": {
+		"languages": [
+			{
+				"id": "pxcf",
+				"aliases": [
+					"PXCF",
+					"pxcf"
+				],
+				"extensions": [
+					".pxcf"
+				],
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "pxcf",
+				"scopeName": "source.pxcf",
+				"path": "./syntaxes/pxcf.tmLanguage.json"
+			}
+		]
+	}
+}

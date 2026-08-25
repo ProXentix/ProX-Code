@@ -1,0 +1,106 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "ProX Configuration File",
+	"scopeName": "source.pxcf",
+	"patterns": [
+		{
+			"include": "#sections"
+		},
+		{
+			"include": "#properties"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#booleans"
+		}
+	],
+	"repository": {
+		"sections": {
+			"patterns": [
+				{
+					"name": "entity.name.type.class.pxcf",
+					"match": "^\\[([^\\]]+)\\]"
+				},
+				{
+					"name": "entity.name.type.class.pxcf",
+					"match": "^\\s*([a-zA-Z0-9_\\-]+)\\s*(?=\\{)"
+				}
+			]
+		},
+		"properties": {
+			"patterns": [
+				{
+					"match": "^\\s*([a-zA-Z0-9_\\-]+)\\s*(?=:)",
+					"captures": {
+						"1": {
+							"name": "support.type.property-name.pxcf"
+						}
+					}
+				},
+				{
+					"match": "^\\s*([a-zA-Z0-9_\\-]+)\\s*(?==)",
+					"captures": {
+						"1": {
+							"name": "support.type.property-name.pxcf"
+						}
+					}
+				},
+				{
+					"match": ":|=",
+					"name": "keyword.operator.assignment.pxcf"
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"name": "string.quoted.double.pxcf",
+					"begin": "\"",
+					"end": "\"",
+					"patterns": [
+						{
+							"name": "constant.character.escape.pxcf",
+							"match": "\\\\."
+						}
+					]
+				}
+			]
+		},
+		"numbers": {
+			"patterns": [
+				{
+					"name": "constant.numeric.pxcf",
+					"match": "\\b[0-9]+(\\.[0-9]+)?\\b"
+				}
+			]
+		},
+		"booleans": {
+			"patterns": [
+				{
+					"name": "constant.language.boolean.pxcf",
+					"match": "\\b(true|false)\\b"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.number-sign.pxcf",
+					"match": "#.*$"
+				},
+				{
+					"name": "comment.line.double-slash.pxcf",
+					"match": "//.*$"
+				}
+			]
+		}
+	}
+}

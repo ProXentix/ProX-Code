@@ -235,11 +235,13 @@ async function exec(child: cp.ChildProcess, cancellationToken?: CancellationToke
 			const buffers: Buffer[] = [];
 			on(child.stdout!, 'data', (b: Buffer) => buffers.push(b));
 			once(child.stdout!, 'close', () => c(Buffer.concat(buffers)));
+			once(child, 'exit', () => c(Buffer.concat(buffers)));
 		}),
 		new Promise<string>(c => {
 			const buffers: Buffer[] = [];
 			on(child.stderr!, 'data', (b: Buffer) => buffers.push(b));
 			once(child.stderr!, 'close', () => c(Buffer.concat(buffers).toString('utf8')));
+			once(child, 'exit', () => c(Buffer.concat(buffers).toString('utf8')));
 		})
 	]) as Promise<[number, Buffer, string]>;
 
