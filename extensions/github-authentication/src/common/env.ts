@@ -8,7 +8,7 @@ import { AuthProviderType } from '../github';
 const VALID_DESKTOP_CALLBACK_SCHEMES = [
 	'vscode',
 	'vscode-insiders',
-	'prox-code',
+	// 'prox-code', // Not allowed by Microsoft's OAuth app at vscode.dev/redirect
 	'vscode-wsl',
 	'vscode-exploration'
 ];

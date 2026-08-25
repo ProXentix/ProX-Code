@@ -2277,7 +2277,7 @@ class SearchViewDataSource implements IAsyncDataSource<ISearchResult, Renderable
 			// only one root, so just return the children
 			return this.createTextSearchResultIterator(searchResult.plainTextSearchResult);
 		}
-		return [searchResult.plainTextSearchResult];
+		return [];
 	}
 
 	private createTextSearchResultIterator(textSearchResult: ITextSearchHeading): Iterable<ISearchTreeFolderMatch | ISearchTreeFileMatch> {

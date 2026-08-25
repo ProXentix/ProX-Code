@@ -748,7 +748,9 @@ class SubmenuMenuActionViewItem extends BaseMenuActionViewItem {
 			this.submenuIndicator.setAttribute('aria-hidden', 'true');
 		}
 
-		this._register(addDisposableListener(this.element, EventType.KEY_UP, e => {
+		const node = this.item || this.element;
+
+		this._register(addDisposableListener(node, EventType.KEY_UP, e => {
 			const event = new StandardKeyboardEvent(e);
 			if (event.equals(KeyCode.RightArrow) || event.equals(KeyCode.Enter)) {
 				EventHelper.stop(e, true);
@@ -757,7 +759,7 @@ class SubmenuMenuActionViewItem extends BaseMenuActionViewItem {
 			}
 		}));
 
-		this._register(addDisposableListener(this.element, EventType.KEY_DOWN, e => {
+		this._register(addDisposableListener(node, EventType.KEY_DOWN, e => {
 			const event = new StandardKeyboardEvent(e);
 
 			if (getActiveElement() === this.item) {
@@ -767,7 +769,7 @@ class SubmenuMenuActionViewItem extends BaseMenuActionViewItem {
 			}
 		}));
 
-		this._register(addDisposableListener(this.element, EventType.MOUSE_OVER, e => {
+		this._register(addDisposableListener(node, EventType.POINTER_OVER, e => {
 			if (!this.mouseOver) {
 				this.mouseOver = true;
 
@@ -775,12 +777,13 @@ class SubmenuMenuActionViewItem extends BaseMenuActionViewItem {
 			}
 		}));
 
-		this._register(addDisposableListener(this.element, EventType.MOUSE_LEAVE, e => {
+		this._register(addDisposableListener(node, EventType.POINTER_LEAVE, e => {
 			this.mouseOver = false;
+			this.showScheduler.cancel();
 		}));
 
-		this._register(addDisposableListener(this.element, EventType.FOCUS_OUT, e => {
-			if (this.element && !isAncestor(getActiveElement(), this.element)) {
+		this._register(addDisposableListener(node, EventType.FOCUS_OUT, e => {
+			if (node && !isAncestor(getActiveElement(), node)) {
 				this.hideScheduler.schedule();
 			}
 		}));

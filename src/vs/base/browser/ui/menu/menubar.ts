@@ -151,14 +151,38 @@ export class MenuBar extends Disposable {
 		const window = DOM.getWindow(this.container);
 		this._register(DOM.addDisposableListener(window, DOM.EventType.MOUSE_DOWN, (e) => {
 			// This mouse event is outside the menubar so it counts as a focus out
-			if (this.isFocused && !DOM.isAncestor(e.target as HTMLElement, this.container)) {
+			if (this.isFocused) {
+				const target = e.target as HTMLElement | null;
+				if (target) {
+					if (DOM.isAncestor(target, this.container)) {
+						return;
+					}
+					if (this.focusedMenu?.holder && DOM.isAncestor(target, this.focusedMenu.holder)) {
+						return;
+					}
+					if (target.closest && target.closest('.monaco-menu, .context-view, .menubar-menu-items-holder')) {
+						return;
+					}
+				}
 				this.setUnfocusedState();
 			}
 		}, true));
 
 		this._register(DOM.addDisposableListener(window, DOM.EventType.POINTER_DOWN, (e) => {
 			// This mouse event is outside the menubar so it counts as a focus out
-			if (this.isFocused && !DOM.isAncestor(e.target as HTMLElement, this.container)) {
+			if (this.isFocused) {
+				const target = e.target as HTMLElement | null;
+				if (target) {
+					if (DOM.isAncestor(target, this.container)) {
+						return;
+					}
+					if (this.focusedMenu?.holder && DOM.isAncestor(target, this.focusedMenu.holder)) {
+						return;
+					}
+					if (target.closest && target.closest('.monaco-menu, .context-view, .menubar-menu-items-holder')) {
+						return;
+					}
+				}
 				this.setUnfocusedState();
 			}
 		}, true));

@@ -45,6 +45,15 @@
     "workspaceContains:project.pxcf"
   ],
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "workbench.view.proxpl.run",
+          "title": "ProXPL",
+          "icon": "$(play)"
+        }
+      ]
+    },
     "views": {
       "workbench.view.proxpl.run": [
         {

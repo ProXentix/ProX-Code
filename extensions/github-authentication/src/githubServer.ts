@@ -63,6 +63,10 @@ export class GitHubServer implements IGitHubServer {
 			if (proxyEndpoints?.github && new URL(proxyEndpoints.github).hostname === 'insiders.prox-code.dev') {
 				this._redirectEndpoint = REDIRECT_URL_INSIDERS;
 			}
+			// Fallback: If uriScheme is prox-code, we must use the insiders redirect endpoint because vscode.dev/redirect rejects it.
+			if (vscode.env.uriScheme === 'prox-code') {
+				this._redirectEndpoint = REDIRECT_URL_INSIDERS;
+			}
 		} else {
 			// GHE only supports a single redirect endpoint, so we can't use
 			// insiders.prox-code.dev/redirect when we're running in Insiders, unfortunately.
