@@ -1085,6 +1085,7 @@ export const EventType = {
 	POINTER_UP: 'pointerup',
 	POINTER_DOWN: 'pointerdown',
 	POINTER_MOVE: 'pointermove',
+	POINTER_OVER: 'pointerover',
 	POINTER_LEAVE: 'pointerleave',
 	CONTEXT_MENU: 'contextmenu',
 	WHEEL: 'wheel',
