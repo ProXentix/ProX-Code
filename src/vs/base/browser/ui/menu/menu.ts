@@ -476,14 +476,26 @@ class BaseMenuActionViewItem extends BaseActionViewItem {
 
 		// Add mouse up listener later to avoid accidental clicks
 		this.runOnceToEnableMouseUp = new RunOnceScheduler(() => {
-			if (!this.element) {
+			const node = this.item || this.element;
+			if (!node) {
 				return;
 			}
 
-			this._register(addDisposableListener(this.element, EventType.MOUSE_UP, e => {
+			this._register(addDisposableListener(node, EventType.MOUSE_UP, e => {
 				EventHelper.stop(e, true);
 
-				const mouseEvent = new StandardMouseEvent(getWindow(this.element!), e);
+				const mouseEvent = new StandardMouseEvent(getWindow(node), e);
+				if (mouseEvent.rightButton) {
+					return;
+				}
+
+				this.onClick(e);
+			}));
+			
+			this._register(addDisposableListener(node, EventType.POINTER_UP, e => {
+				EventHelper.stop(e, true);
+
+				const mouseEvent = new StandardMouseEvent(getWindow(node), e);
 				if (mouseEvent.rightButton) {
 					return;
 				}
@@ -491,7 +503,18 @@ class BaseMenuActionViewItem extends BaseActionViewItem {
 				this.onClick(e);
 			}));
 
-			this._register(addDisposableListener(this.element, EventType.CONTEXT_MENU, e => {
+			this._register(addDisposableListener(node, EventType.CLICK, e => {
+				EventHelper.stop(e, true);
+
+				const mouseEvent = new StandardMouseEvent(getWindow(node), e);
+				if (mouseEvent.rightButton) {
+					return;
+				}
+
+				this.onClick(e);
+			}));
+
+			this._register(addDisposableListener(node, EventType.CONTEXT_MENU, e => {
 				EventHelper.stop(e, true);
 			}));
 		}, 50);
